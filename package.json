@@ -10,11 +10,16 @@
     "validate:openspec-schema": "openspec schema validate universaarl-delivery",
     "validate:openspec": "openspec validate --all --strict --no-interactive",
     "validate:references": "node scripts/validate-project.mjs",
-    "validate:archive-ready": "node scripts/validate-project.mjs --archive-ready",
-    "test": "npm run validate:openspec-schema && npm run validate:openspec && npm run validate:references"
+    "validate:archive-ready": "npm run validate:openspec-schema && npm run validate:openspec && node scripts/validate-project.mjs --archive-ready",
+    "test": "npm run validate:openspec-schema && npm run validate:openspec && npm run validate:references && npm run test:governance",
+    "test:governance": "node --test tests/governance/*.test.mjs",
+    "pw:baseline": "playwright test tests/playwright/environment-baseline.spec.mjs",
+    "pw:baseline:headed": "playwright test tests/playwright/environment-baseline.spec.mjs --headed",
+    "pw:baseline:compare": "node tests/playwright/helpers/bc-evidence.mjs compare"
   },
   "devDependencies": {
     "@fission-ai/openspec": "1.5.0",
+    "@playwright/test": "1.61.1",
     "yaml": "2.9.0"
   }
 }

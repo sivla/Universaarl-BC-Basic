@@ -1,0 +1,40 @@
+schemaVersion: 1
+verificationId: UABC-VER-ENV-VISUAL-001
+changeRef: establish-playthru-environment-baseline
+reviewedAt: 2026-07-10
+reviewer: Codex agent
+humanApproval: false
+runs: [run-1, run-2]
+screenshotsReviewed: 14
+result: passed
+observations:
+  - stepId: ENV-00
+    result: passed
+    finding: Environment playthru and active company CRONUS DE are visible; no switch is shown.
+  - stepId: ENV-01
+    result: passed
+    finding: Accessible company pane visibly lists CRONUS DE, My Company and Universaarl GmbH; no row was selected.
+  - stepId: ENV-02
+    result: passed
+    finding: Help and Support visibly shows DE Business Central 28.2 and platform/application builds.
+  - stepId: ENV-03
+    result: passed
+    finding: CRONUS DE, work date 01.06.2027, German region/language and the visible time zone are shown as user/run context.
+  - stepId: ENV-04
+    result: passed
+    finding: Country/region code DE is visible and remains only localization candidate evidence.
+  - stepId: ENV-05
+    result: passed
+    finding: Installed Extensions is visibly open as a page overlay; exactly six extracted name/publisher pairs intersect the screenshot viewport and support only a visible-partial candidate subset.
+  - stepId: ENV-06
+    result: passed
+    finding: Feature Management is visibly open as a nested page; 15 extracted rows intersect the viewport and remain a visible-partial candidate subset with no edit or activation action evidenced.
+privacy:
+  secretsObserved: false
+  personalIdentityObserved: false
+  rawTraceAndVideoClassification: local-gitignored
+consistency:
+  sameVisibleStatesAcrossRuns: true
+  activeCompanyUnchanged: true
+  writesObserved: false
+  companyOrEnvironmentSwitchObserved: false

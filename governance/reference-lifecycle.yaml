@@ -15,13 +15,13 @@ rules:
   approvedTruthPath: openspec/specs
   historicalFallbackOnly: true
   canonicalStructuredPaths:
-    architecture: architecture/enterprise-blueprint.yaml
-    capabilities: capabilities/catalog.yaml
-    evidence: evidence/verification-register.yaml
+    architecture-baseline: { path: architecture/enterprise-blueprint.yaml, selector: actualSandboxBaseline }
+    capability-catalog: { path: capabilities/catalog.yaml, selector: root }
+    verification-register: { path: evidence/verification-register.yaml, selector: verifications }
   archivePreconditions:
-    - human approval recorded
+    - change approval policy gate satisfied
     - canonical structured artifacts updated from proposed to approved
     - all required verifications passed
-    - active change specs synchronized to openspec/specs
+    - active change specs strict-valid and mergeable by OpenSpec archive
     - local validation passed
   conflictRule: duplicate IDs in one lifecycle state are invalid; cross-state resolution follows approved over proposed over historical

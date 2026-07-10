@@ -8,6 +8,7 @@
     - [Entscheidungen](pages/32-decisions.md)
   - Datenmigration (geplant; Seite entsteht bei aktiver Welle)
   - [Tests und Evidence](pages/50-tests.md)
+  - [Playthru Environment Baseline](pages/60-environment-baseline.md)
   - Schulung (geplant; Seite entsteht bei aktiver Welle)
   - Cutover (geplant; Seite entsteht bei aktiver Welle)
   - Uebergabe und Hypercare (geplant; Seite entsteht bei aktiver Welle)

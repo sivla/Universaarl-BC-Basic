@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "verificationId": "UABC-VER-ENV-COMPARE-001",
+  "runIds": [
+    "run-1",
+    "run-2"
+  ],
+  "stableFactsEqual": true,
+  "allowedDifferences": [
+    "runId",
+    "generatedAt",
+    "event timestamps"
+  ],
+  "differences": []
+}

@@ -16,6 +16,28 @@ const exists = async (relative) => fs.access(absolute(relative)).then(() => true
 const asDate = (value) => value instanceof Date ? value : new Date(String(value));
 const dateValid = (value) => value !== null && !Number.isNaN(asDate(value).valueOf());
 
+function normalizeSemantic(value) {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (Array.isArray(value)) return value.map(normalizeSemantic).sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).sort(([left], [right]) => left.localeCompare(right)).map(([key, item]) => [key, normalizeSemantic(item)]));
+  }
+  return value;
+}
+
+const semanticEqual = (left, right) => JSON.stringify(normalizeSemantic(left)) === JSON.stringify(normalizeSemantic(right));
+
+function collectEvidenceIds(value, result = new Set()) {
+  if (Array.isArray(value)) for (const item of value) collectEvidenceIds(item, result);
+  else if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) {
+      if (key === 'evidenceIds' && Array.isArray(item)) for (const id of item) result.add(id);
+      else collectEvidenceIds(item, result);
+    }
+  }
+  return result;
+}
+
 async function walk(relative, predicate = () => true) {
   if (!(await exists(relative))) return [];
   const result = [];
@@ -74,12 +96,28 @@ async function openSpecReferences(lifecycle) {
     .filter((entry) => entry.isDirectory() && entry.name !== 'archive')
     .map((entry) => entry.name);
   check(changeDirs.length <= 1, `active OpenSpec changes must be 0..1, found ${changeDirs.length}`);
-  for (const change of changeDirs) check(await exists(`${changesRoot}/${change}/.openspec.yaml`), `${change}: missing .openspec.yaml`);
+  const activeChangeConfigs = new Map();
+  for (const change of changeDirs) {
+    const manifest = `${changesRoot}/${change}/.openspec.yaml`;
+    check(await exists(manifest), `${change}: missing .openspec.yaml`);
+    if (await exists(manifest)) activeChangeConfigs.set(change, await yaml(manifest));
+  }
 
   const archiveDirs = (await exists(`${changesRoot}/archive`))
     ? (await fs.readdir(absolute(`${changesRoot}/archive`), { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name)
     : [];
   const archivedChanges = new Set(archiveDirs.map((name) => name.replace(/^\d{4}-\d{2}-\d{2}-/, '')));
+  const archivedChangeConfigs = new Map();
+  for (const archiveDir of archiveDirs) {
+    const manifest = `${changesRoot}/archive/${archiveDir}/.openspec.yaml`;
+    if (await exists(manifest)) {
+      archivedChangeConfigs.set(archiveDir, {
+        change: archiveDir.replace(/^\d{4}-\d{2}-\d{2}-/, ''),
+        config: await yaml(manifest),
+        file: manifest
+      });
+    }
+  }
 
   const order = (lifecycle.resolutionOrder ?? []).map((item) => item.state);
   check(order.join('>') === 'approved>proposed>historical', `resolutionOrder must be approved > proposed > historical, found ${order.join(' > ')}`);
@@ -136,7 +174,7 @@ async function openSpecReferences(lifecycle) {
       }
     }
   }
-  return { activeChanges: changeDirs, archivedChanges, references, resolved, filesByState };
+  return { activeChanges: changeDirs, activeChangeConfigs, archivedChanges, archivedChangeConfigs, references, resolved, filesByState };
 }
 
 async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sourceIds, verificationMap, openSpecRefs, architecture, catalog, lifecycle }) {
@@ -152,7 +190,20 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
   check(!['historical'].includes(catalog.lifecycleStatus), 'canonical catalog cannot use historical lifecycleStatus');
 
   check(architecture.planningReference === '2026 Release Wave 1', 'planningReference must be 2026 Release Wave 1');
-  check(architecture.actualSandboxBaseline === 'unknown', 'actualSandboxBaseline must remain unknown before BC evidence');
+  const baseline = architecture.actualSandboxBaseline;
+  check(baseline === 'unknown' || (baseline && typeof baseline === 'object' && !Array.isArray(baseline)), 'actualSandboxBaseline must be unknown or a structured evidence-based baseline');
+  if (baseline !== 'unknown' && baseline && typeof baseline === 'object') {
+    check(['candidate', 'approved'].includes(baseline.status), `actualSandboxBaseline: invalid status ${baseline.status}`);
+    check(typeof baseline.governingChange === 'string' && baseline.governingChange.length > 0, 'actualSandboxBaseline: governingChange required');
+    check(baseline.facts && typeof baseline.facts === 'object' && !Array.isArray(baseline.facts), 'actualSandboxBaseline: structured facts required');
+    check(Array.isArray(baseline.evidenceIds) && baseline.evidenceIds.length > 0, 'actualSandboxBaseline: evidenceIds required');
+    for (const evidenceId of baseline.evidenceIds ?? []) {
+      const verification = verificationMap.get(evidenceId);
+      check(Boolean(verification), `actualSandboxBaseline: unknown evidence ${evidenceId}`);
+      if (baseline.status === 'approved') check(verification?.status === 'passed', `actualSandboxBaseline: approved baseline requires passed evidence ${evidenceId}`);
+    }
+    check(Array.isArray(baseline.unknowns), 'actualSandboxBaseline: unknowns must be an array');
+  }
   check(/No feature availability may be inferred/.test(architecture.availabilityRule ?? ''), 'availabilityRule must prohibit inference from planning reference');
 
   const companies = new Set([
@@ -241,39 +292,114 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
     }
   }
 
+  for (const { change, config, file } of openSpec.archivedChangeConfigs.values()) {
+    if (config.approvalPolicy?.type !== 'automated-policy-gate') continue;
+    const update = config.proposedCanonicalUpdate;
+    const policyEvidenceId = config.approvalPolicy.evidenceId;
+    const policyEvidence = verificationMap.get(policyEvidenceId);
+    const canonicalTargets = config.canonicalTargets ?? [];
+    check(Array.isArray(canonicalTargets) && canonicalTargets.length > 0, `${file}: archived change with approvalPolicy requires canonicalTargets`);
+    check(update?.status === 'applied', `${file}: archived automated policy gate requires proposedCanonicalUpdate status applied`);
+    check(semanticEqual(update?.targets, canonicalTargets), `${file}: archived proposedCanonicalUpdate targets must match canonicalTargets`);
+    check(update?.policyGateEvidenceId === policyEvidenceId, `${file}: archived proposedCanonicalUpdate policyGateEvidenceId must match approvalPolicy`);
+    check(policyEvidence?.changeRef === change, `${file}: archived policy evidence ${policyEvidenceId} must belong to ${change}`);
+    check(policyEvidence?.type === 'automated-policy-gate', `${file}: archived policy evidence ${policyEvidenceId} must be automated-policy-gate`);
+    check(policyEvidence?.status === 'passed' && Boolean(policyEvidence?.evidence), `${file}: archived automated policy gate ${policyEvidenceId} must remain passed with evidence`);
+
+    const archivedRequiredVerifications = [...verificationMap.values()].filter((item) => item.changeRef === change && item.requiredForArchive === true);
+    check(archivedRequiredVerifications.length > 0, `${file}: archived change requires change-specific archive verifications`);
+    for (const verification of archivedRequiredVerifications) {
+      check(verification.status === 'passed' && Boolean(verification.evidence), `${file}: archived required verification ${verification.id} must remain passed with evidence`);
+    }
+
+    if (canonicalTargets.includes('architecture-baseline') && architecture.actualSandboxBaseline?.governingChange === change) {
+      const baseline = architecture.actualSandboxBaseline;
+      check(baseline.status === 'approved', `${file}: archived architecture baseline must remain approved`);
+      check(semanticEqual(baseline.facts, update?.facts), `${file}: archived architecture baseline facts differ semantically from proposedCanonicalUpdate`);
+      check(semanticEqual(baseline.unknowns, update?.unknowns), `${file}: archived architecture baseline unknowns differ semantically from proposedCanonicalUpdate`);
+      check(baseline.policyGateEvidenceId === policyEvidenceId, `${file}: archived architecture baseline policyGateEvidenceId mismatch`);
+      const requiredEvidenceIds = new Set([...collectEvidenceIds(update?.facts), policyEvidenceId].filter(Boolean));
+      check(semanticEqual(baseline.evidenceIds, [...requiredEvidenceIds]), `${file}: archived architecture baseline evidenceIds mismatch`);
+      for (const evidenceId of new Set([...(baseline.evidenceIds ?? []), ...collectEvidenceIds(baseline.facts), baseline.policyGateEvidenceId].filter(Boolean))) {
+        const verification = verificationMap.get(evidenceId);
+        check(verification?.changeRef === change, `${file}: archived architecture evidence ${evidenceId} must belong to ${change}`);
+        check(verification?.status === 'passed', `${file}: archived architecture evidence ${evidenceId} must remain passed`);
+      }
+    }
+    if (canonicalTargets.includes('capability-catalog') && catalog.governingChange === change) {
+      check(catalog.lifecycleStatus === 'approved', `${file}: archived capability catalog must remain approved`);
+    }
+  }
+
+  let activeChange = null;
+  let changeConfig = {};
+  let canonicalTargets = [];
+  let proposedUpdate = null;
+  let approvalPolicy = null;
+  if (openSpec.activeChanges.length === 1) {
+    activeChange = openSpec.activeChanges[0];
+    changeConfig = openSpec.activeChangeConfigs.get(activeChange) ?? {};
+    canonicalTargets = changeConfig.canonicalTargets ?? [];
+    const targetDefinitions = lifecycle.rules?.canonicalStructuredPaths ?? {};
+    check(Array.isArray(canonicalTargets) && canonicalTargets.length > 0, `${activeChange}: canonicalTargets must contain at least one explicit target`);
+    check(new Set(canonicalTargets).size === canonicalTargets.length, `${activeChange}: canonicalTargets must be unique`);
+    for (const target of canonicalTargets) check(Boolean(targetDefinitions[target]), `${activeChange}: unknown canonical target ${target}`);
+    proposedUpdate = changeConfig.proposedCanonicalUpdate;
+    check(Boolean(proposedUpdate && typeof proposedUpdate === 'object'), `${activeChange}: proposedCanonicalUpdate is required`);
+    check(['unapplied', 'applied'].includes(proposedUpdate?.status), `${activeChange}: proposedCanonicalUpdate status must be unapplied or applied`);
+    check(JSON.stringify(proposedUpdate?.targets ?? []) === JSON.stringify(canonicalTargets), `${activeChange}: proposedCanonicalUpdate targets must match canonicalTargets in order`);
+    check(proposedUpdate?.facts && typeof proposedUpdate.facts === 'object' && !Array.isArray(proposedUpdate.facts), `${activeChange}: proposedCanonicalUpdate facts required`);
+    check(Array.isArray(proposedUpdate?.unknowns), `${activeChange}: proposedCanonicalUpdate unknowns must be an array`);
+    approvalPolicy = changeConfig.approvalPolicy;
+    check(approvalPolicy?.type === 'automated-policy-gate', `${activeChange}: approvalPolicy type must be automated-policy-gate`);
+    check(typeof approvalPolicy?.evidenceId === 'string' && approvalPolicy.evidenceId.length > 0, `${activeChange}: approvalPolicy evidenceId required`);
+    check(proposedUpdate?.policyGateEvidenceId === approvalPolicy?.evidenceId, `${activeChange}: proposedCanonicalUpdate policyGateEvidenceId must match approvalPolicy`);
+  }
+
   if (!archiveReadyMode) return;
 
   check(openSpec.activeChanges.length === 1, `archive-ready requires exactly one active change, found ${openSpec.activeChanges.length}`);
-  const activeChange = openSpec.activeChanges[0];
-  for (const canonical of canonicals) {
-    check(canonical.value.lifecycleStatus === 'approved', `${canonical.name}: archive-ready requires lifecycleStatus approved`);
-    check(canonical.value.governingChange === activeChange, `${canonical.name}: governingChange must match active change ${activeChange}`);
+  check(proposedUpdate?.status === 'applied', `${activeChange}: proposedCanonicalUpdate is ${proposedUpdate?.status ?? 'missing'}, expected applied`);
+
+  const activeVerifications = [...verificationMap.values()].filter((item) => item.changeRef === activeChange);
+  const policyGates = activeVerifications.filter((item) => item.type === 'automated-policy-gate' && item.requiredForArchive === true);
+  check(policyGates.length === 1, `${activeChange}: archive-ready requires exactly one automated policy gate for the active change, found ${policyGates.length}`);
+  check(policyGates[0]?.id === approvalPolicy?.evidenceId, `${activeChange}: active automated policy gate must match approvalPolicy evidenceId ${approvalPolicy?.evidenceId ?? '<missing>'}`);
+  check(policyGates[0]?.status === 'passed' && Boolean(policyGates[0]?.evidence), `${activeChange}: archive-ready requires passed active-change automated policy gate with evidence`);
+
+  if (canonicalTargets.includes('architecture-baseline')) {
+    const baseline = architecture.actualSandboxBaseline;
+    check(baseline && typeof baseline === 'object' && !Array.isArray(baseline), 'architecture-baseline: archive-ready requires structured actualSandboxBaseline');
+    check(baseline?.status === 'approved', `architecture-baseline: archive-ready requires status approved, found ${baseline?.status ?? baseline}`);
+    check(baseline?.governingChange === activeChange, `architecture-baseline: governingChange must match active change ${activeChange}`);
+    check(semanticEqual(baseline?.facts, proposedUpdate?.facts), 'architecture-baseline: facts differ semantically from proposedCanonicalUpdate');
+    check(semanticEqual(baseline?.unknowns, proposedUpdate?.unknowns), 'architecture-baseline: unknowns differ semantically from proposedCanonicalUpdate');
+    check(baseline?.policyGateEvidenceId === proposedUpdate?.policyGateEvidenceId, 'architecture-baseline: policyGateEvidenceId must match proposedCanonicalUpdate');
+    check(baseline?.policyGateEvidenceId === policyGates[0]?.id, `architecture-baseline: policyGateEvidenceId must identify the active-change automated policy gate ${policyGates[0]?.id ?? '<missing>'}`);
+
+    const proposedFactEvidenceIds = collectEvidenceIds(proposedUpdate?.facts);
+    const requiredBaselineEvidenceIds = new Set([...proposedFactEvidenceIds, proposedUpdate?.policyGateEvidenceId].filter(Boolean));
+    check(semanticEqual(baseline?.evidenceIds, [...requiredBaselineEvidenceIds]), 'architecture-baseline: evidenceIds must exactly cover proposed fact evidence and policy-gate evidence');
+    const allUsedEvidenceIds = new Set([...(baseline?.evidenceIds ?? []), ...collectEvidenceIds(baseline?.facts), baseline?.policyGateEvidenceId].filter(Boolean));
+    for (const evidenceId of allUsedEvidenceIds) {
+      const verification = verificationMap.get(evidenceId);
+      check(Boolean(verification), `architecture-baseline: unknown evidence ${evidenceId}`);
+      check(verification?.changeRef === activeChange, `architecture-baseline: evidence ${evidenceId} does not belong to active change ${activeChange}`);
+      check(verification?.status === 'passed', `architecture-baseline: evidence ${evidenceId} must be passed`);
+    }
+  }
+  if (canonicalTargets.includes('capability-catalog')) {
+    check(catalog.lifecycleStatus === 'approved', 'capability-catalog: archive-ready requires lifecycleStatus approved');
+    check(catalog.governingChange === activeChange, `capability-catalog: governingChange must match active change ${activeChange}`);
   }
 
-  const approvals = [...verificationMap.values()].filter((item) => item.type === 'human-approval' && item.requiredForArchive === true);
-  check(approvals.length === 1, `archive-ready requires exactly one required human approval, found ${approvals.length}`);
-  check(approvals[0]?.status === 'passed' && Boolean(approvals[0]?.evidence), 'archive-ready requires passed human approval with evidence');
-  for (const verification of verificationMap.values()) {
-    if (verification.requiredForArchive === true) check(verification.status === 'passed', `${verification.id}: archive-required verification is ${verification.status}, expected passed`);
+  for (const verification of activeVerifications) {
+    if (verification.requiredForArchive === true) check(verification.status === 'passed', `${verification.id}: active-change archive-required verification is ${verification.status}, expected passed`);
   }
 
   const declaredPreconditions = new Set(lifecycle.rules?.archivePreconditions ?? []);
-  for (const expected of ['human approval recorded', 'canonical structured artifacts updated from proposed to approved', 'all required verifications passed', 'active change specs synchronized to openspec/specs', 'local validation passed']) {
+  for (const expected of ['change approval policy gate satisfied', 'canonical structured artifacts updated from proposed to approved', 'all required verifications passed', 'active change specs strict-valid and mergeable by OpenSpec archive', 'local validation passed']) {
     check(declaredPreconditions.has(expected), `archive lifecycle is missing enforced precondition: ${expected}`);
-  }
-
-  if (activeChange) {
-    const activePrefix = `openspec/changes/${activeChange}/specs/`;
-    for (const proposedFile of openSpec.filesByState.proposed) {
-      const relative = proposedFile.slice(activePrefix.length);
-      const approvedFile = `openspec/specs/${relative}`;
-      check(await exists(approvedFile), `${proposedFile}: archive-ready requires synchronized spec ${approvedFile}`);
-      if (await exists(approvedFile)) {
-        const proposedIds = specIds(await read(proposedFile));
-        const approvedIds = specIds(await read(approvedFile));
-        for (const id of proposedIds) check(approvedIds.has(id), `${proposedFile}: synchronized spec ${approvedFile} is missing ${id}`);
-      }
-    }
   }
 }
 
@@ -292,7 +418,7 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
 
   check(project.key === 'UABC', 'Jira project key must be UABC');
   check(issueMap.size === issues.length, 'duplicate Jira issue keys');
-  check(issues.filter((issue) => issue.type === 'Epic').length <= 1, 'at most one current Blueprint Epic is allowed');
+  check(issues.filter((issue) => issue.type === 'Epic' && issue.status !== 'Done').length <= 1, 'at most one non-Done current Epic is allowed');
 
   const hierarchy = {
     Epic: new Set(),
@@ -394,6 +520,7 @@ check(verificationMap.size === (verificationDoc.verifications ?? []).length, 'du
 for (const verification of verificationMap.values()) {
   check(evidenceStatuses.has(verification.status), `${verification.id}: invalid evidence status`);
   check(typeof verification.requiredForArchive === 'boolean', `${verification.id}: requiredForArchive must be boolean`);
+  check(typeof verification.changeRef === 'string' && verification.changeRef.length > 0, `${verification.id}: logical changeRef required`);
   if (verification.status === 'passed') check(dateValid(verification.executedAt) && Boolean(verification.evidence), `${verification.id}: passed evidence needs execution time and result`);
   if (verification.status === 'pending') check(verification.executedAt === null && verification.evidence === null, `${verification.id}: pending evidence must not claim execution`);
 }
@@ -408,6 +535,9 @@ const architecture = await yaml('architecture/enterprise-blueprint.yaml');
 const catalog = await yaml('capabilities/catalog.yaml');
 const lifecycle = await yaml('governance/reference-lifecycle.yaml');
 const openSpec = await openSpecReferences(lifecycle);
+for (const verification of verificationMap.values()) {
+  check(openSpec.activeChanges.includes(verification.changeRef) || openSpec.archivedChanges.has(verification.changeRef), `${verification.id}: changeRef ${verification.changeRef} is neither active nor archived`);
+}
 await validateCatalogAndArchitecture({
   stableIds,
   idOwners,

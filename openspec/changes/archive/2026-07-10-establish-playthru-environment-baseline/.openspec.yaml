@@ -1,0 +1,48 @@
+schema: universaarl-delivery
+created: 2026-07-10
+canonicalTargets: [architecture-baseline, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-ENV-POLICY-GATE-001
+  authorizedBy: real-repository-user
+  authorizedAt: 2026-07-10
+  scope: establish-playthru-environment-baseline only
+  conditions:
+    - all requiredForArchive verifications of the active change are passed
+    - canonical facts and unknowns equal the proposed update semantically
+    - all canonical evidence belongs to the active change and is passed
+    - active change specs are synchronized to openspec/specs
+proposedCanonicalUpdate:
+  status: applied
+  targets: [architecture-baseline, verification-register]
+  facts:
+    environment: { status: confirmed, value: playthru, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-COMPARE-001] }
+    activeCompany: { status: confirmed, value: CRONUS DE, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    accessibleCompanyNames: { status: confirmed, value: [CRONUS DE, My Company, Universaarl GmbH], evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    universaarlTargetCompanies:
+      status: confirmed
+      value:
+        - { bcCompany: UAM-DE, observationStatus: not-observed-in-accessible-company-pane }
+        - { bcCompany: UAS-DE, observationStatus: not-observed-in-accessible-company-pane }
+        - { bcCompany: UAD-DE, observationStatus: not-observed-in-accessible-company-pane }
+        - { bcCompany: UAP-DE, observationStatus: not-observed-in-accessible-company-pane }
+        - { bcCompany: UAC-CONS, observationStatus: not-observed-in-accessible-company-pane }
+      inferenceLimit: does-not-prove-nonexistence
+      evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001]
+    clientVersion: { status: confirmed, value: DE Business Central 28.2, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    platformVersion: { status: confirmed, value: 28.0.52048.0, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    applicationVersion: { status: confirmed, value: 28.2.50931.52151, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    language: { status: confirmed, value: German (Germany), evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    region: { status: confirmed, value: German (Germany), evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    executionContext:
+      status: confirmed
+      scope: user-run-context
+      workDate: 2027-06-01
+      timeZone: "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
+      evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001]
+    localization: { status: candidate, value: DE, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    experience: { status: unknown, value: null, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    extensions: { status: candidate, completeness: visible-partial, visibilityBasis: name-and-publisher-intersect-screenshot-viewport, visibleItemCount: 6, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+    featureManagement: { status: candidate, completeness: visible-partial, visibilityBasis: row-intersects-screenshot-viewport, visibleRowCount: 15, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
+  unknowns: [company experience, complete German localization app inventory, complete installed extension inventory, complete feature inventory]
+  policyGateEvidenceId: UABC-VER-ENV-POLICY-GATE-001

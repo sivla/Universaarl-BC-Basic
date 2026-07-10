@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "runId": "run-2",
+  "testId": "UABC-SCN-ENV-001..007",
+  "generatedAt": "2026-07-10T17:35:49.868Z",
+  "playwrightVersion": "1.61.1",
+  "rawTrace": {
+    "path": ".tmp/playwright-artifacts/run-2/environment-baseline-captu-8770d-ironment-baseline-read-only/trace.zip",
+    "existsAtManifestWrite": true,
+    "classification": "local-gitignored"
+  },
+  "rawVideo": {
+    "outputDirectory": ".tmp/playwright-artifacts/run-2/environment-baseline-captu-8770d-ironment-baseline-read-only",
+    "classification": "local-gitignored",
+    "finalizedByPlaywrightAfterTest": true
+  },
+  "companySwitchPerformed": false,
+  "writesPerformed": false,
+  "executionContext": {
+    "timeZone": {
+      "evidenceStep": "ENV-03",
+      "reason": "Visible user time zone; not company configuration.",
+      "scope": "user-run-context",
+      "status": "confirmed",
+      "value": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
+    },
+    "workDate": {
+      "evidenceStep": "ENV-03",
+      "reason": "Visible user work date; not company configuration.",
+      "scope": "user-run-context",
+      "status": "confirmed",
+      "value": "2027-06-01"
+    }
+  },
+  "facts": {
+    "accessibleCompanies": {
+      "evidenceStep": "ENV-01",
+      "reason": "Visible playthru accessibility subtree only; no company selected and other environments are omitted.",
+      "status": "confirmed",
+      "value": {
+        "environment": "playthru",
+        "names": [
+          "CRONUS DE",
+          "My Company",
+          "Universaarl GmbH"
+        ]
+      }
+    },
+    "activeCompany": {
+      "evidenceStep": "ENV-03",
+      "reason": null,
+      "status": "confirmed",
+      "value": "CRONUS DE"
+    },
+    "build": {
+      "evidenceStep": "ENV-02",
+      "reason": null,
+      "status": "confirmed",
+      "value": {
+        "application": "28.2.50931.52151",
+        "platform": "28.0.52048.0"
+      }
+    },
+    "environment": {
+      "evidenceStep": "ENV-00",
+      "reason": null,
+      "status": "confirmed",
+      "value": "playthru"
+    },
+    "experience": {
+      "evidenceStep": "ENV-04",
+      "reason": "Experience not unambiguously visible.",
+      "status": "unknown",
+      "value": null
+    },
+    "extensions": {
+      "evidenceStep": "ENV-05",
+      "reason": "Small screenshot-viewport subset only; scrolling, rendered off-viewport cards and complete installed-extension inventory are excluded.",
+      "status": "candidate",
+      "value": {
+        "completeness": "visible-partial",
+        "items": [
+          {
+            "name": "Agent Design Experience",
+            "publisher": "Microsoft"
+          },
+          {
+            "name": "Agent Samples Tests",
+            "publisher": "Microsoft"
+          },
+          {
+            "name": "Agent Samples",
+            "publisher": "Microsoft"
+          },
+          {
+            "name": "Agent Test Library",
+            "publisher": "Microsoft"
+          },
+          {
+            "name": "AI Development Toolkit - Design",
+            "publisher": "Microsoft"
+          },
+          {
+            "name": "AI Development Toolkit",
+            "publisher": "Microsoft"
+          }
+        ],
+        "visibilityBasis": "name-and-publisher-intersect-screenshot-viewport"
+      }
+    },
+    "featureManagement": {
+      "evidenceStep": "ENV-06",
+      "reason": "Visible viewport rows only; no complete feature inventory and no feature action invoked.",
+      "status": "candidate",
+      "value": {
+        "completeness": "visible-partial",
+        "items": [
+          "Feature-Update: Automatische Speicherung bei jeder Feldänderung | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Testen | Aktiviert",
+          "Funktion | Automatisch aktiviert aus | Automatisch aktiviert ab Version | Aktiviert für | Erste Schritte | Aktueller Unternehmensstatus | Startdatum/-uhrzeit der Aktualisierung",
+          "Funktion: „Wie möchten Sie weiter verfahren?“ (Erweitert) (Vorschauversion) | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Keiner | Alle Benutzer | Deaktiviert",
+          "Funktion: Einführung einer Benutzeroberflächenunterstützung für die Maskierung vertraulicher Daten. | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Aktiviert",
+          "Funktion: Optimierte Textsuche in Listen verwenden | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Keiner | Testen | Deaktiviert",
+          "Funktion: SOAP-Webdienste auf Microsoft-Benutzeroberflächenseiten deaktiviert | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Aktiviert",
+          "Funktion: Vorschau der semantischen Ähnlichkeitssuche in Anwendungsmetadaten. | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Keiner | Deaktiviert",
+          "Funktionsaktualisierung: „manuelle“ Buchungsmethode ohne Kommissionierung | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Keiner | Deaktiviert",
+          "Funktionsaktualisierung: Mehrere Benutzer können gleichzeitig Artikelposten und Wertposten buchen | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Deaktiviert",
+          "Funktionsaktualisierung: Mehrere Benutzer können gleichzeitig Projektposten buchen | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Aktiviert",
+          "Funktionsaktualisierung: Mehrere Benutzer können gleichzeitig Ressourcenposten buchen | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Aktiviert",
+          "Funktionsaktualisierung: Neue Verkaufspreiskalkulation | Weitere Informationen | Zyklus 2 2027 (von Oktober 2027 bis März 2028) | 31.0 | Keiner | Deaktiviert",
+          "Funktionsupdate: Neue Kommunikationstexte für Mahnbedingungen verwenden | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Aktiviert",
+          "Funktionsupdate: Stellt Funktionen für Standardwerte für Finanzberichte bereit | Weitere Informationen | Zyklus 2 2026 (von Oktober 2026 bis März 2027) | 29.0 | Alle Benutzer | Testen | Aktiviert",
+          "Funktionsupdate: Verbesserte Leistung in Excel-Berichten im Zusammenhang mit dem Testausgleich | Weitere Informationen | Zyklus 2 2027 (von Oktober 2027 bis März 2028) | 31.0 | Alle Benutzer | Testen | Aktiviert"
+        ],
+        "visibilityBasis": "row-intersects-screenshot-viewport"
+      }
+    },
+    "language": {
+      "evidenceStep": "ENV-03",
+      "reason": null,
+      "status": "confirmed",
+      "value": "German (Germany)"
+    },
+    "localization": {
+      "evidenceStep": "ENV-04",
+      "reason": "Country/Region Code is visible but actual localization still requires explicit evidence.",
+      "status": "candidate",
+      "value": "DE"
+    },
+    "region": {
+      "evidenceStep": "ENV-03",
+      "reason": null,
+      "status": "confirmed",
+      "value": "German (Germany)"
+    },
+    "universaarlTargetCompanies": {
+      "evidenceStep": "ENV-01",
+      "reason": "Observation is limited to the accessible playthru company pane and is not an existence test.",
+      "status": "confirmed",
+      "value": [
+        {
+          "bcCompany": "UAC-CONS",
+          "inference": "does-not-prove-nonexistence",
+          "status": "not-observed-in-accessible-company-pane"
+        },
+        {
+          "bcCompany": "UAD-DE",
+          "inference": "does-not-prove-nonexistence",
+          "status": "not-observed-in-accessible-company-pane"
+        },
+        {
+          "bcCompany": "UAM-DE",
+          "inference": "does-not-prove-nonexistence",
+          "status": "not-observed-in-accessible-company-pane"
+        },
+        {
+          "bcCompany": "UAP-DE",
+          "inference": "does-not-prove-nonexistence",
+          "status": "not-observed-in-accessible-company-pane"
+        },
+        {
+          "bcCompany": "UAS-DE",
+          "inference": "does-not-prove-nonexistence",
+          "status": "not-observed-in-accessible-company-pane"
+        }
+      ]
+    },
+    "version": {
+      "evidenceStep": "ENV-02",
+      "reason": null,
+      "status": "confirmed",
+      "value": "Version: DE Business Central 28.2 (Plattform 28.0.52048.0 + Anwendung 28.2.50931.52151)"
+    }
+  },
+  "steps": [
+    {
+      "runId": "run-2",
+      "stepId": "ENV-00",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Dynamics 365 Business Central",
+      "state": "role-center-client-boundary",
+      "screenshot": "env-00.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-01",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Dynamics 365 Business Central",
+      "state": "available-companies-pane-open-background-preserved",
+      "screenshot": "env-01.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-02",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Informationen - Hilfe und Support",
+      "state": "help-and-support-visible",
+      "screenshot": "env-02.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-03",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Dynamics 365 Business Central",
+      "state": "my-settings-dialog-open",
+      "screenshot": "env-03.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-04",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Firmendaten",
+      "state": "company-information-read-only",
+      "screenshot": "env-04.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-05",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Installierte Erweiterungen",
+      "state": "extension-management-read-only",
+      "screenshot": "env-05.png"
+    },
+    {
+      "runId": "run-2",
+      "stepId": "ENV-06",
+      "url": "https://businesscentral.dynamics.com/[tenant]/playthru",
+      "title": "Funktionsverwaltung",
+      "state": "feature-management-read-only",
+      "screenshot": "env-06.png"
+    }
+  ]
+}

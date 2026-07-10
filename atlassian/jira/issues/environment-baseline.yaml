@@ -1,0 +1,100 @@
+issues:
+  - key: UABC-11
+    type: Epic
+    summary: Establish verified playthru environment baseline
+    parent: null
+    status: Done
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-14
+    effort: 3d
+    dependencies: []
+    dataRequirements: [read-only BC client state, sanitized screenshots, normalized manifests, direct Microsoft sources, change-specific canonical targets and approval]
+    acceptanceCriteria: [Two identical read-only runs are compared, Visual evidence is reviewed, Unknown facts remain explicit, No BC write or switch occurs, W0 approval cannot satisfy W1 archive readiness]
+    referenceIds: [UABC-REQ-ENV-001, UABC-REQ-ENV-004]
+    confluenceRefs: [UABC-ENVBASELINE]
+    evidenceRefs: [UABC-VER-ENV-COMPARE-001, UABC-VER-ENV-VISUAL-001, UABC-VER-ENV-POLICY-GATE-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T18:30:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T18:35:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T20:30:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T21:00:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
+
+  - key: UABC-12
+    type: Story
+    summary: Prove playthru environment and active company baseline read-only
+    parent: UABC-11
+    status: Done
+    components: [Projektmanagement, Reporting]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-07-10
+    dueDate: 2026-07-13
+    effort: 2d
+    dependencies: []
+    dataRequirements: [local authenticated storage state, BC_BASE_URL, visible client version, settings, company list, work date, time zone, structured visible extensions, feature state]
+    acceptanceCriteria: [Target remains playthru and active company unchanged, Both manifests agree on stable facts and execution context, Every retained screenshot is visually reviewed]
+    referenceIds: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005]
+    confluenceRefs: [UABC-ENVBASELINE]
+    evidenceRefs: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-COMPARE-001, UABC-VER-ENV-VISUAL-001, UABC-VER-ENV-DOCS-001, UABC-VER-ENV-POLICY-GATE-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T18:36:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T18:40:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T20:15:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T21:00:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
+
+  - key: UABC-13
+    type: Sub-task
+    summary: Define guarded baseline test and evidence plan
+    parent: UABC-12
+    status: Done
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-07-10
+    dueDate: 2026-07-11
+    effort: 0.5d
+    dependencies: []
+    dataRequirements: [official Playwright and Business Central documentation, abort conditions, privacy rules]
+    acceptanceCriteria: [OpenSpec is strict-valid before browser access, Playwright and evidence architecture remain minimal]
+    referenceIds: [UABC-REQ-ENV-001, SRC-PW-001, SRC-PW-002, SRC-BC-045, SRC-BC-047]
+    confluenceRefs: [UABC-ENVBASELINE]
+    evidenceRefs: [UABC-VER-LOCAL-001, UABC-VER-ENV-GOV-SELFTEST-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T18:41:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T18:42:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T20:10:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T21:00:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
+
+  - key: UABC-14
+    type: Sub-task
+    summary: Execute repeatable baseline and curate evidence
+    parent: UABC-12
+    status: Done
+    components: [Projektmanagement, Reporting]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-07-10
+    dueDate: 2026-07-13
+    effort: 1.5d
+    dependencies: [UABC-13]
+    dataRequirements: [two manifests, event logs, traces, screenshots, visual review, curated chapter and runbook]
+    acceptanceCriteria: [Both runs use one route, Stable facts match or differences are explained, Publications contain only evidenced facts]
+    referenceIds: [UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005]
+    confluenceRefs: [UABC-ENVBASELINE]
+    evidenceRefs: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-COMPARE-001, UABC-VER-ENV-VISUAL-001, UABC-VER-ENV-DOCS-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T18:43:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T18:44:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T20:14:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T21:00:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }

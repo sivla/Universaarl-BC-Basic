@@ -4,7 +4,7 @@ context: |
   OpenSpec ist fuehrend. Null oder maximal ein aktiver Change; waehrend Delivery gilt WIP=1.
   Sprache der Artefakte: Deutsch; stabile IDs bleiben ASCII.
   planningReference: 2026 Release Wave 1.
-  actualSandboxBaseline: unknown.
+  actualSandboxBaseline: currently unknown; a later approved change may replace it with a structured evidence-based baseline.
   Aus der Planungsreferenz darf keine Feature-Verfuegbarkeit abgeleitet werden.
   Spaetere Zielumgebung: ausschliesslich Sandbox playthru; nur synthetische Daten.
   Fakten, Annahmen, Empfehlungen, Alternativen und Entscheidungen sind zu trennen.

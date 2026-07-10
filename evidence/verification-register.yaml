@@ -2,6 +2,7 @@ schemaVersion: 1
 artifactId: UABC-VER-REGISTER-001
 verifications:
   - id: UABC-VER-WORKTREE-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: repository
@@ -10,6 +11,7 @@ verifications:
     subjectRefs: [UABC-GOV-REFERENCE-001]
     evidence: V2 worktree on orphan branch; legacy branch and HEAD retained
   - id: UABC-VER-LOCAL-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: automated
@@ -18,6 +20,7 @@ verifications:
     subjectRefs: [UABC-REQ-GOV-001, UABC-REQ-GOV-002]
     evidence: npm test exit 0; OpenSpec schema and strict change validation passed
   - id: UABC-VER-REFS-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: automated
@@ -26,6 +29,7 @@ verifications:
     subjectRefs: [UABC-REQ-GOV-002]
     evidence: local ID, hierarchy, people, workflow and reference validation passed
   - id: UABC-VER-SOURCES-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: document-review
@@ -34,6 +38,7 @@ verifications:
     subjectRefs: [UABC-ARCH-ENTERPRISE-001]
     evidence: Direct OpenSpec and Microsoft sources are recorded with retrieval date scope decisions alternatives and uncertainties; real-user conditional W0 approval recorded 2026-07-10
   - id: UABC-VER-ARCH-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: architecture-review
@@ -42,6 +47,7 @@ verifications:
     subjectRefs: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004]
     evidence: Enterprise and solution architecture including four substantive legal entities UAC-CONS roles controls decisions and W1 gates conditionally approved by the real repository user on 2026-07-10
   - id: UABC-VER-CAP-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: capability-review
@@ -50,6 +56,7 @@ verifications:
     subjectRefs: [UABC-REQ-CAP-001, UABC-REQ-CAP-002]
     evidence: Capability portfolio and W1-W5 delivery plan accepted as W0 planning scope by the real repository user on 2026-07-10; individual capabilities remain planned or deferred and unvalidated
   - id: UABC-VER-BLUEPRINT-APPROVAL-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: human-approval
@@ -58,6 +65,7 @@ verifications:
     subjectRefs: [UABC-ARCH-ENTERPRISE-001]
     evidence: "Real repository user decision 'Empfehlungen uebernehmen' on 2026-07-10 conditionally approves W0 enterprise and solution architecture capability plan W1-W5 delivery model roles controls and open-question gates. The approver is not synthetic Jira person P-001. Excluded are actual playthru baseline and feature availability Legal Tax detail final licensing individual capability validation W1 writes BC access and go-live."
   - id: UABC-VER-ARCHIVE-DRYRUN-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: archive-dry-run
@@ -66,6 +74,7 @@ verifications:
     subjectRefs: [UABC-GOV-REFERENCE-001]
     evidence: evidence/archive-dry-run-2026-07-10.yaml; archive exit 0 and post-archive npm test exit 0 with active changes 0
   - id: UABC-VER-GOV-SELFTEST-001
+    changeRef: establish-universaarl-enterprise-blueprint
     requiredForArchive: true
     status: passed
     type: governance-negative-and-positive-selftest
@@ -73,3 +82,66 @@ verifications:
     environment: disposable-copy
     subjectRefs: [UABC-GOV-REFERENCE-001, UABC-REQ-GOV-004]
     evidence: evidence/governance-selftests-2026-07-10.yaml; required negative and positive cases behaved as specified
+  - id: UABC-VER-ENV-RUN1-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: playwright-ui-baseline
+    executedAt: 2026-07-10
+    environment: playthru
+    subjectRefs: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-SCN-ENV-001, UABC-SCN-ENV-002, UABC-SCN-ENV-003, UABC-SCN-ENV-004]
+    evidence: evidence/playthru-environment-baseline/run-1/manifest.json and events.jsonl; seven visually retained screenshots; Playwright 1.61.1; finalized trace path exists; manifest records no switch and no write
+  - id: UABC-VER-ENV-RUN2-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: playwright-ui-baseline
+    executedAt: 2026-07-10
+    environment: playthru
+    subjectRefs: [UABC-REQ-ENV-004, UABC-SCN-ENV-006]
+    evidence: evidence/playthru-environment-baseline/run-2/manifest.json and events.jsonl; independent execution of the same corrected test; Playwright 1.61.1; finalized trace path exists; manifest records no switch and no write
+  - id: UABC-VER-ENV-COMPARE-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: normalized-result-comparison
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-004, UABC-SCN-ENV-006]
+    evidence: evidence/playthru-environment-baseline/comparison.json; stableFactsEqual true and differences empty
+  - id: UABC-VER-ENV-VISUAL-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: visual-evidence-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-003, UABC-SCN-ENV-005]
+    evidence: evidence/playthru-environment-baseline/visual-review.yaml; 14 curated screenshots reviewed by Codex agent with humanApproval false
+  - id: UABC-VER-ENV-DOCS-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: curated-document-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-005, UABC-SCN-ENV-007]
+    evidence: docs/guides/beginner/playthru-environment-baseline.md and docs/runbooks/playthru-environment-baseline.md trace claims to scenarios and verification IDs and preserve unknowns
+  - id: UABC-VER-ENV-GOV-SELFTEST-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: governance-regression-test
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001, UABC-REQ-ENV-004]
+    evidence: tests/governance/archive-ready.test.mjs and evidence/playthru-environment-baseline/lifecycle-selftest.yaml; six executable Node tests passed including real OpenSpec merge/archive, raw-archive rejection, canonical-drift rejection and post-archive validation; temporary repositories were removed
+  - id: UABC-VER-ENV-POLICY-GATE-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005]
+    evidence: Real repository user authorized replacement of the human gate by an explicitly automated policy gate in the current Codex thread on 2026-07-10; npm test including four disposable governance regressions passed and canonical synchronization is validator-enforced

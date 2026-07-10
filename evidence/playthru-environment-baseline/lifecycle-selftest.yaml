@@ -1,0 +1,36 @@
+schemaVersion: 1
+changeRef: establish-playthru-environment-baseline
+executedAt: 2026-07-10
+command: npm run validate:archive-ready
+executableRegressionSuite: tests/governance/archive-ready.test.mjs
+suiteCommand: npm run test:governance
+expectedExit: 0
+actualExit: 0
+assertions:
+  priorChangeApprovalDoesNotReplaceActivePolicyGate:
+    result: passed
+    evidence: UABC-VER-BLUEPRINT-APPROVAL-001 cannot satisfy or replace UABC-VER-ENV-POLICY-GATE-001.
+  untargetedCapabilityCatalogIsIgnored:
+    result: passed
+    evidence: capability-catalog is absent from canonicalTargets and no capability-catalog error was emitted.
+  activeChangeRequiredVerificationsOnly:
+    result: passed
+    evidence: Archive readiness evaluated requiredForArchive verifications with changeRef establish-playthru-environment-baseline.
+observedExpectedFailures: []
+unexpectedFailures: []
+archiveReadyResult: passed
+realDisposableArchiveResult: passed
+postArchiveOpenSpecStrictResult: passed
+postArchiveCustomValidationResult: passed
+rawUnappliedArchiveRejectedPostArchive: passed
+postArchiveCanonicalDriftRejected: passed
+realChangeArchived: true
+realChangeArchivedAs: 2026-07-10-establish-playthru-environment-baseline
+executableCases:
+  - { case: W0 approval cannot replace the W1 automated policy gate, result: passed }
+  - { case: untargeted capability catalog is ignored, result: passed }
+  - { case: semantically divergent canonical facts are rejected, result: passed }
+  - { case: raw archive with unapplied policy is rejected post-archive, result: passed }
+  - { case: canonical drift is rejected post-archive, result: passed }
+  - { case: real OpenSpec merge archive and post-archive validation succeed, result: passed }
+temporaryArtifactsCleaned: true
