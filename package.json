@@ -19,8 +19,8 @@
     "artifacts:walkthrough": "npm run build:walkthrough:baseline",
     "test:walkthrough:html": "node scripts/run-playwright-local.mjs test --config=playwright.walkthrough.config.mjs",
     "test:walkthrough": "npm run setup:playwright:chromium && npm run build:walkthrough:baseline && node --test tests/artifacts/walkthrough.test.mjs && npm run test:walkthrough:html",
-    "pw:baseline": "playwright test tests/playwright/environment-baseline.spec.mjs",
-    "pw:baseline:headed": "playwright test tests/playwright/environment-baseline.spec.mjs --headed",
+    "pw:baseline": "npm run setup:playwright:chromium && node scripts/run-playwright-local.mjs test tests/playwright/environment-baseline.spec.mjs",
+    "pw:baseline:headed": "npm run setup:playwright:chromium && node scripts/run-playwright-local.mjs test tests/playwright/environment-baseline.spec.mjs --headed",
     "pw:baseline:compare": "node tests/playwright/helpers/bc-evidence.mjs compare"
   },
   "devDependencies": {
