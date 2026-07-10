@@ -8,9 +8,9 @@ approvalPolicy:
   authorizedAt: 2026-07-10
   scope: establish-project-artifact-walkthrough-pilot only
   conditions:
-    - all requiredForArchive verifications of the active change are passed
-    - generated registry matches the reviewed walkthrough package
-    - OpenSpec strict and local validation pass
+    - alle requiredForArchive-Verifications des aktiven Changes sind passed
+    - die erzeugte Registry entspricht dem geprüften Walkthrough-Paket
+    - OpenSpec strict und lokale Validierung bestehen
 proposedCanonicalUpdate:
   status: applied
   targets: [walkthrough-package-registry, verification-register]

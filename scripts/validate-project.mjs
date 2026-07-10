@@ -205,7 +205,7 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
     }
     check(Array.isArray(baseline.unknowns), 'actualSandboxBaseline: unknowns must be an array');
   }
-  check(/No feature availability may be inferred/.test(architecture.availabilityRule ?? ''), 'availabilityRule must prohibit inference from planning reference');
+  check(/(?:No feature availability may be inferred|Aus der Planungsreferenz darf keine Feature-Verfügbarkeit abgeleitet werden)/.test(architecture.availabilityRule ?? ''), 'availabilityRule must prohibit inference from planning reference');
 
   const companies = new Set([
     ...(architecture.legalEntities ?? []).map((item) => item.bcCompany),
@@ -592,8 +592,8 @@ const lifecycle = await yaml('governance/reference-lifecycle.yaml');
 const openSpecConfig = await yaml('openspec/config.yaml');
 const openSpecContext = String(openSpecConfig.context ?? '');
 check(openSpecContext.includes('architecture/enterprise-blueprint.yaml#actualSandboxBaseline'), 'openspec/config.yaml: context must reference the canonical actualSandboxBaseline path');
-check(/only facts confirmed there/i.test(openSpecContext), 'openspec/config.yaml: context must limit baseline use to confirmed canonical facts');
-check(/unknown or only partially visible values/i.test(openSpecContext), 'openspec/config.yaml: context must preserve unknown and partial baseline values');
+check(/(?:only facts confirmed there|nur dort bestätigte Fakten)/i.test(openSpecContext), 'openspec/config.yaml: context must limit baseline use to confirmed canonical facts');
+check(/(?:unknown or only partially visible values|unbekannte oder nur teilweise sichtbare Werte)/i.test(openSpecContext), 'openspec/config.yaml: context must preserve unknown and partial baseline values');
 const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
 for (const verification of verificationMap.values()) {

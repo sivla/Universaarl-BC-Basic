@@ -1,4 +1,4 @@
-# Change Proposal: Universaarl Enterprise Blueprint v0.1
+# Change Proposal: Universaarl-Unternehmens-Blueprint v0.1
 
 ## Metadaten
 

@@ -7,7 +7,7 @@ lastReviewed: 2026-07-10
 statusValues: [planned, validated, approved, deferred, out-of-scope]
 domains:
   - id: UABC-CAP-FIN
-    name: Finance
+    name: Finanzen
     capabilities:
       - { id: UABC-CAP-FIN-R2R, name: Record to Report, status: planned, purpose: localized ledgers and controlled period close, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS], roles: [P-005, P-017, P-018, P-003], sourceIds: [SRC-BC-003, SRC-BC-012, SRC-BC-016, SRC-BC-017], rationale: each legal entity needs an operational finance processor while Group CFO approval and local controller review remain separate, wave: W1, scenarioId: UABC-SCN-FIN-001 }
       - { id: UABC-CAP-FIN-AR, name: External Receivables, status: planned, purpose: settle and control external customer invoices credit and customer ledgers, companies: [UAD-DE, UAP-DE], locations: [UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-018, P-005, P-011, P-015], sourceIds: [SRC-BC-003], rationale: external product and project receivables belong to UAD and UAP; UAM and UAS intercompany receivables are created and reconciled through the planned IC document flows, wave: W1, scenarioId: UABC-SCN-FIN-003 }
@@ -108,7 +108,7 @@ domains:
       - { id: UABC-CAP-DATA-UAT, name: UAT Data Run and Cutover Reconciliation, status: planned, purpose: provide representative approved UAT data and rehearse object-level reconciliation and timing, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-016, P-003, P-005, P-017, P-018, P-006], sourceIds: [SRC-BC-036, SRC-BC-039, SRC-BC-041], rationale: UAT and cutover rehearsal require migrated data that business owners can reconcile and accept, wave: W4, scenarioId: UABC-SCN-DATA-006 }
       - { id: UABC-CAP-DATA-LOAD, name: Final Cutover Load, status: planned, purpose: reproducibly load and reconcile approved final setup master and opening data within the cutover window, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-016, P-003, P-005, P-017, P-018], sourceIds: [SRC-BC-036, SRC-BC-041], rationale: counts totals errors approvals timing and rerun strategy are mandatory final-load evidence, wave: W5, scenarioId: UABC-SCN-DATA-001 }
   - id: UABC-CAP-TRN
-    name: Delivery Readiness Testing and Adoption
+    name: Lieferbereitschaft, Tests und Einführung
     capabilities:
       - { id: UABC-CAP-TRN-ROLE, name: Training and Adoption Strategy, status: planned, purpose: identify audiences learning objectives trainers schedule environment communications and adoption measures, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-TR, UABC-SITE-IGB], roles: [P-015, P-002], sourceIds: [SRC-BC-035, SRC-BC-040, SRC-BC-044], rationale: P-015 coordinates an iterative W1 plan but module owners remain accountable for content and acceptance, wave: W1, scenarioId: UABC-SCN-TRN-001 }
       - { id: UABC-CAP-TRN-TEST, name: Test Strategy and Key User Involvement, status: planned, purpose: define process-based test levels environments owners outcomes and early key-user participation, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-002, P-003, P-007, P-011, P-019, P-008, P-014, P-012], sourceIds: [SRC-BC-038], rationale: testing ownership starts before execution and business process owners must be involved before formal UAT, wave: W1, scenarioId: UABC-SCN-TRN-004 }

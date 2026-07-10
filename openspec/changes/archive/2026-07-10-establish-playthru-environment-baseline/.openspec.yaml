@@ -8,10 +8,10 @@ approvalPolicy:
   authorizedAt: 2026-07-10
   scope: establish-playthru-environment-baseline only
   conditions:
-    - all requiredForArchive verifications of the active change are passed
-    - canonical facts and unknowns equal the proposed update semantically
-    - all canonical evidence belongs to the active change and is passed
-    - active change specs are synchronized to openspec/specs
+    - alle requiredForArchive-Verifications des aktiven Changes sind passed
+    - kanonische Fakten und Unknowns entsprechen dem proposed update semantisch
+    - alle kanonischen Evidence-IDs gehören zum aktiven Change und sind passed
+    - die Specs des aktiven Changes sind mit openspec/specs synchronisiert
 proposedCanonicalUpdate:
   status: applied
   targets: [architecture-baseline, verification-register]
