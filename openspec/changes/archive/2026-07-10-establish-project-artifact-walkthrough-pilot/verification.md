@@ -1,6 +1,6 @@
 # Verification
 
-Status: `approved` durch das autorisierte automatisierte, change-spezifische Policy-Gate; noch nicht archiviert.
+Pre-Archive-Gate: `approved` durch das autorisierte automatische, change-spezifische Policy-Gate. Der Change wurde am 2026-07-10 archiviert.
 
 - `npm run test:walkthrough`: sechs Node-Vertrags-/Consumer-/Medientests und zwei lokale Playwright-HTML-Tests bestanden; Rebuild byte-identisch.
 - Ausgaben: aufgeloestes Manifest, HTML, WebVTT, 42-Sekunden-VP9-WebM und animierte WebP.

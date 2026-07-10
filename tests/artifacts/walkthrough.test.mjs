@@ -16,11 +16,35 @@ const validate = createWalkthroughValidator();
 test('real Draft 2020-12 schema accepts pilot and a minimally filled blank', () => {
   assert.doesNotThrow(() => validate(source, 'pilot'));
   const blank = YAML.parse(fs.readFileSync(path.join(root, 'artifacts/walkthrough/templates/walkthrough-package.blank.yaml'), 'utf8'));
-  const filled = structuredClone(source);
+  const filled = structuredClone(blank);
   filled.artifactId = 'UABC-WT-MINIMAL-001';
-  filled.steps = [structuredClone(source.steps[0])];
-  filled.steps[0].stepId = 'STEP-01';
-  assert.deepEqual(Object.keys(blank).sort(), Object.keys(filled).sort());
+  filled.phase = 'W1 local artifact test';
+  filled.owner = 'P-002';
+  filled.reviewers = ['P-004'];
+  filled.createdAt = '2026-07-10';
+  filled.sourceScenarioRefs = ['UABC-SCN-WT-001'];
+  filled.requirementRefs = ['UABC-REQ-WT-001'];
+  filled.jiraRefs = ['UABC-16'];
+  filled.evidenceRefs = ['UABC-VER-WT-BUILD-001'];
+  filled.sourceRunRefs = ['run-1'];
+  filled.history = [{ at: '2026-07-10', actor: 'P-002', action: 'created from filled blank' }];
+  filled.audiences = ['artifact tester'];
+  filled.learningObjective = 'Validate a minimally completed walkthrough authoring template.';
+  filled.prerequisites = ['Sanitized local source evidence'];
+  const step = structuredClone(blank.steps[0]);
+  Object.assign(step, {
+    stepId: 'STEP-01', title: 'Inspect local artifact', bcSurface: 'Generated HTML',
+    userAction: 'Open the generated local HTML.', expectedResult: 'The first step is visible.',
+    businessRationale: 'A minimal authored package must remain structurally reproducible.',
+    screenshotRefs: [{ runRef: 'run-1', path: 'evidence/example/step-01.png' }],
+    caption: 'Step 1. Inspect the generated local artifact.', safetyNotes: ['No BC access']
+  });
+  filled.steps = [step];
+  filled.securityAndRedaction.personalData = 'none';
+  filled.provenance.sourceManifests = ['evidence/example/manifest.json'];
+  filled.provenance.sourceEventLogs = ['evidence/example/events.jsonl'];
+  filled.provenance.derivation = 'Derived from one sanitized local screenshot and event manifest.';
+  assert.doesNotMatch(JSON.stringify(filled), /REPLACE-ME|REPLACE-WITH|YYYY-MM-DD|REPLACE WITH/);
   assert.doesNotThrow(() => validate(filled, 'filled blank'));
 });
 

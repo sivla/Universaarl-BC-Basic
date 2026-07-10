@@ -1,7 +1,7 @@
 # project-governance Specification
 
 ## Purpose
-TBD - created by archiving change establish-universaarl-enterprise-blueprint. Update Purpose after archive.
+Regelt OpenSpec als fuehrende Wahrheit, archivierungsfeste Referenzen, lokale Atlassian-Integritaet und Evidence-basierte Erfolgsnachweise.
 ## Requirements
 ### Requirement: UABC-REQ-GOV-001 OpenSpec als fuehrende Wahrheit
 Freigegebene normative Realitaet MUST unter `openspec/specs` liegen; geplante oder ungepruefte Requirements MUST in maximal einem aktiven Change verbleiben. Dauerhafte strukturierte Architektur- und Capability-Inhalte MUST stabile kanonische Pfade und explizite Lifecycle-Status besitzen.

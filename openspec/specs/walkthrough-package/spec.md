@@ -1,7 +1,7 @@
 # walkthrough-package Specification
 
 ## Purpose
-TBD - created by archiving change establish-project-artifact-walkthrough-pilot. Update Purpose after archive.
+Definiert den strukturierten, reproduzierbaren und nicht-evidenzgebenden Walkthrough-Vertrag einschliesslich Provenienz, Wiedergabe und read-only Export.
 ## Requirements
 ### Requirement: UABC-REQ-WT-001 Strukturierter Walkthrough-Vertrag
 Ein Walkthrough Package MUST die gemeinsame Metadatenhuelle, Zielgruppe, Wiedergabemodi, Lernziel, Voraussetzungen, nummerierte Schritte, UI-Zustaende, Aktionen, Ergebnisse, Begruendungen, Medien, Captions, Sicherheitsregeln, Provenienz und Checksummen maschinenlesbar enthalten. Blanko und Beispiel MUST als nicht-evidenzgebend gekennzeichnet sein.

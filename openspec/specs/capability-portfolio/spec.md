@@ -1,7 +1,7 @@
 # capability-portfolio Specification
 
 ## Purpose
-TBD - created by archiving change establish-universaarl-enterprise-blueprint. Update Purpose after archive.
+Definiert das hierarchische BC-Capability-Portfolio, seine Prozessketten, Abhaengigkeiten, Reportinglogik und rollenbasierte Einfuehrung.
 ## Requirements
 ### Requirement: UABC-REQ-CAP-001 Vollstaendige Capability-Zuordnung
 Jede geplante BC-Domaene MUST in einem strukturierten hierarchischen Katalog in Unterfaehigkeiten zerlegt werden. Jede Unterfaehigkeit MUST Status, Geschaeftszweck, Universaarl-Gesellschaft, Standort, Rolle, Quelle, Begruendung, Welle und reservierte Scenario-ID ausweisen; fachlich zwingende Reihenfolgen MUST als Abhaengigkeiten benannt werden. Eine optionale Evidence-ID MUST auf das Verification-Register zeigen; bei `approved` ist bestandene Evidence verpflichtend.

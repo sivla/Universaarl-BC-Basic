@@ -11,7 +11,7 @@ lastReviewed: 2026-07-10
 
 # Project Artifact Walkthrough Pilot
 
-Diese Seite navigiert zum einen vorgeschlagenen Walkthrough-Piloten. Normativ sind der aktive OpenSpec-Change und das strukturierte Walkthrough-Manifest. Das Beispiel leitet ausschliesslich vorhandene `playthru`-Baseline-Evidence ab und erzeugt keine neue fachliche Evidence.
+Diese Seite navigiert zum freigegebenen Walkthrough-Piloten. Normativ sind die Main-Spec `openspec/specs/walkthrough-package/spec.md`, das strukturierte Manifest und die kanonische Registry. Der archivierte Change `openspec/changes/archive/2026-07-10-establish-project-artifact-walkthrough-pilot/` bewahrt die Audit-Historie. Das Beispiel leitet ausschliesslich vorhandene `playthru`-Baseline-Evidence ab und erzeugt keine neue fachliche Evidence.
 
 - Einsteigerbezug: `docs/guides/beginner/playthru-environment-baseline.md`
 - Consultant-Bezug: `docs/runbooks/playthru-environment-baseline.md`

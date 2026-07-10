@@ -1,7 +1,7 @@
 # enterprise-model Specification
 
 ## Purpose
-TBD - created by archiving change establish-universaarl-enterprise-blueprint. Update Purpose after archive.
+Beschreibt die freigegebene Universaarl-Unternehmensarchitektur mit getrennten Organisationsschichten, Gesellschaften, Lagerkonzepten und Funktionstrennung.
 ## Requirements
 ### Requirement: UABC-REQ-ENT-001 Eindeutige Organisationsschichten
 Das Zielbild MUST Entra-Tenant, BC-Umgebung, BC-Unternehmen, physischen Standort, Lagerort, Lagerplatz, Verantwortungszentrum und Dimension als getrennte Konzepte mit eindeutigem Zweck modellieren.

@@ -549,6 +549,16 @@ async function validateWalkthroughExports({ openSpec, openSpecRefs, verification
   }
 }
 
+async function validateMainSpecPurposes() {
+  const files = await walk('openspec/specs', (file) => file.endsWith('/spec.md'));
+  for (const file of files) {
+    const content = await read(file);
+    const purpose = content.match(/## Purpose\s+([\s\S]*?)(?=\s+## Requirements)/)?.[1]?.trim() ?? '';
+    check(purpose.length >= 20, `${file}: missing substantive Purpose`);
+    check(!/\bTBD\b|Update Purpose after archive/i.test(purpose), `${file}: provisional Purpose is not allowed`);
+  }
+}
+
 const peopleDoc = await yaml('atlassian/jira/people.yaml');
 const people = new Set((peopleDoc.people ?? []).map((person) => person.id));
 check(people.size === (peopleDoc.people ?? []).length, 'duplicate people IDs');
@@ -580,6 +590,7 @@ const architecture = await yaml('architecture/enterprise-blueprint.yaml');
 const catalog = await yaml('capabilities/catalog.yaml');
 const lifecycle = await yaml('governance/reference-lifecycle.yaml');
 const openSpec = await openSpecReferences(lifecycle);
+await validateMainSpecPurposes();
 for (const verification of verificationMap.values()) {
   check(openSpec.activeChanges.includes(verification.changeRef) || openSpec.archivedChanges.has(verification.changeRef), `${verification.id}: changeRef ${verification.changeRef} is neither active nor archived`);
 }

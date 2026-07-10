@@ -207,9 +207,25 @@ test('positive disposable lifecycle uses real OpenSpec merge and passes post-arc
   assert.match(mergedSpec, /## Purpose/);
   assert.match(mergedSpec, /## Requirements/);
   assert.doesNotMatch(mergedSpec, /## ADDED Requirements/);
+  assert.match(mergedSpec, /TBD/);
+  await fs.writeFile(
+    path.join(root, 'openspec/specs/environment-baseline/spec.md'),
+    mergedSpec.replace(/## Purpose\s+[\s\S]*?(?=\s+## Requirements)/, '## Purpose\nDefiniert die evidenzbasierte technische Baseline der playthru-Sandbox.\n'),
+    'utf8'
+  );
 
   for (const script of ['validate:openspec-schema', 'validate:openspec', 'validate:references']) {
     const postArchive = npmRun(root, script);
     assert.equal(postArchive.status, 0, `${script}\n${postArchive.output}`);
   }
+});
+
+test('published Main-Specs reject a provisional Purpose', async (t) => {
+  const root = await disposableRepository(t);
+  const specPath = path.join(root, 'openspec/specs/project-governance/spec.md');
+  const content = await fs.readFile(specPath, 'utf8');
+  await fs.writeFile(specPath, content.replace(/## Purpose\s+[\s\S]*?(?=\s+## Requirements)/, '## Purpose\nTBD - Update Purpose after archive.\n'), 'utf8');
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /provisional Purpose is not allowed/);
 });
