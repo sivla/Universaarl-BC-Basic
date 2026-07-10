@@ -1,0 +1,24 @@
+key: UABC-N
+type: Story
+summary: Replace me
+parent: UABC-1
+status: Backlog
+components: [Projektmanagement]
+assignee: P-002
+customerRole: P-001
+startDate: 2099-01-01
+dueDate: 2099-01-02
+effort: 1d
+dependencies: []
+dataRequirements: []
+acceptanceCriteria: []
+referenceIds: []
+confluenceRefs: []
+evidenceRefs: []
+historySynthetic: true
+history: []
+doneGate:
+  acceptanceCriteriaMet: false
+  verificationPassed: false
+  humanApprovalRequired: true
+  humanApprovalRecorded: false

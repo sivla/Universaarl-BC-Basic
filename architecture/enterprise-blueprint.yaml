@@ -1,0 +1,96 @@
+schemaVersion: 1
+artifactId: UABC-ARCH-ENTERPRISE-001
+title: Universaarl enterprise architecture blueprint
+lifecycleStatus: proposed
+governingChange: establish-universaarl-enterprise-blueprint
+owner: P-002
+lastReviewed: 2026-07-10
+planningReference: 2026 Release Wave 1
+actualSandboxBaseline: unknown
+availabilityRule: No feature availability may be inferred from the planning reference; playthru version, localization, apps and feature state require direct evidence before implementation.
+identityAndEnvironment:
+  entraTenant:
+    status: unknown
+    purpose: identity, group and license boundary
+  targetEnvironment:
+    name: playthru
+    type: Sandbox
+    status: authorized-not-inspected
+  localization:
+    planned: Germany
+    actual: unknown
+legalEntities:
+  - id: UABC-LE-UAM
+    name: Universaarl Management GmbH
+    bcCompany: UAM-DE
+    currency: EUR
+    purpose: holding-related shared services, central finance and IT costs
+  - id: UABC-LE-UAS
+    name: Universaarl Automation Systems GmbH
+    bcCompany: UAS-DE
+    currency: EUR
+    purpose: engineering, procurement and manufacturing
+  - id: UABC-LE-UAD
+    name: Universaarl Distribution & Service GmbH
+    bcCompany: UAD-DE
+    currency: EUR
+    purpose: sales, distribution, spare parts and technical service
+  - id: UABC-LE-UAP
+    name: Universaarl Projects GmbH
+    bcCompany: UAP-DE
+    currency: EUR
+    purpose: engineering, installation and commissioning projects
+reportingCompanies:
+  - id: UABC-BC-UAC-CONS
+    name: Universaarl Group Consolidation
+    bcCompany: UAC-CONS
+    legalEntity: false
+    operationalPostingAllowed: false
+    purpose: consolidation and eliminations
+sites:
+  - { id: UABC-SITE-SB, name: Saarbruecken HQ, company: UAM-DE, inventoryPurpose: none }
+  - { id: UABC-SITE-NK, name: Neunkirchen plant, company: UAS-DE, inventoryPurpose: manufacturing }
+  - { id: UABC-SITE-SLS, name: Saarlouis distribution center, company: UAD-DE, inventoryPurpose: distribution }
+  - { id: UABC-SITE-TR, name: Trier service depot, company: UAD-DE, inventoryPurpose: service }
+  - { id: UABC-SITE-IGB, name: St. Ingbert project office, company: UAP-DE, inventoryPurpose: project staging }
+  - { id: UABC-SITE-3PL-UAS, name: External 3PL Saarbruecken region, company: UAS-DE, inventoryPurpose: external inventory custody }
+  - { id: UABC-SITE-MOBILE-UAD, name: Mobile service fleet, company: UAD-DE, inventoryPurpose: vehicle inventory }
+locations:
+  - { id: UABC-LOC-NK-WERK, code: NK-WERK, company: UAS-DE, site: UABC-SITE-NK, warehouseLevel: advanced, binsMandatory: true }
+  - { id: UABC-LOC-NK-PROD, code: NK-PROD, company: UAS-DE, site: UABC-SITE-NK, warehouseLevel: basic-bins, binsMandatory: true }
+  - { id: UABC-LOC-SB-3PL, code: SB-3PL, company: UAS-DE, site: UABC-SITE-3PL-UAS, warehouseLevel: simple, binsMandatory: false }
+  - { id: UABC-LOC-SLS-DC, code: SLS-DC, company: UAD-DE, site: UABC-SITE-SLS, warehouseLevel: basic-bins, binsMandatory: true }
+  - { id: UABC-LOC-TR-SVC, code: TR-SVC, company: UAD-DE, site: UABC-SITE-TR, warehouseLevel: simple, binsMandatory: false }
+  - { id: UABC-LOC-VAN-01, code: VAN-01, company: UAD-DE, site: UABC-SITE-MOBILE-UAD, warehouseLevel: simple, binsMandatory: false }
+  - { id: UABC-LOC-VAN-02, code: VAN-02, company: UAD-DE, site: UABC-SITE-MOBILE-UAD, warehouseLevel: simple, binsMandatory: false }
+  - { id: UABC-LOC-IGB-PROJ, code: IGB-PROJ, company: UAP-DE, site: UABC-SITE-IGB, warehouseLevel: simple, binsMandatory: false }
+dimensions:
+  - { id: UABC-DIM-COSTCENTER, code: COSTCENTER, rank: global1, purpose: organizational accountability }
+  - { id: UABC-DIM-BUSINESSUNIT, code: BUSINESSUNIT, rank: global2, purpose: cross-company business model reporting }
+  - { id: UABC-DIM-PRODUCTLINE, code: PRODUCTLINE, rank: shortcut3, purpose: product profitability }
+  - { id: UABC-DIM-PROJECT, code: PROJECT, rank: shortcut4, purpose: cross-analysis only; BC Project remains operational object }
+  - { id: UABC-DIM-CHANNEL, code: CHANNEL, rank: shortcut5, purpose: sales channel and IC distinction }
+  - { id: UABC-DIM-REGION, code: REGION, rank: shortcut6, purpose: market and service region }
+  - { id: UABC-DIM-ICPARTNER, code: ICPARTNER, rank: shortcut7, purpose: IC reconciliation support }
+  - { id: UABC-DIM-CUSTOMERSEG, code: CUSTOMERSEG, rank: shortcut8, purpose: customer segment analysis }
+securityPrinciples:
+  - Entra security groups control environment admission and role grouping.
+  - BC permission sets grant least privilege and are company-scoped where required.
+  - Profiles and Role Centers are usability features, not security controls.
+  - SUPER is restricted to sandbox administration and break-glass use.
+decisions:
+  - { id: UABC-DEC-001, status: proposed, statement: One operational BC company per legal entity plus non-operational UAC-CONS }
+  - { id: UABC-DEC-002, status: proposed, statement: Organizational objects exist only for a distinct process or control purpose }
+  - { id: UABC-DEC-003, status: proposed, statement: Warehouse complexity differs by location }
+  - { id: UABC-DEC-004, status: proposed, statement: COSTCENTER and BUSINESSUNIT are global dimensions }
+  - { id: UABC-DEC-005, status: proposed, statement: Standard-first; extensions require a proven gap and separate change }
+  - { id: UABC-DEC-006, status: proposed, statement: OpenSpec is normative; Jira and Confluence are collaboration views }
+openQuestions:
+  - { id: UABC-OQ-001, owner: P-004, question: Actual playthru version, country, apps and capacity, evidenceRequired: environment and company evidence }
+  - { id: UABC-OQ-002, owner: P-003, question: Chart of accounts and tax mapping, evidenceRequired: finance workshop decision }
+  - { id: UABC-OQ-003, owner: P-006, question: Costing by product family, evidenceRequired: margin model and simulation }
+  - { id: UABC-OQ-004, owner: P-012, question: Serial and lot tracking by product, evidenceRequired: warranty and traceability decision }
+  - { id: UABC-OQ-005, owner: P-009, question: Standard warehouse versus scanner extension, evidenceRequired: standard sandbox proof of concept }
+  - { id: UABC-OQ-006, owner: P-010, question: CRM and Dataverse scope, evidenceRequired: lead-to-order workshop }
+  - { id: UABC-OQ-007, owner: P-003, question: E-invoice format and provider, evidenceRequired: legal and provider assessment }
+  - { id: UABC-OQ-008, owner: P-014, question: Project WIP and billing methods, evidenceRequired: contract scenarios }

@@ -1,0 +1,75 @@
+schemaVersion: 1
+artifactId: UABC-VER-REGISTER-001
+verifications:
+  - id: UABC-VER-WORKTREE-001
+    requiredForArchive: true
+    status: passed
+    type: repository
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-GOV-REFERENCE-001]
+    evidence: V2 worktree on orphan branch; legacy branch and HEAD retained
+  - id: UABC-VER-LOCAL-001
+    requiredForArchive: true
+    status: passed
+    type: automated
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-REQ-GOV-001, UABC-REQ-GOV-002]
+    evidence: npm test exit 0; OpenSpec schema and strict change validation passed
+  - id: UABC-VER-REFS-001
+    requiredForArchive: true
+    status: passed
+    type: automated
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-REQ-GOV-002]
+    evidence: local ID, hierarchy, people, workflow and reference validation passed
+  - id: UABC-VER-SOURCES-001
+    requiredForArchive: true
+    status: in-review
+    type: document-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-ARCH-ENTERPRISE-001]
+    evidence: official OpenSpec, Microsoft Learn, MB-800 and release-plan sources recorded; functional owner review pending
+  - id: UABC-VER-ARCH-001
+    requiredForArchive: true
+    status: in-review
+    type: architecture-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004]
+    evidence: review package created; human approval not recorded
+  - id: UABC-VER-CAP-001
+    requiredForArchive: true
+    status: in-review
+    type: capability-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-CAP-001, UABC-REQ-CAP-002]
+    evidence: hierarchical catalog and assignments prepared; process-owner approval pending
+  - id: UABC-VER-BLUEPRINT-APPROVAL-001
+    requiredForArchive: true
+    status: pending
+    type: human-approval
+    executedAt: null
+    environment: repository
+    subjectRefs: [UABC-ARCH-ENTERPRISE-001]
+    evidence: null
+  - id: UABC-VER-ARCHIVE-DRYRUN-001
+    requiredForArchive: true
+    status: passed
+    type: archive-dry-run
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001]
+    evidence: evidence/archive-dry-run-2026-07-10.yaml; archive exit 0 and post-archive npm test exit 0 with active changes 0
+  - id: UABC-VER-GOV-SELFTEST-001
+    requiredForArchive: true
+    status: passed
+    type: governance-negative-and-positive-selftest
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001, UABC-REQ-GOV-004]
+    evidence: evidence/governance-selftests-2026-07-10.yaml; required negative and positive cases behaved as specified

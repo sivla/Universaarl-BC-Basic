@@ -1,0 +1,18 @@
+schemaVersion: 1
+verificationId: UABC-VER-GOV-SELFTEST-001
+executedAt: 2026-07-10
+environment: disposable copies below V2/.tmp/governance-selftests
+realChangeArchived: false
+cases:
+  - { name: archive readiness without approval, expected: fail, exit: 1, observed: proposed artifacts pending approval in-review required verifications and unsynchronized specs rejected }
+  - { name: proposed artifacts after raw archive, expected: fail, archiveExit: 0, validationExit: 1, observed: both canonical artifacts rejected as proposed after governing change archive }
+  - { name: invented capability evidence ID, expected: fail, exit: 1, observed: UABC-VER-FAKE-999 rejected }
+  - { name: planned unimplemented scenario ID, expected: pass, exit: 0, observed: planned capability may reserve UABC-SCN-UNIMPLEMENTED-999 }
+  - { name: SB-3PL company and site conflict, expected: fail, exit: 1, observed: UAS-DE location referencing UAM-DE site rejected }
+  - { name: fully approved and synchronized simulation, expected: pass, syncGeneratorArchiveExit: 0, archiveReadyExit: 0, archiveExitWithSkipSpecs: 0, postArchiveNpmTestExit: 0 }
+discardedAttempt:
+  description: byte-copying delta specs into openspec/specs
+  result: post-archive validation failed because ADDED delta format is not a valid merged main spec
+  correction: use OpenSpec-generated merged specs and validate semantic Requirement and Scenario ID synchronization
+cleanupRequired: true
+

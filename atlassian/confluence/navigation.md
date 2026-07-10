@@ -1,0 +1,13 @@
+# UABC Space Navigation
+
+- [Projektfuehrung](pages/00-project.md)
+  - [Unternehmensprofil](pages/10-company-profile.md)
+  - [Discovery](pages/20-discovery.md)
+  - [Blueprint v0.1](pages/30-blueprint.md)
+    - [Prozesslandkarte](pages/31-processes.md)
+    - [Entscheidungen](pages/32-decisions.md)
+  - Datenmigration (geplant; Seite entsteht bei aktiver Welle)
+  - [Tests und Evidence](pages/50-tests.md)
+  - Schulung (geplant; Seite entsteht bei aktiver Welle)
+  - Cutover (geplant; Seite entsteht bei aktiver Welle)
+  - Uebergabe und Hypercare (geplant; Seite entsteht bei aktiver Welle)

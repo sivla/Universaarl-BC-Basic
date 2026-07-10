@@ -1,0 +1,27 @@
+schemaVersion: 1
+artifactId: UABC-GOV-REFERENCE-001
+title: Stable reference lifecycle
+states: [proposed, approved, historical, superseded, retired]
+resolutionOrder:
+  - state: approved
+    pathPattern: openspec/specs/**/spec.md
+  - state: proposed
+    pathPattern: openspec/changes/*/specs/**/spec.md
+  - state: historical
+    pathPattern: openspec/changes/archive/*/specs/**/spec.md
+rules:
+  stableReferenceFormat: fachliche ID, never a change path
+  activeChangesAllowed: 0..1
+  approvedTruthPath: openspec/specs
+  historicalFallbackOnly: true
+  canonicalStructuredPaths:
+    architecture: architecture/enterprise-blueprint.yaml
+    capabilities: capabilities/catalog.yaml
+    evidence: evidence/verification-register.yaml
+  archivePreconditions:
+    - human approval recorded
+    - canonical structured artifacts updated from proposed to approved
+    - all required verifications passed
+    - active change specs synchronized to openspec/specs
+    - local validation passed
+  conflictRule: duplicate IDs in one lifecycle state are invalid; cross-state resolution follows approved over proposed over historical

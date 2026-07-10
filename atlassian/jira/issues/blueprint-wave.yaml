@@ -1,0 +1,228 @@
+issues:
+  - key: UABC-1
+    type: Epic
+    summary: Establish Universaarl enterprise blueprint v0.1
+    parent: null
+    status: In Progress
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-17
+    effort: 13d
+    dependencies: []
+    dataRequirements: [synthetic enterprise model, official source register]
+    acceptanceCriteria:
+      - All blueprint requirements and capabilities are reviewable.
+      - OpenSpec and local reference checks pass.
+      - Human approval remains explicit and pending.
+    referenceIds: [UABC-REQ-GOV-001, UABC-ARCH-ENTERPRISE-001]
+    confluenceRefs: [UABC-PROJECT, UABC-BLUEPRINT]
+    evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T10:00:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T10:15:00+02:00, from: Ready, to: In Progress, by: P-002 }
+
+  - key: UABC-2
+    type: Story
+    summary: Define enterprise and BC company architecture
+    parent: UABC-1
+    status: In Review
+    components: [Projektmanagement, Finance]
+    assignee: P-002
+    customerRole: P-003
+    startDate: 2026-07-10
+    dueDate: 2026-07-15
+    effort: 5d
+    dependencies: []
+    dataRequirements: [legal entities, sites, currencies, localization assumptions]
+    acceptanceCriteria: [Organizational layers are distinct, Legal entity mapping is unambiguous]
+    referenceIds: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004, UABC-ARCH-ENTERPRISE-001]
+    confluenceRefs: [UABC-COMPANY, UABC-BLUEPRINT]
+    evidenceRefs: [UABC-VER-ARCH-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T10:20:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T10:30:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T14:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-3
+    type: Story
+    summary: Define process and capability portfolio
+    parent: UABC-1
+    status: In Review
+    components: [Finance, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Reporting]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-15
+    effort: 8d
+    dependencies: [UABC-2]
+    dataRequirements: [business model, process owners, locations, products and services]
+    acceptanceCriteria: [Every capability has all mandatory planning attributes, E2E chains are complete]
+    referenceIds: [UABC-REQ-CAP-001, UABC-REQ-CAP-002, UABC-CAP-CATALOG-001]
+    confluenceRefs: [UABC-BLUEPRINT, UABC-PROCESSES]
+    evidenceRefs: [UABC-VER-CAP-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T10:35:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T10:40:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T14:10:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-4
+    type: Story
+    summary: Define security, data, reporting and training governance
+    parent: UABC-1
+    status: In Review
+    components: [Finance, Reporting, Daten, Training, Projektmanagement]
+    assignee: P-004
+    customerRole: P-003
+    startDate: 2026-07-10
+    dueDate: 2026-07-16
+    effort: 5d
+    dependencies: [UABC-2]
+    dataRequirements: [role matrix, segregation rules, data domains, learning groups]
+    acceptanceCriteria: [Least privilege target is documented, Data and training owners are named]
+    referenceIds: [UABC-REQ-ENT-004, UABC-REQ-CAP-003, UABC-REQ-CAP-005]
+    confluenceRefs: [UABC-BLUEPRINT, UABC-DISCOVERY]
+    evidenceRefs: [UABC-VER-ARCH-001, UABC-VER-CAP-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T10:45:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T11:00:00+02:00, from: Ready, to: In Progress, by: P-004 }
+      - { at: 2026-07-10T14:20:00+02:00, from: In Progress, to: In Review, by: P-004 }
+
+  - key: UABC-5
+    type: Story
+    summary: Establish OpenSpec governance and project-local workflow
+    parent: UABC-1
+    status: In Review
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-14
+    effort: 3d
+    dependencies: []
+    dataRequirements: [OpenSpec 1.5.0 documentation, governance rules]
+    acceptanceCriteria: [Custom schema validates, Exactly one active change exists]
+    referenceIds: [UABC-REQ-GOV-001, UABC-GOV-REFERENCE-001]
+    confluenceRefs: [UABC-PROJECT, UABC-DECISIONS]
+    evidenceRefs: [UABC-VER-LOCAL-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T09:45:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T09:50:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T14:25:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-6
+    type: Story
+    summary: Simulate Blueprint project in local Jira and Confluence
+    parent: UABC-1
+    status: In Progress
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-16
+    effort: 3d
+    dependencies: [UABC-5]
+    dataRequirements: [people, issue links, page hierarchy]
+    acceptanceCriteria: [Only Blueprint epic and necessary children exist, All local references validate]
+    referenceIds: [UABC-REQ-GOV-002, UABC-GOV-REFERENCE-001]
+    confluenceRefs: [UABC-PROJECT]
+    evidenceRefs: [UABC-VER-REFS-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T11:10:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T11:15:00+02:00, from: Ready, to: In Progress, by: P-002 }
+
+  - key: UABC-7
+    type: Sub-task
+    summary: Record official sources and version baseline
+    parent: UABC-5
+    status: In Review
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-003
+    startDate: 2026-07-10
+    dueDate: 2026-07-11
+    effort: 1d
+    dependencies: []
+    dataRequirements: [official URLs, retrieval date, version and localization]
+    acceptanceCriteria: [Source decisions and uncertainties are explicit]
+    referenceIds: [SRC-OPSX-001, SRC-BC-001, UABC-ARCH-ENTERPRISE-001]
+    confluenceRefs: [UABC-DECISIONS]
+    evidenceRefs: [UABC-VER-SOURCES-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T11:20:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T11:25:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T14:30:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-8
+    type: Sub-task
+    summary: Validate OpenSpec schema and active change
+    parent: UABC-5
+    status: In Review
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-11
+    effort: 0.5d
+    dependencies: [UABC-7]
+    dataRequirements: [local OpenSpec artifacts]
+    acceptanceCriteria: [Schema and strict OpenSpec validation exit with code zero]
+    referenceIds: [UABC-REQ-GOV-001, UABC-REQ-GOV-003]
+    confluenceRefs: [UABC-TESTS]
+    evidenceRefs: [UABC-VER-LOCAL-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T11:30:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T14:40:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T15:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-9
+    type: Sub-task
+    summary: Validate Jira and Confluence references
+    parent: UABC-6
+    status: In Review
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-11
+    effort: 0.5d
+    dependencies: [UABC-7]
+    dataRequirements: [YAML issues, people, workflow, Markdown metadata]
+    acceptanceCriteria: [IDs parents people statuses and references pass locally]
+    referenceIds: [UABC-REQ-GOV-002]
+    confluenceRefs: [UABC-TESTS]
+    evidenceRefs: [UABC-VER-REFS-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T11:35:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T14:45:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T15:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-10
+    type: Task
+    summary: Conduct cross-functional Blueprint review
+    parent: UABC-1
+    status: Backlog
+    components: [Projektmanagement, Finance, Daten, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-15
+    dueDate: 2026-07-17
+    effort: 2d
+    dependencies: [UABC-2, UABC-3, UABC-4, UABC-8, UABC-9]
+    dataRequirements: [review comments, decision log, approvals]
+    acceptanceCriteria: [Open questions have owners, Approval or rejection is recorded by humans]
+    referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-CAP-CATALOG-001]
+    confluenceRefs: [UABC-BLUEPRINT, UABC-DECISIONS]
+    evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
+    historySynthetic: true
+    history: []

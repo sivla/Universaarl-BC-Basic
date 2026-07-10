@@ -1,0 +1,38 @@
+name: universaarl-delivery
+version: 1
+description: Evidence-first Universaarl delivery workflow with explicit plan and verification
+artifacts:
+  - id: proposal
+    generates: proposal.md
+    description: Change intent, scope, outcomes, risks and governance
+    template: proposal.md
+    requires: []
+  - id: specs
+    generates: specs/**/*.md
+    description: Testable business requirements and scenarios
+    template: spec.md
+    requires: [proposal]
+  - id: design
+    generates: design.md
+    description: Functional, solution and organizational design
+    template: design.md
+    requires: [proposal]
+  - id: delivery-plan
+    generates: delivery-plan.md
+    description: Waves, ownership, dependencies, evidence and decision gates
+    template: delivery-plan.md
+    requires: [specs, design]
+  - id: tasks
+    generates: tasks.md
+    description: Executable delivery checklist
+    template: tasks.md
+    requires: [delivery-plan]
+  - id: verification
+    generates: verification.md
+    description: Evidence ledger, validation results and approval state
+    template: verification.md
+    requires: [tasks]
+apply:
+  requires: [tasks]
+  tracks: tasks.md
+

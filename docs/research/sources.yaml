@@ -1,0 +1,15 @@
+schemaVersion: 1
+sources:
+  - { id: SRC-OPSX-001, kind: official, title: OpenSpec releases, url: https://github.com/Fission-AI/OpenSpec/releases, retrievedAt: 2026-07-10, appliesTo: OpenSpec 1.5.0 stable }
+  - { id: SRC-OPSX-002, kind: official, title: OpenSpec customization, url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/customization.md, retrievedAt: 2026-07-10, appliesTo: OpenSpec 1.5.0 }
+  - { id: SRC-OPSX-003, kind: official, title: OPSX workflow, url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/opsx.md, retrievedAt: 2026-07-10, appliesTo: OpenSpec 1.5.0 }
+  - { id: SRC-BC-001, kind: microsoft-learn, title: Business Central 2026 Wave 1 overview, url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/, retrievedAt: 2026-07-10, appliesTo: planning reference only }
+  - { id: SRC-BC-002, kind: microsoft-learn, title: 2026 Wave 1 planned features, url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/planned-features, retrievedAt: 2026-07-10, appliesTo: planning reference only; availability not proven }
+  - { id: SRC-BC-003, kind: microsoft-learn, title: MB-800 study guide, url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/mb-800, retrievedAt: 2026-07-10, appliesTo: functional consulting scope }
+  - { id: SRC-BC-004, kind: microsoft-learn, title: Set up locations to use bins, url: https://learn.microsoft.com/en-gb/dynamics365/business-central/warehouse-how-to-set-up-locations-to-use-bins, retrievedAt: 2026-07-10, appliesTo: location and bin design }
+  - { id: SRC-BC-005, kind: microsoft-learn, title: Basic warehouse tasks, url: https://learn.microsoft.com/en-us/training/modules/set-up-basic-warehouse-tasks/, retrievedAt: 2026-07-10, appliesTo: warehouse complexity design }
+  - { id: SRC-BC-006, kind: microsoft-learn, title: Analyze data by dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/bi-how-analyze-data-dimension, retrievedAt: 2026-07-10, appliesTo: dimensions and reporting }
+  - { id: SRC-BC-007, kind: microsoft-learn, title: Manage intercompany transactions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/intercompany-manage, retrievedAt: 2026-07-10, appliesTo: intercompany }
+  - { id: SRC-BC-008, kind: microsoft-learn, title: Consolidate financial data, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-consolidated-company-reporting, retrievedAt: 2026-07-10, appliesTo: consolidation }
+  - { id: SRC-BC-009, kind: microsoft-learn, title: Assign permissions to users and groups, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-granular-permissions, retrievedAt: 2026-07-10, appliesTo: security and company-scoped permissions }
+

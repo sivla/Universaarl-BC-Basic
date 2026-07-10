@@ -1,0 +1,25 @@
+schema: universaarl-delivery
+context: |
+  Projekt: Universaarl Business Central Blueprint V2.
+  OpenSpec ist fuehrend. Null oder maximal ein aktiver Change; waehrend Delivery gilt WIP=1.
+  Sprache der Artefakte: Deutsch; stabile IDs bleiben ASCII.
+  planningReference: 2026 Release Wave 1.
+  actualSandboxBaseline: unknown.
+  Aus der Planungsreferenz darf keine Feature-Verfuegbarkeit abgeleitet werden.
+  Spaetere Zielumgebung: ausschliesslich Sandbox playthru; nur synthetische Daten.
+  Fakten, Annahmen, Empfehlungen, Alternativen und Entscheidungen sind zu trennen.
+  Keine Erfolgsaussage ohne referenzierbare Evidence.
+rules:
+  proposal:
+    - Scope, Nicht-Ziele, Risiken und menschliches Freigabe-Gate nennen.
+  specs:
+    - Stabile Requirement- und Szenario-IDs verwenden.
+    - Anforderungen mit Geschäftszweck und pruefbarem Szenario formulieren.
+  design:
+    - BC-Begriffe fachlich trennen und Architekturentscheidungen begruenden.
+  delivery-plan:
+    - Abhaengigkeiten, Wellen, Verantwortliche und Nachweisart angeben.
+  tasks:
+    - Nur konkrete, pruefbare Arbeit als Checkbox fuehren.
+  verification:
+    - Ausgefuehrte und ausstehende Nachweise sowie Freigabestatus explizit trennen.

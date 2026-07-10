@@ -1,0 +1,16 @@
+name: UABC Delivery Workflow
+statuses: [Backlog, Ready, In Progress, Blocked, In Review, Done]
+transitions:
+  - { from: Backlog, to: Ready }
+  - { from: Ready, to: In Progress }
+  - { from: In Progress, to: Blocked }
+  - { from: In Progress, to: In Review }
+  - { from: Blocked, to: In Progress }
+  - { from: Blocked, to: In Review }
+  - { from: In Review, to: In Progress }
+  - { from: In Review, to: Done }
+doneRequires:
+  - acceptance criteria met
+  - OpenSpec verification recorded
+  - human approval where required
+

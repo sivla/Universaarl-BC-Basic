@@ -1,0 +1,106 @@
+schemaVersion: 1
+artifactId: UABC-CAP-CATALOG-001
+title: Hierarchical Business Central capability catalog
+lifecycleStatus: proposed
+governingChange: establish-universaarl-enterprise-blueprint
+lastReviewed: 2026-07-10
+statusValues: [planned, validated, approved, deferred, out-of-scope]
+domains:
+  - id: UABC-CAP-FIN
+    name: Finance
+    capabilities:
+      - { id: UABC-CAP-FIN-R2R, name: Record to Report, status: planned, purpose: localized ledgers and controlled period close, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-005, P-003], sourceIds: [SRC-BC-003], rationale: foundational posting and audit chain for every legal entity, wave: W1, scenarioId: UABC-SCN-FIN-001 }
+      - { id: UABC-CAP-FIN-AR, name: Receivables, status: planned, purpose: invoice settlement credit and customer ledger control, companies: [UAD-DE, UAP-DE], locations: [UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-005, P-011], sourceIds: [SRC-BC-003], rationale: product and project businesses require different billing triggers but shared ledger control, wave: W1, scenarioId: UABC-SCN-FIN-003 }
+      - { id: UABC-CAP-FIN-AP, name: Payables, status: planned, purpose: controlled vendor invoices payments and liabilities, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-005, P-003], sourceIds: [SRC-BC-003], rationale: centralized processing with approval separation supports the group model, wave: W1, scenarioId: UABC-SCN-FIN-004 }
+      - { id: UABC-CAP-FIN-BANK, name: Cash and Bank, status: planned, purpose: payment proposal approval export simulation and reconciliation, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-005, P-003], sourceIds: [SRC-BC-003], rationale: payment preparation and approval must remain segregated, wave: W1, scenarioId: UABC-SCN-FIN-002 }
+  - id: UABC-CAP-PUR
+    name: Einkauf
+    capabilities:
+      - { id: UABC-CAP-PUR-SOURCING, name: Vendor and Source Management, status: planned, purpose: governed suppliers terms and source data, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-007, P-016], sourceIds: [SRC-BC-003], rationale: manufacturing distribution and projects buy different categories under shared data governance, wave: W2, scenarioId: UABC-SCN-P2P-002 }
+      - { id: UABC-CAP-PUR-ORDER, name: Purchase Ordering, status: planned, purpose: approve and order materials and services, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-LOC-NK-WERK, UABC-LOC-SLS-DC, UABC-LOC-IGB-PROJ], roles: [P-007], sourceIds: [SRC-BC-003], rationale: purchase commitments must connect demand receipt invoice and payment, wave: W2, scenarioId: UABC-SCN-P2P-001 }
+      - { id: UABC-CAP-PUR-INVOICE, name: Purchase Invoice Matching, status: planned, purpose: match receipt service confirmation and invoice before posting, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-005, P-007], sourceIds: [SRC-BC-003], rationale: three-way control protects inventory value and project cost, wave: W2, scenarioId: UABC-SCN-P2P-003 }
+  - id: UABC-CAP-SAL
+    name: Verkauf
+    capabilities:
+      - { id: UABC-CAP-SAL-QUOTE, name: Quote and Pricing, status: planned, purpose: consistent offers prices discounts and approvals, companies: [UAD-DE, UAP-DE], locations: [UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-011, P-010], sourceIds: [SRC-BC-003], rationale: series products and projects need governed commercial commitments, wave: W2, scenarioId: UABC-SCN-O2C-002 }
+      - { id: UABC-CAP-SAL-ORDER, name: Sales Order Fulfillment, status: planned, purpose: convert demand into controlled reservation shipment and invoice, companies: [UAD-DE], locations: [UABC-LOC-SLS-DC], roles: [P-011], sourceIds: [SRC-BC-003], rationale: external product customers are fulfilled by distribution, wave: W2, scenarioId: UABC-SCN-O2C-001 }
+      - { id: UABC-CAP-SAL-CREDIT, name: Credit and Receivables Control, status: planned, purpose: prevent uncontrolled customer exposure, companies: [UAD-DE, UAP-DE], locations: [UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-010, P-005], sourceIds: [SRC-BC-003], rationale: credit decisions bridge sales execution and finance risk, wave: W2, scenarioId: UABC-SCN-O2C-003 }
+  - id: UABC-CAP-ITEM
+    name: Artikel
+    capabilities:
+      - { id: UABC-CAP-ITEM-MASTER, name: Item Master Governance, status: planned, purpose: govern item identity category unit and posting attributes, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-016, P-006], sourceIds: [SRC-BC-003], rationale: consistent item identity is prerequisite for trade inventory manufacturing and service, wave: W2, scenarioId: UABC-SCN-ITEM-001 }
+      - { id: UABC-CAP-ITEM-TRACK, name: Item Tracking, status: planned, purpose: trace controlled products through supply sale and service, companies: [UAS-DE, UAD-DE], locations: [UABC-LOC-NK-WERK, UABC-LOC-SLS-DC, UABC-LOC-TR-SVC], roles: [P-009, P-012], sourceIds: [SRC-BC-003], rationale: warranty and installed-base use cases may require serial or lot traceability, wave: W2, scenarioId: UABC-SCN-ITEM-002 }
+      - { id: UABC-CAP-ITEM-COST, name: Item Costing, status: planned, purpose: value purchased manufactured and sold inventory consistently, companies: [UAS-DE, UAD-DE], locations: [UABC-SITE-NK, UABC-SITE-SLS], roles: [P-006], sourceIds: [SRC-BC-003], rationale: margin and production variance depend on an explicit costing decision, wave: W2, scenarioId: UABC-SCN-ITEM-003 }
+  - id: UABC-CAP-INV
+    name: Bestand
+    capabilities:
+      - { id: UABC-CAP-INV-AVAIL, name: Availability and Reservation, status: planned, purpose: promise stock without double allocation, companies: [UAD-DE, UAP-DE], locations: [UABC-LOC-SLS-DC, UABC-LOC-IGB-PROJ], roles: [P-011, P-014], sourceIds: [SRC-BC-003], rationale: product and project demand compete for controlled supply, wave: W2, scenarioId: UABC-SCN-INV-002 }
+      - { id: UABC-CAP-INV-TRANSFER, name: Inventory Transfer, status: planned, purpose: move stock with in-transit accountability, companies: [UAS-DE, UAD-DE], locations: [UABC-LOC-NK-WERK, UABC-LOC-NK-PROD, UABC-LOC-TR-SVC, UABC-LOC-VAN-01, UABC-LOC-VAN-02], roles: [P-009, P-013], sourceIds: [SRC-BC-003], rationale: production staging service depots and vans need traceable replenishment, wave: W2, scenarioId: UABC-SCN-INV-001 }
+      - { id: UABC-CAP-INV-COUNT, name: Physical Inventory, status: planned, purpose: reconcile physical and book stock, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-LOC-NK-WERK, UABC-LOC-SLS-DC, UABC-LOC-TR-SVC, UABC-LOC-VAN-01, UABC-LOC-IGB-PROJ], roles: [P-009, P-013], sourceIds: [SRC-BC-003], rationale: each warehouse class needs a proportionate count control, wave: W2, scenarioId: UABC-SCN-INV-003 }
+  - id: UABC-CAP-WHS
+    name: Lager
+    capabilities:
+      - { id: UABC-CAP-WHS-ADV, name: Advanced Warehouse Plant, status: planned, purpose: separate receipt quality put-away pick and shipment tasks, companies: [UAS-DE], locations: [UABC-LOC-NK-WERK], roles: [P-009], sourceIds: [SRC-BC-004, SRC-BC-005], rationale: plant volume and segregation justify advanced warehouse control, wave: W2, scenarioId: UABC-SCN-WHS-002 }
+      - { id: UABC-CAP-WHS-BASIC, name: Basic Warehouse Distribution, status: planned, purpose: use bins and inventory put-away and pick with moderate complexity, companies: [UAD-DE], locations: [UABC-LOC-SLS-DC], roles: [P-009], sourceIds: [SRC-BC-004, SRC-BC-005], rationale: spare-parts distribution needs bins without full advanced overhead, wave: W2, scenarioId: UABC-SCN-WHS-003 }
+      - { id: UABC-CAP-WHS-SIMPLE, name: Simple Depot and Mobile Stock, status: planned, purpose: control low-volume stock without bins, companies: [UAD-DE, UAP-DE], locations: [UABC-LOC-TR-SVC, UABC-LOC-VAN-01, UABC-LOC-VAN-02, UABC-LOC-IGB-PROJ], roles: [P-013, P-014], sourceIds: [SRC-BC-005], rationale: low volume does not justify bin task complexity, wave: W2, scenarioId: UABC-SCN-WHS-004 }
+  - id: UABC-CAP-MFG
+    name: Produktion
+    capabilities:
+      - { id: UABC-CAP-MFG-ENG, name: BOM and Routing Governance, status: planned, purpose: define material and capacity standards, companies: [UAS-DE], locations: [UABC-SITE-NK], roles: [P-008, P-006], sourceIds: [SRC-BC-001], rationale: repeatable sensor and controller production needs controlled structures, wave: W3, scenarioId: UABC-SCN-MFG-002 }
+      - { id: UABC-CAP-MFG-PLAN, name: Production Planning, status: planned, purpose: turn demand and policy into feasible supply, companies: [UAS-DE], locations: [UABC-SITE-NK], roles: [P-008], sourceIds: [SRC-BC-001], rationale: production and purchased supply must be coordinated before release, wave: W3, scenarioId: UABC-SCN-MFG-003 }
+      - { id: UABC-CAP-MFG-EXEC, name: Production Execution and Cost, status: planned, purpose: post consumption output capacity and actual cost, companies: [UAS-DE], locations: [UABC-LOC-NK-PROD, UABC-LOC-NK-WERK], roles: [P-008, P-006], sourceIds: [SRC-BC-001], rationale: end-to-end manufacturing proof requires quantity and value entries, wave: W3, scenarioId: UABC-SCN-MFG-001 }
+  - id: UABC-CAP-PRJ
+    name: Projekte
+    capabilities:
+      - { id: UABC-CAP-PRJ-BUDGET, name: Project Budget and Resources, status: planned, purpose: plan engineering material external cost and margin, companies: [UAP-DE], locations: [UABC-SITE-IGB], roles: [P-014], sourceIds: [SRC-BC-001], rationale: project governance starts with approved scope and budget, wave: W3, scenarioId: UABC-SCN-PRJ-002 }
+      - { id: UABC-CAP-PRJ-EXEC, name: Time Material and Project Consumption, status: planned, purpose: capture actual project effort and material, companies: [UAP-DE], locations: [UABC-LOC-IGB-PROJ], roles: [P-014, P-015], sourceIds: [SRC-BC-001], rationale: profitability and billing depend on attributable actuals, wave: W3, scenarioId: UABC-SCN-PRJ-003 }
+      - { id: UABC-CAP-PRJ-WIP, name: WIP and Project Billing, status: planned, purpose: recognize and invoice project value by contract method, companies: [UAP-DE], locations: [UABC-SITE-IGB], roles: [P-015, P-003], sourceIds: [SRC-BC-001], rationale: milestone and time-material contracts require explicit WIP decisions, wave: W3, scenarioId: UABC-SCN-PRJ-001 }
+  - id: UABC-CAP-SVC
+    name: Service
+    capabilities:
+      - { id: UABC-CAP-SVC-BASE, name: Installed Base and Service Items, status: planned, purpose: relate serviced serial assets to customer and location, companies: [UAD-DE], locations: [UABC-SITE-TR], roles: [P-012], sourceIds: [SRC-BC-001], rationale: warranty maintenance and repair require identifiable installed products, wave: W3, scenarioId: UABC-SCN-SVC-002 }
+      - { id: UABC-CAP-SVC-ORDER, name: Service Order Execution, status: planned, purpose: dispatch diagnose consume parts and record labor, companies: [UAD-DE], locations: [UABC-LOC-TR-SVC, UABC-LOC-VAN-01, UABC-LOC-VAN-02], roles: [P-012, P-013], sourceIds: [SRC-BC-001], rationale: service-to-cash must join technician work and mobile stock, wave: W3, scenarioId: UABC-SCN-SVC-001 }
+      - { id: UABC-CAP-SVC-CONTRACT, name: Service Contracts, status: planned, purpose: govern recurring maintenance coverage and billing, companies: [UAD-DE], locations: [UABC-SITE-TR], roles: [P-012], sourceIds: [SRC-BC-001], rationale: CARE revenue requires contract coverage and periodic invoicing, wave: W3, scenarioId: UABC-SCN-SVC-003 }
+  - id: UABC-CAP-FA
+    name: Anlagen
+    capabilities:
+      - { id: UABC-CAP-FA-MASTER, name: Fixed Asset Master and Books, status: planned, purpose: classify machines test equipment vehicles and IT assets, companies: [UAM-DE, UAS-DE, UAD-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS], roles: [P-005, P-006], sourceIds: [SRC-BC-003], rationale: ownership and depreciation policy differ from inventory tracking, wave: W3, scenarioId: UABC-SCN-FA-002 }
+      - { id: UABC-CAP-FA-LIFE, name: Acquire Depreciate Retire, status: planned, purpose: post acquisition depreciation transfer and disposal, companies: [UAM-DE, UAS-DE, UAD-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS], roles: [P-005, P-006], sourceIds: [SRC-BC-003], rationale: a full asset lifecycle is required for balance-sheet evidence, wave: W3, scenarioId: UABC-SCN-FA-001 }
+  - id: UABC-CAP-IC
+    name: Intercompany
+    capabilities:
+      - { id: UABC-CAP-IC-DOC, name: Intercompany Documents, status: planned, purpose: exchange product and service documents between group companies, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-005], sourceIds: [SRC-BC-007], rationale: internal product and shared-service flows must avoid uncontrolled duplicate entry, wave: W4, scenarioId: UABC-SCN-IC-001 }
+      - { id: UABC-CAP-IC-MAP, name: Intercompany Mapping and Reconciliation, status: planned, purpose: map accounts dimensions and partner balances, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-003, P-005], sourceIds: [SRC-BC-007], rationale: consolidation requires matched counterparties before elimination, wave: W4, scenarioId: UABC-SCN-IC-002 }
+  - id: UABC-CAP-CONS
+    name: Konsolidierung
+    capabilities:
+      - { id: UABC-CAP-CONS-IMPORT, name: Consolidation Data Transfer, status: planned, purpose: collect subsidiary financial data into UAC-CONS, companies: [UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003], sourceIds: [SRC-BC-008], rationale: the group requires traceable multi-company financial aggregation, wave: W4, scenarioId: UABC-SCN-CONS-001 }
+      - { id: UABC-CAP-CONS-ELIM, name: Elimination and Group Close, status: planned, purpose: eliminate internal balances and produce group statements, companies: [UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003], sourceIds: [SRC-BC-008], rationale: IC transfer alone does not create consolidated truth, wave: W4, scenarioId: UABC-SCN-CONS-002 }
+  - id: UABC-CAP-RPT
+    name: Reporting
+    capabilities:
+      - { id: UABC-CAP-RPT-FIN, name: Financial Reports and Analysis Views, status: planned, purpose: local and group management statements with drilldown, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE, UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003, P-006], sourceIds: [SRC-BC-006], rationale: governed dimensions must produce reconcilable management views, wave: W4, scenarioId: UABC-SCN-RPT-001 }
+      - { id: UABC-CAP-RPT-OPS, name: Operational Profitability, status: planned, purpose: analyze product project service and working-capital performance, companies: [UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-IGB], roles: [P-006, P-010, P-014, P-012], sourceIds: [SRC-BC-006], rationale: each operating model needs an accountable profitability view, wave: W4, scenarioId: UABC-SCN-RPT-002 }
+      - { id: UABC-CAP-RPT-POWERBI, name: Power BI Semantic Reporting, status: planned, purpose: cross-company management consumption after source quality gate, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-003, P-006], sourceIds: [SRC-BC-001], rationale: visualization is useful only after definitions and drilldown reconcile to BC, wave: W4, scenarioId: UABC-SCN-RPT-003 }
+  - id: UABC-CAP-ADM
+    name: Administration und Sicherheit
+    capabilities:
+      - { id: UABC-CAP-ADM-ACCESS, name: Identity and Permission Management, status: planned, purpose: enforce environment admission least privilege and company scope, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE, UAC-CONS], locations: [UABC-SITE-SB], roles: [P-004], sourceIds: [SRC-BC-009], rationale: role usability and object permissions are separate controls, wave: W1, scenarioId: UABC-SCN-SEC-002 }
+      - { id: UABC-CAP-ADM-SOD, name: Segregation and Approval Controls, status: planned, purpose: separate master data posting payment and approval duties, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-003, P-004], sourceIds: [SRC-BC-009], rationale: small-team dual responsibilities require explicit compensating controls, wave: W1, scenarioId: UABC-SCN-SEC-001 }
+      - { id: UABC-CAP-ADM-JOBS, name: Operational Administration, status: planned, purpose: govern number series email job queues periods and monitoring, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-004], sourceIds: [SRC-BC-003], rationale: reliable processing needs owned background and core administrative setup, wave: W1, scenarioId: UABC-SCN-ADM-001 }
+  - id: UABC-CAP-DATA
+    name: Datenmigration
+    capabilities:
+      - { id: UABC-CAP-DATA-GOV, name: Data Ownership and Quality, status: planned, purpose: assign accountable owners rules and issue resolution, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-016], sourceIds: [SRC-BC-003], rationale: migration quality cannot be delegated to tooling, wave: W5, scenarioId: UABC-SCN-DATA-002 }
+      - { id: UABC-CAP-DATA-LOAD, name: Trial and Cutover Loads, status: planned, purpose: reproducibly transform load and reconcile approved data, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB], roles: [P-016, P-005], sourceIds: [SRC-BC-003], rationale: counts totals errors and rerun strategy are mandatory migration evidence, wave: W5, scenarioId: UABC-SCN-DATA-001 }
+  - id: UABC-CAP-TRN
+    name: Training
+    capabilities:
+      - { id: UABC-CAP-TRN-ROLE, name: Role-Based Learning, status: planned, purpose: teach users their approved process and control responsibilities, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-TR, UABC-SITE-IGB], roles: [P-015], sourceIds: [SRC-BC-003], rationale: module-only training does not prove job readiness, wave: W5, scenarioId: UABC-SCN-TRN-001 }
+      - { id: UABC-CAP-TRN-TRAINER, name: Trainer and Key User Enablement, status: planned, purpose: enable repeatable delivery support and local adoption, companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS, UABC-SITE-TR, UABC-SITE-IGB], roles: [P-015, P-002], sourceIds: [SRC-BC-003], rationale: sustainable adoption requires trainers who can explain both clicks and business effects, wave: W5, scenarioId: UABC-SCN-TRN-002 }
+  - id: UABC-CAP-PM
+    name: Projektmanagement
+    capabilities:
+      - { id: UABC-CAP-PM-SPEC, name: OpenSpec Change Governance, status: planned, purpose: keep proposed approved and historical truth distinct, companies: [UAM-DE], locations: [UABC-SITE-SB], roles: [P-002], sourceIds: [SRC-OPSX-002, SRC-OPSX-003], rationale: stable IDs and WIP control prevent project truth drift, wave: W0, scenarioId: UABC-SCN-PM-001, evidenceId: UABC-VER-LOCAL-001 }
+      - { id: UABC-CAP-PM-EVIDENCE, name: Evidence and Decision Governance, status: planned, purpose: link claims decisions verification and human approval, companies: [UAM-DE], locations: [UABC-SITE-SB], roles: [P-001, P-002], sourceIds: [SRC-OPSX-003], rationale: completion status must not substitute for evidence, wave: W0, scenarioId: UABC-SCN-PM-002, evidenceId: UABC-VER-REFS-001 }
+      - { id: UABC-CAP-PM-DELIVERY, name: Wave and Dependency Management, status: planned, purpose: sequence foundation trade operations group reporting and adoption, companies: [UAM-DE], locations: [UABC-SITE-SB], roles: [P-002], sourceIds: [SRC-OPSX-003], rationale: downstream process proof depends on stable finance data and security foundations, wave: W0, scenarioId: UABC-SCN-PM-003, evidenceId: UABC-VER-BLUEPRINT-APPROVAL-001 }

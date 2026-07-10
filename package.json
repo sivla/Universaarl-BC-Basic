@@ -1,0 +1,20 @@
+{
+  "name": "universaarl-bc-blueprint-v2",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-first Business Central implementation blueprint governed by OpenSpec",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "validate:openspec-schema": "openspec schema validate universaarl-delivery",
+    "validate:openspec": "openspec validate --all --strict --no-interactive",
+    "validate:references": "node scripts/validate-project.mjs",
+    "validate:archive-ready": "node scripts/validate-project.mjs --archive-ready",
+    "test": "npm run validate:openspec-schema && npm run validate:openspec && npm run validate:references"
+  },
+  "devDependencies": {
+    "@fission-ai/openspec": "1.5.0",
+    "yaml": "2.9.0"
+  }
+}

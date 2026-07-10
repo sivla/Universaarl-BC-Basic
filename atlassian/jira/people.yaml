@@ -1,0 +1,18 @@
+people:
+  - { id: P-001, name: Dr. Lena Hartmann, organization: UAM-DE, role: Executive Sponsor, synthetic: true }
+  - { id: P-002, name: Jonas Weber, organization: UAM-DE, role: Program Lead and Solution Owner, synthetic: true }
+  - { id: P-003, name: Miriam Schaefer, organization: UAM-DE, role: Group CFO, synthetic: true }
+  - { id: P-004, name: Tobias Klein, organization: UAM-DE, role: BC Administrator, synthetic: true }
+  - { id: P-005, name: Aylin Demir, organization: UAM-DE, role: Financial Accountant, synthetic: true }
+  - { id: P-006, name: Felix Braun, organization: UAS-DE, role: Plant Controller, synthetic: true }
+  - { id: P-007, name: Katharina Vogel, organization: UAS-DE, role: Strategic Buyer, synthetic: true }
+  - { id: P-008, name: Marco Stein, organization: UAS-DE, role: Production Planner, synthetic: true }
+  - { id: P-009, name: Svenja Roth, organization: UAS-DE, role: Warehouse Lead, synthetic: true }
+  - { id: P-010, name: David Nguyen, organization: UAD-DE, role: Sales Director DACH, synthetic: true }
+  - { id: P-011, name: Nina Becker, organization: UAD-DE, role: Sales Operations, synthetic: true }
+  - { id: P-012, name: Cem Yildiz, organization: UAD-DE, role: Service Manager, synthetic: true }
+  - { id: P-013, name: Paula Hoffmann, organization: UAD-DE, role: Service Technician, synthetic: true }
+  - { id: P-014, name: Leon Wagner, organization: UAP-DE, role: Project Manager, synthetic: true }
+  - { id: P-015, name: Sophie Martin, organization: UAP-DE, role: Project Accountant and Trainer, synthetic: true }
+  - { id: P-016, name: Erik Schneider, organization: UAM-DE, role: Data Steward, synthetic: true }
+

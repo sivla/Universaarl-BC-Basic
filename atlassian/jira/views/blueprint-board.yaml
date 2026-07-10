@@ -1,0 +1,9 @@
+name: Blueprint W0 Board
+filter: epic = UABC-1
+columns:
+  Backlog: [Backlog]
+  Ready: [Ready]
+  Doing: [In Progress, Blocked]
+  Review: [In Review]
+  Done: [Done]
+

@@ -1,0 +1,27 @@
+schemaVersion: 1
+verificationId: UABC-VER-ARCHIVE-DRYRUN-001
+executedAt: 2026-07-10
+copyPath: C:\Users\kkali\Universaarl-BC-Blueprint-V2\.tmp\archive-dry-run
+realChangeModifiedByArchive: false
+preArchive:
+  activeChanges: 1
+  npmTestExit: 0
+archive:
+  command: npm exec openspec -- archive establish-universaarl-enterprise-blueprint --yes --json
+  exit: 0
+  archivedAs: 2026-07-10-establish-universaarl-enterprise-blueprint
+  specsUpdated: true
+  requirementsAdded: 13
+postArchive:
+  activeChanges: 0
+  npmTestExit: 0
+  openSpecValidation: 3 passed, 0 failed
+  stableArtifacts:
+    architecture/enterprise-blueprint.yaml: present
+    capabilities/catalog.yaml: present
+    evidence/verification-register.yaml: present
+  mergedSpecs:
+    - openspec/specs/capability-portfolio/spec.md
+    - openspec/specs/enterprise-model/spec.md
+    - openspec/specs/project-governance/spec.md
+conclusion: OpenSpec archive mechanics merge specs and preserve stable ID resolution, but do not enforce or constitute human approval; governance readiness is tested separately by UABC-VER-GOV-SELFTEST-001.

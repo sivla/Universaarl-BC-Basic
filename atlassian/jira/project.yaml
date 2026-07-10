@@ -1,0 +1,20 @@
+key: UABC
+name: Universaarl Business Central Blueprint V2
+lead: P-002
+components:
+  - Finance
+  - Einkauf
+  - Verkauf
+  - Artikel
+  - Bestand
+  - Lager
+  - Produktion
+  - Projekte
+  - Service
+  - Reporting
+  - Daten
+  - Training
+  - Projektmanagement
+issueTypes: [Epic, Story, Task, Sub-task, Bug]
+sourceOfTruth: openspec
+
