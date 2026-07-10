@@ -1,0 +1,7 @@
+schemaVersion: 1
+artifacts:
+  - artifactId: UABC-GOV-REFERENCE-001
+    title: Stable reference lifecycle
+    canonicalPath: governance/reference-lifecycle.yaml
+    lifecycleStatus: approved
+    purpose: Declares the stable OpenSpec reference resolution and archive lifecycle consumed by Blueprint validators and read-only external adapters.

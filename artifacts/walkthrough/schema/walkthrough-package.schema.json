@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:artifact-schema:walkthrough-package:0.1.0",
+  "title": "Universaarl Walkthrough Package",
+  "type": "object",
+  "required": ["artifactId", "artifactTypeId", "templateVersion", "projectId", "status", "simulationOnly", "phase", "owner", "reviewers", "createdAt", "sourceScenarioRefs", "requirementRefs", "jiraRefs", "evidenceRefs", "sourceRunRefs", "history", "audiences", "playbackModes", "learningObjective", "prerequisites", "steps", "securityAndRedaction", "provenance"],
+  "properties": {
+    "artifactId": { "type": "string", "minLength": 1 },
+    "artifactTypeId": { "const": "UABC-ARTTYPE-WALKTHROUGH-001" },
+    "templateVersion": { "const": "0.1.0" },
+    "projectId": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "in-review", "approved", "retired"] },
+    "simulationOnly": { "type": "boolean" },
+    "phase": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 },
+    "reviewers": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "createdAt": { "type": "string", "format": "date" },
+    "sourceScenarioRefs": { "type": "array", "items": { "type": "string", "pattern": "^UABC-SCN-" }, "minItems": 1, "uniqueItems": true },
+    "requirementRefs": { "type": "array", "items": { "type": "string", "pattern": "^UABC-REQ-" }, "minItems": 1, "uniqueItems": true },
+    "jiraRefs": { "type": "array", "items": { "type": "string", "pattern": "^UABC-[0-9]+$" }, "minItems": 1, "uniqueItems": true },
+    "evidenceRefs": { "type": "array", "items": { "type": "string", "pattern": "^UABC-VER-" }, "minItems": 1, "uniqueItems": true },
+    "sourceRunRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "history": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["at", "actor", "action"], "properties": { "at": { "type": "string", "format": "date" }, "actor": { "type": "string" }, "action": { "type": "string" } }, "additionalProperties": false } },
+    "audiences": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "playbackModes": { "type": "object", "required": ["beginner", "consultant", "evidence-review"], "additionalProperties": false, "properties": { "beginner": { "$ref": "#/$defs/playbackMode" }, "consultant": { "$ref": "#/$defs/playbackMode" }, "evidence-review": { "$ref": "#/$defs/playbackMode" } } },
+    "learningObjective": { "type": "string", "minLength": 20 },
+    "prerequisites": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/step" } },
+    "securityAndRedaction": { "type": "object", "required": ["noSecrets", "noFullBcUrl", "personalData", "rawArtifactsTracked"], "properties": { "noSecrets": { "const": true }, "noFullBcUrl": { "const": true }, "personalData": { "type": "string" }, "rawArtifactsTracked": { "const": false } }, "additionalProperties": false },
+    "provenance": { "type": "object", "required": ["sourceManifests", "sourceEventLogs", "checksumAlgorithm", "checksumsResolvedAtBuild", "derivation"], "properties": { "sourceManifests": { "type": "array", "items": { "type": "string" }, "minItems": 1 }, "sourceEventLogs": { "type": "array", "items": { "type": "string" }, "minItems": 1 }, "checksumAlgorithm": { "const": "sha256" }, "checksumsResolvedAtBuild": { "const": true }, "derivation": { "type": "string", "minLength": 20 } }, "additionalProperties": false }
+  },
+  "$defs": {
+    "playbackMode": { "type": "object", "required": ["secondsPerStep", "emphasis"], "properties": { "secondsPerStep": { "type": "integer", "minimum": 2, "maximum": 30 }, "emphasis": { "type": "string" } }, "additionalProperties": false },
+    "step": { "type": "object", "required": ["sequence", "stepId", "title", "bcSurface", "userAction", "expectedResult", "businessRationale", "screenshotRefs", "mediaRefs", "caption", "safetyNotes"], "properties": { "sequence": { "type": "integer", "minimum": 1 }, "stepId": { "type": "string", "pattern": "^ENV-[0-9]{2}$" }, "title": { "type": "string" }, "bcSurface": { "type": "string" }, "userAction": { "type": "string" }, "expectedResult": { "type": "string" }, "businessRationale": { "type": "string", "minLength": 20 }, "screenshotRefs": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["runRef", "path"], "properties": { "runRef": { "type": "string" }, "path": { "type": "string" } }, "additionalProperties": false } }, "mediaRefs": { "type": "array", "items": { "type": "string" } }, "caption": { "type": "string" }, "safetyNotes": { "type": "array", "items": { "type": "string" }, "minItems": 1 } }, "additionalProperties": false }
+  },
+  "additionalProperties": false
+}

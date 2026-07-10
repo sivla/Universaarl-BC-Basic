@@ -1,0 +1,22 @@
+schema: universaarl-delivery
+created: 2026-07-10
+canonicalTargets: [walkthrough-package-registry, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-WT-POLICY-GATE-001
+  authorizedBy: project-policy
+  authorizedAt: 2026-07-10
+  scope: establish-project-artifact-walkthrough-pilot only
+  conditions:
+    - all requiredForArchive verifications of the active change are passed
+    - generated registry matches the reviewed walkthrough package
+    - OpenSpec strict and local validation pass
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [walkthrough-package-registry, verification-register]
+  facts:
+    artifactType: { status: candidate, value: Walkthrough Package, evidenceIds: [UABC-VER-WT-BUILD-001] }
+    pilotArtifact: { status: candidate, value: UABC-WT-ENV-001, evidenceIds: [UABC-VER-WT-BUILD-001] }
+    sourceRuns: { status: confirmed, value: [run-1, run-2], evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-COMPARE-001] }
+  unknowns: [long-term media retention policy, Project Twin consumer implementation]
+  policyGateEvidenceId: UABC-VER-WT-POLICY-GATE-001

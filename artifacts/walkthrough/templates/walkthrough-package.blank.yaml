@@ -1,0 +1,45 @@
+artifactId: TEMPLATE-WALKTHROUGH-PACKAGE
+artifactTypeId: UABC-ARTTYPE-WALKTHROUGH-001
+templateVersion: 0.1.0
+projectId: REPLACE-ME
+status: draft
+simulationOnly: true
+phase: REPLACE-ME
+owner: REPLACE-ME
+reviewers: [REPLACE-ME]
+createdAt: YYYY-MM-DD
+sourceScenarioRefs: [REPLACE-WITH-STABLE-SCENARIO-ID]
+requirementRefs: [REPLACE-WITH-STABLE-REQUIREMENT-ID]
+jiraRefs: [REPLACE-WITH-JIRA-KEY]
+evidenceRefs: [REPLACE-WITH-EVIDENCE-ID]
+sourceRunRefs: [REPLACE-WITH-RUN-ID]
+history:
+  - { at: YYYY-MM-DD, actor: REPLACE-ME, action: created }
+audiences: [REPLACE-ME]
+playbackModes:
+  beginner: { secondsPerStep: 6, emphasis: plain-language operation and context }
+  consultant: { secondsPerStep: 4, emphasis: business rationale and configuration impact }
+  evidence-review: { secondsPerStep: 5, emphasis: provenance IDs and observable state }
+learningObjective: REPLACE WITH A SUBSTANTIVE LEARNING OBJECTIVE
+prerequisites: [REPLACE-ME]
+steps:
+  - sequence: 1
+    stepId: ENV-00
+    title: REPLACE-ME
+    bcSurface: REPLACE-ME
+    userAction: REPLACE-ME
+    expectedResult: REPLACE-ME
+    businessRationale: REPLACE WITH A SUBSTANTIVE BUSINESS RATIONALE
+    screenshotRefs: [{ runRef: REPLACE-ME, path: REPLACE-ME }]
+    mediaRefs: []
+    caption: REPLACE-ME
+    safetyNotes: [REPLACE-ME]
+securityAndRedaction: { noSecrets: true, noFullBcUrl: true, personalData: redact or mask, rawArtifactsTracked: false }
+provenance:
+  sourceManifests: [REPLACE-ME]
+  sourceEventLogs: [REPLACE-ME]
+  checksumAlgorithm: sha256
+  checksumsResolvedAtBuild: true
+  derivation: REPLACE WITH THE SOURCE-TO-OUTPUT DERIVATION
+templateOnly: true
+evidenceUseProhibited: true

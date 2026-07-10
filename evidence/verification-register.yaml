@@ -145,3 +145,21 @@ verifications:
     environment: repository
     subjectRefs: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005]
     evidence: Real repository user authorized replacement of the human gate by an explicitly automated policy gate in the current Codex thread on 2026-07-10; npm test including four disposable governance regressions passed and canonical synchronization is validator-enforced
+  - id: UABC-VER-WT-BUILD-001
+    changeRef: establish-project-artifact-walkthrough-pilot
+    requiredForArchive: true
+    status: passed
+    type: deterministic-artifact-build
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    evidence: npm run test:walkthrough exit 0 with four tests; two builds produced byte-identical SHA-256 outputs; seven representative WebM frames visually passed in artifacts/walkthrough/reviews/UABC-WT-ENV-001-visual.yaml; real Twin smoke returned warningCount 0
+  - id: UABC-VER-WT-POLICY-GATE-001
+    changeRef: establish-project-artifact-walkthrough-pilot
+    requiredForArchive: true
+    status: pending
+    type: automated-policy-gate
+    executedAt: null
+    environment: repository
+    subjectRefs: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    evidence: null

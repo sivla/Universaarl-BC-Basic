@@ -18,6 +18,7 @@ rules:
     architecture-baseline: { path: architecture/enterprise-blueprint.yaml, selector: actualSandboxBaseline }
     capability-catalog: { path: capabilities/catalog.yaml, selector: root }
     verification-register: { path: evidence/verification-register.yaml, selector: verifications }
+    walkthrough-package-registry: { path: exports/project-artifacts/v0.1/index.yaml, selector: artifacts }
   archivePreconditions:
     - change approval policy gate satisfied
     - canonical structured artifacts updated from proposed to approved

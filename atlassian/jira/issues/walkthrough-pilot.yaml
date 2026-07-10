@@ -1,0 +1,69 @@
+issues:
+  - key: UABC-15
+    type: Epic
+    summary: Establish project artifact walkthrough pilot
+    parent: null
+    status: In Review
+    components: [Training, Reporting, Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-07-10
+    dueDate: 2026-07-18
+    effort: 3d
+    dependencies: [UABC-11]
+    dataRequirements: [archived baseline manifests, curated screenshots, event logs, stable scenario and evidence IDs]
+    acceptanceCriteria: [One walkthrough type is complete, All views derive from one manifest, Existing evidence is traceable, Rebuild is deterministic, No BC access occurs]
+    referenceIds: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    confluenceRefs: [UABC-WALKTHROUGH]
+    evidenceRefs: [UABC-VER-WT-BUILD-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T21:10:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T21:15:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T21:45:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-16
+    type: Story
+    summary: Generate baseline walkthrough package from verified evidence
+    parent: UABC-15
+    status: In Review
+    components: [Training, Reporting]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-07-10
+    dueDate: 2026-07-17
+    effort: 2d
+    dependencies: []
+    dataRequirements: [walkthrough schema, run-1 and run-2 manifests, ENV-00 through ENV-06 screenshots, captions]
+    acceptanceCriteria: [Manifest validates, HTML and media regenerate, Three playback modes share one truth, Export contract is read-only]
+    referenceIds: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    confluenceRefs: [UABC-WALKTHROUGH]
+    evidenceRefs: [UABC-VER-WT-BUILD-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T21:16:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T21:17:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T21:45:00+02:00, from: In Progress, to: In Review, by: P-002 }
+
+  - key: UABC-17
+    type: Sub-task
+    summary: Build and verify deterministic walkthrough outputs
+    parent: UABC-16
+    status: In Review
+    components: [Training, Reporting]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-07-10
+    dueDate: 2026-07-16
+    effort: 1d
+    dependencies: []
+    dataRequirements: [local ffmpeg, SHA-256 checksums, sanitized source evidence]
+    acceptanceCriteria: [One command rebuilds outputs, Media is compact and controllable, Privacy scan passes]
+    referenceIds: [UABC-SCN-WT-002, UABC-SCN-WT-003]
+    confluenceRefs: [UABC-WALKTHROUGH]
+    evidenceRefs: [UABC-VER-WT-BUILD-001]
+    historySynthetic: true
+    history:
+      - { at: 2026-07-10T21:18:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T21:19:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T21:45:00+02:00, from: In Progress, to: In Review, by: P-002 }

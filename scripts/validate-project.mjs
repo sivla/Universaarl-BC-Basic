@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import crypto from 'node:crypto';
 import YAML from 'yaml';
 
 const root = process.cwd();
@@ -504,6 +505,40 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
   check(pageMap.has((await yaml('atlassian/confluence/space.yaml')).homepage), 'Confluence homepage does not exist');
 }
 
+async function validateWalkthroughExports({ openSpec, openSpecRefs, verificationMap, people }) {
+  const registryPath = 'exports/project-artifacts/v0.1/index.yaml';
+  const targeted = [...openSpec.activeChangeConfigs.values()].some((config) => (config.canonicalTargets ?? []).includes('walkthrough-package-registry'));
+  if (!(await exists(registryPath))) {
+    check(!targeted, `${registryPath}: required by active walkthrough-package-registry target`);
+    return;
+  }
+  const registry = await yaml(registryPath);
+  check(registry.schemaVersion === '0.1.0' && registry.access === 'read-only', `${registryPath}: invalid version or access contract`);
+  check(Array.isArray(registry.artifacts) && registry.artifacts.length === 1, `${registryPath}: pilot requires exactly one exported artifact`);
+  const issueDocs = await Promise.all((await walk('atlassian/jira/issues', (file) => file.endsWith('.yaml'))).map(yaml));
+  const issueKeys = new Set(issueDocs.flatMap((doc) => (doc.issues ?? []).map((issue) => issue.key)));
+  const sha256 = async (relative) => crypto.createHash('sha256').update(await fs.readFile(absolute(relative))).digest('hex');
+  for (const artifact of registry.artifacts ?? []) {
+    check(artifact.artifactId === 'UABC-WT-ENV-001' && artifact.artifactTypeId === 'UABC-ARTTYPE-WALKTHROUGH-001', `${registryPath}: unexpected pilot identity`);
+    for (const field of ['sourceManifestPath', 'resolvedManifestPath']) check(await exists(artifact[field]), `${registryPath}: missing ${field} ${artifact[field]}`);
+    for (const [kind, file] of Object.entries(artifact.outputs ?? {})) {
+      check(await exists(file), `${registryPath}: missing output ${kind} ${file}`);
+      if (await exists(file)) check(await sha256(file) === artifact.checksums?.[kind], `${registryPath}: checksum mismatch for ${kind}`);
+    }
+    if (await exists(artifact.resolvedManifestPath)) check(await sha256(artifact.resolvedManifestPath) === artifact.checksums?.manifest, `${registryPath}: manifest checksum mismatch`);
+    if (await exists(artifact.sourceManifestPath)) {
+      const source = await yaml(artifact.sourceManifestPath);
+      check(source.artifactId === artifact.artifactId && source.artifactTypeId === artifact.artifactTypeId, `${artifact.sourceManifestPath}: registry identity mismatch`);
+      check(people.has(source.owner) && (source.reviewers ?? []).every((id) => people.has(id)), `${artifact.sourceManifestPath}: invalid owner or reviewers`);
+      check((source.sourceScenarioRefs ?? []).every((id) => openSpecRefs.has(id)), `${artifact.sourceManifestPath}: unresolved scenario reference`);
+      check((source.requirementRefs ?? []).every((id) => openSpecRefs.has(id)), `${artifact.sourceManifestPath}: unresolved requirement reference`);
+      check((source.jiraRefs ?? []).every((id) => issueKeys.has(id)), `${artifact.sourceManifestPath}: unresolved Jira reference`);
+      check((source.evidenceRefs ?? []).every((id) => verificationMap.has(id)), `${artifact.sourceManifestPath}: unresolved evidence reference`);
+      for (const runRef of source.sourceRunRefs ?? []) check(await exists(`evidence/playthru-environment-baseline/${runRef}/manifest.json`), `${artifact.sourceManifestPath}: unresolved source run ${runRef}`);
+    }
+  }
+}
+
 const peopleDoc = await yaml('atlassian/jira/people.yaml');
 const people = new Set((peopleDoc.people ?? []).map((person) => person.id));
 check(people.size === (peopleDoc.people ?? []).length, 'duplicate people IDs');
@@ -551,6 +586,7 @@ await validateCatalogAndArchitecture({
 });
 await validateLifecycleGate({ architecture, catalog, lifecycle, verificationMap, openSpec });
 await validateAtlassian(stableIds, new Set(openSpec.resolved.keys()), verificationMap);
+await validateWalkthroughExports({ openSpec, openSpecRefs: new Set(openSpec.resolved.keys()), verificationMap, people });
 if (resolveArgumentIndex >= 0) {
   check(Boolean(resolveId), '--resolve-id requires an ID argument');
   check(Boolean(openSpec.resolved.get(resolveId)), `cannot resolve OpenSpec ID ${resolveId ?? '<missing>'}`);

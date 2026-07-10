@@ -79,3 +79,5 @@ Die Baseline ist durch das change-spezifische automatisierte Policy-Gate kanonis
 - Ein abweichendes Arbeitsdatum muss vor spaeteren Buchungsnachweisen bewusst bestaetigt oder korrigiert werden; dieser Pilot veraendert es nicht.
 
 Roh-Evidence: `evidence/playthru-environment-baseline/run-1`, `run-2`, `comparison.json` und `visual-review.yaml`. Der technische Wiederholungs- und Fehlerablauf gehoert in das separate Consultant-Runbook.
+
+Interaktive Wiedergabe: `artifacts/walkthrough/generated/UABC-WT-ENV-001/index.html`. Sie ist eine abgeleitete Lernansicht und keine neue Evidence.

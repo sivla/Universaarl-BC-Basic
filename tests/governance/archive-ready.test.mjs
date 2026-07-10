@@ -70,6 +70,16 @@ async function disposableRepository(t) {
     await fs.cp(path.join(archiveRoot, archivedName), activePath, { recursive: true });
     await fs.rm(path.join(archiveRoot, archivedName), { recursive: true, force: true });
   }
+  for (const relative of [
+    'atlassian/jira/issues/walkthrough-pilot.yaml',
+    'atlassian/confluence/pages/61-walkthrough-pilot.md',
+    'artifacts/walkthrough',
+    'exports/project-artifacts'
+  ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
+  const verificationPath = 'evidence/verification-register.yaml';
+  const register = await readYaml(root, verificationPath);
+  register.verifications = register.verifications.filter((item) => item.changeRef !== 'establish-project-artifact-walkthrough-pilot');
+  await writeYaml(root, verificationPath, register);
   return root;
 }
 

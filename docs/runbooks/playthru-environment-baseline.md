@@ -52,3 +52,5 @@ Beide Manifeste stimmen bei allen stabilen Fakten und im Ausfuehrungskontext ueb
 Abbruch bei falschem Host/Environment, `company=` in der Basis-URL, erforderlichem Wechsel, Schreib-/Bestaetigungsaktion, nicht sicher redigierbarer Identitaet oder nicht verstandenem Dialog/Panestatus. Nicht sichtbare Werte bleiben `unknown`; sie werden nicht aus Release-Plaenen abgeleitet.
 
 Dieser Runbook-Review ist keine menschliche Freigabe. Die kanonische Aktualisierung von `actualSandboxBaseline` erfolgt ausschliesslich ueber das deklarierte automatisierte Policy-Gate und den semantischen Validator.
+
+Der reproduzierbare Walkthrough-Pilot wird mit `npm run artifacts:walkthrough` aus derselben Baseline-Evidence erzeugt. Sein Consultant-Modus ist eine Darstellung desselben Manifests, keine parallele Prozesswahrheit.

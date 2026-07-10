@@ -24,4 +24,4 @@ OpenSpec ist als exakte Dev-Dependency gepinnt. Direkte Aufrufe erfolgen mit `np
 
 ## Aktiver Change
 
-`establish-universaarl-enterprise-blueprint`
+`establish-project-artifact-walkthrough-pilot`
