@@ -310,7 +310,14 @@
   "generatedAt": "2026-07-10",
   "generation": {
     "command": "npm run build:walkthrough:baseline",
-    "ffmpegVersion": "ffmpeg version 2025-07-23-git-829680f96a-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers",
+    "mediaToolchain": {
+      "kind": "system-toolchain",
+      "buildIdentifier": "2025-07-23-git-829680f96a-full_build-www.gyan.dev",
+      "requiredEncoders": [
+        "libvpx-vp9",
+        "libwebp_anim"
+      ]
+    },
     "mediaNature": "deterministic screenshot sequence; not a browser recording"
   },
   "resolvedProvenance": {

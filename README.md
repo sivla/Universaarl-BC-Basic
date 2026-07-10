@@ -13,10 +13,13 @@ Greenfield-Planungsrepository fuer eine evidence-basierte Microsoft Dynamics 365
 
 ## Reproduzierbarer Einstieg
 
-Voraussetzung: Node.js >= 20.19.
+Voraussetzungen: Node.js >= 20.19 sowie `ffmpeg` und `ffprobe` auf `PATH`, beide aus dem gemeinsamen Full-Build `2025-07-23-git-829680f96a-full_build-www.gyan.dev`. Die Medien-Toolchain ist ein expliziter Systemvertrag und wird nicht durch `npm ci` installiert.
+
+Der Build wird nicht als npm-Binaerpaket vendort: Die Organisation beschafft den exakten Full-Build nach ihrer Lizenz- und Supply-Chain-Pruefung; `npm run check:media-toolchain` erzwingt danach Build-Paar und benoetigte Encoder vor jeder Medienerzeugung.
 
 ```powershell
 npm ci
+npm run check:media-toolchain
 npm run setup:playwright:chromium
 npm test
 ```

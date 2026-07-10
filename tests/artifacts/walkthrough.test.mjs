@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
 import { createWalkthroughValidator } from '../../scripts/validate-walkthrough-manifest.mjs';
+import { resolveMediaToolchain } from '../../scripts/media-toolchain.mjs';
 
 const root = process.cwd();
 const outputDir = path.join(root, 'artifacts/walkthrough/generated/UABC-WT-ENV-001');
@@ -92,8 +93,11 @@ test('HTML and media are compact and controllable', () => {
   assert.match(html, /id="evidence-semantics"/);
   assert.match(html, /Source-Evidence bleibt Provenienz/);
   assert.ok(fs.statSync(path.join(outputDir, 'walkthrough.webm')).size < 10_000_000);
-  const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_name:format=duration', '-of', 'json', path.join(outputDir, 'walkthrough.webm')], { encoding: 'utf8' });
-  assert.equal(probe.status, 0, probe.stderr);
+  const toolchain = resolveMediaToolchain({ cwd: root });
+  const probe = toolchain.run(toolchain.ffprobe, ['-v', 'error', '-show_entries', 'stream=codec_name:format=duration', '-of', 'json', path.join(outputDir, 'walkthrough.webm')]);
+  assert.match(probe, /"codec_name"/);
+  const manifest = JSON.parse(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8'));
+  assert.equal(manifest.generation.mediaToolchain.buildIdentifier, '2025-07-23-git-829680f96a-full_build-www.gyan.dev');
 });
 
 test('baseline pilot rebuild is byte-stable and sanitized', () => {
@@ -101,5 +105,14 @@ test('baseline pilot rebuild is byte-stable and sanitized', () => {
   const before = Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))]));
   const build = spawnSync(process.execPath, ['scripts/build-walkthrough.mjs'], { cwd: root, encoding: 'utf8' });
   assert.equal(build.status, 0, build.stderr || build.stdout);
+  assert.deepEqual(Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))])), before);
+});
+
+test('failed media preflight leaves the existing walkthrough outputs unchanged', () => {
+  const files = ['captions.vtt', 'index.html', 'manifest.json', 'preview.webp', 'walkthrough.webm'];
+  const before = Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))]));
+  const build = spawnSync(process.execPath, ['scripts/build-walkthrough.mjs'], { cwd: root, encoding: 'utf8', env: { ...process.env, UABC_FFMPEG_COMMAND: 'uabc-missing-ffmpeg' } });
+  assert.notEqual(build.status, 0);
+  assert.match(`${build.stderr}${build.stdout}`, /Media toolchain preflight failed/);
   assert.deepEqual(Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))])), before);
 });

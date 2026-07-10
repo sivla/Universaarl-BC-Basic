@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
 import { loadAndValidateWalkthrough } from './validate-walkthrough-manifest.mjs';
+import { resolveMediaToolchain } from './media-toolchain.mjs';
 
 const root = process.cwd();
 const artifactId = 'UABC-WT-ENV-001';
@@ -73,12 +73,6 @@ function timestamp(seconds) {
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(whole).padStart(2, '0')}.${String(milliseconds).padStart(3, '0')}`;
 }
 
-function run(command, args, label) {
-  const result = spawnSync(command, args, { cwd: root, encoding: 'utf8' });
-  if (result.status !== 0) fail(`${label} failed (${result.status}): ${result.stderr || result.stdout}`);
-  return result.stdout;
-}
-
 function mediaArgs(screenshots, secondsPerStep, width, height) {
   const args = ['-hide_banner', '-loglevel', 'error'];
   for (const screenshot of screenshots) args.push('-loop', '1', '-t', String(secondsPerStep), '-i', absolute(screenshot));
@@ -96,6 +90,7 @@ const source = loadAndValidateWalkthrough(sourcePath);
 validateBaselinePilot(source);
 validateEvidence(source);
 forbiddenContent(JSON.stringify(source), sourcePath);
+const mediaToolchain = resolveMediaToolchain({ cwd: root });
 
 fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
@@ -110,10 +105,10 @@ fs.writeFileSync(path.join(outputDir, 'captions.vtt'), vtt.join('\n'), 'utf8');
 
 const primaryScreenshots = source.steps.map((step) => step.screenshotRefs.find((item) => item.runRef === 'run-2').path);
 const webmPath = path.join(outputDir, 'walkthrough.webm');
-run('ffmpeg', [...mediaArgs(primaryScreenshots, secondsPerStep, 1280, 720), '-c:v', 'libvpx-vp9', '-crf', '38', '-b:v', '0', '-deadline', 'good', '-cpu-used', '2', '-row-mt', '0', '-threads', '1', '-an', '-map_metadata', '-1', '-fflags', '+bitexact', '-flags:v', '+bitexact', '-y', webmPath], 'WebM generation');
+mediaToolchain.run(mediaToolchain.ffmpeg, [...mediaArgs(primaryScreenshots, secondsPerStep, 1280, 720), '-c:v', 'libvpx-vp9', '-crf', '38', '-b:v', '0', '-deadline', 'good', '-cpu-used', '2', '-row-mt', '0', '-threads', '1', '-an', '-map_metadata', '-1', '-fflags', '+bitexact', '-flags:v', '+bitexact', '-y', webmPath]);
 
 const webpPath = path.join(outputDir, 'preview.webp');
-run('ffmpeg', [...mediaArgs(primaryScreenshots, 2, 960, 540), '-c:v', 'libwebp_anim', '-lossless', '0', '-quality', '60', '-loop', '0', '-an', '-map_metadata', '-1', '-fflags', '+bitexact', '-y', webpPath], 'WebP generation');
+mediaToolchain.run(mediaToolchain.ffmpeg, [...mediaArgs(primaryScreenshots, 2, 960, 540), '-c:v', 'libwebp_anim', '-lossless', '0', '-quality', '60', '-loop', '0', '-an', '-map_metadata', '-1', '-fflags', '+bitexact', '-y', webpPath]);
 
 const sourceFiles = [...new Set([sourcePath, schemaPath, ...source.provenance.sourceManifests, ...source.provenance.sourceEventLogs, ...source.steps.flatMap((step) => step.screenshotRefs.map((item) => item.path))])].sort();
 const sourceChecksums = Object.fromEntries(sourceFiles.map((file) => [file, sha256File(file)]));
@@ -122,12 +117,10 @@ const mediaChecksums = {
   'preview.webp': sha256File(`${outputRelative}/preview.webp`),
   'walkthrough.webm': sha256File(`${outputRelative}/walkthrough.webm`)
 };
-const ffmpegVersion = run('ffmpeg', ['-version'], 'FFmpeg version').split(/\r?\n/)[0];
-
 const resolved = {
   ...source,
   generatedAt: source.createdAt,
-  generation: { command: 'npm run build:walkthrough:baseline', ffmpegVersion, mediaNature: 'deterministic screenshot sequence; not a browser recording' },
+  generation: { command: 'npm run build:walkthrough:baseline', mediaToolchain: mediaToolchain.manifest, mediaNature: 'deterministic screenshot sequence; not a browser recording' },
   resolvedProvenance: { sourceChecksums, outputChecksums: mediaChecksums },
   steps: source.steps.map((step) => ({ ...step, displayScreenshot: relativeFromOutput(step.screenshotRefs.find((item) => item.runRef === 'run-2').path) })),
   outputs: {
