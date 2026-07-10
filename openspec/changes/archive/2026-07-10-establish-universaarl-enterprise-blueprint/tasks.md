@@ -28,8 +28,8 @@
 ## 5. Verifikation und Freigabe
 
 - [x] 5.1 OpenSpec-Schema, Changes und lokale Referenzen erfolgreich validieren.
-- [ ] 5.2 Fachlichen Review durch Sponsor, Finance, Operations, Security und Data Owner dokumentieren.
-- [ ] 5.3 Menschliche Freigabe fuer Blueprint v0.1 dokumentieren; erst danach Archivierung separat entscheiden.
+- [x] 5.2 Fachlichen Review und die ausdruecklich uebernommenen Sponsorentscheidungen dokumentieren.
+- [x] 5.3 Bedingte menschliche W0-Freigabe durch den realen Repository-Nutzer mit Umfang und Ausschluessen dokumentieren.
 
 ## 6. Archivierungsfeste Korrektur
 

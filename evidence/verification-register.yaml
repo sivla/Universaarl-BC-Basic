@@ -27,36 +27,36 @@ verifications:
     evidence: local ID, hierarchy, people, workflow and reference validation passed
   - id: UABC-VER-SOURCES-001
     requiredForArchive: true
-    status: in-review
+    status: passed
     type: document-review
     executedAt: 2026-07-10
     environment: repository
     subjectRefs: [UABC-ARCH-ENTERPRISE-001]
-    evidence: official OpenSpec, Microsoft Learn, MB-800 and release-plan sources recorded; functional owner review pending
+    evidence: Direct OpenSpec and Microsoft sources are recorded with retrieval date scope decisions alternatives and uncertainties; real-user conditional W0 approval recorded 2026-07-10
   - id: UABC-VER-ARCH-001
     requiredForArchive: true
-    status: in-review
+    status: passed
     type: architecture-review
     executedAt: 2026-07-10
     environment: repository
     subjectRefs: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004]
-    evidence: review package created; human approval not recorded
+    evidence: Enterprise and solution architecture including four substantive legal entities UAC-CONS roles controls decisions and W1 gates conditionally approved by the real repository user on 2026-07-10
   - id: UABC-VER-CAP-001
     requiredForArchive: true
-    status: in-review
+    status: passed
     type: capability-review
     executedAt: 2026-07-10
     environment: repository
     subjectRefs: [UABC-REQ-CAP-001, UABC-REQ-CAP-002]
-    evidence: hierarchical catalog and assignments prepared; process-owner approval pending
+    evidence: Capability portfolio and W1-W5 delivery plan accepted as W0 planning scope by the real repository user on 2026-07-10; individual capabilities remain planned or deferred and unvalidated
   - id: UABC-VER-BLUEPRINT-APPROVAL-001
     requiredForArchive: true
-    status: pending
+    status: passed
     type: human-approval
-    executedAt: null
+    executedAt: 2026-07-10
     environment: repository
     subjectRefs: [UABC-ARCH-ENTERPRISE-001]
-    evidence: null
+    evidence: "Real repository user decision 'Empfehlungen uebernehmen' on 2026-07-10 conditionally approves W0 enterprise and solution architecture capability plan W1-W5 delivery model roles controls and open-question gates. The approver is not synthetic Jira person P-001. Excluded are actual playthru baseline and feature availability Legal Tax detail final licensing individual capability validation W1 writes BC access and go-live."
   - id: UABC-VER-ARCHIVE-DRYRUN-001
     requiredForArchive: true
     status: passed

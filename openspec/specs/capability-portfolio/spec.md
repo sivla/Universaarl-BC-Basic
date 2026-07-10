@@ -1,9 +1,10 @@
-# Capability Portfolio Specification
+# capability-portfolio Specification
 
-## ADDED Requirements
-
+## Purpose
+TBD - created by archiving change establish-universaarl-enterprise-blueprint. Update Purpose after archive.
+## Requirements
 ### Requirement: UABC-REQ-CAP-001 Vollstaendige Capability-Zuordnung
-Jede geplante BC-Domaene MUST in einem strukturierten hierarchischen Katalog in Unterfaehigkeiten zerlegt werden. Jede Unterfaehigkeit MUST Status, Geschaeftszweck, Universaarl-Gesellschaft, Standort, Rolle, Quelle, Begruendung, Welle und reservierte Scenario-ID ausweisen. Eine optionale Evidence-ID MUST auf das Verification-Register zeigen; bei `approved` ist bestandene Evidence verpflichtend.
+Jede geplante BC-Domaene MUST in einem strukturierten hierarchischen Katalog in Unterfaehigkeiten zerlegt werden. Jede Unterfaehigkeit MUST Status, Geschaeftszweck, Universaarl-Gesellschaft, Standort, Rolle, Quelle, Begruendung, Welle und reservierte Scenario-ID ausweisen; fachlich zwingende Reihenfolgen MUST als Abhaengigkeiten benannt werden. Eine optionale Evidence-ID MUST auf das Verification-Register zeigen; bei `approved` ist bestandene Evidence verpflichtend.
 
 #### Scenario: UABC-SCN-CAP-001 Capability-Matrix validieren
 - **GIVEN** der strukturierte Capability-Katalog `UABC-CAP-CATALOG-001`
@@ -27,7 +28,7 @@ Das Dimensionsmodell MUST konzernweit vergleichbare Managementauswertungen ermoe
 - **THEN** stimmen Dimensionswerte mit den Verantwortlichkeiten ueberein und lassen sich zur Gesellschaft zurueckverfolgen
 
 ### Requirement: UABC-REQ-CAP-004 Kontrollierte Intercompany- und Konsolidierungsarchitektur
-Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufeinander abgestimmte Prozesse mit Mapping, Abstimmung und Eliminierung modelliert werden.
+Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufeinander abgestimmte Prozesse mit Mapping, Abstimmung und Eliminierung modelliert werden. IC-Partner-/Konten-/Dimensionsmapping und die UAS-zu-UAD-Grundroute MUST vor davon abhaengigen Trade-/Operations-Szenarien liegen; vollstaendige Gruppenabstimmung und Konsolidierung bleiben ein spaeteres Gate.
 
 #### Scenario: UABC-SCN-IC-001 Konzerninterne Leistung abstimmen
 - **GIVEN** eine konzerninterne Lieferung oder Serviceleistung zwischen zwei operativen BC-Unternehmen
@@ -35,7 +36,7 @@ Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufein
 - **THEN** stimmen Partnerbezug und Betrag ueberein und die Eliminierung ist im Konsolidierungsunternehmen nachvollziehbar
 
 ### Requirement: UABC-REQ-CAP-005 Rollenbasierte Einfuehrung
-Training, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden.
+Migration, Testing, UAT, Training, Adoption, Cutover und Hypercare MUST als projektbegleitende Workstreams von Strategie und Ownership bis Ausfuehrung und Support geplant werden. Training, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden; Trainingskoordination MUST fachliche UAT-Abnahme durch die jeweiligen Business Owner nicht ersetzen.
 
 #### Scenario: UABC-SCN-TRN-001 Trainingsfreigabe pruefen
 - **GIVEN** ein spaeter verifiziertes Prozessszenario

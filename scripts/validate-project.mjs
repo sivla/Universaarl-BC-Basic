@@ -170,6 +170,8 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
   const statuses = new Set(catalog.statusValues ?? []);
   const domainIds = new Set();
   const capabilityIds = new Set();
+  const capabilityMap = new Map();
+  const capabilityDependencyEdges = new Map();
   const scenarioIds = new Set();
   check((catalog.domains ?? []).length > 0, 'capability catalog requires at least one domain');
   for (const domain of catalog.domains ?? []) {
@@ -178,6 +180,8 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
     check((domain.capabilities ?? []).length > 0, `${domain.id}: at least one sub-capability required`);
     for (const capability of domain.capabilities ?? []) {
       check(!capabilityIds.has(capability.id), `duplicate capability ${capability.id}`); capabilityIds.add(capability.id);
+      capabilityMap.set(capability.id, capability);
+      capabilityDependencyEdges.set(capability.id, capability.dependencyIds ?? []);
       for (const field of ['name', 'status', 'purpose', 'companies', 'locations', 'roles', 'sourceIds', 'rationale', 'wave', 'scenarioId']) {
         check(Object.hasOwn(capability, field), `${capability.id}: missing ${field}`);
       }
@@ -202,6 +206,25 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
       }
     }
   }
+  const waveOrder = new Map(['W0', 'W1', 'W2', 'W3', 'W4', 'W5'].map((wave, index) => [wave, index]));
+  for (const capability of capabilityMap.values()) {
+    const dependencies = capability.dependencyIds ?? [];
+    check(Array.isArray(dependencies), `${capability.id}: dependencyIds must be an array`);
+    for (const dependencyId of Array.isArray(dependencies) ? dependencies : []) {
+      const dependency = capabilityMap.get(dependencyId);
+      check(Boolean(dependency), `${capability.id}: unknown capability dependency ${dependencyId}`);
+      check(dependencyId !== capability.id, `${capability.id}: capability cannot depend on itself`);
+      if (dependency && dependencyId !== capability.id) {
+        const capabilityWave = waveOrder.get(capability.wave);
+        const dependencyWave = waveOrder.get(dependency.wave);
+        check(capabilityWave !== undefined && dependencyWave !== undefined, `${capability.id}: dependency wave comparison requires W0..W5`);
+        if (capabilityWave !== undefined && dependencyWave !== undefined) {
+          check(dependencyWave <= capabilityWave, `${capability.id}: dependency ${dependencyId} is in later wave ${dependency.wave}`);
+        }
+      }
+    }
+  }
+  findCycle(capabilityMap.keys(), capabilityDependencyEdges, 'Capability dependency');
   return { architecture, catalog, lifecycle, scenarioIds };
 }
 

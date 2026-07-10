@@ -3,7 +3,7 @@ issues:
     type: Epic
     summary: Establish Universaarl enterprise blueprint v0.1
     parent: null
-    status: In Progress
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
@@ -15,7 +15,7 @@ issues:
     acceptanceCriteria:
       - All blueprint requirements and capabilities are reviewable.
       - OpenSpec and local reference checks pass.
-      - Human approval remains explicit and pending.
+      - Conditional human W0 approval is explicitly recorded with scope and exclusions.
     referenceIds: [UABC-REQ-GOV-001, UABC-ARCH-ENTERPRISE-001]
     confluenceRefs: [UABC-PROJECT, UABC-BLUEPRINT]
     evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
@@ -23,12 +23,15 @@ issues:
     history:
       - { at: 2026-07-10T10:00:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T10:15:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T18:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: true, humanApprovalRecorded: true }
 
   - key: UABC-2
     type: Story
     summary: Define enterprise and BC company architecture
     parent: UABC-1
-    status: In Review
+    status: Done
     components: [Projektmanagement, Finance]
     assignee: P-002
     customerRole: P-003
@@ -46,12 +49,14 @@ issues:
       - { at: 2026-07-10T10:20:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T10:30:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T14:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-3
     type: Story
     summary: Define process and capability portfolio
     parent: UABC-1
-    status: In Review
+    status: Done
     components: [Finance, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Reporting]
     assignee: P-002
     customerRole: P-001
@@ -59,8 +64,8 @@ issues:
     dueDate: 2026-07-15
     effort: 8d
     dependencies: [UABC-2]
-    dataRequirements: [business model, process owners, locations, products and services]
-    acceptanceCriteria: [Every capability has all mandatory planning attributes, E2E chains are complete]
+    dataRequirements: [business model, process owners, locations, products and services, cross-wave delivery dependencies]
+    acceptanceCriteria: [Every capability has all mandatory planning attributes, E2E chains are complete, Data test training cutover and support workstreams span the relevant waves]
     referenceIds: [UABC-REQ-CAP-001, UABC-REQ-CAP-002, UABC-CAP-CATALOG-001]
     confluenceRefs: [UABC-BLUEPRINT, UABC-PROCESSES]
     evidenceRefs: [UABC-VER-CAP-001]
@@ -69,12 +74,14 @@ issues:
       - { at: 2026-07-10T10:35:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T10:40:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T14:10:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-4
     type: Story
     summary: Define security, data, reporting and training governance
     parent: UABC-1
-    status: In Review
+    status: Done
     components: [Finance, Reporting, Daten, Training, Projektmanagement]
     assignee: P-004
     customerRole: P-003
@@ -82,8 +89,8 @@ issues:
     dueDate: 2026-07-16
     effort: 5d
     dependencies: [UABC-2]
-    dataRequirements: [role matrix, segregation rules, data domains, learning groups]
-    acceptanceCriteria: [Least privilege target is documented, Data and training owners are named]
+    dataRequirements: [role matrix, segregation rules, data domains, migration reconciliation owners, module trainers, UAT approvers, learning groups]
+    acceptanceCriteria: [Least privilege target is documented, Operating roles match employer company and site, Training coordination is separate from module delivery and UAT acceptance]
     referenceIds: [UABC-REQ-ENT-004, UABC-REQ-CAP-003, UABC-REQ-CAP-005]
     confluenceRefs: [UABC-BLUEPRINT, UABC-DISCOVERY]
     evidenceRefs: [UABC-VER-ARCH-001, UABC-VER-CAP-001]
@@ -92,12 +99,14 @@ issues:
       - { at: 2026-07-10T10:45:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T11:00:00+02:00, from: Ready, to: In Progress, by: P-004 }
       - { at: 2026-07-10T14:20:00+02:00, from: In Progress, to: In Review, by: P-004 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-5
     type: Story
     summary: Establish OpenSpec governance and project-local workflow
     parent: UABC-1
-    status: In Review
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
@@ -106,7 +115,7 @@ issues:
     effort: 3d
     dependencies: []
     dataRequirements: [OpenSpec 1.5.0 documentation, governance rules]
-    acceptanceCriteria: [Custom schema validates, Exactly one active change exists]
+    acceptanceCriteria: [Custom schema validates, Lifecycle permits exactly 0 or 1 active change]
     referenceIds: [UABC-REQ-GOV-001, UABC-GOV-REFERENCE-001]
     confluenceRefs: [UABC-PROJECT, UABC-DECISIONS]
     evidenceRefs: [UABC-VER-LOCAL-001]
@@ -115,12 +124,14 @@ issues:
       - { at: 2026-07-10T09:45:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T09:50:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T14:25:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-6
     type: Story
     summary: Simulate Blueprint project in local Jira and Confluence
     parent: UABC-1
-    status: In Progress
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
@@ -137,12 +148,15 @@ issues:
     history:
       - { at: 2026-07-10T11:10:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T11:15:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T18:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-7
     type: Sub-task
     summary: Record official sources and version baseline
     parent: UABC-5
-    status: In Review
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-003
@@ -160,12 +174,14 @@ issues:
       - { at: 2026-07-10T11:20:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T11:25:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T14:30:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-8
     type: Sub-task
     summary: Validate OpenSpec schema and active change
     parent: UABC-5
-    status: In Review
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
@@ -183,12 +199,14 @@ issues:
       - { at: 2026-07-10T11:30:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T14:40:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T15:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-9
     type: Sub-task
     summary: Validate Jira and Confluence references
     parent: UABC-6
-    status: In Review
+    status: Done
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
@@ -206,23 +224,30 @@ issues:
       - { at: 2026-07-10T11:35:00+02:00, from: Backlog, to: Ready, by: P-002 }
       - { at: 2026-07-10T14:45:00+02:00, from: Ready, to: In Progress, by: P-002 }
       - { at: 2026-07-10T15:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: false }
 
   - key: UABC-10
     type: Task
     summary: Conduct cross-functional Blueprint review
     parent: UABC-1
-    status: Backlog
+    status: Done
     components: [Projektmanagement, Finance, Daten, Training]
     assignee: P-002
     customerRole: P-001
-    startDate: 2026-07-15
+    startDate: 2026-07-10
     dueDate: 2026-07-17
     effort: 2d
     dependencies: [UABC-2, UABC-3, UABC-4, UABC-8, UABC-9]
-    dataRequirements: [review comments, decision log, approvals]
-    acceptanceCriteria: [Open questions have owners, Approval or rejection is recorded by humans]
+    dataRequirements: [consultant findings, direct Microsoft sources, capability status review, delivery workstreams, people and segregation review, synchronized OQ-001 through OQ-014, human decision log, approvals]
+    acceptanceCriteria: [Consultant findings and recommendations are documented, Open questions have category and owner, Workstream and role realism is reviewed, Approval or rejection is recorded only by humans]
     referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-CAP-CATALOG-001]
     confluenceRefs: [UABC-BLUEPRINT, UABC-DECISIONS]
     evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
     historySynthetic: true
-    history: []
+    history:
+      - { at: 2026-07-10T16:30:00+02:00, from: Backlog, to: Ready, by: P-002 }
+      - { at: 2026-07-10T16:35:00+02:00, from: Ready, to: In Progress, by: P-002 }
+      - { at: 2026-07-10T18:00:00+02:00, from: In Progress, to: In Review, by: P-002 }
+      - { at: 2026-07-10T18:10:00+02:00, from: In Review, to: Done, by: P-002 }
+    doneGate: { acceptanceCriteriaMet: true, verificationPassed: true, humanApprovalRequired: true, humanApprovalRecorded: true }

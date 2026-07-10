@@ -9,10 +9,12 @@ people:
   - { id: P-008, name: Marco Stein, organization: UAS-DE, role: Production Planner, synthetic: true }
   - { id: P-009, name: Svenja Roth, organization: UAS-DE, role: Warehouse Lead, synthetic: true }
   - { id: P-010, name: David Nguyen, organization: UAD-DE, role: Sales Director DACH, synthetic: true }
-  - { id: P-011, name: Nina Becker, organization: UAD-DE, role: Sales Operations, synthetic: true }
+  - { id: P-011, name: Nina Becker, organization: UAD-DE, role: Customer and Supply Operations, synthetic: true }
   - { id: P-012, name: Cem Yildiz, organization: UAD-DE, role: Service Manager, synthetic: true }
-  - { id: P-013, name: Paula Hoffmann, organization: UAD-DE, role: Service Technician, synthetic: true }
+  - { id: P-013, name: Paula Hoffmann, organization: UAD-DE, role: Service Technician and Service Data Custodian, synthetic: true }
   - { id: P-014, name: Leon Wagner, organization: UAP-DE, role: Project Manager, synthetic: true }
   - { id: P-015, name: Sophie Martin, organization: UAP-DE, role: Project Accountant and Trainer, synthetic: true }
   - { id: P-016, name: Erik Schneider, organization: UAM-DE, role: Data Steward, synthetic: true }
-
+  - { id: P-017, name: Julia Koenig, organization: UAS-DE, role: Financial Accountant and Finance Key User, synthetic: true }
+  - { id: P-018, name: Martin Reuter, organization: UAD-DE, role: Financial Accountant and Finance Key User, synthetic: true }
+  - { id: P-019, name: Selin Acar, organization: UAD-DE, role: Distribution Warehouse Coordinator and Key User, synthetic: true }

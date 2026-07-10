@@ -54,4 +54,6 @@ Universaarl benoetigt vor jeder Konfiguration ein konsistentes Zielbild fuer Unt
 
 ## Freigabe
 
-Dieser Change darf erst nach fachlichem Review, erfolgreicher Verifikation und ausdruecklicher menschlicher Freigabe archiviert werden. Blueprint v0.1 ist ein Entscheidungsvorschlag, keine freigegebene Sollkonfiguration.
+Der reale Repository-Nutzer hat am 2026-07-10 mit `Empfehlungen uebernehmen` die W0-Unternehmens-/Loesungsarchitektur, das geplante Capability-Portfolio, das W1-W5-Delivery-Modell, Rollen/Kontrollen sowie offene Fragen und Gates bedingt freigegeben. Diese reale Freigabe ist nicht der synthetischen Jira-Person P-001 zuzurechnen.
+
+Nicht freigegeben sind die tatsaechliche `playthru`-Baseline oder Featureverfuegbarkeit, Legal-/Tax-Detailauslegung, finale Lizenzzuweisung, einzelne noch ungepruefte Capabilities, W1-Writes, BC-Zugriff oder Go-live. Capability-Status bleiben `planned` beziehungsweise `deferred`.
