@@ -24,4 +24,4 @@ OpenSpec ist als exakte Dev-Dependency gepinnt. Direkte Aufrufe erfolgen mit `np
 
 ## Aktiver Change
 
-`establish-project-artifact-walkthrough-pilot`
+Kein aktiver Change. `establish-project-artifact-walkthrough-pilot` wurde nach bestandenem change-spezifischem automatischem Policy-Gate archiviert.

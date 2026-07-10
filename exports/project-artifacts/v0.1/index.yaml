@@ -1,6 +1,8 @@
 schemaVersion: 0.1.0
 contract: project-artifacts/v0.1
 access: read-only
+relativePathBase: repository-root
+allowedPathBoundary: .
 producer:
   projectId: UABC
   repositoryRole: Blueprint source of truth
@@ -15,8 +17,13 @@ artifacts:
   - artifactId: UABC-WT-ENV-001
     artifactTypeId: UABC-ARTTYPE-WALKTHROUGH-001
     templateVersion: 0.1.0
-    status: in-review
+    status: approved
+    governingChange: establish-project-artifact-walkthrough-pilot
     simulationOnly: true
+    evidenceSemantics:
+      artifactProvidesBusinessEvidence: false
+      sourceEvidenceRetainedAsProvenance: true
+      purpose: learning-and-display
     sourceManifestPath: artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml
     resolvedManifestPath: artifacts/walkthrough/generated/UABC-WT-ENV-001/manifest.json
     outputs:
@@ -25,12 +32,26 @@ artifacts:
       video: artifacts/walkthrough/generated/UABC-WT-ENV-001/walkthrough.webm
       animatedPreview: artifacts/walkthrough/generated/UABC-WT-ENV-001/preview.webp
     checksums:
-      manifest: 8138c1386a63d1263492ee908422d0dcfb256774fed8ac45d6d638d4bd00e313
-      html: 7b9f2d392eee10b86f68459d86d2795edabc8762d978834265c537bd939a5b37
+      manifest: b13257e3c4ed0386208117e6e81d8d2e1d2f2fb6596f554989f1175d1d1b78c2
+      html: 1001df5d278cbc4a23831da3c7533e1c71e5a6aacb893ee5c077f5fc14698b61
       captions: 30c8bb8d65b3fa4bd3198461485ee122a512058715f504826e0f2baeed2d67b3
       video: a58d18d3a78be171b89a2d1316a3be482bce583b086d20dd60ad5f9732685140
       animatedPreview: 4f82cdeb9ce010ebcd8089d232647b5d7f6995345a226a6dcd48ccc36fe5a954
 consumerRules:
-  - Resolve only paths declared in this index.
-  - Treat template and example as non-evidence.
-  - Do not read raw traces, videos, auth state or temporary files.
+  pathResolution: Resolve every relative path from repository-root; reject
+    absolute paths and paths outside allowedPathBoundary.
+  allowedPackageOutputs:
+    - manifest
+    - html
+    - captions
+    - video
+    - animatedPreview
+  generatedVideoSemantics: The declared walkthrough.webm is a curated package
+    output, not raw browser video.
+  forbiddenInputs:
+    - raw-browser-video
+    - playwright-trace
+    - auth-state
+    - temporary-files
+  evidenceSemantics: Template, example and generated package are not business
+    evidence; referenced source evidence remains provenance.

@@ -2,8 +2,12 @@ artifactId: UABC-WT-ENV-001
 artifactTypeId: UABC-ARTTYPE-WALKTHROUGH-001
 templateVersion: 0.1.0
 projectId: UABC
-status: in-review
+status: approved
 simulationOnly: true
+evidenceSemantics:
+  artifactProvidesBusinessEvidence: false
+  sourceEvidenceRetainedAsProvenance: true
+  purpose: learning-and-display
 phase: W1 environment baseline publication pilot
 owner: P-002
 reviewers: [P-004, P-015]

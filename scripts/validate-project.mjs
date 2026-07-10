@@ -281,6 +281,14 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
 }
 
 async function validateLifecycleGate({ architecture, catalog, lifecycle, verificationMap, openSpec }) {
+  const validateWalkthroughCanonical = async (change, update, context) => {
+    const registry = await yaml('exports/project-artifacts/v0.1/index.yaml');
+    const artifact = (registry.artifacts ?? []).find((item) => item.artifactId === update?.facts?.pilotArtifact?.value);
+    check(update?.facts?.artifactType?.status === 'confirmed' && update?.facts?.artifactType?.value === 'Walkthrough Package', `${context}: walkthrough artifact type differs from proposedCanonicalUpdate`);
+    check(update?.facts?.pilotArtifact?.status === 'confirmed' && Boolean(artifact), `${context}: walkthrough pilot differs from proposedCanonicalUpdate`);
+    check(artifact?.status === 'approved' && artifact?.governingChange === change, `${context}: walkthrough registry is not approved by ${change}`);
+    check(artifact?.evidenceSemantics?.artifactProvidesBusinessEvidence === false && artifact?.evidenceSemantics?.sourceEvidenceRetainedAsProvenance === true, `${context}: walkthrough registry evidence semantics invalid`);
+  };
   const canonicals = [
     { name: 'architecture', value: architecture },
     { name: 'capability catalog', value: catalog }
@@ -330,6 +338,7 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
     if (canonicalTargets.includes('capability-catalog') && catalog.governingChange === change) {
       check(catalog.lifecycleStatus === 'approved', `${file}: archived capability catalog must remain approved`);
     }
+    if (canonicalTargets.includes('walkthrough-package-registry')) await validateWalkthroughCanonical(change, update, file);
   }
 
   let activeChange = null;
@@ -393,6 +402,7 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
     check(catalog.lifecycleStatus === 'approved', 'capability-catalog: archive-ready requires lifecycleStatus approved');
     check(catalog.governingChange === activeChange, `capability-catalog: governingChange must match active change ${activeChange}`);
   }
+  if (canonicalTargets.includes('walkthrough-package-registry')) await validateWalkthroughCanonical(activeChange, proposedUpdate, activeChange);
 
   for (const verification of activeVerifications) {
     if (verification.requiredForArchive === true) check(verification.status === 'passed', `${verification.id}: active-change archive-required verification is ${verification.status}, expected passed`);

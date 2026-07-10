@@ -13,8 +13,11 @@
     "validate:archive-ready": "npm run validate:openspec-schema && npm run validate:openspec && node scripts/validate-project.mjs --archive-ready",
     "test": "npm run validate:openspec-schema && npm run validate:openspec && npm run test:governance && npm run test:walkthrough && npm run validate:references",
     "test:governance": "node --test tests/governance/*.test.mjs",
-    "artifacts:walkthrough": "node scripts/build-walkthrough.mjs",
-    "test:walkthrough": "npm run artifacts:walkthrough && node --test tests/artifacts/walkthrough.test.mjs",
+    "validate:walkthrough-manifest": "node scripts/validate-walkthrough-manifest.mjs",
+    "build:walkthrough:baseline": "node scripts/build-walkthrough.mjs",
+    "artifacts:walkthrough": "npm run build:walkthrough:baseline",
+    "test:walkthrough:html": "playwright test --config=playwright.walkthrough.config.mjs",
+    "test:walkthrough": "npm run build:walkthrough:baseline && node --test tests/artifacts/walkthrough.test.mjs && npm run test:walkthrough:html",
     "pw:baseline": "playwright test tests/playwright/environment-baseline.spec.mjs",
     "pw:baseline:headed": "playwright test tests/playwright/environment-baseline.spec.mjs --headed",
     "pw:baseline:compare": "node tests/playwright/helpers/bc-evidence.mjs compare"
@@ -22,6 +25,7 @@
   "devDependencies": {
     "@fission-ai/openspec": "1.5.0",
     "@playwright/test": "1.61.1",
+    "ajv": "8.20.0",
     "yaml": "2.9.0"
   }
 }

@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadAndValidateWalkthrough } from './validate-walkthrough-manifest.mjs';
 
 const root = process.cwd();
 const artifactId = 'UABC-WT-ENV-001';
@@ -16,12 +17,11 @@ const readText = (relative) => fs.readFileSync(absolute(relative), 'utf8');
 const sha256File = (relative) => crypto.createHash('sha256').update(fs.readFileSync(absolute(relative))).digest('hex');
 const fail = (message) => { throw new Error(message); };
 
-function validateSource(source, schema) {
-  for (const field of schema.required ?? []) if (!Object.hasOwn(source, field)) fail(`Walkthrough source missing required field ${field}`);
-  const allowed = new Set(Object.keys(schema.properties ?? {}));
-  for (const field of Object.keys(source)) if (!allowed.has(field)) fail(`Walkthrough source has undeclared field ${field}`);
+function validateBaselinePilot(source) {
   if (source.artifactId !== artifactId || source.artifactTypeId !== 'UABC-ARTTYPE-WALKTHROUGH-001' || source.templateVersion !== '0.1.0') fail('Walkthrough identity or template version is invalid.');
-  if (source.status !== 'in-review' || source.simulationOnly !== true) fail('Pilot must remain in-review and simulationOnly.');
+  if (!['in-review', 'approved'].includes(source.status) || source.simulationOnly !== true) fail('Pilot must be in-review or approved and simulationOnly.');
+  if (source.evidenceSemantics?.artifactProvidesBusinessEvidence !== false || source.evidenceSemantics?.sourceEvidenceRetainedAsProvenance !== true) fail('Pilot evidence semantics are invalid.');
+  if (JSON.stringify(source.sourceRunRefs) !== JSON.stringify(['run-1', 'run-2'])) fail('Baseline pilot source runs must be run-1 and run-2.');
   for (const field of ['sourceScenarioRefs', 'requirementRefs', 'jiraRefs', 'evidenceRefs', 'sourceRunRefs', 'reviewers', 'audiences']) {
     if (!Array.isArray(source[field]) || source[field].length === 0 || new Set(source[field]).size !== source[field].length) fail(`${field} must be a non-empty unique array.`);
   }
@@ -92,9 +92,8 @@ function relativeFromOutput(repoRelative) {
   return path.relative(outputDir, absolute(repoRelative)).replaceAll('\\', '/');
 }
 
-const schema = JSON.parse(readText(schemaPath));
-const source = YAML.parse(readText(sourcePath));
-validateSource(source, schema);
+const source = loadAndValidateWalkthrough(sourcePath);
+validateBaselinePilot(source);
 validateEvidence(source);
 forbiddenContent(JSON.stringify(source), sourcePath);
 
@@ -128,7 +127,7 @@ const ffmpegVersion = run('ffmpeg', ['-version'], 'FFmpeg version').split(/\r?\n
 const resolved = {
   ...source,
   generatedAt: source.createdAt,
-  generation: { command: 'npm run artifacts:walkthrough', ffmpegVersion, mediaNature: 'deterministic screenshot sequence; not a browser recording' },
+  generation: { command: 'npm run build:walkthrough:baseline', ffmpegVersion, mediaNature: 'deterministic screenshot sequence; not a browser recording' },
   resolvedProvenance: { sourceChecksums, outputChecksums: mediaChecksums },
   steps: source.steps.map((step) => ({ ...step, displayScreenshot: relativeFromOutput(step.screenshotRefs.find((item) => item.runRef === 'run-2').path) })),
   outputs: {
@@ -147,7 +146,7 @@ const html = `<!doctype html>
 <style>
 :root{font-family:system-ui,sans-serif;color:#17202a;background:#f5f7f8}body{max-width:1100px;margin:auto;padding:1rem}main{background:white;padding:1.25rem;border-radius:.6rem}img,video{width:100%;max-height:620px;object-fit:contain;background:#eef2f3}button,select{font:inherit;padding:.5rem .75rem;margin:.25rem}.controls{display:flex;gap:.5rem;flex-wrap:wrap}.meta{color:#46545c}.step-text{min-height:11rem}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.animated-preview{display:none}}
 </style></head><body><main>
-<h1>Playthru-Umgebungsbaseline</h1><p class="meta">Artifact ${artifactId} · Status in-review · Simulation · keine neue Evidence</p>
+<h1>Playthru-Umgebungsbaseline</h1><p class="meta" id="evidence-semantics">Artifact ${artifactId} · Status ${source.status} · Simulation · abgeleitetes Lern-/Darstellungsartefakt, keine fachliche Evidence · Source-Evidence bleibt Provenienz</p>
 <label for="mode">Wiedergabemodus</label><select id="mode"><option value="beginner">Beginner</option><option value="consultant">Consultant</option><option value="evidence-review">Evidence Review</option></select>
 <section aria-live="polite"><h2 id="title"></h2><img id="shot" alt=""><div class="step-text"><p id="action"></p><p id="result"></p><p id="why"></p><p id="caption"></p><p id="refs" class="meta"></p></div></section>
 <div class="controls"><button id="previous" type="button">Zurueck</button><button id="play" type="button">Abspielen</button><button id="next" type="button">Weiter</button></div>
@@ -173,6 +172,8 @@ const exportIndex = {
   schemaVersion: '0.1.0',
   contract: 'project-artifacts/v0.1',
   access: 'read-only',
+  relativePathBase: 'repository-root',
+  allowedPathBoundary: '.',
   producer: { projectId: 'UABC', repositoryRole: 'Blueprint source of truth' },
   consumer: { project: 'Universaarl Project Twin', repositoryMutationRequired: false },
   artifactTypes: [{ artifactTypeId: 'UABC-ARTTYPE-WALKTHROUGH-001', name: 'Walkthrough Package', schemaPath }],
@@ -181,13 +182,21 @@ const exportIndex = {
     artifactTypeId: source.artifactTypeId,
     templateVersion: source.templateVersion,
     status: source.status,
+    governingChange: 'establish-project-artifact-walkthrough-pilot',
     simulationOnly: source.simulationOnly,
+    evidenceSemantics: source.evidenceSemantics,
     sourceManifestPath: sourcePath,
     resolvedManifestPath: `${outputRelative}/manifest.json`,
     outputs: { html: `${outputRelative}/index.html`, captions: `${outputRelative}/captions.vtt`, video: `${outputRelative}/walkthrough.webm`, animatedPreview: `${outputRelative}/preview.webp` },
     checksums: outputChecksums
   }],
-  consumerRules: ['Resolve only paths declared in this index.', 'Treat template and example as non-evidence.', 'Do not read raw traces, videos, auth state or temporary files.']
+  consumerRules: {
+    pathResolution: 'Resolve every relative path from repository-root; reject absolute paths and paths outside allowedPathBoundary.',
+    allowedPackageOutputs: ['manifest', 'html', 'captions', 'video', 'animatedPreview'],
+    generatedVideoSemantics: 'The declared walkthrough.webm is a curated package output, not raw browser video.',
+    forbiddenInputs: ['raw-browser-video', 'playwright-trace', 'auth-state', 'temporary-files'],
+    evidenceSemantics: 'Template, example and generated package are not business evidence; referenced source evidence remains provenance.'
+  }
 };
 fs.writeFileSync(absolute(exportRelative), YAML.stringify(exportIndex), 'utf8');
 forbiddenContent(readText(exportRelative), exportRelative);

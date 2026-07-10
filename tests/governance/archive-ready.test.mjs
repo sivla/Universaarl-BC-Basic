@@ -76,6 +76,9 @@ async function disposableRepository(t) {
     'artifacts/walkthrough',
     'exports/project-artifacts'
   ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
+  for (const name of await fs.readdir(path.join(changesRoot, 'archive'))) {
+    if (name.endsWith('-establish-project-artifact-walkthrough-pilot')) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
+  }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
   register.verifications = register.verifications.filter((item) => item.changeRef !== 'establish-project-artifact-walkthrough-pilot');

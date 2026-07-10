@@ -1,9 +1,13 @@
-artifactId: TEMPLATE-WALKTHROUGH-PACKAGE
+artifactId: UABC-WT-REPLACE-ME
 artifactTypeId: UABC-ARTTYPE-WALKTHROUGH-001
 templateVersion: 0.1.0
-projectId: REPLACE-ME
+projectId: UABC
 status: draft
 simulationOnly: true
+evidenceSemantics:
+  artifactProvidesBusinessEvidence: false
+  sourceEvidenceRetainedAsProvenance: true
+  purpose: learning-and-display
 phase: REPLACE-ME
 owner: REPLACE-ME
 reviewers: [REPLACE-ME]
@@ -41,5 +45,3 @@ provenance:
   checksumAlgorithm: sha256
   checksumsResolvedAtBuild: true
   derivation: REPLACE WITH THE SOURCE-TO-OUTPUT DERIVATION
-templateOnly: true
-evidenceUseProhibited: true

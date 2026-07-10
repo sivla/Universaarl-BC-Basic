@@ -3,8 +3,13 @@
   "artifactTypeId": "UABC-ARTTYPE-WALKTHROUGH-001",
   "templateVersion": "0.1.0",
   "projectId": "UABC",
-  "status": "in-review",
+  "status": "approved",
   "simulationOnly": true,
+  "evidenceSemantics": {
+    "artifactProvidesBusinessEvidence": false,
+    "sourceEvidenceRetainedAsProvenance": true,
+    "purpose": "learning-and-display"
+  },
   "phase": "W1 environment baseline publication pilot",
   "owner": "P-002",
   "reviewers": [
@@ -304,14 +309,14 @@
   },
   "generatedAt": "2026-07-10",
   "generation": {
-    "command": "npm run artifacts:walkthrough",
+    "command": "npm run build:walkthrough:baseline",
     "ffmpegVersion": "ffmpeg version 2025-07-23-git-829680f96a-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers",
     "mediaNature": "deterministic screenshot sequence; not a browser recording"
   },
   "resolvedProvenance": {
     "sourceChecksums": {
-      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "4047db026a353549db4a13dab69292ff7e52c2112b0da264a398c2d6fb0a8d18",
-      "artifacts/walkthrough/schema/walkthrough-package.schema.json": "217491ab5ec8a1f80d5e20f8ac83a414e588918ac1c6b302352dc9e9c6dc7df9",
+      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "97a52a32614dd748b569a2a2e9ee14f15a6f6cfc7e2b54980aea76f749818d16",
+      "artifacts/walkthrough/schema/walkthrough-package.schema.json": "5c7e78b3829e0df4dd176553c2353f4c4d03c958e672d5d1e31d7d2a672ff670",
       "evidence/playthru-environment-baseline/run-1/env-00.png": "060cd6087be70c0cafcf9e34b00d6110d3ab9acfd220fe7dd8df70ed2b904aef",
       "evidence/playthru-environment-baseline/run-1/env-01.png": "cd92b2a44b2ef5be8f1126f81cd7597312987174c3e5bf4b7baba1bb971e1697",
       "evidence/playthru-environment-baseline/run-1/env-02.png": "232c6ddb0c63671c15bbc8cbb917eff210c462cdb9b670327e49df5ce61d92b9",
