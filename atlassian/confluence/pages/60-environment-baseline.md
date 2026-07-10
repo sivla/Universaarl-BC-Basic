@@ -11,7 +11,7 @@ lastReviewed: 2026-07-10
 
 # Playthru Environment Baseline
 
-Diese Seite ist die kuratierte Review-Navigation fuer den ersten W1-Pilot. Normativ bleibt der aktive OpenSpec-Change `establish-playthru-environment-baseline`.
+Diese Seite ist die kuratierte Review-Navigation fuer den abgeschlossenen W1-Piloten. Normativ sind `openspec/specs/environment-baseline/spec.md` und `architecture/enterprise-blueprint.yaml#actualSandboxBaseline`; die Archiv-Historie liegt unter `openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/`.
 
 Der Pilot liest ausschliesslich sichtbare UI-Zustaende der Sandbox `playthru`. Er wechselt weder Environment noch Gesellschaft und fuehrt keine Anlage, Aenderung, Konfiguration, Buchung, Extension-Aktion oder Feature-Aktivierung aus.
 

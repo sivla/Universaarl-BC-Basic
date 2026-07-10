@@ -54,12 +54,11 @@ identityAndEnvironment:
     status: unknown
     purpose: identity, group and license boundary
   targetEnvironment:
-    name: playthru
-    type: Sandbox
-    status: authorized-not-inspected
+    baselineRef: actualSandboxBaseline.facts.environment
+    writeReadiness: not-authorized
   localization:
     planned: Germany
-    actual: unknown
+    actualRef: actualSandboxBaseline.facts.localization
 licensingModel:
   status: proposed
   sourceIds: [SRC-BC-010, SRC-BC-011, SRC-BC-026, SRC-BC-030]
@@ -76,7 +75,7 @@ licensingModel:
     - Final SKU mix device licensing and tenant capacity require current Product Terms and partner confirmation.
 localizationAndFinance:
   countryReference: Germany
-  actualAvailability: unknown
+  actualAvailabilityRef: actualSandboxBaseline.facts.localization
   sourceIds: [SRC-BC-012, SRC-BC-013, SRC-BC-014, SRC-BC-015, SRC-BC-016, SRC-BC-017]
   strategy:
     chartOfAccounts: harmonized group chart with company-specific exceptions and explicit consolidation mapping

@@ -17,6 +17,7 @@ Voraussetzung: Node.js >= 20.19.
 
 ```powershell
 npm ci
+npm run setup:playwright:chromium
 npm test
 ```
 

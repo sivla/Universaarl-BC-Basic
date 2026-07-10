@@ -589,6 +589,11 @@ registerIds(verificationDoc, 'evidence/verification-register.yaml', stableIds, i
 const architecture = await yaml('architecture/enterprise-blueprint.yaml');
 const catalog = await yaml('capabilities/catalog.yaml');
 const lifecycle = await yaml('governance/reference-lifecycle.yaml');
+const openSpecConfig = await yaml('openspec/config.yaml');
+const openSpecContext = String(openSpecConfig.context ?? '');
+check(openSpecContext.includes('architecture/enterprise-blueprint.yaml#actualSandboxBaseline'), 'openspec/config.yaml: context must reference the canonical actualSandboxBaseline path');
+check(/only facts confirmed there/i.test(openSpecContext), 'openspec/config.yaml: context must limit baseline use to confirmed canonical facts');
+check(/unknown or only partially visible values/i.test(openSpecContext), 'openspec/config.yaml: context must preserve unknown and partial baseline values');
 const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
 for (const verification of verificationMap.values()) {
