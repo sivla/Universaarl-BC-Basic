@@ -24,6 +24,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 6. Ein nicht ausgefuehrter Playwright-Szenariokatalog fuer Grundeinrichtung, Finanzwesen, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe, UStVA-Vorschau und begrenzten Zahlungstest.
 7. Ein `proposed` Projektindex und eine zugehoerige, fail-closed Project-Twin-Konsumentenbindung als einzige geplante Einstiegskante. Erst ein spaeter validierter und versionierter Snapshot darf auf Blueprint-Quellen verweisen; bis dahin wird keine Twin-Bereitstellung behauptet und keine fachliche Wahrheit dupliziert.
 8. Ein expliziter versionierter Uebergabevertrag in der Reihenfolge Spectra-Releasebindung im technischen BCProjectOS-Repository -> BC-Basic-Consumerbindung -> commitgebundenes Snapshotmanifest -> ausschliesslich lesender Project Twin. Die bekannte Repository-Identitaet von BCProjectOS ersetzt keinen Releasebeweis.
+9. Ein kleiner, rein lokaler Migrationsvertrag fuer die spaetere Trennung aus dem gemeinsam genutzten `sivla/FiBu`-Repository in ein eigenes Repository `Universaarl-BC-Basic`, ohne fachliche Daten, IDs, Spectra-Bindung oder Snapshotfelder zu aendern.
 
 ## Umfang
 
@@ -47,6 +48,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 - Keine echte Kunden-, Personen-, Bank-, Steuer- oder Zugangsdaten.
 - Keine Behauptung, **BC Basic** sei eine Microsoft-Lizenz. Lizenz-, Tenant- und sonstige externe Kosten sind nicht im Leistungsbudget enthalten.
 - In diesem Planungsschritt keine BC-Schreibvorgaenge, fachlichen Tests, Erstellungsvorgaenge, Browserlaeufe oder Erfolgsaussagen.
+- Die Repository-Trennung wird nur inventarisiert und vertraglich vorbereitet: Zielbranch `main`, Arbeitsbranches `codex/...`, Push/PR spaeter nur durch den Projekt-Agenten auf einem eigenen Arbeitsbranch; Merge, Tag und Release bleiben beim Kontrollzentrum. Kein Repository wird angelegt oder umbenannt.
 
 ## Risiken und Kontrollen
 

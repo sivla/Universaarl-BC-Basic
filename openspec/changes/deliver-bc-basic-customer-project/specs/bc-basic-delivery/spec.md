@@ -2,6 +2,19 @@
 
 ## ADDED Requirements
 
+### Requirement: UABC-REQ-BCB-012 Eigenes Repository spaeter vorbereiten
+Die Kundeninstanz MUST fuer die spaetere Trennung aus dem gemeinsam genutzten `https://github.com/sivla/FiBu.git`-Repository in ein eigenes Repository mit Zielname `Universaarl-BC-Basic` einen versionierten Migrationsvertrag fuehren. Der Vertrag MUST die zu erhaltende Branch-, Commit- und Tree-Identitaet, den Zielbranch `main` sowie Arbeitsbranches nach `codex/...` nennen. Der Projekt-Agent DARF spaeter nur den eigenen Arbeitsbranch pushen oder einen PR erstellen; Merge, Tag und Release bleiben dem Kontrollzentrum vorbehalten. Die Vorbereitung MUST keine Remote-Aenderung, Repository-Anlage, fachlichen Daten-, ID-, Spectra- oder Snapshotfeld-Aenderung enthalten.
+
+#### Scenario: UABC-SCN-BCB-018 Migration ohne Identitaetsverlust vorbereiten
+- **GIVEN** die Kundeninstanz liegt aktuell auf einem gemeinsam genutzten Repository und einem kanonischen Branch
+- **WHEN** der lokale Migrationsvertrag erstellt oder geprueft wird
+- **THEN** nennt er Remote, Branch, vollstaendige HEAD-SHA und Tree-SHA als zu erhaltende Ausgangsidentitaet und weist `Universaarl-BC-Basic`/`main` nur als spaeteres Ziel aus
+
+#### Scenario: UABC-SCN-BCB-019 Veroeffentlichungsgrenzen der Trennung
+- **GIVEN** ein spaeterer eigener Arbeitsbranch im Zielrepository
+- **WHEN** der Projekt-Agent eine Veroeffentlichung vorbereitet
+- **THEN** sind nur Push und PR dieses eigenen `codex/...`-Branches zulaessig; Merge, Tag und Release werden nicht vom Projekt-Agenten ausgefuehrt
+
 ### Requirement: UABC-REQ-BCB-001 Ein synthetisches Standardprodukt
 Das Projekt MUST genau eine synthetische deutsche Gesellschaft in der Sandbox `playthru` verwenden und MUST `UABC-BC-BASIC-001` als stabile Projektkennung fuehren. **BC Basic Einrichtung** MUST als kleinstes wiederverwendbares Universaarl-Servicepaket und darf nicht als Microsoft-Lizenzname dargestellt werden.
 

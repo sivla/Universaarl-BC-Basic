@@ -10,6 +10,8 @@ Ausgefuehrt wurden OpenSpec-Schema, strikte OpenSpec-Validierung, Snapshotvertra
 
 Der Cross-Repo-Vertrag ist auf Producer A und Consumer B vorbereitet: Das spaetere Manifest projiziert `producerCommitSha` aus A, liest Schema, Index und Payloadrecords aus B, verlangt A als einzigen Parent von B und erlaubt zwischen A und B ausschliesslich die Manifestdatei. Dieser Zustand ist aktuell nicht ausgefuehrt und nicht freigegeben.
 
+Der lokale Repository-Migrationsvertrag bewahrt fuer die spaetere Trennung die beobachtete Ausgangsidentitaet `origin=https://github.com/sivla/FiBu.git`, Branch `codex/universaarl-projekt`, HEAD `72bfa9584ad53e74b9c1c442e8025de1a82c063b` und Tree `d778ae148fa94eb0e146ef5d03c98e9563aace56`. Zielname `Universaarl-BC-Basic`, Zielbranch `main` und Arbeitsbranches `codex/...` sind nur geplant; Repository-Anlage, Remote-Aenderung und Veroeffentlichung sind nicht erfolgt.
+
 Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Prozesse, fachlichen Abnahmen oder steuerlichen Pruefungen ausgefuehrt.
 
 ## Ergebnisse
