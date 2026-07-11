@@ -1,0 +1,43 @@
+schemaVersion: 1
+checkId: UABC-DATA-READY-BCB-001
+projectId: UABC-BC-BASIC-001
+changeRef: deliver-bc-basic-customer-project
+status: planned
+executed: false
+resultClaimed: false
+ownerRef: P-016
+approverRefs: [P-005, P-011, P-019]
+classification: synthetic-only
+templatePairs:
+  - { templateId: UABC-DATA-TPL-001, objectId: company-setup, blankPath: project/bc-basic/customer-templates/blank/company-setup.blank.yaml, examplePath: project/bc-basic/customer-templates/example/company-setup.example.yaml }
+  - { templateId: UABC-DATA-TPL-002, objectId: dimensions, blankPath: project/bc-basic/customer-templates/blank/dimensions.blank.csv, examplePath: project/bc-basic/customer-templates/example/dimensions.example.csv }
+  - { templateId: UABC-DATA-TPL-003, objectId: customers, blankPath: project/bc-basic/customer-templates/blank/customers.blank.csv, examplePath: project/bc-basic/customer-templates/example/customers.example.csv }
+  - { templateId: UABC-DATA-TPL-004, objectId: vendors, blankPath: project/bc-basic/customer-templates/blank/vendors.blank.csv, examplePath: project/bc-basic/customer-templates/example/vendors.example.csv }
+  - { templateId: UABC-DATA-TPL-005, objectId: items, blankPath: project/bc-basic/customer-templates/blank/items.blank.csv, examplePath: project/bc-basic/customer-templates/example/items.example.csv }
+  - { templateId: UABC-DATA-TPL-006, objectId: inventory-opening, blankPath: project/bc-basic/customer-templates/blank/inventory-opening.blank.csv, examplePath: project/bc-basic/customer-templates/example/inventory-opening.example.csv }
+  - { templateId: UABC-DATA-TPL-007, objectId: gl-opening, blankPath: project/bc-basic/customer-templates/blank/gl-opening.blank.csv, examplePath: project/bc-basic/customer-templates/example/gl-opening.example.csv }
+  - { templateId: UABC-DATA-TPL-008, objectId: open-customer-vendor-entries, blankPath: project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv, examplePath: project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv }
+checks:
+  - id: UABC-DATA-CHECK-001
+    subject: Vollstaendigkeit
+    rule: Alle acht Blanko-/Beispielpaare sind parsebar und alle Pflichtfelder der Beispieldaten sind gefuellt.
+  - id: UABC-DATA-CHECK-002
+    subject: Eindeutigkeit
+    rule: Technische Schluessel der Gesellschaft sowie der Dimensionen und Stammdaten sind je Objekt eindeutig.
+  - id: UABC-DATA-CHECK-003
+    subject: Buchungsgruppenabhaengigkeiten
+    rule: Buchungsgruppen- und Steuerwerte bleiben Kandidaten bis zur fachlichen sowie Legal-/Tax-Freigabe und werden nicht als finale Einrichtung behandelt.
+  - id: UABC-DATA-CHECK-004
+    subject: Summenabstimmung
+    rule: Anfangsbestand entspricht Menge mal Einstandspreis; Soll entspricht Haben; offene Debitoren- und Kreditorenposten stimmen mit den jeweiligen Sammelkontenrollen ab.
+  - id: UABC-DATA-CHECK-005
+    subject: Synthetische Klassifikation
+    rule: Jeder Beispieldatensatz ist als synthetisch gekennzeichnet und enthaelt keine realen Personen-, Bank-, Steuer- oder Belegdaten.
+  - id: UABC-DATA-CHECK-006
+    subject: Offene Freigaben
+    rule: Kontenplan-, Buchungsgruppen-, Steuer- und Schreibfreigaben bleiben sichtbar und werden nicht aus Beispieldaten abgeleitet.
+openApprovalRefs: [UABC-APP-BCB-001, UABC-APP-BCB-002, UABC-APP-BCB-003, UABC-APP-BCB-004]
+blockerRule:
+  condition: Ein Pflichtcheck ist nicht nachweislich bestanden oder eine benoetigte Freigabe ist nicht erteilt.
+  consequence: Keine Datenuebergabe an einen BC-Schreibschritt und kein Start der davon abhaengigen Umsetzung.
+configurationPackageResponsibility: Konfigurationspakete sind ein Werkzeug des Dienstleisters; der Kunde liefert und prueft nur die kontrollierten Blanko- und Beispieldokumente.

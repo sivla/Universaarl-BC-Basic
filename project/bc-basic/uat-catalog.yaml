@@ -1,0 +1,104 @@
+schemaVersion: 1
+catalogId: UABC-UAT-BCB-001
+projectId: UABC-BC-BASIC-001
+changeRef: deliver-bc-basic-customer-project
+status: planned
+executed: false
+resultClaimed: false
+ownerRef: P-016
+customerAcceptanceOwnerRef: P-005
+configurationPackageResponsibility: Konfigurationspakete sind ein Werkzeug des Dienstleisters und kein Schulungs- oder Pflegegegenstand fuer den Kunden.
+cases:
+  - id: UABC-UAT-BCB-001
+    title: Navigation und Look-and-Feel
+    status: planned
+    initialState: Die autorisierte Zielgesellschaft ist eingerichtet und die Rolle P-005 ist fuer den vorgesehenen Arbeitsplatz vorbereitet.
+    roleRef: P-005
+    testDataRefs: [project/bc-basic/customer-templates/example/company-setup.example.yaml]
+    steps:
+      - Rollenstartseite oeffnen und zentrale Arbeitsbereiche fachlich einordnen.
+      - Suche sowie persoenliche Navigation zu Debitoren, Kreditoren, Artikeln und Finanzuebersicht nachvollziehen.
+    expectedResult: Die Rolle findet die benoetigten Arbeitsbereiche ohne fachfremde Navigation und erkennt Gesellschaft sowie Arbeitsdatum eindeutig.
+    acceptanceCriterion: P-005 kann die Pflichtbereiche erklaeren und ohne Hilfe wiederfinden.
+  - id: UABC-UAT-BCB-002
+    title: Einkauf
+    status: planned
+    initialState: Der synthetische Kreditor, Artikel und Lagerort sind vorhanden; es bestehen keine offenen Testbelege aus einem Vorlauf.
+    roleRef: P-011
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/vendors.example.csv
+      - project/bc-basic/customer-templates/example/items.example.csv
+      - project/bc-basic/customer-templates/example/company-setup.example.yaml
+    steps:
+      - Bestellung fuer den synthetischen Artikel beim synthetischen Kreditor erfassen.
+      - Wareneingang und Einkaufsrechnung fachlich getrennt pruefen und buchen.
+    expectedResult: Bestand, Kreditorenposten und Finanzbuchung entstehen nachvollziehbar und referenzieren denselben Belegfluss.
+    acceptanceCriterion: P-011 kann Menge, Betrag und Buchungskette ohne Differenz abstimmen.
+  - id: UABC-UAT-BCB-003
+    title: Verkauf
+    status: planned
+    initialState: Debitor, Artikel, Preis und ausreichender Bestand sind vorhanden; es bestehen keine offenen Testbelege aus einem Vorlauf.
+    roleRef: P-011
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/customers.example.csv
+      - project/bc-basic/customer-templates/example/items.example.csv
+      - project/bc-basic/customer-templates/example/inventory-opening.example.csv
+    steps:
+      - Verkaufsauftrag fuer den synthetischen Debitor erfassen.
+      - Verfuegbarkeit pruefen sowie Lieferung und Rechnung fachlich nachvollziehen.
+    expectedResult: Bestand, Debitorenposten, Umsatz und Wareneinsatz folgen demselben kontrollierten Belegfluss.
+    acceptanceCriterion: P-011 kann Menge, Preis von 79.00 EUR und Buchungskette ohne Differenz abstimmen.
+  - id: UABC-UAT-BCB-004
+    title: Einfacher Bestand
+    status: planned
+    initialState: Lagerort HAUPT, Artikel A-1000 und der synthetische Anfangsbestand sind vorbereitet.
+    roleRef: P-019
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/items.example.csv
+      - project/bc-basic/customer-templates/example/inventory-opening.example.csv
+    steps:
+      - Artikelverfuegbarkeit am Lagerort HAUPT pruefen.
+      - Anfangsmenge und Bestandswert gegen die freigegebene Datenvorlage abstimmen.
+    expectedResult: Die physisch geplante Menge und der Buchbestand sind am einzigen Lagerort eindeutig nachvollziehbar.
+    acceptanceCriterion: P-019 bestaetigt 100 STK und 4200.00 EUR als abgestimmte synthetische Ausgangswerte.
+  - id: UABC-UAT-BCB-005
+    title: Finance und Abstimmung
+    status: planned
+    initialState: Synthetische Eroeffnungszeilen und offene Debitoren-/Kreditorenposten liegen als gepruefte Eingabedaten vor.
+    roleRef: P-005
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/gl-opening.example.csv
+      - project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv
+    steps:
+      - Soll- und Habensumme der Eroeffnungszeilen vergleichen.
+      - Offene Debitoren- und Kreditorenbetraege gegen die zugeordneten Sammelkontenrollen abstimmen.
+    expectedResult: Haupt- und Nebenbuchsummen sind ohne erfundene Ausgleichswerte nachvollziehbar.
+    acceptanceCriterion: P-005 bestaetigt Soll gleich Haben sowie 940.10 EUR Debitoren und 499.80 EUR Kreditoren ohne Differenz.
+  - id: UABC-UAT-BCB-006
+    title: Monatsabschlussprobe
+    status: planned
+    initialState: Die Pflichtprozesse sind als synthetische Testbewegungen vollstaendig gebucht und die Periode bleibt fuer die Probe kontrolliert offen.
+    roleRef: P-005
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/gl-opening.example.csv
+      - project/bc-basic/customer-templates/example/inventory-opening.example.csv
+    steps:
+      - Summen- und Saldenauswertung sowie offene Posten und Bestand fachlich vergleichen.
+      - Abschluss-Checkliste durchgehen und Auswirkungen einer kontrollierten Periodensperre beurteilen.
+    expectedResult: Offene Differenzen und Voraussetzungen fuer den Monatsabschluss sind sichtbar; es wird kein produktiver Abschluss behauptet.
+    acceptanceCriterion: P-005 dokumentiert jede Differenz oder bestaetigt die abgestimmte Probe ohne Status einer Produktivfreigabe.
+  - id: UABC-UAT-BCB-007
+    title: UStVA-Vorschau ohne Uebermittlung
+    status: planned
+    initialState: Die deutsche Steuer- und Buchungsgruppeneinrichtung ist fachlich geprueft; synthetische Einkaufs- und Verkaufsbuchungen sind vorhanden.
+    roleRef: P-005
+    testDataRefs:
+      - project/bc-basic/customer-templates/example/customers.example.csv
+      - project/bc-basic/customer-templates/example/vendors.example.csv
+      - project/bc-basic/customer-templates/example/items.example.csv
+    steps:
+      - UStVA-Vorschau fuer den synthetischen Testzeitraum erzeugen.
+      - Bemessungsgrundlagen und Steuerbetraege gegen die Testbelege plausibilisieren.
+      - Vorschau schliessen ohne ELSTER-Uebermittlung oder sonstige externe Abgabe.
+    expectedResult: Die Vorschau ist fachlich nachvollziehbar und keine Meldung verlaesst die Sandbox.
+    acceptanceCriterion: P-005 bestaetigt die Vorschau und dass weder eine Uebermittlung noch eine produktive Steuererklaerung erfolgt ist.

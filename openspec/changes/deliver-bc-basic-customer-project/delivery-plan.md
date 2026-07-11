@@ -4,7 +4,7 @@
 
 ### Phase 1 - Vorbereitung, Anforderungen und Datenbereitschaft
 
-Circa drei Kalenderwochen ab bestaetigtem Projektauftakt, 18 Planstunden. Projektauftakt, Finanz-/Steuerarbeitsrunde, Prozessarbeitsrunde fuer Einkauf/Verkauf/einfachen Bestand, Daten- und Konfigurationspaketplan sowie Loesungs-/Abnahmeplan werden abgeschlossen. Die Phase endet nur, wenn Umfang, Verantwortliche, Datenqualitaet, Zielgesellschaft, Kundenmitwirkung und offene Freigaben sichtbar sind.
+Circa drei Kalenderwochen ab bestaetigtem Projektauftakt, 18 Planstunden. Projektauftakt, Finanz-/Steuerarbeitsrunde, Prozessarbeitsrunde fuer Einkauf/Verkauf/einfachen Bestand, acht getrennte Blanko-/Beispielpaare, maschinenlesbarer Datenbereitschaftscheck, Konfigurationspaketplan sowie Loesungs-/Abnahmeplan mit genau sieben geplanten UAT-Pflichtfaellen werden abgeschlossen. Die Phase endet nur, wenn Umfang, Verantwortliche, Datenqualitaet, Zielgesellschaft, Kundenmitwirkung und offene Freigaben sichtbar sind.
 
 ### Phase 2 - Einrichtung und Schulung in genau einer Woche
 
@@ -47,10 +47,10 @@ Alle IDs sind geplant. In diesem Auftragsschritt wurde kein Nachweis ausgefuehrt
 ## Pruefpunkte
 
 1. **Umfangspruefpunkt:** Standardumfang, eine Gesellschaft, genau ein Lagerort, Tagessatz, Planstunden, Kundenmitwirkung und Nicht-Ziele menschlich bestaetigt; ein Budgetlimit bleibt offen, falls es nicht entschieden wird.
-2. **Datenpruefpunkt:** Pflichtfelder, Formate, Eigentuemer, Qualitaetsprotokoll und Freigabe liegen vor.
+2. **Datenpruefpunkt:** Acht getrennte Blanko-/Beispielpaare sind parsebar, Pflichtfelder, Referenzen und Summen sind geprueft, und der Datenbereitschaftscheck zeigt Eigentuemer, offene Freigaben und Blocker.
 3. **Schreibpruefpunkt:** Exakte `playthru`-Zielbindung, Ruecksetzplan und mutierender Testumfang sind projektspezifisch autorisiert.
 4. **Finanz-/Steuerpruefpunkt:** Konten, Buchungsgruppen, MwSt.-Matrix und UStVA-Zuordnung fachlich freigegeben.
-5. **UAT-/Abnahmestopp:** Fachlicher Abnahmetest, vorbereitete UAT-Faelle, Trainingsanwesenheit, offene Fehler, Abstimmung und Unterstuetzungsweg fuer die Simulation sind akzeptiert; ein Produktivstart ist ausgeschlossen.
+5. **UAT-/Abnahmestopp:** Genau sieben vorbereitete UAT-Pflichtfaelle, fachlicher Abnahmetest, Trainingsanwesenheit, offene Fehler, Abstimmung und Unterstuetzungsweg fuer die Simulation sind akzeptiert; ein Produktivstart ist ausgeschlossen.
 6. **Abschluss der Hypercare:** Abschlussprobe und UStVA-Vorschau dokumentiert, relevante UAT-/Hypercare-Befunde bearbeitet, Dokumentation uebergeben und offener Folgeumfang getrennt.
 
 ## Abschlusskriterien

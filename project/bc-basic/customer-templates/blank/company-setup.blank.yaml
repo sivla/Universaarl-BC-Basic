@@ -1,0 +1,58 @@
+templateId: UABC-DATA-TPL-001-BLANK
+objectId: company-setup
+templateKind: blank
+description: Blankovorlage fuer die strukturierten Einrichtungsentscheidungen der BC-Basic-Gesellschaft
+fields:
+  companyId:
+    description: Stabile technische Kennung der einzurichtenden Gesellschaft
+    required: true
+    allowedValues: Freie synthetische Projektkennung ohne produktive Mandantendaten
+  displayName:
+    description: Sichtbarer Name der synthetischen Gesellschaft
+    required: true
+    allowedValues: Ausschliesslich synthetischer Projektname
+  countryCode:
+    description: Laendercode fuer die lokale Einrichtung
+    required: true
+    allowedValues: DE
+  baseCurrency:
+    description: Basiswaehrung der Gesellschaft
+    required: true
+    allowedValues: EUR
+  fiscalYearStart:
+    description: Beginn des ersten zu pruefenden Geschaeftsjahres
+    required: true
+    allowedValues: Datum im Format YYYY-MM-DD
+  language:
+    description: Sprache fuer den vorgesehenen Benutzerweg
+    required: true
+    allowedValues: de-DE
+  chartOfAccountsTemplate:
+    description: Verbindliche Vorlage fuer den Kontenplan im P001-Umfang
+    required: true
+    allowedValues: SKR04
+  postingGroupsApprovalStatus:
+    description: Freigabestatus der Kandidaten fuer Buchungsgruppen
+    required: true
+    allowedValues: pending oder approved
+  taxSetupApprovalStatus:
+    description: Freigabestatus der deutschen Steuer- und MwSt.-Einrichtung
+    required: true
+    allowedValues: pending oder approved
+  locationCode:
+    description: Code des einzigen Lagerorts im BC-Basic-Scope
+    required: true
+    allowedValues: Maximal zehn Zeichen und innerhalb der Vorlage eindeutig
+  locationName:
+    description: Sichtbarer Name des einzigen Lagerorts
+    required: true
+    allowedValues: Ausschliesslich synthetischer Projektname
+  synthetic:
+    description: Kennzeichnet die Daten als vollstaendig synthetisch
+    required: true
+    allowedValues: true
+  approvalStatus:
+    description: Fachlicher Freigabestatus der Einrichtungsentscheidung
+    required: true
+    allowedValues: pending oder approved
+values: {}

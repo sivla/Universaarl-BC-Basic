@@ -5,8 +5,8 @@
 - [ ] 1.1 Projektauftakt, Umfang, Rollen, Tagessatz und Besprechungsrhythmus bestaetigen (`UABC-22`, 2 h).
 - [ ] 1.2 Finanz- und Steuerarbeitsrunde mit offenen Freigaben dokumentieren (`UABC-23`, 4 h).
 - [ ] 1.3 Einkauf-, Verkauf- und Lagerprozess standardnah entscheiden (`UABC-24`, 4 h).
-- [ ] 1.4 Daten- und Konfigurationspaketvorlagen liefern, synthetische Daten pruefen und Datenbereitschaft protokollieren (`UABC-25`, 5 h).
-- [ ] 1.5 Loesungs-, Pruef-, UAT- und Abnahmeplan freigeben lassen (`UABC-26`, 3 h).
+- [ ] 1.4 Acht getrennte Blanko-/Beispielpaare und den Datenbereitschaftscheck liefern; Konfigurationspakete als Dienstleisterwerkzeug planen (`UABC-25`, 5 h).
+- [ ] 1.5 Loesungs-, Pruef- und Abnahmeplan mit genau sieben geplanten UAT-Pflichtfaellen freigeben lassen (`UABC-26`, 3 h).
 
 ## 2. Phase 2 - Einrichtung und Schulung in einer Woche
 

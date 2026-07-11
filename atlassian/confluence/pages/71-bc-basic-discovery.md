@@ -18,12 +18,12 @@ Phase 1 ist mit 18 Dienstleisterstunden geplant. Die Seite beschreibt erwartete 
 - `UABC-22`: Produktauftrag, Umfang, Rollen, Abrechnungssatz und Besprechungsrhythmus.
 - `UABC-23`: Konten, Buchungsgruppen, Dimensionen, Mehrwertsteuer und UStVA-Anforderungen.
 - `UABC-24`: Standardprozesse fuer Einkauf, Verkauf und einfachen Bestand.
-- `UABC-25`: Synthetische Objektvorlagen, Konfigurationspaketplan und Datenbereitschaft.
-- `UABC-26`: Loesungs-, Pruef-, Ruecksetz-, UAT- und Abnahmeplan.
+- `UABC-25`: Acht getrennte Blanko-/Beispielpaare, Konfigurationspaketplan und maschinenlesbarer Datenbereitschaftscheck.
+- `UABC-26`: Loesungs-, Pruef-, Ruecksetz- und Abnahmeplan mit genau sieben geplanten UAT-Pflichtfaellen.
 
 ## Lieferergebnisse
 
-Die Phase liefert den Produkt- und Abnahmeplan `UABC-DEL-BCB-001`, die Anforderungs- und Entscheidungsunterlagen `UABC-DEL-BCB-002` sowie das Daten- und Konfigurationspaket `UABC-DEL-BCB-003`. Ihr aktueller Status ist `planned`; ein Abschlussnachweis ist leer.
+Die Phase liefert den Produkt- und Abnahmeplan `UABC-DEL-BCB-001`, die Anforderungs- und Entscheidungsunterlagen `UABC-DEL-BCB-002` sowie das Daten- und Konfigurationspaket `UABC-DEL-BCB-003`. Die ausfuehrbaren Grundlagen liegen unter `project/bc-basic/data-package.yaml`, `project/bc-basic/data-readiness-check.yaml` und `project/bc-basic/uat-catalog.yaml`. Ihr aktueller Status ist `planned`; ein Abschlussnachweis ist leer.
 
 ## Bereitschaftspruefpunkt
 

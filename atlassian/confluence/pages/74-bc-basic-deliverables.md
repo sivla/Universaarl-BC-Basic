@@ -15,7 +15,11 @@ Das maschinenlesbare Lieferregister liegt unter `project/bc-basic/deliverables.y
 
 ## Datenanforderungen
 
-`project/bc-basic/data-package.yaml` beschreibt acht synthetische Objektvorlagen und den Konfigurationspaketplan. Jede Vorlage nennt Zweck, Format, Kundendatenquelle, Dienstleisterverantwortung, Pflichtfelder, Qualitaetsregeln, offenen Freigabestatus und mindestens einen plausiblen Beispieldatensatz. Konfigurationspakete bleiben Dienstleisterwerkzeug; ihre Erstellung und Pflege ist kein Schulungsinhalt.
+`project/bc-basic/data-package.yaml` beschreibt acht synthetische Datenobjekte und den Konfigurationspaketplan. Jedes Objekt verweist auf eine getrennte Blankovorlage mit Struktur, Feldbeschreibung und Wertregeln sowie auf eine vollstaendig synthetische Beispieldatei. `project/bc-basic/data-readiness-check.yaml` prueft Vollstaendigkeit, Eindeutigkeit, Buchungsgruppenabhaengigkeiten, Summen, synthetische Klassifikation und offene Freigaben. Konfigurationspakete bleiben Dienstleisterwerkzeug; ihre Erstellung und Pflege ist kein Schulungsinhalt.
+
+## UAT-Grundlage
+
+`project/bc-basic/uat-catalog.yaml` enthaelt genau sieben geplante Pflichtfaelle fuer Navigation und Look-and-Feel, Einkauf, Verkauf, einfachen Bestand, Finance und Abstimmung, Monatsabschlussprobe sowie UStVA-Vorschau ohne Uebermittlung. Die Faelle sind nicht ausgefuehrt und besitzen keinen Abnahme- oder Erfolgsnachweis.
 
 ## Schulungsartefakte
 

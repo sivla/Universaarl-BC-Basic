@@ -20,12 +20,26 @@ async function yaml(relativePath) {
   return YAML.parse(await fs.readFile(path.join(root, ...relativePath.split('/')), 'utf8'));
 }
 
-const [plan, billing, issueDocument, deliverableRegister, dataPackage, trainingPlan, meetingIndex, projectIndex, scenarioCatalog, verificationRegister] = await Promise.all([
+async function csv(relativePath) {
+  const content = await fs.readFile(path.join(root, ...relativePath.split('/')), 'utf8');
+  const lines = content.trim().split(/\r?\n/);
+  const headers = lines[0].split(';');
+  const rows = lines.slice(1).map((line, index) => {
+    const values = line.split(';');
+    assert.equal(values.length, headers.length, `${relativePath}: Zeile ${index + 2} hat eine abweichende Spaltenzahl`);
+    return Object.fromEntries(headers.map((header, column) => [header, values[column]]));
+  });
+  return { headers, rows };
+}
+
+const [plan, billing, issueDocument, deliverableRegister, dataPackage, dataReadiness, uatCatalog, trainingPlan, meetingIndex, projectIndex, scenarioCatalog, verificationRegister] = await Promise.all([
   yaml('project/bc-basic/project-plan.yaml'),
   yaml('project/bc-basic/billing.yaml'),
   yaml('atlassian/jira/issues/bc-basic-project.yaml'),
   yaml('project/bc-basic/deliverables.yaml'),
   yaml('project/bc-basic/data-package.yaml'),
+  yaml('project/bc-basic/data-readiness-check.yaml'),
+  yaml('project/bc-basic/uat-catalog.yaml'),
   yaml('project/bc-basic/training-plan.yaml'),
   yaml('atlassian/confluence/meetings/index.yaml'),
   yaml('exports/project-data/v1/index.yaml'),
@@ -156,7 +170,7 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
   }
 });
 
-test('Datenvorlagen sind synthetisch, pruefbar und mindestens einfach befuellt', () => {
+test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', async () => {
   assert.equal(dataPackage.status, 'template');
   assert.equal(dataPackage.classification, 'synthetic-only');
   assert.equal(dataPackage.providerOwnerRef, 'P-002');
@@ -169,7 +183,10 @@ test('Datenvorlagen sind synthetisch, pruefbar und mindestens einfach befuellt',
     assert.ok(pkg.importOrder?.length > 0, `${pkg.id}: Importreihenfolge fehlt`);
   }
   assert.ok(dataPackage.validationAndRecovery?.manualSteps?.some((step) => step.includes('manuelle Ausnahme')));
+  assert.match(dataPackage.configurationPackageCustomerRule ?? '', /Werkzeug des Dienstleisters/);
+  assert.match(dataPackage.configurationPackageCustomerRule ?? '', /weder pflegen noch bedienen/);
   assert.equal(dataPackage.templates?.length, 8);
+  const examples = new Map();
   for (const template of dataPackage.templates) {
     assert.ok(template.objectId?.length > 0, `${template.id}: Objektkennung fehlt`);
     assert.ok(template.purpose?.length > 0, `${template.id}: Zweck fehlt`);
@@ -178,10 +195,126 @@ test('Datenvorlagen sind synthetisch, pruefbar und mindestens einfach befuellt',
     assert.equal(template.approvalStatus, 'open', `${template.id}: Freigabestatus muss offen sein`);
     assert.ok(template.required?.length > 0, `${template.id}: Pflichtfelder fehlen`);
     assert.ok(template.qualityRules?.length > 0, `${template.id}: Qualitaetsregeln fehlen`);
-    const examples = template.examples ?? (template.example ? [template.example] : []);
-    assert.ok(examples.length > 0, `${template.id}: synthetisches Beispiel fehlt`);
-    assert.ok(examples.every((example) => example.synthetic === true), `${template.id}: Beispiel muss synthetisch sein`);
+    assert.ok(template.blankTemplatePath?.length > 0, `${template.id}: Blankopfad fehlt`);
+    assert.ok(template.exampleTemplatePath?.length > 0, `${template.id}: Beispielpfad fehlt`);
+    assert.notEqual(template.blankTemplatePath, template.exampleTemplatePath);
+    assert.equal(await exists(template.blankTemplatePath), true, `${template.id}: Blankovorlage fehlt`);
+    assert.equal(await exists(template.exampleTemplatePath), true, `${template.id}: Beispielvorlage fehlt`);
+    if (template.blankTemplatePath.endsWith('.yaml')) {
+      const blank = await yaml(template.blankTemplatePath);
+      const example = await yaml(template.exampleTemplatePath);
+      assert.equal(blank.templateKind, 'blank');
+      assert.deepEqual(blank.values, {}, `${template.id}: Blankovorlage darf keine Projektdaten enthalten`);
+      const fieldDefinitions = Array.isArray(blank.fields) ? blank.fields : Object.values(blank.fields ?? {});
+      assert.ok(fieldDefinitions.every((field) => field.description && field.allowedValues !== undefined), `${template.id}: Feldbeschreibung oder Wertregel fehlt`);
+      assert.equal(example.templateKind, 'example');
+      assert.equal(example.values?.synthetic, true);
+      examples.set(template.objectId, [example.values]);
+    } else {
+      const blank = await csv(template.blankTemplatePath);
+      const example = await csv(template.exampleTemplatePath);
+      assert.equal(blank.rows.length, 0, `${template.id}: CSV-Blanko darf keine Datenzeilen enthalten`);
+      assert.deepEqual(blank.headers, example.headers, `${template.id}: Blanko- und Beispielheader muessen identisch sein`);
+      assert.ok(example.rows.length > 0, `${template.id}: Beispieldatei ist leer`);
+      assert.ok(example.rows.every((row) => row.synthetic === 'true'), `${template.id}: Beispieldaten muessen synthetisch sein`);
+      examples.set(template.objectId, example.rows);
+    }
   }
+
+  const company = examples.get('company-setup')[0];
+  const dimensions = examples.get('dimensions');
+  const customer = examples.get('customers')[0];
+  const vendor = examples.get('vendors')[0];
+  const item = examples.get('items')[0];
+  const inventory = examples.get('inventory-opening')[0];
+  const glOpening = examples.get('gl-opening');
+  const openEntries = examples.get('open-customer-vendor-entries');
+  const companyBlank = await yaml(dataPackage.templates.find((template) => template.objectId === 'company-setup').blankTemplatePath);
+  const companyFieldNames = Array.isArray(companyBlank.fields) ? companyBlank.fields.map((field) => field.name) : Object.keys(companyBlank.fields ?? {});
+  assert.deepEqual(Object.keys(company).sort(), companyFieldNames.sort(), 'Company-Beispielwerte muessen exakt durch Blanko-Felder definiert sein');
+  assert.equal(company.chartOfAccountsTemplate, 'SKR04');
+  assert.equal(company.postingGroupsApprovalStatus, 'pending');
+  assert.equal(company.taxSetupApprovalStatus, 'pending');
+  const dimensionValues = new Set(dimensions.map((entry) => `${entry.dimensionCode}:${entry.valueCode}`));
+
+  assert.equal(company.companyId, 'UABC-BASIC-DE');
+  assert.equal(company.locationCode, 'HAUPT');
+  assert.equal(customer.customerNo, 'K-10000');
+  assert.equal(vendor.vendorNo, 'L-70000');
+  assert.equal(item.itemNo, 'A-1000');
+  assert.equal(Number(item.unitCost), 42);
+  assert.equal(Number(item.unitPrice), 79);
+  assert.equal(item.taxDecisionStatus, 'offen');
+  assert.equal(inventory.itemNo, item.itemNo);
+  assert.equal(inventory.locationCode, company.locationCode);
+  assert.equal(Number(inventory.quantity) * Number(inventory.unitCost), Number(inventory.lineAmount));
+  for (const entry of [customer, vendor, item, inventory, ...openEntries]) {
+    const costCenter = entry.defaultCostCenter ?? entry.costCenter;
+    const business = entry.defaultBusiness ?? entry.business;
+    assert.ok(dimensionValues.has(`KOSTENSTELLE:${costCenter}`), `Unbekannte Kostenstelle ${costCenter}`);
+    assert.ok(dimensionValues.has(`GESCHAEFT:${business}`), `Unbekannter Geschaeftsbereich ${business}`);
+  }
+  assert.equal(openEntries.find((entry) => entry.accountType === 'customer')?.accountNo, customer.customerNo);
+  assert.equal(openEntries.find((entry) => entry.accountType === 'vendor')?.accountNo, vendor.vendorNo);
+  assert.ok(openEntries.every((entry) => entry.documentNo.startsWith('SYN-')));
+  assert.equal(Math.round(glOpening.reduce((sum, entry) => sum + Number(entry.debitAmount), 0) * 100), Math.round(glOpening.reduce((sum, entry) => sum + Number(entry.creditAmount), 0) * 100));
+  assert.equal(glOpening.find((entry) => entry.accountRole === 'DEBITOREN-SAMMEL')?.debitAmount, openEntries.find((entry) => entry.accountType === 'customer')?.amount);
+  assert.equal(glOpening.find((entry) => entry.accountRole === 'KREDITOREN-SAMMEL')?.creditAmount, openEntries.find((entry) => entry.accountType === 'vendor')?.amount);
+  assert.equal(glOpening.find((entry) => entry.accountRole === 'BESTAND-HANDEL')?.debitAmount, inventory.lineAmount);
+  assert.ok(glOpening.every((entry) => entry.accountNoCandidate === '' && entry.approvalStatus === 'pending'), 'SKR04-Konten duerfen im Beispiel nicht als final freigegeben erscheinen');
+});
+
+test('Datenbereitschaft bleibt geplant und blockiert unvollstaendige oder ungepruefte Daten', () => {
+  assert.equal(dataReadiness.status, 'planned');
+  assert.equal(dataReadiness.executed, false);
+  assert.equal(dataReadiness.resultClaimed, false);
+  assert.equal(dataReadiness.templatePairs?.length, 8);
+  assert.deepEqual(dataReadiness.templatePairs.map((pair) => pair.templateId), dataPackage.templates.map((template) => template.id));
+  for (const pair of dataReadiness.templatePairs) {
+    const template = dataPackage.templates.find((entry) => entry.id === pair.templateId);
+    assert.equal(pair.objectId, template.objectId);
+    assert.equal(pair.blankPath, template.blankTemplatePath);
+    assert.equal(pair.examplePath, template.exampleTemplatePath);
+  }
+  assert.deepEqual(dataReadiness.checks.map((check) => check.subject), [
+    'Vollstaendigkeit',
+    'Eindeutigkeit',
+    'Buchungsgruppenabhaengigkeiten',
+    'Summenabstimmung',
+    'Synthetische Klassifikation',
+    'Offene Freigaben'
+  ]);
+  assert.ok(dataReadiness.openApprovalRefs?.length > 0);
+  assert.match(dataReadiness.blockerRule?.consequence ?? '', /Kein.*BC-Schreibschritt/);
+  assert.match(dataReadiness.configurationPackageResponsibility ?? '', /Werkzeug des Dienstleisters/);
+});
+
+test('UAT-Katalog enthaelt genau sieben geplante Pflichtfaelle ohne Ausfuehrungsbehauptung', () => {
+  assert.equal(uatCatalog.status, 'planned');
+  assert.equal(uatCatalog.executed, false);
+  assert.equal(uatCatalog.resultClaimed, false);
+  assert.deepEqual(uatCatalog.cases?.map((uatCase) => uatCase.id), Array.from({ length: 7 }, (_, index) => `UABC-UAT-BCB-00${index + 1}`));
+  assert.deepEqual(uatCatalog.cases.map((uatCase) => uatCase.title), [
+    'Navigation und Look-and-Feel',
+    'Einkauf',
+    'Verkauf',
+    'Einfacher Bestand',
+    'Finance und Abstimmung',
+    'Monatsabschlussprobe',
+    'UStVA-Vorschau ohne Uebermittlung'
+  ]);
+  for (const uatCase of uatCatalog.cases) {
+    assert.equal(uatCase.status, 'planned');
+    assert.ok(uatCase.initialState?.length > 0, `${uatCase.id}: Ausgangslage fehlt`);
+    assert.ok(uatCase.roleRef?.length > 0, `${uatCase.id}: Rolle fehlt`);
+    assert.ok(uatCase.testDataRefs?.length > 0, `${uatCase.id}: Testdatenreferenz fehlt`);
+    assert.ok(uatCase.steps?.length > 0, `${uatCase.id}: fachliche Schritte fehlen`);
+    assert.ok(uatCase.expectedResult?.length > 0, `${uatCase.id}: erwartetes Ergebnis fehlt`);
+    assert.ok(uatCase.acceptanceCriterion?.length > 0, `${uatCase.id}: Abnahmekriterium fehlt`);
+    assert.equal('evidence' in uatCase, false, `${uatCase.id}: geplanter Fall darf keine Evidence behaupten`);
+  }
+  assert.match(uatCatalog.cases.at(-1).expectedResult, /keine Meldung verlaesst die Sandbox/);
+  assert.match(uatCatalog.configurationPackageResponsibility ?? '', /kein Schulungs- oder Pflegegegenstand/);
 });
 
 test('Schulungsplan trennt Planung konsequent von Ausfuehrungsnachweisen', () => {
@@ -219,6 +352,14 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
     ['evidence/verification-register.yaml', 'verifications[changeRef=deliver-bc-basic-customer-project]'],
     ['docs/research/sources.yaml', 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]']
   ]);
+  const expectedPhaseOnePaths = [
+    ...dataPackage.templates.flatMap((template) => [template.blankTemplatePath, template.exampleTemplatePath]),
+    dataPackage.readinessCheckPath,
+    dataPackage.uatCatalogPath
+  ];
+  const indexedPaths = new Set(projectIndex.artifacts.map((artifact) => artifact.path));
+  assert.ok(expectedPhaseOnePaths.every((sourcePath) => indexedPaths.has(sourcePath)), 'Neue Phase-1-Artefakte muessen einzeln positivgelistet sein');
+  assert.ok(expectedPhaseOnePaths.every((sourcePath) => !sourcePath.includes('*') && !sourcePath.endsWith('/')), 'Positivliste darf keine Verzeichnis- oder Wildcardfreigabe enthalten');
   for (const artifact of projectIndex.artifacts) {
     assert.ok(artifact.kindId?.length > 0, `${artifact.id}: Artkennung fehlt`);
     assert.equal(path.isAbsolute(artifact.path), false, `${artifact.id}: Pfad muss relativ sein`);

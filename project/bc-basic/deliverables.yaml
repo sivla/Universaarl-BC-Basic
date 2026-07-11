@@ -15,6 +15,7 @@ deliverables:
     requiredSourcePaths:
       - openspec/changes/deliver-bc-basic-customer-project/proposal.md
       - openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md
+      - project/bc-basic/uat-catalog.yaml
       - atlassian/confluence/pages/70-bc-basic-project.md
     completionEvidence: null
   - id: UABC-DEL-BCB-002
@@ -38,6 +39,7 @@ deliverables:
     jiraRefs: [UABC-25]
     requiredSourcePaths:
       - project/bc-basic/data-package.yaml
+      - project/bc-basic/data-readiness-check.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
     completionEvidence: null
   - id: UABC-DEL-BCB-004
@@ -70,6 +72,7 @@ deliverables:
     ownerRef: P-002
     jiraRefs: [UABC-34]
     requiredSourcePaths:
+      - project/bc-basic/uat-catalog.yaml
       - playwright/scenarios/bc-basic-e2e.yaml
       - openspec/changes/deliver-bc-basic-customer-project/verification.md
     completionEvidence: null

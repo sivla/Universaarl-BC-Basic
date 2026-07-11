@@ -11,12 +11,12 @@ Das Projekt MUST genau eine synthetische deutsche Gesellschaft in der Sandbox `p
 - **THEN** sind ausschliesslich `playthru` und die menschlich freigegebene `Universaarl GmbH` erlaubt und jeder andere Zielzustand fuehrt vor dem ersten Schreibvorgang zum Abbruch
 
 ### Requirement: UABC-REQ-BCB-002 Drei verbindliche Phasen
-Das Projekt MUST aus Vorbereitung/Anforderungen und Datenbereitschaft, genau einer Einrichtungs- und Schulungswoche sowie einer einwoechigen Hypercare mit hoechstens 10 Stunden bis zur Monatsabschlussprobe in der Sandbox und zur UStVA-Vorschau bestehen. Jede Phase MUST Eintrittskriterien, Austrittskriterien, Abhaengigkeiten, Verantwortliche und Nachweise besitzen.
+Das Projekt MUST aus Vorbereitung/Anforderungen und Datenbereitschaft, genau einer Einrichtungs- und Schulungswoche sowie einer einwoechigen Hypercare mit hoechstens 10 Stunden bis zur Monatsabschlussprobe in der Sandbox und zur UStVA-Vorschau bestehen. Jede Phase MUST Eintrittskriterien, Austrittskriterien, Abhaengigkeiten, Verantwortliche und Nachweise besitzen. Phase 1 MUST einen UAT-Katalog mit genau sieben `planned` Pflichtfaellen fuer Navigation und Look-and-Feel, Einkauf, Verkauf, einfachen Bestand, Finance/Abstimmung, Monatsabschlussprobe und UStVA-Vorschau ohne Uebermittlung liefern; Planung MUST von Ausfuehrung und Abnahme getrennt bleiben.
 
 #### Scenario: UABC-SCN-BCB-002 Datenbereitschaft schuetzt die Umsetzungswoche
 - **GIVEN** Phase 1 ist geplant abgeschlossen
 - **WHEN** Phase 2 gestartet werden soll
-- **THEN** sind Umfang, Pflichtdaten, Loesungsentscheidungen, Pruefplan und offene Fachfreigaben dokumentiert oder der Start wird blockiert
+- **THEN** sind Umfang, Pflichtdaten, Loesungsentscheidungen, Pruefplan, genau sieben geplante UAT-Pflichtfaelle und offene Fachfreigaben dokumentiert oder der Start wird blockiert
 
 #### Scenario: UABC-SCN-BCB-003 Hypercare hat fachliche Abschlusskriterien
 - **GIVEN** die Einrichtung, Schulung und vorbereiteten UAT-Faelle wurden fachlich geprueft
@@ -53,12 +53,12 @@ Jeder Jira-Sammelvorgang, jedes Phasenticket und jedes Arbeitspaket MUST Aufwand
 - **THEN** sind Pflichtfelder, mindestens ein Transkript und alle blockierenden Abhaengigkeiten vorhanden
 
 ### Requirement: UABC-REQ-BCB-006 Kontrolliertes synthetisches Daten- und Konfigurationspaket
-Alle Projekt- und BC-Daten MUST eindeutig synthetisch sein. Das Datenpaket MUST je Objekt Zweck, Pflichtfelder, Format, Kundendatenquelle, Dienstleisterverantwortung, Qualitaetsregeln, Freigabestatus und mindestens einen plausiblen Beispieldatensatz enthalten. Konfigurationspakete MUST als bevorzugter Einrichtungs- und Importweg mit Tabellen, Pflichtfeldern, ausgeschlossenen Feldern, Abhaengigkeiten, Importreihenfolge, Paketbenennung, Versionierung, Validierungsfehlern, manuellen Ausnahmen und Wiederholungs-/Bereinigungsstrategie dokumentiert werden. Reale `.env`, Authentifizierungszustaende, Geheimnisse, Bank-, Steuer- oder Personendaten MUST ausgeschlossen sein.
+Alle Projekt- und BC-Daten MUST eindeutig synthetisch sein. Das Datenpaket MUST fuer jedes der acht Objekte eine getrennte maschinenlesbare Blankovorlage und eine vollstaendig synthetische Beispieldatei referenzieren. Blankovorlagen MUST ausschliesslich Struktur, Feldbeschreibungen und zulaessige Wertregeln enthalten; Beispiele MUST untereinander referenziell und summenseitig abgestimmt sein. Ein maschinenlesbarer Datenbereitschaftscheck MUST Vollstaendigkeit, Eindeutigkeit, Buchungsgruppenabhaengigkeiten, Summenabstimmung, synthetische Klassifikation, offene Freigaben und eine blockierende Fehlerregel abdecken. Konfigurationspakete MUST als Dienstleisterwerkzeug fuer Einrichtung und Import mit Tabellen, Pflichtfeldern, ausgeschlossenen Feldern, Abhaengigkeiten, Importreihenfolge, Paketbenennung, Versionierung, Validierungsfehlern, manuellen Ausnahmen und Wiederholungs-/Bereinigungsstrategie dokumentiert werden; ihre Bedienung oder Pflege MUST nicht vom Kunden verlangt werden. Reale `.env`, Authentifizierungszustaende, Geheimnisse, Bank-, Steuer- oder Personendaten MUST ausgeschlossen sein.
 
 #### Scenario: UABC-SCN-BCB-008 Datenpaket freigeben
 - **GIVEN** Kunden-, Lieferanten-, Artikel-, Dimensions-, Setup- und Eroeffnungsdaten liegen vor
 - **WHEN** der Datenpruefpunkt geprueft wird
-- **THEN** sind alle Werte als synthetisch markiert, Pflichtfelder und Summen abgestimmt und ungepruefte oder sensible Werte blockiert
+- **THEN** sind alle acht Blanko-/Beispielpaare parsebar, Referenzen und Summen abgestimmt, alle Beispielwerte synthetisch markiert und ungepruefte, nicht freigegebene oder sensible Werte durch den Datenbereitschaftscheck blockiert
 
 ### Requirement: UABC-REQ-BCB-007 Rollenbezogene Schulung und Handbuecher
 Das Projekt MUST Schulungen fuer Business-Central-Bedienung, Finanzwesen, Einkauf/Verkauf, Bestand und Administration mit Lernzielen, Agenda, Uebungen, Anwesenheit, Fragen und Kompetenzpruefung dokumentieren. Schulungen MUST hoechstens vier Stunden pro Tag dauern und bevorzugt in ein- bis zweistuendige Einheiten gegliedert sein. Schulung zur Erstellung oder Pflege von Konfigurationspaketen MUST ausgeschlossen sein. Es MUST ein Kundenhandbuch und ein Beratungshandbuch mit Quellen-, Versions-, Szenario- und Nachweisreferenzen liefern.

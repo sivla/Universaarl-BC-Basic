@@ -39,6 +39,24 @@ artifacts:
   - { id: UABC-SRC-BCB-MTG-002, kindId: meeting-transcript, path: atlassian/confluence/meetings/UABC-MTG-001.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-DEC-001, kindId: decision-register, path: project/bc-basic/decision-register.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-DATA-001, kindId: data-package, path: project/bc-basic/data-package.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-001, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/company-setup.blank.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-002, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/dimensions.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-003, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/customers.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-004, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/vendors.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-005, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/items.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-006, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/inventory-opening.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-007, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/gl-opening.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-BLANK-008, kindId: customer-data-template, path: project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-001, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/company-setup.example.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-002, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/dimensions.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-003, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/customers.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-004, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/vendors.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-005, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/items.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-006, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/inventory-opening.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-007, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/gl-opening.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-EXAMPLE-008, kindId: synthetic-data-example, path: project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv, format: csv, required: true }
+  - { id: UABC-SRC-BCB-DATA-READY-001, kindId: data-readiness-check, path: project/bc-basic/data-readiness-check.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-UAT-001, kindId: uat-catalog, path: project/bc-basic/uat-catalog.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-TRAIN-001, kindId: training-plan, path: project/bc-basic/training-plan.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-BILL-001, kindId: billing-and-worklogs, path: project/bc-basic/billing.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-CUST-001, kindId: customer-handbook, path: docs/guides/beginner/business-central-basic.md, format: markdown, required: true }

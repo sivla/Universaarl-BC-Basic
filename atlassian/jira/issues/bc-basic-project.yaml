@@ -205,8 +205,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: [UABC-23, UABC-24]
-    dataRequirements: [Unternehmen, SKR04-Setup, Dimensionen, Debitor, Kreditor, Artikel, Bestand, Eroeffnungs- und offene Posten, Konfigurationspaket-Reihenfolge]
-    acceptanceCriteria: [Jede Objektvorlage besitzt Zweck, Pflichtfelder, Format, Kundendatenquelle, Dienstleisterverantwortung, Qualitaetsregeln, Freigabestatus und Beispiel; Konfigurationspakettabellen, ausgeschlossene Felder, Abhaengigkeiten und Fehlerbehandlung sind dokumentiert]
+    dataRequirements: [acht getrennte maschinenlesbare Blanko-/Beispielpaare, Unternehmen, SKR04-Setup, Dimensionen, Debitor, Kreditor, Artikel, Bestand, Eroeffnungs- und offene Posten, Datenbereitschaftscheck, Konfigurationspaket-Reihenfolge]
+    acceptanceCriteria: [Alle acht Objektvorlagen liegen getrennt als wertefreie Blanko- und vollstaendig synthetische Beispieldatei vor; Referenzen und Summen sind maschinenlesbar abgestimmt; offene Fachfreigaben blockieren die Weitergabe; Konfigurationspakete bleiben dokumentiertes Dienstleisterwerkzeug]
     deliverableIds: [UABC-DEL-BCB-003]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-006]
@@ -231,8 +231,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: [UABC-23, UABC-24, UABC-25]
-    dataRequirements: [Loesungsdesign, Pflichtszenarien, Ruecksetzplan, UAT-Faelle, Abnahmerollen, offene Freigaben]
-    acceptanceCriteria: [Einrichtungswoche startet nur nach bestandenem Bereitschaftspruefpunkt, Zielbindung und Schreibfreigabe bleiben getrennte menschliche Entscheidungen]
+    dataRequirements: [Loesungsdesign, Pflichtszenarien, Ruecksetzplan, genau sieben geplante UAT-Faelle, Abnahmerollen, offene Freigaben]
+    acceptanceCriteria: [Der UAT-Katalog enthaelt genau sieben geplante Pflichtfaelle mit Ausgangslage Rolle Testdatenreferenz fachlichen Schritten erwartetem Ergebnis und Abnahmekriterium ohne Ausfuehrungs- oder Freigabebehauptung; die Einrichtungswoche startet nur nach bestandenem Bereitschaftspruefpunkt]
     deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-008]
