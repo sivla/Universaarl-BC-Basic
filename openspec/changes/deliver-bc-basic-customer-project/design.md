@@ -28,7 +28,7 @@ Stufe 1 liest den Projektindex, die Consumerbindung und alle positivgelisteten P
 
 Stufe 2 erzeugt aus dieser bereits validierten Payloadliste das Manifest nach `governance/schemas/project-snapshot-manifest.schema.json`. Das Manifest enthaelt keinen eigenen Digest und wird nicht Teil seiner Payloadliste. Dadurch ist die Erzeugung nicht selbstreferenziell. Der Generator verweigert unsaubere Arbeitskopien, abweichende HEADs, absolute oder uebergeordnete Pfade, eine unvollstaendige BCProjectOS-Bindung, einen nicht passenden Consumer und jeden Mischzustand. Im aktuellen Stand wird kein Snapshotmanifest erzeugt.
 
-Bei einer spaeteren Uebergabe ist A der `producerCommitSha`; B besitzt A als einzigen Parent. Zwischen A und B darf ausschliesslich `exports/project-data/v1/snapshot-manifest.json` abweichen. Manifest, Schema, Index und Payloadrecords werden aus B gelesen. Der Consumer liest nur das JSON-Manifest und greift weder auf `governance/consumer-bindings.yaml` noch direkt auf BCProjectOS zu.
+Der Project Twin liest spaeter ausschliesslich den neuesten vollstaendig validierten Commit des festgelegten BC-Basic-Branches. Projektpayload, Index und Integritaetsangaben gehoeren gemeinsam in diesen normalen fachlichen Commit; ein separater Manifest-only-Commit und eine kuenstliche A/B-Folge sind nicht erforderlich. Historische A/B-Commits bleiben unveraendert. Ein ungueltiger Branch-HEAD wird fail-closed abgelehnt; ein Release kann diesen Stand optional durch Commit und Tag einfrieren.
 
 ### Liefermodell
 

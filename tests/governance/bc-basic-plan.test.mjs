@@ -541,7 +541,7 @@ test('Snapshotvalidator bindet B und blockiert Dirty-Worktree-Nachweise', () => 
   assert.match(validatorSource, /git\(\['show'/);
   assert.match(validatorSource, /git\(\['cat-file'/);
   assert.doesNotMatch(validatorSource, /fs\.readFile|fs\.access/);
-  assert.match(validatorSource, /rev-list', '--parents', '-n', '1'/);
+  assert.match(validatorSource, /rev-parse', 'HEAD'/);
   assert.match(validatorSource, /parseGitTreeEntry/);
 });
 

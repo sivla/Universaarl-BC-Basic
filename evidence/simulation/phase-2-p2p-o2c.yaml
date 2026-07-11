@@ -5,6 +5,15 @@ changeRef: deliver-bc-basic-customer-project
 classification: synthetic-only
 simulationStatus: synthetisch-abgenommen
 realBcExecution: false
+researchSources:
+  einrichtung: [SRC-BC-058, SRC-BC-059, SRC-BC-060]
+  purchaseToPay: [SRC-BC-060, SRC-BC-061, SRC-BC-062]
+  orderToCash: [SRC-BC-060, SRC-BC-061]
+  zahlungUndAbstimmung: [SRC-BC-063]
+  lagerUndInventur: [SRC-BC-064]
+  monatsabschluss: [SRC-BC-065, SRC-BC-066]
+  mwstVorschau: [SRC-BC-061, SRC-BC-067]
+sourceRule: Quellen stuetzen erwartete Standardablaeufe; sie beweisen keine ausgefuehrte Buchung.
 sourceData:
   company: project/bc-basic/customer-templates/example/company-setup.example.yaml
   dimensions: project/bc-basic/customer-templates/example/dimensions.example.csv

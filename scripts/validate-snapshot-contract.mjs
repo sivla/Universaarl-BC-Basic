@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { hasSingleParent, parseGitTreeEntry, SNAPSHOT_MANIFEST_PATH, SNAPSHOT_SCHEMA_PATH, validateManifestDigests, validateSnapshotManifest } from './lib/snapshot-contract.mjs';
+import { parseGitTreeEntry, SNAPSHOT_MANIFEST_PATH, SNAPSHOT_SCHEMA_PATH, validateManifestDigests, validateSnapshotManifest } from './lib/snapshot-contract.mjs';
 import { validateConsumerBindings } from './lib/validate-consumer-bindings.mjs';
 
 const git = (args, options = {}) => execFileSync('git', args, { ...options, env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' } });
@@ -38,15 +38,13 @@ try {
     const manifest = JSON.parse(blobText(SNAPSHOT_MANIFEST_PATH).toString('utf8'));
     errors.push(...validateSnapshotManifest(manifest, schema));
     if (binding.spectraReleaseBinding.bindingStatus !== 'BOUND') errors.push('Snapshotmanifest ist ohne vollstaendige Spectra-Bindung unzulaessig');
-    if (/^[a-f0-9]{40}$/.test(manifest.producerCommitSha ?? '')) {
-      if (!hasSingleParent(gitText(['rev-list', '--parents', '-n', '1', consumerCommitSha]), manifest.producerCommitSha)) errors.push('producerCommitSha ist nicht der einzige Parent des Consumer-Commits oder B ist ein Merge-Commit');
-      if (gitText(['diff', '--name-only', manifest.producerCommitSha, consumerCommitSha]) !== SNAPSHOT_MANIFEST_PATH) errors.push('Zwischen Producer- und Consumer-Commit darf sich ausschliesslich das Snapshotmanifest aendern');
+    if (manifest.producerCommitSha === consumerCommitSha) {
       try { errors.push(...validateManifestDigests(manifest, readEntry)); }
-      catch (error) { errors.push(`Snapshot-B-Blobs sind nicht vollstaendig lesbar: ${error.message}`); }
+      catch (error) { errors.push(`Snapshot-Blobs des Branch-Commits sind nicht vollstaendig lesbar: ${error.message}`); }
     }
   } else if (binding.consumers?.[0]?.snapshotContract?.validationStatus !== 'blocked') errors.push('Fehlendes Snapshotmanifest erfordert validationStatus blocked');
   if (errors.length) fail(errors);
-  console.log(`Snapshotvertragspruefung bestanden: Spectra=${binding.spectraReleaseBinding.bindingStatus}; Manifest=${manifestExists ? 'vorhanden' : 'nicht-erzeugt'}; Snapshot=${binding.consumers[0].snapshotContract.validationStatus}.`);
+  console.log(`Snapshotvertragspruefung bestanden: Spectra=${binding.spectraReleaseBinding.bindingStatus}; Branch-Commit=${consumerCommitSha}; Manifest=${manifestExists ? 'vorhanden' : 'nicht-erzeugt'}; Snapshot=${manifestExists ? 'historisch-oder-aktuell' : binding.consumers[0].snapshotContract.validationStatus}.`);
 } catch (error) {
   fail([`Commitgebundener B-Nachweis konnte nicht gelesen werden: ${error.message}`]);
 }

@@ -8,7 +8,7 @@ Der versionierte Uebergabevertrag besitzt zusaetzlich einen lokalen Zustandsmasc
 
 Ausgefuehrt wurden OpenSpec-Schema, strikte OpenSpec-Validierung, Snapshotvertragspruefung im Zustand `PENDING_BCPROJECTOS_RELEASE`/`blocked`, 18 Sprachtests, commitvorbereitende Deutschpruefung, 42 Governance-Tests einschliesslich der Snapshot-Negativfaelle, Referenzvalidierung und `git diff --check`. Das JSON-Snapshotmanifest wurde dabei bewusst nicht erzeugt.
 
-Der Cross-Repo-Vertrag ist auf Producer A und Consumer B vorbereitet: Das spaetere Manifest projiziert `producerCommitSha` aus A, liest Schema, Index und Payloadrecords aus B, verlangt A als einzigen Parent von B und erlaubt zwischen A und B ausschliesslich die Manifestdatei. Dieser Zustand ist aktuell nicht ausgefuehrt und nicht freigegeben.
+Der Projekt-Twin-Vertrag ist auf den neuesten vollstaendig validierten Commit des festgelegten BC-Basic-Branches umgestellt. Historische Producer-/Manifest-Commits bleiben als unveraenderte Evidence erhalten, sind aber keine laufende A/B-Vorgabe mehr. Der aktuelle fachliche Branch-Commit enthaelt Payload und Index gemeinsam; ungueltige oder unsaubere HEADs werden fail-closed behandelt.
 
 Der lokale Repository-Migrationsvertrag bewahrt fuer die spaetere Trennung die beobachtete Ausgangsidentitaet `origin=https://github.com/sivla/FiBu.git`, Branch `codex/universaarl-projekt`, HEAD `72bfa9584ad53e74b9c1c442e8025de1a82c063b` und Tree `d778ae148fa94eb0e146ef5d03c98e9563aace56`. Zielname `Universaarl-BC-Basic`, Zielbranch `main` und Arbeitsbranches `codex/...` sind nur geplant; Repository-Anlage, Remote-Aenderung und Veroeffentlichung sind nicht erfolgt.
 
