@@ -25,4 +25,4 @@ Der Pilot MUST aus den vorhandenen Baseline-Manifesten, Events und Screenshots m
 #### Scenario: UABC-SCN-WT-003 Darstellung und Export pruefen
 - **GIVEN** ein gebautes Walkthrough-Paket
 - **WHEN** HTML, Untertitel, Medien und Exportindex geprueft werden
-- **THEN** bieten sie Textalternative, Pause/Springen, Reduced-Motion-Unterstuetzung und stabile relative Konsumentenpfade ohne Secrets oder vollstaendige BC-Ziel-URL
+- **THEN** bieten sie Textalternative, Pause/Springen, Unterstuetzung fuer reduzierte Bewegung und stabile relative Konsumentenpfade ohne Geheimnisse oder vollstaendige BC-Ziel-URL

@@ -11,12 +11,12 @@ Freigegebene normative Realitaet MUST unter `openspec/specs` liegen; geplante od
 - **THEN** existiert null oder maximal ein aktiver Change und ungepruefte Blueprint-Anforderungen sind nicht als freigegebene Spec publiziert
 
 ### Requirement: UABC-REQ-GOV-002 Referenzielle Integritaet der Atlassian-Simulation
-Jira- und Confluence-Artefakte MUST gueltige IDs, Parents, Personen, Statuswerte und stabile fachliche Referenz-IDs verwenden; bewegliche Change-Pfade sind als dauerhafte Referenzen unzulaessig.
+Jira- und Confluence-Artefakte MUST gueltige IDs, Elternbeziehungen, Personen, Statuswerte und stabile fachliche Referenz-IDs verwenden; bewegliche Change-Pfade sind als dauerhafte Referenzen unzulaessig.
 
 #### Scenario: UABC-SCN-GOV-002 Lokale Referenzen validieren
 - **GIVEN** lokale YAML- und Markdown-Artefakte
 - **WHEN** `npm test` ausgefuehrt wird
-- **THEN** schlagen ungueltige Issue-Parents, unbekannte Personen, Status oder fehlende Referenzen reproduzierbar fehl
+- **THEN** schlagen ungueltige Issue-Elternbeziehungen, unbekannte Personen, Status oder fehlende Referenzen reproduzierbar fehl
 
 ### Requirement: UABC-REQ-GOV-004 Archivierungsfeste Referenzaufloesung
 Fachliche IDs MUST nach der Reihenfolge freigegebene Specs, aktiver Change und historisches Archiv aufgeloest werden. Nach Archivierung MUST wesentliche aktuelle Architektur- und Faehigkeitswahrheit ausserhalb des historischen `design.md` erhalten bleiben.

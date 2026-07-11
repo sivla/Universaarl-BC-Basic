@@ -23,7 +23,7 @@
 
 - [x] 4.1 Blueprint-Epic, notwendige Stories und aktuelle Tasks erstellen.
 - [x] 4.2 Confluence-Projekt- und Blueprint-Hierarchie mit Metadaten erstellen.
-- [x] 4.3 Lokale Referenzpruefung fuer IDs, Parents, Personen, Status und Referenzen implementieren.
+- [x] 4.3 Lokale Referenzpruefung fuer IDs, Elternbeziehungen, Personen, Status und Referenzen implementieren.
 
 ## 5. Verifikation und Freigabe
 

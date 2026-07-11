@@ -28,7 +28,7 @@ Das Dimensionsmodell MUST konzernweit vergleichbare Managementauswertungen ermoe
 - **THEN** stimmen Dimensionswerte mit den Verantwortlichkeiten ueberein und lassen sich zur Gesellschaft zurueckverfolgen
 
 ### Requirement: UABC-REQ-CAP-004 Kontrollierte Intercompany- und Konsolidierungsarchitektur
-Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufeinander abgestimmte Prozesse mit Mapping, Abstimmung und Eliminierung modelliert werden. IC-Partner-/Konten-/Dimensionsmapping und die UAS-zu-UAD-Grundroute MUST vor davon abhaengigen Trade-/Operations-Szenarien liegen; vollstaendige Gruppenabstimmung und Konsolidierung bleiben ein spaeteres Gate.
+Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufeinander abgestimmte Prozesse mit Mapping, Abstimmung und Eliminierung modelliert werden. IC-Partner-/Konten-/Dimensionsmapping und die UAS-zu-UAD-Grundroute MUST vor davon abhaengigen Handels-/Betriebsszenarien liegen; vollstaendige Gruppenabstimmung und Konsolidierung bleiben ein spaeteres Gate.
 
 #### Scenario: UABC-SCN-IC-001 Konzerninterne Leistung abstimmen
 - **GIVEN** eine konzerninterne Lieferung oder Serviceleistung zwischen zwei operativen BC-Unternehmen
@@ -36,7 +36,7 @@ Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufein
 - **THEN** stimmen Partnerbezug und Betrag ueberein und die Eliminierung ist im Konsolidierungsunternehmen nachvollziehbar
 
 ### Requirement: UABC-REQ-CAP-005 Rollenbasierte Einfuehrung
-Migration, Tests, UAT, Schulung, Einfuehrung, Cutover und Hypercare MUST als projektbegleitende Workstreams von Strategie und Verantwortung bis Ausfuehrung und Support geplant werden. Schulung, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden; Trainingskoordination MUST die fachliche UAT-Abnahme durch die jeweils verantwortlichen Fachbereiche nicht ersetzen.
+Migration, Tests, UAT, Schulung, Einfuehrung, Cutover und Hypercare MUST als projektbegleitende Arbeitsstroeme von Strategie und Verantwortung bis Ausfuehrung und Unterstuetzung geplant werden. Schulung, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden; Trainingskoordination MUST die fachliche UAT-Abnahme durch die jeweils verantwortlichen Fachbereiche nicht ersetzen.
 
 #### Scenario: UABC-SCN-TRN-001 Trainingsfreigabe pruefen
 - **GIVEN** ein spaeter verifiziertes Prozessszenario

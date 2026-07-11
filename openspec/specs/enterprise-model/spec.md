@@ -8,7 +8,7 @@ Das Zielbild MUST Entra-Tenant, BC-Umgebung, BC-Unternehmen, physischen Standort
 
 #### Scenario: UABC-SCN-ENT-001 Organisationsschichten reviewen
 - **GIVEN** der Blueprint v0.1 liegt zum Architektur-Review vor
-- **WHEN** ein Reviewer jede Organisationsschicht einem Geschaeftsfall zuordnet
+- **WHEN** eine pruefende Person jede Organisationsschicht einem Geschaeftsfall zuordnet
 - **THEN** ist jede Schicht definiert und keine Dimension wird als Ersatz fuer Gesellschaft, Lagerort oder Projekt verwendet
 
 ### Requirement: UABC-REQ-ENT-002 Gesellschaften und BC-Unternehmen

@@ -52,7 +52,7 @@ Der Code `DE` ist ein starkes Indiz fuer den Firmenkontext, beweist fuer sich al
 
 *Abbildung 2: Das Pane zeigt in `playthru` die zugaenglichen Namen `CRONUS DE`, `My Company` und `Universaarl GmbH`. Es wurde kein Eintrag ausgewaehlt.*
 
-![Version und Builds in Hilfe und Support](../../../evidence/playthru-environment-baseline/run-2/env-02.png)
+![Version und Programmstaende in Hilfe und Support](../../../evidence/playthru-environment-baseline/run-2/env-02.png)
 
 *Abbildung 3: Hilfe & Support ist die direkte sichtbare Quelle fuer Client-, Plattform- und Anwendungsversion.*
 

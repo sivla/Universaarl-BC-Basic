@@ -17,4 +17,4 @@ YAML ist das Autorenformat; ein JSON-Schema beschreibt den Vertrag. Ein Node-Gen
 
 ## Wiedergabe
 
-Eine HTML-Datei bietet Moduswahl, Schrittsteuerung, Textalternative, Reduced Motion und ein natives Videoelement mit Pause, Seek und WebVTT-Untertiteln. Alle Modi lesen dasselbe aufgeloeste Manifest.
+Eine HTML-Datei bietet Moduswahl, Schrittsteuerung, Textalternative, Unterstuetzung fuer reduzierte Bewegung und ein natives Videoelement mit Pausen- und Sprungfunktion sowie WebVTT-Untertiteln. Alle Modi lesen dasselbe aufgeloeste Manifest.
