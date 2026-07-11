@@ -375,6 +375,20 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   }
 });
 
+test('Phase-2-Trockenlauf liefert synthetische Bereitschaft und blockiert reale Ausfuehrung', () => {
+  const dryRun = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'phase-2-dry-run.yaml'), 'utf8'));
+  assert.equal(dryRun.classification, 'synthetic-only');
+  assert.equal(dryRun.realBcExecution, false);
+  assert.equal(dryRun.status, 'synthetisch-bereit-real-blockiert');
+  assert.equal(dryRun.goNoGo.decision, 'NO_GO_REAL');
+  assert.equal(dataReadiness.dryRunPath, 'project/bc-basic/phase-2-dry-run.yaml');
+  assert.equal(dryRun.importSequence.length, 8);
+  assert.deepEqual(dryRun.importSequence.map((step) => step.order), [1, 2, 3, 4, 5, 6, 7, 8]);
+  assert.ok(dryRun.checks.some((check) => check.kind === 'approvals'));
+  assert.ok(dryRun.checks.some((check) => check.kind === 'rollback'));
+  assert.match(dryRun.evidence.executionClaim, /keine reale BC-Ausfuehrung/);
+});
+
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
