@@ -1,11 +1,11 @@
 schema: universaarl-delivery
 context: |
   Projekt: Universaarl Business Central Blueprint V2.
-  OpenSpec ist fuehrend. Null oder maximal ein aktiver Change; waehrend der Umsetzung gilt WIP=1.
+  OpenSpec ist fuehrend. Null oder maximal eine aktive OpenSpec-Aenderung; waehrend der Umsetzung gilt WIP=1.
   Sprache der Artefakte: Deutsch; stabile IDs bleiben ASCII.
   planningReference: 2026 Release Wave 1.
   actualSandboxBaseline: siehe die kanonische, evidenzbasierte Baseline unter architecture/enterprise-blueprint.yaml#actualSandboxBaseline; nur dort bestaetigte Fakten verwenden und unbekannte oder nur teilweise sichtbare Werte nicht hochstufen.
-  Aus der Planungsreferenz darf keine Feature-Verfuegbarkeit abgeleitet werden.
+  Aus der Planungsreferenz darf keine Funktionsverfuegbarkeit abgeleitet werden.
   Spaetere Zielumgebung: ausschliesslich Sandbox playthru; nur synthetische Daten.
   Fakten, Annahmen, Empfehlungen, Alternativen und Entscheidungen sind zu trennen.
   Keine Erfolgsaussage ohne referenzierbare Nachweise.

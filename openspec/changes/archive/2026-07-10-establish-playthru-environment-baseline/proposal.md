@@ -31,7 +31,7 @@ Der maschinenlesbare Vorschlag liegt als `proposedCanonicalUpdate` in `.openspec
 ## Umfang
 
 - Umgebungszuordnung `playthru`, aktive Gesellschaft und sichtbare Liste zugaenglicher Gesellschaften ohne Wechsel.
-- BC-Version/Build, Sprache, Region/Lokalisierung, Company Experience, installierte Extensions und sichtbarer Feature-Management-Zustand.
+- BC-Version/Programmstand, Sprache, Region/Lokalisierung, Funktionsumfang des Unternehmens (Essentials/Premium), installierte Erweiterungen und sichtbarer Zustand der Funktionsverwaltung.
 - Nicht im BC-Client belegbare Tatsachen werden mit Grund als `unknown` erfasst.
 
 ## Nicht-Ziele

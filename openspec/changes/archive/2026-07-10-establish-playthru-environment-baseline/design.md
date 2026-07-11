@@ -3,7 +3,7 @@
 ## Faktenbasis
 
 - Die zwei Laeufe liefern den Baseline-Kandidaten; das ausdruecklich autorisierte automatisierte Policy-Gate uebernimmt ihn nur bei semantischer Gleichheit und bestandener change-eigener Evidence in `actualSandboxBaseline`.
-- Offizielle BC-Dokumentation beschreibt Help and Support als sichtbare Quelle fuer die Clientversion, den Company Switcher als Pane ohne erforderlichen Wechsel und Company Experience als Feld der Company Information.
+- Offizielle BC-Dokumentation beschreibt Hilfe und Support als sichtbare Quelle fuer die Clientversion, die Unternehmensauswahl als Seitenbereich ohne erforderlichen Wechsel und den Funktionsumfang des Unternehmens (Essentials/Premium) als Feld der Unternehmensinformationen.
 - Playwright 1.61.1 ist die am 2026-07-10 anhand der offiziellen Release Notes gepruefte stabile Version. Authentifizierungszustand kann sensible Cookies/Header enthalten und bleibt deshalb gitignoriert.
 
 ## Annahmen
@@ -25,7 +25,7 @@
 | --- | --- | --- | --- |
 | ENV-00 | Role Center nach validierter URL | playthru, aktive Gesellschaft, Seitentitel | Screenshot und Event |
 | ENV-01 | Available Companies Pane, Hintergrund sichtbar | nur Playthru-Gesellschaften ohne Auswahl; andere Umgebungen werden nicht persistiert | Screenshot und Liste |
-| ENV-02 | Help and Support | Version und Build; andere technische Angaben redigiert | zugeschnittener/maskierter Screenshot |
+| ENV-02 | Hilfe und Support | Version und Programmstand; andere technische Angaben redigiert | zugeschnittener/maskierter Screenshot |
 | ENV-03 | My Settings Dialog/Pane | aktive Gesellschaft, Sprache, Region sowie Arbeitsdatum und Zeitzone als Benutzer-/Laufkontext | Screenshot des relevanten Bereichs |
 | ENV-04 | Company Information read-only | Experience Essentials/Premium; Lokalisierung nur wenn sichtbar | relevanter Ausschnitt, sensible Firmenfelder maskiert |
 | ENV-05 | Suche `Erweiterung` -> angebotene App-Verwaltung -> Installierte Erweiterungen | nur Karten, deren Name und Herausgeber den Screenshot-Viewport schneiden; Vollstaendigkeit bleibt unbelegt | Screenshot plus normalisierte `visible-partial`-Liste |
@@ -51,7 +51,7 @@ Trace, Event und Manifest tragen dieselbe Run-/Step-ID. Der Trace wird vor dem M
 
 1. URL-Guard kann `playthru` nicht vor Navigation beweisen.
 2. Navigation verlaesst `businesscentral.dynamics.com` oder das Environment-Pfadsegment `playthru`.
-3. Ein Company Switch, Save/OK fuer Aenderungen, Feature-Update, Extension-Aktion oder Admin-Center-Navigation waere erforderlich.
+3. Ein Unternehmenswechsel, Speichern/Bestaetigen fuer Aenderungen, eine Funktionsaktualisierung, Erweiterungsaktion oder Navigation zum Verwaltungszentrum waere erforderlich.
 4. Screenshot/Log kann Identitaet, Token, Tenantkennung oder personenbezogene Daten nicht sicher ausschliessen.
 5. Zwei vergleichbare Navigationsfehler oder ein nicht verstandener Dialog/Overlay-Zustand.
 

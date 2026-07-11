@@ -20,12 +20,12 @@ Der Pilot MUST Version/Build, Sprache, Region/Lokalisierung, Experience, Benutze
 
 #### Scenario: UABC-SCN-ENV-003 Version Sprache Region und Experience lesen
 - **GIVEN** die bestaetigte `playthru`-Sitzung
-- **WHEN** Help and Support, My Settings und Company Information read-only geoeffnet werden
+- **WHEN** Hilfe und Support, Meine Einstellungen und Unternehmensinformationen schreibgeschuetzt geoeffnet werden
 - **THEN** werden nur sichtbare Werte erfasst, Arbeitsdatum und Zeitzone als Ausfuehrungskontext getrennt und nicht sichtbare oder nicht eindeutig interpretierbare Werte als `unknown` dokumentiert
 
 #### Scenario: UABC-SCN-ENV-004 Extensions und Feature Management lesen
 - **GIVEN** die unveraenderte aktive Gesellschaft
-- **WHEN** Extension Management und Feature Management ueber die UI geoeffnet werden
+- **WHEN** Erweiterungsverwaltung und Funktionsverwaltung ueber die UI geoeffnet werden
 - **THEN** werden nur Extension-Karten, deren Name und Herausgeber den Screenshot-Viewport schneiden, sowie viewport-schneidende Feature-Zeilen strukturiert als `candidate`/`visible-partial` ohne Installieren, Aktivieren, Datenupdate oder Bestaetigen erfasst
 - **AND** gelten ausserhalb des Viewports gerenderte DOM-Elemente nicht als visuell geprueft und es wird keine vollstaendige Extension-, App- oder Feature-Inventarisierung behauptet
 

@@ -195,7 +195,7 @@ Keine Integration erhaelt im Blueprint eine technische Erfolgsbehauptung.
 | Serviceartikel/Vertraege | P-012 | P-013 als Service-Datenverantwortliche | Seriennummer, Kunde, Standort und SLA konsistent |
 | Rollen/Berechtigungen | P-004 | P-004 | Genehmigung durch Verantwortlichen, Least Privilege, SoD-Test |
 
-Migration folgt ueber alle Wellen Erfassen -> Profilieren -> Bereinigen -> Zuordnen -> Mock Load 1 -> Mock Load 2/integrierter Test -> UAT-Datenlauf -> Abstimmen -> Freigeben -> Cutover-Probe -> finaler Load. Standard-first werden Configuration Worksheet, Configuration Packages, Configuration Templates und kontrollierte Excel-Dateien geplant; APIs bleiben nur eine spaeter explizit genehmigte Alternative fuer belegte Volumen- oder Automatisierungsluecken. UAM-DE ist die einzige geplante Quellgesellschaft fuer Standardsynchronisation: Parteienidentitaet, gemeinsame Dictionaries und kommerzieller Artikelkern liegen dort. UAS ergaenzt Production BOMs, Routings, Kapazitaeten und Engineering-Felder ausschliesslich lokal; Steuer-, Buchungs-, Kredit-, Preis-, Einkaufs-, Standort- und Planungsfelder bleiben je Gesellschaft lokal. Aktivierung setzt W1-Feldmatrix und `playthru`-PoC voraus.
+Migration folgt ueber alle Wellen Erfassen -> Profilieren -> Bereinigen -> Zuordnen -> Probeladung 1 -> Probeladung 2/integrierter Test -> UAT-Datenlauf -> Abstimmen -> Freigeben -> Cutover-Probe -> Abschlussladung. Standardorientiert werden Configuration Worksheet, Configuration Packages, Configuration Templates und kontrollierte Excel-Dateien geplant; APIs bleiben nur eine spaeter explizit genehmigte Alternative fuer belegte Volumen- oder Automatisierungsluecken. UAM-DE ist die einzige geplante Quellgesellschaft fuer Standardsynchronisation: Parteienidentitaet, gemeinsame Dictionaries und kommerzieller Artikelkern liegen dort. UAS ergaenzt Production BOMs, Routings, Kapazitaeten und Konstruktionsfelder ausschliesslich lokal; Steuer-, Buchungs-, Kredit-, Preis-, Einkaufs-, Standort- und Planungsfelder bleiben je Gesellschaft lokal. Aktivierung setzt W1-Feldmatrix und `playthru`-PoC voraus.
 
 | Datenklasse | Standard-first-Werkzeug und Grenze | Kontrolle |
 | --- | --- | --- |
@@ -243,7 +243,7 @@ P-015 fuehrt den Trainingskalender, die Methodik und Materialqualitaet. Sie ist 
 
 | ID | Status | Kategorie | Frage | Verantwortlich | Gate / Evidence |
 | --- | --- | --- | --- | --- | --- |
-| UABC-OQ-001 | open | `later-playthru-technical-fact` | Exakte BC-Version, Land, Apps und Kapazitaet? | P-004 | vor W1 Write; Environment-/Company-Evidence |
+| UABC-OQ-001 | open | `later-playthru-technical-fact` | Exakte BC-Version, Land, Anwendungen und Kapazitaet? | P-004 | vor W1-Schreibvorgang; Umgebungs-/Unternehmensnachweis |
 | UABC-OQ-002 | open | `legal-tax-licensing-review` | Kontenplan, Steuermapping und gesetzliche Reports? | P-003 | W1-Finanz-/Steuerreview |
 | UABC-OQ-003 | open | `synthetic-universaarl-business-fact` | Costing je Produktfamilie und Standardkostenprozess? | P-006 | vor W2; Margenmodell und Simulation |
 | UABC-OQ-004 | open | `synthetic-universaarl-business-fact` | Serien-/Chargenpflicht je Produkt? | P-012 | vor W2; Gewaehrleistungs-/Traceability-Policy |
@@ -254,7 +254,7 @@ P-015 fuehrt den Trainingskalender, die Methodik und Materialqualitaet. Sie ist 
 | UABC-OQ-009 | open | `legal-tax-licensing-review` | Essentials/Premium/Team Member/Device je Person? | P-003 | vor Security Setup; Licensing Assessment |
 | UABC-OQ-010 | open | `legal-tax-licensing-review` | VAT, E-Rechnung, Zahlung und Aufbewahrung je Gesellschaft/Dokument? | P-003 | W1/W2-Steuer-/Rechts-/Bank-/Provider-Review |
 | UABC-OQ-011 | decided via `UABC-DEC-008` | `sponsor-decision` | Welche Felder sind shared/company-specific und welche Quellgesellschaft fuehrt sie? | P-016 | Policy entschieden; W1-Feldmatrix und Synchronisations-PoC bleiben Gate |
-| UABC-OQ-012 | open | `synthetic-universaarl-business-fact` | Purchase/Assembly/Manufacturing je Produkt? | P-008 | vor W3; Produkt-/Costing-Matrix |
+| UABC-OQ-012 | open | `synthetic-universaarl-business-fact` | Purchase/Assembly/Manufacturing je Produkt? | P-008 | vor W3; Produkt-/Kostenrechnungsmatrix |
 | UABC-OQ-013 | open | `legal-tax-licensing-review` | IC-Transferpreise, Markups, Eigentumsuebergang, Lead Contractor, Garantie und Abstimmung? | P-003 | vor W2 IC-Belegen; Rechts-/Steuer-/Commercial-Modell |
 | UABC-OQ-014 | open | `synthetic-universaarl-business-fact` | Migrationsumfang, Volumen, Historie, Qualitaet, Datenschutz und Reconciliation je Objekt? | P-016 | W1-Datenkatalog plus Datenschutzreview |
 
@@ -323,7 +323,7 @@ Die Freigabe umfasst Unternehmens-/Loesungsarchitektur, Faehigkeitenplan, W1-W5-
 3. SKR03, SKR04 oder eigener Gruppen-Kontenrahmen; Handels-/Steuerbilanz und AfA-Buecher.
 4. VAT-Faelle, E-Rechnungsformate je Dokumenttyp/Partner, Provider und Aufbewahrung.
 5. Hausbank, SEPA pain-Version, Freigabeweg und Kontoauszugsformat.
-6. Feldgenaue Master-Data-Ownership-/Synchronisationsmatrix und `playthru`-PoC vor Aktivierung; die UAM-Source-Company-Policy selbst ist entschieden.
+6. Feldgenaue Stammdatenverantwortungs-/Synchronisationsmatrix und `playthru`-PoC vor Aktivierung; die UAM-Quellgesellschaftsrichtlinie selbst ist entschieden.
 7. Produktfamilienentscheidung Purchase/Assembly/Manufacturing, Kalkulation und Tracking.
 8. Lagerprozessvolumen, Layout, Directed Put-away and Pick und Scannerentscheidung.
 9. Projektvertragstypen, WIP-/Revenue-Recognition- und Fakturamethode.

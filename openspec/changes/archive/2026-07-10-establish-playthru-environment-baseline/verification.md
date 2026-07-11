@@ -17,12 +17,12 @@
 - Feature Management: 15 viewport-schneidende Zeilen als `candidate`/`visible-partial`; weder vollstaendige Feature-Inventarisierung noch Verfuegbarkeit wird behauptet.
 - `UAM-DE`, `UAS-DE`, `UAD-DE`, `UAP-DE` und `UAC-CONS` wurden im zugaenglichen Mandanten-Pane nicht beobachtet. Das ist keine Nichtexistenzaussage.
 - `unknown`: Company Experience, weil kein eindeutiges sichtbares Feld vorhanden war. `DE` allein gilt nicht als Vollnachweis der installierten deutschen Lokalisierung.
-- Kein Environment-/Company-Switch und kein BC-Write wurden ausgefuehrt; beide Manifeste tragen `companySwitchPerformed: false` und `writesPerformed: false`.
+- Kein Umgebungs-/Unternehmenswechsel und kein BC-Schreibvorgang wurden ausgefuehrt; beide Manifeste tragen `companySwitchPerformed: false` und `writesPerformed: false`.
 
 ## Nicht ausgefuehrte Nachweise
 
 - Kein menschlicher Fachreview und keine menschliche Freigabe; stattdessen ein ausdruecklich autorisiertes automatisiertes Policy-Gate.
-- Keine BC-Konfiguration, kein Write, kein Company-/Environment-Switch, kein Admin Center und keine API.
+- Keine BC-Konfiguration, kein Schreibvorgang, kein Unternehmens-/Umgebungswechsel, kein Verwaltungszentrum und keine API.
 - Keine Abweichung zwischen `proposedCanonicalUpdate` und kanonischer `actualSandboxBaseline`; Gleichheit wird automatisiert erzwungen.
 - Keine vollstaendige Extension-, App- oder Feature-Inventarisierung.
 
