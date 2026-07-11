@@ -69,7 +69,7 @@ artifacts:
   - { id: UABC-SRC-BCB-PW-001, kindId: playwright-scenario-catalog, path: playwright/scenarios/bc-basic-e2e.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001, kindId: snapshot-manifest-schema, path: governance/schemas/project-snapshot-manifest.schema.json, format: json-schema, required: true }
-  - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-DRYRUN-001, kindId: phase-2-dry-run, path: project/bc-basic/phase-2-dry-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-UAT-RUN-001, kindId: uat-training-run, path: project/bc-basic/uat-training-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-READINESS-001, kindId: phase-2-readiness-gate, path: project/bc-basic/phase-2-readiness-gate.yaml, format: yaml, required: true }
@@ -83,3 +83,6 @@ artifacts:
   - { id: UABC-SRC-BCB-DEMO-EVIDENCE-001, kindId: synthetic-demo-evidence, path: evidence/simulation/demo-readiness.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-AUDIT-001, kindId: synthetic-objective-audit, path: evidence/simulation/end-to-end-objective-audit.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE-GATES-001, kindId: synthetic-phase-gate-register, path: evidence/simulation/phase-gate-register.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-PLAY-CATALOG-001, kindId: bc-playthrough-catalog, path: project/bc-basic/bc-playthrough-catalog.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-PLAY-LEDGER-001, kindId: bc-playthrough-ledger, path: evidence/simulation/bc-playthrough-ledger.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-PLAY-VALIDATOR-001, kindId: bc-playthrough-validator, path: scripts/validate-bc-playthrough.mjs, format: javascript, required: true }
