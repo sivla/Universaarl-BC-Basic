@@ -4,7 +4,7 @@
 
 Fuer die Planung und Quellartefakte wurden OpenSpec-Schema und strikte OpenSpec-Validierung, Projekt- und Referenzvalidierung, Governance-Regressionen sowie die BC-Basic-Datenkonsistenz lokal geprueft. Diese Autorenpruefungen belegen nur die innere Konsistenz der Projektablage. Sie sind kein Sandbox-, Prozess-, Schulungs-, Abschluss-, Steuer- oder Abnahmenachweis und setzen `UABC-VER-BCB-LOCAL-001` noch nicht auf `passed`.
 
-Der versionierte Uebergabevertrag besitzt zusaetzlich einen lokalen Zustandsmaschinen-, Schema-, Generator- und Snapshotvertragspruefpfad. Negativfaelle muessen PENDING-/BOUND-Mischzustaende, falsche Repository- oder Branchidentitaeten, fehlende Releasefelder, falsche Digests und Quellcommits, absolute oder uebergeordnete Pfade, Rueckschreiben und zusaetzliche Consumer ablehnen. Ein gruener Autorenlauf erzeugt weder einen BCProjectOS-Releasebeleg noch ein Snapshotmanifest und gibt keinen Snapshot frei.
+Der versionierte Uebergabevertrag besitzt zusaetzlich einen lokalen Zustandsmaschinen-, Schema-, Generator- und Snapshotvertragspruefpfad. Negativfaelle muessen PENDING-/BOUND-Mischzustaende, falsche Repository- oder Branchidentitaeten, fehlende Releasefelder, falsche Digests und Quellcommits, absolute oder uebergeordnete Pfade, Rueckschreiben und zusaetzliche Consumer ablehnen. Die verifizierte Spectra-Evidence liegt in `evidence/spectra-release-0.1.0-alpha.1.yaml`; die reale BC-Ausfuehrung bleibt davon getrennt blockiert.
 
 Ausgefuehrt wurden OpenSpec-Schema, strikte OpenSpec-Validierung, Snapshotvertragspruefung im Zustand `PENDING_BCPROJECTOS_RELEASE`/`blocked`, 18 Sprachtests, commitvorbereitende Deutschpruefung, 42 Governance-Tests einschliesslich der Snapshot-Negativfaelle, Referenzvalidierung und `git diff --check`. Das JSON-Snapshotmanifest wurde dabei bewusst nicht erzeugt.
 
@@ -17,7 +17,7 @@ Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Pr
 ## Ergebnisse
 
 - Lieferstatus: geplant, nicht fachlich oder in der Sandbox verifiziert.
-- Spectra-Bindung im technischen BCProjectOS-Repository: `PENDING_BCPROJECTOS_RELEASE`; Repository bekannt, Releasebeweise fehlen.
+- Spectra-Bindung im technischen BCProjectOS-Repository: `BOUND_BCPROJECTOS_RELEASE`; Tag, Manifest-Quellcommit, 52 Git-Blobs und Payload-Digest sind read-only gegen GitHub verifiziert.
 - Snapshotvertrag: `proposed` und `blocked`; kein Snapshotmanifest erzeugt oder freigegeben.
 - Alle fachlichen, technischen und menschlichen Nachweise sind ausstehend.
 - Die synthetische Projektgeschichte und das Starttranskript sind Simulationen und kein Ausfuehrungsnachweis.

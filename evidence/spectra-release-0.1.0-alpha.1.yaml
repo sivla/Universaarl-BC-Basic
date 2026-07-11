@@ -1,0 +1,39 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SPECTRA-ALPHA-001
+projectId: UABC-BC-BASIC-001
+classification: remote-read-only-verification
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v0.1.0-alpha.1
+tag:
+  name: spectra-v0.1.0-alpha.1
+  annotatedObject: 25a4f605e115a9e22ab0d68837bc6a3a9addccf6
+  peeledCommit: aa89c4395bb2fd3d21c52367eca250ce8d6dd432
+  tagMessage: Spectra 0.1.0-alpha.1
+release:
+  prerelease: true
+  draft: false
+  productId: spectra
+  releaseVersion: 0.1.0-alpha.1
+manifest:
+  path: release/versions/0.1.0-alpha.1/release-manifest.json
+  blobSha: 3bc9b0b1af9ab517b11fcf963466f4c1e496c187
+  sizeBytes: 18915
+  sourceCommit: ea35dcbb736d94a2494fa572cd09df476b611be8
+  sourceCommitIsAncestorOfTag: true
+  consumerMode: INSTALLABLE_BLUEPRINT
+  installableBlueprint: true
+payload:
+  digestAlgorithm: SHA-256
+  bundleDigest: bc842ae6144c79ba66b934c9b4285f7a0d7c5da503e87e8bc3e7d626ab3adbd5
+  fileCount: 52
+  checksumsPath: release/versions/0.1.0-alpha.1/checksums.sha256
+  checksumsBlobSha: 1bf97c88d279ac4fda036491dd89068a26191023
+  checksumsSizeBytes: 5289
+  verifiedGitBlobs: 52
+  mismatches: 0
+verification:
+  status: passed
+  method: GitHub-API-read-only-Blobbytes-und-SHA-256
+  verifiedAt: 2026-07-12
+  noLocalClone: true
+  noRepositoryMutation: true

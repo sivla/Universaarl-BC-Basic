@@ -68,3 +68,8 @@ artifacts:
   - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001, kindId: snapshot-manifest-schema, path: governance/schemas/project-snapshot-manifest.schema.json, format: json-schema, required: true }
   - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DRYRUN-001, kindId: phase-2-dry-run, path: project/bc-basic/phase-2-dry-run.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-UAT-RUN-001, kindId: uat-training-run, path: project/bc-basic/uat-training-run.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-READINESS-001, kindId: phase-2-readiness-gate, path: project/bc-basic/phase-2-readiness-gate.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-TRACE-001, kindId: traceability-matrix, path: project/bc-basic/traceability-matrix.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.1.0-alpha.1.yaml, format: yaml, required: true }

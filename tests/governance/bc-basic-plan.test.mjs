@@ -436,21 +436,21 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     contractPath: 'exports/project-data/v1/index.yaml'
   });
   assert.deepEqual(consumerBindings.spectraReleaseBinding, {
-    bindingStatus: 'PENDING_BCPROJECTOS_RELEASE',
+    bindingStatus: 'BOUND',
     productId: 'spectra',
     technicalRepositoryName: 'BCProjectOS',
     repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
-    releaseVersion: null,
-    releaseTag: null,
-    tagCommit: null,
-    manifestPath: null,
-    manifestSourceCommit: null,
-    consumerMode: null,
-    installableBlueprint: null,
+    releaseVersion: '0.1.0-alpha.1',
+    releaseTag: 'spectra-v0.1.0-alpha.1',
+    tagCommit: 'aa89c4395bb2fd3d21c52367eca250ce8d6dd432',
+    manifestPath: 'release/versions/0.1.0-alpha.1/release-manifest.json',
+    manifestSourceCommit: 'ea35dcbb736d94a2494fa572cd09df476b611be8',
+    consumerMode: 'INSTALLABLE_BLUEPRINT',
+    installableBlueprint: true,
     digestAlgorithm: 'SHA-256',
-    payloadBundleDigest: null,
-    installationStatus: 'nicht-installiert',
-    reason: 'Spectra ist im technischen BCProjectOS-Repository identifiziert, aber Release-, Manifest-, Commit- und Payloadnachweise fehlen.'
+    payloadBundleDigest: 'bc842ae6144c79ba66b934c9b4285f7a0d7c5da503e87e8bc3e7d626ab3adbd5',
+    installationStatus: 'geplant-nicht-installiert',
+    reason: 'Kontrollierte GitHub-Release-Evidence ist reproduzierbar geprueft; eine Installation in BC Basic erfolgt nicht.'
   });
   assert.equal(consumerBindings.consumers?.length, 1);
   const [twin] = consumerBindings.consumers;
@@ -489,8 +489,8 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
   });
 
   const serializedBinding = JSON.stringify(consumerBindings);
-  assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), false, 'Konsumentenbindung darf keine vollstaendige Commit-SHA enthalten');
-  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, null, 'Ohne echten Spectra-Release muss der Tag-Commit leer bleiben');
+  assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), true, 'Gebundene Konsumentenbindung muss die Release-Commit-SHA enthalten');
+  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, 'aa89c4395bb2fd3d21c52367eca250ce8d6dd432');
   assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
   assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => sourcePath === 'governance/consumer-bindings.yaml'), false, 'Die interne Consumerbindung darf nicht als Twin-Payload positivgelistet sein');
   assert.equal(projectIndex.artifacts.some(({ kindId, format, path: sourcePath }) => kindId === 'snapshot-manifest-schema' && format === 'json-schema' && sourcePath.endsWith('.json')), true, 'Das Snapshot-Schema muss als json-schema unter .json positivgelistet sein');
@@ -502,8 +502,8 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot-Nachweise fail-closed', () => {
   assert.deepEqual(validateConsumerBindings(consumerBindings, projectIndex), []);
   const mutationCases = [
-    ['Spectra ohne Nachweise gebunden', (value) => { value.spectraReleaseBinding.bindingStatus = 'BOUND'; }],
-    ['Spectra-Tag-Commit ohne Release behauptet', (value) => { value.spectraReleaseBinding.tagCommit = 'a'.repeat(40); }],
+    ['Spectra ohne Nachweise gebunden', (value) => { value.spectraReleaseBinding.bindingStatus = 'PENDING_BCPROJECTOS_RELEASE'; value.spectraReleaseBinding.releaseVersion = null; value.spectraReleaseBinding.releaseTag = null; value.spectraReleaseBinding.tagCommit = null; value.spectraReleaseBinding.manifestPath = null; value.spectraReleaseBinding.manifestSourceCommit = null; value.spectraReleaseBinding.consumerMode = null; value.spectraReleaseBinding.installableBlueprint = null; value.spectraReleaseBinding.payloadBundleDigest = null; }],
+    ['Spectra-Tag-Commit ohne gueltigen Nachweis', (value) => { value.spectraReleaseBinding.tagCommit = 'kein-commit'; }],
     ['falsche BCProjectOS-Repository-Identitaet', (value) => { value.spectraReleaseBinding.repositoryUrl = 'https://github.com/sivla/falsch.git'; }],
     ['falsche Spectra-Produktidentitaet', (value) => { value.spectraReleaseBinding.productId = 'bcprojectos'; }],
     ['falsche Twin-Repository-Identitaet', (value) => { value.consumers[0].identity.repository.url = 'https://github.com/sivla/falsch.git'; }],
