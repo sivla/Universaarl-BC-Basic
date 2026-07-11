@@ -6,11 +6,11 @@ approvalPolicy:
   evidenceId: UABC-VER-ENV-POLICY-GATE-001
   authorizedBy: real-repository-user
   authorizedAt: 2026-07-10
-  scope: establish-playthru-environment-baseline only
+  scope: nur establish-playthru-environment-baseline
   conditions:
     - alle requiredForArchive-Verifications des aktiven Changes sind passed
-    - kanonische Fakten und Unknowns entsprechen dem proposed update semantisch
-    - alle kanonischen Evidence-IDs gehören zum aktiven Change und sind passed
+    - kanonische Fakten und Unknowns entsprechen dem proposedCanonicalUpdate semantisch
+    - alle kanonischen Evidence-IDs gehoeren zum aktiven Change und sind passed
     - die Specs des aktiven Changes sind mit openspec/specs synchronisiert
 proposedCanonicalUpdate:
   status: applied

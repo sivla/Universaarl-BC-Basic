@@ -1,4 +1,4 @@
-# Environment Baseline Specification
+# Environment-Baseline-Delta
 
 ## ADDED Requirements
 
@@ -31,7 +31,7 @@ Der Pilot MUST Version/Build, Sprache, Region/Lokalisierung, Experience, Benutze
 
 Die Zielgesellschaften `UAM-DE`, `UAS-DE`, `UAD-DE`, `UAP-DE` und `UAC-CONS` MUST gegen den sichtbaren Playthru-Mandantenbaum als `observed` oder `not-observed-in-accessible-company-pane` klassifiziert werden. `not-observed` MUST ausdruecklich keine Aussage ueber die Existenz ausserhalb des sichtbaren Pane treffen.
 
-### Requirement: UABC-REQ-ENV-003 Koharente visuelle Evidence
+### Requirement: UABC-REQ-ENV-003 Kohaerente visuelle Evidence
 Jeder langlebige Screenshot MUST visuell geprueft sein und zusammen mit Trace und strukturiertem Ergebnis dieselbe Step-ID referenzieren. Identitaeten, Tokens und personenbezogene Daten MUST ausgeschlossen oder maskiert werden.
 
 #### Scenario: UABC-SCN-ENV-005 Evidence-Kette pruefen

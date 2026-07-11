@@ -6,10 +6,10 @@ approvalPolicy:
   evidenceId: UABC-VER-WT-POLICY-GATE-001
   authorizedBy: project-policy
   authorizedAt: 2026-07-10
-  scope: establish-project-artifact-walkthrough-pilot only
+  scope: nur establish-project-artifact-walkthrough-pilot
   conditions:
     - alle requiredForArchive-Verifications des aktiven Changes sind passed
-    - die erzeugte Registry entspricht dem geprüften Walkthrough-Paket
+    - die erzeugte Registry entspricht dem geprueften Walkthrough-Paket
     - OpenSpec strict und lokale Validierung bestehen
 proposedCanonicalUpdate:
   status: applied

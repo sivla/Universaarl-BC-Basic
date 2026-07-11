@@ -1,4 +1,4 @@
-# Proposal
+# Vorschlag
 
 ## Problem
 
@@ -6,9 +6,9 @@ Die vorhandene `playthru`-Baseline besitzt belastbare Screenshots, Manifeste, Ev
 
 ## Ziel
 
-Ein einziger Artifact-Typ **Walkthrough Package** wird als kleiner vertikaler Slice vollstaendig umgesetzt: Schema, Blanko, Autorenhilfe, eine Universaarl-Instanz, deterministische Ableitungen und stabiler read-only Exportvertrag.
+Ein einziger Artefakttyp **Walkthrough Package** wird als kleiner vertikaler Schnitt vollstaendig umgesetzt: Schema, Blanko, Autorenhilfe, eine Universaarl-Instanz, deterministische Ableitungen und stabiler read-only Exportvertrag.
 
-## Scope
+## Umfang
 
 - Ausschliesslich vorhandene Evidence der archivierten `playthru`-Umgebungsbaseline.
 - Ein gemeinsames Manifest fuer `beginner`, `consultant` und `evidence-review`.

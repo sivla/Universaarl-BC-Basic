@@ -1,4 +1,4 @@
-# Solution Design: Playthru Environment Baseline
+# Loesungsdesign: Playthru-Umgebungsbaseline
 
 ## Faktenbasis
 
@@ -8,7 +8,7 @@
 
 ## Annahmen
 
-- Der Nutzer stellt lokal einen vollstaendigen HTTPS-Webclient-URL bereit, dessen Environment-Pfad `playthru` lautet und der keinen Company-Parameter setzt.
+- Der Nutzer stellt lokal eine vollstaendige HTTPS-Webclient-URL bereit, deren Umgebungspfad `playthru` lautet und die keinen `company`-Parameter setzt.
 - Die bestehende Berechtigung erlaubt die benoetigten Seiten read-only. Fehlende Sichtbarkeit ist kein Fehlernachweis fuer das Produkt, sondern wird `unknown` oder `blocked`.
 
 ## Architektur
@@ -19,9 +19,9 @@
 - `playwright/.auth/playthru.json`: gemeinsamer lokaler Storage State fuer beide Laeufe; gitignoriert und niemals als Evidence kopiert.
 - `evidence/playthru-environment-baseline/run-1|run-2`: normalisierte Manifeste, Eventlogs und ausgewaehlte Screenshots. Rohartefakte bleiben unter `.tmp`.
 
-## Navigations- und Evidence-Plan
+## Navigations- und Nachweisplan
 
-| Step | UI-Zustand | Zu erhebender Fakt | Langlebige Evidence |
+| Schritt | UI-Zustand | Zu erhebender Fakt | Langlebige Evidence |
 | --- | --- | --- | --- |
 | ENV-00 | Role Center nach validierter URL | playthru, aktive Gesellschaft, Seitentitel | Screenshot und Event |
 | ENV-01 | Available Companies Pane, Hintergrund sichtbar | nur Playthru-Gesellschaften ohne Auswahl; andere Umgebungen werden nicht persistiert | Screenshot und Liste |
@@ -37,14 +37,14 @@ Trace, Event und Manifest tragen dieselbe Run-/Step-ID. Der Trace wird vor dem M
 
 - Direkte UI-Navigation ueber Tell Me und Clientsteuerungen; kein Admin Center, keine API und keine URL mit `company=`.
 - Keine automatisierte Anmeldung. Bei abgelaufenem Auth-State wird ein expliziter headed Bootstrap erlaubt, der nur Storage State speichert; beide Beweislaeufe starten danach unabhaengig.
-- Stable facts schliessen Zeitstempel, Run-ID, rohe URLs, Tenantpfade und Benutzeranzeige aus.
+- Stabile Fakten schliessen Zeitstempel, Run-ID, rohe URLs, Tenantpfade und Benutzeranzeige aus.
 - Langlebige Evidence ist nur fuer explizite `run-1`/`run-2` erlaubt. Lokale Checks schreiben ausschliesslich nach `.tmp`.
 - Der sichtbare Haken im Mandanten-Pane wird nicht ueber ein unzuverlaessiges ARIA-Attribut modelliert; `activeCompany` wird separat aus **Meine Einstellungen** bestaetigt.
 
 ## Alternativen
 
 - Persistentes reales Chrome-Profil: verworfen wegen Identitaets-/Profilrisiko und schlechter Reproduzierbarkeit.
-- API-/Admin-Center-Abfrage: ausser Scope und kein UI-Beweis.
+- API-/Admin-Center-Abfrage: ausserhalb des Umfangs und kein UI-Beweis.
 - Alternative Navigation bei Fehler: verworfen; nach zwei vergleichbaren Fehlern wird Ursache/Screenshot analysiert und der Fakt bleibt gegebenenfalls blocked.
 
 ## Abbruchbedingungen

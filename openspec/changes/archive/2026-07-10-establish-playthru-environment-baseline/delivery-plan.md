@@ -1,18 +1,18 @@
-# Delivery Plan
+# Lieferplan
 
 ## Wellen
 
-Ein begrenzter W1-Pilot: Plan -> minimale Automation -> Auth-Bootstrap -> Run 1 -> Run 2 -> Manifestvergleich -> visuelle Pruefung -> kuratierte Dokumentation -> Review.
+Ein begrenzter W1-Pilot: Plan -> minimale Automatisierung -> Authentifizierungs-Bootstrap -> Lauf 1 -> Lauf 2 -> Manifestvergleich -> visuelle Pruefung -> kuratierte Dokumentation -> Review.
 
 ## Abhaengigkeiten
 
-Strict-validierter Change und lokale Projektsteuerung -> gepinnte Playwright-Version -> lokaler `BC_BASE_URL`-/Auth-Guard -> zwei identische read-only Laeufe -> visueller Evidence-Review -> Publikation. Kein nachgelagerter Schritt darf fehlende UI-Evidence durch Annahmen ersetzen.
+Strict-validierter Change und lokale Projektsteuerung -> gepinnte Playwright-Version -> lokaler `BC_BASE_URL`-/Auth-Guard -> zwei identische read-only Laeufe -> visueller Evidence-Review -> Publikation. Kein nachgelagerter Schritt darf fehlende UI-Nachweise durch Annahmen ersetzen.
 
 ## Verantwortungen
 
-- Change/Test/Documentation: Codex als ausfuehrender Consultant.
+- Change, Test und Dokumentation: Codex als ausfuehrender Consultant.
 - Reale Authentifizierung: vorhandene autorisierte lokale Sitzung; keine Zugangsdaten im Repository.
-- Approval Policy: ausdruecklich vom realen Repository-Nutzer autorisiertes automatisiertes Policy-Gate; keine Selbstausgabe als menschliche Freigabe.
+- Freigabe-Policy: ausdruecklich vom realen Repository-Nutzer autorisiertes automatisiertes Policy-Gate; keine Selbstausgabe als menschliche Freigabe.
 
 ## Nachweise
 
@@ -25,8 +25,8 @@ Strict-validierter Change und lokale Projektsteuerung -> gepinnte Playwright-Ver
 
 ## Gates
 
-1. Pre-Browser: OpenSpec strict, Sicherheitsgrenzen, Testfaelle und Evidence-Plan gruen.
-2. Target Gate: lokaler URL-Guard beweist `playthru`; kein `company`-Parameter.
-3. Run Gate: keine Writes/Switches, alle Schritte mit Event/Trace/Manifest.
-4. Repro Gate: zwei normalisierte Manifeste verglichen.
-5. Review Gate: Screenshots visuell geprueft, Publikation kuratiert, Change/Story `In Review`.
+1. Vor-Browser-Gate: OpenSpec strict, Sicherheitsgrenzen, Testfaelle und Evidence-Plan gruen.
+2. Ziel-Gate: lokaler URL-Guard beweist `playthru`; kein `company`-Parameter.
+3. Lauf-Gate: keine Writes/Switches, alle Schritte mit Event/Trace/Manifest.
+4. Reproduktions-Gate: zwei normalisierte Manifeste verglichen.
+5. Review-Gate: Screenshots visuell geprueft, Publikation kuratiert, Change/Story `In Review`.

@@ -1,8 +1,8 @@
-# Tasks
+# Aufgaben
 
 ## 1. Plan und Steuerung
 
-- [x] 1.1 Change mit Scope, Requirements, Evidence-Plan und Abbruchbedingungen vor Browserzugriff erstellen.
+- [x] 1.1 Change mit Umfang, Requirements, Evidence-Plan und Abbruchbedingungen vor Browserzugriff erstellen.
 - [x] 1.2 Ein W1-Epic, eine Story, zwei Sub-tasks und eine Confluence-Seite anlegen.
 - [x] 1.3 Direkte Playwright-/Microsoft-Quellen registrieren und Playwright exakt pinnen.
 
@@ -24,7 +24,7 @@
 - [x] 4.2 OpenSpec/Jira/Confluence/Verification auf `In Review` synchronisieren.
 - [x] 4.3 Repository-Tests, OpenSpec strict, npm audit und git diff --check ausfuehren.
 
-## 5. Begrenzter Correction Pass
+## 5. Begrenzter Korrekturpass
 
 - [x] 5.1 Change-spezifische `canonicalTargets`, `changeRef` und ein ausdruecklich automatisiertes W1-Policy-Gate modellieren.
 - [x] 5.2 Strukturierte, spaeter uebernehmbare Baseline validieren und `proposedCanonicalUpdate` als `unapplied` dokumentieren.

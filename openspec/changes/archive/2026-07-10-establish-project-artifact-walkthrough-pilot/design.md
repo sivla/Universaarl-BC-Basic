@@ -2,11 +2,11 @@
 
 ## Entscheidung
 
-YAML ist das Autorenformat; ein JSON-Schema beschreibt den Vertrag. Ein Node-Generator validiert den Pilot, liest die bestehenden Run-Manifeste und Events, prueft Quelldateien und erzeugt deterministisch ein aufgeloestes Manifest, WebVTT, HTML, WebM, WebP und den stabilen Exportindex.
+YAML ist das Autorenformat; ein JSON-Schema beschreibt den Vertrag. Ein Node-Generator validiert den Piloten, liest die bestehenden Lauf-Manifeste und Events, prueft Quelldateien und erzeugt deterministisch ein aufgeloestes Manifest, WebVTT, HTML, WebM, WebP und den stabilen Exportindex.
 
 ## Datenfluss
 
-`OpenSpec-Szenario -> Run-Manifest/Events/Screenshots -> Walkthrough-YAML -> aufgeloestes Manifest -> HTML/VTT/WebM/WebP/Exportindex`
+`OpenSpec-Szenario -> Lauf-Manifest/Events/Screenshots -> Walkthrough-YAML -> aufgeloestes Manifest -> HTML/VTT/WebM/WebP/Exportindex`
 
 ## Wahrheitsgrenze
 
