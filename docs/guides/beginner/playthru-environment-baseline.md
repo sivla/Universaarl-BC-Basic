@@ -9,7 +9,7 @@ evidenceRefs: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-COMPAR
 
 # Playthru-Umgebungsbaseline verstehen und lesen
 
-Bevor ein Implementierungsprojekt Business Central einrichtet, muss klar sein, **wo** man arbeitet und **welcher Mandant** gerade aktiv ist. Dieses Kapitel fuehrt durch einen zweimal reproduzierten, rein lesenden Pilotablauf. Es ist ein kuratiertes Lernergebnis; technische Manifeste, Events und Traces bleiben getrennte Roh-Evidence.
+Bevor ein Implementierungsprojekt Business Central einrichtet, muss klar sein, **wo** man arbeitet und **welcher Mandant** gerade aktiv ist. Dieses Kapitel fuehrt durch einen zweimal reproduzierten, rein lesenden Pilotablauf. Es ist ein kuratiertes Lernergebnis; technische Manifeste, Ereignisse und Traces bleiben getrennte Roh-Nachweise.
 
 ## Die Begriffe hinter dem Bildschirm
 
@@ -42,11 +42,11 @@ Der Code `DE` ist ein starkes Indiz fuer den Firmenkontext, beweist fuer sich al
 
 1. Oeffnen Sie die lokal bereitgestellte Business-Central-URL ohne `company=`-Parameter. Pruefen Sie im Kopfbereich `playthru` und links oben `CRONUS DE`. [ENV-00]
 2. Druecken Sie `Strg+O`. Das Pane **Verfuegbare Mandanten** oeffnet sich. Lesen Sie nur den Abschnitt **Playthru**; klicken Sie keinen Mandanten an. Schliessen Sie das Pane mit **Schliessen**. [ENV-01]
-3. Waehlen Sie oben rechts **Hilfe** (`?`) und im Help-Pane **Hilfe & Support**. Im Abschnitt **Problembehebung** steht die Version. Schliessen Sie den Help-Pane und waehlen Sie **Zurueck**. [ENV-02]
+3. Waehlen Sie oben rechts **Hilfe** (`?`) und im Hilfebereich **Hilfe & Support**. Im Abschnitt **Problembehebung** steht die Version. Schliessen Sie den Hilfebereich und waehlen Sie **Zurueck**. [ENV-02]
 4. Druecken Sie `Alt+T`. In **Meine Einstellungen** lesen Sie Mandant, Arbeitsdatum, Region, Sprache und Zeitzone. Beenden Sie den Dialog mit **Abbrechen**, nicht mit **OK**. [ENV-03]
 5. Waehlen Sie oben rechts **Einstellungen** (Zahnrad) und **Unternehmensdaten**. Lesen Sie den Laender-/Regionscode und waehlen Sie **Zurueck**, ohne ein Feld zu veraendern. [ENV-04]
 6. Druecken Sie `Alt+Q`, suchen Sie nach `Erweiterung` und waehlen Sie die angebotene Verwaltungsseite. Der gepruefte Client oeffnete **Installierte Erweiterungen**. Belegt sind nur die sechs Karten, deren Name und Herausgeber im Screenshot-Ausschnitt sichtbar sind; verwenden Sie weder **Verwalten** noch den AppSource-Katalog. [ENV-05]
-7. Kehren Sie zurueck, druecken Sie `Alt+Q`, suchen Sie nach `Funktion` und waehlen Sie **Funktionsverwaltung**. Die 15 im Screenshot-Viewport schneidenden Zeilen sind nur ein Teilnachweis. Verwenden Sie weder **Liste bearbeiten** noch eine Aktivierungs-/Updateaktion. [ENV-06]
+7. Kehren Sie zurueck, druecken Sie `Alt+Q`, suchen Sie nach `Funktion` und waehlen Sie **Funktionsverwaltung**. Die 15 den Screenshot-Ausschnitt schneidenden Zeilen sind nur ein Teilnachweis. Verwenden Sie weder **Liste bearbeiten** noch eine Aktivierungs-/Aktualisierungsaktion. [ENV-06]
 
 ![Nur der Playthru-Teilbaum des Mandanten-Panes](../../../evidence/playthru-environment-baseline/run-2/env-01.png)
 
@@ -54,7 +54,7 @@ Der Code `DE` ist ein starkes Indiz fuer den Firmenkontext, beweist fuer sich al
 
 ![Version und Builds in Hilfe und Support](../../../evidence/playthru-environment-baseline/run-2/env-02.png)
 
-*Abbildung 3: Help & Support ist die direkte sichtbare Quelle fuer Client-, Plattform- und Anwendungsversion.*
+*Abbildung 3: Hilfe & Support ist die direkte sichtbare Quelle fuer Client-, Plattform- und Anwendungsversion.*
 
 ![Mandant, Arbeitsdatum, Region, Sprache und Zeitzone](../../../evidence/playthru-environment-baseline/run-2/env-03.png)
 
@@ -68,16 +68,16 @@ Der Code `DE` ist ein starkes Indiz fuer den Firmenkontext, beweist fuer sich al
 
 Die geplanten V2-Unternehmen `UAM-DE`, `UAS-DE`, `UAD-DE`, `UAP-DE` und `UAC-CONS` wurden im zugaenglichen Playthru-Pane **nicht beobachtet**. Das beweist nicht, dass sie nirgendwo existieren; es beweist nur, dass sie in diesem sichtbaren Pane und unter der aktuellen Berechtigung nicht als solche erschienen. `Universaarl GmbH` ist ein anderer sichtbarer Name und darf nicht stillschweigend einem der fuenf Zielunternehmen gleichgesetzt werden.
 
-Die Baseline ist durch das change-spezifische automatisierte Policy-Gate kanonisch synchronisiert. Das erlaubt trotzdem noch keinen Setup-Write: Anlage, Kopie oder Umbenennung brauchen einen eigenen freigegebenen Setup-Change mit Zielunternehmen, Zweck, Akzeptanzkriterien und Resetstrategie.
+Die Baseline ist durch den change-spezifischen automatisierten Policy-Pruefpunkt kanonisch synchronisiert. Das erlaubt trotzdem noch keinen Einrichtungsschreibvorgang: Anlage, Kopie oder Umbenennung brauchen einen eigenen freigegebenen Setup-Change mit Zielunternehmen, Zweck, Akzeptanzkriterien und Resetstrategie.
 
 ## Wichtige Grenzen
 
-- Kein Environment und keinen Mandanten wechseln.
+- Keine Umgebung und keinen Mandanten wechseln.
 - Keine Felder fuellen, keine Erweiterung installieren/deinstallieren und keine Funktion aktivieren.
-- Die sechs vollstaendig beschrifteten Erweiterungskarten und die 15 Feature-Zeilen sind screenshot-belegte Teilmengen, keine garantierte Vollstaendigkeitsbescheinigung. Ausserhalb des Viewports gerenderte DOM-Elemente gelten nicht als visuell geprueft.
-- Release-Plaene ersetzen die sichtbare Sandbox-Evidence nicht.
+- Die sechs vollstaendig beschrifteten Erweiterungskarten und die 15 Funktionszeilen sind screenshot-belegte Teilmengen, keine garantierte Vollstaendigkeitsbescheinigung. Ausserhalb des sichtbaren Ausschnitts gerenderte DOM-Elemente gelten nicht als visuell geprueft.
+- Release-Plaene ersetzen die sichtbaren Sandbox-Nachweise nicht.
 - Ein abweichendes Arbeitsdatum muss vor spaeteren Buchungsnachweisen bewusst bestaetigt oder korrigiert werden; dieser Pilot veraendert es nicht.
 
-Roh-Evidence: `evidence/playthru-environment-baseline/run-1`, `run-2`, `comparison.json` und `visual-review.yaml`. Der technische Wiederholungs- und Fehlerablauf gehoert in das separate Consultant-Runbook.
+Roh-Nachweise: `evidence/playthru-environment-baseline/run-1`, `run-2`, `comparison.json` und `visual-review.yaml`. Der technische Wiederholungs- und Fehlerablauf gehoert in das separate Berater-Runbook.
 
-Interaktive Wiedergabe: `artifacts/walkthrough/generated/UABC-WT-ENV-001/index.html`. Sie ist eine abgeleitete Lernansicht und keine neue Evidence.
+Interaktive Wiedergabe: `artifacts/walkthrough/generated/UABC-WT-ENV-001/index.html`. Sie ist eine abgeleitete Lernansicht und kein neuer Nachweis.
