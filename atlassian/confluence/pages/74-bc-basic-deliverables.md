@@ -15,16 +15,16 @@ Das maschinenlesbare Lieferregister liegt unter `project/bc-basic/deliverables.y
 
 ## Datenanforderungen
 
-`project/bc-basic/data-package.yaml` beschreibt acht synthetische Objektvorlagen. Jede Vorlage nennt Zweck, Format, Eigentuemer, Pflichtfelder, Qualitaetsregeln, offenen Freigabestatus und mindestens einen plausiblen Beispieldatensatz.
+`project/bc-basic/data-package.yaml` beschreibt acht synthetische Objektvorlagen und den Konfigurationspaketplan. Jede Vorlage nennt Zweck, Format, Kundendatenquelle, Dienstleisterverantwortung, Pflichtfelder, Qualitaetsregeln, offenen Freigabestatus und mindestens einen plausiblen Beispieldatensatz. Konfigurationspakete bleiben Dienstleisterwerkzeug; ihre Erstellung und Pflege ist kein Schulungsinhalt.
 
 ## Schulungsartefakte
 
 `project/bc-basic/training-plan.yaml` trennt Lernziel, Agenda, Uebung und Planungsbezug von spaeterem Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offenen Fragen und Kompetenzpruefung. Die Ausfuehrungsfelder bleiben leer.
 
-## Handbuecher
+## Dokumentation und Schulungsunterlagen
 
-- Kundenhandbuch: `docs/guides/beginner/business-central-basic.md`.
-- Beratungshandbuch: `docs/runbooks/business-central-basic.md`.
+- Einsteigerunterlage: `docs/guides/beginner/business-central-basic.md`.
+- Beratungs- und Ausfuehrungsunterlage: `docs/runbooks/business-central-basic.md`.
 
 Beide Dokumente sind strukturierte Lieferentwuerfe mit Quellen-, Versions-, Szenario- und Nachweisbezug. Erst `UABC-38` darf sie nach echter Pruefung als uebergeben kennzeichnen.
 

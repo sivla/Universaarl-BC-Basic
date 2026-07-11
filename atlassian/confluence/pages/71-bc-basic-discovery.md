@@ -11,19 +11,19 @@ lastReviewed: 2026-07-11
 
 # Vorbereitung, Anforderungen und Datenbereitschaft
 
-Phase 1 ist mit 20 Stunden geplant. Die Seite beschreibt erwartete Arbeit und darf nicht als Nachweis eines echten Auftakts, einer Arbeitsrunde oder eines freigegebenen Datenpakets gelesen werden.
+Phase 1 ist mit 18 Dienstleisterstunden geplant. Die Seite beschreibt erwartete Arbeit und darf nicht als Nachweis eines echten Auftakts, einer Arbeitsrunde oder eines freigegebenen Datenpakets gelesen werden.
 
 ## Arbeitspakete
 
-- `UABC-22`: Projektauftrag, Umfang, Rollen, Budget und Besprechungsrhythmus.
+- `UABC-22`: Produktauftrag, Umfang, Rollen, Abrechnungssatz und Besprechungsrhythmus.
 - `UABC-23`: Konten, Buchungsgruppen, Dimensionen, Mehrwertsteuer und UStVA-Anforderungen.
 - `UABC-24`: Standardprozesse fuer Einkauf, Verkauf und einfachen Bestand.
-- `UABC-25`: Synthetische Objektvorlagen und Datenbereitschaft.
-- `UABC-26`: Loesungs-, Pruef-, Ruecksetz- und Abnahmeplan.
+- `UABC-25`: Synthetische Objektvorlagen, Konfigurationspaketplan und Datenbereitschaft.
+- `UABC-26`: Loesungs-, Pruef-, Ruecksetz-, UAT- und Abnahmeplan.
 
 ## Lieferergebnisse
 
-Die Phase liefert den Projekt- und Abnahmeplan `UABC-DEL-BCB-001`, die Anforderungs- und Entscheidungsunterlagen `UABC-DEL-BCB-002` sowie das Datenpaket `UABC-DEL-BCB-003`. Ihr aktueller Status ist `planned`; ein Abschlussnachweis ist leer.
+Die Phase liefert den Produkt- und Abnahmeplan `UABC-DEL-BCB-001`, die Anforderungs- und Entscheidungsunterlagen `UABC-DEL-BCB-002` sowie das Daten- und Konfigurationspaket `UABC-DEL-BCB-003`. Ihr aktueller Status ist `planned`; ein Abschlussnachweis ist leer.
 
 ## Bereitschaftspruefpunkt
 

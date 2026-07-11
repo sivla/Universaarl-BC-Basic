@@ -8,7 +8,69 @@ prohibitedContent:
   - reale Personen-, Kunden-, Lieferanten-, Bank- oder Steuerdaten
   - Zugangsdaten, Tokens, Authentifizierungszustaende oder Browserprofile
   - reale .env-Dateien, Logs, Videos oder Laufzeitnachweise
-deliveryFormat: UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket nach Freigabe
+deliveryFormat: kontrolliertes Business-Central-Konfigurationspaket als bevorzugter Weg; UTF-8-CSV nur als Quellvorlage oder Export-/Pruefformat
+providerOwnerRef: P-002
+customerSourceRefs: [P-005, P-011, P-016, P-019]
+dataCategories:
+  einrichtungsdaten: Konten, Buchungsgruppen, MwSt.-Einrichtung, Dimensionen, Zahlungsbedingungen, Nummernserien und Lagerortvorbereitung.
+  stammdaten: Debitoren, Kreditoren, Artikel, Einheiten, Preise, einfache Rabatte und Bankkonten als Stammdaten.
+  offenePosten: kontrollierte offene Debitoren-/Kreditorenposten nur, wenn sie fuer Abstimmung und Sandbox-Test erforderlich sind.
+  gebuchteDaten: kein historischer Vollimport gebuchter Bewegungsdaten; gebuchte Testdaten entstehen spaeter nur im autorisierten Pflichtszenario.
+configurationPackages:
+  - id: UABC-CONFIGPKG-BCB-SETUP-001
+    namePattern: BCB-SETUP-v001
+    category: einrichtungsdaten
+    purpose: minimale Grundeinrichtung reproduzierbar vorbereiten, soweit Business Central die Felder sinnvoll per Konfigurationspaket verarbeitet
+    candidateTables:
+      - { table: Sachkonto, rationale: SKR04-Konten nach fachlicher Freigabe }
+      - { table: Allgemeine-Geschaeftsbuchungsgruppe, rationale: grundlegende Inland-Buchungslogik }
+      - { table: Allgemeine-Produktbuchungsgruppe, rationale: grundlegende Produkt-Buchungslogik }
+      - { table: MwSt.-Geschaeftsbuchungsgruppe, rationale: deutsche MwSt.-Geschaeftsgruppen }
+      - { table: MwSt.-Produktbuchungsgruppe, rationale: deutsche MwSt.-Produktgruppen }
+      - { table: "Dimension", rationale: minimale Standarddimensionen }
+      - { table: "Dimension Value", rationale: freigegebene Dimensionswerte }
+      - { table: "Payment Terms", rationale: einfache Zahlungsbedingungen }
+      - { table: "Location", rationale: genau ein Lagerort HAUPT }
+    requiredFieldRule: Nummer, Code, Beschreibung, Buchungsgruppenbezug, gesperrt-Kennzeichen und synthetische Nachvollziehbarkeit muessen je Tabelle in der Feldliste bestaetigt werden.
+    excludedFieldRule: Systemfelder, FlowFields, berechnete Salden, Benutzer-/Auditfelder, echte Bank-/Steuerkennungen und nicht verstandene Felder werden ausgeschlossen.
+    dependencies: [Finanz- und Steuerdesign freigegeben, Zielgesellschaft autorisiert]
+    importOrder: [Dimensionen, Dimensionswerte, Konten, Buchungsgruppen, MwSt.-Gruppen, Zahlungsbedingungen, Lagerort]
+  - id: UABC-CONFIGPKG-BCB-MASTER-001
+    namePattern: BCB-MASTER-v001
+    category: stammdaten
+    purpose: wenige realitaetsnahe Stammdaten fuer Pflichtprozesse laden
+    candidateTables:
+      - { table: Debitor, rationale: ein synthetischer Debitor }
+      - { table: Kreditor, rationale: ein synthetischer Kreditor }
+      - { table: Artikel, rationale: wenige synthetische Handelsartikel }
+      - { table: Artikeleinheit, rationale: Basiseinheiten fuer Artikel }
+      - { table: Verkaufspreis-oder-Preisliste, rationale: einfache Preise und Rabatte, sofern im Zielsystem passend verfuegbar }
+      - { table: Bankkonto, rationale: Bankkonto als Stammdatensatz ohne produktive Anbindung }
+    requiredFieldRule: Nummer, Name/Beschreibung, Land, Buchungsgruppen, Zahlungsbedingungen, Einheit, Preis/Kosten und synthetische Kennzeichnung muessen gefuellt sein.
+    excludedFieldRule: reale IBAN/BIC, personenbezogene Kontaktdaten, Kreditkartendaten, Serien-/Chargenfelder, Varianten-/Attributfelder ohne Pflichtgrund und Integrationsfelder werden ausgeschlossen.
+    dependencies: [UABC-CONFIGPKG-BCB-SETUP-001]
+    importOrder: [Bankkonto-Stammdaten, Debitoren, Kreditoren, Artikel, Einheiten, Preise und einfache Rabatte]
+  - id: UABC-CONFIGPKG-BCB-OPEN-001
+    namePattern: BCB-OPEN-v001
+    category: offenePosten
+    purpose: kontrollierte Anfangs- und offene Posten fuer Abstimmung vorbereiten, ohne historischen Vollimport zu behaupten
+    candidateTables:
+      - { table: Buchblattzeile, rationale: Eroeffnungsbuchung und einfache offene Posten, falls fachlich freigegeben }
+      - { table: Artikelbuchblattzeile, rationale: Anfangsbestand fuer Lagerort HAUPT, falls fachlich freigegeben }
+    requiredFieldRule: Buchungsdatum, Belegnummer mit SYN-Praefix, Konto-/Artikelbezug, Betrag/Menge, Dimensionen und synthetische Kennzeichnung muessen gefuellt und abgestimmt sein.
+    excludedFieldRule: bereits gebuchte historische Bewegungsdaten, echte Rechnungsnummern, Banktransaktionen, Steuererklaerungsdaten und produktive Zahlungsdateien werden ausgeschlossen.
+    dependencies: [UABC-CONFIGPKG-BCB-SETUP-001, UABC-CONFIGPKG-BCB-MASTER-001, fachliche Abstimmung]
+    importOrder: [Eroeffnungsjournal pruefen, Bestandsjournal pruefen, offene Posten nur nach Abstimmung]
+validationAndRecovery:
+  expectedErrors:
+    - { symptom: Pflichtfeld fehlt, likelyCause: Kundenvorlage unvollstaendig, action: Ticket blockieren und korrigierte Daten anfordern }
+    - { symptom: unbekannte Buchungsgruppe, likelyCause: Setup-Paket fehlt oder Reihenfolge verletzt, action: Setup-Abhaengigkeit pruefen und Paket erneut in richtiger Reihenfolge anwenden }
+    - { symptom: Feld nicht editierbar, likelyCause: berechnetes oder systemgesteuertes Feld, action: Feld aus Paket entfernen und manuellen BC-Schritt dokumentieren }
+    - { symptom: Summen stimmen nicht, likelyCause: Datenfehler oder fehlende Gegenbuchung, action: Import stoppen, Abstimmung korrigieren, keine Ausgleichswerte erfinden }
+  manualSteps:
+    - Unternehmensassistenten, spezielle Einrichtungsmasken, Benutzer-/Berechtigungszuordnung und alle Dialoge mit fachlicher Wirkung werden manuell ueber die UI geplant, wenn Konfigurationspakete sie nicht verlaesslich abdecken.
+    - Jede manuelle Ausnahme braucht Zweck, Zielzustand, Pruefschritt und Wiederholungs- oder Bereinigungsstrategie.
+  retryStrategy: Pakete werden versioniert, nur aus freigegebenen Vorlagen neu erzeugt und vor Wiederholung gegen bereits vorhandene synthetische IDs geprueft; unklare Teilimporte werden nicht ueberschrieben, sondern zuerst analysiert.
 qualityGate:
   ownerRef: P-016
   approverRefs: [P-005, P-011, P-019]

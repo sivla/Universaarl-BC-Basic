@@ -3,7 +3,7 @@ contractId: UABC-PROJECT-DATA-V1
 projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
-displayName: Business Central Basic
+displayName: BC Basic Einrichtung
 governingChange: deliver-bc-basic-customer-project
 lifecycleStatus: proposed
 readOnly: true

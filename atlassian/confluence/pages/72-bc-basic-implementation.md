@@ -16,16 +16,16 @@ Phase 2 umfasst genau fuenf aufeinanderfolgende Arbeitstage und 40 geplante Stun
 ## Reihenfolge
 
 1. `UABC-27`: Zielgesellschaft lesen und binden, Grundeinrichtung sowie minimale Rollen pruefen.
-2. `UABC-28`: Finanzwesen, Buchungsmatrix, Mehrwertsteuer und Dimensionen einrichten.
-3. `UABC-29`: ausschliesslich freigegebene synthetische Stammdaten laden und abstimmen.
-4. `UABC-30` bis `UABC-32`: Einkauf, Verkauf und einfacher Bestand an Lagerort `HAUPT` pruefen.
+2. `UABC-28`: Finanzwesen, SKR04, Buchungsmatrix, Mehrwertsteuer und Dimensionen einrichten.
+3. `UABC-29`: Konfigurationspakete erstellen, ausschliesslich freigegebene synthetische Stammdaten laden und abstimmen.
+4. `UABC-30` bis `UABC-32`: Einkauf, Verkauf und einfacher Bestand an Lagerort `HAUPT` mit den benannten Pflichtfaellen pruefen.
 5. `UABC-33`: rollenbezogene Schulungen protokollieren.
-6. `UABC-34`: Ende-zu-Ende-Pruefung, fachlichen Abnahmetest und Start-/Stopp-Entscheidung dokumentieren.
+6. `UABC-34`: Ende-zu-Ende-Pflichtfaelle, fachlichen Abnahmetest, UAT-Begleitung und offene Fehler dokumentieren.
 
 ## Lieferergebnisse
 
 - `UABC-DEL-BCB-004`: gepruefte Standardkonfiguration.
 - `UABC-DEL-BCB-005`: Schulungs- und Kompetenzpaket.
-- `UABC-DEL-BCB-006`: fachlicher Abnahmetest und simulierter Sandbox-Uebergang.
+- `UABC-DEL-BCB-006`: fachlicher Abnahmetest und UAT-Begleitung.
 
 Alle drei Lieferergebnisse bleiben `planned`, bis echte Ausfuehrungsnachweise und menschliche Entscheidungen vorliegen. Der Playwright-Katalog ist nur ein Szenarienplan und wurde in diesem Auftrag nicht ausgefuehrt.

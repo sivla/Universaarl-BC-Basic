@@ -1,6 +1,6 @@
 ---
 id: UABC-BCBHYPERCARE
-title: Begrenzte Stabilisierungsphase, Monatsabschlussprobe und UStVA-Pruefung
+title: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
 parent: UABC-BCBPROJECT
 owners: [P-002, P-005]
 status: Geplant
@@ -9,22 +9,22 @@ referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
 lastReviewed: 2026-07-11
 ---
 
-# Begrenzte Stabilisierungsphase, Monatsabschlussprobe und UStVA-Pruefung
+# Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
 
-Phase 3 ist mit 16 Stunden geplant und beginnt erst nach einem menschlich akzeptierten Sandbox-Pilot. Die derzeitigen Inhalte sind Prueflisten und keine ausgefuehrten Unterstuetzungs-, Abschluss- oder Steuerergebnisse.
+Phase 3 ist mit hoechstens 10 Stunden innerhalb einer Kalenderwoche geplant und beginnt erst nach fachlicher Pruefung der Einrichtung, Schulung und vorbereiteten UAT-Faelle. Die derzeitigen Inhalte sind Prueflisten und keine ausgefuehrten Unterstuetzungs-, Abschluss- oder Steuerergebnisse.
 
-## Begrenzte Stabilisierungsphase
+## Begrenzte Hypercare
 
-`UABC-35` fuehrt Fehler, Prioritaet, Verantwortliche und Tagesstatus. Kritische Befunde muessen geschlossen sein oder den Abschluss blockieren. Synthetische Beispieldaten duerfen nicht als echte Unterstuetzungsfaelle erscheinen.
+`UABC-35` fuehrt UAT- und Hypercare-Befunde, Prioritaet, Verantwortliche und Tagesstatus. Relevante Befunde muessen bearbeitet sein oder den Abschluss blockieren. Synthetische Beispieldaten duerfen nicht als echte Unterstuetzungsfaelle erscheinen. Nach der einwoechigen Hypercare werden weitere Taetigkeiten als Support oder neues modulares Projekt behandelt.
 
 ## Monatsabschlussprobe in der Sandbox
 
 `UABC-36` probt den Monatsabschlussprozess in der Sandbox und dokumentiert die Abstimmung von Debitoren, Kreditoren, Bankersatz, Bestand, Steuer- und Sachkonten, Perioden sowie Basisberichten. Abweichungen bleiben bis zur Klaerung blockierend. Das ist kein echter Monatsabschluss. Das Lieferergebnis ist `UABC-DEL-BCB-007`.
 
-## UStVA-Vorschau und XML
+## UStVA-Vorschau
 
-`UABC-37` prueft Periode, Betraege und freigegebene Kennzeichen fachlich gegen die abgestimmte Probe. Eine Vorschau und, falls verfuegbar, ein XML duerfen lokal erzeugt werden; Test- und Produktivuebermittlung an eine Behoerde sind ausgeschlossen. Das Lieferergebnis `UABC-DEL-BCB-008` bleibt bis zur fachlichen Pruefung geplant.
+`UABC-37` prueft Periode, Betraege und freigegebene Kennzeichen fachlich gegen die abgestimmte Probe. Die UStVA wird nur als Vorschau betrachtet; Test-, Produktiv- oder ELSTER-Uebermittlung an eine Behoerde sind ausgeschlossen. Das Lieferergebnis `UABC-DEL-BCB-008` bleibt bis zur fachlichen Pruefung geplant.
 
 ## Uebergabe
 
-`UABC-38` uebergibt Kunden- und Beratungshandbuch, Projektdokumentation und Nachweisindex. Der Abschluss der Stabilisierungsphase erfordert echte Entscheider; eine synthetische Rolle oder Pruefung der Projektablage reicht nicht aus.
+`UABC-38` uebergibt Projektdokumentation, Schulungsunterlagen und Nachweisindex. Der Abschluss der Hypercare erfordert echte Entscheider; eine synthetische Rolle oder Pruefung der Projektablage reicht nicht aus.

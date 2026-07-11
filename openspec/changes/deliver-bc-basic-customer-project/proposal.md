@@ -1,58 +1,62 @@
-# Aenderungsvorschlag: BC Basic Kundenprojekt
+# Aenderungsvorschlag: BC Basic Einrichtung
 
 ## Metadaten
 
 - OpenSpec-Aenderung: `deliver-bc-basic-customer-project`
 - Projekt: `UABC-BC-BASIC-001`
-- Servicepaket: **BC Basic** als Universaarl-Standardleistung, nicht als behaupteter Microsoft-Lizenzname
-- Ziel: eine synthetische Einfuehrung in genau einer Gesellschaft der Sandbox `playthru`
-- Zeitmodell: Phase 1 Vorbereitung und Anforderungen circa drei Kalenderwochen ab noch unbestaetigtem Projektauftakt, Phase 2 genau fuenf aufeinanderfolgende Arbeitstage nach Bereitschaftspruefpunkt, Phase 3 begrenzte Stabilisierungsphase circa zwei Kalenderwochen bis zur ersten Monatsabschlussprobe in der Sandbox
-- Liefergrenze: 76 geplante abrechenbare Stunden plus 4 Stunden nicht vorab abrechenbare Reserve; maximal 80 Stunden
-- Planpreis: 76 Stunden zu 120 EUR netto = 9.120 EUR; absolute Leistungsgrenze 9.600 EUR netto
+- Produkt: **BC Basic Einrichtung** als kleinste wiederverwendbare Universaarl-Standardleistung, nicht als behaupteter Microsoft-Lizenzname
+- Ziel: arbeitsfaehige Grundeinrichtung fuer genau eine kleine deutsche Gesellschaft in der Sandbox `playthru`
+- Liefermodell: Vorbereitung und Datenbereitschaft, eine Einrichtungs- und Schulungswoche, danach eine Woche Hypercare mit hoechstens 10 Stunden
+- Planaufwand: 68 geplante abrechenbare Dienstleisterstunden; ein verbindliches Budgetlimit ist noch nicht menschlich entschieden
+- Abrechnungssatz: 1.300 EUR netto pro Arbeitstag, 8 Stunden pro Arbeitstag, rechnerisch 162,50 EUR netto pro Stunde
 
 ## Problem und Zweck
 
-Der bisherige Blueprint beschreibt ein breites Mehrgesellschaftsprogramm, liefert aber noch kein fokussiertes, realistisch durchfuehrbares erstes Kundenprojekt. Diese Aenderung richtet die Arbeit auf ein standardnahes BC-Basic-Paket aus: Anforderungen und Daten werden vorab geklaert, Einrichtung und Schulung erfolgen in einer Arbeitswoche, und die begrenzte Stabilisierungsphase endet nach einer nachvollziehbaren Monatsabschlussprobe in der Sandbox sowie einer fachlich geprueften deutschen UStVA-Vorschau samt lokalem XML ohne Test- oder Produktivuebermittlung.
+Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und vermischte Projektgrenze, Budgetgrenze und Pilot-/Produktionssprache. Diese Aenderung richtet P001 auf das wiederverwendbare Produkt **BC Basic Einrichtung** aus: eine kleine deutsche Firma wird in `playthru` mit SKR04, grundlegendem Finanzwesen, Einkauf, Verkauf, einfachem Bestand und minimaler Schulung arbeitsfaehig gemacht. Es gibt keinen Produktivstart, keine E-Rechnung, keine produktive Bankanbindung und keine UStVA- oder ELSTER-Uebermittlung.
 
 ## Ergebnisse
 
-1. Ein verbindlicher Drei-Phasen-Projektplan mit Abschlusskriterien, Abhaengigkeiten und menschlichen Pruefpunkten.
-2. Ein Jira-Sammelvorgang mit drei Phasentickets und kleinen abrechenbaren Arbeitspaketen; jedes Ticket hat Aufwand, Akzeptanzkriterien, Lieferergebnisse und mindestens eine Besprechungstranskript-Referenz.
+1. Ein verbindlicher Drei-Phasen-Projektplan mit Abschlusskriterien, Abhaengigkeiten, Kundenmitwirkung und menschlichen Pruefpunkten.
+2. Ein Jira-Sammelvorgang mit drei Phasentickets und sinnvollen abrechenbaren Dienstleisterarbeitspaketen; jedes abrechenbare Paket hat Aufwand, Akzeptanzkriterien und Jira-Bezug, ohne kuenstliche Mikrotickets.
 3. Ein sauberer Confluence-Seitenbaum mit Besprechungen, Entscheidungen, Daten, Schulung, Abrechnung und Uebergabe.
-4. Ein synthetisches Datenpaket fuer genau eine Gesellschaft sowie ein rollenbezogener Trainingsplan.
+4. Ein synthetisches Datenpaket fuer genau eine Gesellschaft, Konfigurationspaket-Plan, minimale Stammdaten und rollenbezogener Trainingsplan.
 5. Gliederungen fuer ein Kundenhandbuch und ein Beratungshandbuch.
-6. Ein nicht ausgefuehrter Playwright-Szenariokatalog fuer Grundeinrichtung, Finanzwesen, Einkauf, Verkauf, einfaches Lager, Monatsabschlussprobe und UStVA-Vorschau.
+6. Ein nicht ausgefuehrter Playwright-Szenariokatalog fuer Grundeinrichtung, Finanzwesen, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe, UStVA-Vorschau und begrenzten Zahlungstest.
 7. Ein versionierter, nur lesbarer Projektindex als einzige Einstiegskante fuer den Projekt-Twin; er verweist auf Blueprint-Quellen und dupliziert keine fachlichen Daten.
 
 ## Umfang
 
-- Grundeinrichtung einer einzigen synthetischen Gesellschaft in `playthru`, Zielbindung `Universaarl GmbH`, erst nach expliziter Schreibfreigabe.
-- Finanzwesen und Buchhaltung: Kontenplan, Buchungsgruppen, Nummernserien, Zahlungsbedingungen, Dimensionen, MwSt.-Einrichtung, Journale, Abstimmung und Basisberichte.
-- Einkauf, Verkauf, Artikel und einfacher Bestand an einem Lagerort ohne verpflichtende Lagerplaetze.
-- Synthetische Stammdaten, Anfangsbestands- und Eroeffnungsdaten in kontrollierten Vorlagen.
-- Rollenbasierte Schulungen, fachlicher Abnahmetest, Sandbox-Pilot mit dokumentierter Produktionsbereitschaft, begrenzte Stabilisierungsphase, Monatsabschlussprobe und lokale UStVA-Vorschau/XML-Pruefung.
-- Woechentliche Abrechnung ausschliesslich aus freigegebenen Jira-Istzeiten.
+- Grundeinrichtung einer einzigen synthetischen deutschen Gesellschaft in `playthru`, Zielbindung `Universaarl GmbH`, erst nach expliziter Schreibfreigabe.
+- Genau ein Lagerort `HAUPT` mit einfachster Standardkonfiguration ohne verpflichtende Lagerplaetze.
+- SKR04, grundlegendes Finanzwesen, erforderliche Konten, Buchungsgruppen, MwSt.-Einrichtung, Zahlungsbedingungen, Nummernserien, minimale Dimensionen, Journale, Abstimmung und Basisberichte.
+- Debitoren, Kreditoren, wenige realitaetsnahe Artikel, Einheiten, Preise und einfache Rabatte.
+- Einkauf, Verkauf und einfacher Bestand mit je einem repraesentativen Pflichtfall; Zahlungsprozesse nur als begrenzter Sandbox-Test, falls fachlich und technisch sinnvoll.
+- Konfigurationspakete als bevorzugter Einrichtungs- und Importweg fuer Setupdaten, Stammdaten und kontrollierte offene Posten; manuelle BC-Schritte werden begruendet dokumentiert.
+- Grundlegende BC- und Prozessschulungen, UAT-Begleitung, Projektdokumentation, Schulungsunterlagen und eine Woche Hypercare mit hoechstens 10 Stunden.
+- Woechentliche Abrechnung ausschliesslich aus freigegebenen Jira-Istzeiten auf Dienstleisterseite.
 
 ## Nicht-Ziele
 
 - Keine AL-Entwicklung, eigenen Berichte oder Layouts, Integrationen, Power Platform, Dataverse oder andere Fremdsystemanbindung.
 - Keine produktive Bankanbindung, PSD2, mehreren Firmen, Waehrungen, Banken oder Lagerorte.
-- Kein erweitertes Lager, keine Chargen oder Seriennummern, Produktion, Kundendienst, Projekte, Anlagenbuchhaltung, Intercompany, Konsolidierung oder Lohnabrechnung.
-- Keine historischen Bewegungsdaten, E-Rechnung, echte Steueruebermittlung, ELSTER-Zugangsdaten, Rechts- oder Steuerberatung und keine GoBD-Garantie.
-- Kein Produktivstart, kein echter Monatsabschluss und keine offene oder unbegrenzte Stabilisierungsphase.
+- Kein erweitertes Lager, keine Chargen oder Seriennummern, keine Varianten-/Attributkomplexitaet ausser bei zwingendem Grundszenario, Produktion, Service, Projekte, Anlagenbuchhaltung, Intercompany, Konsolidierung oder Lohnabrechnung.
+- Keine historischen Bewegungsdaten, E-Rechnung, echte UStVA- oder ELSTER-Uebermittlung, ELSTER-Zugangsdaten, Rechts- oder Steuerberatung und keine GoBD-Garantie.
+- Keine Schulung zur Erstellung oder Pflege von Konfigurationspaketen.
+- Kein Produktivstart, kein echter Monatsabschluss und kein Support nach Ende der einwoechigen Hypercare.
 - Keine echte Kunden-, Personen-, Bank-, Steuer- oder Zugangsdaten.
 - Keine Behauptung, **BC Basic** sei eine Microsoft-Lizenz. Lizenz-, Tenant- und sonstige externe Kosten sind nicht im Leistungsbudget enthalten.
 - In diesem Planungsschritt keine BC-Schreibvorgaenge, fachlichen Tests, Erstellungsvorgaenge, Browserlaeufe oder Erfolgsaussagen.
 
 ## Risiken und Kontrollen
 
-- **Budgetueberschreitung:** 76 Stunden werden auf Tickets geplant; 4 Stunden Reserve duerfen nur nach dokumentierter Begruendung und Sponsorfreigabe aktiviert werden. Bei 80 Stunden stoppt die Arbeit.
-- **Unklare Daten:** Phase 2 beginnt nur mit bestandenem Datenbereitschaftspruefpunkt; fehlende Pflichtdaten fuehren zu Verschiebung oder dokumentierter Umfangsreduktion.
+- **Unklare Abrechnung:** Der Tagessatz ist entschieden, ein Budgetlimit jedoch nicht; Planstunden sind eine Kalkulationsbasis und duerfen nicht als genehmigte Budgetobergrenze dargestellt werden.
+- **Unklare Daten:** Phase 2 beginnt nur mit bestandenem Datenbereitschaftspruefpunkt; fehlende Pflichtdaten fuehren zu einem blockierten Dienstleisterticket, Terminverschiebung oder dokumentierter Umfangsentscheidung.
+- **Konfigurationspaket-Luecke:** Nicht jeder BC-Einrichtungsschritt ist per Konfigurationspaket sinnvoll oder moeglich; manuelle Schritte werden als Ausnahme mit Grund, Pruefung und Wiederholungsweg dokumentiert.
 - **Steuerliche Fehlkonfiguration:** MwSt.-Buchungsgruppen, UStVA-Zuordnungen und Schluessel benoetigen fachliche Freigabe durch Finanzverantwortung und Steuerberatung.
 - **Unkontrollierter Sandbox-Schreibvorgang:** Jeder spaetere Schreibvorgang braucht eine projektspezifische Autorisierung, Zielbindung, Ruecksetzplan und begrenzten Playwright-Umfang.
-- **Scheinerfolg:** `Nicht ausgefuehrt`, fehlende Werte und Simulation gelten nie als bestanden oder produktionsreif.
+- **Scheinerfolg:** `Nicht ausgefuehrt`, fehlende Werte und Simulation gelten nie als bestanden, produktionsreif oder abgenommen.
 - **Twin-Drift:** Der Twin darf nur den positivgelisteten Projektindex lesen und keine eigenen Projektinhalte pflegen.
 
 ## Freigabe
 
-Dieser Vorschlag gibt ausschliesslich die Planung und Struktur der Projektablage frei. Vor operativer Ausfuehrung bleiben mindestens folgende echte Entscheidungen offen: Sandbox-Schreibfreigabe, Zielgesellschaft, Lizenzzuordnung, Datenpaket, Finanz-/Steuerdesign, fachlicher Abnahmetest, Sandbox-Pilot und Produktionsbereitschaft, Monatsabschlussprobe, UStVA-Pruefung und Abschluss der Stabilisierungsphase. Keine dieser Freigaben darf automatisiert oder synthetischen Personen zugeschrieben werden.
+Dieser Vorschlag gibt ausschliesslich die Planung und Struktur der Projektablage frei. Vor operativer Ausfuehrung bleiben mindestens folgende echte Entscheidungen offen: Sandbox-Schreibfreigabe, Zielgesellschaft, Lizenzzuordnung, Datenpaket, Finanz-/Steuerdesign, fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau, Abschluss der einwoechigen Hypercare und ein eventuell gewuenschtes Budgetlimit. Keine dieser Freigaben darf automatisiert oder synthetischen Personen zugeschrieben werden.

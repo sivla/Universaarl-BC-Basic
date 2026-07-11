@@ -6,7 +6,7 @@ approvalPolicy:
   evidenceId: UABC-VER-BCB-POLICY-GATE-001
   authorizedBy: repository-governance
   authorizedAt: 2026-07-11
-  scope: nur Archivierung von deliver-bc-basic-customer-project in der Projektablage; keine BC-Schreib-, Lizenz-, Steuer-, Produktivstart- oder Kundenfreigabe
+  scope: nur Archivierung von deliver-bc-basic-customer-project in der Projektablage; keine BC-Schreib-, Lizenz-, Steuer-, Produktivstart-, Budgetlimit- oder Kundenfreigabe
   conditions:
     - alle fuer die Archivierung erforderlichen Nachweise des aktiven Aenderungsvorhabens sind bestanden
     - alle ausdruecklich verlangten menschlichen Fach- und Freigabeentscheidungen sind mit entscheidender Person und Zeitpunkt dokumentiert
@@ -18,10 +18,12 @@ proposedCanonicalUpdate:
   facts:
     project: { status: proposed, value: UABC-BC-BASIC-001 }
     sourceIndex: { status: proposed, value: exports/project-data/v1/index.yaml }
-    deliveryModel: { status: proposed, value: "Vorbereitung und Anforderungen, genau eine Einrichtungswoche sowie begrenzte Stabilisierungsphase bis zur Monatsabschlussprobe in der Sandbox und zur fachlich geprueften lokalen UStVA-Vorschau ohne Uebermittlung" }
+    deliveryModel: { status: proposed, value: "BC Basic Einrichtung mit Vorbereitung und Datenbereitschaft, genau einer Einrichtungs- und Schulungswoche sowie einer einwoechigen Hypercare bis zur Monatsabschlussprobe in der Sandbox und zur fachlich geprueften UStVA-Vorschau ohne Uebermittlung" }
+    billingModel: { status: proposed, value: "68 geplante Dienstleisterstunden; 1.300 EUR netto Tagessatz, 8 Stunden je Arbeitstag, 162,50 EUR netto rechnerischer Stundensatz; kein entschiedenes Budgetlimit" }
   unknowns:
     - menschliche Freigabe der exakten playthru-Zielgesellschaft fuer Schreibvorgaenge
     - finale Essentials- oder Premium-Lizenzzuordnung und externe Lizenzkosten
     - steuerberaterliche Freigabe von Umsatzsteuerkennzeichen und UStVA-Zuordnung
     - Ist-Aufwaende, Rechnungswochen und Abnahmeergebnisse
+    - verbindliches Budgetlimit, falls der reale Repository-Nutzer eines wuenscht
   policyGateEvidenceId: UABC-VER-BCB-POLICY-GATE-001

@@ -19,10 +19,10 @@ Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Pr
 - `UABC-VER-BCB-E2E-001`: mutierende, explizit autorisierte Playwright-E2E-Szenarien.
 - `UABC-VER-BCB-TRAINING-001`: Schulungsdurchfuehrung und fachlicher Abnahmetest.
 - `UABC-VER-BCB-CLOSE-001`: Monatsabschlussprozess in der Sandbox geprobt und Abstimmungen dokumentiert.
-- `UABC-VER-BCB-VAT-001`: UStVA-Vorschau/XML samt Steuerfreigabe, ohne Uebermittlung.
+- `UABC-VER-BCB-VAT-001`: UStVA-Vorschau samt Steuerfreigabe, ohne Uebermittlung.
 - `UABC-VER-BCB-HANDOVER-001`: Handbuecher, Confluence und Uebergabe.
 - `UABC-VER-BCB-POLICY-GATE-001`: automatisierter Archivpruefpunkt der Projektablage.
 
 ## Pruefung und Freigabe
 
-Nicht freigegeben. Vor jeder Ausfuehrung sind Zielgesellschaft, Sandbox-Schreibumfang, Lizenz, Daten, Finanz-/Steuerdesign und Ruecksetzplan menschlich zu genehmigen. Sandbox-Pilot, dokumentierte Produktionsbereitschaft, Monatsabschlussprobe, lokale UStVA-Pruefung und Abschluss der Stabilisierungsphase benoetigen danach jeweils ihren eigenen dokumentierten Entscheid. Produktivstart, echter Monatsabschluss und jede UStVA-Uebermittlung bleiben ausgeschlossen.
+Nicht freigegeben. Vor jeder Ausfuehrung sind Zielgesellschaft, Sandbox-Schreibumfang, Lizenz, Daten, Finanz-/Steuerdesign und Ruecksetzplan menschlich zu genehmigen. Fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau und Abschluss der einwoechigen Hypercare benoetigen danach jeweils ihren eigenen dokumentierten Entscheid. Produktivstart, echter Monatsabschluss und jede UStVA- oder ELSTER-Uebermittlung bleiben ausgeschlossen.

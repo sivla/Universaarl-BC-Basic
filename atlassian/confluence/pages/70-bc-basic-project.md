@@ -1,6 +1,6 @@
 ---
 id: UABC-BCBPROJECT
-title: BC-Basic-Kundenprojekt
+title: BC Basic Einrichtung
 parent: UABC-PROJECT
 owners: [P-001, P-002]
 status: Geplant
@@ -9,25 +9,25 @@ referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004]
 lastReviewed: 2026-07-11
 ---
 
-# BC-Basic-Kundenprojekt
+# BC Basic Einrichtung
 
-Diese Seite ist die navigierende Startseite der synthetischen Projektsimulation `UABC-BC-BASIC-001`. Sie dokumentiert einen Plan und keine bereits ausgefuehrte Kundenlieferung. Echte Freigaben, Iststunden, BC-Schreibvorgaenge, Abnahmen und Ergebnisse sind nicht vorhanden.
+Diese Seite ist die navigierende Startseite der synthetischen Produktsimulation `UABC-BC-BASIC-001`. Sie dokumentiert das wiederverwendbare Grundpaket **BC Basic Einrichtung** und keine bereits ausgefuehrte Kundenlieferung. Echte Freigaben, Iststunden, BC-Schreibvorgaenge, Abnahmen und Ergebnisse sind nicht vorhanden.
 
 ## Ziel und Grenze
 
-Geplant ist genau eine synthetische Gesellschaft `Universaarl GmbH` in `playthru`. Der Standardumfang umfasst Grundeinrichtung, Finanzwesen und Buchhaltung, Einkauf, Verkauf sowie einfachen Bestand an einem Lagerort. Erweiterungen, Integrationen, Produktivbetrieb und echte Steueruebermittlung sind ausgeschlossen.
+Geplant ist genau eine synthetische deutsche Gesellschaft `Universaarl GmbH` in `playthru` und genau ein Lagerort `HAUPT`. Der Standardumfang umfasst SKR04, Grundeinrichtung, Finanzwesen und Buchhaltung, Debitoren, Kreditoren, wenige Artikel, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe und UStVA-Vorschau. Erweiterungen, Integrationen, Produktivbetrieb, E-Rechnung, produktive Bankanbindung und echte Steueruebermittlung sind ausgeschlossen.
 
 ## Drei Phasen
 
-1. [Vorbereitung, Anforderungen und Datenbereitschaft](71-bc-basic-discovery.md), geplant mit 20 abrechenbaren Stunden.
+1. [Vorbereitung, Anforderungen und Datenbereitschaft](71-bc-basic-discovery.md), geplant mit 18 abrechenbaren Dienstleisterstunden.
 2. [Einrichtung und Schulung in genau einer Woche](72-bc-basic-implementation.md), geplant mit 40 abrechenbaren Stunden.
-3. [Begrenzte Stabilisierungsphase, Monatsabschlussprobe und UStVA-Pruefung](73-bc-basic-hypercare.md), geplant mit 16 abrechenbaren Stunden.
+3. [Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau](73-bc-basic-hypercare.md), geplant mit hoechstens 10 abrechenbaren Stunden.
 
-Die 76 geplanten Stunden kosten bei 120 EUR netto 9.120 EUR. Eine nicht vorab abrechenbare Reserve von 4 Stunden begrenzt den Gesamtumfang auf 80 Stunden beziehungsweise 9.600 EUR netto. Rechnungen duerfen nur aus genehmigten Jira-Arbeitsprotokollen der untersten Ticketebene entstehen.
+Die 68 geplanten Dienstleisterstunden werden mit 1.300 EUR netto pro Arbeitstag beziehungsweise 162,50 EUR netto pro Stunde kalkuliert. Daraus entsteht ein Planwert von 11.050 EUR netto. Ein verbindliches Budgetlimit ist nicht entschieden und wird nicht erfunden. Rechnungen duerfen nur aus genehmigten Jira-Arbeitsprotokollen der untersten Ticketebene entstehen.
 
 ## Offene menschliche Pruefpunkte
 
-Zielgesellschaft und Ruecksetzung, Lizenz, Datenpaket, Finanz- und Steuerdesign, fachlicher Abnahmetest, Sandbox-Pilot, Monatsabschlussprobe, UStVA-Pruefung und Abschluss der Stabilisierungsphase bleiben offen. Synthetische Personen oder automatisierte Pruefungen der Projektablage ersetzen keine dieser Entscheidungen.
+Zielgesellschaft und Ruecksetzung, Lizenz, Datenpaket, Finanz- und Steuerdesign, fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau, Uebergabe, Abschluss der Hypercare und optionales Budgetlimit bleiben offen. Synthetische Personen oder automatisierte Pruefungen der Projektablage ersetzen keine dieser Entscheidungen.
 
 ## Quellen
 

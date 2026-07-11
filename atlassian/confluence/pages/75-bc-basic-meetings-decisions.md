@@ -13,7 +13,7 @@ lastReviewed: 2026-07-11
 
 Der Besprechungsindex liegt unter `atlassian/confluence/meetings/index.yaml`. Das gemeinsame Transkript `UABC-MTG-001` ist eine klar gekennzeichnete synthetische Planungsunterhaltung. Es darf mehreren Tickets als Kontext dienen, belegt jedoch keine echte Arbeitsleistung, Freigabe oder fachliche Abnahme.
 
-Die verbindlichen Planentscheidungen `UABC-DEC-BCB-001` bis `UABC-DEC-BCB-007` stehen in `project/bc-basic/decision-register.yaml`. Sie setzen die vom Nutzer der Projektablage beauftragten Planungsgrenzen um. Die offenen Freigaben `UABC-APP-BCB-001` bis `UABC-APP-BCB-005` bleiben ausdruecklich offen und blockieren spaetere Schreib- oder Abnahmeschritte.
+Die verbindlichen Planentscheidungen `UABC-DEC-BCB-001` bis `UABC-DEC-BCB-007` stehen in `project/bc-basic/decision-register.yaml`. Sie setzen die vom Nutzer der Projektablage beauftragten Planungsgrenzen um. Die offenen Freigaben `UABC-APP-BCB-001` bis `UABC-APP-BCB-006` bleiben ausdruecklich offen und blockieren spaetere Schreib-, Abnahme- oder Budgetentscheidungen, soweit sie betroffen sind.
 
 ## Ticketvertrag
 

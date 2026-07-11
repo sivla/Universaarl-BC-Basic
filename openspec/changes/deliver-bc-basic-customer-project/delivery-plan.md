@@ -1,35 +1,35 @@
-# Lieferplan: BC Basic Kundenprojekt
+# Lieferplan: BC Basic Einrichtung
 
 ## Wellen
 
 ### Phase 1 - Vorbereitung, Anforderungen und Datenbereitschaft
 
-Circa drei Kalenderwochen ab bestaetigtem Projektauftakt, 20 Planstunden. Projektauftakt, Finanz-/Steuerarbeitsrunde, Prozessarbeitsrunde fuer Einkauf/Verkauf/Lager, Datenpaket und Loesungs-/Abnahmeplan werden abgeschlossen. Die Phase endet nur, wenn Umfang, Verantwortliche, Datenqualitaet, Zielgesellschaft und offene Freigaben sichtbar sind.
+Circa drei Kalenderwochen ab bestaetigtem Projektauftakt, 18 Planstunden. Projektauftakt, Finanz-/Steuerarbeitsrunde, Prozessarbeitsrunde fuer Einkauf/Verkauf/einfachen Bestand, Daten- und Konfigurationspaketplan sowie Loesungs-/Abnahmeplan werden abgeschlossen. Die Phase endet nur, wenn Umfang, Verantwortliche, Datenqualitaet, Zielgesellschaft, Kundenmitwirkung und offene Freigaben sichtbar sind.
 
 ### Phase 2 - Einrichtung und Schulung in genau einer Woche
 
-Genau fuenf aufeinanderfolgende Arbeitstage nach bestandenem Bereitschaftspruefpunkt, exakt 40 Planstunden. Reihenfolge: Ziel- und Sicherheitspruefung, Grundeinrichtung, Finanzwesen, Stammdaten, Einkauf, Verkauf, einfaches Lager, Ende-zu-Ende-Pruefung, fachlicher Abnahmetest, Schulung und kontrollierte Sandbox-Uebergabe. Offene Anforderungsklaerung wird nicht still in diese Woche verschoben.
+Genau fuenf aufeinanderfolgende Arbeitstage nach bestandenem Bereitschaftspruefpunkt, exakt 40 Planstunden. Reihenfolge: Ziel- und Sicherheitspruefung, Konfigurationspakete vorbereiten, Grundeinrichtung, Finanzwesen, Stammdaten, Einkauf, Verkauf, einfacher Bestand, Ende-zu-Ende-Pflichtfaelle, fachlicher Abnahmetest, UAT-Begleitung und Schulung. Offene Anforderungsklaerung wird nicht still in diese Woche verschoben.
 
-### Phase 3 - Begrenzte Stabilisierungsphase bis Abschlussprobe und UStVA-Pruefung
+### Phase 3 - Einwoechige Hypercare, Abschlussprobe und UStVA-Vorschau
 
-Circa zwei Kalenderwochen bis zur ersten Monatsabschlussprobe, 16 Planstunden. Pilotbefunde werden priorisiert, der Monatsabschlussprozess wird in der Sandbox geprobt und abgestimmt, die UStVA-Vorschau samt lokalem XML ohne Test- oder Produktivuebermittlung wird fachlich geprueft, und beide Handbuecher sowie die Projektdokumentation werden uebergeben. Danach endet die Stabilisierungsphase; offene Erweiterungswuensche gehoeren in ein eigenes Folgepaket.
+Eine Kalenderwoche nach der Einrichtungswoche, hoechstens 10 Planstunden. UAT- und Hypercare-Befunde werden priorisiert, der Monatsabschlussprozess wird in der Sandbox geprobt und abgestimmt, die UStVA-Vorschau ohne Uebermittlung wird fachlich geprueft, und Projektdokumentation sowie Schulungsunterlagen werden uebergeben. Danach endet P001; weitere Taetigkeiten sind Support oder ein eigenes modulares Folgeprojekt.
 
 Alle Kalenderdaten in Jira und strukturiertem Plan sind ausschliesslich eine synthetische Terminachse fuer die Simulation (`scheduleSynthetic: true`, `customerConfirmed: false`). Sie sind keine Kundenzusage und werden nach einem echten Projektauftakt neu bestaetigt.
 
 ## Abhaengigkeiten
 
-Projektauftakt -> Facharbeitsrunden -> Datenbereitschaft -> Loesungs- und Abnahmefreigabe -> Sandbox-Schreibfreigabe -> Grundeinrichtung -> Finanzwesen und Stammdaten -> Einkauf/Verkauf/Lager -> Ende-zu-Ende-Pruefung und fachlicher Abnahmetest -> Sandbox-Pilot -> begrenzte Stabilisierungsphase -> Monatsabschlussprobe -> lokale UStVA-Pruefung -> Uebergabe.
+Projektauftakt -> Facharbeitsrunden -> Daten- und Konfigurationspaketbereitschaft -> Loesungs- und Abnahmefreigabe -> Sandbox-Schreibfreigabe -> Grundeinrichtung -> Finanzwesen und Stammdaten -> Einkauf/Verkauf/einfacher Bestand -> Ende-zu-Ende-Pflichtfaelle und fachlicher Abnahmetest -> UAT-Begleitung -> einwoechige Hypercare -> Monatsabschlussprobe -> UStVA-Vorschau -> Uebergabe.
 
 Keine spaetere Aktivitaet darf eine fehlende menschliche Freigabe als technische Annahme ersetzen. Fehlende Daten oder Steuerentscheidungen blockieren den abhaengigen Pfad.
 
 ## Verantwortungen
 
-- Beratung und Projektleitung: P-002 als synthetische Ausfuehrungsrolle fuer Plan, Konfiguration, Nachweise und Uebergabe.
-- Finanz-Schluesselanwender: P-005 fuer Konten, Buchungsgruppen, Abstimmung und Monatsabschlussprobe.
-- Datenverantwortung: P-016 fuer Format, Vollstaendigkeit und Freigabe der synthetischen Daten.
-- Einkauf/Verkauf-Schluesselanwender: P-011 fuer P2P- und O2C-Abnahme.
-- Lager-Schluesselanwender: P-019 fuer Artikel, Bestand und einfachen Lagerprozess.
-- Sponsorrolle: P-001 fuer Umfang, Budgetreserve, Sandbox-Pilot, dokumentierte Produktionsbereitschaft und Abschluss der Stabilisierungsphase; synthetische Rollen sind keine echte Freigabe.
+- Dienstleister: P-002 als synthetische One-Man-Show fuer Projektleitung, Solution Architecture, Beratung, Einrichtung, Test, Training, Dokumentation und abrechenbare Arbeit.
+- Finanz-Schluesselanwender: P-005 als Kundenrolle fuer Konten, Buchungsgruppen, Abstimmung, Monatsabschlussprobe und UStVA-Vorschau.
+- Datenverantwortung: P-016 als Kundenrolle fuer Vollstaendigkeit und fachliche Freigabe der synthetischen Daten.
+- Einkauf/Verkauf-Schluesselanwender: P-011 als Kundenrolle fuer P2P- und O2C-Abnahme.
+- Lager-Schluesselanwender: P-019 als Kundenrolle fuer Artikel, Bestand und einfachen Lagerprozess.
+- Sponsorrolle: P-001 fuer Umfang, Budgetentscheidung, UAT-Ergebnis, Abnahme und Abschluss der Hypercare; synthetische Rollen sind keine echte Freigabe.
 
 ## Nachweise
 
@@ -38,7 +38,7 @@ Keine spaetere Aktivitaet darf eine fehlende menschliche Freigabe als technische
 - Konfiguration und E2E-Playwright-Katalog: `UABC-VER-BCB-E2E-001`.
 - Rollenbezogene Schulung und fachlicher Abnahmetest: `UABC-VER-BCB-TRAINING-001`.
 - Monatsabschlussprozess in der Sandbox geprobt und Abstimmungen dokumentiert: `UABC-VER-BCB-CLOSE-001`.
-- UStVA-Vorschau/XML und Steuerfreigabe, ohne Uebermittlung: `UABC-VER-BCB-VAT-001`.
+- UStVA-Vorschau und Steuerfreigabe, ohne Uebermittlung: `UABC-VER-BCB-VAT-001`.
 - Handbuecher, Confluence und Uebergabe: `UABC-VER-BCB-HANDOVER-001`.
 - Automatisierter Archivpruefpunkt der Projektablage: `UABC-VER-BCB-POLICY-GATE-001`; er ersetzt keine fachliche Freigabe.
 
@@ -46,13 +46,13 @@ Alle IDs sind geplant. In diesem Auftragsschritt wurde kein Nachweis ausgefuehrt
 
 ## Pruefpunkte
 
-1. **Umfangspruefpunkt:** Standardumfang, eine Gesellschaft, Budget und Nicht-Ziele menschlich bestaetigt.
+1. **Umfangspruefpunkt:** Standardumfang, eine Gesellschaft, genau ein Lagerort, Tagessatz, Planstunden, Kundenmitwirkung und Nicht-Ziele menschlich bestaetigt; ein Budgetlimit bleibt offen, falls es nicht entschieden wird.
 2. **Datenpruefpunkt:** Pflichtfelder, Formate, Eigentuemer, Qualitaetsprotokoll und Freigabe liegen vor.
 3. **Schreibpruefpunkt:** Exakte `playthru`-Zielbindung, Ruecksetzplan und mutierender Testumfang sind projektspezifisch autorisiert.
 4. **Finanz-/Steuerpruefpunkt:** Konten, Buchungsgruppen, MwSt.-Matrix und UStVA-Zuordnung fachlich freigegeben.
-5. **Sandbox-Uebergang/Stopp:** Fachlicher Abnahmetest, Trainingsanwesenheit, offene Fehler, Abstimmung und Unterstuetzungsbereitschaft fuer die Simulation sind akzeptiert; ein Produktivstart ist ausgeschlossen.
-6. **Abschluss der Stabilisierungsphase:** Abschlussprobe und lokale UStVA-Pruefung bestanden, kritische Pilotbefunde geschlossen, Dokumentation uebergeben und offener Folgeumfang getrennt.
+5. **UAT-/Abnahmestopp:** Fachlicher Abnahmetest, vorbereitete UAT-Faelle, Trainingsanwesenheit, offene Fehler, Abstimmung und Unterstuetzungsweg fuer die Simulation sind akzeptiert; ein Produktivstart ist ausgeschlossen.
+6. **Abschluss der Hypercare:** Abschlussprobe und UStVA-Vorschau dokumentiert, relevante UAT-/Hypercare-Befunde bearbeitet, Dokumentation uebergeben und offener Folgeumfang getrennt.
 
 ## Abschlusskriterien
 
-Das Projekt ist nur abgeschlossen, wenn alle Jira-Akzeptanzkriterien erfuellt, alle erforderlichen Lieferergebnisse vorhanden, jedes Ticket mit mindestens einem realen oder klar simulierten Transkript verknuepft, 80 Stunden nicht ueberschritten, alle benoetigten Fachfreigaben dokumentiert, Ende-zu-Ende-Szenarien mit referenzierbarem Nachweis ausgefuehrt, Schulungen protokolliert, Monatsabschlussprozess in der Sandbox geprobt, Abstimmungen dokumentiert und UStVA-Vorschau samt lokalem XML fachlich geprueft sowie Kunden- und Beratungshandbuch und Confluence-Struktur uebergeben sind. Eine Test- oder Produktivuebermittlung und ein Produktivstart sind ausdruecklich keine Abschlusskriterien.
+Das Projekt ist nur abgeschlossen, wenn alle Jira-Akzeptanzkriterien erfuellt, alle erforderlichen Lieferergebnisse vorhanden, jedes Ticket mit mindestens einem realen oder klar simulierten Transkript verknuepft, alle benoetigten Fachfreigaben dokumentiert, Ende-zu-Ende-Pflichtszenarien mit referenzierbarem Nachweis ausgefuehrt, Schulungen protokolliert, vorbereitete UAT-Faelle ausgefuehrt oder nachvollziehbar blockiert, UAT-Ergebnisse geprueft, relevante Fehler bearbeitet, Monatsabschlussprozess in der Sandbox geprobt, Abstimmungen dokumentiert, UStVA-Vorschau fachlich geprueft, Projektdokumentation und Schulungsunterlagen uebergeben und die einwoechige Hypercare mit hoechstens 10 Stunden beendet sind. Eine Test- oder Produktivuebermittlung und ein Produktivstart sind ausdruecklich keine Abschlusskriterien.

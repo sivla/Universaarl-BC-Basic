@@ -1,23 +1,23 @@
 issues:
   - key: UABC-18
     type: Epic
-    summary: BC-Basic-Kundenprojekt als synthetische Lieferung planen
+    summary: BC Basic Einrichtung als wiederverwendbares Grundpaket planen
     parent: null
     status: Backlog
     components: [Projektmanagement, Finanzwesen, Einkauf, Verkauf, Artikel, Bestand, Lager, Daten, Training]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-08-03
-    dueDate: 2026-09-11
-    effort: 76h Planwert
-    plannedBillableHours: 76
+    dueDate: 2026-09-04
+    effort: 68h Planwert
+    plannedBillableHours: 68
     billable: false
     worklogEligible: false
     dependencies: []
-    dataRequirements: [synthetischer Projektauftrag, Drei-Phasen-Plan, Budgetvertrag, offene menschliche Freigaben]
+    dataRequirements: [synthetischer Produktauftrag, Drei-Phasen-Plan, Tagessatz, offene menschliche Freigaben]
     acceptanceCriteria:
       - Genau eine synthetische Gesellschaft in playthru ist geplant und jeder Schreibvorgang bleibt gesperrt.
-      - Die 17 untergeordneten Arbeitspakete ergeben 76 Stunden; Elternsummen sind nicht abrechenbar.
+      - Die 17 untergeordneten Arbeitspakete ergeben 68 Dienstleisterstunden; Elternsummen und Kundenaufwaende sind nicht abrechenbar.
       - Alle neun Lieferergebnisse und ausstehenden Nachweise sind ohne Erfolgsbehauptung referenziert.
     deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003, UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006, UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
     transcriptRefs: [UABC-MTG-001]
@@ -38,8 +38,8 @@ issues:
     customerRole: P-001
     startDate: 2026-08-03
     dueDate: 2026-08-21
-    effort: 20h Planwert
-    plannedBillableHours: 20
+    effort: 18h Planwert
+    plannedBillableHours: 18
     billable: false
     worklogEligible: false
     dependencies: []
@@ -86,23 +86,23 @@ issues:
 
   - key: UABC-21
     type: Story
-    summary: Phase 3 begrenzte Stabilisierungsphase, Monatsabschlussprobe und UStVA-Vorschau abschliessen
+    summary: Phase 3 Hypercare, Monatsabschlussprobe und UStVA-Vorschau abschliessen
     parent: UABC-18
     status: Backlog
     components: [Projektmanagement, Finanzwesen, Berichtswesen, Training]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-08-31
-    dueDate: 2026-09-11
-    effort: 16h Planwert
-    plannedBillableHours: 16
+    dueDate: 2026-09-04
+    effort: 10h Planwert
+    plannedBillableHours: 10
     billable: false
     worklogEligible: false
     dependencies: [UABC-20]
-    dataRequirements: [synthetische Buchungen, Abstimmcheckliste, UStVA-Kennzeichen, offene Fehler, Uebergabeunterlagen]
+    dataRequirements: [synthetische Buchungen, Abstimmcheckliste, UStVA-Kennzeichen, UAT- und Hypercare-Befunde, Uebergabeunterlagen]
     acceptanceCriteria:
-      - Monatsabschlussprozess ist in der Sandbox geprobt und abgestimmt; UStVA-Vorschau beziehungsweise XML sind lokal fachlich geprueft, ohne Test- oder Produktivuebermittlung.
-      - Abschluss der Stabilisierungsphase und Uebergabe werden nur mit echten, dokumentierten Freigaben abgeschlossen.
+      - Monatsabschlussprozess ist in der Sandbox geprobt und abgestimmt; UStVA-Vorschau ist fachlich geprueft, ohne Test-, Produktiv- oder ELSTER-Uebermittlung.
+      - Abschluss der Hypercare und Uebergabe werden nur mit echten, dokumentierten Freigaben abgeschlossen.
     deliverableIds: [UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-009, UABC-REQ-BCB-010]
@@ -114,7 +114,7 @@ issues:
 
   - key: UABC-22
     type: Sub-task
-    summary: Projektauftakt, Umfang, Rollen und Budget vorbereiten
+    summary: Projektauftakt, Umfang, Rollen und Abrechnung vorbereiten
     parent: UABC-19
     status: Backlog
     components: [Projektmanagement]
@@ -127,8 +127,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: []
-    dataRequirements: [Projektziel, Rollen, 76-Stunden-Plan, 4-Stunden-Reserve, Besprechungsrhythmus]
-    acceptanceCriteria: [Projektauftrag benennt drei Phasen und Nicht-Ziele, Budget bleibt maximal 80 Stunden und 9600 EUR netto, echte Kundentermine bleiben offen]
+    dataRequirements: [Produktziel, Rollen, 68-Stunden-Plan, Tagessatz, offenes Budgetlimit, Besprechungsrhythmus]
+    acceptanceCriteria: [Projektauftrag benennt drei Phasen und Nicht-Ziele, 1.300 EUR Tagessatz und 162,50 EUR Stundensatz sind dokumentiert, ein Budgetlimit wird nicht erfunden, echte Kundentermine bleiben offen]
     deliverableIds: [UABC-DEL-BCB-001]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-004]
@@ -179,8 +179,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: [UABC-22]
-    dataRequirements: [Prozessvarianten, Lagerort, Artikel- und Beleganforderungen, Gutschriftfaelle]
-    acceptanceCriteria: [Pflichtablauf bleibt Standardfunktion, genau ein Lagerort ohne verpflichtende Lagerplaetze ist festgelegt, Erweiterungswuensche sind ausgeschlossen]
+    dataRequirements: [Pflichtszenarien, Lagerort, Artikel- und Beleganforderungen, Zahlungsgrenzen]
+    acceptanceCriteria: [Pflichtablaeufe bleiben auf Bestellung Wareneingang Eingangsrechnung, Angebot oder Auftrag Lieferung Verkaufsrechnung, Artikelanlage Zugang Bestand und einfache Inventur begrenzt; genau ein Lagerort ohne verpflichtende Lagerplaetze ist festgelegt, Erweiterungswuensche sind ausgeschlossen]
     deliverableIds: [UABC-DEL-BCB-002]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-003]
@@ -196,17 +196,17 @@ issues:
     parent: UABC-19
     status: Backlog
     components: [Daten, Finanzwesen, Einkauf, Verkauf, Lager]
-    assignee: P-016
-    customerRole: P-005
+    assignee: P-002
+    customerRole: P-016
     startDate: 2026-08-13
     dueDate: 2026-08-18
-    effort: 6h
-    plannedBillableHours: 6
+    effort: 5h
+    plannedBillableHours: 5
     billable: true
     worklogEligible: true
     dependencies: [UABC-23, UABC-24]
-    dataRequirements: [Unternehmen, Dimensionen, Debitor, Kreditor, Artikel, Bestand, Eroeffnungs- und offene Posten]
-    acceptanceCriteria: [Jede Objektvorlage besitzt Zweck, Pflichtfelder, Format, Eigentuemer, Qualitaetsregeln, Freigabestatus und Beispiel, alle Werte sind synthetisch]
+    dataRequirements: [Unternehmen, SKR04-Setup, Dimensionen, Debitor, Kreditor, Artikel, Bestand, Eroeffnungs- und offene Posten, Konfigurationspaket-Reihenfolge]
+    acceptanceCriteria: [Jede Objektvorlage besitzt Zweck, Pflichtfelder, Format, Kundendatenquelle, Dienstleisterverantwortung, Qualitaetsregeln, Freigabestatus und Beispiel; Konfigurationspakettabellen, ausgeschlossene Felder, Abhaengigkeiten und Fehlerbehandlung sind dokumentiert]
     deliverableIds: [UABC-DEL-BCB-003]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-006]
@@ -226,12 +226,12 @@ issues:
     customerRole: P-001
     startDate: 2026-08-19
     dueDate: 2026-08-21
-    effort: 4h
-    plannedBillableHours: 4
+    effort: 3h
+    plannedBillableHours: 3
     billable: true
     worklogEligible: true
     dependencies: [UABC-23, UABC-24, UABC-25]
-    dataRequirements: [Loesungsdesign, Pruefszenarien, Ruecksetzplan, Abnahmerollen, offene Freigaben]
+    dataRequirements: [Loesungsdesign, Pflichtszenarien, Ruecksetzplan, UAT-Faelle, Abnahmerollen, offene Freigaben]
     acceptanceCriteria: [Einrichtungswoche startet nur nach bestandenem Bereitschaftspruefpunkt, Zielbindung und Schreibfreigabe bleiben getrennte menschliche Entscheidungen]
     deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
     transcriptRefs: [UABC-MTG-001]
@@ -296,12 +296,12 @@ issues:
 
   - key: UABC-29
     type: Sub-task
-    summary: Freigegebene synthetische Stammdaten laden und abstimmen
+    summary: Konfigurationspakete erstellen, Stammdaten laden und abstimmen
     parent: UABC-20
     status: Backlog
     components: [Daten, Finanzwesen, Einkauf, Verkauf, Artikel]
-    assignee: P-016
-    customerRole: P-005
+    assignee: P-002
+    customerRole: P-016
     startDate: 2026-08-25
     dueDate: 2026-08-25
     effort: 4h
@@ -309,8 +309,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: [UABC-28]
-    dataRequirements: [freigegebenes Datenpaket, Importprotokoll, Fehlerliste, Abstimmsummen]
-    acceptanceCriteria: [Nur synthetische freigegebene Zeilen werden geladen, Fehler und Summen sind protokolliert, fehlende Werte werden nicht erfunden]
+    dataRequirements: [freigegebenes Datenpaket, Konfigurationspakete, Importreihenfolge, Importprotokoll, Fehlerliste, Abstimmsummen]
+    acceptanceCriteria: [Nur synthetische freigegebene Zeilen werden ueber dokumentierte Konfigurationspakete oder begruendete manuelle Ausnahmen geladen, Fehler und Summen sind protokolliert, fehlende Werte werden nicht erfunden]
     deliverableIds: [UABC-DEL-BCB-004]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-006]
@@ -336,7 +336,7 @@ issues:
     worklogEligible: true
     dependencies: [UABC-29]
     dataRequirements: [synthetischer Kreditor, Artikel, Lagerort, Bestellung, Wareneingang, Rechnung]
-    acceptanceCriteria: [Belege und erwartete Lieferanten-, Bestands-, Steuer- und Sachposten sind nachvollziehbar, Gutschriftfall ist eingeordnet]
+    acceptanceCriteria: [Bestellung, Wareneingang, Eingangsrechnung und erwartete Lieferanten-, Bestands-, Steuer- und Sachposten sind nachvollziehbar; optionale Zahlungsvorbereitung bleibt begrenzt]
     deliverableIds: [UABC-DEL-BCB-004]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
@@ -362,7 +362,7 @@ issues:
     worklogEligible: true
     dependencies: [UABC-29]
     dataRequirements: [synthetischer Debitor, Artikel, Lagerort, Auftrag, Lieferung, Rechnung]
-    acceptanceCriteria: [Belege und erwartete Kunden-, Bestands-, Steuer- und Sachposten sind nachvollziehbar, Gutschriftfall ist eingeordnet]
+    acceptanceCriteria: [Angebot oder Auftrag, Lieferung, Verkaufsrechnung und erwartete Kunden-, Bestands-, Steuer- und Sachposten sind nachvollziehbar; optionaler Zahlungseingang bleibt begrenzt]
     deliverableIds: [UABC-DEL-BCB-004]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
@@ -414,7 +414,7 @@ issues:
     worklogEligible: true
     dependencies: [UABC-30, UABC-31, UABC-32]
     dataRequirements: [Lernziele, Agenda, Uebungen, Teilnehmer, Fragen, Kompetenzpruefung]
-    acceptanceCriteria: [Administration, Finanzwesen, Einkauf/Verkauf und Lager sind abgedeckt, Ausfuehrungstranskript und Kompetenzstand bleiben bis zur echten Schulung leer]
+    acceptanceCriteria: [Navigation, Rollencenter, Tell Me, Suche, Filter, Listen, Debitoren, Kreditoren, Artikel, Einkauf, Verkauf, Bestand und grundlegendes Finanzwesen sind abgedeckt; Konfigurationspaketpflege ist ausgeschlossen; Ausfuehrungstranskript und Kompetenzstand bleiben bis zur echten Schulung leer]
     deliverableIds: [UABC-DEL-BCB-005]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-007]
@@ -426,7 +426,7 @@ issues:
 
   - key: UABC-34
     type: Sub-task
-    summary: Ende-zu-Ende-Pruefung, Fachabnahme und Sandbox-Uebergang entscheiden
+    summary: Ende-zu-Ende-Pflichtfaelle, Fachabnahme und UAT-Begleitung durchfuehren
     parent: UABC-20
     status: Backlog
     components: [Projektmanagement, Finanzwesen, Einkauf, Verkauf, Lager, Training]
@@ -439,8 +439,8 @@ issues:
     billable: true
     worklogEligible: true
     dependencies: [UABC-28, UABC-30, UABC-31, UABC-32, UABC-33]
-    dataRequirements: [Playwright-Szenarien, Fachabnahmeliste, offene Fehler, Schreibfreigabe, Ruecksetzplan, Unterstuetzungsweg]
-    acceptanceCriteria: [Jedes Pflichtszenario besitzt referenzierbaren Nachweis oder bleibt blockiert, Start-/Stopp-Entscheidung wird durch echte Verantwortliche dokumentiert]
+    dataRequirements: [Playwright-Pflichtszenarien, Fachabnahmeliste, UAT-Faelle, offene Fehler, Schreibfreigabe, Ruecksetzplan, Unterstuetzungsweg]
+    acceptanceCriteria: [Jedes Pflichtszenario besitzt referenzierbaren Nachweis oder bleibt blockiert, vorbereitete UAT-Faelle konnten ausgefuehrt werden oder blockieren nachvollziehbar, echte Verantwortliche dokumentieren Ergebnis und offene Fehler]
     deliverableIds: [UABC-DEL-BCB-006]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-008]
@@ -452,21 +452,21 @@ issues:
 
   - key: UABC-35
     type: Sub-task
-    summary: Pilotbefunde der Stabilisierungsphase priorisieren und steuern
+    summary: UAT- und Hypercare-Befunde priorisieren und begrenzt bearbeiten
     parent: UABC-21
     status: Backlog
     components: [Projektmanagement]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-08-31
-    dueDate: 2026-09-04
-    effort: 4h
-    plannedBillableHours: 4
+    dueDate: 2026-09-01
+    effort: 2h
+    plannedBillableHours: 2
     billable: true
     worklogEligible: true
     dependencies: [UABC-34]
-    dataRequirements: [Fehlerliste, Prioritaet, Verantwortliche, Reproduktionsschritte, Tagesstatus]
-    acceptanceCriteria: [Kritische Faelle sind geschlossen oder blockieren sichtbar, keine synthetische Simulation wird als echter Unterstuetzungsfall dargestellt]
+    dataRequirements: [UAT-Ergebnisse, Fehlerliste, Prioritaet, Verantwortliche, Reproduktionsschritte, Tagesstatus]
+    acceptanceCriteria: [Relevante Faelle sind bearbeitet oder blockieren sichtbar, Hypercare bleibt auf eine Woche und hoechstens 10 Stunden begrenzt, keine synthetische Simulation wird als echter Unterstuetzungsfall dargestellt]
     deliverableIds: [UABC-DEL-BCB-007]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-010]
@@ -484,10 +484,10 @@ issues:
     components: [Finanzwesen, Berichtswesen, Bestand]
     assignee: P-002
     customerRole: P-005
-    startDate: 2026-09-07
-    dueDate: 2026-09-08
-    effort: 4h
-    plannedBillableHours: 4
+    startDate: 2026-09-02
+    dueDate: 2026-09-02
+    effort: 3h
+    plannedBillableHours: 3
     billable: true
     worklogEligible: true
     dependencies: [UABC-35]
@@ -504,21 +504,21 @@ issues:
 
   - key: UABC-37
     type: Sub-task
-    summary: UStVA-Vorschau und XML fachlich pruefen, nicht uebermitteln
+    summary: UStVA-Vorschau fachlich pruefen, nicht uebermitteln
     parent: UABC-21
     status: Backlog
     components: [Finanzwesen, Berichtswesen]
     assignee: P-002
     customerRole: P-005
-    startDate: 2026-09-09
-    dueDate: 2026-09-09
-    effort: 4h
-    plannedBillableHours: 4
+    startDate: 2026-09-03
+    dueDate: 2026-09-03
+    effort: 2h
+    plannedBillableHours: 2
     billable: true
     worklogEligible: true
     dependencies: [UABC-36]
-    dataRequirements: [abgestimmter Abschluss, freigegebene UStVA-Kennzeichen, Vorschau, optionales XML, Uebermittlungssperre]
-    acceptanceCriteria: [Periode, Betraege und Kennzeichen stimmen mit der Abstimmung ueberein, Steuerberatung prueft fachlich, keine Uebermittlung wird ausgeloest]
+    dataRequirements: [abgestimmter Abschluss, freigegebene UStVA-Kennzeichen, Vorschau, Uebermittlungssperre]
+    acceptanceCriteria: [Periode, Betraege und Kennzeichen stimmen mit der Abstimmung ueberein, Steuerberatung prueft fachlich, keine Test-, Produktiv- oder ELSTER-Uebermittlung wird ausgeloest]
     deliverableIds: [UABC-DEL-BCB-008]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-009]
@@ -530,21 +530,21 @@ issues:
 
   - key: UABC-38
     type: Sub-task
-    summary: Handbuecher, Projektdokumentation und Uebergabe abschliessen
+    summary: Schulungsunterlagen, Projektdokumentation und Uebergabe abschliessen
     parent: UABC-21
     status: Backlog
     components: [Projektmanagement, Training]
     assignee: P-002
     customerRole: P-001
-    startDate: 2026-09-10
-    dueDate: 2026-09-11
-    effort: 4h
-    plannedBillableHours: 4
+    startDate: 2026-09-04
+    dueDate: 2026-09-04
+    effort: 3h
+    plannedBillableHours: 3
     billable: true
     worklogEligible: true
     dependencies: [UABC-35, UABC-36, UABC-37]
-    dataRequirements: [Kundenhandbuch, Beratungshandbuch, Confluence-Seitenbaum, offene Punkte, Nachweisindex, Uebergabeentscheidung]
-    acceptanceCriteria: [Beide Handbuecher enthalten Quellen, Versionen, Szenarien und Nachweise, fehlende Ergebnisse bleiben leer, Abschluss der Stabilisierungsphase wird nur menschlich freigegeben]
+    dataRequirements: [Schulungsunterlagen, Projektdokumentation, Confluence-Seitenbaum, offene Punkte, Nachweisindex, Uebergabeentscheidung]
+    acceptanceCriteria: [Dokumentation und Schulungsunterlagen enthalten Quellen, Versionen, Szenarien und Nachweise, fehlende Ergebnisse bleiben leer, Abschluss der Hypercare wird nur menschlich freigegeben]
     deliverableIds: [UABC-DEL-BCB-009]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-010, UABC-REQ-BCB-011]

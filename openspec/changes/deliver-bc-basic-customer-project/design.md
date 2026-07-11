@@ -1,18 +1,18 @@
-# Loesungsdesign: BC Basic Kundenprojekt
+# Loesungsdesign: BC Basic Einrichtung
 
 ## Faktenbasis
 
 - Die kanonische Baseline weist `playthru` und die sichtbare Gesellschaft `Universaarl GmbH` nur lesend nach; sie erteilt keine Schreibfreigabe.
-- Die Projektablage besitzt OpenSpec-, Jira-, Confluence-, Playwright- und Nachweisstrukturen, aber noch keine aktive BC-Basic-Lieferaenderung.
-- **BC Basic** ist ein internes Standardpaket. Die tatsaechliche Microsoft-Lizenz- und Tenantentscheidung bleibt menschlich freizugeben und budgetextern.
-- Microsoft beschreibt Standardpfade fuer Grundeinrichtung, Finanzwesen, Verkauf/Einkauf, einfaches Lager, Konfigurationspakete, Periodenabschluss und deutsche UStVA-Funktionalitaet. Die konkrete Verfuegbarkeit wird erst im Zielzustand geprueft.
+- Die Projektablage besitzt OpenSpec-, Jira-, Confluence-, Playwright- und Nachweisstrukturen, aber noch keine ausgefuehrte BC-Basic-Einrichtung.
+- **BC Basic Einrichtung** ist ein internes Standardprodukt. Die tatsaechliche Microsoft-Lizenz- und Tenantentscheidung bleibt menschlich freizugeben und kostenextern.
+- Microsoft beschreibt Standardpfade fuer Grundeinrichtung, Finanzwesen, Verkauf/Einkauf, einfaches Lager, Konfigurationspakete, Periodenabschluss und deutsche UStVA-Funktionalitaet. Die konkrete Verfuegbarkeit wird erst im Zielzustand geprueft; aus der Planung wird keine Feature-Verfuegbarkeit abgeleitet.
 
 ## Annahmen
 
 - Die synthetische Zielgesellschaft ist nach expliziter Freigabe genau `Universaarl GmbH` in `playthru`; ein stiller Wechsel auf eine zweite Gesellschaft ist unzulaessig.
-- Der Umfang benoetigt keine Premium-Funktion. Ergibt die Lizenzpruefung etwas anderes, wird der Umfang gestoppt und neu entschieden.
-- Kunde und Beratung liefern Entscheidungen und Daten in Phase 1 so weit, dass die Einrichtungswoche nicht fuer nachtraegliche Anforderungsklaerung verbraucht wird.
-- 120 EUR netto pro genehmigter Ist-Stunde ist die Planannahme; externe Kosten werden separat behandelt.
+- Der Umfang soll mit Standardfunktion ohne Premium-spezifische Bereiche wie Produktion oder Service auskommen. Ergibt die Lizenzpruefung etwas anderes, wird der Umfang gestoppt und neu entschieden.
+- Die Kundenseite liefert Entscheidungen, Daten und Abnahmen; sie wird nicht als eigener Projektaufwand simuliert. Der Dienstleister arbeitet als One-Man-Show ueber Planung, Beratung, Einrichtung, Test, Schulung und Dokumentation.
+- Der entschiedene Tagessatz betraegt 1.300 EUR netto bei 8 Stunden pro Tag; der rechnerische Stundensatz betraegt 162,50 EUR netto. Ein verbindliches Budgetlimit ist offen und wird nicht erfunden.
 
 ## Architektur
 
@@ -26,19 +26,20 @@ Die folgenden Zeitfenster sind relative Planannahmen und keine Kundenzusage. Kal
 
 | Phase | Relatives Zeitfenster | Planstunden | Ergebnis |
 | --- | --- | ---: | --- |
-| `UABC-PHASE-01` | circa drei Kalenderwochen ab bestaetigtem Projektauftakt | 20 | Umfang, Anforderungen, Entscheidungen, Daten und Abnahmeplan sind bereit |
+| `UABC-PHASE-01` | circa drei Kalenderwochen ab bestaetigtem Projektauftakt | 18 | Umfang, Anforderungen, Entscheidungen, Daten und Abnahmeplan sind bereit |
 | `UABC-PHASE-02` | genau fuenf aufeinanderfolgende Arbeitstage nach Bereitschaftspruefpunkt | 40 | Standardkonfiguration, Daten, Schulung, fachlicher Abnahmetest und Sandbox-Uebergang sind abgeschlossen |
-| `UABC-PHASE-03` | circa zwei Kalenderwochen bis zur ersten Abschlussprobe | 16 | Begrenzte Stabilisierungsphase, Monatsabschlussprobe, lokale UStVA-Pruefung und Uebergabe sind abgeschlossen |
+| `UABC-PHASE-03` | eine Kalenderwoche nach Einrichtung | 10 | Hypercare, Monatsabschlussprobe, UStVA-Vorschau und Uebergabe sind abgeschlossen |
 
-Die 4-Stunden-Reserve ist weder Ticket noch vorab abrechenbar. Aktivierung erfordert einen dokumentierten Risikofall, Sponsorfreigabe und unveraenderten Maximalaufwand von 80 Stunden.
+Die 68 Planstunden sind eine Kalkulationsbasis. Es gibt keine Reserve, keine harte Budgetgrenze und keine vorab erfundene Budgetobergrenze; abgerechnet wird nur genehmigte, tatsaechlich geleistete Dienstleisterzeit.
 
 ### Fachlicher Zuschnitt
 
-- **Grundeinrichtung:** Unternehmensdaten, Sprache/Region, Arbeitsdatumkonzept, Nummernserien, Buchungsperioden und minimale Berechtigungsrollen.
-- **Finanzwesen:** Sachkonten, Buchungsmatrix, Debitoren-/Kreditoren-/Bestandsbuchungsgruppen, MwSt.-Buchungsgruppen, Zahlungsbedingungen, Bank-/Journalkonzept, zwei Dimensionen und Basisberichte.
-- **Einkauf:** Lieferant, Anfrage ausserhalb des Pflichtumfangs, Bestellung, Wareneingang, Rechnung, Gutschrift und Zahlungsvorbereitung.
-- **Verkauf:** Kunde, Angebot optional, Auftrag, Lieferung, Rechnung, Gutschrift und Zahlungseingang.
-- **Einfaches Lager:** ein Lagerort, keine verpflichtenden Lagerplaetze, Artikel, Einheit, Bestand, Zu- und Abgang sowie Inventurkontrolle.
+- **Grundeinrichtung:** Unternehmensdaten, Sprache/Region, Arbeitsdatumkonzept, SKR04, Nummernserien, Buchungsperioden und minimale Berechtigungsrollen.
+- **Finanzwesen:** Sachkonten, Buchungsmatrix, Debitoren-/Kreditoren-/Bestandsbuchungsgruppen, MwSt.-Buchungsgruppen, Zahlungsbedingungen, Bankkonten als Stammdaten, Bankersatz-/Journalkonzept, zwei Dimensionen und Basisberichte.
+- **Konfigurationspakete:** bevorzugter Einrichtungs- und Importweg fuer Setupdaten, Stammdaten und kontrollierte offene Posten; gebuchte Daten werden nicht historisch voll importiert. Manuelle BC-Schritte bleiben dokumentierte Ausnahmen.
+- **Einkauf:** Lieferant, Bestellung, Wareneingang, Eingangsrechnung und begrenzter Zahlungsvorbereitungstest.
+- **Verkauf:** Kunde, Angebot oder Auftrag, Lieferung, Verkaufsrechnung und begrenzter Zahlungseingangstest.
+- **Einfacher Bestand:** ein Lagerort, keine verpflichtenden Lagerplaetze, Artikelanlage, Einheit, Zugang, Bestand und einfache Inventur.
 
 ### Nachweis- und Ruecksetzmodell
 
@@ -49,23 +50,25 @@ Jedes spaetere Playwright-Szenario bindet Umgebung, Gesellschaft, Rolle, Arbeits
 - `UABC-DEC-BCB-001`: Genau eine synthetische Gesellschaft und ein Lagerort.
 - `UABC-DEC-BCB-002`: Standard vor Anpassung; keine Erweiterungen oder Integrationen.
 - `UABC-DEC-BCB-003`: Drei Phasen mit genau fuenf aufeinanderfolgenden Arbeitstagen fuer die Umsetzung; konkrete Kundentermine sind offen.
-- `UABC-DEC-BCB-004`: 76 Planstunden plus 4 Stunden genehmigungspflichtige Reserve; 80 Stunden harte Grenze.
-- `UABC-DEC-BCB-005`: Woechentliche Rechnung nur aus freigegebenen, abrechenbaren Jira-Istzeiten auf unterster Ticketebene; Schaetzungen und Elternsummen sind nicht abrechenbar.
-- `UABC-DEC-BCB-006`: UStVA nur Vorschau/XML-Pruefung, keine Uebermittlung; Steuerfreigabe ist extern.
+- `UABC-DEC-BCB-004`: 68 Planstunden als Kalkulationsbasis; kein verbindliches Budgetlimit ist entschieden.
+- `UABC-DEC-BCB-005`: Woechentliche Rechnung nur aus freigegebenen, abrechenbaren Jira-Istzeiten auf unterster Ticketebene zu 162,50 EUR netto pro Stunde; Schaetzungen und Elternsummen sind nicht abrechenbar.
+- `UABC-DEC-BCB-006`: UStVA nur als Vorschau ohne Uebermittlung; Steuerfreigabe ist extern.
 - `UABC-DEC-BCB-007`: Der Twin ist ein rein lesender Renderer des versionierten Blueprint-Projektindex.
 
 ## Alternativen
 
-- Mehrere Gesellschaften: verworfen, weil sie den ersten Standardauftrag und das Budget unnoetig vergroessern.
+- Mehrere Gesellschaften: verworfen, weil sie das wiederverwendbare Grundpaket unnoetig vergroessern.
 - Breite Vorabkonfiguration ohne Datenbereitschaft: verworfen, weil sie Nacharbeit in die Umsetzungswoche verschiebt.
 - Rechnung nach Schaetzung: verworfen; nur genehmigte Istzeit ist abrechenbar.
 - UStVA-Test- oder Produktivuebermittlung: ausgeschlossen, weil Simulation keine steuerliche Mandatierung ersetzt; ELSTER-Zugangsdaten werden nicht verwendet.
+- Schulung zur Erstellung von Konfigurationspaketen: ausgeschlossen, weil die Pakete in P001 ein Dienstleisterwerkzeug und kein Kundenlernziel sind.
 - Twin mit eigener Datenbank: ausgeschlossen, weil dies eine zweite Wahrheit erzeugt.
 
 ## Offene Punkte
 
 1. Echte Bestaetigung, dass `Universaarl GmbH` die einzig erlaubte Schreibzielgesellschaft ist und zurueckgesetzt werden darf.
 2. Menschliche Lizenzentscheidung Essentials/Premium einschliesslich externer Kosten.
-3. Steuerberaterfreigabe fuer Konten, MwSt.-Buchungsmatrix, UStVA-Kennzeichen und XML-Pruefweg.
-4. Benannte reale Abnehmer fuer Daten, fachlichen Abnahmetest, Sandbox-Pilot, dokumentierte Produktionsbereitschaft, Monatsabschlussprobe und Abschluss der Stabilisierungsphase.
+3. Steuerberaterfreigabe fuer Konten, MwSt.-Buchungsmatrix, UStVA-Kennzeichen und UStVA-Vorschau.
+4. Benannte reale Abnehmer fuer Daten, fachlichen Abnahmetest, UAT, Monatsabschlussprobe, UStVA-Vorschau, Uebergabe und Abschluss der einwoechigen Hypercare.
 5. Projektspezifische Autorisierung eines spaeteren mutierenden Playwright-Laufs.
+6. Menschliche Entscheidung, ob es ein Budgetlimit gibt; bis dahin bleiben Budgetobergrenzen `unknown`.

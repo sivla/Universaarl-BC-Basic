@@ -3,7 +3,7 @@ projectId: UABC-BC-BASIC-001
 simulation: true
 meetings:
   - id: UABC-MTG-001
-    title: Synthetische Planungsarbeitsrunde fuer BC Basic
+    title: Synthetische Planungsarbeitsrunde fuer BC Basic Einrichtung
     date: 2026-07-11
     status: simulated-planning-record
     transcriptPath: atlassian/confluence/meetings/UABC-MTG-001.md

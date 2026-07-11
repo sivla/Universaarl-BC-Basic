@@ -3,12 +3,12 @@ registerId: UABC-DEC-BCB-REGISTER-001
 projectId: UABC-BC-BASIC-001
 simulation: true
 decisions:
-  - { id: UABC-DEC-BCB-001, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Genau eine synthetische Gesellschaft in playthru wird verwendet. }
-  - { id: UABC-DEC-BCB-002, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst Erweiterungen sowie Integrationen aus. }
-  - { id: UABC-DEC-BCB-003, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung, Anforderungen und Datenbereitschaft, genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und circa zwei Kalenderwochen begrenzter Stabilisierungsphase; konkrete Kundentermine sind offen. }
-  - { id: UABC-DEC-BCB-004, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: 76 Stunden sind geplant und 4 Stunden Reserve bilden die harte Obergrenze von 80 Stunden. }
-  - { id: UABC-DEC-BCB-005, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Nur genehmigte Jira-Istzeiten auf unterster Ticketebene werden woechentlich zu 120 EUR netto pro Stunde abgerechnet; Elternsummen sind nicht zusaetzlich abrechenbar. }
-  - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau und optionales XML geprueft und niemals echt uebermittelt. }
+  - { id: UABC-DEC-BCB-001, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Genau eine synthetische deutsche Gesellschaft in playthru und genau ein Lagerort werden verwendet. }
+  - { id: UABC-DEC-BCB-002, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst Erweiterungen, Integrationen, E-Rechnung, Seriennummern, Chargen, Produktion, Projekte, Service und Anlagenbuchhaltung aus. }
+  - { id: UABC-DEC-BCB-003, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung, Anforderungen und Datenbereitschaft, genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und einer Woche Hypercare mit hoechstens 10 Stunden; konkrete Kundentermine sind offen. }
+  - { id: UABC-DEC-BCB-004, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: 68 Dienstleisterstunden sind geplant; ein verbindliches Budgetlimit ist nicht entschieden und bleibt offen. }
+  - { id: UABC-DEC-BCB-005, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Nur genehmigte Jira-Istzeiten auf unterster Ticketebene werden woechentlich zu 162,50 EUR netto pro Stunde abgerechnet; Elternsummen und Kundenaufwaende sind nicht abrechenbar. }
+  - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
   - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
 openApprovals:
   - id: UABC-APP-BCB-001
@@ -32,7 +32,12 @@ openApprovals:
     status: open
     blocks: [UABC-34, UABC-35]
   - id: UABC-APP-BCB-005
-    subject: Monatsabschlussprobe in der Sandbox, lokale UStVA-Pruefung und Abschluss der Stabilisierungsphase
+    subject: Monatsabschlussprobe in der Sandbox, UStVA-Vorschau und Abschluss der Hypercare
     requiredRole: reale Finanzverantwortung, Steuerberatung und Sponsor
     status: open
     blocks: [UABC-36, UABC-37, UABC-38]
+  - id: UABC-APP-BCB-006
+    subject: Optionales Budgetlimit, falls der reale Auftraggeber eines vorgeben moechte
+    requiredRole: realer Sponsor
+    status: open
+    blocks: []

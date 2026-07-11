@@ -16,7 +16,7 @@ writePolicy:
   rules:
     - Vor dem ersten Schreibvorgang Zielbindung, erlaubte Aktionen und Ruecksetzplan nachweisen.
     - Nur synthetische Datensatz-IDs mit Praefix SYN oder den freigegebenen Vorlagen verwenden.
-    - Keine Erweiterung, Integration, Gesellschafts-/Umgebungsumschaltung oder echte Steueruebermittlung.
+    - Keine Erweiterung, Integration, Gesellschafts-/Umgebungsumschaltung, E-Rechnung oder echte Steueruebermittlung.
     - Bei unbekanntem Dialog, Zielabweichung oder nicht erklaerbarer Buchungswirkung abbrechen.
 evidenceContract:
   required: [runId, scenarioId, jiraRef, requirementRefs, stepEvents, screenshots, recordIds, expectedPostingEffect, observedResult, reviewer]
@@ -31,39 +31,39 @@ scenarios:
     expectedResult: playthru und genau Universaarl GmbH sind gebunden; Version, Sprache, Arbeitsdatum und Ruecksetzpunkt sind protokolliert.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-002
-    title: Grundeinrichtung und Rollen pruefen
+    title: Grundeinrichtung, SKR04 und Rollen pruefen
     jiraRef: UABC-27
     requirementRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     writes: true
-    expectedResult: Unternehmensdaten, Nummernserien, Perioden und minimale Rollen entsprechen dem freigegebenen Design.
+    expectedResult: Unternehmensdaten, SKR04-Kontenrahmen, Nummernserien, Perioden und minimale Rollen entsprechen dem freigegebenen Design.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-003
-    title: Finanzmatrix und Journalbuchung pruefen
+    title: Finanzmatrix, Bankstammdaten und Journalbuchung pruefen
     jiraRef: UABC-28
     requirementRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     writes: true
-    expectedResult: Testjournal bucht mit freigegebenen Konten, Buchungsgruppen, Dimensionen und Steuerwirkung und ist abstimmbar.
+    expectedResult: Testjournal bucht mit freigegebenen Konten, Buchungsgruppen, Dimensionen und Steuerwirkung und ist abstimmbar; Bankkonten bleiben Stammdaten ohne produktive Anbindung.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-004
     title: Einkauf bis Zahlungsvorbereitung durchspielen
     jiraRef: UABC-30
     requirementRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     writes: true
-    expectedResult: Bestellung, Wareneingang, Rechnung und Zahlungsvorbereitung erzeugen erwartete Lieferanten-, Bestands-, Steuer- und Sachposten.
+    expectedResult: Bestellung, Wareneingang, Eingangsrechnung und optional begrenzte Zahlungsvorbereitung erzeugen erwartete Lieferanten-, Bestands-, Steuer- und Sachposten.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-005
-    title: Verkauf bis Zahlungseingang durchspielen
+    title: Verkauf vom Angebot oder Auftrag bis zur Rechnung durchspielen
     jiraRef: UABC-31
     requirementRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     writes: true
-    expectedResult: Auftrag, Lieferung, Rechnung und Zahlungseingang erzeugen erwartete Kunden-, Bestands-, Steuer- und Sachposten.
+    expectedResult: Angebot oder Auftrag, Lieferung, Verkaufsrechnung und optional begrenzter Zahlungseingang erzeugen erwartete Kunden-, Bestands-, Steuer- und Sachposten.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-006
     title: Einfachen Bestand und Inventur pruefen
     jiraRef: UABC-32
     requirementRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     writes: true
-    expectedResult: Lagerort HAUPT, Zu-/Abgang und eine synthetische Inventurdifferenz sind mengen- und wertmaessig nachvollziehbar.
+    expectedResult: Artikelanlage, Lagerort HAUPT, Zugang, Bestand und eine synthetische Inventurdifferenz sind mengen- und wertmaessig nachvollziehbar.
     evidenceId: UABC-VER-BCB-E2E-001
   - id: UABC-PW-BCB-007
     title: Monatsabschlussprozess in der Sandbox proben und abstimmen
@@ -73,16 +73,16 @@ scenarios:
     expectedResult: Der Monatsabschlussprozess ist in der Sandbox geprobt; Debitoren, Kreditoren, Bankersatz, Bestand, Steuer und Sachkonten sind abgestimmt sowie Periode und Berichte dokumentiert. Das ist kein echter Monatsabschluss.
     evidenceId: UABC-VER-BCB-CLOSE-001
   - id: UABC-PW-BCB-008
-    title: UStVA-Vorschau und XML ohne Uebermittlung pruefen
+    title: UStVA-Vorschau ohne Uebermittlung pruefen
     jiraRef: UABC-37
     requirementRefs: [UABC-REQ-BCB-009]
     writes: false
-    expectedResult: Periode, Kennzeichen und Betraege stimmen mit der Steuerabstimmung ueberein; Vorschau und XML bleiben lokal und weder Test- noch Produktivuebermittlung wird ausgeloest.
+    expectedResult: Periode, Kennzeichen und Betraege stimmen mit der Steuerabstimmung ueberein; es wird weder eine Test-, Produktiv- noch ELSTER-Uebermittlung ausgeloest.
     evidenceId: UABC-VER-BCB-VAT-001
   - id: UABC-PW-BCB-009
-    title: Rollenbasierten fachlichen Abnahmetest und Uebergabestatus pruefen
+    title: Rollenbasierten fachlichen Abnahmetest, UAT und Uebergabestatus pruefen
     jiraRef: UABC-34
     requirementRefs: [UABC-REQ-BCB-007, UABC-REQ-BCB-008]
     writes: false
-    expectedResult: Alle Pflichtszenarien, offene Fehler, Fachabnahmen und Schulungsstaende sind referenziert; fehlende Freigaben bleiben blockierend.
+    expectedResult: Alle Pflichtszenarien, offene Fehler, UAT-Ergebnisse, Fachabnahmen und Schulungsstaende sind referenziert; fehlende Freigaben bleiben blockierend.
     evidenceId: UABC-VER-BCB-TRAINING-001

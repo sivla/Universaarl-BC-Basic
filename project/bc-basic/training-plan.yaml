@@ -3,17 +3,17 @@ planId: UABC-TRAIN-BCB-001
 projectId: UABC-BC-BASIC-001
 status: planned
 simulation: true
-completionRule: Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offene Fragen und Kompetenzpruefung sind je Termin erforderlich; Planungsnachweise ersetzen diese Angaben nicht.
+completionRule: Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offene Fragen und Kompetenzpruefung sind je Termin erforderlich; Planungsnachweise ersetzen diese Angaben nicht. Schulung zur Erstellung oder Pflege von Konfigurationspaketen ist ausgeschlossen.
 sessions:
   - id: UABC-TRAIN-BCB-ADM
-    title: Administration und Grundeinrichtung
+    title: Navigation, Rollencenter und Grundeinrichtung
     audienceRefs: [P-004]
     jiraRef: UABC-33
     plannedDate: 2026-08-27
     durationHours: 1
-    objectives: [Gesellschaft und Benutzerkontext sicher erkennen, Nummernserien und Perioden kontrollieren, Hilfe- und Unterstuetzungsweg nutzen]
-    agenda: [Ziel- und Sicherheitskontext, Grundeinrichtung, Rollen und Berechtigungsgrenzen, Unterstuetzungsweg]
-    exercises: [Zielgesellschaft lesen, Nummernserie kontrollieren, gesperrte Periode erkennen]
+    objectives: [Gesellschaft und Benutzerkontext sicher erkennen, Tell Me nutzen, Suche Filter Listen und Ansichten bedienen, Nummernserien und Perioden kontrollieren, Hilfe- und Unterstuetzungsweg nutzen]
+    agenda: [Ziel- und Sicherheitskontext, Rollencenter, Tell Me, Suche und Filter, Grundeinrichtung, Rollen und Berechtigungsgrenzen, Unterstuetzungsweg]
+    exercises: [Zielgesellschaft lesen, Tell Me verwenden, Liste filtern, Nummernserie kontrollieren, gesperrte Periode erkennen]
     scenarios: [UABC-PW-BCB-001, UABC-PW-BCB-002]
     planningTranscriptRef: UABC-MTG-001
     executionTranscriptRef: null
@@ -45,8 +45,8 @@ sessions:
     jiraRef: UABC-33
     plannedDate: 2026-08-28
     durationHours: 1
-    objectives: [Bestellung bis Rechnung bearbeiten, Auftrag bis Zahlungseingang bearbeiten, Gutschrift korrekt einordnen]
-    agenda: [Einkaufsablauf, Verkaufsablauf, Buchungswirkung, Fehler- und Gutschriftfall]
+    objectives: [Bestellung bis Eingangsrechnung bearbeiten, Angebot oder Auftrag bis Verkaufsrechnung bearbeiten, einfache Preise und Rabatte nachvollziehen]
+    agenda: [Einkaufsablauf, Verkaufsablauf, Preise und einfache Rabatte, Buchungswirkung, Fehlerfall]
     exercises: [Synthetische Bestellung pruefen, synthetischen Auftrag pruefen, erwartete Posten zuordnen]
     scenarios: [UABC-PW-BCB-004, UABC-PW-BCB-005]
     planningTranscriptRef: UABC-MTG-001

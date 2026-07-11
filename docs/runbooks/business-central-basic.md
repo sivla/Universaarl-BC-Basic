@@ -7,9 +7,9 @@ simulation: true
 deliverableRef: UABC-DEL-BCB-009
 ---
 
-# Beratungshandbuch: Business Central Basic
+# Beratungshandbuch: BC Basic Einrichtung
 
-Diese Betriebsanleitung ist ein Planungs- und Kontrollvertrag fuer einen spaeteren Sandbox-Pilot. Sie autorisiert keinen Browserlauf, keinen BC-Schreibvorgang und keine fachliche Freigabe. Jede Ausfuehrung muss an einen unveraenderten Versionsstand, `playthru`, genau `UABC-BASIC-DE` und eine separate menschliche Autorisierung gebunden sein.
+Diese Betriebsanleitung ist ein Planungs- und Kontrollvertrag fuer die spaetere Sandbox-Grundeinrichtung. Sie autorisiert keinen Browserlauf, keinen BC-Schreibvorgang und keine fachliche Freigabe. Jede Ausfuehrung muss an einen unveraenderten Versionsstand, `playthru`, genau `UABC-BASIC-DE` und eine separate menschliche Autorisierung gebunden sein.
 
 ## 1. Vorbedingungen
 
@@ -17,7 +17,7 @@ Diese Betriebsanleitung ist ein Planungs- und Kontrollvertrag fuer einen spaeter
 2. Zielgesellschaft, erlaubte Schreibvorgaenge, Arbeitsdatum und Ruecksetzplan sind projektspezifisch freigegeben.
 3. Datenpaket und Finanz-/Steuerdesign haben benannte echte Pruefer.
 4. Alle verwendeten Datensaetze sind synthetisch; keine `.env`, Browserprofile, Tokens, Bank- oder ELSTER-Zugangsdaten werden in Projektartefakte uebernommen.
-5. Die 80-Stunden- und 9.600-EUR-Grenze ist vor jedem weiteren Arbeitspaket geprueft.
+5. Der Abrechnungssatz von 1.300 EUR netto pro Tag beziehungsweise 162,50 EUR netto pro Stunde ist verwendet; ein Budgetlimit wird nur angewendet, wenn es menschlich entschieden wurde.
 
 Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 
@@ -29,11 +29,11 @@ Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 
 ### Phase 2: Einrichtungswoche
 
-`UABC-27` bindet das Ziel. Danach folgen Finanzwesen, Daten, Einkauf, Verkauf und einfacher Bestand in der Reihenfolge `UABC-28` bis `UABC-32`. `UABC-33` schult die Rollen. `UABC-34` dokumentiert Ende-zu-Ende-Pruefung, fachlichen Abnahmetest und die Entscheidung ueber den Sandbox-Pilot mit dokumentierter Produktionsbereitschaft.
+`UABC-27` bindet das Ziel. Danach folgen Finanzwesen, Konfigurationspakete, Daten, Einkauf, Verkauf und einfacher Bestand in der Reihenfolge `UABC-28` bis `UABC-32`. `UABC-33` schult die Rollen. `UABC-34` dokumentiert Ende-zu-Ende-Pflichtfaelle, fachlichen Abnahmetest, vorbereitete UAT-Faelle und offene Fehler.
 
-### Phase 3: begrenzte Stabilisierungsphase
+### Phase 3: einwoechige Hypercare
 
-`UABC-35` nimmt nur priorisierte Pilotbefunde auf. `UABC-36` probt den Monatsabschlussprozess in der Sandbox und dokumentiert Abstimmungen. `UABC-37` erzeugt UStVA-Vorschau und optionales XML lokal; Test- und Produktivuebermittlung bleiben gesperrt. `UABC-38` uebergibt Handbuecher und Projektdokumentation. Nach dem geplanten Enddatum oder dem dokumentierten Abschluss endet die Stabilisierungsphase; offene Erweiterungswuensche werden als eigenes Folgepaket bewertet.
+`UABC-35` nimmt nur priorisierte UAT- und Hypercare-Befunde auf. `UABC-36` probt den Monatsabschlussprozess in der Sandbox und dokumentiert Abstimmungen. `UABC-37` prueft die UStVA-Vorschau; Test-, Produktiv- und ELSTER-Uebermittlung bleiben gesperrt. `UABC-38` uebergibt Projektdokumentation und Schulungsunterlagen. Nach der einwoechigen Hypercare oder dem dokumentierten Abschluss werden weitere Taetigkeiten als Support oder eigenes Folgepaket bewertet.
 
 ## 3. Technische Ausfuehrungsgrenze
 
@@ -47,23 +47,23 @@ Der aktuelle Katalog ist geplant, aber nicht ausgefuehrt. Kein Szenario ist best
 
 ## 4. Datenkontrolle
 
-`project/bc-basic/data-package.yaml` ist die einzige geplante Datengrundlage. Jede Vorlage wird gegen Pflichtfelder, Eindeutigkeit, synthetische Kennzeichnung und Summen geprueft. Historische Bewegungsdaten, reale offene Posten, Bankverbindungen, Steuerkennungen und Personendaten sind ausgeschlossen.
+`project/bc-basic/data-package.yaml` ist die einzige geplante Datengrundlage. Jede Vorlage wird gegen Pflichtfelder, Eindeutigkeit, synthetische Kennzeichnung und Summen geprueft. Konfigurationspakete sind der bevorzugte Dienstleisterweg fuer Setupdaten, Stammdaten und kontrollierte offene Posten; manuelle BC-Schritte werden als Ausnahme begruendet. Historische Bewegungsdaten, reale offene Posten, Bankverbindungen, Steuerkennungen und Personendaten sind ausgeschlossen.
 
 ## 5. Abrechnung
 
-Nur Arbeitsprotokolle zu `UABC-22` bis `UABC-38` koennen abrechenbar sein. Epic `UABC-18` und Stories `UABC-19` bis `UABC-21` sind reine Summen. Eine Rechnungszeile entsteht erst aus einer tatsaechlich geleisteten, genehmigten und noch nicht fakturierten Jira-Istzeit. Schaetzungen, Elternsummen, doppelte Arbeitsprotokolle und die nicht aktivierte Reserve sind ausgeschlossen.
+Nur Arbeitsprotokolle zu `UABC-22` bis `UABC-38` koennen abrechenbar sein. Epic `UABC-18` und Stories `UABC-19` bis `UABC-21` sind reine Summen. Eine Rechnungszeile entsteht erst aus einer tatsaechlich geleisteten, genehmigten und noch nicht fakturierten Jira-Istzeit. Schaetzungen, Elternsummen, doppelte Arbeitsprotokolle, Kundenaufwaende und nicht entschiedene Budgetlimits sind ausgeschlossen.
 
 ## 6. Fachliche Abschlusskontrollen
 
-- Sandbox-Pilot: dokumentierte Produktionsbereitschaft, kein produktiver Start.
+- UAT: vorbereitete Faelle konnten ausgefuehrt werden oder blockieren nachvollziehbar; kein produktiver Start.
 - Monatsabschluss: Prozess in der Sandbox geprobt und Abstimmungen dokumentiert, kein echter Monatsabschluss.
-- UStVA: Vorschau und XML lokal erzeugt und fachlich geprueft, keine Test- oder Produktivuebermittlung.
+- UStVA: Vorschau fachlich geprueft, keine Test-, Produktiv- oder ELSTER-Uebermittlung.
 - Steuergrenze: keine Steuer- oder Rechtsberatung und keine GoBD-Garantie.
 - Handbuecher: Quellen, Version, Szenarien und Nachweise sind nachvollziehbar; fehlende Werte bleiben leer.
 
 ## 7. Ausschluesse unterhalb der Paketgrenze
 
-Ausgeschlossen sind AL-Entwicklung, eigene Berichte oder Layouts, Integrationen, Power Platform, Dataverse, produktive Bankanbindung und PSD2, mehrere Firmen, Waehrungen, Banken oder Lagerorte, erweitertes Lager, Chargen, Seriennummern, Produktion, Kundendienst, Projekte, Anlagenbuchhaltung, Konsolidierung, Intercompany, Lohnabrechnung, historische Bewegungsdaten, E-Rechnung, produktiver ELSTER-Versand sowie offene oder unbegrenzte Stabilisierungsphase.
+Ausgeschlossen sind AL-Entwicklung, eigene Berichte oder Layouts, Integrationen, Power Platform, Dataverse, produktive Bankanbindung und PSD2, mehrere Firmen, Waehrungen, Banken oder Lagerorte, erweitertes Lager, Chargen, Seriennummern, Varianten-/Attributkomplexitaet ohne Pflichtgrund, Produktion, Service, Projekte, Anlagenbuchhaltung, Konsolidierung, Intercompany, Lohnabrechnung, historische Bewegungsdaten, E-Rechnung, Schulung zur Konfigurationspaketpflege, produktiver ELSTER-Versand, Support nach Hypercare sowie offene oder unbegrenzte Stabilisierungsphase.
 
 ## 8. Quellen und Nachweise
 

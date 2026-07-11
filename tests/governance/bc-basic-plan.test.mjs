@@ -61,40 +61,45 @@ test('BC-Basic bindet genau eine synthetische Gesellschaft in playthru', () => {
   assert.equal(scenarioCatalog.executed, false);
 });
 
-test('Drei Phasen ergeben 76 Planstunden mit genau einer Einrichtungswoche', () => {
+test('Drei Phasen ergeben 68 Planstunden mit genau einer Einrichtungswoche und begrenzter Hypercare', () => {
   assert.equal(plan.phases?.length, 3);
-  assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [20, 40, 16]);
-  assert.equal(plan.phases.reduce((sum, phase) => sum + phase.plannedBillableHours, 0), 76);
+  assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [18, 40, 10]);
+  assert.equal(plan.phases.reduce((sum, phase) => sum + phase.plannedBillableHours, 0), 68);
   assert.equal(plan.phases[1].startDate, '2026-08-24');
   assert.equal(plan.phases[1].endDate, '2026-08-28');
   assert.match(plan.phases[0].name, /Vorbereitung/);
-  assert.match(plan.phases[2].name, /Stabilisierungsphase/);
+  assert.match(plan.phases[2].name, /Hypercare/);
+  assert.equal(plan.phases[2].plannedBillableHours <= 10, true);
 });
 
 test('OpenSpec-Aufgaben und Jira-Arbeitspakete stimmen bei Schluessel und Stunden ueberein', () => {
   const taskEntries = [...taskPlanText.matchAll(/\(`(UABC-\d+)`, (\d+) h\)/g)].map((match) => ({ key: match[1], hours: Number(match[2]) }));
   assert.deepEqual(taskEntries.map((entry) => entry.key), Array.from({ length: 17 }, (_, index) => `UABC-${index + 22}`));
-  assert.equal(taskEntries.reduce((sum, entry) => sum + entry.hours, 0), 76);
+  assert.equal(taskEntries.reduce((sum, entry) => sum + entry.hours, 0), 68);
   for (const entry of taskEntries) assert.equal(issueByKey.get(entry.key)?.plannedBillableHours, entry.hours, `${entry.key}: OpenSpec- und Jira-Stunden weichen ab`);
   assert.match(taskPlanText, /Kontrollhandlungen erzeugen keine zusaetzlichen abrechenbaren Stunden/);
   assert.match(taskPlanText, /Innerhalb von `UABC-38` den Projektindex/);
 });
 
-test('Kanonisches Liefermodell bleibt bei Sandbox-Pilot und Monatsabschlussprobe', () => {
+test('Kanonisches Liefermodell bleibt bei Einrichtung Hypercare und Monatsabschlussprobe', () => {
   const deliveryModel = changeConfig.proposedCanonicalUpdate?.facts?.deliveryModel?.value ?? '';
+  assert.match(deliveryModel, /BC Basic Einrichtung/);
+  assert.match(deliveryModel, /Hypercare/);
   assert.match(deliveryModel, /Monatsabschlussprobe in der Sandbox/);
   assert.match(deliveryModel, /ohne Uebermittlung/);
   assert.doesNotMatch(deliveryModel, /ersten Monatsabschluss/i);
 });
 
-test('Budget und Jira-Abrechnung verhindern Eltern- und Doppelabrechnung', () => {
-  assert.equal(billing.plannedBillableHours, 76);
-  assert.equal(billing.contingencyHours, 4);
-  assert.equal(billing.maximumBillableHours, 80);
-  assert.equal(billing.netHourlyRate, 120);
-  assert.equal(billing.plannedNetAmount, 9120);
-  assert.equal(billing.maximumNetAmount, 9600);
-  assert.ok(billing.maximumNetAmount < 10000, 'Maximalbetrag muss strikt unter 10.000 EUR netto bleiben');
+test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erfundene Budgetlimits', () => {
+  assert.equal(billing.plannedBillableHours, 68);
+  assert.equal(billing.contingencyHours, 0);
+  assert.equal(billing.maximumBillableHours, null);
+  assert.equal(billing.netDailyRate, 1300);
+  assert.equal(billing.workdayHours, 8);
+  assert.equal(billing.netHourlyRate, 162.5);
+  assert.equal(billing.plannedNetAmount, 11050);
+  assert.equal(billing.budgetLimitStatus, 'unknown');
+  assert.equal(billing.budgetLimitNetAmount, null);
   assert.deepEqual(billing.worklogs, []);
   assert.deepEqual(billing.invoices, []);
   assert.equal(billing.rollupRule?.noDoubleBilling?.includes('niemals gemeinsam'), true);
@@ -113,7 +118,7 @@ test('Budget und Jira-Abrechnung verhindern Eltern- und Doppelabrechnung', () =>
 
   const leafIssues = issues.filter((issue) => issue.billable === true);
   assert.deepEqual(leafIssues.map((issue) => issue.key), Array.from({ length: 17 }, (_, index) => `UABC-${index + 22}`));
-  assert.equal(leafIssues.reduce((sum, issue) => sum + issue.plannedBillableHours, 0), 76);
+  assert.equal(leafIssues.reduce((sum, issue) => sum + issue.plannedBillableHours, 0), 68);
   assert.ok(leafIssues.every((issue) => issue.worklogEligible === true));
   for (const key of ['UABC-18', 'UABC-19', 'UABC-20', 'UABC-21']) {
     assert.equal(issueByKey.get(key)?.billable, false, `${key} darf als Elternsumme nicht abrechenbar sein`);
@@ -154,6 +159,16 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
 test('Datenvorlagen sind synthetisch, pruefbar und mindestens einfach befuellt', () => {
   assert.equal(dataPackage.status, 'template');
   assert.equal(dataPackage.classification, 'synthetic-only');
+  assert.equal(dataPackage.providerOwnerRef, 'P-002');
+  assert.equal(dataPackage.configurationPackages?.length, 3);
+  for (const pkg of dataPackage.configurationPackages) {
+    assert.match(pkg.namePattern ?? '', /^BCB-[A-Z]+-v001$/);
+    assert.ok(pkg.candidateTables?.length > 0, `${pkg.id}: Kandidatentabellen fehlen`);
+    assert.ok(pkg.requiredFieldRule?.length > 0, `${pkg.id}: Pflichtfeldregel fehlt`);
+    assert.ok(pkg.excludedFieldRule?.length > 0, `${pkg.id}: Ausschlussregel fehlt`);
+    assert.ok(pkg.importOrder?.length > 0, `${pkg.id}: Importreihenfolge fehlt`);
+  }
+  assert.ok(dataPackage.validationAndRecovery?.manualSteps?.some((step) => step.includes('manuelle Ausnahme')));
   assert.equal(dataPackage.templates?.length, 8);
   for (const template of dataPackage.templates) {
     assert.ok(template.objectId?.length > 0, `${template.id}: Objektkennung fehlt`);
@@ -172,6 +187,7 @@ test('Datenvorlagen sind synthetisch, pruefbar und mindestens einfach befuellt',
 test('Schulungsplan trennt Planung konsequent von Ausfuehrungsnachweisen', () => {
   assert.equal(trainingPlan.status, 'planned');
   assert.equal(trainingPlan.sessions?.length, 4);
+  assert.match(trainingPlan.completionRule, /Konfigurationspaketen ist ausgeschlossen/);
   for (const session of trainingPlan.sessions) {
     assert.equal(session.status, 'planned');
     assert.equal(session.planningTranscriptRef, 'UABC-MTG-001');
@@ -240,9 +256,10 @@ test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', (
     assert.equal(decision.decidedByRef, 'real-repository-user');
     assert.equal(decision.status, 'decided');
   }
+  assert.ok(decisionRegister.openApprovals?.some((approval) => approval.id === 'UABC-APP-BCB-006' && approval.status === 'open'));
 });
 
-test('Szenariokatalog schliesst Produktivbetrieb und UStVA-Uebermittlung aus', () => {
+test('Szenariokatalog schliesst Produktivbetrieb E-Rechnung und UStVA-Uebermittlung aus', () => {
   assert.equal(scenarioCatalog.simulation, true);
   assert.equal(scenarioCatalog.writePolicy?.authorizationStatus, 'required');
   assert.equal(scenarioCatalog.scenarios?.length, 9);
@@ -253,5 +270,6 @@ test('Szenariokatalog schliesst Produktivbetrieb und UStVA-Uebermittlung aus', (
   assert.match(closeScenario?.expectedResult ?? '', /kein echter Monatsabschluss/i);
   assert.ok(closeScenario?.requirementRefs?.includes('UABC-REQ-BCB-008'), 'Monatsabschlussprobe muss den Schreibsicherheitsvertrag referenzieren');
   assert.ok(writeApproval?.blocks?.includes('UABC-36'), 'Ziel- und Ruecksetzfreigabe muss UABC-36 blockieren');
-  assert.match(vatScenario?.expectedResult ?? '', /weder Test- noch Produktivuebermittlung/i);
+  assert.match(vatScenario?.expectedResult ?? '', /weder eine Test-, Produktiv- noch ELSTER-Uebermittlung/i);
+  assert.ok(scenarioCatalog.writePolicy?.rules?.some((rule) => rule.includes('E-Rechnung')));
 });

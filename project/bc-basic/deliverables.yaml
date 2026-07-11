@@ -31,7 +31,7 @@ deliverables:
     completionEvidence: null
   - id: UABC-DEL-BCB-003
     phaseRef: UABC-PHASE-01
-    title: Datenanforderungen und Datenbereitschaftsprotokoll
+    title: Daten-, Konfigurationspaket- und Datenbereitschaftsprotokoll
     status: planned
     resultClaimed: false
     ownerRef: P-016
@@ -64,7 +64,7 @@ deliverables:
     completionEvidence: null
   - id: UABC-DEL-BCB-006
     phaseRef: UABC-PHASE-02
-    title: Fachlicher Abnahmetest und simulierter Sandbox-Uebergang
+    title: Fachlicher Abnahmetest und UAT-Begleitung
     status: planned
     resultClaimed: false
     ownerRef: P-002
@@ -75,7 +75,7 @@ deliverables:
     completionEvidence: null
   - id: UABC-DEL-BCB-007
     phaseRef: UABC-PHASE-03
-    title: Protokoll der begrenzten Stabilisierungsphase und Monatsabschlussprobe
+    title: Protokoll der einwoechigen Hypercare und Monatsabschlussprobe
     status: planned
     resultClaimed: false
     ownerRef: P-005
@@ -86,7 +86,7 @@ deliverables:
     completionEvidence: null
   - id: UABC-DEL-BCB-008
     phaseRef: UABC-PHASE-03
-    title: Fachlich gepruefte UStVA-Vorschau und optionales lokales XML ohne Test- oder Produktivuebermittlung
+    title: Fachlich gepruefte UStVA-Vorschau ohne Test-, Produktiv- oder ELSTER-Uebermittlung
     status: planned
     resultClaimed: false
     ownerRef: P-005
@@ -97,7 +97,7 @@ deliverables:
     completionEvidence: null
   - id: UABC-DEL-BCB-009
     phaseRef: UABC-PHASE-03
-    title: Kunden- und Beratungshandbuch mit Uebergabeindex
+    title: Projektdokumentation und Schulungsunterlagen mit Uebergabeindex
     status: planned
     resultClaimed: false
     ownerRef: P-002

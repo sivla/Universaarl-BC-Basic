@@ -3,19 +3,24 @@ budgetId: UABC-BUDGET-BCB-001
 projectId: UABC-BC-BASIC-001
 status: planned
 currency: EUR
-netHourlyRate: 120
-plannedBillableHours: 76
-plannedNetAmount: 9120
-contingencyHours: 4
-contingencyBilling: not-preapproved
-maximumBillableHours: 80
-maximumNetAmount: 9600
+netDailyRate: 1300
+workdayHours: 8
+netHourlyRate: 162.5
+plannedBillableHours: 68
+plannedNetAmount: 11050
+budgetLimitStatus: unknown
+budgetLimitNetAmount: null
+contingencyHours: 0
+contingencyBilling: not-applicable
+maximumBillableHours: null
+maximumNetAmount: null
 externalCostsIncluded: false
 externalCosts:
   - Microsoft-Lizenzen und Tenantkosten
   - Steuerberatung und Rechtsberatung
   - Fremdsoftware, Erweiterungen und Integrationen
   - Reise- und sonstige Auslagen, falls spaeter beauftragt
+customerEffortBilling: Kundeninterne Arbeitszeiten werden nicht erfasst und nicht abgerechnet.
 sourceOfBillableWork: atlassian/jira/issues/bc-basic-project.yaml
 billableLeafRange: UABC-22..UABC-38
 rollupRule:
@@ -28,15 +33,16 @@ weeklyBillingRule:
     - Jira-Ticket auf unterster Ebene hat billable true.
     - Das Jira-Arbeitsprotokoll beschreibt tatsaechlich geleistete Arbeit, ist einem Jira-Key zugeordnet und fachlich genehmigt.
     - Das Jira-Arbeitsprotokoll ist noch keiner Rechnung zugeordnet.
-  calculation: Summe genehmigter, nicht fakturierter Iststunden der Woche mal 120 EUR netto
+  calculation: Summe genehmigter, nicht fakturierter Dienstleister-Iststunden der Woche mal 162,50 EUR netto
   excluded:
     - Schaetzungen und Elternsummen
     - Eltern-, Epic- und Storysummen sowie jede doppelte Zuordnung desselben Arbeitsprotokolls
-    - nicht aktivierte Reserve
+    - Kundenaufwaende
+    - nicht entschiedenes Budgetlimit
     - abgelehnte, doppelte oder nicht einem Jira-Key zugeordnete Zeiten
     - externe Kosten
   invoiceLineFields: [jiraKey, summary, workDate, approvedHours, hourlyRate, netAmount, approverRef]
-  budgetStop: Genehmigte Iststunden duerfen 80 Stunden nicht ueberschreiten.
+  budgetStop: Kein Budgetstop ohne menschlich entschiedenes Budgetlimit; Planstunden und Iststunden werden getrennt berichtet.
 worklogContract:
   systemOfRecord: Jira
   required: [worklogId, jiraKey, personRef, workDate, isoWeek, hours, billable, approvalStatus, approverRef, invoiceRef]
