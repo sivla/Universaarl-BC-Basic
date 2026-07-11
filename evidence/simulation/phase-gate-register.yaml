@@ -1,0 +1,35 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-PHASE-GATES-001
+projectId: UABC-BC-BASIC-001
+classification: synthetic-only
+status: synthetisch-vollstaendig-abgenommen
+truthRule: Jeder Status und jede Abnahme gilt ausschließlich für die repositorybasierte Simulation.
+phases:
+  - { phase: 0, title: Auftrag-und-Scope, role: P-002, source: [project/bc-basic/project-plan.yaml, project/bc-basic/decision-register.yaml], input: synthetischer-kundenfall, result: simulated-complete, gate: GO_SIMULATION }
+  - { phase: 1, title: Discovery-und-Anforderungen, role: P-002, source: [atlassian/confluence/pages/71-bc-basic-discovery.md, project/bc-basic/traceability-matrix.yaml], input: Prozessannahmen-und-Quellen, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 2, title: Loesungsdesign-und-Setup, role: P-005, source: [project/bc-basic/data-package.yaml, project/bc-basic/phase-2-dry-run.yaml], input: Beispielstammdaten-und-Konfiguration, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 3, title: Daten-und-Migration, role: P-016, source: [project/bc-basic/customer-templates/example, project/bc-basic/data-readiness-check.yaml, evidence/simulation/phase-2-p2p-o2c.yaml], input: synthetische-Datenpaare, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 4, title: Purchase-to-Pay, role: P-011, source: [evidence/simulation/phase-2-p2p-o2c.yaml], input: SYN-PO-001-und-SYN-AP-002, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 5, title: Order-to-Cash, role: P-011, source: [evidence/simulation/phase-2-p2p-o2c.yaml], input: SYN-SO-001-und-SYN-AR-002, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 6, title: Cash-Bank-Abstimmung, role: P-005, source: [evidence/simulation/phase-3-cash-inventory-close.yaml, evidence/simulation/synthetic-bank-statement.csv], input: SYN-BANK-001, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 7, title: Lager-und-Inventur, role: P-019, source: [evidence/simulation/phase-3-cash-inventory-close.yaml], input: HAUPT-und-SYN-INV-001, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 8, title: Monatsabschluss-und-UStVA-Vorschau, role: P-005, source: [evidence/simulation/phase-3-cash-inventory-close.yaml], input: Periode-2026-08, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 9, title: SIT-Defects-Retests, role: P-002, source: [evidence/simulation/phase-2-p2p-o2c.yaml, evidence/simulation/phase-3-cash-inventory-close.yaml], input: kontrollierte-Abweichungen, result: P1-P2-synthetisch-bereinigt, gate: GO_SIMULATION }
+  - { phase: 10, title: UAT-und-Schulung, role: P-005, source: [project/bc-basic/uat-training-run.yaml, project/bc-basic/training-plan.yaml], input: sieben-UAT-Faelle-und-vier-Rollen, result: simulated-complete, gate: synthetisch-abgenommen }
+  - { phase: 11, title: Cutover-und-Go-live-Rehearsal, role: P-002, source: [evidence/simulation/project-completion.yaml, docs/runbooks/bc-basic-simulation-demo.md], input: SIM-CP-001-und-Datenfreeze, result: simulated-complete, gate: GO_SIMULATION }
+  - { phase: 12, title: Hypercare-Restart-Abschluss-Handover, role: P-002, source: [evidence/simulation/project-completion.yaml], input: SIM-HC-001-bis-SIM-HC-003, result: simulated-complete, gate: synthetisch-abgenommen }
+gateRegister:
+  - { id: UABC-SIM-GATE-CUSTOMER-001, name: synthetische-Kundenfreigabe, role: P-002, evidence: project/bc-basic/phase-2-readiness-gate.yaml, decision: GO_SIMULATION, date: 2026-08-25 }
+  - { id: UABC-SIM-GATE-UAT-001, name: UAT-Signoff, role: P-005, evidence: project/bc-basic/uat-training-run.yaml, decision: GO_SIMULATION, date: 2026-08-27 }
+  - { id: UABC-SIM-GATE-CUTOVER-001, name: Cutover-GO, role: P-002, evidence: evidence/simulation/project-completion.yaml, decision: GO_SIMULATION, date: 2026-08-28 }
+  - { id: UABC-SIM-GATE-HYPERCARE-001, name: Hypercare-Abnahme, role: P-002, evidence: evidence/simulation/project-completion.yaml, decision: synthetisch-abgenommen, date: 2026-09-02 }
+  - { id: UABC-SIM-GATE-RESTART-001, name: Restart-Freigabe, role: P-005, evidence: evidence/simulation/project-completion.yaml, decision: synthetisch-abgenommen, date: 2026-09-02 }
+  - { id: UABC-SIM-GATE-HANDOVER-001, name: Handover, role: P-002, evidence: evidence/simulation/project-completion.yaml, decision: synthetisch-abgenommen, date: 2026-09-03 }
+controls:
+  openP1P2: 0
+  realBcExecution: false
+  realCustomerPersons: false
+  production: false
+  externalTransmission: false
+finalDecision: GO_SIMULATION
+realBoundary: Produktive Nutzung, echte Personen und reale Freigaben sind nicht Teil dieses Simulationsentscheids.
