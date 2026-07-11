@@ -11,15 +11,20 @@ import { resolveMediaToolchain } from '../../scripts/media-toolchain.mjs';
 const root = process.cwd();
 const outputDir = path.join(root, 'artifacts/walkthrough/generated/UABC-WT-ENV-001');
 const hash = (file) => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const textSourcePattern = /\.(?:css|html|js|json|jsonl|md|mjs|vtt|ya?ml)$/i;
+const sourceHash = (file) => {
+  const bytes = fs.readFileSync(file);
+  return crypto.createHash('sha256').update(textSourcePattern.test(file) ? Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n'), 'utf8') : bytes).digest('hex');
+};
 const source = YAML.parse(fs.readFileSync(path.join(root, 'artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml'), 'utf8'));
 const validate = createWalkthroughValidator();
 
-test('real Draft 2020-12 schema accepts pilot and a minimally filled blank', () => {
+test('echtes Draft-2020-12-Schema akzeptiert Pilot und minimal ausgefuelltes Blanko', () => {
   assert.doesNotThrow(() => validate(source, 'pilot'));
   const blank = YAML.parse(fs.readFileSync(path.join(root, 'artifacts/walkthrough/templates/walkthrough-package.blank.yaml'), 'utf8'));
   const filled = structuredClone(blank);
   filled.artifactId = 'UABC-WT-MINIMAL-001';
-  filled.phase = 'W1 local artifact test';
+  filled.phase = 'W1 lokaler Artefakttest';
   filled.owner = 'P-002';
   filled.reviewers = ['P-004'];
   filled.createdAt = '2026-07-10';
@@ -28,43 +33,43 @@ test('real Draft 2020-12 schema accepts pilot and a minimally filled blank', () 
   filled.jiraRefs = ['UABC-16'];
   filled.evidenceRefs = ['UABC-VER-WT-BUILD-001'];
   filled.sourceRunRefs = ['run-1'];
-  filled.history = [{ at: '2026-07-10', actor: 'P-002', action: 'created from filled blank' }];
-  filled.audiences = ['artifact tester'];
-  filled.learningObjective = 'Validate a minimally completed walkthrough authoring template.';
-  filled.prerequisites = ['Sanitized local source evidence'];
+  filled.history = [{ at: '2026-07-10', actor: 'P-002', action: 'aus ausgefuelltem Blanko erstellt' }];
+  filled.audiences = ['Artefaktpruefer'];
+  filled.learningObjective = 'Eine minimal ausgefuellte Walkthrough-Autorenvorlage validieren.';
+  filled.prerequisites = ['Bereinigte lokale Quellnachweise'];
   const step = structuredClone(blank.steps[0]);
   Object.assign(step, {
-    stepId: 'STEP-01', title: 'Inspect local artifact', bcSurface: 'Generated HTML',
-    userAction: 'Open the generated local HTML.', expectedResult: 'The first step is visible.',
-    businessRationale: 'A minimal authored package must remain structurally reproducible.',
+    stepId: 'STEP-01', title: 'Lokales Artefakt pruefen', bcSurface: 'Generiertes HTML',
+    userAction: 'Das generierte lokale HTML oeffnen.', expectedResult: 'Der erste Schritt ist sichtbar.',
+    businessRationale: 'Ein minimal verfasstes Paket muss strukturell reproduzierbar bleiben.',
     screenshotRefs: [{ runRef: 'run-1', path: 'evidence/example/step-01.png' }],
-    caption: 'Step 1. Inspect the generated local artifact.', safetyNotes: ['No BC access']
+    caption: 'Schritt 1. Das generierte lokale Artefakt pruefen.', safetyNotes: ['Kein BC-Zugriff']
   });
   filled.steps = [step];
   filled.securityAndRedaction.personalData = 'none';
   filled.provenance.sourceManifests = ['evidence/example/manifest.json'];
   filled.provenance.sourceEventLogs = ['evidence/example/events.jsonl'];
-  filled.provenance.derivation = 'Derived from one sanitized local screenshot and event manifest.';
-  assert.doesNotMatch(JSON.stringify(filled), /REPLACE-ME|REPLACE-WITH|YYYY-MM-DD|REPLACE WITH/);
-  assert.doesNotThrow(() => validate(filled, 'filled blank'));
+  filled.provenance.derivation = 'Aus einem bereinigten lokalen Screenshot und Ereignismanifest abgeleitet.';
+  assert.doesNotMatch(JSON.stringify(filled), /REPLACE-ME|REPLACE-WITH|YYYY-MM-DD|DURCH /);
+  assert.doesNotThrow(() => validate(filled, 'ausgefuelltes Blanko'));
 });
 
-test('schema rejects unknown fields, absent non-evidence semantics and invalid stable IDs', () => {
+test('Schema lehnt unbekannte Felder, fehlende Nicht-Evidence-Semantik und ungueltige stabile IDs ab', () => {
   assert.throws(() => validate({ ...source, unexpected: true }), /additional properties/);
   const missing = structuredClone(source); delete missing.evidenceSemantics;
   assert.throws(() => validate(missing), /evidenceSemantics/);
   assert.throws(() => validate({ ...source, artifactId: 'not-stable' }), /artifactId/);
 });
 
-test('resolved walkthrough preserves non-evidence semantics and source provenance', () => {
+test('aufgeloester Walkthrough bewahrt Nicht-Evidence-Semantik und Quellprovenienz', () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8'));
   assert.equal(manifest.evidenceSemantics.artifactProvidesBusinessEvidence, false);
   assert.equal(manifest.evidenceSemantics.sourceEvidenceRetainedAsProvenance, true);
   assert.deepEqual(manifest.steps.map((step) => step.stepId), ['ENV-00', 'ENV-01', 'ENV-02', 'ENV-03', 'ENV-04', 'ENV-05', 'ENV-06']);
-  for (const [file, expected] of Object.entries(manifest.resolvedProvenance.sourceChecksums)) assert.equal(hash(path.join(root, file)), expected, file);
+  for (const [file, expected] of Object.entries(manifest.resolvedProvenance.sourceChecksums)) assert.equal(sourceHash(path.join(root, file)), expected, file);
 });
 
-test('consumer resolves every declared source, manifest and output path within repository and verifies hashes', () => {
+test('Konsument loest alle deklarierten Quell-, Manifest- und Ausgabepfade im Repository auf und prueft Hashes', () => {
   const index = YAML.parse(fs.readFileSync(path.join(root, 'exports/project-artifacts/v0.1/index.yaml'), 'utf8'));
   assert.equal(index.relativePathBase, 'repository-root');
   const resolveDeclared = (relative) => {
@@ -88,10 +93,10 @@ test('consumer resolves every declared source, manifest and output path within r
   assert.ok(index.consumerRules.forbiddenInputs.includes('raw-browser-video'));
 });
 
-test('HTML and media are compact and controllable', () => {
+test('HTML und Medien sind kompakt und steuerbar', () => {
   const html = fs.readFileSync(path.join(outputDir, 'index.html'), 'utf8');
   assert.match(html, /id="evidence-semantics"/);
-  assert.match(html, /Source-Evidence bleibt Provenienz/);
+  assert.match(html, /Quellnachweis bleibt Provenienz/);
   assert.ok(fs.statSync(path.join(outputDir, 'walkthrough.webm')).size < 10_000_000);
   const toolchain = resolveMediaToolchain({ cwd: root });
   const probe = toolchain.run(toolchain.ffprobe, ['-v', 'error', '-show_entries', 'stream=codec_name:format=duration', '-of', 'json', path.join(outputDir, 'walkthrough.webm')]);
@@ -100,7 +105,7 @@ test('HTML and media are compact and controllable', () => {
   assert.equal(manifest.generation.mediaToolchain.buildIdentifier, '2025-07-23-git-829680f96a-full_build-www.gyan.dev');
 });
 
-test('baseline pilot rebuild is byte-stable and sanitized', () => {
+test('Neubau des Baseline-Piloten ist bytestabil und bereinigt', () => {
   const files = ['captions.vtt', 'index.html', 'manifest.json', 'preview.webp', 'walkthrough.webm'];
   const before = Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))]));
   const build = spawnSync(process.execPath, ['scripts/build-walkthrough.mjs'], { cwd: root, encoding: 'utf8' });
@@ -108,11 +113,11 @@ test('baseline pilot rebuild is byte-stable and sanitized', () => {
   assert.deepEqual(Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))])), before);
 });
 
-test('failed media preflight leaves the existing walkthrough outputs unchanged', () => {
+test('fehlgeschlagener Medien-Preflight laesst vorhandene Walkthrough-Ausgaben unveraendert', () => {
   const files = ['captions.vtt', 'index.html', 'manifest.json', 'preview.webp', 'walkthrough.webm'];
   const before = Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))]));
   const build = spawnSync(process.execPath, ['scripts/build-walkthrough.mjs'], { cwd: root, encoding: 'utf8', env: { ...process.env, UABC_FFMPEG_COMMAND: 'uabc-missing-ffmpeg' } });
   assert.notEqual(build.status, 0);
-  assert.match(`${build.stderr}${build.stdout}`, /Media toolchain preflight failed/);
+  assert.match(`${build.stderr}${build.stdout}`, /Medienwerkzeug-Preflight fehlgeschlagen/);
   assert.deepEqual(Object.fromEntries(files.map((file) => [file, hash(path.join(outputDir, file))])), before);
 });

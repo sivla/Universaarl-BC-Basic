@@ -10,7 +10,7 @@
     "sourceEvidenceRetainedAsProvenance": true,
     "purpose": "learning-and-display"
   },
-  "phase": "W1 environment baseline publication pilot",
+  "phase": "W1-Pilot zur Veroeffentlichung der Umgebungsbaseline",
   "owner": "P-002",
   "reviewers": [
     "P-004",
@@ -56,32 +56,32 @@
     {
       "at": "2026-07-10",
       "actor": "P-002",
-      "action": "created from archived baseline evidence"
+      "action": "aus archivierten Baseline-Nachweisen erstellt"
     }
   ],
   "audiences": [
-    "new Business Central user",
-    "implementation consultant",
-    "evidence reviewer"
+    "neue Business-Central-Anwender",
+    "Implementierungsberater",
+    "Nachweispruefer"
   ],
   "playbackModes": {
     "beginner": {
       "secondsPerStep": 6,
-      "emphasis": "plain-language operation and context"
+      "emphasis": "verstaendliche Bedienung und Kontext"
     },
     "consultant": {
       "secondsPerStep": 4,
-      "emphasis": "business rationale and configuration impact"
+      "emphasis": "fachliche Begruendung und Konfigurationswirkung"
     },
     "evidence-review": {
       "secondsPerStep": 5,
-      "emphasis": "provenance IDs and observable state"
+      "emphasis": "Provenienz-IDs und beobachtbarer Zustand"
     }
   },
   "learningObjective": "Die Zielumgebung, aktive Gesellschaft und sichtbare technische Baseline sicher erkennen, ohne Gesellschaft zu wechseln oder Business-Central-Daten zu veraendern.",
   "prerequisites": [
     "Archivierte und verifizierte playthru-Umgebungsbaseline",
-    "Read-only Betrachtung; kein Company- oder Environment-Wechsel",
+    "Nur lesende Betrachtung; kein Gesellschafts- oder Umgebungswechsel",
     "Kenntnis, dass Experience und vollstaendige App-/Feature-Inventare unknown beziehungsweise partial bleiben"
   ],
   "steps": [
@@ -89,7 +89,7 @@
       "sequence": 1,
       "stepId": "ENV-00",
       "title": "Zielgrenze erkennen",
-      "bcSurface": "Role Center header",
+      "bcSurface": "Rollencenter-Kopfbereich",
       "userAction": "Die lokal konfigurierte playthru-URL ohne company-Parameter oeffnen und den Kopfbereich lesen.",
       "expectedResult": "Umgebung playthru und aktive Gesellschaft CRONUS DE sind sichtbar.",
       "businessRationale": "Vor jeder spaeteren Aktion muss die technische Umgebung und aktive Buchungsgrenze zweifelsfrei feststehen.",
@@ -118,7 +118,7 @@
       "sequence": 2,
       "stepId": "ENV-01",
       "title": "Zugaengliche Gesellschaften lesen",
-      "bcSurface": "Verfuegbare Mandanten pane",
+      "bcSurface": "Seitenbereich Verfuegbare Mandanten",
       "userAction": "Strg+O druecken, den Playthru-Teilbaum lesen und keinen Eintrag auswaehlen.",
       "expectedResult": "CRONUS DE, My Company und Universaarl GmbH sind sichtbar; CRONUS DE bleibt markiert.",
       "businessRationale": "Die sichtbare Zugriffsliste wird getrennt von Existenzannahmen und ohne unbeabsichtigten Gesellschaftswechsel dokumentiert.",
@@ -233,7 +233,7 @@
       "sequence": 6,
       "stepId": "ENV-05",
       "title": "Sichtbare Extensions begrenzen",
-      "bcSurface": "Installierte Erweiterungen page overlay",
+      "bcSurface": "Seitenueberlagerung Installierte Erweiterungen",
       "userAction": "Ueber Tell Me die angebotene Erweiterungsverwaltung oeffnen und nur die sichtbaren Karten lesen.",
       "expectedResult": "Sechs Karten mit im Viewport sichtbarem Namen und Herausgeber bilden eine unvollstaendige Teilmenge.",
       "businessRationale": "Ein screenshot-belegter Ausschnitt verhindert, dass gerenderte Elemente ausserhalb des Viewports als visuell geprueft gelten.",
@@ -261,8 +261,8 @@
     {
       "sequence": 7,
       "stepId": "ENV-06",
-      "title": "Feature Management read-only lesen",
-      "bcSurface": "Funktionsverwaltung nested page",
+      "title": "Funktionsverwaltung lesend pruefen",
+      "bcSurface": "Verschachtelte Seite Funktionsverwaltung",
       "userAction": "Ueber Tell Me die Funktionsverwaltung oeffnen und nur viewport-schneidende Zeilen lesen.",
       "expectedResult": "15 sichtbare Zeilen bilden einen candidate/visible-partial Zustand; keine Funktion wird aktiviert.",
       "businessRationale": "Sichtbare Featurezeilen dokumentieren den Laufzustand, beweisen aber weder Vollstaendigkeit noch allgemeine Featureverfuegbarkeit.",
@@ -291,7 +291,7 @@
   "securityAndRedaction": {
     "noSecrets": true,
     "noFullBcUrl": true,
-    "personalData": "screenshots were visually reviewed and identity content excluded or masked",
+    "personalData": "Screenshots wurden visuell geprueft; identitaetsbezogene Inhalte wurden ausgeschlossen oder maskiert",
     "rawArtifactsTracked": false
   },
   "provenance": {
@@ -305,7 +305,7 @@
     ],
     "checksumAlgorithm": "sha256",
     "checksumsResolvedAtBuild": true,
-    "derivation": "Ordered screenshot sequence and captions derived only from matching ENV events and visually reviewed retained screenshots; no browser replay or inferred frame is introduced."
+    "derivation": "Geordnete Screenshotfolge und Untertitel werden ausschliesslich aus passenden ENV-Ereignissen und visuell geprueften aufbewahrten Screenshots abgeleitet; es werden kein Browser-Replay und kein abgeleiteter Frame eingefuehrt."
   },
   "generatedAt": "2026-07-10",
   "generation": {
@@ -318,12 +318,12 @@
         "libwebp_anim"
       ]
     },
-    "mediaNature": "deterministic screenshot sequence; not a browser recording"
+    "mediaNature": "deterministische Screenshotfolge; keine Browseraufzeichnung"
   },
   "resolvedProvenance": {
     "sourceChecksums": {
-      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "97a52a32614dd748b569a2a2e9ee14f15a6f6cfc7e2b54980aea76f749818d16",
-      "artifacts/walkthrough/schema/walkthrough-package.schema.json": "5c7e78b3829e0df4dd176553c2353f4c4d03c958e672d5d1e31d7d2a672ff670",
+      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "ce4d5d9489511914d5cec20586a8ee145fe7d181036b47154f3b214566dc9812",
+      "artifacts/walkthrough/schema/walkthrough-package.schema.json": "f8f140ee9c156471ef7ad43c553dcf97daded1eeea683c5d8a287d7dd647c66e",
       "evidence/playthru-environment-baseline/run-1/env-00.png": "060cd6087be70c0cafcf9e34b00d6110d3ab9acfd220fe7dd8df70ed2b904aef",
       "evidence/playthru-environment-baseline/run-1/env-01.png": "cd92b2a44b2ef5be8f1126f81cd7597312987174c3e5bf4b7baba1bb971e1697",
       "evidence/playthru-environment-baseline/run-1/env-02.png": "232c6ddb0c63671c15bbc8cbb917eff210c462cdb9b670327e49df5ce61d92b9",

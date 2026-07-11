@@ -18,12 +18,12 @@ test.beforeAll(async () => {
 });
 test.afterAll(async () => new Promise((resolve) => server.close(resolve)));
 
-for (const [name, viewport] of [['desktop', { width: 1280, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
-  test(`${name}: generated walkthrough is functional and responsive`, async ({ page, request }) => {
+for (const [name, viewport] of [['Desktop', { width: 1280, height: 900 }], ['Mobil', { width: 390, height: 844 }]]) {
+  test(`${name}: generierter Walkthrough ist funktional und responsiv`, async ({ page, request }) => {
     await page.setViewportSize(viewport); const errors = [];
     page.on('console', (msg) => { if (msg.type() === 'error') errors.push(msg.text()); }); page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(`${baseURL}/index.html`); await expect(page.locator('h1')).toBeVisible();
-    for (const [mode, marker] of [['beginner', 'Warum:'], ['consultant', 'Fachliche Wirkung:'], ['evidence-review', 'Evidence:']]) { await page.selectOption('#mode', mode); await expect(page.locator('#why')).toContainText(marker); }
+    for (const [mode, marker] of [['beginner', 'Warum:'], ['consultant', 'Fachliche Wirkung:'], ['evidence-review', 'Nachweis:']]) { await page.selectOption('#mode', mode); await expect(page.locator('#why')).toContainText(marker); }
     const first = await page.locator('#title').textContent(); await page.click('#next'); expect(await page.locator('#title').textContent()).not.toBe(first); await page.click('#previous'); expect(await page.locator('#title').textContent()).toBe(first);
     await page.click('#play'); await expect(page.locator('#play')).toHaveText('Pause'); await page.click('#play'); await expect(page.locator('#play')).toHaveText('Abspielen');
     for (const file of ['manifest.json', 'captions.vtt', 'walkthrough.webm']) expect((await request.get(`${baseURL}/${file}`)).ok()).toBeTruthy();

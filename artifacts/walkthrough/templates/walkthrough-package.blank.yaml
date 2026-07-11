@@ -18,30 +18,30 @@ jiraRefs: [REPLACE-WITH-JIRA-KEY]
 evidenceRefs: [REPLACE-WITH-EVIDENCE-ID]
 sourceRunRefs: [REPLACE-WITH-RUN-ID]
 history:
-  - { at: YYYY-MM-DD, actor: REPLACE-ME, action: created }
+  - { at: YYYY-MM-DD, actor: REPLACE-ME, action: erstellt }
 audiences: [REPLACE-ME]
 playbackModes:
-  beginner: { secondsPerStep: 6, emphasis: plain-language operation and context }
-  consultant: { secondsPerStep: 4, emphasis: business rationale and configuration impact }
-  evidence-review: { secondsPerStep: 5, emphasis: provenance IDs and observable state }
-learningObjective: REPLACE WITH A SUBSTANTIVE LEARNING OBJECTIVE
+  beginner: { secondsPerStep: 6, emphasis: verstaendliche Bedienung und Kontext }
+  consultant: { secondsPerStep: 4, emphasis: fachliche Begruendung und Konfigurationswirkung }
+  evidence-review: { secondsPerStep: 5, emphasis: Provenienz-IDs und beobachtbarer Zustand }
+learningObjective: DURCH EIN SUBSTANZIELLES LERNZIEL ERSETZEN
 prerequisites: [REPLACE-ME]
 steps:
   - sequence: 1
-    stepId: ENV-00
+    stepId: REPLACE-WITH-STEP-ID
     title: REPLACE-ME
     bcSurface: REPLACE-ME
     userAction: REPLACE-ME
     expectedResult: REPLACE-ME
-    businessRationale: REPLACE WITH A SUBSTANTIVE BUSINESS RATIONALE
+    businessRationale: DURCH EINE SUBSTANZIELLE FACHLICHE BEGRUENDUNG ERSETZEN
     screenshotRefs: [{ runRef: REPLACE-ME, path: REPLACE-ME }]
     mediaRefs: []
     caption: REPLACE-ME
     safetyNotes: [REPLACE-ME]
-securityAndRedaction: { noSecrets: true, noFullBcUrl: true, personalData: redact or mask, rawArtifactsTracked: false }
+securityAndRedaction: { noSecrets: true, noFullBcUrl: true, personalData: redigieren oder maskieren, rawArtifactsTracked: false }
 provenance:
   sourceManifests: [REPLACE-ME]
   sourceEventLogs: [REPLACE-ME]
   checksumAlgorithm: sha256
   checksumsResolvedAtBuild: true
-  derivation: REPLACE WITH THE SOURCE-TO-OUTPUT DERIVATION
+  derivation: DURCH DIE ABLEITUNG VON QUELLE ZU AUSGABE ERSETZEN

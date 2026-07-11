@@ -5,7 +5,7 @@ relativePathBase: repository-root
 allowedPathBoundary: .
 producer:
   projectId: UABC
-  repositoryRole: Blueprint source of truth
+  repositoryRole: Blueprint-System der Wahrheit
 consumer:
   project: Universaarl Project Twin
   repositoryMutationRequired: false
@@ -32,26 +32,26 @@ artifacts:
       video: artifacts/walkthrough/generated/UABC-WT-ENV-001/walkthrough.webm
       animatedPreview: artifacts/walkthrough/generated/UABC-WT-ENV-001/preview.webp
     checksums:
-      manifest: 746458deb2b60a3f2a147d8034ccfd8039aa2b9cf1d1f559bbb92d5469d3bcb8
-      html: 3bb6e9ff8945e6efeb678c45b2804b08a9dd11f2b224fa2ed95e653ec4fa6e11
+      manifest: a36dba3504c94ac2e0c3c3bf0feaf8ba0cdbcde8305ff1f4b2581cb3944e0a0d
+      html: 0dfd9055f812f886112c34ae1f0cc74b905cfcb40d063ede5fb1a4147116f82a
       captions: 30c8bb8d65b3fa4bd3198461485ee122a512058715f504826e0f2baeed2d67b3
       video: a58d18d3a78be171b89a2d1316a3be482bce583b086d20dd60ad5f9732685140
       animatedPreview: 4f82cdeb9ce010ebcd8089d232647b5d7f6995345a226a6dcd48ccc36fe5a954
 consumerRules:
-  pathResolution: Resolve every relative path from repository-root; reject
-    absolute paths and paths outside allowedPathBoundary.
+  pathResolution: Jeden relativen Pfad vom repository-root aus aufloesen; absolute
+    Pfade und Pfade ausserhalb von allowedPathBoundary ablehnen.
   allowedPackageOutputs:
     - manifest
     - html
     - captions
     - video
     - animatedPreview
-  generatedVideoSemantics: The declared walkthrough.webm is a curated package
-    output, not raw browser video.
+  generatedVideoSemantics: Die deklarierte walkthrough.webm ist eine kuratierte
+    Paketausgabe und kein rohes Browservideo.
   forbiddenInputs:
     - raw-browser-video
     - playwright-trace
     - auth-state
     - temporary-files
-  evidenceSemantics: Template, example and generated package are not business
-    evidence; referenced source evidence remains provenance.
+  evidenceSemantics: Vorlage, Beispiel und erzeugtes Paket sind kein fachlicher
+    Nachweis; referenzierte Quellnachweise bleiben Provenienz.

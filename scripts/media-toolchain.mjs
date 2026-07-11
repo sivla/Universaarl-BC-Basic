@@ -6,24 +6,24 @@ export const mediaToolchainContract = Object.freeze({
   requiredEncoders: ['libvpx-vp9', 'libwebp_anim']
 });
 
-const installHint = 'Install the exact FFmpeg/FFprobe full build 2025-07-23-git-829680f96a-full_build-www.gyan.dev, put both executables on PATH, then run npm run check:media-toolchain.';
+const installHint = 'Installiere exakt den FFmpeg/FFprobe-Full-Build 2025-07-23-git-829680f96a-full_build-www.gyan.dev, stelle beide Programme ueber PATH bereit und fuehre danach npm run check:media-toolchain aus.';
 
 function preflightError(detail) {
-  return new Error(`Media toolchain preflight failed: ${detail}. ${installHint}`);
+  return new Error(`Medienwerkzeug-Preflight fehlgeschlagen: ${detail}. ${installHint}`);
 }
 
 function invoke(spawn, command, args, cwd) {
   let result;
   try { result = spawn(command, args, { cwd, encoding: 'utf8' }); }
-  catch (error) { throw preflightError(`${command} is not executable (${error.message})`); }
-  if (result.error || result.status !== 0) throw preflightError(`${command} ${args.join(' ')} did not run (${result.error?.message ?? result.stderr ?? result.stdout ?? `exit ${result.status}`})`);
+  catch (error) { throw preflightError(`${command} ist nicht ausfuehrbar (${error.message})`); }
+  if (result.error || result.status !== 0) throw preflightError(`${command} ${args.join(' ')} wurde nicht ausgefuehrt (${result.error?.message ?? result.stderr ?? result.stdout ?? `exit ${result.status}`})`);
   return `${result.stdout ?? ''}${result.stderr ?? ''}`;
 }
 
 function requireBuild(command, output) {
   const match = output.match(/ff(?:mpeg|probe) version ([^\s]+)/i);
-  if (!match) throw preflightError(`${command} did not report an FFmpeg build identifier`);
-  if (match[1] !== mediaToolchainContract.buildIdentifier) throw preflightError(`${command} reports ${match[1]}, expected ${mediaToolchainContract.buildIdentifier}`);
+  if (!match) throw preflightError(`${command} meldet keinen FFmpeg-Build-Identifier`);
+  if (match[1] !== mediaToolchainContract.buildIdentifier) throw preflightError(`${command} meldet ${match[1]}, erwartet ${mediaToolchainContract.buildIdentifier}`);
   return match[1];
 }
 
@@ -34,10 +34,10 @@ export function resolveMediaToolchain({ spawn = spawnSync, cwd = process.cwd(), 
   const ffprobeVersion = invoke(spawn, ffprobe, ['-version'], cwd);
   const ffmpegBuild = requireBuild(ffmpeg, ffmpegVersion);
   const ffprobeBuild = requireBuild(ffprobe, ffprobeVersion);
-  if (ffmpegBuild !== ffprobeBuild) throw preflightError(`ffmpeg (${ffmpegBuild}) and ffprobe (${ffprobeBuild}) are not the same build`);
+  if (ffmpegBuild !== ffprobeBuild) throw preflightError(`ffmpeg (${ffmpegBuild}) und ffprobe (${ffprobeBuild}) stammen nicht aus demselben Build`);
   const encoders = invoke(spawn, ffmpeg, ['-hide_banner', '-encoders'], cwd);
   for (const encoder of mediaToolchainContract.requiredEncoders) {
-    if (!new RegExp(`\\b${encoder}\\b`).test(encoders)) throw preflightError(`ffmpeg build lacks required encoder ${encoder}`);
+    if (!new RegExp(`\\b${encoder}\\b`).test(encoders)) throw preflightError(`ffmpeg-Build enthaelt den erforderlichen Encoder ${encoder} nicht`);
   }
   return Object.freeze({
     ffmpeg,

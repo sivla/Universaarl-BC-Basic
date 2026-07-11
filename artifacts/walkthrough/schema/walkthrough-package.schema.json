@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:universaarl:artifact-schema:walkthrough-package:0.1.0",
-  "title": "Universaarl Walkthrough Package",
+  "title": "Universaarl Walkthrough-Paket",
   "type": "object",
   "required": ["artifactId", "artifactTypeId", "templateVersion", "projectId", "status", "simulationOnly", "evidenceSemantics", "phase", "owner", "reviewers", "createdAt", "sourceScenarioRefs", "requirementRefs", "jiraRefs", "evidenceRefs", "sourceRunRefs", "history", "audiences", "playbackModes", "learningObjective", "prerequisites", "steps", "securityAndRedaction", "provenance"],
   "properties": {
