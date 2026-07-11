@@ -44,5 +44,5 @@ proposedCanonicalUpdate:
     experience: { status: unknown, value: null, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
     extensions: { status: candidate, completeness: visible-partial, visibilityBasis: name-and-publisher-intersect-screenshot-viewport, visibleItemCount: 6, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
     featureManagement: { status: candidate, completeness: visible-partial, visibilityBasis: row-intersects-screenshot-viewport, visibleRowCount: 15, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
-  unknowns: [company experience, complete German localization app inventory, complete installed extension inventory, complete feature inventory]
+  unknowns: [Experience je Unternehmen, vollstaendiges Inventar der deutschen Lokalisierungs-Apps, vollstaendiges Inventar der installierten Erweiterungen, vollstaendiges Feature-Inventar]
   policyGateEvidenceId: UABC-VER-ENV-POLICY-GATE-001

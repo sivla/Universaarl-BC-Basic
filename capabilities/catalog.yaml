@@ -1,6 +1,6 @@
 schemaVersion: 1
 artifactId: UABC-CAP-CATALOG-001
-title: Hierarchical Business Central capability catalog
+title: Hierarchischer Business-Central-Faehigkeitskatalog
 lifecycleStatus: approved
 governingChange: establish-universaarl-enterprise-blueprint
 lastReviewed: 2026-07-10
@@ -86,7 +86,7 @@ domains:
       - { id: UABC-CAP-CONS-IMPORT, name: "Datenuebertragung fuer die Konsolidierung", status: planned, purpose: "Finanzdaten der Tochtergesellschaften in UAC-CONS uebertragen", companies: [UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003], sourceIds: [SRC-BC-008], rationale: "der Konzern benoetigt nach lokalen Abschluessen und Partnerabstimmung eine nachvollziehbare finanzielle Zusammenfuehrung mehrerer Gesellschaften", dependencyIds: [UABC-CAP-IC-RECON, UABC-CAP-RPT-FIN], wave: W4, scenarioId: UABC-SCN-CONS-001 }
       - { id: UABC-CAP-CONS-ELIM, name: "Eliminierung und Konzernabschluss", status: planned, purpose: "konzerninterne Salden eliminieren und Konzernabschluesse erstellen", companies: [UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003], sourceIds: [SRC-BC-008], rationale: "die IC-Uebertragung allein erzeugt noch keinen belastbaren konsolidierten Abschluss", dependencyIds: [UABC-CAP-CONS-IMPORT, UABC-CAP-IC-RECON], wave: W4, scenarioId: UABC-SCN-CONS-002 }
   - id: UABC-CAP-RPT
-    name: Reporting
+    name: Berichtswesen
     capabilities:
       - { id: UABC-CAP-RPT-FIN, name: "Lokale Finanzberichte und Dimensionspruefungen", status: planned, purpose: "lokale Abschluesse, Dimensionsregeln und die Detailnavigation ab der ersten Finanzkonfiguration nachweisen", companies: [UAM-DE, UAS-DE, UAD-DE, UAP-DE], locations: [UABC-SITE-SB, UABC-SITE-NK, UABC-SITE-SLS], roles: [P-003, P-005, P-017, P-018, P-006], sourceIds: [SRC-BC-006, SRC-BC-017], rationale: "lokales Berichtswesen ist bereits in W1 eine Gestaltungs- und Abstimmungskontrolle und kein Ergebnis, das bis zur Konzernkonsolidierung aufgeschoben wird", wave: W1, scenarioId: UABC-SCN-RPT-001 }
       - { id: UABC-CAP-RPT-GROUP, name: "Finanzberichterstattung des Konzerns", status: planned, purpose: "konsolidierte Abschluesse, Eliminierungen und die gesellschaftsuebergreifende Detailnavigation abstimmen", companies: [UAC-CONS], locations: [UABC-SITE-SB], roles: [P-003], sourceIds: [SRC-BC-006, SRC-BC-008, SRC-BC-017], rationale: "die Konzernberichterstattung haengt von abgeschlossenen lokalen Hauptbuechern, vollstaendiger IC-Abstimmung, Konsolidierungszuordnungen und Eliminierungen ab", dependencyIds: [UABC-CAP-CONS-ELIM, UABC-CAP-IC-RECON], wave: W4, scenarioId: UABC-SCN-RPT-004 }

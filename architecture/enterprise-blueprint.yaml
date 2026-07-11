@@ -47,8 +47,8 @@ actualSandboxBaseline:
     experience: { status: unknown, value: null, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
     extensions: { status: candidate, completeness: visible-partial, visibilityBasis: name-and-publisher-intersect-screenshot-viewport, visibleItemCount: 6, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
     featureManagement: { status: candidate, completeness: visible-partial, visibilityBasis: row-intersects-screenshot-viewport, visibleRowCount: 15, evidenceIds: [UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001] }
-  unknowns: [company experience, complete German localization app inventory, complete installed extension inventory, complete feature inventory]
-availabilityRule: Aus der Planungsreferenz darf keine Feature-Verfügbarkeit abgeleitet werden; playthru-Version, Lokalisierung, Apps und Feature-Zustand benötigen vor der Umsetzung direkte Evidence.
+  unknowns: [Experience je Unternehmen, vollstaendiges Inventar der deutschen Lokalisierungs-Apps, vollstaendiges Inventar der installierten Erweiterungen, vollstaendiges Feature-Inventar]
+availabilityRule: Aus der Planungsreferenz darf keine Feature-Verfügbarkeit abgeleitet werden; playthru-Version, Lokalisierung, Apps und Feature-Zustand benötigen vor der Umsetzung direkte Nachweise.
 identityAndEnvironment:
   entraTenant:
     status: unknown
