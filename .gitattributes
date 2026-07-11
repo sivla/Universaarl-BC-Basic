@@ -1,0 +1,13 @@
+evidence/archive-dry-run-2026-07-10.yaml -text
+evidence/governance-selftests-2026-07-10.yaml -text
+evidence/playthru-environment-baseline/comparison.json -text
+evidence/playthru-environment-baseline/lifecycle-selftest.yaml -text
+evidence/playthru-environment-baseline/run-1/events.jsonl -text
+evidence/playthru-environment-baseline/run-1/manifest.json -text
+evidence/playthru-environment-baseline/run-2/events.jsonl -text
+evidence/playthru-environment-baseline/run-2/manifest.json -text
+evidence/playthru-environment-baseline/visual-review.yaml -text
+artifacts/walkthrough/generated/UABC-WT-ENV-001/captions.vtt -text
+artifacts/walkthrough/generated/UABC-WT-ENV-001/index.html -text
+artifacts/walkthrough/generated/UABC-WT-ENV-001/manifest.json -text
+exports/project-artifacts/v0.1/index.yaml -text
