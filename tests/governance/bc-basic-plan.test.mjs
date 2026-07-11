@@ -389,6 +389,19 @@ test('Phase-2-Trockenlauf liefert synthetische Bereitschaft und blockiert reale 
   assert.match(dryRun.evidence.executionClaim, /keine reale BC-Ausfuehrung/);
 });
 
+test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und bleibt real blockiert', () => {
+  const runPlan = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'uat-training-run.yaml'), 'utf8'));
+  assert.equal(runPlan.classification, 'synthetic-only');
+  assert.equal(runPlan.realExecution, false);
+  assert.equal(runPlan.status, 'synthetisch-uat-bereit-real-blockiert');
+  assert.equal(runPlan.goNoGo.decision, 'NO_GO_REAL');
+  assert.equal(runPlan.cases.length, 7);
+  assert.equal(runPlan.coverage.length, 7);
+  assert.ok(runPlan.cases.every((item) => item.priority === 'P1' || item.priority === 'P2'));
+  assert.equal(runPlan.evidenceRules.missingEvidence, 'block');
+  assert.equal(runPlan.evidenceRules.realAcceptance, 'menschliche-abnahme');
+});
+
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');

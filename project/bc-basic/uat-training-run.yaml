@@ -1,0 +1,36 @@
+schemaVersion: 1
+runPlanId: UABC-UAT-RUN-BCB-001
+projectId: UABC-BC-BASIC-001
+classification: synthetic-only
+status: synthetisch-uat-bereit-real-blockiert
+realExecution: false
+goNoGo:
+  decision: NO_GO_REAL
+  blockingConditions: [fehlende-menschliche-abnahme, ungeklaerte-p1-p2-befunde, fehlende-evidence, fehlende-ruecksetzbarkeit]
+  evidenceStatus: planung-ohne-ausfuehrungsnachweis
+triage:
+  severityOrder: [P1, P2, P3]
+  rules:
+    - P1 oder P2 offen: Go-No-Go bleibt NO_GO
+    - fehlende Evidence oder Ruecksetzpunkt: Fall abbrechen
+    - Retest erst nach dokumentierter Korrektur und neuer Evidence
+cases:
+  - { uatId: UABC-UAT-BCB-001, priority: P1, role: P-005, training: UABC-TRAIN-BCB-ADM, evidence: UABC-EV-UAT-001, abort: Ziel- oder Rollenbindung fehlt }
+  - { uatId: UABC-UAT-BCB-002, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-002, abort: Belegkette oder Ruecksetzung fehlt }
+  - { uatId: UABC-UAT-BCB-003, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-003, abort: Bestand oder Preise nicht abstimmbar }
+  - { uatId: UABC-UAT-BCB-004, priority: P1, role: P-019, training: UABC-TRAIN-BCB-WHS, evidence: UABC-EV-UAT-004, abort: Lagerort oder Bestandswert abweichend }
+  - { uatId: UABC-UAT-BCB-005, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-005, abort: Soll-Haben oder Nebenbuch nicht abgestimmt }
+  - { uatId: UABC-UAT-BCB-006, priority: P2, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-006, abort: Abschlussdifferenz ohne Befund }
+  - { uatId: UABC-UAT-BCB-007, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-007, abort: UStVA-Vorschau oder Nichtuebermittlung nicht nachweisbar }
+coverage:
+  - { requirement: UABC-REQ-BCB-001, jira: UABC-27, uat: UABC-UAT-BCB-001, training: UABC-TRAIN-BCB-ADM, evidence: UABC-EV-UAT-001 }
+  - { requirement: UABC-REQ-BCB-003, jira: UABC-30, uat: UABC-UAT-BCB-002, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-002 }
+  - { requirement: UABC-REQ-BCB-003, jira: UABC-31, uat: UABC-UAT-BCB-003, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-003 }
+  - { requirement: UABC-REQ-BCB-003, jira: UABC-32, uat: UABC-UAT-BCB-004, training: UABC-TRAIN-BCB-WHS, evidence: UABC-EV-UAT-004 }
+  - { requirement: UABC-REQ-BCB-004, jira: UABC-28, uat: UABC-UAT-BCB-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-005 }
+  - { requirement: UABC-REQ-BCB-009, jira: UABC-36, uat: UABC-UAT-BCB-006, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-006 }
+  - { requirement: UABC-REQ-BCB-009, jira: UABC-37, uat: UABC-UAT-BCB-007, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-007 }
+evidenceRules:
+  requiredPerCase: [startState, steps, result, screenshotRef, resultRef, defectRef, resetRef]
+  missingEvidence: block
+  realAcceptance: menschliche-abnahme
