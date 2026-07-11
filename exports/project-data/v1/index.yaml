@@ -77,4 +77,5 @@ artifacts:
   - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.1.0-alpha.1.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE3-001, kindId: phase-3-cash-inventory-close, path: evidence/simulation/phase-3-cash-inventory-close.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE2-SIM-001, kindId: phase-2-p2p-o2c-simulation, path: evidence/simulation/phase-2-p2p-o2c.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-COMPLETION-001, kindId: synthetic-project-completion, path: evidence/simulation/project-completion.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-BANKSIM-001, kindId: synthetic-bank-statement, path: evidence/simulation/synthetic-bank-statement.csv, format: csv, required: true }

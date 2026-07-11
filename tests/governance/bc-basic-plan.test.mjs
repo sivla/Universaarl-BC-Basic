@@ -167,7 +167,7 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
     assert.ok(['planned', 'simulated-complete'].includes(deliverable.status));
     assert.equal(deliverable.resultClaimed, false);
     if (deliverable.status === 'planned') assert.equal(deliverable.completionEvidence, null);
-    else assert.equal(deliverable.completionEvidence, 'evidence/simulation/phase-2-p2p-o2c.yaml');
+    else assert.ok(['evidence/simulation/phase-2-p2p-o2c.yaml', 'evidence/simulation/project-completion.yaml'].includes(deliverable.completionEvidence));
     assert.ok(deliverable.requiredSourcePaths?.length > 0, `${deliverable.id} benoetigt Quellpfade`);
     for (const sourcePath of deliverable.requiredSourcePaths) {
       assert.equal(await exists(sourcePath), true, `${deliverable.id}: Quellpfad fehlt: ${sourcePath}`);
