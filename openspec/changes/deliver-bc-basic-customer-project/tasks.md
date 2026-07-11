@@ -32,5 +32,5 @@ Diese Kontrollhandlungen erzeugen keine zusaetzlichen abrechenbaren Stunden, kei
 
 - [ ] 4.1 Genehmigte Jira-Istzeiten der Arbeitspakete `UABC-22` bis `UABC-38` woechentlich pruefen und mit 162,50 EUR netto je Stunde abrechnen; Schaetzungen, Elternsummen und nicht entschiedene Budgetlimits nicht fakturieren.
 - [ ] 4.2 Innerhalb von `UABC-34`, `UABC-36`, `UABC-37` und `UABC-38` alle geplanten Verifikationen ausfuehren und fachliche Freigaben von technischen Nachweisen trennen.
-- [ ] 4.3 Innerhalb von `UABC-38` den Projektindex aus den Quellartefakten validieren; der Twin bleibt nur lesender Konsument.
+- [ ] 4.3 Innerhalb von `UABC-38` den Projektindex und die Konsumentenbindung aus den Quellartefakten validieren; der Twin bleibt ausschliesslich lesender Konsument. Eine Bereitstellung setzt eine separat nachgewiesene Twin-Identitaet sowie einen validierten, versionierten Snapshot voraus.
 - [ ] 4.4 Innerhalb von `UABC-38` erst nach vollstaendigem Abschlusspruefpunkt die Aenderung zur Archivierung und den Projektstatus zur Abnahme vorlegen.

@@ -63,4 +63,5 @@ artifacts:
   - { id: UABC-SRC-BCB-CONS-001, kindId: consultant-handbook, path: docs/runbooks/business-central-basic.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-PW-001, kindId: playwright-scenario-catalog, path: playwright/scenarios/bc-basic-e2e.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-CONSUMER-001, kindId: consumer-binding, path: governance/consumer-bindings.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }

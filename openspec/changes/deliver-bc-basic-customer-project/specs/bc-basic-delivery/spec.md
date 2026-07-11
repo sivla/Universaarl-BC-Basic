@@ -98,9 +98,14 @@ Confluence MUST einen navigierbaren Seitenbaum fuer Projekt, drei Phasen, Bespre
 - **THEN** erreicht er die kanonische Blueprint-Quelle ohne widerspruechliche Kopie oder unmarkierte Simulation
 
 ### Requirement: UABC-REQ-BCB-011 Nur lesbarer Twin-Verbrauchervertrag
-Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber `exports/project-data/v1/index.yaml` aus der Blueprint-Projektablage aufloesen. Der Index MUST nur stabile IDs, Schemainformation, positivgelistete relative Quellpfade und verbindliche Selektoren fuer gemeinsam genutzte Dateien enthalten. Verweise innerhalb einer Quelle duerfen keinen weiteren Lesezugriff autorisieren. Der Twin MUST keine fachlichen Projektdaten speichern, erzeugen oder veraendern; fehlende Quellwerte MUST leer bleiben.
+Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber einen validierten, versionierten Snapshot von `exports/project-data/v1/index.yaml` aus der Blueprint-Projektablage aufloesen. Der Index und die Konsumentenbindung `governance/consumer-bindings.yaml` MUST diesem aktiven Change zugeordnet und bis zur Validierung und Versionierung als `proposed` ausgewiesen sein. Der Index MUST nur stabile IDs, Schemainformation, positivgelistete repository-relative Quellpfade und verbindliche Selektoren fuer gemeinsam genutzte Dateien enthalten. Verweise innerhalb einer Quelle duerfen keinen weiteren Lesezugriff autorisieren. Eine Kandidaten-Repository- oder -Branchangabe ist ohne lokalen Autorisierungsnachweis nicht wirksam und MUST den Konsum fail-closed blockieren. Der Twin MUST keine fachlichen Projektdaten speichern, erzeugen oder veraendern und niemals in die Blueprint-Projektablage zurueckschreiben; fehlende Quellwerte MUST leer bleiben.
 
 #### Scenario: UABC-SCN-BCB-014 Twin liest Blueprint-Quellen
-- **GIVEN** ein versionierter Blueprint-Stand und sein Projektindex
+- **GIVEN** ein validierter, versionierter Blueprint-Snapshot, sein Projektindex und eine nachgewiesene Twin-Identitaet
 - **WHEN** der Twin Projekt, Arbeit, Besprechungen, Plan, Schulung, Handbuecher, Budget oder Nachweise darstellt
 - **THEN** stammt jeder Wert aus einem positivgelisteten Blueprint-Pfad und fehlende Daten bleiben leer statt erfunden oder aus einer zweiten Quelle ergaenzt zu werden
+
+#### Scenario: UABC-SCN-BCB-015 Fehlende Vertragsnachweise blockieren die Bereitstellung
+- **GIVEN** BCProjectOS-Release-Tag, zugehoerige Commit-SHA, Digest, Consumer-Autorisierung, saubere Snapshot-Quell-Commit-SHA oder erfolgreiche Validierung fehlen oder widersprechen einander
+- **WHEN** der Projektindex als Snapshot bereitgestellt oder vom Project Twin gelesen werden soll
+- **THEN** bleiben Snapshot-Bereitstellung und Konsum blockiert, ohne Version, Freigabe, Autorisierung oder Erfolg abzuleiten

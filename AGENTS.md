@@ -2,6 +2,51 @@
 
 Dieses Projekt erstellt Arbeit lokal, prueft sie reproduzierbar und uebergibt sie als Commit an das **Universaarl Kontrollzentrum** unter `C:\Users\kkali\Documents\Universaarl ai`. Projektagenten pushen niemals selbst; ausschliesslich das Kontrollzentrum veroeffentlicht ueber seinen zentralen Push-Pruefpunkt.
 
+## Universaarl-Gesamtarchitektur
+
+Die gemeinsame Architektur trennt Produktvertrag, Kundeninstanz, Pruefung und Visualisierung eindeutig:
+
+- **BCProjectOS** ist der wiederverwendbare, kundenunabhaengige Produktvertrag. Es definiert generische Schemas, IDs, Relationen, Statusmodelle, Ticketstrukturen, Generatoren, Validatoren und allgemeines Business-Central-Wissen. Ungefiltertes Kundenwissen, Kundendaten, Kunden-Evidence und konkrete Universaarl-Projektentscheidungen gehoeren nicht dorthin. Eine Bindung an BCProjectOS ist ausschliesslich ueber einen echten, unveraenderlichen Release-Tag mit zugehoerigem Commit und Digest zulaessig; ohne echten Release lautet der Status ehrlich `PENDING_BCPROJECTOS_RELEASE`.
+- **Universaarl-Kundeninstanz / BC Basic** ist die fachliche Source of Truth fuer das konkrete Universaarl-Projekt.
+- **Universaarl Kontrollzentrum** steht ausserhalb der fachlichen Datenkette. Es prueft Versionsbindung, Integritaet, Projektzustand, Snapshot-Vertrag und Veroeffentlichungsreife, ist aber weder Kundeninstanz noch fachliche Source of Truth und installiert BCProjectOS nicht in Zielprojekten.
+- **Universaarl Project Twin** ist eine ausschliesslich lesende Visualisierung. Es liest nur einen validierten, versionierten Snapshot aus der Kundeninstanz, niemals ungepruefte Arbeitsstaende, schreibt niemals zurueck und hat keine direkte fachliche Abhaengigkeit von BCProjectOS.
+
+Der fachliche Datenfluss lautet: **BCProjectOS -> versionierter Produktvertrag -> Universaarl-Kundeninstanz -> validierter Snapshot -> Project Twin**. Das Kontrollzentrum prueft diese Kette von ausserhalb. Absolute lokale Pfade duerfen nicht als dauerhafte fachliche oder technische Laufzeitbindung gespeichert werden. Wiederverwendbare Erkenntnisse fliessen nur anonymisiert, fachlich geprueft und zunaechst als nicht uebernommene `blueprint-candidates` nach BCProjectOS zurueck.
+
+## Rollenspezifisch: Universaarl-Kundeninstanz / BC Basic
+
+Dieses Projekt ist die konkrete Universaarl-Kundeninstanz und damit die fachliche Source of Truth. Ausschliesslich hier liegen Unternehmenswissen, Prozesse, Anforderungen, Epics, Stories, Tasks, Meetings, Tests, UAT, Evidence, kundenspezifische Abweichungen und die konkrete Umsetzung. Bestehende fachliche IDs werden nur aufgrund einer ausdruecklichen Migrationsentscheidung geaendert. Diese Kundeninstanz darf einen BCProjectOS-Produktvertrag nur an einen echten Release-Tag samt Commit und Digest binden; ein Arbeitsstand wird weder als Release ausgegeben noch kopiert. Snapshots fuer Project Twin werden erst nach Validierung und Versionierung bereitgestellt; Project Twin erhaelt keinen Schreibzugriff auf diese Kundeninstanz.
+
+## Arbeitsort und Git-Grenzen
+
+- Schreibarbeit fuer dieses Projekt erfolgt ausschliesslich in `C:\Users\kkali\Documents\Universaarl Projekt BC Basic` auf `codex/universaarl-projekt`. Diese Pfadnennung beschreibt nur die aktuelle lokale Arbeitsraumzuordnung und ist keine Laufzeitbindung.
+- Keine zusaetzlichen Arbeits-Worktrees, Ausweichordner, technischen Nebencheckouts oder temporaeren Schreibkopien fuer Universaarl- oder FiBu-Arbeit anlegen. Bereinigte commitgebundene Pruefkopien bleiben reine Wegwerf-Pruefquellen und werden nie bearbeitet.
+- Vor Beginn jeder Aenderung tatsaechlichen Projektpfad, Zweig, volle HEAD-SHA und `git status --short` pruefen. Lesende Git-Abfragen verwenden `GIT_OPTIONAL_LOCKS=0`.
+- Bereits vorhandene lokale oder fremde Aenderungen bleiben erhalten. Sie werden weder zurueckgesetzt noch ungeprueft gestaged, umsortiert oder in den eigenen Versionsstand aufgenommen.
+
+## OpenSpec ist verbindlich
+
+- Koordinierte Vorhaben, neue oder geaenderte Vertraege, Schemas, Sicherheitsregeln, Snapshot-Schnittstellen, Publish-Gates und projektuebergreifende Arbeit beginnen als OpenSpec-Aenderung.
+- Es darf hoechstens eine nicht archivierte Aenderung unter `openspec/changes/` aktiv sein. Bestehen mehrere aktive Aenderungen, wird keine weitere begonnen; zuerst werden sie fachlich geordnet, abgeschlossen oder nach ausdruecklicher Entscheidung archiviert.
+- `proposal.md`, die betroffenen Spezifikationen, bei Bedarf `design.md` und eine eindeutige `tasks.md` werden vor der Umsetzung konsistent angelegt beziehungsweise aktualisiert. OpenSpec erweitert keine Benutzerfreigabe und keinen Projektscope.
+- Aufgaben werden erst als erledigt markiert, wenn Umsetzung und geforderter Nachweis tatsaechlich vorliegen. Nicht ausgefuehrt, unbekannt, nur geplant oder lediglich lokal beobachtet gilt nicht als bestanden.
+- Archivierung erfolgt erst, wenn alle Aufgaben und Aenderungs-Gates erfuellt sind und eine erforderliche menschliche Freigabe tatsaechlich vorliegt. Freigaben werden niemals erfunden.
+
+## BCProjectOS-Bindung und Snapshot-Ausgabe
+
+- **Aktueller Koordinationsstatus:** BCProjectOS ist in den Projekt-Chats keinem autorisierten entfernten Repository und keinem Remote-Branch zugeordnet. Der Blueprint-Agent richtet deshalb weder Remote noch Branch, Upstream, Tag oder Release fuer BCProjectOS ein und leitet daraus keine Bindung ab. Die erstmalige Zuordnung gehoert ausschliesslich in einen ausdruecklich beauftragten BCProjectOS-Projekt-Chat.
+- Eine spaetere Remote-/Branch-Zuordnung allein ist noch kein BCProjectOS-Release und hebt `PENDING_BCPROJECTOS_RELEASE` nicht auf.
+- Eine BCProjectOS-Bindung benoetigt einen echten unveraenderlichen Release-Tag, die vollstaendige zugehoerige Commit-SHA und einen reproduzierbaren Digest. Ein beliebiger Branch, lokaler Arbeitsstand oder nicht nachgewiesener Tag ist kein Release.
+- Fehlt einer dieser Nachweise oder stimmt er nicht, bleibt der Status `PENDING_BCPROJECTOS_RELEASE`. Dieser Zustand blockiert Gruen, Snapshot-Freigabe und Veroeffentlichungsreife; Version, Release und Digest duerfen nicht abgeleitet oder erfunden werden.
+- Der Bindungsbeleg gehoert versioniert in diese Kundeninstanz. BCProjectOS wird nicht als ungepruefter Arbeitsbaum kopiert oder installiert; bestehende Kundeninhalte und fachliche IDs bleiben ohne ausdrueckliche Migrationsentscheidung unveraendert.
+- Nur diese Kundeninstanz darf den Project-Twin-Snapshot erzeugen. Ein freigegebener Snapshot ist an eine saubere, vollstaendige Quell-Commit-SHA gebunden und nennt mindestens Schema-Version, Projekt-ID, Quell-Commit, BCProjectOS-Bindung, Digest, Validierungsstatus sowie die positivgelisteten relativen Artefaktpfade und Selektoren.
+- Ein Snapshot enthaelt keine Geheimnisse, realen `.env*`, Authentifizierungszustaende oder ungepruefte Laufzeitartefakte. Unversionierte oder unsaubere Arbeitskopien sind keine Snapshot-Quelle.
+- Die Identitaet und Leseberechtigung eines Consumers wird ausdruecklich versioniert und validiert. Project Twin liest nur; diese Kundeninstanz liest keine Twin-Fachdaten und akzeptiert keinen Rueckschreibpfad.
+
+## Uebergabe an das Kontrollzentrum
+
+Jede Uebergabe nennt mindestens `projectId=blueprint`, den kanonischen Zweig, die vollstaendige Commit-SHA, ausgefuehrte Pruefungen, den commitgebundenen Deutsch-Nachweis, den OpenSpec-Stand, den BCProjectOS-/Snapshot-Status, einen sauberen Arbeitsbaum sowie `REVIEW.md in Arbeitskopie: leer` und `REVIEW.md in HEAD: leer`. Ein offenes Commit-, Freigabe- oder Publish-Gate bleibt offen ausgewiesen.
+
 ## Projekt-Agenten duerfen
 
 - den Blueprint im vereinbarten Umfang bearbeiten;

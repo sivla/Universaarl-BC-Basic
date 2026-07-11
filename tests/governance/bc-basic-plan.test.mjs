@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { validateConsumerBindings } from '../../scripts/lib/validate-consumer-bindings.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -32,7 +33,7 @@ async function csv(relativePath) {
   return { headers, rows };
 }
 
-const [plan, billing, issueDocument, deliverableRegister, dataPackage, dataReadiness, uatCatalog, trainingPlan, meetingIndex, projectIndex, scenarioCatalog, verificationRegister] = await Promise.all([
+const [plan, billing, issueDocument, deliverableRegister, dataPackage, dataReadiness, uatCatalog, trainingPlan, meetingIndex, projectIndex, consumerBindings, scenarioCatalog, verificationRegister] = await Promise.all([
   yaml('project/bc-basic/project-plan.yaml'),
   yaml('project/bc-basic/billing.yaml'),
   yaml('atlassian/jira/issues/bc-basic-project.yaml'),
@@ -43,6 +44,7 @@ const [plan, billing, issueDocument, deliverableRegister, dataPackage, dataReadi
   yaml('project/bc-basic/training-plan.yaml'),
   yaml('atlassian/confluence/meetings/index.yaml'),
   yaml('exports/project-data/v1/index.yaml'),
+  yaml('governance/consumer-bindings.yaml'),
   yaml('playwright/scenarios/bc-basic-e2e.yaml'),
   yaml('evidence/verification-register.yaml')
 ]);
@@ -368,6 +370,81 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
     assert.equal(forbiddenBroadPaths.has(artifact.path), false, `${artifact.id}: projektuebergreifende Quelle ist nicht zulaessig`);
     if (requiredSelectors.has(artifact.path)) assert.equal(artifact.selector, requiredSelectors.get(artifact.path), `${artifact.id}: verbindlicher Selektor fehlt oder weicht ab`);
     assert.equal(await exists(artifact.path), true, `${artifact.id}: positivgelisteter Pfad fehlt: ${artifact.path}`);
+  }
+});
+
+test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
+  assert.equal(consumerBindings.schemaVersion, 1);
+  assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
+  assert.equal(consumerBindings.lifecycleStatus, 'proposed');
+  assert.deepEqual(consumerBindings.producer, {
+    projectId: 'UABC-BC-BASIC-001',
+    contractId: 'UABC-PROJECT-DATA-V1',
+    contractPath: 'exports/project-data/v1/index.yaml'
+  });
+  assert.deepEqual(consumerBindings.bcProjectOsBinding, {
+    status: 'PENDING_BCPROJECTOS_RELEASE',
+    releaseTag: null,
+    commitSha: null,
+    digest: null,
+    reason: 'Kein echter unveraenderlicher BCProjectOS-Release-Tag mit nachgewiesenem Digest liegt in dieser Projektablage vor.'
+  });
+  assert.equal(consumerBindings.consumers?.length, 1);
+  const [twin] = consumerBindings.consumers;
+  assert.equal(twin.consumerId, 'project-twin');
+  assert.equal(twin.displayName, 'Universaarl Project Twin');
+  assert.equal(twin.routeKey, 'bc-basic');
+  assert.equal(twin.access, 'nur-lesend');
+  assert.deepEqual(twin.identity, {
+    status: 'pending-authorization',
+    reason: 'Die lokale Projektablage belegt weder die Autorisierung noch die Existenz des benannten Zielbranch als Universaarl Project Twin.',
+    candidateRepository: {
+      url: 'https://github.com/sivla/FiBu.git',
+      branch: 'codex/universaarl-projekt-twin'
+    }
+  });
+  assert.deepEqual(twin.snapshotContract, {
+    path: 'exports/project-data/v1/index.yaml',
+    pathSemantics: 'repository-relative',
+    lifecycleStatus: 'proposed',
+    sourceCommitSha: null,
+    digest: null,
+    validationStatus: 'blocked',
+    accessRule: 'Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.',
+    availability: 'blockiert-bcprojectos-bindung-validierung-und-versionierung-ausstehend'
+  });
+  assert.deepEqual(twin.dependency, {
+    direction: 'consumer-to-producer',
+    blueprintReadsConsumer: false,
+    consumerWritesProducer: false
+  });
+
+  const serializedBinding = JSON.stringify(consumerBindings);
+  assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), false, 'Konsumentenbindung darf keine vollstaendige Commit-SHA enthalten');
+  assert.equal(consumerBindings.bcProjectOsBinding.commitSha, null, 'Ohne echten BCProjectOS-Release muss die Commit-SHA leer bleiben');
+  assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
+  assert.equal(projectIndex.artifacts.some(({ id, kindId, path: sourcePath }) => id === 'UABC-SRC-BCB-CONSUMER-001' && kindId === 'consumer-binding' && sourcePath === 'governance/consumer-bindings.yaml'), true, 'Der Consumer-Vertrag muss positivgelistet und repository-relativ referenziert sein');
+  assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => /(?:universaarl-project-twin|<twin_root>|^\.\.[\\/])/i.test(sourcePath)), false, 'Twin-Pfade duerfen nicht als Blueprint-Projektdatenquelle positivgelistet werden');
+  assert.equal(twin.dependency.blueprintReadsConsumer, false);
+  assert.equal(twin.dependency.consumerWritesProducer, false);
+});
+
+test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot-Nachweise fail-closed', () => {
+  assert.deepEqual(validateConsumerBindings(consumerBindings, projectIndex), []);
+  const mutationCases = [
+    ['BCProjectOS ohne Nachweise freigegeben', (value) => { value.bcProjectOsBinding.status = 'released'; }],
+    ['BCProjectOS-Commit ohne Release behauptet', (value) => { value.bcProjectOsBinding.commitSha = 'a'.repeat(40); }],
+    ['Consumer ohne Nachweis autorisiert', (value) => { value.consumers[0].identity.status = 'authorized'; }],
+    ['Consumer erhaelt Schreibzugriff', (value) => { value.consumers[0].access = 'schreibend'; }],
+    ['Snapshot ohne Nachweise freigegeben', (value) => { value.consumers[0].snapshotContract.validationStatus = 'passed'; }],
+    ['Snapshot nutzt absoluten Pfad', (value) => { value.consumers[0].snapshotContract.path = 'C:\\temp\\snapshot.yaml'; }],
+    ['Consumer schreibt zurueck', (value) => { value.consumers[0].dependency.consumerWritesProducer = true; }],
+    ['Zweiter Consumer wird eingeschleust', (value) => { value.consumers.push(structuredClone(value.consumers[0])); }]
+  ];
+  for (const [label, mutate] of mutationCases) {
+    const candidate = structuredClone(consumerBindings);
+    mutate(candidate);
+    assert.notDeepEqual(validateConsumerBindings(candidate, projectIndex), [], `${label}: Manipulation muss scheitern`);
   }
 });
 

@@ -1,0 +1,37 @@
+schemaVersion: 1
+governingChange: deliver-bc-basic-customer-project
+lifecycleStatus: proposed
+producer:
+  projectId: UABC-BC-BASIC-001
+  contractId: UABC-PROJECT-DATA-V1
+  contractPath: exports/project-data/v1/index.yaml
+bcProjectOsBinding:
+  status: PENDING_BCPROJECTOS_RELEASE
+  releaseTag: null
+  commitSha: null
+  digest: null
+  reason: Kein echter unveraenderlicher BCProjectOS-Release-Tag mit nachgewiesenem Digest liegt in dieser Projektablage vor.
+consumers:
+  - consumerId: project-twin
+    displayName: Universaarl Project Twin
+    routeKey: bc-basic
+    access: nur-lesend
+    identity:
+      status: pending-authorization
+      reason: Die lokale Projektablage belegt weder die Autorisierung noch die Existenz des benannten Zielbranch als Universaarl Project Twin.
+      candidateRepository:
+        url: https://github.com/sivla/FiBu.git
+        branch: codex/universaarl-projekt-twin
+    snapshotContract:
+      path: exports/project-data/v1/index.yaml
+      pathSemantics: repository-relative
+      lifecycleStatus: proposed
+      sourceCommitSha: null
+      digest: null
+      validationStatus: blocked
+      accessRule: Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.
+      availability: blockiert-bcprojectos-bindung-validierung-und-versionierung-ausstehend
+    dependency:
+      direction: consumer-to-producer
+      blueprintReadsConsumer: false
+      consumerWritesProducer: false

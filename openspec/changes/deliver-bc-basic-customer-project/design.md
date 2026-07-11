@@ -18,7 +18,7 @@
 
 ### Eine Quelle, zwei Sichten
 
-OpenSpec fuehrt Anforderungen und Pruefpunkte. Jira fuehrt Arbeit, Aufwand und abrechenbare Istzeit. Confluence fuehrt erklaerenden Projektkontext, Besprechungen und Entscheidungen. Strukturierte Projektartefakte fuehren Plan, Datenpaket, Schulung und Abrechnung. `exports/project-data/v1/index.yaml` enthaelt nur stabile IDs, relative Pfade und verbindliche Selektoren fuer gemeinsam genutzte Quellen. Der Projekt-Twin liest ausschliesslich diesen Index, folgt keinen nicht positivgelisteten Verweisen und bleibt ohne eigene Projektdaten oder Schreibfunktion.
+OpenSpec fuehrt Anforderungen und Pruefpunkte. Jira fuehrt Arbeit, Aufwand und abrechenbare Istzeit. Confluence fuehrt erklaerenden Projektkontext, Besprechungen und Entscheidungen. Strukturierte Projektartefakte fuehren Plan, Datenpaket, Schulung und Abrechnung. `exports/project-data/v1/index.yaml` ist in diesem aktiven Change `proposed` und enthaelt nur stabile IDs, repository-relative Pfade und verbindliche Selektoren fuer gemeinsam genutzte Quellen. Ausschliesslich ein spaeter validierter und versionierter Snapshot darf vom Projekt-Twin gelesen werden; er folgt keinen nicht positivgelisteten Verweisen, bleibt ohne eigene Projektdaten und schreibt niemals zurueck. Die Kandidaten-URL und der Kandidatenbranch des Twin sind ohne lokalen Autorisierungsnachweis nicht als Identitaetsbindung wirksam.
 
 ### Liefermodell
 
@@ -53,7 +53,7 @@ Jedes spaetere Playwright-Szenario bindet Umgebung, Gesellschaft, Rolle, Arbeits
 - `UABC-DEC-BCB-004`: 68 Planstunden als Kalkulationsbasis; kein verbindliches Budgetlimit ist entschieden.
 - `UABC-DEC-BCB-005`: Woechentliche Rechnung nur aus freigegebenen, abrechenbaren Jira-Istzeiten auf unterster Ticketebene zu 162,50 EUR netto pro Stunde; Schaetzungen und Elternsummen sind nicht abrechenbar.
 - `UABC-DEC-BCB-006`: UStVA nur als Vorschau ohne Uebermittlung; Steuerfreigabe ist extern.
-- `UABC-DEC-BCB-007`: Der Twin ist ein rein lesender Renderer des versionierten Blueprint-Projektindex.
+- `UABC-DEC-BCB-007`: Der Twin ist ausschliesslich ein lesender Konsument eines spaeter validierten, versionierten Snapshotvertrags; der aktuelle Projektindex und die Konsumentenbindung bleiben `proposed`.
 
 ## Alternativen
 

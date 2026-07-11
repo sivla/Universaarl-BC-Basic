@@ -16,5 +16,5 @@ Diese Seite navigiert zum freigegebenen Walkthrough-Piloten. Normativ sind die M
 - Einsteigerbezug: `docs/guides/beginner/playthru-environment-baseline.md`
 - Beraterbezug: `docs/runbooks/playthru-environment-baseline.md`
 - Konsumentenvertrag: `exports/project-artifacts/v0.1/index.yaml`
-- Ziel-Repository `C:\Users\kkali\Universaarl-Project-Twin` bleibt in diesem Change unveraendert.
+- Die Konsumentenbindung des BC-Basic-Projektindex gehoert ausschliesslich zum aktiven Change `deliver-bc-basic-customer-project`. Sie bleibt `proposed`, nicht bereitgestellt und erteilt weder diesem archivierten Walkthrough-Piloten noch dem Projekt-Twin einen Schreibzugriff.
 - Buildstatus: reproduzierbar und technisch geprueft; das autorisierte automatische Policy-Gate ist change-spezifisch bestanden. Das Paket selbst bleibt nicht-evidenzgebend.

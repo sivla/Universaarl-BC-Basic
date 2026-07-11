@@ -28,4 +28,4 @@ OpenSpec ist als exakte Entwicklungsabhaengigkeit gepinnt. Direkte Aufrufe erfol
 
 ## Aktive OpenSpec-Aenderung
 
-Keine aktive OpenSpec-Aenderung. `establish-project-artifact-walkthrough-pilot` wurde nach bestandenem aenderungsspezifischem automatischem Regelpruefpunkt archiviert.
+Aktiv ist `deliver-bc-basic-customer-project`. Der Projektindex `exports/project-data/v1/index.yaml` und die zugehoerige Project-Twin-Konsumentenbindung sind `proposed`; sie sind weder versioniert noch freigegeben oder fuer Project Twin bereitgestellt. `establish-project-artifact-walkthrough-pilot` bleibt archivierte Historie.

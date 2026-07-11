@@ -22,7 +22,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 4. Ein synthetisches Datenpaket fuer genau eine Gesellschaft, Konfigurationspaket-Plan, minimale Stammdaten und rollenbezogener Trainingsplan.
 5. Gliederungen fuer ein Kundenhandbuch und ein Beratungshandbuch.
 6. Ein nicht ausgefuehrter Playwright-Szenariokatalog fuer Grundeinrichtung, Finanzwesen, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe, UStVA-Vorschau und begrenzten Zahlungstest.
-7. Ein versionierter, nur lesbarer Projektindex als einzige Einstiegskante fuer den Projekt-Twin; er verweist auf Blueprint-Quellen und dupliziert keine fachlichen Daten.
+7. Ein `proposed` Projektindex und eine zugehoerige, fail-closed Project-Twin-Konsumentenbindung als einzige geplante Einstiegskante. Erst ein spaeter validierter und versionierter Snapshot darf auf Blueprint-Quellen verweisen; bis dahin wird keine Twin-Bereitstellung behauptet und keine fachliche Wahrheit dupliziert.
 
 ## Umfang
 
@@ -55,7 +55,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 - **Steuerliche Fehlkonfiguration:** MwSt.-Buchungsgruppen, UStVA-Zuordnungen und Schluessel benoetigen fachliche Freigabe durch Finanzverantwortung und Steuerberatung.
 - **Unkontrollierter Sandbox-Schreibvorgang:** Jeder spaetere Schreibvorgang braucht eine projektspezifische Autorisierung, Zielbindung, Ruecksetzplan und begrenzten Playwright-Umfang.
 - **Scheinerfolg:** `Nicht ausgefuehrt`, fehlende Werte und Simulation gelten nie als bestanden, produktionsreif oder abgenommen.
-- **Twin-Drift:** Der Twin darf nur den positivgelisteten Projektindex lesen und keine eigenen Projektinhalte pflegen.
+- **Twin-Drift:** Der Twin darf ausschliesslich einen validierten, versionierten Snapshot des positivgelisteten Projektindex lesen, keine eigenen Projektinhalte pflegen und niemals in die Kundeninstanz zurueckschreiben. Die benannte Twin-Identitaet bleibt ohne lokalen Autorisierungsnachweis fail-closed offen.
 
 ## Freigabe
 

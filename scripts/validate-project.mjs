@@ -3,6 +3,7 @@ import path from 'node:path';
 import process from 'node:process';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { validateConsumerBindings } from './lib/validate-consumer-bindings.mjs';
 
 const root = process.cwd();
 const archiveReadyMode = process.argv.includes('--archive-ready');
@@ -786,6 +787,17 @@ check(/nur dort best(?:ae|ä)tigte Fakten/i.test(openSpecContext), 'openspec/con
 check(/unbekannte oder nur teilweise sichtbare Werte/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss unbekannte und nur teilweise sichtbare Baseline-Werte erhalten');
 const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
+const projectIndexPath = 'exports/project-data/v1/index.yaml';
+const consumerBindingsPath = 'governance/consumer-bindings.yaml';
+const bcBasicContractTargeted = openSpec.activeChanges.includes('deliver-bc-basic-customer-project')
+  || await exists(projectIndexPath);
+if (bcBasicContractTargeted) {
+  check(await exists(projectIndexPath), `${projectIndexPath}: BC-Basic-Projektindex fehlt`);
+  check(await exists(consumerBindingsPath), `${consumerBindingsPath}: BC-Basic-Konsumentenbindung fehlt`);
+  if (await exists(projectIndexPath) && await exists(consumerBindingsPath)) {
+    errors.push(...validateConsumerBindings(await yaml(consumerBindingsPath), await yaml(projectIndexPath)));
+  }
+}
 for (const verification of verificationMap.values()) {
   check(openSpec.activeChanges.includes(verification.changeRef) || openSpec.archivedChanges.has(verification.changeRef), `${verification.id}: changeRef ${verification.changeRef} ist weder aktiv noch archiviert`);
 }
