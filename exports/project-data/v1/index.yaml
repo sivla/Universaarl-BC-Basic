@@ -81,3 +81,4 @@ artifacts:
   - { id: UABC-SRC-BCB-BANKSIM-001, kindId: synthetic-bank-statement, path: evidence/simulation/synthetic-bank-statement.csv, format: csv, required: true }
   - { id: UABC-SRC-BCB-DEMO-001, kindId: synthetic-demo-guide, path: docs/runbooks/bc-basic-simulation-demo.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-DEMO-EVIDENCE-001, kindId: synthetic-demo-evidence, path: evidence/simulation/demo-readiness.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-AUDIT-001, kindId: synthetic-objective-audit, path: evidence/simulation/end-to-end-objective-audit.yaml, format: yaml, required: true }
