@@ -5,21 +5,22 @@ producer:
   projectId: UABC-BC-BASIC-001
   contractId: UABC-PROJECT-DATA-V1
   contractPath: exports/project-data/v1/index.yaml
-bcProjectOsBinding:
-  status: PENDING_BCPROJECTOS_RELEASE
-  productId: bcprojectos
+spectraReleaseBinding:
+  bindingStatus: PENDING_BCPROJECTOS_RELEASE
+  productId: spectra
+  technicalRepositoryName: BCProjectOS
   repositoryUrl: https://github.com/sivla/BCProjectOS.git
   releaseVersion: null
   releaseTag: null
-  tagType: null
   tagCommit: null
   manifestPath: null
   manifestSourceCommit: null
-  manifestStatus: null
-  productScopeStatus: null
+  consumerMode: null
+  installableBlueprint: null
+  digestAlgorithm: SHA-256
   payloadBundleDigest: null
   installationStatus: nicht-installiert
-  reason: Die BCProjectOS-Repository-Identitaet ist bekannt, aber ein annotierter Release-Tag mit extern aufgeloestem Commit, finalem Manifest und passendem Payload-Digest fehlt.
+  reason: Spectra ist im technischen BCProjectOS-Repository identifiziert, aber Release-, Manifest-, Commit- und Payloadnachweise fehlen.
 consumers:
   - consumerId: project-twin
     displayName: Universaarl Project Twin
@@ -40,8 +41,8 @@ consumers:
       sourceCommitSha: null
       consumerBindingDigest: null
       payloadBundleDigest: null
-      digestAlgorithm: sha256
-      canonicalization: utf8-json-sortierte-schluessel-lf
+      digestAlgorithm: SHA-256
+      canonicalization: uabc-snapshot-records-v1
       generationStages:
         - commitgebundene-payloadliste-und-digests
         - manifest-aus-validierter-payloadliste

@@ -50,7 +50,7 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['architecture/enterprise-blueprint.yaml\u001f$.sites[4].inventoryPurpose\u001fproject staging', 'gebundener-inventarzweck'],
   ['capabilities/catalog.yaml\u001f$.statusValues[4]\u001fout-of-scope', 'deklarierter-statuswert'],
   ['exports/project-artifacts/v0.1/index.yaml\u001f$.access\u001fread-only', 'gebundener-exportzugriff'],
-  ['governance/consumer-bindings.yaml\u001f$.bcProjectOsBinding.status\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-bcprojectos-release-status'],
+  ['governance/consumer-bindings.yaml\u001f$.spectraReleaseBinding.bindingStatus\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-spectra-release-status'],
   ['openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/.openspec.yaml\u001f$.approvalPolicy.authorizedBy\u001freal-repository-user', 'gebundene-freigabeidentitaet']
 ]);
 

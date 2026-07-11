@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { validateConsumerBindings } from '../../scripts/lib/validate-consumer-bindings.mjs';
-import { buildSnapshotManifest, validateManifestDigests, validateSnapshotManifest } from '../../scripts/lib/snapshot-contract.mjs';
+import { buildSnapshotManifest, hasSingleParent, parseGitTreeEntry, validateManifestDigests, validateSnapshotManifest } from '../../scripts/lib/snapshot-contract.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -383,21 +384,22 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     contractId: 'UABC-PROJECT-DATA-V1',
     contractPath: 'exports/project-data/v1/index.yaml'
   });
-  assert.deepEqual(consumerBindings.bcProjectOsBinding, {
-    status: 'PENDING_BCPROJECTOS_RELEASE',
-    productId: 'bcprojectos',
+  assert.deepEqual(consumerBindings.spectraReleaseBinding, {
+    bindingStatus: 'PENDING_BCPROJECTOS_RELEASE',
+    productId: 'spectra',
+    technicalRepositoryName: 'BCProjectOS',
     repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
     releaseVersion: null,
     releaseTag: null,
-    tagType: null,
     tagCommit: null,
     manifestPath: null,
     manifestSourceCommit: null,
-    manifestStatus: null,
-    productScopeStatus: null,
+    consumerMode: null,
+    installableBlueprint: null,
+    digestAlgorithm: 'SHA-256',
     payloadBundleDigest: null,
     installationStatus: 'nicht-installiert',
-    reason: 'Die BCProjectOS-Repository-Identitaet ist bekannt, aber ein annotierter Release-Tag mit extern aufgeloestem Commit, finalem Manifest und passendem Payload-Digest fehlt.'
+    reason: 'Spectra ist im technischen BCProjectOS-Repository identifiziert, aber Release-, Manifest-, Commit- und Payloadnachweise fehlen.'
   });
   assert.equal(consumerBindings.consumers?.length, 1);
   const [twin] = consumerBindings.consumers;
@@ -422,8 +424,8 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     sourceCommitSha: null,
     consumerBindingDigest: null,
     payloadBundleDigest: null,
-    digestAlgorithm: 'sha256',
-    canonicalization: 'utf8-json-sortierte-schluessel-lf',
+    digestAlgorithm: 'SHA-256',
+    canonicalization: 'uabc-snapshot-records-v1',
     generationStages: ['commitgebundene-payloadliste-und-digests', 'manifest-aus-validierter-payloadliste'],
     validationStatus: 'blocked',
     accessRule: 'Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.',
@@ -437,9 +439,10 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 
   const serializedBinding = JSON.stringify(consumerBindings);
   assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), false, 'Konsumentenbindung darf keine vollstaendige Commit-SHA enthalten');
-  assert.equal(consumerBindings.bcProjectOsBinding.tagCommit, null, 'Ohne echten BCProjectOS-Release muss der Tag-Commit leer bleiben');
+  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, null, 'Ohne echten Spectra-Release muss der Tag-Commit leer bleiben');
   assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
-  assert.equal(projectIndex.artifacts.some(({ id, kindId, path: sourcePath }) => id === 'UABC-SRC-BCB-CONSUMER-001' && kindId === 'consumer-binding' && sourcePath === 'governance/consumer-bindings.yaml'), true, 'Der Consumer-Vertrag muss positivgelistet und repository-relativ referenziert sein');
+  assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => sourcePath === 'governance/consumer-bindings.yaml'), false, 'Die interne Consumerbindung darf nicht als Twin-Payload positivgelistet sein');
+  assert.equal(projectIndex.artifacts.some(({ kindId, format, path: sourcePath }) => kindId === 'snapshot-manifest-schema' && format === 'json-schema' && sourcePath.endsWith('.json')), true, 'Das Snapshot-Schema muss als json-schema unter .json positivgelistet sein');
   assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => /(?:universaarl-project-twin|<twin_root>|^\.\.[\\/])/i.test(sourcePath)), false, 'Twin-Pfade duerfen nicht als Blueprint-Projektdatenquelle positivgelistet werden');
   assert.equal(twin.dependency.blueprintReadsConsumer, false);
   assert.equal(twin.dependency.consumerWritesProducer, false);
@@ -448,9 +451,10 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot-Nachweise fail-closed', () => {
   assert.deepEqual(validateConsumerBindings(consumerBindings, projectIndex), []);
   const mutationCases = [
-    ['BCProjectOS ohne Nachweise gebunden', (value) => { value.bcProjectOsBinding.status = 'BOUND_BCPROJECTOS_RELEASE'; }],
-    ['BCProjectOS-Tag-Commit ohne Release behauptet', (value) => { value.bcProjectOsBinding.tagCommit = 'a'.repeat(40); }],
-    ['falsche BCProjectOS-Repository-Identitaet', (value) => { value.bcProjectOsBinding.repositoryUrl = 'https://github.com/sivla/falsch.git'; }],
+    ['Spectra ohne Nachweise gebunden', (value) => { value.spectraReleaseBinding.bindingStatus = 'BOUND'; }],
+    ['Spectra-Tag-Commit ohne Release behauptet', (value) => { value.spectraReleaseBinding.tagCommit = 'a'.repeat(40); }],
+    ['falsche BCProjectOS-Repository-Identitaet', (value) => { value.spectraReleaseBinding.repositoryUrl = 'https://github.com/sivla/falsch.git'; }],
+    ['falsche Spectra-Produktidentitaet', (value) => { value.spectraReleaseBinding.productId = 'bcprojectos'; }],
     ['falsche Twin-Repository-Identitaet', (value) => { value.consumers[0].identity.repository.url = 'https://github.com/sivla/falsch.git'; }],
     ['falscher Twin-Branch', (value) => { value.consumers[0].identity.repository.branch = 'main'; }],
     ['Consumer erhaelt Schreibzugriff', (value) => { value.consumers[0].access = 'schreibend'; }],
@@ -468,40 +472,68 @@ test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot
   }
 });
 
-test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistente Nachweise', async () => {
-  assert.throws(
-    () => buildSnapshotManifest({ binding: consumerBindings, projectIndex, sourceCommitSha: 'd'.repeat(40), readBlob: () => Buffer.from('nicht verwendet') }),
-    /BCProjectOS ist nicht an einen nachgewiesenen Release gebunden/,
-    'PENDING muss den Generator vor jeder Manifestbildung blockieren'
-  );
-  const bound = structuredClone(consumerBindings);
-  Object.assign(bound.bcProjectOsBinding, {
-    status: 'BOUND_BCPROJECTOS_RELEASE',
+test('Snapshotvalidator bindet B und blockiert Dirty-Worktree-Nachweise', () => {
+  const validatorSource = readFileSync(path.join(root, 'scripts', 'validate-snapshot-contract.mjs'), 'utf8');
+  assert.match(validatorSource, /status', '--porcelain/);
+  assert.match(validatorSource, /git\(\['show'/);
+  assert.match(validatorSource, /git\(\['cat-file'/);
+  assert.doesNotMatch(validatorSource, /fs\.readFile|fs\.access/);
+  assert.match(validatorSource, /rev-list', '--parents', '-n', '1'/);
+  assert.match(validatorSource, /parseGitTreeEntry/);
+});
+
+test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistente Nachweise', () => {
+  const gebunden = structuredClone(consumerBindings);
+  Object.assign(gebunden.spectraReleaseBinding, {
+    bindingStatus: 'BOUND',
+    technicalRepositoryName: 'BCProjectOS',
+    productId: 'spectra',
+    repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
     releaseVersion: '1.0.0',
-    releaseTag: 'v1.0.0',
-    tagType: 'annotated',
+    releaseTag: 'spectra-v1.0.0',
     tagCommit: 'a'.repeat(40),
     manifestPath: 'release/install-manifest.json',
     manifestSourceCommit: 'b'.repeat(40),
-    manifestStatus: 'final-installierbar',
-    productScopeStatus: 'unveraendert',
-    payloadBundleDigest: `sha256:${'c'.repeat(64)}`,
-    installationStatus: 'gebunden-nicht-installiert'
+    consumerMode: 'INSTALLABLE_BLUEPRINT',
+    installableBlueprint: true,
+    digestAlgorithm: 'SHA-256',
+    payloadBundleDigest: 'c'.repeat(64),
+    installationStatus: 'nicht-installiert'
   });
-  assert.deepEqual(validateConsumerBindings(bound, projectIndex), []);
-  const readBlob = (sourcePath) => Buffer.from(`blob:${sourcePath}\n`, 'utf8');
-  const manifest = buildSnapshotManifest({ binding: bound, projectIndex, sourceCommitSha: 'd'.repeat(40), readBlob });
-  const schema = JSON.parse(await fs.readFile(path.join(root, 'governance', 'schemas', 'project-snapshot-manifest.schema.json'), 'utf8'));
+  assert.deepEqual(validateConsumerBindings(gebunden, projectIndex), []);
+  const falscherTag = structuredClone(gebunden);
+  falscherTag.spectraReleaseBinding.releaseTag = 'v1.0.0';
+  assert.notDeepEqual(validateConsumerBindings(falscherTag, projectIndex), [], 'Ein Nicht-Spectra-Tag muss scheitern');
+  const readEntry = (sourcePath) => ({ bytes: Buffer.from(`blob:${sourcePath}\n`, 'utf8'), gitMode: '100644' });
+  const manifest = buildSnapshotManifest({ binding: gebunden, projectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
+  const schema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'project-snapshot-manifest.schema.json'), 'utf8'));
   assert.deepEqual(validateSnapshotManifest(manifest, schema), []);
-  assert.deepEqual(validateManifestDigests(manifest, readBlob), []);
-  assert.equal(manifest.sourceCommitSha, 'd'.repeat(40));
+  assert.deepEqual(validateManifestDigests(manifest, readEntry), []);
+  assert.equal(manifest.producerId, 'blueprint');
+  assert.equal(manifest.spectraReleaseBinding.productId, 'spectra');
+  assert.equal(manifest.spectraReleaseBinding.technicalRepositoryName, 'BCProjectOS');
+  assert.equal(manifest.payloadDigestFormat, 'uabc-snapshot-records-v1');
+  assert.equal(manifest.index.path, 'exports/project-data/v1/index.yaml');
+  assert.match(manifest.spectraReleaseBinding.payloadBundleDigest, /^[a-f0-9]{64}$/);
+  assert.match(manifest.payloadBundleDigest, /^sha256:[a-f0-9]{64}$/);
+  assert.notEqual(`sha256:${manifest.spectraReleaseBinding.payloadBundleDigest}`, manifest.payloadBundleDigest, 'Spectra-Release- und BC-Basic-Snapshotdigest muessen getrennte Domaenen bleiben');
+  const forbiddenPayload = structuredClone(manifest);
+  forbiddenPayload.payloads.push({ id: 'UABC-SRC-BCB-INTERNAL-001', path: 'governance/consumer-bindings.yaml', selector: null, gitMode: '100644', sizeBytes: 1, sha256: '0'.repeat(64) });
+  assert.notDeepEqual(validateSnapshotManifest(forbiddenPayload, schema), [], 'Manifest darf die interne Consumerbindung nicht als Twin-Payload anbieten');
+  assert.equal(manifest.producerCommitSha, 'd'.repeat(40));
   assert.equal(manifest.payloads.some(({ path: sourcePath }) => sourcePath === 'exports/project-data/v1/snapshot-manifest.json'), false, 'Manifest darf nicht Teil seiner eigenen Payload sein');
   const invalidFixtures = [
     ['falscher Payload-Digest', (value) => { value.payloadBundleDigest = `sha256:${'0'.repeat(63)}`; }],
-    ['falscher Quellcommit', (value) => { value.sourceCommitSha = 'kein-commit'; }],
+    ['falscher Quellcommit', (value) => { value.producerCommitSha = 'kein-commit'; }],
     ['absoluter Payloadpfad', (value) => { value.payloads[0].path = 'C:\\temp\\payload'; }],
     ['Rueckschreibzugriff', (value) => { value.consumer.access = 'schreibend'; }],
     ['falscher Twin-Branch', (value) => { value.consumer.branch = 'main'; }]
+    ,['nicht erlaubter Git-Modus', (value) => { value.payloads[0].gitMode = '100755'; }]
+    ,['Backslashpfad', (value) => { value.payloads[0].path = 'docs\\file.md'; }]
+    ,['Doppeltrennzeichenpfad', (value) => { value.payloads[0].path = 'docs//file.md'; }]
+    ,['URI-Pfad', (value) => { value.payloads[0].path = 'https://example.invalid/file'; }]
+    ,['Abschliessender Schraegstrich', (value) => { value.payloads[0].path = 'docs/file.md/'; }]
+    ,['Releaseversion-Tag-Mismatch', (value) => { value.spectraReleaseBinding.releaseTag = 'spectra-v2.0.0'; }]
   ];
   for (const [label, mutate] of invalidFixtures) {
     const candidate = structuredClone(manifest);
@@ -509,8 +541,14 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
     assert.notDeepEqual(validateSnapshotManifest(candidate, schema), [], `${label}: JSON-Manifestfixture muss scheitern`);
   }
   const wrongDigest = structuredClone(manifest);
-  wrongDigest.payloads[0].sha256 = `sha256:${'e'.repeat(64)}`;
-  assert.notDeepEqual(validateManifestDigests(wrongDigest, readBlob), [], 'Formal gueltiger aber falscher Payload-Digest muss scheitern');
+  wrongDigest.payloads[0].sha256 = 'e'.repeat(64);
+  assert.notDeepEqual(validateManifestDigests(wrongDigest, readEntry), [], 'Formal gueltiger aber falscher Payload-Digest muss scheitern');
+  assert.equal(hasSingleParent(`${'d'.repeat(40)} ${'a'.repeat(40)}`, 'a'.repeat(40)), true, 'Direkter Einzelparent A muss akzeptiert werden');
+  assert.equal(hasSingleParent(`${'d'.repeat(40)} ${'a'.repeat(40)} ${'b'.repeat(40)}`, 'a'.repeat(40)), false, 'Merge-B mit zwei Parent-SHAs muss scheitern');
+  assert.deepEqual(parseGitTreeEntry(`100644 blob ${'a'.repeat(40)} 3\tfile`, 'file'), { gitMode: '100644', sizeBytes: 3 });
+  assert.throws(() => parseGitTreeEntry(`100755 blob ${'a'.repeat(40)} 3\tfile`, 'file'), /kein exakter 100644-Blob/);
+  assert.throws(() => parseGitTreeEntry(`100644 blob ${'a'.repeat(40)} 3\tfile-extra`, 'file'), /kein exakter 100644-Blob/);
+  assert.throws(() => parseGitTreeEntry(`100644 blob ${'a'.repeat(40)} 3\tfile\n100644 blob ${'b'.repeat(40)} 2\tother`, 'file'), /nicht genau eine Zeile/);
 });
 
 test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', () => {

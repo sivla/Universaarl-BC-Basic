@@ -100,7 +100,7 @@ Confluence MUST einen navigierbaren Seitenbaum fuer Projekt, drei Phasen, Bespre
 ### Requirement: UABC-REQ-BCB-011 Nur lesbarer Twin-Verbrauchervertrag
 Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber das strikt schemavalidierte JSON-Manifest `exports/project-data/v1/snapshot-manifest.json` aufloesen. `exports/project-data/v1/index.yaml` MUST davon getrennt der repository-relative Daten- und Allowlistvertrag bleiben; `governance/consumer-bindings.yaml` MUST die interne Planungsquelle bleiben. Das JSON-Manifest MUST nur verifizierte Release-, Consumer-, Commit- und Digestwerte projizieren und darf weder YAML-Verarbeitung beim Consumer erfordern noch unverifizierte Wahrheit duplizieren. Der Twin unter `https://github.com/sivla/FiBu.git` auf `codex/universaarl-projekt-twin` ist ausschliesslich als Leser autorisiert; diese Identitaet MUST weder Snapshotfreigabe noch Rueckschreiben erlauben.
 
-Eine BCProjectOS-Bindung MUST bis zum gemeinsamen Nachweis von Produkt-ID, kanonischer Repository-URL, Release-Version, annotiertem Tag, extern aufgeloestem Tag-Commit, finalem installierbarem Manifest, gueltigem Manifest-Quellcommit, unveraendertem Produktumfang und passendem SHA-256-Payload-Digest `PENDING_BCPROJECTOS_RELEASE` bleiben. Erst der vollstaendige Zustand darf `BOUND_BCPROJECTOS_RELEASE` verwenden. PENDING/BOUND-Mischzustaende MUST fail-closed scheitern.
+Eine Spectra-Bindung im technischen BCProjectOS-Repository MUST bis zum gemeinsamen Nachweis von `productId: spectra`, kanonischer Repository-URL, Release-Version, annotiertem Tag im Muster `spectra-v<SemVer>`, extern aufgeloestem Tag-Commit, finalem installierbarem Manifest, gueltigem Manifest-Quellcommit, unveraendertem Produktumfang und passendem SHA-256-Payload-Digest `PENDING_BCPROJECTOS_RELEASE` bleiben. Erst der vollstaendige Zustand darf `BOUND_BCPROJECTOS_RELEASE` verwenden. PENDING/BOUND-Mischzustaende MUST fail-closed scheitern.
 
 Die Snapshoterzeugung MUST zweistufig und nicht selbstreferenziell erfolgen: Zuerst werden alle positivgelisteten Git-Blobs aus genau einer sauberen Quell-Commit-SHA nach ID sortiert und einzeln mit SHA-256 gebunden; danach wird aus dieser validierten Payloadliste ein JSON-Manifest nach `governance/schemas/project-snapshot-manifest.schema.json` erzeugt. Der Bundle-Digest MUST SHA-256 ueber kanonisches UTF-8-JSON mit rekursiv sortierten Objektschluesseln und LF-Abschluss sein. Das Manifest MUST weder sich selbst noch einen eigenen Manifestdigest enthalten.
 
@@ -118,3 +118,8 @@ Die Snapshoterzeugung MUST zweistufig und nicht selbstreferenziell erfolgen: Zue
 - **GIVEN** ein Consumer besitzt nur das JSON-Snapshotmanifest, das versionierte JSON Schema und lesenden Zugriff auf die referenzierte Quell-Commit-SHA
 - **WHEN** er Schema, Consumeridentitaet, sortierte Payloadliste, Einzel- und Bundle-Digests sowie die BCProjectOS-Releaseprojektion prueft
 - **THEN** ist kein projektspezifischer YAML-Parser erforderlich und jede Abweichung blockiert den Konsum
+
+#### Scenario: UABC-SCN-BCB-017 Interne Consumerbindung bleibt aus der Twin-Payload
+- **GIVEN** der repository-relative Index, das JSON-Manifest oder dessen Payloadliste bietet `governance/consumer-bindings.yaml` als lesbaren Artefaktpfad an
+- **WHEN** der Producer- oder Consumervalidator die Allowlist beziehungsweise das Manifest prueft
+- **THEN** wird der Vertrag fail-closed abgelehnt; nur der Producer darf die interne Bindung zur Digestbildung verwenden

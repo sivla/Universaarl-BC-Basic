@@ -8,12 +8,14 @@ Der versionierte Uebergabevertrag besitzt zusaetzlich einen lokalen Zustandsmasc
 
 Ausgefuehrt wurden OpenSpec-Schema, strikte OpenSpec-Validierung, Snapshotvertragspruefung im Zustand `PENDING_BCPROJECTOS_RELEASE`/`blocked`, 18 Sprachtests, commitvorbereitende Deutschpruefung, 42 Governance-Tests einschliesslich der Snapshot-Negativfaelle, Referenzvalidierung und `git diff --check`. Das JSON-Snapshotmanifest wurde dabei bewusst nicht erzeugt.
 
+Der Cross-Repo-Vertrag ist auf Producer A und Consumer B vorbereitet: Das spaetere Manifest projiziert `producerCommitSha` aus A, liest Schema, Index und Payloadrecords aus B, verlangt A als einzigen Parent von B und erlaubt zwischen A und B ausschliesslich die Manifestdatei. Dieser Zustand ist aktuell nicht ausgefuehrt und nicht freigegeben.
+
 Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Prozesse, fachlichen Abnahmen oder steuerlichen Pruefungen ausgefuehrt.
 
 ## Ergebnisse
 
 - Lieferstatus: geplant, nicht fachlich oder in der Sandbox verifiziert.
-- BCProjectOS-Bindung: `PENDING_BCPROJECTOS_RELEASE`; Repository bekannt, Releasebeweise fehlen.
+- Spectra-Bindung im technischen BCProjectOS-Repository: `PENDING_BCPROJECTOS_RELEASE`; Repository bekannt, Releasebeweise fehlen.
 - Snapshotvertrag: `proposed` und `blocked`; kein Snapshotmanifest erzeugt oder freigegeben.
 - Alle fachlichen, technischen und menschlichen Nachweise sind ausstehend.
 - Die synthetische Projektgeschichte und das Starttranskript sind Simulationen und kein Ausfuehrungsnachweis.
