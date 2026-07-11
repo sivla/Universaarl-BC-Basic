@@ -98,7 +98,11 @@ Confluence MUST einen navigierbaren Seitenbaum fuer Projekt, drei Phasen, Bespre
 - **THEN** erreicht er die kanonische Blueprint-Quelle ohne widerspruechliche Kopie oder unmarkierte Simulation
 
 ### Requirement: UABC-REQ-BCB-011 Nur lesbarer Twin-Verbrauchervertrag
-Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber einen validierten, versionierten Snapshot von `exports/project-data/v1/index.yaml` aus der Blueprint-Projektablage aufloesen. Der Index und die Konsumentenbindung `governance/consumer-bindings.yaml` MUST diesem aktiven Change zugeordnet und bis zur Validierung und Versionierung als `proposed` ausgewiesen sein. Der Index MUST nur stabile IDs, Schemainformation, positivgelistete repository-relative Quellpfade und verbindliche Selektoren fuer gemeinsam genutzte Dateien enthalten. Verweise innerhalb einer Quelle duerfen keinen weiteren Lesezugriff autorisieren. Eine Kandidaten-Repository- oder -Branchangabe ist ohne lokalen Autorisierungsnachweis nicht wirksam und MUST den Konsum fail-closed blockieren. Der Twin MUST keine fachlichen Projektdaten speichern, erzeugen oder veraendern und niemals in die Blueprint-Projektablage zurueckschreiben; fehlende Quellwerte MUST leer bleiben.
+Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber das strikt schemavalidierte JSON-Manifest `exports/project-data/v1/snapshot-manifest.json` aufloesen. `exports/project-data/v1/index.yaml` MUST davon getrennt der repository-relative Daten- und Allowlistvertrag bleiben; `governance/consumer-bindings.yaml` MUST die interne Planungsquelle bleiben. Das JSON-Manifest MUST nur verifizierte Release-, Consumer-, Commit- und Digestwerte projizieren und darf weder YAML-Verarbeitung beim Consumer erfordern noch unverifizierte Wahrheit duplizieren. Der Twin unter `https://github.com/sivla/FiBu.git` auf `codex/universaarl-projekt-twin` ist ausschliesslich als Leser autorisiert; diese Identitaet MUST weder Snapshotfreigabe noch Rueckschreiben erlauben.
+
+Eine BCProjectOS-Bindung MUST bis zum gemeinsamen Nachweis von Produkt-ID, kanonischer Repository-URL, Release-Version, annotiertem Tag, extern aufgeloestem Tag-Commit, finalem installierbarem Manifest, gueltigem Manifest-Quellcommit, unveraendertem Produktumfang und passendem SHA-256-Payload-Digest `PENDING_BCPROJECTOS_RELEASE` bleiben. Erst der vollstaendige Zustand darf `BOUND_BCPROJECTOS_RELEASE` verwenden. PENDING/BOUND-Mischzustaende MUST fail-closed scheitern.
+
+Die Snapshoterzeugung MUST zweistufig und nicht selbstreferenziell erfolgen: Zuerst werden alle positivgelisteten Git-Blobs aus genau einer sauberen Quell-Commit-SHA nach ID sortiert und einzeln mit SHA-256 gebunden; danach wird aus dieser validierten Payloadliste ein JSON-Manifest nach `governance/schemas/project-snapshot-manifest.schema.json` erzeugt. Der Bundle-Digest MUST SHA-256 ueber kanonisches UTF-8-JSON mit rekursiv sortierten Objektschluesseln und LF-Abschluss sein. Das Manifest MUST weder sich selbst noch einen eigenen Manifestdigest enthalten.
 
 #### Scenario: UABC-SCN-BCB-014 Twin liest Blueprint-Quellen
 - **GIVEN** ein validierter, versionierter Blueprint-Snapshot, sein Projektindex und eine nachgewiesene Twin-Identitaet
@@ -109,3 +113,8 @@ Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber einen 
 - **GIVEN** BCProjectOS-Release-Tag, zugehoerige Commit-SHA, Digest, Consumer-Autorisierung, saubere Snapshot-Quell-Commit-SHA oder erfolgreiche Validierung fehlen oder widersprechen einander
 - **WHEN** der Projektindex als Snapshot bereitgestellt oder vom Project Twin gelesen werden soll
 - **THEN** bleiben Snapshot-Bereitstellung und Konsum blockiert, ohne Version, Freigabe, Autorisierung oder Erfolg abzuleiten
+
+#### Scenario: UABC-SCN-BCB-016 Projektuebergreifendes JSON-Manifest validieren
+- **GIVEN** ein Consumer besitzt nur das JSON-Snapshotmanifest, das versionierte JSON Schema und lesenden Zugriff auf die referenzierte Quell-Commit-SHA
+- **WHEN** er Schema, Consumeridentitaet, sortierte Payloadliste, Einzel- und Bundle-Digests sowie die BCProjectOS-Releaseprojektion prueft
+- **THEN** ist kein projektspezifischer YAML-Parser erforderlich und jede Abweichung blockiert den Konsum

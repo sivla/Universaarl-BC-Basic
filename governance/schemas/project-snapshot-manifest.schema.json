@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:schema:project-snapshot-manifest:v1",
+  "title": "Universaarl-Projektsnapshotmanifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "contractId", "sourceCommitSha", "indexPath", "consumer", "bcProjectOsRelease", "consumerBindingDigest", "payloadBundleDigest", "payloads", "validationStatus"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "const": "UABC-BC-BASIC-001" },
+    "contractId": { "const": "UABC-PROJECT-DATA-V1" },
+    "sourceCommitSha": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "indexPath": { "const": "exports/project-data/v1/index.yaml" },
+    "consumer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["consumerId", "repositoryUrl", "branch", "access"],
+      "properties": {
+        "consumerId": { "const": "project-twin" },
+        "repositoryUrl": { "const": "https://github.com/sivla/FiBu.git" },
+        "branch": { "const": "codex/universaarl-projekt-twin" },
+        "access": { "const": "nur-lesend" }
+      }
+    },
+    "bcProjectOsRelease": {
+      "type": "object", "additionalProperties": false,
+      "required": ["productId", "repositoryUrl", "releaseVersion", "releaseTag", "tagType", "tagCommit", "manifestPath", "manifestSourceCommit", "payloadBundleDigest"],
+      "properties": {
+        "productId": { "const": "bcprojectos" },
+        "repositoryUrl": { "const": "https://github.com/sivla/BCProjectOS.git" },
+        "releaseVersion": { "type": "string", "minLength": 1 },
+        "releaseTag": { "type": "string", "minLength": 1 },
+        "tagType": { "const": "annotated" },
+        "tagCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "manifestPath": { "type": "string", "pattern": "^(?![A-Za-z]:|/|.*(?:^|/)\\.\\.(?:/|$)).+" },
+        "manifestSourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "payloadBundleDigest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+      }
+    },
+    "consumerBindingDigest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "payloadBundleDigest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "payloads": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "path", "selector", "sha256"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^UABC-[A-Z0-9-]+$" },
+          "path": { "type": "string", "pattern": "^(?![A-Za-z]:|/|.*(?:^|/)\\.\\.(?:/|$)).+" },
+          "selector": { "type": ["string", "null"] },
+          "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "validationStatus": { "const": "validated" }
+  }
+}

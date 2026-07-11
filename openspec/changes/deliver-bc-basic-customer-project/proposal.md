@@ -23,6 +23,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 5. Gliederungen fuer ein Kundenhandbuch und ein Beratungshandbuch.
 6. Ein nicht ausgefuehrter Playwright-Szenariokatalog fuer Grundeinrichtung, Finanzwesen, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe, UStVA-Vorschau und begrenzten Zahlungstest.
 7. Ein `proposed` Projektindex und eine zugehoerige, fail-closed Project-Twin-Konsumentenbindung als einzige geplante Einstiegskante. Erst ein spaeter validierter und versionierter Snapshot darf auf Blueprint-Quellen verweisen; bis dahin wird keine Twin-Bereitstellung behauptet und keine fachliche Wahrheit dupliziert.
+8. Ein expliziter versionierter Uebergabevertrag in der Reihenfolge BCProjectOS-Releasebindung -> BC-Basic-Consumerbindung -> commitgebundenes Snapshotmanifest -> ausschliesslich lesender Project Twin. Die bekannte Repository-Identitaet von BCProjectOS ersetzt keinen Releasebeweis.
 
 ## Umfang
 
@@ -55,7 +56,8 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 - **Steuerliche Fehlkonfiguration:** MwSt.-Buchungsgruppen, UStVA-Zuordnungen und Schluessel benoetigen fachliche Freigabe durch Finanzverantwortung und Steuerberatung.
 - **Unkontrollierter Sandbox-Schreibvorgang:** Jeder spaetere Schreibvorgang braucht eine projektspezifische Autorisierung, Zielbindung, Ruecksetzplan und begrenzten Playwright-Umfang.
 - **Scheinerfolg:** `Nicht ausgefuehrt`, fehlende Werte und Simulation gelten nie als bestanden, produktionsreif oder abgenommen.
-- **Twin-Drift:** Der Twin darf ausschliesslich einen validierten, versionierten Snapshot des positivgelisteten Projektindex lesen, keine eigenen Projektinhalte pflegen und niemals in die Kundeninstanz zurueckschreiben. Die benannte Twin-Identitaet bleibt ohne lokalen Autorisierungsnachweis fail-closed offen.
+- **Twin-Drift:** Der Twin darf als nachgewiesener Leser unter `https://github.com/sivla/FiBu.git` auf `codex/universaarl-projekt-twin` ausschliesslich einen validierten, versionierten Snapshot des positivgelisteten Projektindex lesen, keine eigenen Projektinhalte pflegen und niemals in die Kundeninstanz zurueckschreiben. Die Leseridentitaet autorisiert keinen Snapshot und hebt kein vorgelagertes Gate auf.
+- **Release-Scheinnachweis:** Die bekannte BCProjectOS-Repository-URL reicht nicht aus. Solange Release-Version, annotierter Tag, extern aufgeloester Tag-Commit, finales installierbares Manifest, Manifest-Quellcommit, unveraenderter Produktumfang und passender SHA-256-Payload-Digest nicht gemeinsam nachgewiesen sind, bleibt die Bindung `PENDING_BCPROJECTOS_RELEASE` und die Snapshotausgabe blockiert.
 
 ## Freigabe
 

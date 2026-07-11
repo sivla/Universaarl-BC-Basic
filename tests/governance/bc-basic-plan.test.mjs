@@ -5,6 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { validateConsumerBindings } from '../../scripts/lib/validate-consumer-bindings.mjs';
+import { buildSnapshotManifest, validateManifestDigests, validateSnapshotManifest } from '../../scripts/lib/snapshot-contract.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -374,7 +375,7 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
 });
 
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
-  assert.equal(consumerBindings.schemaVersion, 1);
+  assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
   assert.equal(consumerBindings.lifecycleStatus, 'proposed');
   assert.deepEqual(consumerBindings.producer, {
@@ -384,10 +385,19 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
   });
   assert.deepEqual(consumerBindings.bcProjectOsBinding, {
     status: 'PENDING_BCPROJECTOS_RELEASE',
+    productId: 'bcprojectos',
+    repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
+    releaseVersion: null,
     releaseTag: null,
-    commitSha: null,
-    digest: null,
-    reason: 'Kein echter unveraenderlicher BCProjectOS-Release-Tag mit nachgewiesenem Digest liegt in dieser Projektablage vor.'
+    tagType: null,
+    tagCommit: null,
+    manifestPath: null,
+    manifestSourceCommit: null,
+    manifestStatus: null,
+    productScopeStatus: null,
+    payloadBundleDigest: null,
+    installationStatus: 'nicht-installiert',
+    reason: 'Die BCProjectOS-Repository-Identitaet ist bekannt, aber ein annotierter Release-Tag mit extern aufgeloestem Commit, finalem Manifest und passendem Payload-Digest fehlt.'
   });
   assert.equal(consumerBindings.consumers?.length, 1);
   const [twin] = consumerBindings.consumers;
@@ -396,22 +406,28 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
   assert.equal(twin.routeKey, 'bc-basic');
   assert.equal(twin.access, 'nur-lesend');
   assert.deepEqual(twin.identity, {
-    status: 'pending-authorization',
-    reason: 'Die lokale Projektablage belegt weder die Autorisierung noch die Existenz des benannten Zielbranch als Universaarl Project Twin.',
-    candidateRepository: {
+    status: 'autorisierter-leser',
+    authorizationScope: 'ausschliesslich-validierte-snapshots-lesen',
+    repository: {
       url: 'https://github.com/sivla/FiBu.git',
       branch: 'codex/universaarl-projekt-twin'
     }
   });
   assert.deepEqual(twin.snapshotContract, {
-    path: 'exports/project-data/v1/index.yaml',
+    dataContractPath: 'exports/project-data/v1/index.yaml',
+    manifestSchemaPath: 'governance/schemas/project-snapshot-manifest.schema.json',
+    manifestPath: null,
     pathSemantics: 'repository-relative',
     lifecycleStatus: 'proposed',
     sourceCommitSha: null,
-    digest: null,
+    consumerBindingDigest: null,
+    payloadBundleDigest: null,
+    digestAlgorithm: 'sha256',
+    canonicalization: 'utf8-json-sortierte-schluessel-lf',
+    generationStages: ['commitgebundene-payloadliste-und-digests', 'manifest-aus-validierter-payloadliste'],
     validationStatus: 'blocked',
     accessRule: 'Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.',
-    availability: 'blockiert-bcprojectos-bindung-validierung-und-versionierung-ausstehend'
+    availability: 'blockiert-bcprojectos-release-und-snapshotnachweise-ausstehend'
   });
   assert.deepEqual(twin.dependency, {
     direction: 'consumer-to-producer',
@@ -421,7 +437,7 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 
   const serializedBinding = JSON.stringify(consumerBindings);
   assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), false, 'Konsumentenbindung darf keine vollstaendige Commit-SHA enthalten');
-  assert.equal(consumerBindings.bcProjectOsBinding.commitSha, null, 'Ohne echten BCProjectOS-Release muss die Commit-SHA leer bleiben');
+  assert.equal(consumerBindings.bcProjectOsBinding.tagCommit, null, 'Ohne echten BCProjectOS-Release muss der Tag-Commit leer bleiben');
   assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
   assert.equal(projectIndex.artifacts.some(({ id, kindId, path: sourcePath }) => id === 'UABC-SRC-BCB-CONSUMER-001' && kindId === 'consumer-binding' && sourcePath === 'governance/consumer-bindings.yaml'), true, 'Der Consumer-Vertrag muss positivgelistet und repository-relativ referenziert sein');
   assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => /(?:universaarl-project-twin|<twin_root>|^\.\.[\\/])/i.test(sourcePath)), false, 'Twin-Pfade duerfen nicht als Blueprint-Projektdatenquelle positivgelistet werden');
@@ -432,12 +448,16 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot-Nachweise fail-closed', () => {
   assert.deepEqual(validateConsumerBindings(consumerBindings, projectIndex), []);
   const mutationCases = [
-    ['BCProjectOS ohne Nachweise freigegeben', (value) => { value.bcProjectOsBinding.status = 'released'; }],
-    ['BCProjectOS-Commit ohne Release behauptet', (value) => { value.bcProjectOsBinding.commitSha = 'a'.repeat(40); }],
-    ['Consumer ohne Nachweis autorisiert', (value) => { value.consumers[0].identity.status = 'authorized'; }],
+    ['BCProjectOS ohne Nachweise gebunden', (value) => { value.bcProjectOsBinding.status = 'BOUND_BCPROJECTOS_RELEASE'; }],
+    ['BCProjectOS-Tag-Commit ohne Release behauptet', (value) => { value.bcProjectOsBinding.tagCommit = 'a'.repeat(40); }],
+    ['falsche BCProjectOS-Repository-Identitaet', (value) => { value.bcProjectOsBinding.repositoryUrl = 'https://github.com/sivla/falsch.git'; }],
+    ['falsche Twin-Repository-Identitaet', (value) => { value.consumers[0].identity.repository.url = 'https://github.com/sivla/falsch.git'; }],
+    ['falscher Twin-Branch', (value) => { value.consumers[0].identity.repository.branch = 'main'; }],
     ['Consumer erhaelt Schreibzugriff', (value) => { value.consumers[0].access = 'schreibend'; }],
     ['Snapshot ohne Nachweise freigegeben', (value) => { value.consumers[0].snapshotContract.validationStatus = 'passed'; }],
-    ['Snapshot nutzt absoluten Pfad', (value) => { value.consumers[0].snapshotContract.path = 'C:\\temp\\snapshot.yaml'; }],
+    ['Snapshot nutzt absoluten Pfad', (value) => { value.consumers[0].snapshotContract.dataContractPath = 'C:\\temp\\snapshot.json'; }],
+    ['Snapshot behauptet falschen Quellcommit', (value) => { value.consumers[0].snapshotContract.sourceCommitSha = 'b'.repeat(40); }],
+    ['Snapshot behauptet falschen Digest', (value) => { value.consumers[0].snapshotContract.payloadBundleDigest = `sha256:${'c'.repeat(64)}`; }],
     ['Consumer schreibt zurueck', (value) => { value.consumers[0].dependency.consumerWritesProducer = true; }],
     ['Zweiter Consumer wird eingeschleust', (value) => { value.consumers.push(structuredClone(value.consumers[0])); }]
   ];
@@ -446,6 +466,51 @@ test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot
     mutate(candidate);
     assert.notDeepEqual(validateConsumerBindings(candidate, projectIndex), [], `${label}: Manipulation muss scheitern`);
   }
+});
+
+test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistente Nachweise', async () => {
+  assert.throws(
+    () => buildSnapshotManifest({ binding: consumerBindings, projectIndex, sourceCommitSha: 'd'.repeat(40), readBlob: () => Buffer.from('nicht verwendet') }),
+    /BCProjectOS ist nicht an einen nachgewiesenen Release gebunden/,
+    'PENDING muss den Generator vor jeder Manifestbildung blockieren'
+  );
+  const bound = structuredClone(consumerBindings);
+  Object.assign(bound.bcProjectOsBinding, {
+    status: 'BOUND_BCPROJECTOS_RELEASE',
+    releaseVersion: '1.0.0',
+    releaseTag: 'v1.0.0',
+    tagType: 'annotated',
+    tagCommit: 'a'.repeat(40),
+    manifestPath: 'release/install-manifest.json',
+    manifestSourceCommit: 'b'.repeat(40),
+    manifestStatus: 'final-installierbar',
+    productScopeStatus: 'unveraendert',
+    payloadBundleDigest: `sha256:${'c'.repeat(64)}`,
+    installationStatus: 'gebunden-nicht-installiert'
+  });
+  assert.deepEqual(validateConsumerBindings(bound, projectIndex), []);
+  const readBlob = (sourcePath) => Buffer.from(`blob:${sourcePath}\n`, 'utf8');
+  const manifest = buildSnapshotManifest({ binding: bound, projectIndex, sourceCommitSha: 'd'.repeat(40), readBlob });
+  const schema = JSON.parse(await fs.readFile(path.join(root, 'governance', 'schemas', 'project-snapshot-manifest.schema.json'), 'utf8'));
+  assert.deepEqual(validateSnapshotManifest(manifest, schema), []);
+  assert.deepEqual(validateManifestDigests(manifest, readBlob), []);
+  assert.equal(manifest.sourceCommitSha, 'd'.repeat(40));
+  assert.equal(manifest.payloads.some(({ path: sourcePath }) => sourcePath === 'exports/project-data/v1/snapshot-manifest.json'), false, 'Manifest darf nicht Teil seiner eigenen Payload sein');
+  const invalidFixtures = [
+    ['falscher Payload-Digest', (value) => { value.payloadBundleDigest = `sha256:${'0'.repeat(63)}`; }],
+    ['falscher Quellcommit', (value) => { value.sourceCommitSha = 'kein-commit'; }],
+    ['absoluter Payloadpfad', (value) => { value.payloads[0].path = 'C:\\temp\\payload'; }],
+    ['Rueckschreibzugriff', (value) => { value.consumer.access = 'schreibend'; }],
+    ['falscher Twin-Branch', (value) => { value.consumer.branch = 'main'; }]
+  ];
+  for (const [label, mutate] of invalidFixtures) {
+    const candidate = structuredClone(manifest);
+    mutate(candidate);
+    assert.notDeepEqual(validateSnapshotManifest(candidate, schema), [], `${label}: JSON-Manifestfixture muss scheitern`);
+  }
+  const wrongDigest = structuredClone(manifest);
+  wrongDigest.payloads[0].sha256 = `sha256:${'e'.repeat(64)}`;
+  assert.notDeepEqual(validateManifestDigests(wrongDigest, readBlob), [], 'Formal gueltiger aber falscher Payload-Digest muss scheitern');
 });
 
 test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', () => {

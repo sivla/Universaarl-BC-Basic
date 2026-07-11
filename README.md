@@ -28,4 +28,4 @@ OpenSpec ist als exakte Entwicklungsabhaengigkeit gepinnt. Direkte Aufrufe erfol
 
 ## Aktive OpenSpec-Aenderung
 
-Aktiv ist `deliver-bc-basic-customer-project`. Der Projektindex `exports/project-data/v1/index.yaml` und die zugehoerige Project-Twin-Konsumentenbindung sind `proposed`; sie sind weder versioniert noch freigegeben oder fuer Project Twin bereitgestellt. `establish-project-artifact-walkthrough-pilot` bleibt archivierte Historie.
+Aktiv ist `deliver-bc-basic-customer-project`. Der Daten-/Allowlistvertrag `exports/project-data/v1/index.yaml` und die zugehoerige Project-Twin-Konsumentenbindung sind `proposed`. Das spaetere projektuebergreifende JSON-Handoff ist `exports/project-data/v1/snapshot-manifest.json`; im aktuellen Zustand ist diese Datei bewusst nicht erzeugt, weil BCProjectOS noch `PENDING_BCPROJECTOS_RELEASE` ist. `establish-project-artifact-walkthrough-pilot` bleibt archivierte Historie.

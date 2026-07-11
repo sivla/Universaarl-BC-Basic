@@ -4,11 +4,17 @@
 
 Fuer die Planung und Quellartefakte wurden OpenSpec-Schema und strikte OpenSpec-Validierung, Projekt- und Referenzvalidierung, Governance-Regressionen sowie die BC-Basic-Datenkonsistenz lokal geprueft. Diese Autorenpruefungen belegen nur die innere Konsistenz der Projektablage. Sie sind kein Sandbox-, Prozess-, Schulungs-, Abschluss-, Steuer- oder Abnahmenachweis und setzen `UABC-VER-BCB-LOCAL-001` noch nicht auf `passed`.
 
+Der versionierte Uebergabevertrag besitzt zusaetzlich einen lokalen Zustandsmaschinen-, Schema-, Generator- und Snapshotvertragspruefpfad. Negativfaelle muessen PENDING-/BOUND-Mischzustaende, falsche Repository- oder Branchidentitaeten, fehlende Releasefelder, falsche Digests und Quellcommits, absolute oder uebergeordnete Pfade, Rueckschreiben und zusaetzliche Consumer ablehnen. Ein gruener Autorenlauf erzeugt weder einen BCProjectOS-Releasebeleg noch ein Snapshotmanifest und gibt keinen Snapshot frei.
+
+Ausgefuehrt wurden OpenSpec-Schema, strikte OpenSpec-Validierung, Snapshotvertragspruefung im Zustand `PENDING_BCPROJECTOS_RELEASE`/`blocked`, 18 Sprachtests, commitvorbereitende Deutschpruefung, 42 Governance-Tests einschliesslich der Snapshot-Negativfaelle, Referenzvalidierung und `git diff --check`. Das JSON-Snapshotmanifest wurde dabei bewusst nicht erzeugt.
+
 Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Prozesse, fachlichen Abnahmen oder steuerlichen Pruefungen ausgefuehrt.
 
 ## Ergebnisse
 
 - Lieferstatus: geplant, nicht fachlich oder in der Sandbox verifiziert.
+- BCProjectOS-Bindung: `PENDING_BCPROJECTOS_RELEASE`; Repository bekannt, Releasebeweise fehlen.
+- Snapshotvertrag: `proposed` und `blocked`; kein Snapshotmanifest erzeugt oder freigegeben.
 - Alle fachlichen, technischen und menschlichen Nachweise sind ausstehend.
 - Die synthetische Projektgeschichte und das Starttranskript sind Simulationen und kein Ausfuehrungsnachweis.
 

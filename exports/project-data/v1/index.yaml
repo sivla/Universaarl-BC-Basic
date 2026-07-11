@@ -8,9 +8,12 @@ governingChange: deliver-bc-basic-customer-project
 lifecycleStatus: proposed
 readOnly: true
 sourceOfTruth: openspec
+contractRole: repository-relative-data-allowlist
 pathSemantics: repository-relative
+snapshotManifestIncluded: false
 missingValuePolicy: leer
 consumerRules:
+  - Dieser Index ist nur der repository-relative Daten- und Allowlistvertrag; das spaetere JSON-Snapshotmanifest wird getrennt und commitgebunden erzeugt.
   - Nur die unter artifacts positivgelisteten Pfade duerfen als Projektdaten gelesen werden.
   - Ein deklarierter selector begrenzt den lesbaren Ausschnitt einer gemeinsam genutzten Datei und ist verbindlich.
   - Verweise, Links und relative Pfade innerhalb einer Quelle erlauben keine zusaetzlichen, nicht positivgelisteten Lesezugriffe.
@@ -64,4 +67,5 @@ artifacts:
   - { id: UABC-SRC-BCB-PW-001, kindId: playwright-scenario-catalog, path: playwright/scenarios/bc-basic-e2e.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-CONSUMER-001, kindId: consumer-binding, path: governance/consumer-bindings.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001, kindId: snapshot-manifest-schema, path: governance/schemas/project-snapshot-manifest.schema.json, format: json-schema, required: true }
   - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }

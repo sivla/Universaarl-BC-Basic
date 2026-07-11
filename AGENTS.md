@@ -34,7 +34,7 @@ Dieses Projekt ist die konkrete Universaarl-Kundeninstanz und damit die fachlich
 
 ## BCProjectOS-Bindung und Snapshot-Ausgabe
 
-- **Aktueller Koordinationsstatus:** BCProjectOS ist in den Projekt-Chats keinem autorisierten entfernten Repository und keinem Remote-Branch zugeordnet. Der Blueprint-Agent richtet deshalb weder Remote noch Branch, Upstream, Tag oder Release fuer BCProjectOS ein und leitet daraus keine Bindung ab. Die erstmalige Zuordnung gehoert ausschliesslich in einen ausdruecklich beauftragten BCProjectOS-Projekt-Chat.
+- **Aktueller Koordinationsstatus:** Die kanonische Repository-Identitaet von BCProjectOS ist `https://github.com/sivla/BCProjectOS.git`. Diese Identitaet ist kein Releasebeweis. Der Blueprint-Agent richtet weder Remote noch Branch, Upstream, Tag oder Release fuer BCProjectOS ein und leitet allein aus der Repository-URL keine Bindung ab.
 - Eine spaetere Remote-/Branch-Zuordnung allein ist noch kein BCProjectOS-Release und hebt `PENDING_BCPROJECTOS_RELEASE` nicht auf.
 - Eine BCProjectOS-Bindung benoetigt einen echten unveraenderlichen Release-Tag, die vollstaendige zugehoerige Commit-SHA und einen reproduzierbaren Digest. Ein beliebiger Branch, lokaler Arbeitsstand oder nicht nachgewiesener Tag ist kein Release.
 - Fehlt einer dieser Nachweise oder stimmt er nicht, bleibt der Status `PENDING_BCPROJECTOS_RELEASE`. Dieser Zustand blockiert Gruen, Snapshot-Freigabe und Veroeffentlichungsreife; Version, Release und Digest duerfen nicht abgeleitet oder erfunden werden.

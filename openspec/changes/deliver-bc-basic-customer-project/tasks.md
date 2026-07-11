@@ -1,5 +1,9 @@
 # Aufgaben
 
+## 0. Versionierter Uebergabevertrag
+
+- [x] 0.1 BCProjectOS-Releasebindung, BC-Basic-Consumerbindung, zweistufigen Snapshotvertrag, Schema, Generator, Validator und deterministische Negativpruefungen fail-closed synchronisieren; diese technische Aufgabe erteilt keine operative oder menschliche Freigabe.
+
 ## 1. Phase 1 - Vorbereitung, Anforderungen und Datenbereitschaft
 
 - [ ] 1.1 Projektauftakt, Umfang, Rollen, Tagessatz und Besprechungsrhythmus bestaetigen (`UABC-22`, 2 h).

@@ -18,7 +18,15 @@
 
 ### Eine Quelle, zwei Sichten
 
-OpenSpec fuehrt Anforderungen und Pruefpunkte. Jira fuehrt Arbeit, Aufwand und abrechenbare Istzeit. Confluence fuehrt erklaerenden Projektkontext, Besprechungen und Entscheidungen. Strukturierte Projektartefakte fuehren Plan, Datenpaket, Schulung und Abrechnung. `exports/project-data/v1/index.yaml` ist in diesem aktiven Change `proposed` und enthaelt nur stabile IDs, repository-relative Pfade und verbindliche Selektoren fuer gemeinsam genutzte Quellen. Ausschliesslich ein spaeter validierter und versionierter Snapshot darf vom Projekt-Twin gelesen werden; er folgt keinen nicht positivgelisteten Verweisen, bleibt ohne eigene Projektdaten und schreibt niemals zurueck. Die Kandidaten-URL und der Kandidatenbranch des Twin sind ohne lokalen Autorisierungsnachweis nicht als Identitaetsbindung wirksam.
+OpenSpec fuehrt Anforderungen und Pruefpunkte. Jira fuehrt Arbeit, Aufwand und abrechenbare Istzeit. Confluence fuehrt erklaerenden Projektkontext, Besprechungen und Entscheidungen. Strukturierte Projektartefakte fuehren Plan, Datenpaket, Schulung und Abrechnung. `exports/project-data/v1/index.yaml` ist ausschliesslich der `proposed`, repository-relative Daten- und Allowlistvertrag mit stabilen IDs, Pfaden und Selektoren. Er ist kein Snapshotmanifest und enthaelt weder eine aktuelle Commit-SHA noch sich selbst als Payload.
+
+Der versionierte Uebergang ist gerichtet: Ein echter BCProjectOS-Release bindet die Kundeninstanz; die versionierte Consumerbindung benennt den Project Twin als ausschliesslich lesenden Consumer; erst danach darf die Kundeninstanz aus einer sauberen Quell-Commit-SHA ein Snapshotmanifest erzeugen. Die Twin-Identitaet `https://github.com/sivla/FiBu.git` mit Branch `codex/universaarl-projekt-twin` autorisiert nur das Lesen eines bereits freigegebenen Snapshots. Sie autorisiert weder dessen Erzeugung noch Rueckschreiben oder das Ueberspringen der BCProjectOS-Bindung.
+
+### Zweistufiger Snapshotvertrag
+
+Stufe 1 liest den Projektindex, die Consumerbindung und alle positivgelisteten Payloaddateien ausschliesslich als Git-Blobs derselben sauberen, vollstaendigen Quell-Commit-SHA. Die Artefakte werden nach ID sortiert. Fuer jedes Artefakt werden ID, repository-relativer Pfad, Selektor oder `null` und der SHA-256-Digest der unveraenderten Blobbytes aufgenommen. Der Payload-Bundle-Digest ist SHA-256 ueber die UTF-8-JSON-Darstellung dieser Liste mit rekursiv sortierten Objektschluesseln und LF-Abschluss.
+
+Stufe 2 erzeugt aus dieser bereits validierten Payloadliste das Manifest nach `governance/schemas/project-snapshot-manifest.schema.json`. Das Manifest enthaelt keinen eigenen Digest und wird nicht Teil seiner Payloadliste. Dadurch ist die Erzeugung nicht selbstreferenziell. Der Generator verweigert unsaubere Arbeitskopien, abweichende HEADs, absolute oder uebergeordnete Pfade, eine unvollstaendige BCProjectOS-Bindung, einen nicht passenden Consumer und jeden Mischzustand. Im aktuellen Stand wird kein Snapshotmanifest erzeugt.
 
 ### Liefermodell
 
