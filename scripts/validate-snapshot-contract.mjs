@@ -30,6 +30,20 @@ const errors = [];
 try {
   const projectIndex = YAML.parse(blobText('exports/project-data/v1/index.yaml'));
   const binding = YAML.parse(blobText('governance/consumer-bindings.yaml'));
+  const branch = gitText(['branch', '--show-current']);
+  if (projectIndex.projectId !== 'UABC-BC-BASIC-001' || projectIndex.contractId !== 'UABC-PROJECT-DATA-V1') errors.push('Index-Projektidentitaet oder Vertragsversion ist ungueltig');
+  if (projectIndex.allowedBranch !== branch || branch !== 'codex/universaarl-projekt') errors.push('Index erlaubt nicht den aktuellen kanonischen Branch');
+  if (projectIndex.validationStatus !== 'branch-commit-validierung-erforderlich') errors.push('Index-Validierungsstatus ist ungueltig');
+  const artifacts = projectIndex.artifacts ?? [];
+  const ids = new Set();
+  const paths = new Set();
+  for (const artifact of artifacts) {
+    const safe = typeof artifact.path === 'string' && artifact.path.length > 0 && !artifact.path.startsWith('/') && !artifact.path.includes('\\') && !artifact.path.split('/').some((segment) => segment === '' || segment === '.' || segment === '..');
+    if (!safe) errors.push(`Indexpfad ist unsicher: ${artifact.path}`);
+    if (ids.has(artifact.id) || paths.has(artifact.path)) errors.push(`Index-ID oder Pfad ist doppelt: ${artifact.id}`);
+    ids.add(artifact.id); paths.add(artifact.path);
+    if (safe && !hasBlob(artifact.path)) errors.push(`Index verweist auf fehlenden Git-Blob: ${artifact.path}`);
+  }
   errors.push(...validateConsumerBindings(binding, projectIndex));
   const schema = JSON.parse(blobText(SNAPSHOT_SCHEMA_PATH).toString('utf8'));
   validateSnapshotManifest({}, schema);

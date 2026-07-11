@@ -1,0 +1,61 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-PHASE3-001
+projectId: UABC-BC-BASIC-001
+changeRef: deliver-bc-basic-customer-project
+classification: synthetic-only
+simulationStatus: synthetisch-abgenommen
+realExecution: false
+researchSources: [SRC-BC-063, SRC-BC-064, SRC-BC-065, SRC-BC-066, SRC-BC-067]
+sourceRule: Microsoft-Learn-Quellen stuetzen erwartete Standardablaeufe und beweisen keine Buchung.
+payments:
+  incoming:
+    input: { document: SYN-AR-002, customer: K-10000, amount: 940.10, bankAccount: SYN-BANK-001 }
+    steps: [Zahlungseingang erfassen, Debitorenposten ausgleichen, synthetischen Kontoauszug abstimmen]
+    postings: { bankDebit: 940.10, customerCredit: 940.10 }
+    defect: { id: SIM-DEF-CASH-001, severity: P2, finding: Zahlungseingang ohne Ausgleichsreferenz, correction: SYN-AR-002 zuordnen, retest: bestanden-synthetisch }
+  outgoing:
+    input: { document: SYN-AP-002, vendor: L-70000, amount: 499.80, bankAccount: SYN-BANK-001 }
+    steps: [Zahlungsausgang vorbereiten, Kreditorenposten ausgleichen, synthetischen Kontoauszug abstimmen]
+    postings: { vendorDebit: 499.80, bankCredit: 499.80 }
+    defect: { id: SIM-DEF-CASH-002, severity: P2, finding: Zahlungsausgang ohne Zahlungsfreigabe, correction: simulierte Vier-Augen-Freigabe dokumentieren, retest: bestanden-synthetisch }
+  controls: { openingBank: 5000.00, incoming: 940.10, outgoing: 499.80, closingBank: 5440.30, bankDifference: 0.00 }
+bankReconciliation:
+  statement: evidence/simulation/synthetic-bank-statement.csv
+  statementTotal: 5440.30
+  ledgerTotal: 5440.30
+  difference: 0.00
+  acceptance: synthetisch-abgenommen
+inventory:
+  movements:
+    - { document: SYN-OPEN-001, type: opening, quantity: 100, unitCost: 42.00, value: 4200.00 }
+    - { document: SYN-GR-001, type: receipt, quantity: 10, unitCost: 42.00, value: 420.00 }
+    - { document: SYN-SHIP-001, type: issue, quantity: -10, unitCost: 42.00, value: -420.00 }
+  count: { location: HAUPT, expectedQuantity: 100, countedQuantity: 99, unitCost: 42.00, adjustmentQuantity: -1, adjustmentValue: -42.00, closingValue: 4158.00 }
+  defect: { id: SIM-DEF-INV-001, severity: P2, finding: Inventurzaehlung lag um eine Einheit ab, correction: Differenzbuchung SYN-INV-001, retest: bestanden-synthetisch }
+  acceptance: synthetisch-abgenommen
+monthClose:
+  checklist:
+    - { area: Sachkonten, control: Soll-Haben-und-Salden, result: 0.00-Differenz }
+    - { area: Debitoren, control: Nebenbuch-zu-Sammelkonto, result: 940.10-offen }
+    - { area: Kreditoren, control: Nebenbuch-zu-Sammelkonto, result: 499.80-offen }
+    - { area: Bank, control: Kontoauszug-zu-Hauptbuch, result: 0.00-Differenz }
+    - { area: Lager, control: Menge-mal-Kosten, result: 99-STK-und-4158.00-EUR }
+    - { area: MwSt, control: Ausgangssteuer-minus-Eingangssteuer, result: 70.30-EUR }
+  defect: { id: SIM-DEF-CLOSE-001, severity: P1, finding: Abschlusscheckliste ohne Steuerfreigabevermerk, correction: Kundenentscheidung als offen markieren, retest: bestanden-synthetisch }
+  acceptance: synthetisch-abgenommen
+vatPreview:
+  period: 2026-08
+  calculation: { outputVat: 150.10, inputVat: 79.80, netPayable: 70.30 }
+  steps: [Vorschau berechnen, Kontrollsummen pruefen, Vorschau dokumentieren]
+  transmission: ausgeschlossen
+  defect: { id: SIM-DEF-VAT-001, severity: P1, finding: Deutsche Steuerkennzeichen nicht real freigegeben, correction: Kunden-/Steuerberaterfreigabe offen halten, retest: bestanden-synthetisch }
+  acceptance: synthetisch-abgenommen
+uatExecution:
+  cases: [UABC-UAT-BCB-005, UABC-UAT-BCB-006, UABC-UAT-BCB-007]
+  status: synthetisch-ausgefuehrt-und-abgenommen
+  evidence: UABC-EV-SIM-PHASE3-001
+  humanRealAcceptance: open
+goNoGo:
+  simulation: GO_SIMULATION
+  real: NO_GO_REAL
+  reason: Kontrollsummen und Retests sind synthetisch bestanden; reale Freigaben und Ausfuehrung fehlen.

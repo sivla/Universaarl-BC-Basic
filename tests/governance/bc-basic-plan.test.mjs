@@ -309,7 +309,8 @@ test('UAT-Katalog enthaelt genau sieben geplante Pflichtfaelle ohne Ausfuehrungs
     'UStVA-Vorschau ohne Uebermittlung'
   ]);
   for (const uatCase of uatCatalog.cases) {
-    assert.equal(uatCase.status, 'planned');
+    assert.ok(['planned', 'synthetic-complete'].includes(uatCase.status));
+    if (uatCase.status === 'synthetic-complete') assert.equal(uatCase.syntheticExecutionEvidence, 'evidence/simulation/phase-3-cash-inventory-close.yaml');
     assert.ok(uatCase.initialState?.length > 0, `${uatCase.id}: Ausgangslage fehlt`);
     assert.ok(uatCase.roleRef?.length > 0, `${uatCase.id}: Rolle fehlt`);
     assert.ok(uatCase.testDataRefs?.length > 0, `${uatCase.id}: Testdatenreferenz fehlt`);
@@ -344,6 +345,8 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   assert.equal(projectIndex.readOnly, true);
   assert.equal(projectIndex.pathSemantics, 'repository-relative');
   assert.equal(projectIndex.missingValuePolicy, 'leer');
+  assert.equal(projectIndex.allowedBranch, 'codex/universaarl-projekt');
+  assert.equal(projectIndex.validationStatus, 'branch-commit-validierung-erforderlich');
   assert.equal(new Set(projectIndex.artifacts.map((artifact) => artifact.id)).size, projectIndex.artifacts.length);
   const forbiddenBroadPaths = new Set([
     'atlassian/jira/project.yaml',
@@ -357,6 +360,8 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
     ['evidence/verification-register.yaml', 'verifications[changeRef=deliver-bc-basic-customer-project]'],
     ['docs/research/sources.yaml', 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]']
   ]);
+  assert.ok(projectIndex.artifacts.some((artifact) => artifact.path === 'evidence/simulation/phase-2-p2p-o2c.yaml'));
+  assert.ok(projectIndex.artifacts.some((artifact) => artifact.path === 'evidence/simulation/phase-3-cash-inventory-close.yaml'));
   const expectedPhaseOnePaths = [
     ...dataPackage.templates.flatMap((template) => [template.blankTemplatePath, template.exampleTemplatePath]),
     dataPackage.readinessCheckPath,
@@ -436,6 +441,19 @@ test('P2P- und O2C-Simulation besitzt Inventar Kontrollsummen Defects und Retest
   assert.equal(simulation.orderToCash.controls.gross, 940.10);
   assert.equal(simulation.defectsAndRetest.allDefectsClosedInSimulation, true);
   assert.equal(simulation.defectsAndRetest.realGoNoGo, 'NO_GO_REAL');
+});
+
+test('Cash Lager Monatsabschluss und UStVA-Simulation besitzen Summen Retests und ehrliche Abnahme', () => {
+  const simulation = YAML.parse(readFileSync(path.join(root, 'evidence', 'simulation', 'phase-3-cash-inventory-close.yaml'), 'utf8'));
+  assert.equal(simulation.payments.controls.closingBank, 5440.30);
+  assert.equal(simulation.payments.controls.bankDifference, 0);
+  assert.equal(simulation.bankReconciliation.difference, 0);
+  assert.equal(simulation.inventory.count.closingValue, 4158.00);
+  assert.equal(simulation.monthClose.checklist.length, 6);
+  assert.equal(simulation.vatPreview.calculation.netPayable, 70.30);
+  assert.equal(simulation.vatPreview.transmission, 'ausgeschlossen');
+  assert.equal(simulation.uatExecution.status, 'synthetisch-ausgefuehrt-und-abgenommen');
+  assert.equal(simulation.goNoGo.real, 'NO_GO_REAL');
 });
 
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {

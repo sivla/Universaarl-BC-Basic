@@ -63,7 +63,8 @@ cases:
     acceptanceCriterion: P-019 bestaetigt 100 STK und 4200.00 EUR als abgestimmte synthetische Ausgangswerte.
   - id: UABC-UAT-BCB-005
     title: Finance und Abstimmung
-    status: planned
+    status: synthetic-complete
+    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Synthetische Eroeffnungszeilen und offene Debitoren-/Kreditorenposten liegen als gepruefte Eingabedaten vor.
     roleRef: P-005
     testDataRefs:
@@ -76,7 +77,8 @@ cases:
     acceptanceCriterion: P-005 bestaetigt Soll gleich Haben sowie 940.10 EUR Debitoren und 499.80 EUR Kreditoren ohne Differenz.
   - id: UABC-UAT-BCB-006
     title: Monatsabschlussprobe
-    status: planned
+    status: synthetic-complete
+    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Die Pflichtprozesse sind als synthetische Testbewegungen vollstaendig gebucht und die Periode bleibt fuer die Probe kontrolliert offen.
     roleRef: P-005
     testDataRefs:
@@ -89,7 +91,8 @@ cases:
     acceptanceCriterion: P-005 dokumentiert jede Differenz oder bestaetigt die abgestimmte Probe ohne Status einer Produktivfreigabe.
   - id: UABC-UAT-BCB-007
     title: UStVA-Vorschau ohne Uebermittlung
-    status: planned
+    status: synthetic-complete
+    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Die deutsche Steuer- und Buchungsgruppeneinrichtung ist fachlich geprueft; synthetische Einkaufs- und Verkaufsbuchungen sind vorhanden.
     roleRef: P-005
     testDataRefs:
