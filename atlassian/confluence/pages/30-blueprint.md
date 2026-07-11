@@ -1,6 +1,6 @@
 ---
 id: UABC-BLUEPRINT
-title: Enterprise Blueprint v0.1
+title: Unternehmens-Blueprint v0.1
 parent: UABC-PROJECT
 owners: [P-002, P-003]
 status: Approved
@@ -9,10 +9,10 @@ referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-CAP-CATALOG-001, UABC-REQ-CAP-001]
 lastReviewed: 2026-07-10
 ---
 
-# Enterprise Blueprint v0.1
+# Unternehmens-Blueprint v0.1
 
-Der W0-Blueprint umfasst Geschaeftsmodell, Gesellschaften, BC-Unternehmen, Standorte, Lagerkonzepte, Rollen, Capability-Portfolio, Dimensionen, Security, Integrationen, Datenowner, Trainingsgruppen und Wellen.
+Der W0-Blueprint umfasst Geschaeftsmodell, Gesellschaften, BC-Unternehmen, Standorte, Lagerkonzepte, Rollen, Faehigkeitsportfolio, Dimensionen, Sicherheit, Integrationen, Datenverantwortliche, Trainingsgruppen und Wellen.
 
-Der reale Repository-Nutzer hat ihn am 2026-07-10 bedingt freigegeben; dies ist keine Freigabe durch P-001. Die Freigabe bestaetigt Architektur und Plan, nicht `playthru`-Fakten, Legal-/Tax-Details, finale Lizenzen, einzelne Capabilities, W1-Writes oder Go-live.
+Der reale Repository-Nutzer hat ihn am 2026-07-10 bedingt freigegeben; dies ist keine Freigabe durch P-001. Die Freigabe bestaetigt Architektur und Plan, nicht `playthru`-Fakten, Rechts-/Steuerdetails, finale Lizenzen, einzelne Faehigkeiten, W1-Schreibvorgaenge oder Produktivstart.
 
-Cross-funktionaler Consultant Review und Delivery-Correction 2026-07-10: Datenmigration, Testing/UAT, Training/Adoption, Cutover und Hypercare laufen W1-W5. IC-Mapping und UAS->UAD liegen vor abhaengigen Prozessen; lokale Reports beginnen W1, Konzernreporting W4. Die Capability-Anzahl ist kein Zielwert; einzelne Capabilities bleiben `planned` oder `deferred` und muessen spaeter nachgewiesen werden.
+Bereichsuebergreifende Beraterpruefung und Lieferkorrektur 2026-07-10: Datenmigration, Tests/UAT, Training/Einfuehrungsbegleitung, Cutover und Hypercare laufen W1-W5. IC-Mapping und UAS->UAD liegen vor abhaengigen Prozessen; lokale Berichte beginnen W1, Konzernberichtswesen W4. Die Anzahl der Faehigkeiten ist kein Zielwert; einzelne Faehigkeiten bleiben `planned` oder `deferred` und muessen spaeter nachgewiesen werden.

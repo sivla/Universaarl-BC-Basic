@@ -1,18 +1,18 @@
 issues:
   - key: UABC-15
     type: Epic
-    summary: Establish project artifact walkthrough pilot
+    summary: Projektartefakt-Walkthrough-Pilot etablieren
     parent: null
     status: Done
-    components: [Training, Reporting, Projektmanagement]
+    components: [Training, Berichtswesen, Projektmanagement]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-07-10
     dueDate: 2026-07-18
     effort: 3d
     dependencies: [UABC-11]
-    dataRequirements: [archived baseline manifests, curated screenshots, event logs, stable scenario and evidence IDs]
-    acceptanceCriteria: [One walkthrough type is complete, All views derive from one manifest, Existing evidence is traceable, Rebuild is deterministic, No BC access occurs]
+    dataRequirements: [archivierte Baseline-Manifeste, kuratierte Screenshots, Eventlogs, stabile Szenario- und Nachweis-IDs]
+    acceptanceCriteria: [Ein Walkthrough-Typ ist vollstaendig, Alle Sichten werden aus einem Manifest abgeleitet, Vorhandene Nachweise sind rueckverfolgbar, Rebuild ist deterministisch, Kein BC-Zugriff erfolgt]
     referenceIds: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
     confluenceRefs: [UABC-WALKTHROUGH]
     evidenceRefs: [UABC-VER-WT-BUILD-001]
@@ -26,18 +26,18 @@ issues:
 
   - key: UABC-16
     type: Story
-    summary: Generate baseline walkthrough package from verified evidence
+    summary: Baseline-Walkthrough-Paket aus verifizierten Nachweisen erzeugen
     parent: UABC-15
     status: Done
-    components: [Training, Reporting]
+    components: [Training, Berichtswesen]
     assignee: P-002
     customerRole: P-004
     startDate: 2026-07-10
     dueDate: 2026-07-17
     effort: 2d
     dependencies: []
-    dataRequirements: [walkthrough schema, run-1 and run-2 manifests, ENV-00 through ENV-06 screenshots, captions]
-    acceptanceCriteria: [Manifest validates, HTML and media regenerate, Three playback modes share one truth, Export contract is read-only]
+    dataRequirements: [Walkthrough-Schema, run-1- und run-2-Manifeste, ENV-00-bis-ENV-06-Screenshots, Captions]
+    acceptanceCriteria: [Manifest validiert, HTML und Medien werden regeneriert, Drei Wiedergabemodi teilen eine Wahrheit, Exportvertrag ist read-only]
     referenceIds: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
     confluenceRefs: [UABC-WALKTHROUGH]
     evidenceRefs: [UABC-VER-WT-BUILD-001]
@@ -51,18 +51,18 @@ issues:
 
   - key: UABC-17
     type: Sub-task
-    summary: Build and verify deterministic walkthrough outputs
+    summary: Deterministische Walkthrough-Ausgaben bauen und verifizieren
     parent: UABC-16
     status: Done
-    components: [Training, Reporting]
+    components: [Training, Berichtswesen]
     assignee: P-002
     customerRole: P-004
     startDate: 2026-07-10
     dueDate: 2026-07-16
     effort: 1d
     dependencies: []
-    dataRequirements: [local ffmpeg, SHA-256 checksums, sanitized source evidence]
-    acceptanceCriteria: [One command rebuilds outputs, Media is compact and controllable, Privacy scan passes]
+    dataRequirements: [lokales ffmpeg, SHA-256-Checksummen, bereinigte Quellnachweise]
+    acceptanceCriteria: [Ein Befehl baut Ausgaben neu, Medien sind kompakt und steuerbar, Datenschutzscan besteht]
     referenceIds: [UABC-SCN-WT-002, UABC-SCN-WT-003]
     confluenceRefs: [UABC-WALKTHROUGH]
     evidenceRefs: [UABC-VER-WT-BUILD-001]

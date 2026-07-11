@@ -1,4 +1,4 @@
-name: UABC Delivery Workflow
+name: Lieferworkflow fuer UABC
 statuses: [Backlog, Ready, In Progress, Blocked, In Review, Done]
 transitions:
   - { from: Backlog, to: Ready }
@@ -10,7 +10,6 @@ transitions:
   - { from: In Review, to: In Progress }
   - { from: In Review, to: Done }
 doneRequires:
-  - acceptance criteria met
-  - OpenSpec verification recorded
-  - human approval where required
-
+  - Akzeptanzkriterien erfuellt
+  - OpenSpec-Verifikation dokumentiert
+  - menschliche Freigabe falls erforderlich

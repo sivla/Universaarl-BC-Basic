@@ -1,6 +1,6 @@
 ---
 id: UABC-TESTS
-title: Tests und Evidence
+title: Tests und Nachweise
 parent: UABC-PROJECT
 owners: [P-002, P-004]
 status: W0 Passed
@@ -9,8 +9,8 @@ referenceIds: [UABC-REQ-GOV-002, UABC-REQ-GOV-003, UABC-VER-LOCAL-001, UABC-VER-
 lastReviewed: 2026-07-10
 ---
 
-# Tests und Evidence
+# Tests und Nachweise
 
-W0 prueft Repository, OpenSpec, Quellen, Architektur, Capability-Plan, lokale Referenzen und die reale bedingte Freigabe. BC-, UI-, Konfigurations- und Buchungsnachweise sind explizit ausstehend.
+W0 prueft Repository, OpenSpec, Quellen, Architektur, Faehigkeitenplan, lokale Referenzen und die reale bedingte Freigabe. BC-, UI-, Konfigurations- und Buchungsnachweise sind explizit ausstehend.
 
-Spaetere Szenarien dokumentieren Ausgangszustand, Environment, Unternehmen, Rolle, Sprache, Daten, Schritte, sichtbaren Zustand, erwartete Buchungswirkung, Evidence und Reset. Eine chronologische Screenshotkette verbindet Claim und Ergebnis.
+Spaetere Szenarien dokumentieren Ausgangszustand, Umgebung, Unternehmen, Rolle, Sprache, Daten, Schritte, sichtbaren Zustand, erwartete Buchungswirkung, Nachweise und Reset. Eine chronologische Screenshotkette verbindet Behauptung und Ergebnis.

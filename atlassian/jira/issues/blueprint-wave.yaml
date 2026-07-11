@@ -1,7 +1,7 @@
 issues:
   - key: UABC-1
     type: Epic
-    summary: Establish Universaarl enterprise blueprint v0.1
+    summary: Universaarl-Unternehmens-Blueprint v0.1 etablieren
     parent: null
     status: Done
     components: [Projektmanagement]
@@ -11,11 +11,11 @@ issues:
     dueDate: 2026-07-17
     effort: 13d
     dependencies: []
-    dataRequirements: [synthetic enterprise model, official source register]
+    dataRequirements: [synthetisches Unternehmensmodell, offizielles Quellenregister]
     acceptanceCriteria:
-      - All blueprint requirements and capabilities are reviewable.
-      - OpenSpec and local reference checks pass.
-      - Conditional human W0 approval is explicitly recorded with scope and exclusions.
+      - Alle Blueprint-Anforderungen und Faehigkeiten sind reviewfaehig.
+      - OpenSpec- und lokale Referenzpruefungen bestehen.
+      - Bedingte menschliche W0-Freigabe ist mit Umfang und Ausschluessen explizit dokumentiert.
     referenceIds: [UABC-REQ-GOV-001, UABC-ARCH-ENTERPRISE-001]
     confluenceRefs: [UABC-PROJECT, UABC-BLUEPRINT]
     evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
@@ -29,18 +29,18 @@ issues:
 
   - key: UABC-2
     type: Story
-    summary: Define enterprise and BC company architecture
+    summary: Unternehmens- und BC-Unternehmensarchitektur definieren
     parent: UABC-1
     status: Done
-    components: [Projektmanagement, Finance]
+    components: [Projektmanagement, Finanzwesen]
     assignee: P-002
     customerRole: P-003
     startDate: 2026-07-10
     dueDate: 2026-07-15
     effort: 5d
     dependencies: []
-    dataRequirements: [legal entities, sites, currencies, localization assumptions]
-    acceptanceCriteria: [Organizational layers are distinct, Legal entity mapping is unambiguous]
+    dataRequirements: [Rechtstraeger, Standorte, Waehrungen, Lokalisierungsannahmen]
+    acceptanceCriteria: [Organisationsschichten sind getrennt, Rechtstraegerzuordnung ist eindeutig]
     referenceIds: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004, UABC-ARCH-ENTERPRISE-001]
     confluenceRefs: [UABC-COMPANY, UABC-BLUEPRINT]
     evidenceRefs: [UABC-VER-ARCH-001]
@@ -54,18 +54,18 @@ issues:
 
   - key: UABC-3
     type: Story
-    summary: Define process and capability portfolio
+    summary: Prozess- und Faehigkeitsportfolio definieren
     parent: UABC-1
     status: Done
-    components: [Finance, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Reporting]
+    components: [Finanzwesen, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Berichtswesen]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-07-10
     dueDate: 2026-07-15
     effort: 8d
     dependencies: [UABC-2]
-    dataRequirements: [business model, process owners, locations, products and services, cross-wave delivery dependencies]
-    acceptanceCriteria: [Every capability has all mandatory planning attributes, E2E chains are complete, Data test training cutover and support workstreams span the relevant waves]
+    dataRequirements: [Geschaeftsmodell, Prozessverantwortliche, Standorte, Produkte und Dienstleistungen, wellenuebergreifende Lieferabhaengigkeiten]
+    acceptanceCriteria: [Jede Faehigkeit hat alle verpflichtenden Planungsattribute, E2E-Ketten sind vollstaendig, "Daten-, Test-, Trainings-, Cutover- und Unterstuetzungsarbeitsstroeme umfassen die relevanten Wellen"]
     referenceIds: [UABC-REQ-CAP-001, UABC-REQ-CAP-002, UABC-CAP-CATALOG-001]
     confluenceRefs: [UABC-BLUEPRINT, UABC-PROCESSES]
     evidenceRefs: [UABC-VER-CAP-001]
@@ -79,18 +79,18 @@ issues:
 
   - key: UABC-4
     type: Story
-    summary: Define security, data, reporting and training governance
+    summary: Sicherheits-, Daten-, Berichts- und Trainingsgovernance definieren
     parent: UABC-1
     status: Done
-    components: [Finance, Reporting, Daten, Training, Projektmanagement]
+    components: [Finanzwesen, Berichtswesen, Daten, Training, Projektmanagement]
     assignee: P-004
     customerRole: P-003
     startDate: 2026-07-10
     dueDate: 2026-07-16
     effort: 5d
     dependencies: [UABC-2]
-    dataRequirements: [role matrix, segregation rules, data domains, migration reconciliation owners, module trainers, UAT approvers, learning groups]
-    acceptanceCriteria: [Least privilege target is documented, Operating roles match employer company and site, Training coordination is separate from module delivery and UAT acceptance]
+    dataRequirements: [Rollenmatrix, Funktionstrennungsregeln, Datendomaenen, Migrations- und Abstimmungsverantwortliche, Modultrainer, UAT-Abnehmer, Lerngruppen]
+    acceptanceCriteria: [Least-Privilege-Ziel ist dokumentiert, Operative Rollen passen zu Arbeitgebergesellschaft und Standort, Trainingskoordination ist von Modullieferung und UAT-Abnahme getrennt]
     referenceIds: [UABC-REQ-ENT-004, UABC-REQ-CAP-003, UABC-REQ-CAP-005]
     confluenceRefs: [UABC-BLUEPRINT, UABC-DISCOVERY]
     evidenceRefs: [UABC-VER-ARCH-001, UABC-VER-CAP-001]
@@ -104,7 +104,7 @@ issues:
 
   - key: UABC-5
     type: Story
-    summary: Establish OpenSpec governance and project-local workflow
+    summary: OpenSpec-Steuerung und projektlokalen Arbeitsablauf etablieren
     parent: UABC-1
     status: Done
     components: [Projektmanagement]
@@ -114,8 +114,8 @@ issues:
     dueDate: 2026-07-14
     effort: 3d
     dependencies: []
-    dataRequirements: [OpenSpec 1.5.0 documentation, governance rules]
-    acceptanceCriteria: [Custom schema validates, Lifecycle permits exactly 0 or 1 active change]
+    dataRequirements: [OpenSpec-1.5.0-Dokumentation, Steuerungsregeln]
+    acceptanceCriteria: [Projektspezifisches Schema validiert, Lifecycle erlaubt exakt 0 oder 1 aktiven Change]
     referenceIds: [UABC-REQ-GOV-001, UABC-GOV-REFERENCE-001]
     confluenceRefs: [UABC-PROJECT, UABC-DECISIONS]
     evidenceRefs: [UABC-VER-LOCAL-001]
@@ -129,7 +129,7 @@ issues:
 
   - key: UABC-6
     type: Story
-    summary: Simulate Blueprint project in local Jira and Confluence
+    summary: Blueprint-Projekt in lokaler Jira- und Confluence-Simulation abbilden
     parent: UABC-1
     status: Done
     components: [Projektmanagement]
@@ -139,8 +139,8 @@ issues:
     dueDate: 2026-07-16
     effort: 3d
     dependencies: [UABC-5]
-    dataRequirements: [people, issue links, page hierarchy]
-    acceptanceCriteria: [Only Blueprint epic and necessary children exist, All local references validate]
+    dataRequirements: [Personen, Issue-Verknuepfungen, Seitenhierarchie]
+    acceptanceCriteria: [Nur Blueprint-Epic und notwendige untergeordnete Issues existieren, Alle lokalen Referenzen validieren]
     referenceIds: [UABC-REQ-GOV-002, UABC-GOV-REFERENCE-001]
     confluenceRefs: [UABC-PROJECT]
     evidenceRefs: [UABC-VER-REFS-001]
@@ -154,7 +154,7 @@ issues:
 
   - key: UABC-7
     type: Sub-task
-    summary: Record official sources and version baseline
+    summary: Offizielle Quellen und Versionsbaseline erfassen
     parent: UABC-5
     status: Done
     components: [Projektmanagement]
@@ -164,8 +164,8 @@ issues:
     dueDate: 2026-07-11
     effort: 1d
     dependencies: []
-    dataRequirements: [official URLs, retrieval date, version and localization]
-    acceptanceCriteria: [Source decisions and uncertainties are explicit]
+    dataRequirements: [offizielle URLs, Abrufdatum, Version und Lokalisierung]
+    acceptanceCriteria: [Quellenentscheidungen und Unsicherheiten sind explizit]
     referenceIds: [SRC-OPSX-001, SRC-BC-001, UABC-ARCH-ENTERPRISE-001]
     confluenceRefs: [UABC-DECISIONS]
     evidenceRefs: [UABC-VER-SOURCES-001]
@@ -179,7 +179,7 @@ issues:
 
   - key: UABC-8
     type: Sub-task
-    summary: Validate OpenSpec schema and active change
+    summary: OpenSpec-Schema und aktiven Change validieren
     parent: UABC-5
     status: Done
     components: [Projektmanagement]
@@ -189,8 +189,8 @@ issues:
     dueDate: 2026-07-11
     effort: 0.5d
     dependencies: [UABC-7]
-    dataRequirements: [local OpenSpec artifacts]
-    acceptanceCriteria: [Schema and strict OpenSpec validation exit with code zero]
+    dataRequirements: [lokale OpenSpec-Artefakte]
+    acceptanceCriteria: [Schema und strikte OpenSpec-Validierung beenden mit Code null]
     referenceIds: [UABC-REQ-GOV-001, UABC-REQ-GOV-003]
     confluenceRefs: [UABC-TESTS]
     evidenceRefs: [UABC-VER-LOCAL-001]
@@ -204,7 +204,7 @@ issues:
 
   - key: UABC-9
     type: Sub-task
-    summary: Validate Jira and Confluence references
+    summary: Jira- und Confluence-Referenzen validieren
     parent: UABC-6
     status: Done
     components: [Projektmanagement]
@@ -214,8 +214,8 @@ issues:
     dueDate: 2026-07-11
     effort: 0.5d
     dependencies: [UABC-7]
-    dataRequirements: [YAML issues, people, workflow, Markdown metadata]
-    acceptanceCriteria: [IDs parents people statuses and references pass locally]
+    dataRequirements: [YAML-Issues, Personen, Arbeitsablauf, Markdown-Metadaten]
+    acceptanceCriteria: ["IDs, Elternbeziehungen, Personen, Status und Referenzen bestehen lokal"]
     referenceIds: [UABC-REQ-GOV-002]
     confluenceRefs: [UABC-TESTS]
     evidenceRefs: [UABC-VER-REFS-001]
@@ -229,18 +229,18 @@ issues:
 
   - key: UABC-10
     type: Task
-    summary: Conduct cross-functional Blueprint review
+    summary: Bereichsuebergreifende Blueprint-Pruefung durchfuehren
     parent: UABC-1
     status: Done
-    components: [Projektmanagement, Finance, Daten, Training]
+    components: [Projektmanagement, Finanzwesen, Daten, Training]
     assignee: P-002
     customerRole: P-001
     startDate: 2026-07-10
     dueDate: 2026-07-17
     effort: 2d
     dependencies: [UABC-2, UABC-3, UABC-4, UABC-8, UABC-9]
-    dataRequirements: [consultant findings, direct Microsoft sources, capability status review, delivery workstreams, people and segregation review, synchronized OQ-001 through OQ-014, human decision log, approvals]
-    acceptanceCriteria: [Consultant findings and recommendations are documented, Open questions have category and owner, Workstream and role realism is reviewed, Approval or rejection is recorded only by humans]
+    dataRequirements: [Beraterbefunde, direkte Microsoft-Quellen, Pruefung des Faehigkeitsstatus, Lieferarbeitsstroeme, Personen- und Funktionstrennungspruefung, synchronisierte OQ-001 bis OQ-014, menschliches Entscheidungsprotokoll, Freigaben]
+    acceptanceCriteria: [Beraterbefunde und Empfehlungen sind dokumentiert, Offene Fragen haben Kategorie und Verantwortlichen, Arbeitsstrom- und Rollenrealismus ist geprueft, Freigabe oder Ablehnung wird nur durch Menschen dokumentiert]
     referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-CAP-CATALOG-001]
     confluenceRefs: [UABC-BLUEPRINT, UABC-DECISIONS]
     evidenceRefs: [UABC-VER-BLUEPRINT-APPROVAL-001]
