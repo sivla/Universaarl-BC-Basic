@@ -8,10 +8,10 @@ lastReviewed: 2026-07-10
 approval:
   status: conditionally-approved
   approvedAt: 2026-07-10
-  approvedBy: real repository user; not a synthetic Jira person
+  approvedBy: tatsaechlicher Benutzer des Repositories; keine synthetische Jira-Person
   evidenceId: UABC-VER-BLUEPRINT-APPROVAL-001
-  scope: W0 enterprise and solution architecture capability plan W1-W5 delivery model roles controls open questions and gates
-  exclusions: actual playthru baseline tax and legal detail final licensing capability validation W1 writes and go-live
+  scope: W0-Unternehmens- und Loesungsarchitektur, Faehigkeitsplan, W1-W5-Bereitstellungsmodell, Rollen, Kontrollen, offene Fragen und Freigabepunkte
+  exclusions: tatsaechlicher playthru-Ausgangsstand, steuerliche und rechtliche Details, abschliessende Validierung von Lizenzierung und Faehigkeiten, Schreibvorgaenge in W1 und Produktivsetzung
 planningReference: 2026 Release Wave 1
 actualSandboxBaseline:
   status: approved
@@ -52,7 +52,7 @@ availabilityRule: Aus der Planungsreferenz darf keine Feature-Verfügbarkeit abg
 identityAndEnvironment:
   entraTenant:
     status: unknown
-    purpose: identity, group and license boundary
+    purpose: Identitaets-, Gruppen- und Lizenzgrenze
   targetEnvironment:
     baselineRef: actualSandboxBaseline.facts.environment
     writeReadiness: not-authorized
@@ -69,67 +69,67 @@ licensingModel:
     UAP-DE: Essentials
     UAC-CONS: Essentials
   rules:
-    - Manufacturing in UAS-DE und Service Management in UAD-DE benötigen Premium Experience und entsprechend berechtigte Benutzer.
-    - Ein Essentials-Benutzer kann sich nicht in einem Unternehmen mit Premium Experience anmelden; unternehmensübergreifende Rollen für UAS-DE oder UAD-DE sind Premium-Kandidaten.
-    - Team Member und Microsoft-365-Zugriff ersetzen keine vollständigen Verarbeitungsrechte.
-    - Die finale SKU-Kombination, Gerätelizenzierung und Tenant-Kapazität benötigen aktuelle Product Terms und eine Partnerbestätigung.
+    - Fertigung in UAS-DE und Service Management in UAD-DE erfordern die Premium Experience und entsprechend berechtigte Benutzer.
+    - Ein Essentials-Benutzer kann sich nicht in einem Unternehmen mit Premium Experience anmelden; unternehmensuebergreifende Rollen fuer UAS-DE oder UAD-DE sind Premium-Kandidaten.
+    - Team Member und Microsoft-365-Zugriff ersetzen keine vollstaendigen Verarbeitungsrechte.
+    - Die abschliessende SKU-Kombination, Geraetelizenzierung und Mandantenkapazitaet erfordern aktuelle Product Terms und eine Partnerbestaetigung.
 localizationAndFinance:
   countryReference: Germany
   actualAvailabilityRef: actualSandboxBaseline.facts.localization
   sourceIds: [SRC-BC-012, SRC-BC-013, SRC-BC-014, SRC-BC-015, SRC-BC-016, SRC-BC-017]
   strategy:
-    chartOfAccounts: harmonized group chart with company-specific exceptions and explicit consolidation mapping
-    postingGroups: common code semantics; account assignments are company-owned and change-logged
-    vat: German VAT business/product posting matrix and VAT reporting must be designed and tax-reviewed
-    electronicInvoicing: XRechnung Peppol and ZUGFeRD are target formats only after playthru version and installed apps are evidenced
-    payments: SEPA export with preparer/approver separation; bank portal transmission remains outside Business Central proof
-    reporting: Financial Reports and Analysis Views first; Power BI deferred until reconciliation and semantic ownership
+    chartOfAccounts: harmonisierter Konzernkontenplan mit unternehmensspezifischen Ausnahmen und expliziter Konsolidierungszuordnung
+    postingGroups: einheitliche Codesemantik; Kontenzuordnungen liegen in der Verantwortung der Unternehmen und werden aenderungsprotokolliert
+    vat: Die deutsche Matrix fuer MwSt.-Geschaefts- und MwSt.-Produktbuchungsgruppen sowie die MwSt.-Berichterstattung muessen konzipiert und steuerfachlich geprueft werden
+    electronicInvoicing: XRechnung, Peppol und ZUGFeRD sind erst Zielformate, nachdem die playthru-Version und die installierten Apps nachgewiesen wurden
+    payments: SEPA-Export mit Trennung von Ersteller und Genehmiger; die Uebertragung ueber das Bankportal bleibt ausserhalb des Business-Central-Nachweises
+    reporting: Zuerst Financial Reports und Analysis Views; Power BI wird bis zur Abstimmung und Klaerung der semantischen Verantwortung zurueckgestellt
 masterDataStrategy:
   sourceIds: [SRC-BC-019]
-  principle: Zentrale Governance bedeutet nicht identische Datensätze in jedem BC-Unternehmen.
+  principle: Zentrale Steuerung bedeutet nicht identische Datensaetze in jedem BC-Unternehmen.
   sourceCompany: UAM-DE
-  sharedCandidates: [dimension codes and values, payment terms, units of measure, item categories, selected party identity fields]
-  companySpecific: [posting groups, bank accounts, credit limits, prices, tax registrations, locations, planning parameters, vendor purchasing terms]
+  sharedCandidates: [Dimensionscodes und -werte, Zahlungsbedingungen, Mengeneinheiten, Artikelkategorien, ausgewaehlte Identitaetsfelder von Geschaeftspartnern]
+  companySpecific: [Buchungsgruppen, Bankkonten, Kreditlimits, Preise, Steuerregistrierungen, Lagerorte, Planungsparameter, Einkaufskonditionen fuer Kreditoren]
   synchronizationConstraint: Die Standardsynchronisierung zieht Daten innerhalb einer Umgebung unidirektional; bidirektionale Synchronisierung wird ausgeschlossen.
   commercialMasterPolicy: UAM-DE verantwortet Parteistammdaten, gemeinsame Wörterbücher und den synchronisierten kommerziellen Artikelkern.
-  productMasterRecommendation: UAS-DE ergänzt lokale, nicht synchronisierte Produktionsstücklisten, Arbeitspläne, Kapazitäten, Engineering- und weitere Fertigungsfelder zum kommerziellen Artikelkern von UAM-DE.
+  productMasterRecommendation: UAS-DE ergaenzt den kommerziellen Artikelkern von UAM-DE um lokale, nicht synchronisierte Produktionsstuecklisten, Arbeitsplaene, Kapazitaeten, Konstruktions- und weitere Fertigungsfelder.
   partyMasterRecommendation: P-016 verantwortet Identität und Dublettenvermeidung in UAM-DE; jede Gesellschaft besitzt ihre transaktionalen, gesetzlichen, Kredit-, Preis-, Einkaufs-, Standort- und Planungsfelder.
-  activationGate: Vor Aktivierung der Synchronisierung müssen eine Eigentums- und Synchronisierungsmatrix auf Feldebene sowie ein erfolgreicher playthru-PoC vorliegen.
+  activationGate: Vor Aktivierung der Synchronisierung muessen eine Eigentums- und Synchronisierungsmatrix auf Feldebene sowie ein erfolgreicher Machbarkeitsnachweis in playthru vorliegen.
 deliveryWorkstreams:
   sourceIds: [SRC-BC-035, SRC-BC-036, SRC-BC-038, SRC-BC-039, SRC-BC-040, SRC-BC-041, SRC-BC-042, SRC-BC-044]
-  W1: Strategie, Dateninventar, Verantwortliche, kontrollierte Vorlagen, Testplan, Trainings- und Adoptionsplan, lokale Financial Reports und Dimensionsprüfungen
-  W2: Mapping, Bereinigung, Mock Load 1, Einbindung der Key User und IC-Beleggrundlage UAS nach UAD
-  W3: Mock Load 2, integrierte Prozesstests, Entwicklung der Trainingsinhalte und Befähigung der Modul-Key-User
-  W4: UAT-Datenlauf, Abstimmung, fachliche Abnahme, Train-the-Trainer, Cutover-Probe, vollständige IC-Abstimmung und Konzernreporting
-  W5: finaler Load, Endanwendertraining, Cutover, Hypercare und gemessener Übergang in den Support
+  W1: Strategie, Dateninventar, Verantwortliche, kontrollierte Vorlagen, Testplan, Plan fuer Schulung und Benutzerakzeptanz, lokale Financial Reports und Dimensionspruefungen
+  W2: Zuordnung, Bereinigung, Probeladung 1, Einbindung der Schluesselanwender und IC-Beleggrundlage von UAS nach UAD
+  W3: Probeladung 2, integrierte Prozesstests, Entwicklung der Schulungsinhalte und Befaehigung der Modul-Schluesselanwender
+  W4: UAT-Datenlauf, Abstimmung, fachliche Abnahme, Schulung der Trainer, Umstellungsprobe, vollstaendige IC-Abstimmung und Konzernberichterstattung
+  W5: abschliessende Ladung, Endanwenderschulung, Produktivumstellung, intensive Nachbetreuung und gemessener Uebergang in den Unterstuetzungsbetrieb
 dataDeliveryModel:
   sourceIds: [SRC-BC-036, SRC-BC-037]
-  setupData: Configuration Worksheet und geprüfte Configuration Packages; nur freigegebenes Setup mit unternehmensspezifischen Werten und Wiederholungslaufprotokoll übertragen
-  masterData: kontrollierter Excel-Austausch und Configuration Packages mit Configuration Templates für freigegebene Defaults; der Objektverantwortliche prüft Identität und Unternehmensfelder
-  openEntries: objektspezifische Vorlagen oder Journale mit Belegverknüpfung, Überfälligkeit, Bestandswert und Abstimmung von Nebenbuch zu Hauptbuch
-  postedData: keine Massenerzeugung historischer gebuchter Transaktionen über Configuration Packages; zugängliches Legacy-Archiv erhalten oder nur ausdrücklich freigegebene Eröffnungspositionen mit Audit-Abstimmung migrieren
-  control: jede Datei und jedes Package enthält Verantwortlichen, Quellauszug, Transformation, Version, Ladereihenfolge, Lauf-ID, Fehlerbehandlung, Abstimmung sowie Reset- oder Wiederholungshinweis
+  setupData: Configuration Worksheet und gepruefte Configuration Packages; nur freigegebene Einrichtung mit unternehmensspezifischen Werten und Protokoll des Wiederholungslaufs uebertragen
+  masterData: kontrollierter Excel-Austausch und Configuration Packages mit Configuration Templates fuer freigegebene Standardwerte; der Objektverantwortliche prueft Identitaet und Unternehmensfelder
+  openEntries: objektspezifische Vorlagen oder Buchungsblaetter mit Belegverknuepfung, Ueberfaelligkeit, Bestandswert und Abstimmung von Nebenbuch zu Hauptbuch
+  postedData: keine Massenerzeugung historischer gebuchter Transaktionen ueber Configuration Packages; zugaengliches Altdatenarchiv beibehalten oder nur ausdruecklich freigegebene Eroeffnungspositionen mit pruefungssicherer Abstimmung migrieren
+  control: jede Datei und jedes Paket enthaelt Verantwortlichen, Quellauszug, Transformation, Version, Ladereihenfolge, Lauf-ID, Fehlerbehandlung, Abstimmung sowie einen Hinweis zum Zuruecksetzen oder Wiederholen
 legalEntities:
   - id: UABC-LE-UAM
     name: Universaarl Management GmbH
     bcCompany: UAM-DE
     currency: EUR
-    purpose: echte Holding- und Shared-Service-Gesellschaft, die Beteiligungen, Hauptsitz, Vermögen, Beschäftigte, Bank- und Steuerstruktur hält und gesteuerte Finance-, IT- und Data-Governance-Services über Serviceverträge und Umlageschlüssel erbringt
+    purpose: echte Holding- und zentrale Dienstleistungsgesellschaft, die Beteiligungen, Hauptsitz, Vermoegen, Beschaeftigte, Bank- und Steuerstruktur haelt und gesteuerte Leistungen fuer Finanzen, IT und Datensteuerung ueber Dienstleistungsvertraege und Umlageschluessel erbringt
   - id: UABC-LE-UAS
     name: Universaarl Automation Systems GmbH
     bcCompany: UAS-DE
     currency: EUR
-    purpose: Engineering, Einkauf und Fertigung
+    purpose: Konstruktion, Einkauf und Fertigung
   - id: UABC-LE-UAD
     name: Universaarl Distribution & Service GmbH
     bcCompany: UAD-DE
     currency: EUR
-    purpose: Verkauf, Distribution, Ersatzteile und technischer Service
+    purpose: Verkauf, Warenverteilung, Ersatzteile und technischer Kundendienst
   - id: UABC-LE-UAP
     name: Universaarl Projects GmbH
     bcCompany: UAP-DE
     currency: EUR
-    purpose: Vertragspartner für Engineering, Installation und Inbetriebnahme mit eigenen Ressourcen, Bank- und Steuerstruktur sowie Verantwortung für Projekt-WIP, Forderungen, Subunternehmer und Lieferungsrisiken
+    purpose: Vertragspartner fuer Konstruktion, Installation und Inbetriebnahme mit eigenen Ressourcen, Bank- und Steuerstruktur sowie Verantwortung fuer unfertige Projektleistungen, Forderungen, Subunternehmer und Lieferungsrisiken
 reportingCompanies:
   - id: UABC-BC-UAC-CONS
     name: Universaarl Group Consolidation
@@ -156,81 +156,81 @@ locations:
   - { id: UABC-LOC-IGB-PROJ, code: IGB-PROJ, company: UAP-DE, site: UABC-SITE-IGB, warehouseLevel: simple, binsMandatory: false }
 dimensions:
   - { id: UABC-DIM-COSTCENTER, code: COSTCENTER, rank: global1, purpose: organisatorische Verantwortlichkeit }
-  - { id: UABC-DIM-BUSINESSUNIT, code: BUSINESSUNIT, rank: global2, purpose: unternehmensübergreifendes Reporting des Geschäftsmodells }
-  - { id: UABC-DIM-PRODUCTLINE, code: PRODUCTLINE, rank: shortcut3, purpose: Produktprofitabilität }
-  - { id: UABC-DIM-PROJECT, code: PROJECT, rank: shortcut4, purpose: nur Querschnittsanalyse; BC Project bleibt ein operatives Objekt }
+  - { id: UABC-DIM-BUSINESSUNIT, code: BUSINESSUNIT, rank: global2, purpose: unternehmensuebergreifende Berichterstattung zum Geschaeftsmodell }
+  - { id: UABC-DIM-PRODUCTLINE, code: PRODUCTLINE, rank: shortcut3, purpose: Produktprofitabilitaet }
+  - { id: UABC-DIM-PROJECT, code: PROJECT, rank: shortcut4, purpose: "nur Querschnittsanalyse; das Projekt in Business Central bleibt ein operatives Objekt" }
   - { id: UABC-DIM-CHANNEL, code: CHANNEL, rank: shortcut5, purpose: Vertriebskanal und IC-Abgrenzung }
-  - { id: UABC-DIM-REGION, code: REGION, rank: shortcut6, purpose: Markt- und Serviceregion }
-  - { id: UABC-DIM-ICPARTNER, code: ICPARTNER, rank: shortcut7, purpose: Unterstützung der IC-Abstimmung }
+  - { id: UABC-DIM-REGION, code: REGION, rank: shortcut6, purpose: Markt- und Kundendienstregion }
+  - { id: UABC-DIM-ICPARTNER, code: ICPARTNER, rank: shortcut7, purpose: Unterstuetzung der IC-Abstimmung }
   - { id: UABC-DIM-CUSTOMERSEG, code: CUSTOMERSEG, rank: shortcut8, purpose: Kundensegmentanalyse }
 securityPrinciples:
   - Entra-Sicherheitsgruppen steuern den Umgebungszugang und die Rollengruppierung.
-  - BC-Berechtigungssätze gewähren das Least-Privilege-Prinzip und sind bei Bedarf unternehmensbezogen.
-  - Profile und Role Centers dienen der Bedienbarkeit, nicht als Sicherheitskontrolle.
-  - SUPER ist auf Sandbox-Administration und Notfallzugriff beschränkt.
-  - Native Genehmigungsworkflows werden zuerst für Einkauf, Verkauf, Zahlungsjournale und kritische Stammdaten geprüft.
+  - BC-Berechtigungssaetze setzen das Prinzip der geringstmoeglichen Berechtigungen um und sind bei Bedarf unternehmensbezogen.
+  - Profile und Rollencenter dienen der Bedienbarkeit, nicht als Sicherheitskontrolle.
+  - SUPER ist auf die Sandbox-Verwaltung und den Notfallzugriff beschraenkt.
+  - Standardgenehmigungsablaeufe werden zuerst fuer Einkauf, Verkauf, Zahlungsbuchungsblaetter und kritische Stammdaten geprueft.
 operatingModel:
   financeProcessing:
     UAM-DE: P-005
-    UAP-DE: P-005 supported by P-015 for project billing evidence
-    UAS-DE: P-017 with P-006 as controller and P-003 as approver
-    UAD-DE: P-018 with P-003 as approver
+    UAP-DE: P-005 mit Unterstuetzung durch P-015 bei Nachweisen zur Projektabrechnung
+    UAS-DE: P-017 mit P-006 fuer die Kontrolle und P-003 fuer die Genehmigung
+    UAD-DE: P-018 mit P-003 fuer die Genehmigung
   warehouseKeyUsers:
     UAS-DE: P-009
-    UAD-DE: P-019 supported by P-012 for service stock and P-013 for vehicle stock
-  migration: P-016 koordiniert; P-005, P-017 und P-018 stimmen die Unternehmensbücher ab; P-006 stimmt Produktionsbestand und Kosten ab
-  training: P-015 koordiniert; jeder Modul-Key-User entwickelt und vermittelt das eigene Rollentraining
-  uat: Prozessverantwortliche nehmen ihren Scope ab; P-002 koordiniert und P-015 darf keine Module an ihrer Stelle abnehmen
+    UAD-DE: P-019 mit Unterstuetzung durch P-012 fuer Kundendienstbestaende und P-013 fuer Fahrzeugbestaende
+  migration: P-016 koordiniert; P-005, P-017 und P-018 stimmen die Unternehmensbuecher ab; P-006 stimmt Produktionsbestand und Kosten ab
+  training: P-015 koordiniert; jeder Modul-Schluesselanwender entwickelt und vermittelt die eigene rollenspezifische Schulung
+  uat: Prozessverantwortliche nehmen ihren jeweiligen Verantwortungsumfang ab; P-002 koordiniert und P-015 darf keine Module an ihrer Stelle abnehmen
 decisions:
-  - { id: UABC-DEC-001, status: approved, decidedAt: 2026-07-10, statement: Vier operative Gesellschaften bleiben bestehen, ergänzt um das nicht operative UAC-CONS; UAM ist eine substanzielle Holding- und Shared-Service-Gesellschaft, UAP besitzt Projektverträge, Ressourcen und Risiken }
-  - { id: UABC-DEC-002, status: approved, decidedAt: 2026-07-10, statement: Organisationsobjekte existieren nur für einen eigenständigen Prozess- oder Kontrollzweck }
-  - { id: UABC-DEC-003, status: approved, decidedAt: 2026-07-10, statement: Die Lagerkomplexität unterscheidet sich je Standort }
-  - { id: UABC-DEC-004, status: approved, decidedAt: 2026-07-10, statement: COSTCENTER und BUSINESSUNIT sind globale Dimensionen }
-  - { id: UABC-DEC-005, status: approved, decidedAt: 2026-07-10, statement: Standard zuerst; Erweiterungen benötigen eine belegte Lücke und einen separaten Change }
-  - { id: UABC-DEC-006, status: approved, decidedAt: 2026-07-10, statement: OpenSpec ist normativ; Jira und Confluence sind Kooperationsansichten }
-  - { id: UABC-DEC-007, status: approved, decidedAt: 2026-07-10, statement: Dataverse und Dynamics 365 Sales liegen außerhalb des Kernprojekts; eine spätere Einführung benötigt einen positiven Business Case und einen separaten OpenSpec-Change, während native BC-nahe Vertriebsfunktionen geprüft werden dürfen }
-  - { id: UABC-DEC-008, status: approved, decidedAt: 2026-07-10, statement: UAM-DE ist die einzige Standard-Quellgesellschaft für Parteistammdaten, gemeinsame Wörterbücher und den kommerziellen Artikelkern; Produktion und alle transaktionalen Felder der Gesellschaften bleiben lokal }
+  - { id: UABC-DEC-001, status: approved, decidedAt: 2026-07-10, statement: "Vier operative Gesellschaften bleiben bestehen, ergaenzt um das nicht operative UAC-CONS; UAM ist eine substanzielle Holding- und zentrale Dienstleistungsgesellschaft, UAP besitzt Projektvertraege, Ressourcen und Risiken" }
+  - { id: UABC-DEC-002, status: approved, decidedAt: 2026-07-10, statement: "Organisationsobjekte existieren nur fuer einen eigenstaendigen Prozess- oder Kontrollzweck" }
+  - { id: UABC-DEC-003, status: approved, decidedAt: 2026-07-10, statement: "Die Lagerkomplexitaet unterscheidet sich je Standort" }
+  - { id: UABC-DEC-004, status: approved, decidedAt: 2026-07-10, statement: "COSTCENTER und BUSINESSUNIT sind globale Dimensionen" }
+  - { id: UABC-DEC-005, status: approved, decidedAt: 2026-07-10, statement: "Standard zuerst; Erweiterungen benoetigen eine belegte Luecke und eine separate Aenderung" }
+  - { id: UABC-DEC-006, status: approved, decidedAt: 2026-07-10, statement: "OpenSpec ist normativ; Jira und Confluence sind Kooperationsansichten" }
+  - { id: UABC-DEC-007, status: approved, decidedAt: 2026-07-10, statement: "Dataverse und Dynamics 365 Sales liegen ausserhalb des Kernprojekts; eine spaetere Einfuehrung benoetigt einen positiven Wirtschaftlichkeitsnachweis und eine separate OpenSpec-Aenderung, waehrend in BC enthaltene Vertriebsfunktionen geprueft werden duerfen" }
+  - { id: UABC-DEC-008, status: approved, decidedAt: 2026-07-10, statement: "UAM-DE ist die einzige Standard-Quellgesellschaft fuer Parteistammdaten, gemeinsame Woerterbuecher und den kommerziellen Artikelkern; Produktion und alle transaktionalen Felder der Gesellschaften bleiben lokal" }
 openQuestions:
-  - { id: UABC-OQ-001, status: open, category: later-playthru-technical-fact, owner: P-004, question: Actual playthru version country apps and capacity, evidenceRequired: environment and company evidence }
-  - { id: UABC-OQ-002, status: open, category: legal-tax-licensing-review, owner: P-003, question: Chart of accounts tax mapping and statutory reporting requirements, evidenceRequired: Finance and Tax review }
-  - { id: UABC-OQ-003, status: open, category: synthetic-universaarl-business-fact, owner: P-006, question: Costing by product family and standard-cost process, evidenceRequired: deliberately defined margin model and simulation }
-  - { id: UABC-OQ-004, status: open, category: synthetic-universaarl-business-fact, owner: P-012, question: Serial and lot tracking by product, evidenceRequired: deliberately defined warranty and traceability policy }
-  - { id: UABC-OQ-005, status: open, category: later-playthru-technical-fact, owner: P-009, question: Standard warehouse sufficient or scanner extension required, evidenceRequired: standard sandbox proof of concept and measured process }
-  - { id: UABC-OQ-006, status: decided, category: sponsor-decision, owner: P-010, decisionId: UABC-DEC-007, question: CRM and Dataverse business scope, evidenceRequired: approved core-project exclusion and separate-change rule }
-  - { id: UABC-OQ-007, status: open, category: legal-tax-licensing-review, owner: P-003, question: E-invoice format provider and retention obligations, evidenceRequired: legal tax and provider assessment }
-  - { id: UABC-OQ-008, status: open, category: synthetic-universaarl-business-fact, owner: P-014, question: Project WIP and billing methods by synthetic contract type, evidenceRequired: deliberately defined contract scenarios and close policy }
-  - { id: UABC-OQ-009, status: open, category: legal-tax-licensing-review, owner: P-003, question: Final Essentials Premium Team Member and Device license assignment by person, evidenceRequired: current Product Terms and licensing partner assessment }
-  - { id: UABC-OQ-010, status: open, category: legal-tax-licensing-review, owner: P-003, question: German VAT e-invoice payment and retention requirements by legal entity and document type, evidenceRequired: Tax Legal bank and e-invoice review }
-  - { id: UABC-OQ-011, status: decided, category: sponsor-decision, owner: P-016, decisionId: UABC-DEC-008, question: Governance boundary shared versus company-specific fields and source company, evidenceRequired: approved policy plus W1 field matrix and synchronization proof of concept }
-  - { id: UABC-OQ-012, status: open, category: synthetic-universaarl-business-fact, owner: P-008, question: Product-level Purchase Assembly or Manufacturing classification, evidenceRequired: deliberately defined product family BOM routing capacity and costing model }
-  - { id: UABC-OQ-013, status: open, category: legal-tax-licensing-review, owner: P-003, question: Intercompany transfer prices markups ownership transfer lead contractor warranty and reconciliation, evidenceRequired: Legal Tax and commercial intercompany operating model }
-  - { id: UABC-OQ-014, status: open, category: synthetic-universaarl-business-fact, owner: P-016, question: Migration scope volume history quality privacy and reconciliation by data object, evidenceRequired: deliberately defined synthetic data requirement catalog plus privacy review }
+  - { id: UABC-OQ-001, status: open, category: later-playthru-technical-fact, owner: P-004, question: "Tatsaechliche playthru-Version, Laender-Apps und Kapazitaet", evidenceRequired: "Nachweis zu Umgebung und Unternehmen" }
+  - { id: UABC-OQ-002, status: open, category: legal-tax-licensing-review, owner: P-003, question: "Kontenplan, steuerliche Zuordnung und gesetzliche Berichtsanforderungen", evidenceRequired: "Finanz- und Steuerpruefung" }
+  - { id: UABC-OQ-003, status: open, category: synthetic-universaarl-business-fact, owner: P-006, question: "Kalkulation nach Produktfamilie und Standardkostenprozess", evidenceRequired: "bewusst definiertes Margenmodell und Simulation" }
+  - { id: UABC-OQ-004, status: open, category: synthetic-universaarl-business-fact, owner: P-012, question: "Serien- und Chargenverfolgung nach Produkt", evidenceRequired: "bewusst definierte Garantie- und Rueckverfolgbarkeitsrichtlinie" }
+  - { id: UABC-OQ-005, status: open, category: later-playthru-technical-fact, owner: P-009, question: "Reicht die Standardlagerverwaltung aus oder ist eine Scannererweiterung erforderlich", evidenceRequired: "Machbarkeitsnachweis in der Standard-Sandbox und gemessener Prozess" }
+  - { id: UABC-OQ-006, status: decided, category: sponsor-decision, owner: P-010, decisionId: UABC-DEC-007, question: "Geschaeftlicher Umfang von CRM und Dataverse", evidenceRequired: "genehmigter Ausschluss aus dem Kernprojekt und Regel fuer eine separate Aenderung" }
+  - { id: UABC-OQ-007, status: open, category: legal-tax-licensing-review, owner: P-003, question: "Format und Anbieter fuer elektronische Rechnungen sowie Aufbewahrungspflichten", evidenceRequired: "rechtliche, steuerliche und anbieterseitige Bewertung" }
+  - { id: UABC-OQ-008, status: open, category: synthetic-universaarl-business-fact, owner: P-014, question: "Projekt-WIP und Abrechnungsmethoden nach synthetischem Vertragstyp", evidenceRequired: "bewusst definierte Vertragsszenarien und Abschlussrichtlinie" }
+  - { id: UABC-OQ-009, status: open, category: legal-tax-licensing-review, owner: P-003, question: "Abschliessende Zuordnung der Lizenzen Essentials, Premium, Team Member und Device je Person", evidenceRequired: "aktuelle Product Terms und Bewertung durch den Lizenzierungspartner" }
+  - { id: UABC-OQ-010, status: open, category: legal-tax-licensing-review, owner: P-003, question: "Deutsche Anforderungen an MwSt., elektronische Rechnungen, Zahlungen und Aufbewahrung nach Rechtstraeger und Belegart", evidenceRequired: "Pruefung zu Steuern, Recht, Bankwesen und elektronischen Rechnungen" }
+  - { id: UABC-OQ-011, status: decided, category: sponsor-decision, owner: P-016, decisionId: UABC-DEC-008, question: "Steuerungsgrenze zwischen gemeinsamen und unternehmensspezifischen Feldern sowie Quellunternehmen", evidenceRequired: "genehmigte Richtlinie sowie Feldmatrix in W1 und Machbarkeitsnachweis fuer die Synchronisierung" }
+  - { id: UABC-OQ-012, status: open, category: synthetic-universaarl-business-fact, owner: P-008, question: "Klassifizierung auf Produktebene als Einkauf, Montage oder Fertigung", evidenceRequired: "bewusst definiertes Modell fuer Produktfamilien, Stuecklisten, Arbeitsplaene, Kapazitaeten und Kalkulation" }
+  - { id: UABC-OQ-013, status: open, category: legal-tax-licensing-review, owner: P-003, question: "IC-Verrechnungspreise, Aufschlaege, Eigentumsuebergang, federfuehrender Auftragnehmer, Garantie und Abstimmung", evidenceRequired: "rechtliches, steuerliches und kaufmaennisches IC-Betriebsmodell" }
+  - { id: UABC-OQ-014, status: open, category: synthetic-universaarl-business-fact, owner: P-016, question: "Migrationsumfang, -volumen, -historie, -qualitaet, Datenschutz und Abstimmung je Datenobjekt", evidenceRequired: "bewusst definierter Anforderungskatalog fuer synthetische Daten sowie Datenschutzpruefung" }
 crossFunctionalReview:
   reviewedAt: 2026-07-10
-  reviewType: consultant architecture review followed by explicit real-user decision
-  conclusion: conditionally approved as W0 planning baseline with W1 gates and no BC-write authorization
+  reviewType: beratende Architekturpruefung mit anschliessender ausdruecklicher Entscheidung durch einen tatsaechlichen Benutzer
+  conclusion: unter Auflagen als W0-Planungsgrundlage mit W1-Freigabepunkten und ohne Berechtigung fuer Schreibvorgaenge in Business Central genehmigt
   findings:
     - severity: high
-      topic: legal entities
-      finding: Four legal entities are plausible only with distinct contracts employees assets tax registrations bank accounts and risk ownership; otherwise UAM-DE or UAP-DE may be organizational over-segmentation.
+      topic: Rechtstraeger
+      finding: Vier Rechtstraeger sind nur mit jeweils eigenen Vertraegen, Beschaeftigten, Vermoegenswerten, Steuerregistrierungen, Bankkonten und eigener Risikoverantwortung plausibel; andernfalls koennten UAM-DE oder UAP-DE organisatorisch uebersegmentiert sein.
     - severity: high
-      topic: licensing
-      finding: UAS-DE Manufacturing and UAD-DE Service Management create Premium dependencies that affect every cross-company user role.
+      topic: Lizenzierung
+      finding: Fertigung in UAS-DE und Kundendienstverwaltung in UAD-DE erzeugen Premium-Abhaengigkeiten, die jede unternehmensuebergreifende Benutzerrolle betreffen.
     - severity: high
-      topic: German compliance
-      finding: VAT e-invoicing service invoices and payment formats cannot be finalized before actual playthru version localization and extensions are evidenced.
+      topic: deutsche Rechtskonformitaet
+      finding: MwSt.-Behandlung, elektronische Rechnungsstellung, Dienstleistungsrechnungen und Zahlungsformate koennen erst abschliessend festgelegt werden, wenn die tatsaechliche playthru-Version, die Lokalisierung und die Erweiterungen nachgewiesen sind.
     - severity: high
-      topic: master data
-      finding: One universal golden-record company is not credible for both product engineering and legal-entity-specific party data under unidirectional standard synchronization.
+      topic: Stammdaten
+      finding: Eine universelle, fuer alle fuehrende Stammdatengesellschaft ist sowohl fuer die Produktentwicklung als auch fuer rechtstraegerspezifische Geschaeftspartnerdaten bei unidirektionaler Standardsynchronisierung nicht tragfaehig.
     - severity: high
-      topic: intercompany
-      finding: The proposed flows are plausible but transfer pricing lead-contractor warranty ownership and reconciliation rules are not yet defined.
+      topic: IC-Geschaefte
+      finding: Die vorgeschlagenen Ablaeufe sind plausibel, doch Regeln fuer Verrechnungspreise, die Rolle des federfuehrenden Auftragnehmers, Garantie, Eigentum und Abstimmung sind noch nicht definiert.
     - severity: medium
-      topic: warehouse
-      finding: NK-WERK Advanced Warehouse is a target hypothesis requiring volume layout role and scanner evidence; it is not yet a configuration decision.
+      topic: Lager
+      finding: Die erweiterte Lagerverwaltung in NK-WERK ist eine Zielhypothese, die Nachweise zu Volumen, Lageranordnung, Rollen und Scannern erfordert; sie ist noch keine Konfigurationsentscheidung.
     - severity: medium
-      topic: delivery waves
-      finding: W2 combines trade inventory basic and advanced warehouse too aggressively; Advanced Warehouse should follow stable trade and inventory foundations.
+      topic: Umsetzungswellen
+      finding: W2 buendelt Handel, Bestand sowie einfache und erweiterte Lagerverwaltung zu aggressiv; die erweiterte Lagerverwaltung sollte auf stabilen Grundlagen fuer Handel und Bestand aufbauen.
     - severity: medium
-      topic: migration and UAT
-      finding: Migration testing UAT training cutover and hypercare must run across W1 to W5; their object volumes history open balances tracking project WIP installed base assets attachments privacy and reconciliation requirements remain to be deliberately quantified.
+      topic: Migration und UAT
+      finding: Migrationstests, UAT, Schulung, Produktivumstellung und intensive Nachbetreuung muessen von W1 bis W5 durchgaengig erfolgen; Anforderungen an Objektvolumina, Historie, offene Salden, Nachverfolgung, Projekt-WIP, installierte Basis, Anlagen, Anhaenge, Datenschutz und Abstimmung muessen weiterhin bewusst quantifiziert werden.
