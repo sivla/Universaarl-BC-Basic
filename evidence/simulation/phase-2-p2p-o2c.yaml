@@ -1,0 +1,57 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-PHASE2-001
+projectId: UABC-BC-BASIC-001
+changeRef: deliver-bc-basic-customer-project
+classification: synthetic-only
+simulationStatus: synthetisch-abgenommen
+realBcExecution: false
+sourceData:
+  company: project/bc-basic/customer-templates/example/company-setup.example.yaml
+  dimensions: project/bc-basic/customer-templates/example/dimensions.example.csv
+  customers: project/bc-basic/customer-templates/example/customers.example.csv
+  vendors: project/bc-basic/customer-templates/example/vendors.example.csv
+  items: project/bc-basic/customer-templates/example/items.example.csv
+  inventoryOpening: project/bc-basic/customer-templates/example/inventory-opening.example.csv
+  glOpening: project/bc-basic/customer-templates/example/gl-opening.example.csv
+  openEntries: project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv
+inventory:
+  company: { id: UABC-BASIC-DE, name: Universaarl GmbH, environment: playthru, currency: EUR, chart: SKR04 }
+  dimensions: [KOSTENSTELLE=VERTRIEB, KOSTENSTELLE=VERWALTUNG, GESCHAEFT=HANDEL]
+  postingGroups: { generalBusiness: INLAND, generalProduct: HANDEL, vatBusiness: INLAND, vatProduct: MWST19 }
+  parties: { customer: K-10000, vendor: L-70000 }
+  item: { id: A-1000, unit: STK, unitCost: 42.00, unitPrice: 79.00 }
+  location: { id: HAUPT, openingQuantity: 100, openingValue: 4200.00 }
+  openEntries: { customer: 940.10, vendor: 499.80 }
+  openingBalance: { debit: 10140.10, credit: 10140.10, difference: 0.00 }
+setup:
+  sequence: [Dimensionen, Dimensionswerte, Konten, Buchungsgruppen, MwSt-Gruppen, Zahlungsbedingungen, Lagerort, Stammdaten, Eroeffnungsbuchungen]
+  result: synthetisch-geprueft
+purchaseToPay:
+  caseId: SIM-P2P-001
+  input: { vendor: L-70000, item: A-1000, quantity: 10, unitNet: 42.00, vatRate: 0.19, paymentTerms: 14T }
+  expectedBcSteps: [Bestellung, Wareneingang, Eingangsrechnung, Kreditorenabstimmung]
+  documents: [SYN-PO-001, SYN-GR-001, SYN-AP-002]
+  accountAndVatEffect: { inventoryDebit: 420.00, inputVatDebit: 79.80, vendorCredit: 499.80 }
+  controls: { net: 420.00, vat: 79.80, gross: 499.80, quantity: 10, inventoryValueAfter: 4620.00 }
+  defect: { id: SIM-DEF-P2P-001, severity: P2, finding: Eingangsrechnung ohne MwSt.-Buchungsgruppe, correction: MWST19 zuordnen, retest: bestanden-synthetisch }
+  acceptance: synthetisch-abgenommen
+orderToCash:
+  caseId: SIM-O2C-001
+  input: { customer: K-10000, item: A-1000, quantity: 10, unitNet: 79.00, vatRate: 0.19, paymentTerms: 14T }
+  expectedBcSteps: [Verkaufsauftrag, Lieferung, Verkaufsrechnung, Debitorenabstimmung]
+  documents: [SYN-SO-001, SYN-SHIP-001, SYN-AR-002]
+  accountAndVatEffect: { customerDebit: 940.10, revenueCredit: 790.00, outputVatCredit: 150.10, cogsDebit: 420.00, inventoryCredit: 420.00 }
+  controls: { net: 790.00, vat: 150.10, gross: 940.10, quantity: 10, inventoryQuantityAfter: 100, inventoryValueAfter: 4200.00 }
+  defect: { id: SIM-DEF-O2C-001, severity: P2, finding: Verkaufspreis fehlte im Auftrag, correction: 79.00 EUR aus Artikelstamm uebernehmen, retest: bestanden-synthetisch }
+  acceptance: synthetisch-abgenommen
+reconciliation:
+  openingBalanceDifference: 0.00
+  customerEntryAfterO2C: 1880.20
+  vendorEntryAfterP2P: 999.60
+  inventoryValueAfterBothProcesses: 4200.00
+  vatNetMovement: 70.30
+defectsAndRetest:
+  allDefectsClosedInSimulation: true
+  realEvidenceCreated: false
+  realGoNoGo: NO_GO_REAL
+  reason: Synthetische Korrekturen ersetzen weder Kundenfreigabe noch BC-Ausfuehrung.

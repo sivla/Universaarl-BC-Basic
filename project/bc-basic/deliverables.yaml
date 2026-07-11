@@ -33,7 +33,7 @@ deliverables:
   - id: UABC-DEL-BCB-003
     phaseRef: UABC-PHASE-01
     title: Daten-, Konfigurationspaket- und Datenbereitschaftsprotokoll
-    status: planned
+    status: simulated-complete
     resultClaimed: false
     ownerRef: P-016
     jiraRefs: [UABC-25]
@@ -41,7 +41,7 @@ deliverables:
       - project/bc-basic/data-package.yaml
       - project/bc-basic/data-readiness-check.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
-    completionEvidence: null
+    completionEvidence: evidence/simulation/phase-2-p2p-o2c.yaml
   - id: UABC-DEL-BCB-004
     phaseRef: UABC-PHASE-02
     title: Gepruefte Standardkonfiguration

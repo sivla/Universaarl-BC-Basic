@@ -164,9 +164,10 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
   assert.equal(deliverables.length, 9);
   assert.equal(deliverableById.size, 9);
   for (const deliverable of deliverables) {
-    assert.equal(deliverable.status, 'planned');
+    assert.ok(['planned', 'simulated-complete'].includes(deliverable.status));
     assert.equal(deliverable.resultClaimed, false);
-    assert.equal(deliverable.completionEvidence, null);
+    if (deliverable.status === 'planned') assert.equal(deliverable.completionEvidence, null);
+    else assert.equal(deliverable.completionEvidence, 'evidence/simulation/phase-2-p2p-o2c.yaml');
     assert.ok(deliverable.requiredSourcePaths?.length > 0, `${deliverable.id} benoetigt Quellpfade`);
     for (const sourcePath of deliverable.requiredSourcePaths) {
       assert.equal(await exists(sourcePath), true, `${deliverable.id}: Quellpfad fehlt: ${sourcePath}`);
@@ -424,6 +425,17 @@ test('Rueckverfolgbarkeitsmatrix verbindet Requirements bis Evidence ohne Abnahm
   assert.equal(matrix.evidenceStatus.humanAcceptance, 'open');
   assert.equal(matrix.evidenceStatus.missingEvidenceBlocks, true);
   assert.ok(matrix.entries.every((entry) => entry.requirement && entry.solution && Array.isArray(entry.workPackages) && Array.isArray(entry.uat) && Array.isArray(entry.training) && entry.evidence));
+});
+
+test('P2P- und O2C-Simulation besitzt Inventar Kontrollsummen Defects und Retests', () => {
+  const simulation = YAML.parse(readFileSync(path.join(root, 'evidence', 'simulation', 'phase-2-p2p-o2c.yaml'), 'utf8'));
+  assert.equal(simulation.classification, 'synthetic-only');
+  assert.equal(simulation.realBcExecution, false);
+  assert.equal(simulation.inventory.openingBalance.difference, 0);
+  assert.equal(simulation.purchaseToPay.controls.gross, 499.80);
+  assert.equal(simulation.orderToCash.controls.gross, 940.10);
+  assert.equal(simulation.defectsAndRetest.allDefectsClosedInSimulation, true);
+  assert.equal(simulation.defectsAndRetest.realGoNoGo, 'NO_GO_REAL');
 });
 
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
