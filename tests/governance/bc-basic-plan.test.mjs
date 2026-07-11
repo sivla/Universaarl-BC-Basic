@@ -406,6 +406,10 @@ test('Phase-2-Readiness-Gate verbindet Nachweise und offene Freigaben fail-close
   const gate = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'phase-2-readiness-gate.yaml'), 'utf8'));
   assert.equal(gate.status, 'geplant-blockiert');
   assert.equal(gate.decision, 'NO_GO_REAL');
+  assert.equal(gate.simulation.decision, 'GO_SIMULATION');
+  assert.equal(gate.simulation.customerApproval, 'simulated');
+  assert.equal(gate.simulation.assumptions.zielumgebung, 'playthru');
+  assert.equal(gate.simulation.assumptions.lizenz, 'Essentials');
   assert.equal(gate.requiredEvidence.length, 6);
   assert.equal(gate.blockers.length, 4);
   assert.ok(gate.blockers.every((blocker) => blocker.decisionRef.startsWith('UABC-APP-BCB-')));

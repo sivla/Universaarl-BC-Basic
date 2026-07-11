@@ -3,6 +3,14 @@ gateId: UABC-GATE-BCB-PHASE2-001
 projectId: UABC-BC-BASIC-001
 status: geplant-blockiert
 decision: NO_GO_REAL
+simulation:
+  decision: GO_SIMULATION
+  customerApproval: simulated
+  assumptions:
+    zielumgebung: playthru
+    lizenz: Essentials
+    finanzSteuerVerantwortung: Kunde
+  note: Realitaetsnahe Planung ohne echte Freigabe, Zugangsdaten oder BC-Schreibvorgang.
 scope: Phase-2-Einrichtung-und-Schulung
 requiredEvidence:
   - { id: UABC-GATE-EV-001, name: Umfang-und-Rollen, source: project/bc-basic/project-plan.yaml, status: vorhanden-synthetisch }
