@@ -1,8 +1,7 @@
-# Delivery Plan
+# Lieferplan
 
 ## Wellen
 ## Abhaengigkeiten
 ## Verantwortungen
 ## Nachweise
-## Gates
-
+## Pruefpunkte

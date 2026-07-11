@@ -1,35 +1,35 @@
 name: universaarl-delivery
 version: 1
-description: Evidenzorientierter Universaarl-Lieferworkflow mit explizitem Plan und Nachweis
+description: Nachweisorientierter Universaarl-Lieferablauf mit explizitem Plan und Verifikation
 artifacts:
   - id: proposal
     generates: proposal.md
-    description: Änderungsabsicht, Scope, Ergebnisse, Risiken und Governance
+    description: Aenderungsabsicht, Umfang, Ergebnisse, Risiken und Steuerung
     template: proposal.md
     requires: []
   - id: specs
     generates: specs/**/*.md
-    description: Prüffähige Geschäftsanforderungen und Szenarien
+    description: Prueffaehige Geschaeftsanforderungen und Szenarien
     template: spec.md
     requires: [proposal]
   - id: design
     generates: design.md
-    description: Fachliches, Lösungs- und Organisationsdesign
+    description: Fachliches, Loesungs- und Organisationsdesign
     template: design.md
     requires: [proposal]
   - id: delivery-plan
     generates: delivery-plan.md
-    description: Wellen, Verantwortlichkeit, Abhängigkeiten, Evidence und Entscheidungs-Gates
+    description: Wellen, Verantwortlichkeit, Abhaengigkeiten, Nachweise und Entscheidungspruefpunkte
     template: delivery-plan.md
     requires: [specs, design]
   - id: tasks
     generates: tasks.md
-    description: Ausführbare Liefercheckliste
+    description: Ausfuehrbare Liefercheckliste
     template: tasks.md
     requires: [delivery-plan]
   - id: verification
     generates: verification.md
-    description: Evidence-Register, Validierungsergebnisse und Freigabestatus
+    description: Nachweisregister, Validierungsergebnisse und Freigabestatus
     template: verification.md
     requires: [tasks]
 apply:

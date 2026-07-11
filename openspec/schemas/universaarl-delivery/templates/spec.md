@@ -1,4 +1,4 @@
-# Capability Specification
+# Faehigkeitsspezifikation
 
 ## ADDED Requirements
 
@@ -9,4 +9,3 @@ Geschaeftszweck und verbindliche Anforderung.
 - **GIVEN** Ausgangszustand
 - **WHEN** Aktion
 - **THEN** pruefbarer Zustand
-

@@ -1,10 +1,9 @@
-# Change Proposal
+# Aenderungsvorschlag
 
 ## Metadaten
 ## Problem und Zweck
 ## Ergebnisse
-## Scope
+## Umfang
 ## Nicht-Ziele
 ## Risiken und Kontrollen
 ## Freigabe
-

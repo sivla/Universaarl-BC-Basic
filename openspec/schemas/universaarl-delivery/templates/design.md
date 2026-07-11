@@ -1,4 +1,4 @@
-# Solution Design
+# Loesungsdesign
 
 ## Faktenbasis
 ## Annahmen
@@ -6,4 +6,3 @@
 ## Entscheidungen
 ## Alternativen
 ## Offene Punkte
-

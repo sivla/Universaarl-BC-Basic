@@ -1,7 +1,6 @@
-# Verification
+# Verifikation
 
 ## Ausgefuehrte Pruefungen
 ## Ergebnisse
 ## Nicht ausgefuehrte Nachweise
-## Review und Freigabe
-
+## Pruefung und Freigabe
