@@ -1,4 +1,4 @@
-# Tasks
+# Aufgaben
 
 ## 1. Sicherer Bootstrap
 
@@ -16,7 +16,7 @@
 
 - [x] 3.1 Geschaeftsmodell, Gesellschaften, BC-Unternehmen, Standorte und Lagerkonzepte modellieren.
 - [x] 3.2 Personen, Rollen, Funktionstrennung, Dimensionen, Reporting, Integrationen und Datenowner modellieren.
-- [x] 3.3 Prozess-/Capability-Matrix und Implementierungswellen mit geplantem Nachweis vervollstaendigen.
+- [x] 3.3 Prozess-/Faehigkeitenmatrix und Implementierungswellen mit geplantem Nachweis vervollstaendigen.
 - [x] 3.4 Entscheidungen, Alternativen, Annahmen und offene Punkte sichtbar dokumentieren.
 
 ## 4. Lokale Projektsimulation
@@ -33,9 +33,9 @@
 
 ## 6. Archivierungsfeste Korrektur
 
-- [x] 6.1 Kanonische strukturierte Architektur, Capability-Katalog und Verification-Register an stabilen Pfaden erstellen.
+- [x] 6.1 Kanonische strukturierte Architektur, Faehigkeitenkatalog und Verifikationsregister an stabilen Pfaden erstellen.
 - [x] 6.2 Jira und Confluence auf stabile fachliche IDs und explizit synthetische Historien umstellen.
-- [x] 6.3 Validator auf 0..1 aktive Changes, strukturierte Capabilities, Hierarchie, Zyklen, Daten, Evidence, Done-Gates und Seitenmetadaten umstellen.
+- [x] 6.3 Validator auf 0..1 aktive Changes, strukturierte Faehigkeiten, Hierarchie, Zyklen, Daten, Evidence, Done-Gates und Seitenmetadaten umstellen.
 - [x] 6.4 Inhaltsleere Zukunftsseiten entfernen und nur in der Navigation vorsehen.
 - [x] 6.5 Planungsreferenz und unbekannte tatsaechliche Sandbox-Baseline trennen.
 - [x] 6.6 Archivierungsprobe in einer wegwerfbaren Kopie ausfuehren und Ergebnis registrieren.

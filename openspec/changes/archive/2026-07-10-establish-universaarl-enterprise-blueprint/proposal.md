@@ -1,14 +1,14 @@
-# Change Proposal: Universaarl-Unternehmens-Blueprint v0.1
+# Change-Vorschlag: Universaarl-Unternehmens-Blueprint v0.1
 
 ## Metadaten
 
 - Change-ID: `establish-universaarl-enterprise-blueprint`
 - Status: aktiv, in Review-Vorbereitung
-- Owner: Dr. Lena Hartmann (synthetisch), Executive Sponsor
-- Delivery Lead: Jonas Weber (synthetisch)
+- Verantwortlich: Dr. Lena Hartmann (synthetisch), Sponsorin auf Leitungsebene
+- Lieferverantwortung: Jonas Weber (synthetisch)
 - planningReference: 2026 Release Wave 1
 - actualSandboxBaseline: unknown
-- Availability rule: Keine Feature-Verfuegbarkeit wird aus der Planungsreferenz abgeleitet.
+- Verfuegbarkeitsregel: Keine Feature-Verfuegbarkeit wird aus der Planungsreferenz abgeleitet.
 - Abruf-/Planungsstand: 2026-07-10
 
 ## Problem und Zweck
@@ -17,19 +17,19 @@ Universaarl benoetigt vor jeder Konfiguration ein konsistentes Zielbild fuer Unt
 
 ## Ergebnisse
 
-1. Reviewfaehiges Unternehmens- und Solution-Architecture-Blueprint v0.1.
-2. Vollstaendige Capability-Matrix mit Zweck, Gesellschaft, Standort, Rolle, Abhaengigkeit, Welle und geplantem Nachweis.
+1. Reviewfaehiger Unternehmens- und Loesungsarchitektur-Blueprint v0.1.
+2. Vollstaendige Faehigkeitenmatrix mit Zweck, Gesellschaft, Standort, Rolle, Abhaengigkeit, Welle und geplantem Nachweis.
 3. Ein projektlokales OpenSpec-Schema `proposal -> specs + design -> delivery-plan -> tasks -> verification`.
 4. Lokale Jira- und Confluence-Struktur fuer die Blueprint-Welle mit Referenzvalidierung.
 5. Sichtbare Annahmen, Alternativen, Entscheidungen und offene Punkte.
-6. Archivierungsfeste kanonische Architektur-, Capability- und Verification-Artefakte mit stabilen fachlichen IDs.
+6. Archivierungsfeste kanonische Architektur-, Faehigkeits- und Verifikationsartefakte mit stabilen fachlichen IDs.
 
-## Scope
+## Umfang
 
 - Konzernmodell, Gesellschaften und BC-Unternehmen
 - Standorte und differenzierte Lagerkonzepte
 - Produkte, Dienstleistungen und Beispielorganisation
-- Finance, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Anlagen, Intercompany, Konsolidierung, Reporting, Administration, Datenmigration und Training
+- Finanzwesen, Einkauf, Verkauf, Artikel, Bestand, Lager, Produktion, Projekte, Service, Anlagen, Intercompany, Konsolidierung, Reporting, Administration, Datenmigration und Training
 - Dimensions-, Sicherheits-, Integrations- und Datenverantwortungsmodell
 - Implementierungswellen und Nachweisstrategie
 - Blueprint-Epic, notwendige Stories und aktuelle Blueprint-Tasks
@@ -38,7 +38,7 @@ Universaarl benoetigt vor jeder Konfiguration ein konsistentes Zielbild fuer Unt
 
 - Keine Verbindung zur Sandbox `playthru`
 - Keine BC-Konfiguration, Buchung oder Datenmigration
-- Keine Playwright-Ausfuehrung oder Runtime-Evidence
+- Keine Playwright-Ausfuehrung oder Laufzeit-Evidence
 - Keine Buchkapitel, Trainerunterlagen oder Skills
 - Keine Archivierung, kein Commit und kein Push
 
@@ -54,6 +54,6 @@ Universaarl benoetigt vor jeder Konfiguration ein konsistentes Zielbild fuer Unt
 
 ## Freigabe
 
-Der reale Repository-Nutzer hat am 2026-07-10 mit `Empfehlungen uebernehmen` die W0-Unternehmens-/Loesungsarchitektur, das geplante Capability-Portfolio, das W1-W5-Delivery-Modell, Rollen/Kontrollen sowie offene Fragen und Gates bedingt freigegeben. Diese reale Freigabe ist nicht der synthetischen Jira-Person P-001 zuzurechnen.
+Der reale Repository-Nutzer hat am 2026-07-10 mit `Empfehlungen uebernehmen` die W0-Unternehmens-/Loesungsarchitektur, das geplante Faehigkeitsportfolio, das W1-W5-Liefermodell, Rollen/Kontrollen sowie offene Fragen und Gates bedingt freigegeben. Diese reale Freigabe ist nicht der synthetischen Jira-Person P-001 zuzurechnen.
 
-Nicht freigegeben sind die tatsaechliche `playthru`-Baseline oder Featureverfuegbarkeit, Legal-/Tax-Detailauslegung, finale Lizenzzuweisung, einzelne noch ungepruefte Capabilities, W1-Writes, BC-Zugriff oder Go-live. Capability-Status bleiben `planned` beziehungsweise `deferred`.
+Nicht freigegeben sind die tatsaechliche `playthru`-Baseline oder Featureverfuegbarkeit, Rechts-/Steuer-Detailauslegung, finale Lizenzzuweisung, einzelne noch ungepruefte Faehigkeiten, W1-Writes, BC-Zugriff oder Go-live. Faehigkeitsstatus bleiben `planned` beziehungsweise `deferred`.

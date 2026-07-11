@@ -1,9 +1,9 @@
-# Project Governance Specification
+# Projektgovernance-Delta
 
 ## ADDED Requirements
 
 ### Requirement: UABC-REQ-GOV-001 OpenSpec als fuehrende Wahrheit
-Freigegebene normative Realitaet MUST unter `openspec/specs` liegen; geplante oder ungepruefte Requirements MUST in maximal einem aktiven Change verbleiben. Dauerhafte strukturierte Architektur- und Capability-Inhalte MUST stabile kanonische Pfade und explizite Lifecycle-Status besitzen.
+Freigegebene normative Realitaet MUST unter `openspec/specs` liegen; geplante oder ungepruefte Requirements MUST in maximal einem aktiven Change verbleiben. Dauerhafte strukturierte Architektur- und Faehigkeitsinhalte MUST stabile kanonische Pfade und explizite Lifecycle-Status besitzen.
 
 #### Scenario: UABC-SCN-GOV-001 WIP und Wahrheit pruefen
 - **GIVEN** das Repository vor einem Review
@@ -19,7 +19,7 @@ Jira- und Confluence-Artefakte MUST gueltige IDs, Parents, Personen, Statuswerte
 - **THEN** schlagen ungueltige Issue-Parents, unbekannte Personen, Status oder fehlende Referenzen reproduzierbar fehl
 
 ### Requirement: UABC-REQ-GOV-004 Archivierungsfeste Referenzaufloesung
-Fachliche IDs MUST nach der Reihenfolge freigegebene Specs, aktiver Change und historisches Archiv aufgeloest werden. Nach Archivierung MUST wesentliche aktuelle Architektur und Capability-Wahrheit ausserhalb des historischen `design.md` erhalten bleiben.
+Fachliche IDs MUST nach der Reihenfolge freigegebene Specs, aktiver Change und historisches Archiv aufgeloest werden. Nach Archivierung MUST wesentliche aktuelle Architektur- und Faehigkeitswahrheit ausserhalb des historischen `design.md` erhalten bleiben.
 
 #### Scenario: UABC-SCN-GOV-004 Archivierung in Wegwerfkopie pruefen
 - **GIVEN** eine validierte Kopie des Repositorys mit einem aktiven Change
@@ -31,5 +31,5 @@ Ein fachlicher oder technischer Zustand MUST nur dann als nachgewiesen gelten, w
 
 #### Scenario: UABC-SCN-GOV-003 Nicht ausgefuehrte BC-Arbeit kennzeichnen
 - **GIVEN** der erste Blueprint-Change ohne BC-Livezugriff
-- **WHEN** die Verification gelesen wird
+- **WHEN** die Verifikation gelesen wird
 - **THEN** sind lokale Strukturpruefungen als ausgefuehrt und alle BC-/Playwright-Nachweise als ausstehend gekennzeichnet
