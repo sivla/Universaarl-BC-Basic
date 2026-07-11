@@ -417,6 +417,15 @@ test('Phase-2-Readiness-Gate verbindet Nachweise und offene Freigaben fail-close
   assert.match(gate.nextStep, /Reale Entscheider/);
 });
 
+test('Rueckverfolgbarkeitsmatrix verbindet Requirements bis Evidence ohne Abnahmebehauptung', () => {
+  const matrix = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'traceability-matrix.yaml'), 'utf8'));
+  assert.equal(matrix.entries.length, 12);
+  assert.equal(matrix.evidenceStatus.realExecution, false);
+  assert.equal(matrix.evidenceStatus.humanAcceptance, 'open');
+  assert.equal(matrix.evidenceStatus.missingEvidenceBlocks, true);
+  assert.ok(matrix.entries.every((entry) => entry.requirement && entry.solution && Array.isArray(entry.workPackages) && Array.isArray(entry.uat) && Array.isArray(entry.training) && entry.evidence));
+});
+
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
