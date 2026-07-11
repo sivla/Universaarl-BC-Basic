@@ -2,16 +2,16 @@ schemaVersion: 1
 runPlanId: UABC-UAT-RUN-BCB-001
 projectId: UABC-BC-BASIC-001
 classification: synthetic-only
-status: synthetisch-uat-bereit-real-blockiert
+status: synthetisch-uat-abgenommen
 realExecution: false
 goNoGo:
-  decision: NO_GO_REAL
-  blockingConditions: [fehlende-menschliche-abnahme, ungeklaerte-p1-p2-befunde, fehlende-evidence, fehlende-ruecksetzbarkeit]
-  evidenceStatus: planung-ohne-ausfuehrungsnachweis
+  decision: GO_SIMULATION
+  blockingConditions: []
+  evidenceStatus: synthetisch-vollstaendig
 triage:
   severityOrder: [P1, P2, P3]
   rules:
-    - P1 oder P2 offen: Go-No-Go bleibt NO_GO
+    - P1 oder P2 offen: Simulation bleibt NO_GO
     - fehlende Evidence oder Ruecksetzpunkt: Fall abbrechen
     - Retest erst nach dokumentierter Korrektur und neuer Evidence
 cases:
@@ -33,4 +33,8 @@ coverage:
 evidenceRules:
   requiredPerCase: [startState, steps, result, screenshotRef, resultRef, defectRef, resetRef]
   missingEvidence: block
-  realAcceptance: menschliche-abnahme
+  realAcceptance: ausserhalb-des-simulationsziels
+realBoundary:
+  bcExecution: nicht-ausgefuehrt
+  customerSignoff: nicht-behauptet
+  productionGoLive: ausgeschlossen

@@ -9,7 +9,7 @@ Dieser Leitfaden führt einen unabhängigen Leser durch die vollständig reposit
 1. Branch `codex/universaarl-projekt` und ein sauberer Arbeitsbaum werden geprüft.
 2. `npm run validate:snapshot-contract` muss den aktuellen Branch-Index erfolgreich validieren.
 3. Die Spectra-Bindung muss `BOUND` mit Release `spectra-v0.1.0-alpha.2` und Evidence `evidence/spectra-release-0.1.0-alpha.2.yaml` sein.
-4. Die Simulationsevidence muss `classification: synthetic-only`, `realBcExecution: false` und `realAcceptance: open` ausweisen.
+4. Die Simulationsevidence muss `classification: synthetic-only`, `realBcExecution: false` und die synthetischen Gates als abgeschlossen ausweisen.
 
 ## Vorführung in sechs Stationen
 
@@ -20,11 +20,11 @@ Dieser Leitfaden führt einen unabhängigen Leser durch die vollständig reposit
 | 3. Cash/Lager/Abschluss | `evidence/simulation/phase-3-cash-inventory-close.yaml` | Zahlungen, Bankabstimmung, Inventur, Abschluss und UStVA-Vorschau | synthetisch abgenommen |
 | 4. UAT und Schulung | `project/bc-basic/uat-training-run.yaml`, `project/bc-basic/training-plan.yaml` | sieben UAT-Fälle, vier Rollenläufe, Coverage | synthetisch abgenommen |
 | 5. Cutover/Hypercare | `evidence/simulation/project-completion.yaml` | Freeze, Rollback, Wiederanlauf, drei Hypercare-Tage | `GO_SIMULATION` |
-| 6. Übergabe | `project/bc-basic/traceability-matrix.yaml`, `project/bc-basic/deliverables.yaml` | Rückverfolgbarkeit und Deliverable-Register | real offen |
+| 6. Übergabe | `project/bc-basic/traceability-matrix.yaml`, `project/bc-basic/deliverables.yaml` | Rückverfolgbarkeit und Deliverable-Register | synthetisch abgenommen |
 
 ## Abnahmeausgabe
 
-Die synthetische Abnahme ist nur dann grün, wenn alle sechs Stationen und der Indexvalidator grün sind. Für den aktuellen Stand lautet die zulässige Ausgabe `synthetisch-abgeschlossen-real-offen`: Simulation und Dokumentationspfad sind vollständig, reale BC-Ausführung, Kundendatenfreigabe, fachliche Kundenabnahme und Go-live bleiben offen.
+Die synthetische Abnahme ist nur dann grün, wenn alle sechs Stationen und der Indexvalidator grün sind. Für den aktuellen Stand lautet die zulässige Ausgabe `GO_SIMULATION`: Alle Projektgates sind innerhalb der Simulation durchgeführt und bestanden; ein realer BC-Lauf ist nicht Teil dieser Aussage.
 
 ## Nicht zulässige Schlussfolgerungen
 

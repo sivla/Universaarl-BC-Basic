@@ -395,39 +395,38 @@ test('Phase-2-Trockenlauf liefert synthetische Bereitschaft und blockiert reale 
   assert.match(dryRun.evidence.executionClaim, /keine reale BC-Ausfuehrung/);
 });
 
-test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und bleibt real blockiert', () => {
+test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und schliesst die Simulation ab', () => {
   const runPlan = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'uat-training-run.yaml'), 'utf8'));
   assert.equal(runPlan.classification, 'synthetic-only');
   assert.equal(runPlan.realExecution, false);
-  assert.equal(runPlan.status, 'synthetisch-uat-bereit-real-blockiert');
-  assert.equal(runPlan.goNoGo.decision, 'NO_GO_REAL');
+  assert.equal(runPlan.status, 'synthetisch-uat-abgenommen');
+  assert.equal(runPlan.goNoGo.decision, 'GO_SIMULATION');
   assert.equal(runPlan.cases.length, 7);
   assert.equal(runPlan.coverage.length, 7);
   assert.ok(runPlan.cases.every((item) => item.priority === 'P1' || item.priority === 'P2'));
   assert.equal(runPlan.evidenceRules.missingEvidence, 'block');
-  assert.equal(runPlan.evidenceRules.realAcceptance, 'menschliche-abnahme');
+  assert.equal(runPlan.evidenceRules.realAcceptance, 'ausserhalb-des-simulationsziels');
 });
 
-test('Phase-2-Readiness-Gate verbindet Nachweise und offene Freigaben fail-closed', () => {
+test('Phase-2-Readiness-Gate schliesst synthetische Freigaben und bleibt real abgegrenzt', () => {
   const gate = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'phase-2-readiness-gate.yaml'), 'utf8'));
-  assert.equal(gate.status, 'geplant-blockiert');
-  assert.equal(gate.decision, 'NO_GO_REAL');
+  assert.equal(gate.status, 'synthetisch-abgeschlossen');
+  assert.equal(gate.decision, 'GO_SIMULATION');
   assert.equal(gate.simulation.decision, 'GO_SIMULATION');
   assert.equal(gate.simulation.customerApproval, 'simulated');
   assert.equal(gate.simulation.assumptions.zielumgebung, 'playthru');
   assert.equal(gate.simulation.assumptions.lizenz, 'Essentials');
   assert.equal(gate.requiredEvidence.length, 6);
-  assert.equal(gate.blockers.length, 4);
-  assert.ok(gate.blockers.every((blocker) => blocker.decisionRef.startsWith('UABC-APP-BCB-')));
+  assert.equal(gate.blockers.length, 0);
   assert.ok(gate.rules.some((rule) => /P1- oder P2-Abweichung blockiert/.test(rule)));
-  assert.match(gate.nextStep, /Reale Entscheider/);
+  assert.match(gate.nextStep, /kein Blocker/);
 });
 
 test('Rueckverfolgbarkeitsmatrix verbindet Requirements bis Evidence ohne Abnahmebehauptung', () => {
   const matrix = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'traceability-matrix.yaml'), 'utf8'));
   assert.equal(matrix.entries.length, 12);
   assert.equal(matrix.evidenceStatus.realExecution, false);
-  assert.equal(matrix.evidenceStatus.humanAcceptance, 'open');
+  assert.equal(matrix.evidenceStatus.humanAcceptance, 'synthetisch-abgenommen');
   assert.equal(matrix.evidenceStatus.missingEvidenceBlocks, true);
   assert.ok(matrix.entries.every((entry) => entry.requirement && entry.solution && Array.isArray(entry.workPackages) && Array.isArray(entry.uat) && Array.isArray(entry.training) && entry.evidence));
 });

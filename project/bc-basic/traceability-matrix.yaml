@@ -19,5 +19,5 @@ entries:
 evidenceStatus:
   allEntries: synthetisch-oder-geplant
   realExecution: false
-  humanAcceptance: open
+  humanAcceptance: synthetisch-abgenommen
   missingEvidenceBlocks: true

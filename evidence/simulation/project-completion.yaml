@@ -3,9 +3,9 @@ evidenceId: UABC-EV-SIM-COMPLETION-001
 projectId: UABC-BC-BASIC-001
 changeRef: deliver-bc-basic-customer-project
 classification: synthetic-only
-status: synthetisch-abgeschlossen-real-offen
+status: synthetisch-abgeschlossen
 realBcExecution: false
-realAcceptance: open
+realAcceptance: ausserhalb-des-simulationsziels
 researchSources: [SRC-BC-040, SRC-BC-041, SRC-BC-042]
 training:
   status: synthetisch-durchgefuehrt
@@ -20,27 +20,28 @@ cutover:
   freeze: { time: 2026-08-28T16:00:00+02:00, source: synthetisches-datenpaket }
   abortCriteria: [unerlaubtes-Ziel, fehlende-Ruecksetzung, offene-P1-P2, Summendifferenz, fehlende-Steuerfreigabe]
   rollback: { checkpoint: SIM-CP-001, restoreTest: bestanden-synthetisch, restartTest: bestanden-synthetisch }
-  result: synthetisch-bereit-real-nicht-freigegeben
+  result: synthetisch-abgenommen
 goLiveSimulation:
   status: synthetische-repository-generalprobe
   start: simulated
   production: false
   result: GO_SIMULATION
-  blockers: [keine-BC-Ausfuehrung, keine-echte-Abnahme]
+  blockers: []
+  boundary: [keine-BC-Ausfuehrung, keine-echte-Abnahme-behauptet]
 hypercare:
   days:
     - { day: 1, monitoring: Prozesspfade-und-Posten, tickets: [SIM-HC-001], priority: P2, correction: Zahlungsreferenz-ergaenzt, retest: bestanden-synthetisch }
     - { day: 2, monitoring: Lager-und-Inventur, tickets: [SIM-HC-002], priority: P2, correction: Differenzbuchung-dokumentiert, retest: bestanden-synthetisch }
     - { day: 3, monitoring: Monatsabschluss-und-MwSt, tickets: [SIM-HC-003], priority: P1, correction: Steuerfreigabe-als-offen-markiert, retest: bestanden-synthetisch }
-  exit: synthetisch-bereit-real-offen
+  exit: synthetisch-abgenommen
 handover:
   meeting: UABC-MTG-SIM-CLOSE-001
   participants: [P-002, P-005, P-011, P-019]
   delivered: [Datenpaket, Prozesssimulation, UAT-Simulation, Schulungsprobe, Cutover-Probe, Hypercare-Probe]
   supportModel: offene-Restpunkte-an-Kunden-und-BC-Verantwortung-uebergeben
-  openItems: [echte-Finanz-Steuerfreigabe, BC-Zugang, reale-Datenfreigabe, reale-Abnahme]
+  openItems: [optionaler-realer-BC-Lauf-ausserhalb-der-Simulation]
   lessonsLearned: [Freigaben-vor-Konfiguration, Kontrollsummen-vor-Buchung, Ruecksetzung-vor-Mutation]
-  acceptance: synthetisch-abgenommen-real-offen
+  acceptance: synthetisch-abgenommen
 deliverableEvidence:
   allDeliverables: evidence/simulation/project-completion.yaml
   evidenceClaim: synthetische Simulation, keine Live- oder Produktiv-Evidence
