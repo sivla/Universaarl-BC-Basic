@@ -2,19 +2,19 @@ schemaVersion: 1
 artifactId: UABC-WT-ENV-001
 verificationId: UABC-VER-WT-BUILD-001
 reviewedAt: 2026-07-10
-reviewer: Codex agent
+reviewer: Codex-Agent
 humanApproval: false
 media: artifacts/walkthrough/generated/UABC-WT-ENV-001/walkthrough.webm
 framesReviewed: 7
 result: passed
 observations:
-  - { timeSeconds: 3, stepId: ENV-00, result: passed, finding: Role Center header and CRONUS DE visible }
-  - { timeSeconds: 9, stepId: ENV-01, result: passed, finding: Available companies pane visible without switch }
-  - { timeSeconds: 15, stepId: ENV-02, result: passed, finding: Version and builds visible }
-  - { timeSeconds: 21, stepId: ENV-03, result: passed, finding: My Settings user context visible }
-  - { timeSeconds: 27, stepId: ENV-04, result: passed, finding: Country and region code DE visible }
-  - { timeSeconds: 33, stepId: ENV-05, result: passed, finding: Installed Extensions viewport subset visible }
-  - { timeSeconds: 39, stepId: ENV-06, result: passed, finding: Feature Management viewport subset visible }
+  - { timeSeconds: 3, stepId: ENV-00, result: passed, finding: Rollencenter-Kopfbereich und CRONUS DE sind sichtbar }
+  - { timeSeconds: 9, stepId: ENV-01, result: passed, finding: Seitenbereich der verfuegbaren Mandanten ist ohne Wechsel sichtbar }
+  - { timeSeconds: 15, stepId: ENV-02, result: passed, finding: Version und Programmstaende sind sichtbar }
+  - { timeSeconds: 21, stepId: ENV-03, result: passed, finding: Benutzerkontext unter Meine Einstellungen ist sichtbar }
+  - { timeSeconds: 27, stepId: ENV-04, result: passed, finding: Laender- und Regionscode DE ist sichtbar }
+  - { timeSeconds: 33, stepId: ENV-05, result: passed, finding: Eine Teilmenge der installierten Erweiterungen ist im sichtbaren Bildausschnitt erkennbar }
+  - { timeSeconds: 39, stepId: ENV-06, result: passed, finding: Eine Teilmenge der Zeilen der Funktionsverwaltung ist im sichtbaren Bildausschnitt erkennbar }
 limits:
-  - Screenshot sequence only; not a browser recording.
-  - No additional UI state beyond the retained screenshots is claimed.
+  - Nur eine Screenshotfolge; keine Browseraufzeichnung.
+  - Es wird kein zusaetzlicher UI-Zustand ueber die aufbewahrten Screenshots hinaus behauptet.

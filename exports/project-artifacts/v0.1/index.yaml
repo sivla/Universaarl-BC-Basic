@@ -32,9 +32,9 @@ artifacts:
       video: artifacts/walkthrough/generated/UABC-WT-ENV-001/walkthrough.webm
       animatedPreview: artifacts/walkthrough/generated/UABC-WT-ENV-001/preview.webp
     checksums:
-      manifest: a36dba3504c94ac2e0c3c3bf0feaf8ba0cdbcde8305ff1f4b2581cb3944e0a0d
-      html: 0dfd9055f812f886112c34ae1f0cc74b905cfcb40d063ede5fb1a4147116f82a
-      captions: 30c8bb8d65b3fa4bd3198461485ee122a512058715f504826e0f2baeed2d67b3
+      manifest: f7c5cd6bb675e7c5b753183432fb9f03f2e73e1713eb42a5e6fa7907a9ed275c
+      html: 25c7188863a8503799375130182bd7a43550a5905a8509abd5cd8746bc2c47ac
+      captions: 92f6605065a69bbc4adffc3acc4768cd619a8ef5528f573792aa1c4824e64812
       video: a58d18d3a78be171b89a2d1316a3be482bce583b086d20dd60ad5f9732685140
       animatedPreview: 4f82cdeb9ce010ebcd8089d232647b5d7f6995345a226a6dcd48ccc36fe5a954
 consumerRules:

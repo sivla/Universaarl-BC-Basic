@@ -82,7 +82,7 @@
   "prerequisites": [
     "Archivierte und verifizierte playthru-Umgebungsbaseline",
     "Nur lesende Betrachtung; kein Gesellschafts- oder Umgebungswechsel",
-    "Kenntnis, dass Experience und vollstaendige App-/Feature-Inventare unknown beziehungsweise partial bleiben"
+    "Kenntnis, dass Experience und vollstaendige App-/Funktionsinventare unbekannt beziehungsweise nur teilweise sichtbar bleiben"
   ],
   "steps": [
     {
@@ -146,11 +146,11 @@
     {
       "sequence": 3,
       "stepId": "ENV-02",
-      "title": "Version und Builds lesen",
+      "title": "Version und Programmstaende lesen",
       "bcSurface": "Hilfe und Support - Problembehebung",
       "userAction": "Hilfe und Support oeffnen und die sichtbare Versionszeile lesen.",
       "expectedResult": "DE Business Central 28.2, Plattform 28.0.52048.0 und Anwendung 28.2.50931.52151 sind sichtbar.",
-      "businessRationale": "Version und Builds begrenzen belastbar, welche Sandbox-Fakten spaeter technisch nachgewiesen werden koennen.",
+      "businessRationale": "Version und Programmstaende begrenzen belastbar, welche Sandbox-Fakten spaeter technisch nachgewiesen werden koennen.",
       "screenshotRefs": [
         {
           "runRef": "run-1",
@@ -175,7 +175,7 @@
       "sequence": 4,
       "stepId": "ENV-03",
       "title": "Benutzerkontext unterscheiden",
-      "bcSurface": "Meine Einstellungen dialog",
+      "bcSurface": "Dialog Meine Einstellungen",
       "userAction": "Alt+T druecken, Mandant, Arbeitsdatum, Region, Sprache und Zeitzone lesen und mit Abbrechen schliessen.",
       "expectedResult": "CRONUS DE, Arbeitsdatum 01.06.2027 sowie German (Germany) fuer Region und Sprache sind sichtbar.",
       "businessRationale": "Arbeitsdatum und Zeitzone beeinflussen den Benutzerlauf, sind aber keine Gesellschaftskonfiguration und duerfen nicht verwechselt werden.",
@@ -232,11 +232,11 @@
     {
       "sequence": 6,
       "stepId": "ENV-05",
-      "title": "Sichtbare Extensions begrenzen",
+      "title": "Sichtbare Erweiterungen begrenzen",
       "bcSurface": "Seitenueberlagerung Installierte Erweiterungen",
       "userAction": "Ueber Tell Me die angebotene Erweiterungsverwaltung oeffnen und nur die sichtbaren Karten lesen.",
-      "expectedResult": "Sechs Karten mit im Viewport sichtbarem Namen und Herausgeber bilden eine unvollstaendige Teilmenge.",
-      "businessRationale": "Ein screenshot-belegter Ausschnitt verhindert, dass gerenderte Elemente ausserhalb des Viewports als visuell geprueft gelten.",
+      "expectedResult": "Sechs Karten mit im sichtbaren Bildausschnitt erkennbarem Namen und Herausgeber bilden eine unvollstaendige Teilmenge.",
+      "businessRationale": "Ein durch einen Screenshot belegter Ausschnitt verhindert, dass gerenderte Elemente ausserhalb des sichtbaren Bildausschnitts als visuell geprueft gelten.",
       "screenshotRefs": [
         {
           "runRef": "run-1",
@@ -253,7 +253,7 @@
       ],
       "caption": "Schritt 6. Nur sechs vollstaendig sichtbare Name-Herausgeber-Paare sind belegt.",
       "safetyNotes": [
-        "Keine Extension-Aktion ausfuehren",
+        "Keine Erweiterungsaktion ausfuehren",
         "Keine Vollinventarisierung behaupten"
       ],
       "displayScreenshot": "../../../../evidence/playthru-environment-baseline/run-2/env-05.png"
@@ -263,9 +263,9 @@
       "stepId": "ENV-06",
       "title": "Funktionsverwaltung lesend pruefen",
       "bcSurface": "Verschachtelte Seite Funktionsverwaltung",
-      "userAction": "Ueber Tell Me die Funktionsverwaltung oeffnen und nur viewport-schneidende Zeilen lesen.",
-      "expectedResult": "15 sichtbare Zeilen bilden einen candidate/visible-partial Zustand; keine Funktion wird aktiviert.",
-      "businessRationale": "Sichtbare Featurezeilen dokumentieren den Laufzustand, beweisen aber weder Vollstaendigkeit noch allgemeine Featureverfuegbarkeit.",
+      "userAction": "Ueber Tell Me die Funktionsverwaltung oeffnen und nur den sichtbaren Bildausschnitt schneidende Zeilen lesen.",
+      "expectedResult": "15 sichtbare Zeilen bilden den technischen Zustand candidate/visible-partial; keine Funktion wird aktiviert.",
+      "businessRationale": "Sichtbare Funktionszeilen dokumentieren den Laufzustand, beweisen aber weder Vollstaendigkeit noch allgemeine Funktionsverfuegbarkeit.",
       "screenshotRefs": [
         {
           "runRef": "run-1",
@@ -280,7 +280,7 @@
         "walkthrough.webm",
         "preview.webp"
       ],
-      "caption": "Schritt 7. Feature Management bleibt read-only und sichtbar unvollstaendig.",
+      "caption": "Schritt 7. Die Funktionsverwaltung bleibt im Nur-Lese-Modus und sichtbar unvollstaendig.",
       "safetyNotes": [
         "Liste nicht bearbeiten",
         "Keine Aktivierung oder Datenaktualisierung ausloesen"
@@ -305,7 +305,7 @@
     ],
     "checksumAlgorithm": "sha256",
     "checksumsResolvedAtBuild": true,
-    "derivation": "Geordnete Screenshotfolge und Untertitel werden ausschliesslich aus passenden ENV-Ereignissen und visuell geprueften aufbewahrten Screenshots abgeleitet; es werden kein Browser-Replay und kein abgeleiteter Frame eingefuehrt."
+    "derivation": "Geordnete Screenshotfolge und Untertitel werden ausschliesslich aus passenden ENV-Ereignissen und visuell geprueften aufbewahrten Screenshots abgeleitet; es werden keine Browserwiedergabe und kein abgeleitetes Einzelbild eingefuehrt."
   },
   "generatedAt": "2026-07-10",
   "generation": {
@@ -322,7 +322,7 @@
   },
   "resolvedProvenance": {
     "sourceChecksums": {
-      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "ce4d5d9489511914d5cec20586a8ee145fe7d181036b47154f3b214566dc9812",
+      "artifacts/walkthrough/instances/UABC-WT-ENV-001.yaml": "9b88fafc3f816e3cca9bfc01e0c49b998933bb050f3335a882137ba1689c388a",
       "artifacts/walkthrough/schema/walkthrough-package.schema.json": "f8f140ee9c156471ef7ad43c553dcf97daded1eeea683c5d8a287d7dd647c66e",
       "evidence/playthru-environment-baseline/run-1/env-00.png": "060cd6087be70c0cafcf9e34b00d6110d3ab9acfd220fe7dd8df70ed2b904aef",
       "evidence/playthru-environment-baseline/run-1/env-01.png": "cd92b2a44b2ef5be8f1126f81cd7597312987174c3e5bf4b7baba1bb971e1697",
@@ -344,7 +344,7 @@
       "evidence/playthru-environment-baseline/run-2/manifest.json": "490df612a29de17e8c3506fe9e08ef3df580f6dc0a41704b773b9da05471762e"
     },
     "outputChecksums": {
-      "captions.vtt": "30c8bb8d65b3fa4bd3198461485ee122a512058715f504826e0f2baeed2d67b3",
+      "captions.vtt": "92f6605065a69bbc4adffc3acc4768cd619a8ef5528f573792aa1c4824e64812",
       "preview.webp": "4f82cdeb9ce010ebcd8089d232647b5d7f6995345a226a6dcd48ccc36fe5a954",
       "walkthrough.webm": "a58d18d3a78be171b89a2d1316a3be482bce583b086d20dd60ad5f9732685140"
     }

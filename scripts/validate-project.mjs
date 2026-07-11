@@ -378,7 +378,7 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
     }
     check(Array.isArray(baseline.unknowns), 'actualSandboxBaseline: unknowns muss ein Array sein');
   }
-  check(/(?:No feature availability may be inferred|Aus der Planungsreferenz darf keine Feature-Verf(?:ü|Ã¼)gbarkeit abgeleitet werden)/.test(architecture.availabilityRule ?? ''), 'availabilityRule muss Schlussfolgerungen aus der Planungsreferenz verbieten');
+  check(/Aus der Planungsreferenz darf keine Feature-Verf(?:ue|ü)gbarkeit abgeleitet werden/.test(architecture.availabilityRule ?? ''), 'availabilityRule muss Schlussfolgerungen aus der Planungsreferenz verbieten');
 
   const companies = new Set([
     ...(architecture.legalEntities ?? []).map((item) => item.bcCompany),
@@ -554,12 +554,12 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
   if (!archiveReadyMode) return;
 
   check(openSpec.activeChanges.length === 1, `archive-ready erfordert genau einen aktiven Change, gefunden ${openSpec.activeChanges.length}`);
-  check(proposedUpdate?.status === 'applied', `${activeChange}: proposedCanonicalUpdate ist ${proposedUpdate?.status ?? 'missing'}, erwartet applied`);
+  check(proposedUpdate?.status === 'applied', `${activeChange}: proposedCanonicalUpdate ist ${proposedUpdate?.status ?? 'fehlt'}, erwartet applied`);
 
   const activeVerifications = [...verificationMap.values()].filter((item) => item.changeRef === activeChange);
   const policyGates = activeVerifications.filter((item) => item.type === 'automated-policy-gate' && item.requiredForArchive === true);
   check(policyGates.length === 1, `${activeChange}: archive-ready erfordert genau ein automatisiertes Policy-Gate fuer den aktiven Change, gefunden ${policyGates.length}`);
-  check(policyGates[0]?.id === approvalPolicy?.evidenceId, `${activeChange}: aktives automatisiertes Policy-Gate muss zur approvalPolicy evidenceId ${approvalPolicy?.evidenceId ?? '<missing>'} passen`);
+  check(policyGates[0]?.id === approvalPolicy?.evidenceId, `${activeChange}: aktives automatisiertes Policy-Gate muss zur approvalPolicy evidenceId ${approvalPolicy?.evidenceId ?? '<fehlt>'} passen`);
   check(policyGates[0]?.status === 'passed' && Boolean(policyGates[0]?.evidence), `${activeChange}: archive-ready erfordert ein passed automatisiertes Policy-Gate des aktiven Changes mit Evidence`);
 
   if (canonicalTargets.includes('architecture-baseline')) {
@@ -570,7 +570,7 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
     check(semanticEqual(baseline?.facts, proposedUpdate?.facts), 'architecture-baseline: facts weichen semantisch vom proposedCanonicalUpdate ab');
     check(semanticEqual(baseline?.unknowns, proposedUpdate?.unknowns), 'architecture-baseline: unknowns weichen semantisch vom proposedCanonicalUpdate ab');
     check(baseline?.policyGateEvidenceId === proposedUpdate?.policyGateEvidenceId, 'architecture-baseline: policyGateEvidenceId muss zum proposedCanonicalUpdate passen');
-    check(baseline?.policyGateEvidenceId === policyGates[0]?.id, `architecture-baseline: policyGateEvidenceId muss das automatisierte Policy-Gate des aktiven Changes ${policyGates[0]?.id ?? '<missing>'} identifizieren`);
+    check(baseline?.policyGateEvidenceId === policyGates[0]?.id, `architecture-baseline: policyGateEvidenceId muss das automatisierte Policy-Gate des aktiven Changes ${policyGates[0]?.id ?? '<fehlt>'} identifizieren`);
 
     const proposedFactEvidenceIds = collectEvidenceIds(proposedUpdate?.facts);
     const requiredBaselineEvidenceIds = new Set([...proposedFactEvidenceIds, proposedUpdate?.policyGateEvidenceId].filter(Boolean));
@@ -657,7 +657,7 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
     for (const evidenceId of issue.evidenceRefs ?? []) {
       const verification = verificationMap.get(evidenceId);
       check(Boolean(verification), `${issue.key}: ungeloeste Verification ${evidenceId}`);
-      if (issue.status === 'In Review') check(['passed', 'in-review'].includes(verification?.status), `${issue.key}: In Review darf sich nicht auf Evidence ${evidenceId} mit Status ${verification?.status ?? 'missing'} stuetzen`);
+      if (issue.status === 'In Review') check(['passed', 'in-review'].includes(verification?.status), `${issue.key}: In Review darf sich nicht auf Evidence ${evidenceId} mit Status ${verification?.status ?? 'fehlt'} stuetzen`);
     }
 
     let previousAt = null;
@@ -745,7 +745,7 @@ async function validateMainSpecPurposes() {
     const content = await read(file);
     const purpose = content.match(/## Purpose\s+([\s\S]*?)(?=\s+## Requirements)/)?.[1]?.trim() ?? '';
     check(purpose.length >= 20, `${file}: substantieller Purpose fehlt`);
-    check(!/\bTBD\b|Update Purpose after archive/i.test(purpose), `${file}: provisorischer Purpose ist unzulaessig`);
+    check(!/\bTBD\b|Zweck nach der Archivierung aktualisieren/i.test(purpose), `${file}: provisorischer Purpose ist unzulaessig`);
   }
 }
 
@@ -782,8 +782,8 @@ const lifecycle = await yaml('governance/reference-lifecycle.yaml');
 const openSpecConfig = await yaml('openspec/config.yaml');
 const openSpecContext = String(openSpecConfig.context ?? '');
 check(openSpecContext.includes('architecture/enterprise-blueprint.yaml#actualSandboxBaseline'), 'openspec/config.yaml: context muss den kanonischen actualSandboxBaseline-Pfad referenzieren');
-check(/(?:only facts confirmed there|nur dort best(?:ae|ä)tigte Fakten)/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss die Baseline-Nutzung auf bestaetigte kanonische Fakten begrenzen');
-check(/(?:unknown or only partially visible values|unbekannte oder nur teilweise sichtbare Werte)/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss unbekannte und nur teilweise sichtbare Baseline-Werte erhalten');
+check(/nur dort best(?:ae|ä)tigte Fakten/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss die Baseline-Nutzung auf bestaetigte kanonische Fakten begrenzen');
+check(/unbekannte oder nur teilweise sichtbare Werte/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss unbekannte und nur teilweise sichtbare Baseline-Werte erhalten');
 const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
 for (const verification of verificationMap.values()) {
@@ -805,7 +805,7 @@ await validateAtlassian(stableIds, new Set(openSpec.resolved.keys()), verificati
 await validateWalkthroughExports({ openSpec, openSpecRefs: new Set(openSpec.resolved.keys()), verificationMap, people });
 if (resolveArgumentIndex >= 0) {
   check(Boolean(resolveId), '--resolve-id erfordert ein ID-Argument');
-  check(Boolean(openSpec.resolved.get(resolveId)), `OpenSpec-ID ${resolveId ?? '<missing>'} kann nicht aufgeloest werden`);
+  check(Boolean(openSpec.resolved.get(resolveId)), `OpenSpec-ID ${resolveId ?? '<fehlt>'} kann nicht aufgeloest werden`);
 }
 
 if (errors.length) {

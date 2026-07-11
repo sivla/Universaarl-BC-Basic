@@ -16,7 +16,7 @@ function invoke(spawn, command, args, cwd) {
   let result;
   try { result = spawn(command, args, { cwd, encoding: 'utf8' }); }
   catch (error) { throw preflightError(`${command} ist nicht ausfuehrbar (${error.message})`); }
-  if (result.error || result.status !== 0) throw preflightError(`${command} ${args.join(' ')} wurde nicht ausgefuehrt (${result.error?.message ?? result.stderr ?? result.stdout ?? `exit ${result.status}`})`);
+  if (result.error || result.status !== 0) throw preflightError(`${command} ${args.join(' ')} wurde nicht ausgefuehrt (${result.error?.message ?? result.stderr ?? result.stdout ?? `Beendigungscode ${result.status}`})`);
   return `${result.stdout ?? ''}${result.stderr ?? ''}`;
 }
 

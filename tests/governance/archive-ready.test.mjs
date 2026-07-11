@@ -466,7 +466,7 @@ test('veroeffentlichte Main-Specs lehnen provisorischen Purpose ab', async (t) =
   const root = await disposableRepository(t);
   const specPath = path.join(root, 'openspec/specs/project-governance/spec.md');
   const content = await fs.readFile(specPath, 'utf8');
-  await fs.writeFile(specPath, content.replace(/## Purpose\s+[\s\S]*?(?=\s+## Requirements)/, '## Purpose\nTBD - Update Purpose after archive.\n'), 'utf8');
+  await fs.writeFile(specPath, content.replace(/## Purpose\s+[\s\S]*?(?=\s+## Requirements)/, '## Purpose\nTBD - Zweck nach der Archivierung aktualisieren.\n'), 'utf8');
   const result = npmRun(root, 'validate:references');
   assert.notEqual(result.status, 0);
   assert.match(result.output, /provisorischer Purpose ist unzulaessig/);

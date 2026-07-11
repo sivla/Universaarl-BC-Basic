@@ -5,7 +5,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
-import { createWalkthroughValidator } from '../../scripts/validate-walkthrough-manifest.mjs';
+import { createWalkthroughValidator, formatAjvError } from '../../scripts/validate-walkthrough-manifest.mjs';
 import { resolveMediaToolchain } from '../../scripts/media-toolchain.mjs';
 
 const root = process.cwd();
@@ -55,10 +55,14 @@ test('echtes Draft-2020-12-Schema akzeptiert Pilot und minimal ausgefuelltes Bla
 });
 
 test('Schema lehnt unbekannte Felder, fehlende Nicht-Evidence-Semantik und ungueltige stabile IDs ab', () => {
-  assert.throws(() => validate({ ...source, unexpected: true }), /additional properties/);
+  assert.throws(() => validate({ ...source, unexpected: true }), /nicht erlaubte zusaetzliche Feld unexpected/);
   const missing = structuredClone(source); delete missing.evidenceSemantics;
   assert.throws(() => validate(missing), /evidenceSemantics/);
   assert.throws(() => validate({ ...source, artifactId: 'not-stable' }), /artifactId/);
+  const unknown = formatAjvError({ instancePath: '/pilot', keyword: 'customRule', message: 'must expose raw upstream diagnostics' });
+  assert.match(unknown, /nicht eigens uebersetzte Schemaregel/);
+  assert.match(unknown, /keyword=customRule/);
+  assert.doesNotMatch(unknown, /raw upstream diagnostics/);
 });
 
 test('aufgeloester Walkthrough bewahrt Nicht-Evidence-Semantik und Quellprovenienz', () => {
