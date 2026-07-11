@@ -1,0 +1,110 @@
+schemaVersion: 1
+registerId: UABC-DEL-BCB-REGISTER-001
+projectId: UABC-BC-BASIC-001
+status: planned
+simulation: true
+claimPolicy: Ein vorhandener Plan oder eine Vorlage ist kein Ausfuehrungs-, Abnahme- oder Uebergabenachweis.
+deliverables:
+  - id: UABC-DEL-BCB-001
+    phaseRef: UABC-PHASE-01
+    title: Projektauftrag und Abnahmeplan
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-22, UABC-26]
+    requiredSourcePaths:
+      - openspec/changes/deliver-bc-basic-customer-project/proposal.md
+      - openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md
+      - atlassian/confluence/pages/70-bc-basic-project.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-002
+    phaseRef: UABC-PHASE-01
+    title: Anforderungs-, Prozess- und Entscheidungsunterlagen
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-23, UABC-24]
+    requiredSourcePaths:
+      - openspec/changes/deliver-bc-basic-customer-project/design.md
+      - project/bc-basic/decision-register.yaml
+      - atlassian/confluence/pages/71-bc-basic-discovery.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-003
+    phaseRef: UABC-PHASE-01
+    title: Datenanforderungen und Datenbereitschaftsprotokoll
+    status: planned
+    resultClaimed: false
+    ownerRef: P-016
+    jiraRefs: [UABC-25]
+    requiredSourcePaths:
+      - project/bc-basic/data-package.yaml
+      - atlassian/confluence/pages/71-bc-basic-discovery.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-004
+    phaseRef: UABC-PHASE-02
+    title: Gepruefte Standardkonfiguration
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32]
+    requiredSourcePaths:
+      - playwright/scenarios/bc-basic-e2e.yaml
+      - atlassian/confluence/pages/72-bc-basic-implementation.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-005
+    phaseRef: UABC-PHASE-02
+    title: Schulungs- und Kompetenzpaket
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-33]
+    requiredSourcePaths:
+      - project/bc-basic/training-plan.yaml
+      - docs/guides/beginner/business-central-basic.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-006
+    phaseRef: UABC-PHASE-02
+    title: Fachlicher Abnahmetest und simulierter Sandbox-Uebergang
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-34]
+    requiredSourcePaths:
+      - playwright/scenarios/bc-basic-e2e.yaml
+      - openspec/changes/deliver-bc-basic-customer-project/verification.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-007
+    phaseRef: UABC-PHASE-03
+    title: Protokoll der begrenzten Stabilisierungsphase und Monatsabschlussprobe
+    status: planned
+    resultClaimed: false
+    ownerRef: P-005
+    jiraRefs: [UABC-35, UABC-36]
+    requiredSourcePaths:
+      - atlassian/confluence/pages/73-bc-basic-hypercare.md
+      - playwright/scenarios/bc-basic-e2e.yaml
+    completionEvidence: null
+  - id: UABC-DEL-BCB-008
+    phaseRef: UABC-PHASE-03
+    title: Fachlich gepruefte UStVA-Vorschau und optionales lokales XML ohne Test- oder Produktivuebermittlung
+    status: planned
+    resultClaimed: false
+    ownerRef: P-005
+    jiraRefs: [UABC-37]
+    requiredSourcePaths:
+      - playwright/scenarios/bc-basic-e2e.yaml
+      - openspec/changes/deliver-bc-basic-customer-project/verification.md
+    completionEvidence: null
+  - id: UABC-DEL-BCB-009
+    phaseRef: UABC-PHASE-03
+    title: Kunden- und Beratungshandbuch mit Uebergabeindex
+    status: planned
+    resultClaimed: false
+    ownerRef: P-002
+    jiraRefs: [UABC-38]
+    requiredSourcePaths:
+      - docs/guides/beginner/business-central-basic.md
+      - docs/runbooks/business-central-basic.md
+      - atlassian/confluence/pages/74-bc-basic-deliverables.md
+      - exports/project-data/v1/index.yaml
+    completionEvidence: null

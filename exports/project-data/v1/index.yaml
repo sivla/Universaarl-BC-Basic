@@ -1,0 +1,48 @@
+schemaVersion: 1
+contractId: UABC-PROJECT-DATA-V1
+projectId: UABC-BC-BASIC-001
+projectKey: BCB
+routeKey: bc-basic
+displayName: Business Central Basic
+governingChange: deliver-bc-basic-customer-project
+lifecycleStatus: proposed
+readOnly: true
+sourceOfTruth: openspec
+pathSemantics: repository-relative
+missingValuePolicy: leer
+consumerRules:
+  - Nur die unter artifacts positivgelisteten Pfade duerfen als Projektdaten gelesen werden.
+  - Ein deklarierter selector begrenzt den lesbaren Ausschnitt einer gemeinsam genutzten Datei und ist verbindlich.
+  - Verweise, Links und relative Pfade innerhalb einer Quelle erlauben keine zusaetzlichen, nicht positivgelisteten Lesezugriffe.
+  - Der Index enthaelt keine duplizierte fachliche Wahrheit; Werte werden aus den referenzierten Quellen aufgeloest.
+  - Fehlende, unlesbare oder nicht freigegebene Werte bleiben leer und werden weder erfunden noch aus einer zweiten Quelle ergaenzt.
+  - Konsumenten duerfen weder Blueprint-Quellen noch eigene Projektinhalte schreiben.
+  - Pfade zu .env-Dateien, Authentifizierungszustaenden, Geheimnissen, Browserprofilen, Logs, Videos und rohen Laufzeitnachweisen sind unzulaessig.
+artifacts:
+  - { id: UABC-SRC-BCB-OPENSPEC-001, kindId: openspec-change, path: openspec/changes/deliver-bc-basic-customer-project/proposal.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-SPEC-001, kindId: requirements, path: openspec/changes/deliver-bc-basic-customer-project/specs/bc-basic-delivery/spec.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-DESIGN-001, kindId: solution-design, path: openspec/changes/deliver-bc-basic-customer-project/design.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-DPLAN-001, kindId: delivery-plan, path: openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-TASKS-001, kindId: delivery-tasks, path: openspec/changes/deliver-bc-basic-customer-project/tasks.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-VPLAN-001, kindId: verification-plan, path: openspec/changes/deliver-bc-basic-customer-project/verification.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-PLAN-001, kindId: project-plan, path: project/bc-basic/project-plan.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DEL-001, kindId: deliverable-register, path: project/bc-basic/deliverables.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-JIRA-003, kindId: jira-issues, path: atlassian/jira/issues/bc-basic-project.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-JIRA-004, kindId: jira-people, path: atlassian/jira/people.yaml, selector: 'people[id in P-001,P-002,P-004,P-005,P-011,P-016,P-019]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-CONF-003, kindId: confluence-page, path: atlassian/confluence/pages/70-bc-basic-project.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-004, kindId: confluence-page, path: atlassian/confluence/pages/71-bc-basic-discovery.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-005, kindId: confluence-page, path: atlassian/confluence/pages/72-bc-basic-implementation.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-006, kindId: confluence-page, path: atlassian/confluence/pages/73-bc-basic-hypercare.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-007, kindId: confluence-page, path: atlassian/confluence/pages/74-bc-basic-deliverables.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-008, kindId: confluence-page, path: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-MTG-001, kindId: meeting-index, path: atlassian/confluence/meetings/index.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-MTG-002, kindId: meeting-transcript, path: atlassian/confluence/meetings/UABC-MTG-001.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-DEC-001, kindId: decision-register, path: project/bc-basic/decision-register.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-DATA-001, kindId: data-package, path: project/bc-basic/data-package.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-TRAIN-001, kindId: training-plan, path: project/bc-basic/training-plan.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-BILL-001, kindId: billing-and-worklogs, path: project/bc-basic/billing.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-CUST-001, kindId: customer-handbook, path: docs/guides/beginner/business-central-basic.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONS-001, kindId: consultant-handbook, path: docs/runbooks/business-central-basic.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-PW-001, kindId: playwright-scenario-catalog, path: playwright/scenarios/bc-basic-e2e.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }

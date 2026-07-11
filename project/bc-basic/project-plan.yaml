@@ -1,0 +1,94 @@
+schemaVersion: 1
+projectId: UABC-BC-BASIC-001
+displayName: Business Central Basic
+servicePackage: BC Basic
+servicePackageNotice: Universaarl-Standardleistung; kein Microsoft-Lizenzname
+status: planned
+simulation: true
+environment: playthru
+company:
+  count: 1
+  id: UABC-BASIC-DE
+  displayName: Universaarl GmbH
+  dataClassification: synthetic-only
+  writeAuthorization: required
+schedule:
+  scheduleSynthetic: true
+  customerConfirmed: false
+  notice: Kalenderdaten sind eine technische Simulationsachse und keine Kundenzusage.
+  startDate: 2026-08-03
+  implementationWeek: 2026-08-24/2026-08-28
+  hypercareEndDate: 2026-09-11
+  relativePlan:
+    phase1: Vorbereitung und Anforderungen circa drei Kalenderwochen ab bestaetigtem Projektauftakt
+    phase2: genau fuenf aufeinanderfolgende Arbeitstage nach bestandenem Bereitschaftspruefpunkt
+    phase3: begrenzte Stabilisierungsphase circa zwei Kalenderwochen bis zur ersten Monatsabschlussprobe in der Sandbox
+budgetRef: UABC-BUDGET-BCB-001
+phases:
+  - id: UABC-PHASE-01
+    name: Vorbereitung, Anforderungen und Datenbereitschaft
+    jiraRef: UABC-19
+    startDate: 2026-08-03
+    endDate: 2026-08-21
+    plannedBillableHours: 20
+    scheduleSynthetic: true
+    dependencies: []
+    entryCriteria:
+      - Sponsor, Finanzverantwortung, Datenverantwortung und Schluesselanwender sind benannt.
+      - Standardumfang und Budgetannahme sind zur Pruefung vorgelegt.
+    exitCriteria:
+      - Umfang, Prozesse, Datenvorlagen, Datenqualitaet und Abnahmeplan sind dokumentiert.
+      - Zielgesellschaft, Lizenz und Finanz-/Steuerpruefpunkte sind entschieden oder sichtbar blockierend.
+    deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
+  - id: UABC-PHASE-02
+    name: Einrichtung und Schulung in einer Woche
+    jiraRef: UABC-20
+    startDate: 2026-08-24
+    endDate: 2026-08-28
+    plannedBillableHours: 40
+    scheduleSynthetic: true
+    dependencies: [UABC-PHASE-01]
+    entryCriteria:
+      - Der Datenbereitschaftspruefpunkt ist bestanden.
+      - Die exakte playthru-Zielgesellschaft, erlaubte Schreibvorgaenge und der Ruecksetzplan sind menschlich freigegeben.
+      - Finanz- und Steuerdesign sind fachlich freigegeben.
+    exitCriteria:
+      - Grundeinrichtung, Finanzwesen, Einkauf, Verkauf und einfaches Lager sind konfiguriert und abgestimmt.
+      - Stammdaten sind kontrolliert geladen, Ende-zu-Ende-Pruefung, fachlicher Abnahmetest und Schulungen sind dokumentiert.
+      - Der simulierte Sandbox-Uebergang ist mit offenen Fehlern und Unterstuetzungsweg abgenommen oder gestoppt.
+    deliverableIds: [UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006]
+  - id: UABC-PHASE-03
+    name: Begrenzte Stabilisierungsphase, Monatsabschlussprobe und lokale UStVA-Pruefung
+    jiraRef: UABC-21
+    startDate: 2026-08-31
+    endDate: 2026-09-11
+    plannedBillableHours: 16
+    scheduleSynthetic: true
+    dependencies: [UABC-PHASE-02]
+    entryCriteria:
+      - Der simulierte Sandbox-Uebergang ist menschlich abgenommen und die Unterstuetzungsbereitschaft dokumentiert.
+      - Alle gebuchten Geschaeftsvorfaelle bleiben synthetisch.
+    exitCriteria:
+      - Kritische Pilotbefunde der Stabilisierungsphase sind geschlossen.
+      - Monatsabschlussprozess wurde in der Sandbox geprobt und Abstimmungen sind dokumentiert; ein echter Monatsabschluss wird nicht behauptet.
+      - UStVA-Vorschau und optionales XML sind lokal erzeugt und fachlich geprueft; keine Test- oder Produktivuebermittlung erfolgte.
+      - Kunden- und Beratungshandbuch sowie Projektdokumentation sind uebergeben.
+    deliverableIds: [UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
+definitionOfDone:
+  - Alle Jira-Akzeptanzkriterien und Lieferergebnisse sind erfuellt und nachgewiesen.
+  - Jedes Ticket verweist auf mindestens ein Besprechungstranskript.
+  - Genehmigte Istzeit bleibt bei hoechstens 80 Stunden.
+  - Daten, Rollen, Schulung, fachlicher Abnahmetest, Sandbox-Uebergang und Stabilisierungsphase sind nachvollziehbar dokumentiert.
+  - Monatsabschlussprozess wurde in der Sandbox geprobt und Abstimmungen sind dokumentiert; UStVA-Vorschau und XML sind lokal geprueft, ohne Test- oder Produktivuebermittlung.
+  - Kundenhandbuch, Beratungshandbuch und Confluence-Seitenbaum sind abgenommen.
+  - Der Projekt-Twin kann alle freigegebenen Werte nur lesend aus dem Projektindex aufloesen.
+excludedScope:
+  - AL-Entwicklung, eigene Berichte oder Layouts, Integrationen, Power Platform und Dataverse
+  - produktive Bankanbindung, PSD2, mehrere Firmen, Waehrungen, Banken oder Lagerorte
+  - erweitertes Lager, Chargen, Seriennummern, Produktion, Projekte, Kundendienst, Anlagenbuchhaltung, Konsolidierung, Intercompany und Lohnabrechnung
+  - historische Bewegungsdaten und E-Rechnung
+  - Test- oder Produktivuebermittlung der UStVA und ELSTER-Zugangsdaten
+  - Produktivstart, echter Monatsabschluss und offene oder unbegrenzte Stabilisierungsphase
+  - Steuer- oder Rechtsberatung und GoBD-Garantie
+  - reale Daten, Geheimnisse oder Authentifizierungsartefakte
+  - Lizenz-, Tenant- und sonstige externe Kosten

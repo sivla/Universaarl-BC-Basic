@@ -1,0 +1,38 @@
+schemaVersion: 1
+registerId: UABC-DEC-BCB-REGISTER-001
+projectId: UABC-BC-BASIC-001
+simulation: true
+decisions:
+  - { id: UABC-DEC-BCB-001, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Genau eine synthetische Gesellschaft in playthru wird verwendet. }
+  - { id: UABC-DEC-BCB-002, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst Erweiterungen sowie Integrationen aus. }
+  - { id: UABC-DEC-BCB-003, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung, Anforderungen und Datenbereitschaft, genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und circa zwei Kalenderwochen begrenzter Stabilisierungsphase; konkrete Kundentermine sind offen. }
+  - { id: UABC-DEC-BCB-004, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: 76 Stunden sind geplant und 4 Stunden Reserve bilden die harte Obergrenze von 80 Stunden. }
+  - { id: UABC-DEC-BCB-005, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Nur genehmigte Jira-Istzeiten auf unterster Ticketebene werden woechentlich zu 120 EUR netto pro Stunde abgerechnet; Elternsummen sind nicht zusaetzlich abrechenbar. }
+  - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau und optionales XML geprueft und niemals echt uebermittelt. }
+  - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
+openApprovals:
+  - id: UABC-APP-BCB-001
+    subject: Exakte Schreibzielgesellschaft Universaarl GmbH in playthru und Ruecksetzerlaubnis
+    requiredRole: realer Sandbox-Verantwortlicher
+    status: open
+    blocks: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-34, UABC-36]
+  - id: UABC-APP-BCB-002
+    subject: Tatsaechliche Essentials- oder Premium-Lizenzzuordnung und externe Kosten
+    requiredRole: realer Kunde und Lizenzverantwortlicher
+    status: open
+    blocks: [UABC-26, UABC-27]
+  - id: UABC-APP-BCB-003
+    subject: Konten, Buchungsgruppen, MwSt.-Matrix und UStVA-Kennzeichen
+    requiredRole: reale Finanzverantwortung und Steuerberatung
+    status: open
+    blocks: [UABC-28, UABC-34, UABC-36, UABC-37]
+  - id: UABC-APP-BCB-004
+    subject: Fachlicher Abnahmetest und simulierter Sandbox-Uebergang
+    requiredRole: reale Prozessverantwortliche und Sponsor
+    status: open
+    blocks: [UABC-34, UABC-35]
+  - id: UABC-APP-BCB-005
+    subject: Monatsabschlussprobe in der Sandbox, lokale UStVA-Pruefung und Abschluss der Stabilisierungsphase
+    requiredRole: reale Finanzverantwortung, Steuerberatung und Sponsor
+    status: open
+    blocks: [UABC-36, UABC-37, UABC-38]

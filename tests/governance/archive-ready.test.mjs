@@ -9,6 +9,7 @@ import YAML from 'yaml';
 
 const repositoryRoot = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const activeChange = 'establish-playthru-environment-baseline';
+const bcBasicChange = 'deliver-bc-basic-customer-project';
 const npmCli = process.env.npm_execpath ?? path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js');
 const openSpecCli = path.join(repositoryRoot, 'node_modules', '@fission-ai', 'openspec', 'bin', 'openspec.js');
 const allowedReadOnlyRequestClasses = ['GET', 'HEAD', 'OPTIONS'].flatMap((method) => ['document', 'script', 'stylesheet', 'image', 'font', 'xhr', 'fetch'].map((resourceType) => `${method}:${resourceType}`)).sort();
@@ -119,14 +120,27 @@ async function disposableRepository(t) {
     'atlassian/jira/issues/walkthrough-pilot.yaml',
     'atlassian/confluence/pages/61-walkthrough-pilot.md',
     'artifacts/walkthrough',
-    'exports/project-artifacts'
+    'exports/project-artifacts',
+    'atlassian/jira/issues/bc-basic-project.yaml',
+    'atlassian/confluence/meetings',
+    'atlassian/confluence/pages/70-bc-basic-project.md',
+    'atlassian/confluence/pages/71-bc-basic-discovery.md',
+    'atlassian/confluence/pages/72-bc-basic-implementation.md',
+    'atlassian/confluence/pages/73-bc-basic-hypercare.md',
+    'atlassian/confluence/pages/74-bc-basic-deliverables.md',
+    'atlassian/confluence/pages/75-bc-basic-meetings-decisions.md',
+    'docs/guides/beginner/business-central-basic.md',
+    'docs/runbooks/business-central-basic.md',
+    'exports/project-data',
+    'playwright/scenarios/bc-basic-e2e.yaml',
+    'project/bc-basic'
   ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
   for (const name of await fs.readdir(path.join(changesRoot, 'archive'))) {
     if (name.endsWith('-establish-project-artifact-walkthrough-pilot')) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
   }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
-  register.verifications = register.verifications.filter((item) => item.changeRef !== 'establish-project-artifact-walkthrough-pilot');
+  register.verifications = register.verifications.filter((item) => !['establish-project-artifact-walkthrough-pilot', bcBasicChange].includes(item.changeRef));
   await writeYaml(root, verificationPath, register);
   return root;
 }

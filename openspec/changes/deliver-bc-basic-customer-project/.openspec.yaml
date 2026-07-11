@@ -1,0 +1,27 @@
+schema: universaarl-delivery
+created: 2026-07-11
+canonicalTargets: [projektdaten-index, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-POLICY-GATE-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-11
+  scope: nur Archivierung von deliver-bc-basic-customer-project in der Projektablage; keine BC-Schreib-, Lizenz-, Steuer-, Produktivstart- oder Kundenfreigabe
+  conditions:
+    - alle fuer die Archivierung erforderlichen Nachweise des aktiven Aenderungsvorhabens sind bestanden
+    - alle ausdruecklich verlangten menschlichen Fach- und Freigabeentscheidungen sind mit entscheidender Person und Zeitpunkt dokumentiert
+    - Projektindex und Verifikationsregister entsprechen den geprueften Quellartefakten
+    - die strikte OpenSpec-Pruefung und die lokale Validierung bestehen
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, verification-register]
+  facts:
+    project: { status: proposed, value: UABC-BC-BASIC-001 }
+    sourceIndex: { status: proposed, value: exports/project-data/v1/index.yaml }
+    deliveryModel: { status: proposed, value: "Vorbereitung und Anforderungen, genau eine Einrichtungswoche sowie begrenzte Stabilisierungsphase bis zur Monatsabschlussprobe in der Sandbox und zur fachlich geprueften lokalen UStVA-Vorschau ohne Uebermittlung" }
+  unknowns:
+    - menschliche Freigabe der exakten playthru-Zielgesellschaft fuer Schreibvorgaenge
+    - finale Essentials- oder Premium-Lizenzzuordnung und externe Lizenzkosten
+    - steuerberaterliche Freigabe von Umsatzsteuerkennzeichen und UStVA-Zuordnung
+    - Ist-Aufwaende, Rechnungswochen und Abnahmeergebnisse
+  policyGateEvidenceId: UABC-VER-BCB-POLICY-GATE-001

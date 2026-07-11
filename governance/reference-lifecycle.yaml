@@ -17,6 +17,7 @@ rules:
   canonicalStructuredPaths:
     architecture-baseline: { path: architecture/enterprise-blueprint.yaml, selector: actualSandboxBaseline }
     capability-catalog: { path: capabilities/catalog.yaml, selector: root }
+    projektdaten-index: { path: exports/project-data/v1/index.yaml, selector: root }
     verification-register: { path: evidence/verification-register.yaml, selector: verifications }
     walkthrough-package-registry: { path: exports/project-artifacts/v0.1/index.yaml, selector: artifacts }
   archivePreconditions:

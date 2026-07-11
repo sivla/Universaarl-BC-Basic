@@ -1,0 +1,106 @@
+schemaVersion: 1
+packageId: UABC-DATA-BCB-001
+projectId: UABC-BC-BASIC-001
+status: template
+classification: synthetic-only
+companyRef: UABC-BASIC-DE
+prohibitedContent:
+  - reale Personen-, Kunden-, Lieferanten-, Bank- oder Steuerdaten
+  - Zugangsdaten, Tokens, Authentifizierungszustaende oder Browserprofile
+  - reale .env-Dateien, Logs, Videos oder Laufzeitnachweise
+deliveryFormat: UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket nach Freigabe
+qualityGate:
+  ownerRef: P-016
+  approverRefs: [P-005, P-011, P-019]
+  checks:
+    - Pflichtfelder gefuellt und technische IDs eindeutig
+    - keine realen oder geheimen Werte
+    - Codes entsprechen freigegebenen Laengen und Wertelisten
+    - Summen fuer Bestand und Eroeffnung sind separat abgestimmt
+    - Fehlerprotokoll ist leer oder mit akzeptierten Ausnahmen versehen
+  approvalStatus: open
+templates:
+  - id: UABC-DATA-TPL-001
+    objectId: company-setup
+    purpose: Genau eine synthetische Zielgesellschaft eindeutig beschreiben.
+    ownerRef: P-005
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket
+    approvalStatus: open
+    required: [companyId, displayName, countryCode, baseCurrency, fiscalYearStart, language, synthetic]
+    qualityRules: [companyId entspricht UABC-BASIC-DE, countryCode ist DE, baseCurrency ist EUR, synthetic ist true]
+    example:
+      { companyId: UABC-BASIC-DE, displayName: Universaarl GmbH, countryCode: DE, baseCurrency: EUR, fiscalYearStart: 2026-01-01, language: de-DE, synthetic: true }
+  - id: UABC-DATA-TPL-002
+    objectId: dimensions
+    purpose: Zwei einfache Auswertungsdimensionen fuer Kostenstelle und Geschaeftsbereich vorbereiten.
+    ownerRef: P-005
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV
+    approvalStatus: open
+    required: [dimensionCode, valueCode, description, blocked, synthetic]
+    qualityRules: [Dimension und Wert sind eindeutig, Codes enthalten keine Geheimnisse oder Personendaten, synthetic ist true]
+    examples:
+      - { dimensionCode: KOSTENSTELLE, valueCode: VERTRIEB, description: Vertrieb, blocked: false, synthetic: true }
+      - { dimensionCode: KOSTENSTELLE, valueCode: VERWALTUNG, description: Verwaltung, blocked: false, synthetic: true }
+      - { dimensionCode: GESCHAEFT, valueCode: HANDEL, description: Handelsgeschaeft, blocked: false, synthetic: true }
+  - id: UABC-DATA-TPL-003
+    objectId: customers
+    purpose: Einen plausiblen synthetischen Debitor fuer den Verkaufsprozess bereitstellen.
+    ownerRef: P-011
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV
+    approvalStatus: open
+    required: [customerNo, name, countryCode, postingGroup, vatBusinessPostingGroup, paymentTermsCode, synthetic]
+    qualityRules: [customerNo ist eindeutig, Buchungsgruppen stammen aus dem freigegebenen Finanzdesign, synthetic ist true]
+    example:
+      { customerNo: K-10000, name: Nordstern Buero GmbH, countryCode: DE, postingGroup: INLAND, vatBusinessPostingGroup: INLAND, paymentTermsCode: 14T, synthetic: true }
+  - id: UABC-DATA-TPL-004
+    objectId: vendors
+    purpose: Einen plausiblen synthetischen Kreditor fuer den Einkaufsprozess bereitstellen.
+    ownerRef: P-011
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV
+    approvalStatus: open
+    required: [vendorNo, name, countryCode, postingGroup, vatBusinessPostingGroup, paymentTermsCode, synthetic]
+    qualityRules: [vendorNo ist eindeutig, Buchungsgruppen stammen aus dem freigegebenen Finanzdesign, synthetic ist true]
+    example:
+      { vendorNo: L-70000, name: Saar-Material Handel KG, countryCode: DE, postingGroup: INLAND, vatBusinessPostingGroup: INLAND, paymentTermsCode: 14T, synthetic: true }
+  - id: UABC-DATA-TPL-005
+    objectId: items
+    purpose: Einen synthetischen Handelsartikel fuer Einkauf, Verkauf und einfachen Bestand bereitstellen.
+    ownerRef: P-019
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV
+    approvalStatus: open
+    required: [itemNo, description, baseUnit, inventoryPostingGroup, vatProductPostingGroup, costingMethod, unitCost, unitPrice, synthetic]
+    qualityRules: [itemNo ist eindeutig, unitPrice ist groesser als unitCost, Buchungsgruppen sind freigegeben, synthetic ist true]
+    example:
+      { itemNo: A-1000, description: Universalsensor Basic, baseUnit: STK, inventoryPostingGroup: HANDEL, vatProductPostingGroup: MWST19, costingMethod: FIFO, unitCost: 42.00, unitPrice: 79.00, synthetic: true }
+  - id: UABC-DATA-TPL-006
+    objectId: inventory-opening
+    purpose: Einen kontrollierten synthetischen Anfangsbestand fuer genau einen Lagerort vorbereiten.
+    ownerRef: P-019
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket
+    approvalStatus: open
+    required: [postingDate, itemNo, locationCode, quantity, unitCost, documentNo, synthetic]
+    qualityRules: [locationCode ist HAUPT, Belegnummer beginnt mit SYN, Mengen- und Wertsumme werden separat abgestimmt, synthetic ist true]
+    example:
+      { postingDate: 2026-08-24, itemNo: A-1000, locationCode: HAUPT, quantity: 100, unitCost: 42.00, documentNo: SYN-OPEN-001, synthetic: true }
+  - id: UABC-DATA-TPL-007
+    objectId: gl-opening
+    purpose: Eine ausgeglichene synthetische Eroeffnungsbuchung ohne reale Bank- oder Steuerwerte vorbereiten.
+    ownerRef: P-005
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket
+    approvalStatus: open
+    required: [postingDate, accountNo, debitAmount, creditAmount, dimension1, dimension2, documentNo, synthetic]
+    qualityRules: [Sollsumme entspricht Habensumme, Steuerkonten nur nach Steuerfreigabe, keine reale Bankverbindung, Belegnummer beginnt mit SYN, synthetic ist true]
+    examples:
+      - { postingDate: 2026-08-24, accountNo: '1000', debitAmount: 5000.00, creditAmount: 0.00, dimension1: VERWALTUNG, dimension2: HANDEL, documentNo: SYN-EROEFF-001, synthetic: true }
+      - { postingDate: 2026-08-24, accountNo: '2900', debitAmount: 0.00, creditAmount: 5000.00, dimension1: VERWALTUNG, dimension2: HANDEL, documentNo: SYN-EROEFF-001, synthetic: true }
+  - id: UABC-DATA-TPL-008
+    objectId: open-customer-vendor-entries
+    purpose: Je einen synthetischen offenen Debitoren- und Kreditorenposten fuer die Abstimmung vorbereiten.
+    ownerRef: P-005
+    format: YAML-Quellvorlage; spaeter UTF-8-CSV oder kontrolliertes Business-Central-Konfigurationspaket
+    approvalStatus: open
+    required: [accountType, accountNo, documentType, documentNo, postingDate, dueDate, amount, currencyCode, synthetic]
+    qualityRules: [Nebenbuchsumme entspricht freigegebenem Abstimmkonto, Belegnummer beginnt mit SYN, currencyCode ist EUR, keine realen Rechnungsnummern, synthetic ist true]
+    examples:
+      - { accountType: customer, accountNo: K-10000, documentType: invoice, documentNo: SYN-AR-001, postingDate: 2026-08-24, dueDate: 2026-09-07, amount: 940.10, currencyCode: EUR, synthetic: true }
+      - { accountType: vendor, accountNo: L-70000, documentType: invoice, documentNo: SYN-AP-001, postingDate: 2026-08-24, dueDate: 2026-09-07, amount: 499.80, currencyCode: EUR, synthetic: true }

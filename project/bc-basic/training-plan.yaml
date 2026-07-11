@@ -1,0 +1,75 @@
+schemaVersion: 1
+planId: UABC-TRAIN-BCB-001
+projectId: UABC-BC-BASIC-001
+status: planned
+simulation: true
+completionRule: Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offene Fragen und Kompetenzpruefung sind je Termin erforderlich; Planungsnachweise ersetzen diese Angaben nicht.
+sessions:
+  - id: UABC-TRAIN-BCB-ADM
+    title: Administration und Grundeinrichtung
+    audienceRefs: [P-004]
+    jiraRef: UABC-33
+    plannedDate: 2026-08-27
+    durationHours: 1
+    objectives: [Gesellschaft und Benutzerkontext sicher erkennen, Nummernserien und Perioden kontrollieren, Hilfe- und Unterstuetzungsweg nutzen]
+    agenda: [Ziel- und Sicherheitskontext, Grundeinrichtung, Rollen und Berechtigungsgrenzen, Unterstuetzungsweg]
+    exercises: [Zielgesellschaft lesen, Nummernserie kontrollieren, gesperrte Periode erkennen]
+    scenarios: [UABC-PW-BCB-001, UABC-PW-BCB-002]
+    planningTranscriptRef: UABC-MTG-001
+    executionTranscriptRef: null
+    attendance: []
+    exerciseResults: []
+    openQuestions: []
+    competencyCheck: null
+    status: planned
+  - id: UABC-TRAIN-BCB-FIN
+    title: Finanzwesen und Monatsabschlussprobe
+    audienceRefs: [P-005]
+    jiraRef: UABC-33
+    plannedDate: 2026-08-27
+    durationHours: 1
+    objectives: [Journale sicher buchen, Nebenbuecher abstimmen, Basisberichte und UStVA-Vorschau pruefen]
+    agenda: [Buchungsmatrix, Journale, Nebenbuchabstimmung, Monatsabschlussprobe, UStVA-Vorschau ohne Uebermittlung]
+    exercises: [Synthetisches Journal erklaeren, Abstimmabweichung einordnen, UStVA-Vorschau gegen Kennzeichen pruefen]
+    scenarios: [UABC-PW-BCB-003, UABC-PW-BCB-007, UABC-PW-BCB-008]
+    planningTranscriptRef: UABC-MTG-001
+    executionTranscriptRef: null
+    attendance: []
+    exerciseResults: []
+    openQuestions: []
+    competencyCheck: null
+    status: planned
+  - id: UABC-TRAIN-BCB-TRADE
+    title: Einkauf und Verkauf
+    audienceRefs: [P-011]
+    jiraRef: UABC-33
+    plannedDate: 2026-08-28
+    durationHours: 1
+    objectives: [Bestellung bis Rechnung bearbeiten, Auftrag bis Zahlungseingang bearbeiten, Gutschrift korrekt einordnen]
+    agenda: [Einkaufsablauf, Verkaufsablauf, Buchungswirkung, Fehler- und Gutschriftfall]
+    exercises: [Synthetische Bestellung pruefen, synthetischen Auftrag pruefen, erwartete Posten zuordnen]
+    scenarios: [UABC-PW-BCB-004, UABC-PW-BCB-005]
+    planningTranscriptRef: UABC-MTG-001
+    executionTranscriptRef: null
+    attendance: []
+    exerciseResults: []
+    openQuestions: []
+    competencyCheck: null
+    status: planned
+  - id: UABC-TRAIN-BCB-WHS
+    title: Einfaches Lager und Bestand
+    audienceRefs: [P-019]
+    jiraRef: UABC-33
+    plannedDate: 2026-08-28
+    durationHours: 1
+    objectives: [Artikel und Lagerort verstehen, Zu- und Abgang nachvollziehen, Inventurdifferenz kontrollieren]
+    agenda: [Artikelstamm, Lagerort HAUPT, Bestandsbewegungen, Inventur und Abstimmung]
+    exercises: [Synthetischen Artikel finden, Zu- und Abgang erklaeren, Inventurdifferenz einordnen]
+    scenarios: [UABC-PW-BCB-006]
+    planningTranscriptRef: UABC-MTG-001
+    executionTranscriptRef: null
+    attendance: []
+    exerciseResults: []
+    openQuestions: []
+    competencyCheck: null
+    status: planned
