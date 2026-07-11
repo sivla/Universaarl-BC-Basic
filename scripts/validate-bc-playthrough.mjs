@@ -12,6 +12,7 @@ const load = (file) => {
 };
 const catalog = load('project/bc-basic/bc-playthrough-catalog.yaml');
 const ledger = load('evidence/simulation/bc-playthrough-ledger.yaml');
+const candidates = load('project/bc-basic/blueprint-candidates.yaml');
 if (catalog) {
   if (catalog.classification !== 'synthetic-only' || catalog.status !== 'synthetisch-abgeschlossen') errors.push('Katalog ist nicht synthetisch abgeschlossen.');
   if (catalog.sessions?.length !== 7) errors.push(`Erwartet 7 Kern-Sitzungen, gefunden ${catalog.sessions?.length ?? 0}.`);
@@ -35,6 +36,14 @@ if (ledger) {
   if (ledger.controls?.glDebit !== ledger.controls?.glCredit || ledger.controls?.glDifference !== 0) errors.push('G/L-Soll-Haben ist nicht ausgeglichen.');
   if (ledger.controls?.customerOpenAfterApply !== 0 || ledger.controls?.vendorOpenAfterApply !== 0) errors.push('Nebenbücher sind nach Ausgleich nicht null.');
   if (ledger.controls?.allDefectsRetested !== true) errors.push('Nicht alle Defects wurden retestet.');
+}
+if (candidates) {
+  if (candidates.classification !== 'anonymized-product-candidates') errors.push('Kandidatenregister ist nicht als anonymisiert gekennzeichnet.');
+  for (const candidate of candidates.candidates ?? []) {
+    if (candidate.status !== 'proposed') errors.push(`${candidate.findingId}: Kandidat darf nicht automatisch übernommen sein.`);
+    if (candidate.anonymization !== 'bestanden-keine-kundenwerte') errors.push(`${candidate.findingId}: Anonymisierungsprüfung fehlt.`);
+  }
+  if (candidates.beta1Binding?.status !== 'not-bound') errors.push('Spectra-Beta-1 darf ohne unabhängige Release-Evidence nicht gebunden werden.');
 }
 if (errors.length) {
   console.error(`BC-Playthrough-Pruefung fehlgeschlagen (${errors.length}):`);

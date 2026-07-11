@@ -86,3 +86,4 @@ artifacts:
   - { id: UABC-SRC-BCB-PLAY-CATALOG-001, kindId: bc-playthrough-catalog, path: project/bc-basic/bc-playthrough-catalog.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PLAY-LEDGER-001, kindId: bc-playthrough-ledger, path: evidence/simulation/bc-playthrough-ledger.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PLAY-VALIDATOR-001, kindId: bc-playthrough-validator, path: scripts/validate-bc-playthrough.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-CANDIDATES-001, kindId: anonymized-blueprint-candidates, path: project/bc-basic/blueprint-candidates.yaml, format: yaml, required: true }
