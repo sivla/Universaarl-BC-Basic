@@ -6,50 +6,15 @@ originCommit: abc2f2aaff88c8acb865b36f2810e328a2848388
 sourceEvidence: [project/bc-basic/bc-playthrough-catalog.yaml, evidence/simulation/bc-playthrough-ledger.yaml, scripts/validate-bc-playthrough.mjs]
 truthRule: Kundenfachliche Werte und Evidence bleiben in BC Basic; Kandidaten sind keine Produktfreigabe.
 candidates:
-  - findingId: UABC-FINDING-BCB-PLAY-001
-    originProject: Universaarl-BC-Basic
-    problem: Kein generisches, maschinenlesbares Sitzungsformat für Seite Aktion Feld Preview Dokumente und Ledgerketten.
-    evidence: [BC-SIM-SETUP-001, BC-SIM-P2P-001, scripts/validate-bc-playthrough.mjs]
-    classification: generic-product-side
-    anonymization: bestanden-keine-kundenwerte
-    affectedContracts: [Spectra-Produktvertrag, Project-Twin-Exportvertrag]
-    proposedDecision: Generisches BC-Session-Record-Schema als blueprint-candidate prüfen.
-    status: proposed
-    rationale: Wiederverwendbare Struktur; keine Übernahme von Universaarl-Konten oder Belegwerten.
-  - findingId: UABC-FINDING-BCB-PLAY-002
-    originProject: Universaarl-BC-Basic
-    problem: Entry-Ketten müssen G/L Nebenbuch VAT Bank Item und Value Entries übergreifend abstimmen.
-    evidence: [evidence/simulation/bc-playthrough-ledger.yaml, scripts/validate-bc-playthrough.mjs]
-    classification: generic-product-side
-    anonymization: bestanden-keine-kundenwerte
-    affectedContracts: [Spectra-Produktvertrag]
-    proposedDecision: Generische Entry-Reconciliation-Regeln als Candidate prüfen.
-    status: proposed
-    rationale: Kontrolllogik ist produktunabhängig formulierbar; konkrete Konten und Beträge bleiben Kundeninstanz.
-  - findingId: UABC-FINDING-BCB-PLAY-003
-    originProject: Universaarl-BC-Basic
-    problem: Kundenfreigabe UAT Cutover Go-live Hypercare Restart und Handover benötigen First-Class-Simulationsgates.
-    evidence: [evidence/simulation/phase-gate-register.yaml, evidence/simulation/end-to-end-objective-audit.yaml]
-    classification: generic-product-side
-    anonymization: bestanden-keine-kundenwerte
-    affectedContracts: [Spectra-Projektsteuerung, Project-Twin-Exportvertrag]
-    proposedDecision: Generisches Simulation-Gate-Modell im Produktreview bewerten.
-    status: proposed
-    rationale: Gate-Lifecycle ist übertragbar, die synthetischen Rollen bleiben lokal.
-  - findingId: UABC-FINDING-BCB-PLAY-004
-    originProject: Universaarl-BC-Basic
-    problem: Workspace-Validatoren sollten portable, commitgebundene Read-only-Prüfungen ohne feste Fremdarbeitskopie erlauben.
-    evidence: [evidence/spectra-release-0.1.0-alpha.2.yaml, scripts/validate-snapshot-contract.mjs]
-    classification: control-release-side
-    anonymization: bestanden-keine-kundenwerte
-    affectedContracts: [Spectra-Releasebindung, Project-Twin-Consumervertrag]
-    proposedDecision: Portable Workspace-Validator-Schnittstelle im Produktreview prüfen.
-    status: proposed
-    rationale: Befund betrifft Prüfwerkzeug und Releasekontrolle, nicht Kundendaten.
+  - { findingId: UABC-FINDING-BCB-PLAY-001, originProject: Universaarl-BC-Basic, problem: Generisches maschinenlesbares Sitzungsformat fuer Seite Aktion Feld Preview Dokumente und Ledgerketten fehlt., evidence: [BC-SIM-SETUP-001, BC-SIM-P2P-001, scripts/validate-bc-playthrough.mjs], classification: generic-product-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Produktvertrag, Project-Twin-Exportvertrag], proposedDecision: Generisches BC-Session-Record-Schema im Produktreview pruefen., status: partially-adopted, rationale: Struktur ist teilweise im BC-Katalog umgesetzt; Produktuebernahme bleibt reviewpflichtig. }
+  - { findingId: UABC-FINDING-BCB-PLAY-002, originProject: Universaarl-BC-Basic, problem: Entry-Ketten muessen G/L Nebenbuch VAT Bank Item und Value Entries abstimmen., evidence: [evidence/simulation/bc-playthrough-ledger.yaml, scripts/validate-bc-playthrough.mjs], classification: generic-product-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Produktvertrag], proposedDecision: Generische Entry-Reconciliation-Regeln im Produktreview pruefen., status: partially-adopted, rationale: Kontrolllogik ist im BC-Validator umgesetzt; generische Produktadoption ist nicht pauschal behauptet. }
+  - { findingId: UABC-FINDING-BCB-PLAY-003, originProject: Universaarl-BC-Basic, problem: Simulationsgates fuer UAT Cutover Go-live Hypercare Restart und Handover benoetigen First-Class-Records., evidence: [evidence/simulation/phase-gate-register.yaml, evidence/simulation/end-to-end-objective-audit.yaml], classification: generic-product-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Projektsteuerung, Project-Twin-Exportvertrag], proposedDecision: Generisches Simulation-Gate-Modell im Produktreview bewerten., status: released, rationale: Beta-1 enthaelt passende Workspace-Gate-Automation; konkrete Kundenrollen bleiben lokal. }
+  - { findingId: UABC-FINDING-BCB-PLAY-004, originProject: Universaarl-BC-Basic, problem: Workspace-Validatoren sollten portable commitgebundene Read-only-Pruefungen erlauben., evidence: [evidence/spectra-release-0.1.0-beta.1.yaml, scripts/validate-snapshot-contract.mjs], classification: control-release-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Releasebindung, Project-Twin-Consumervertrag], proposedDecision: Portable Workspace-Validator-Schnittstelle im Produktreview pruefen., status: released, rationale: Beta-1 veroeffentlicht passende Workspace-Validator-Automation; direkte Ausfuehrung gegen BC Basic bleibt scopebegrenzt. }
 beta1Binding:
-  status: not-bound
-  reason: Keine veröffentlichte und unabhängig geprüfte Spectra-Beta-1-Evidence im BC-Basic-Repository.
+  status: bound
+  release: spectra-v0.1.0-beta.1
+  reason: Beta-1 ist ueber commitgebundene Remote-Evidence mit 57 geprueften Payloadblobs gebunden; Kandidatenstatus beschreibt nur Produktuebernahme.
 handover:
-  spectra: Kandidaten nur anonymisiert und vorgeschlagen; Produktreview und echter Release erforderlich.
+  spectra: Kandidaten sind anonymisiert; Produktreview und echter Release bleiben erforderlich.
   projectTwin: Keine UI-Anforderung; nur indexierte read-only Quelldaten und Validatorbefunde.
-  customerTruth: Alle konkreten Sitzungen, Belege, Konten und Beträge verbleiben ausschließlich in BC Basic.
+  customerTruth: Konkrete Sitzungen, Belege, Konten und Betraege verbleiben ausschliesslich in BC Basic.

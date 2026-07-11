@@ -40,10 +40,10 @@ if (ledger) {
 if (candidates) {
   if (candidates.classification !== 'anonymized-product-candidates') errors.push('Kandidatenregister ist nicht als anonymisiert gekennzeichnet.');
   for (const candidate of candidates.candidates ?? []) {
-    if (candidate.status !== 'proposed') errors.push(`${candidate.findingId}: Kandidat darf nicht automatisch übernommen sein.`);
+    if (!['proposed', 'partially-adopted', 'released', 'bound'].includes(candidate.status)) errors.push(`${candidate.findingId}: ungültiger Kandidatenstatus.`);
     if (candidate.anonymization !== 'bestanden-keine-kundenwerte') errors.push(`${candidate.findingId}: Anonymisierungsprüfung fehlt.`);
   }
-  if (candidates.beta1Binding?.status !== 'not-bound') errors.push('Spectra-Beta-1 darf ohne unabhängige Release-Evidence nicht gebunden werden.');
+  if (candidates.beta1Binding?.status !== 'bound' || candidates.beta1Binding?.release !== 'spectra-v0.1.0-beta.1') errors.push('Spectra-Beta-1-Bindungsstatus ist inkonsistent.');
 }
 if (errors.length) {
   console.error(`BC-Playthrough-Pruefung fehlgeschlagen (${errors.length}):`);

@@ -10,17 +10,17 @@ spectraReleaseBinding:
   productId: spectra
   technicalRepositoryName: BCProjectOS
   repositoryUrl: https://github.com/sivla/BCProjectOS.git
-  releaseVersion: 0.1.0-alpha.2
-  releaseTag: spectra-v0.1.0-alpha.2
-  tagCommit: 05b0260be22f82c34212394ba8477c3083d02c39
-  manifestPath: release/versions/0.1.0-alpha.2/release-manifest.json
-  manifestSourceCommit: ce9c29dbd19daa8913dbe206c2c934108514f6db
+  releaseVersion: 0.1.0-beta.1
+  releaseTag: spectra-v0.1.0-beta.1
+  tagCommit: f69b3378ba55327df623002de14fa417677f6cae
+  manifestPath: release/versions/0.1.0-beta.1/release-manifest.json
+  manifestSourceCommit: 5732067747d42d8296ddac319de659a693e459cc
   consumerMode: INSTALLABLE_BLUEPRINT
   installableBlueprint: true
   digestAlgorithm: SHA-256
-  payloadBundleDigest: 9076dfd0acdb33fdb761203d3f18cbe58ea5e49071b389649c87076d08ce934a
+  payloadBundleDigest: d7dfdee83671602eba3e49a0d770461cbeddb64e41f4277c886f530c05a44abd
   installationStatus: geplant-nicht-installiert
-  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra Alpha 2 ist reproduzierbar geprueft; eine Installation in BC Basic erfolgt nicht.
+  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra Beta 1 ist reproduzierbar geprueft; eine Installation in BC Basic erfolgt nicht.
 consumers:
   - consumerId: project-twin
     displayName: Universaarl Project Twin

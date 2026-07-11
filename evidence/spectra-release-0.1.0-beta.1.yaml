@@ -1,0 +1,35 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SPECTRA-BETA-001
+projectId: UABC-BC-BASIC-001
+classification: remote-read-only-verification
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v0.1.0-beta.1
+tag:
+  name: spectra-v0.1.0-beta.1
+  annotatedObject: af7c2011308eaf3cb7794112ff82e0d5511a2e1f
+  peeledCommit: f69b3378ba55327df623002de14fa417677f6cae
+manifest:
+  path: release/versions/0.1.0-beta.1/release-manifest.json
+  blobSha: 2b87ec1605c3e2a0ccf762d1aa1cdf1305452465
+  manifestSourceCommit: 5732067747d42d8296ddac319de659a693e459cc
+  sourceCommitIsAncestor: true
+  consumerMode: INSTALLABLE_BLUEPRINT
+  installableBlueprint: true
+payload:
+  digestAlgorithm: SHA-256
+  bundleDigest: d7dfdee83671602eba3e49a0d770461cbeddb64e41f4277c886f530c05a44abd
+  fileCount: 57
+  checksumsBlobSha: 117a0cb1a96b009910a7154c5902c1df58bd3fc4
+  verifiedGitBlobs: 57
+  mismatches: 0
+release:
+  version: 0.1.0-beta.1
+  prerelease: true
+  draft: false
+verification:
+  status: passed
+  method: GitHub-API-read-only-Tag-Manifest-Blob-SHA-256-und-Ancestry
+  verifiedAt: 2026-07-12
+  workspaceValidator: nicht-gegen-BC-Basic-ausfuehrbar-ohne-fremden-Workspacezugriff
+  portableAutomationObserved: Test-SyntheticBCBasicWorkspace.ps1-und-Test-WorkspaceValidator.ps1-im-Release-vorhanden
+  noRepositoryMutation: true
