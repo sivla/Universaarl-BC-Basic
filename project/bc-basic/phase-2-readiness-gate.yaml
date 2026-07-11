@@ -1,0 +1,25 @@
+schemaVersion: 1
+gateId: UABC-GATE-BCB-PHASE2-001
+projectId: UABC-BC-BASIC-001
+status: geplant-blockiert
+decision: NO_GO_REAL
+scope: Phase-2-Einrichtung-und-Schulung
+requiredEvidence:
+  - { id: UABC-GATE-EV-001, name: Umfang-und-Rollen, source: project/bc-basic/project-plan.yaml, status: vorhanden-synthetisch }
+  - { id: UABC-GATE-EV-002, name: Datenbereitschaft, source: project/bc-basic/data-readiness-check.yaml, status: geplant-nicht-ausgefuehrt }
+  - { id: UABC-GATE-EV-003, name: Finanz-und-Steuerdesign, source: project/bc-basic/decision-register.yaml, status: freigabe-offen }
+  - { id: UABC-GATE-EV-004, name: Ziel-und-Schreibfreigabe, source: project/bc-basic/decision-register.yaml, status: freigabe-offen }
+  - { id: UABC-GATE-EV-005, name: Ruecksetzplan, source: project/bc-basic/phase-2-dry-run.yaml, status: synthetisch-geplant }
+  - { id: UABC-GATE-EV-006, name: UAT-und-Schulung, source: project/bc-basic/uat-training-run.yaml, status: synthetisch-geplant }
+blockers:
+  - { id: UABC-GATE-BLOCK-001, decisionRef: UABC-APP-BCB-001, reason: Zielgesellschaft-und-Ruecksetzfreigabe-fehlt, blocks: [UABC-27, UABC-29, UABC-34] }
+  - { id: UABC-GATE-BLOCK-002, decisionRef: UABC-APP-BCB-002, reason: Lizenzentscheidung-fehlt, blocks: [UABC-26, UABC-27] }
+  - { id: UABC-GATE-BLOCK-003, decisionRef: UABC-APP-BCB-003, reason: Finanz-und-Steuerfreigabe-fehlt, blocks: [UABC-28, UABC-34, UABC-37] }
+  - { id: UABC-GATE-BLOCK-004, decisionRef: UABC-APP-BCB-004, reason: Fachliche-Abnahme-und-Sandbox-Uebergang-fehlen, blocks: [UABC-34, UABC-35] }
+rules:
+  - Alle Pflichtnachweise muessen vorhanden und fachlich freigegeben sein.
+  - Jede P1- oder P2-Abweichung blockiert den Start.
+  - Fehlende Ruecksetzbarkeit blockiert jeden mutierenden Lauf.
+  - Synthetische Tests ersetzen keine menschliche Freigabe.
+  - Spectra-PENDING und fehlendes Snapshotmanifest blockieren keine lokale Phase-2-Planung, aber jede Snapshotbereitstellung.
+nextStep: Reale Entscheider liefern und dokumentieren die vier offenen Freigaben; danach wird dieser Gatevertrag erneut ausgefuehrt.

@@ -402,6 +402,17 @@ test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und bl
   assert.equal(runPlan.evidenceRules.realAcceptance, 'menschliche-abnahme');
 });
 
+test('Phase-2-Readiness-Gate verbindet Nachweise und offene Freigaben fail-closed', () => {
+  const gate = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'phase-2-readiness-gate.yaml'), 'utf8'));
+  assert.equal(gate.status, 'geplant-blockiert');
+  assert.equal(gate.decision, 'NO_GO_REAL');
+  assert.equal(gate.requiredEvidence.length, 6);
+  assert.equal(gate.blockers.length, 4);
+  assert.ok(gate.blockers.every((blocker) => blocker.decisionRef.startsWith('UABC-APP-BCB-')));
+  assert.ok(gate.rules.some((rule) => /P1- oder P2-Abweichung blockiert/.test(rule)));
+  assert.match(gate.nextStep, /Reale Entscheider/);
+});
+
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
