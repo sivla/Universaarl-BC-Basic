@@ -11,6 +11,7 @@ const repositoryRoot = path.resolve(fileURLToPath(new URL('../..', import.meta.u
 const activeChange = 'establish-playthru-environment-baseline';
 const npmCli = process.env.npm_execpath ?? path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js');
 const openSpecCli = path.join(repositoryRoot, 'node_modules', '@fission-ai', 'openspec', 'bin', 'openspec.js');
+const allowedReadOnlyRequestClasses = ['GET', 'HEAD', 'OPTIONS'].flatMap((method) => ['document', 'script', 'stylesheet', 'image', 'font', 'xhr', 'fetch'].map((resourceType) => `${method}:${resourceType}`)).sort();
 
 async function readYaml(root, relative) {
   return YAML.parse(await fs.readFile(path.join(root, relative), 'utf8'));
@@ -18,6 +19,14 @@ async function readYaml(root, relative) {
 
 async function writeYaml(root, relative, value) {
   await fs.writeFile(path.join(root, relative), YAML.stringify(value), 'utf8');
+}
+
+async function readJson(root, relative) {
+  return JSON.parse(await fs.readFile(path.join(root, relative), 'utf8'));
+}
+
+async function writeJson(root, relative, value) {
+  await fs.writeFile(path.join(root, relative), `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function collectEvidenceIds(value, result = new Set()) {
@@ -40,6 +49,42 @@ const npmRun = (root, script) => execute(root, process.execPath, [npmCli, 'run',
 
 function openSpecArchive(root) {
   return execute(root, process.execPath, [openSpecCli, 'archive', activeChange, '--yes', '--json']);
+}
+
+function compareBaselineRuns(root) {
+  return execute(root, process.execPath, ['tests/playwright/helpers/bc-evidence.mjs', 'compare']);
+}
+
+function schema2TargetBinding() {
+  return {
+    targetId: '[redacted-target-id]',
+    verified: true,
+    fingerprintAlgorithm: 'hmac-sha256',
+    protocol: 'https:',
+    host: 'businesscentral.dynamics.com',
+    port: 443,
+    environment: 'playthru',
+    tenant: '[redacted-tenant]',
+    basePath: '/[redacted-tenant]/playthru'
+  };
+}
+
+function upgradeManifestToSchema2(manifest, overrides = {}) {
+  const targetBinding = schema2TargetBinding();
+  const readOnlyGuard = {
+    mode: 'businesscentral-network-read-only-fail-closed',
+    installation: { httpRoute: true, webSocketRoute: true, serviceWorkers: 'block' },
+    observedBusinessCentralRequests: 1,
+    allowedRequests: 1,
+    observedRequestClasses: ['GET:document'],
+    allowedRequestClasses: [...allowedReadOnlyRequestClasses],
+    blockedMutationAttempts: 0,
+    blockedRequests: [],
+    targetBinding: structuredClone(targetBinding),
+    targetBoundaryVerified: true,
+    limit: 'Synthetische, vollstaendig redigierte Nur-Lese-Projektion fuer Regressionen.'
+  };
+  return { ...manifest, schemaVersion: 2, targetBinding, readOnlyGuard, ...overrides };
 }
 
 async function disposableRepository(t) {
@@ -91,7 +136,7 @@ async function setPolicyGate(root, status) {
   const policyGate = register.verifications.find((item) => item.id === 'UABC-VER-ENV-POLICY-GATE-001');
   policyGate.status = status;
   policyGate.executedAt = status === 'passed' ? '2026-07-10' : null;
-  policyGate.evidence = status === 'passed' ? 'Disposable automated policy gate; never copied to the real repository.' : null;
+  policyGate.evidence = status === 'passed' ? 'Wegwerfbares automatisiertes Policy-Gate; nie in das echte Repository kopiert.' : null;
   await writeYaml(root, 'evidence/verification-register.yaml', register);
 }
 
@@ -127,7 +172,7 @@ test('W0-Freigabe ersetzt das aktive automatisierte W1-Policy-Gate nicht', async
   await setPolicyGate(root, 'pending');
   const result = npmRun(root, 'validate:archive-ready');
   assert.notEqual(result.status, 0);
-  assert.match(result.output, /requires passed active-change automated policy gate/);
+  assert.match(result.output, /erfordert ein passed automatisiertes Policy-Gate des aktiven Changes/);
   assert.match(result.output, /UABC-VER-ENV-POLICY-GATE-001.*pending/);
 });
 
@@ -148,7 +193,204 @@ test('semantisch abweichende kanonische Fakten werden abgelehnt', async (t) => {
   await writeYaml(root, architecturePath, architecture);
   const result = npmRun(root, 'validate:archive-ready');
   assert.notEqual(result.status, 0);
-  assert.match(result.output, /facts differ semantically from proposedCanonicalUpdate/);
+  assert.match(result.output, /facts weichen semantisch vom proposedCanonicalUpdate ab/);
+});
+
+test('gemeinsam manipulierte Architektur und archiviertes Update scheitern gegen Roh-Evidence', async (t) => {
+  const root = await disposableRepository(t);
+  await prepareAppliedPolicyState(root);
+  await removeEnvironmentMainSpec(root);
+  const archive = openSpecArchive(root);
+  assert.equal(archive.status, 0, archive.output);
+  const archiveRoot = path.join(root, 'openspec', 'changes', 'archive');
+  const archivedName = (await fs.readdir(archiveRoot)).find((name) => name.endsWith(`-${activeChange}`));
+  assert.ok(archivedName, 'archivierte Baseline-Fixture fehlt');
+
+  const architecturePath = 'architecture/enterprise-blueprint.yaml';
+  const architecture = await readYaml(root, architecturePath);
+  architecture.actualSandboxBaseline.facts.environment.value = 'gemeinsam-manipuliert';
+  await writeYaml(root, architecturePath, architecture);
+
+  const archivedManifestPath = `openspec/changes/archive/${archivedName}/.openspec.yaml`;
+  const archivedManifest = await readYaml(root, archivedManifestPath);
+  archivedManifest.proposedCanonicalUpdate.facts.environment.value = 'gemeinsam-manipuliert';
+  await writeYaml(root, archivedManifestPath, archivedManifest);
+
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /Roh-Evidence-Projektion/);
+});
+
+test('gemeinsam manipulierte Run-Manifeste mit writesPerformed true scheitern in Vergleich und Validator', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = await readJson(root, relative);
+    manifest.writesPerformed = true;
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /writesPerformed muss fuer die read-only Baseline exakt false sein/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /writesPerformed muss fuer die read-only Baseline exakt false sein/);
+});
+
+test('historische writesPerformed-Werte null und String scheitern typstreng', async (t) => {
+  const root = await disposableRepository(t);
+  const relative = 'evidence/playthru-environment-baseline/run-1/manifest.json';
+  for (const value of [null, 'false']) {
+    const manifest = await readJson(repositoryRoot, relative);
+    manifest.writesPerformed = value;
+    await writeJson(root, relative, manifest);
+    const compare = compareBaselineRuns(root);
+    assert.notEqual(compare.status, 0);
+    assert.match(compare.output, /writesPerformed muss boolean sein/);
+    const result = npmRun(root, 'validate:references');
+    assert.notEqual(result.status, 0);
+    assert.match(result.output, /writesPerformed muss boolean sein/);
+  }
+});
+
+test('legacy-absent akzeptiert nur die exakten historischen Manifestbytes am gebundenen Pfad', async (t) => {
+  const root = await disposableRepository(t);
+  const relative = 'evidence/playthru-environment-baseline/run-1/manifest.json';
+  const manifestPath = path.join(root, relative);
+  const original = await fs.readFile(manifestPath, 'utf8');
+  await fs.writeFile(manifestPath, `${original} `, 'utf8');
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /SHA-256|Originalbytes/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /SHA-256.*Originalbytes/);
+
+  const withoutFact = JSON.parse(original);
+  delete withoutFact.facts.environment;
+  await writeJson(root, relative, withoutFact);
+  const removedFieldComparison = compareBaselineRuns(root);
+  assert.notEqual(removedFieldComparison.status, 0);
+  assert.match(removedFieldComparison.output, /SHA-256|Originalbytes/);
+  const removedFieldValidation = npmRun(root, 'validate:references');
+  assert.notEqual(removedFieldValidation.status, 0);
+  assert.match(removedFieldValidation.output, /SHA-256.*Originalbytes/);
+});
+
+test('neue Schema-2-Manifeste verlangen Guard und Zielbindung', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = await readJson(root, relative);
+    manifest.schemaVersion = 2;
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /Schema 2 erfordert Guard und Zielbindung/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /Schema 2 erfordert Guard und Zielbindung/);
+});
+
+test('vollstaendig redigierte Schema-2-Manifeste bestehen Vergleich und Rohprojektion', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    await writeJson(root, relative, upgradeManifestToSchema2(await readJson(root, relative)));
+  }
+  const compare = compareBaselineRuns(root);
+  assert.equal(compare.status, 0, compare.output);
+  const result = npmRun(root, 'validate:references');
+  assert.equal(result.status, 0, result.output);
+});
+
+test('gemeinsam manipulierte Run-Manifeste mit blockiertem Guard scheitern in Vergleich und Validator', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = upgradeManifestToSchema2(await readJson(root, relative));
+    manifest.readOnlyGuard.observedBusinessCentralRequests = 1;
+    manifest.readOnlyGuard.allowedRequests = 0;
+    manifest.readOnlyGuard.observedRequestClasses = ['POST:xhr'];
+    manifest.readOnlyGuard.blockedMutationAttempts = 1;
+    manifest.readOnlyGuard.blockedRequests = [{ method: 'POST', url: 'https://businesscentral.dynamics.com/[tenant]/playthru', resourceType: 'xhr', reason: 'simulierter blockierter Versuch' }];
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /Mutationsindikatoren/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /Mutationsversuche/);
+});
+
+test('Schema-2-Manifeste binden Guard, Ziel und unverfaelschte Zaehler', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = upgradeManifestToSchema2(await readJson(root, relative));
+    manifest.readOnlyGuard.allowedRequests = 99;
+    manifest.readOnlyGuard.targetBinding.basePath = '/[redacted-tenant]/anderes-ziel';
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /Zielbindung|targetBinding|Zaehler/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /nicht exakt miteinander verbunden|manipulierte Zaehler/);
+});
+
+test('Schema-2-Manifeste lehnen kollusiv eingefuegte rohe Ziel- und URL-Felder ab', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = upgradeManifestToSchema2(await readJson(root, relative));
+    manifest.targetBinding.rawTargetId = 'UABC-BC-TARGET-ROH';
+    manifest.targetBinding.rawUrl = 'https://businesscentral.dynamics.com/roher-tenant/playthru';
+    manifest.readOnlyGuard.targetBinding = structuredClone(manifest.targetBinding);
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /unerlaubte oder fehlende Felder|nicht redigierte Ziel-/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /targetBinding enthaelt unerlaubte oder fehlende Felder|nicht redigierte Ziel-/);
+});
+
+test('Schema-2-Manifeste lehnen rohe Ziel-, URL- und HMAC-Werte in erlaubten Evidence-Feldern ab', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = upgradeManifestToSchema2(await readJson(root, relative));
+    manifest.facts.environment.reason = `UABC-BC-TARGET-ROH https://businesscentral.dynamics.com/tenant-rohwert0123456789/playthru hex:${'ab'.repeat(32)}`;
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /nicht redigierte Ziel-, URL-, Tenant- oder Fingerprintdaten/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /nicht redigierte Ziel-, URL-, Tenant-, HMAC- oder Fingerprintdaten/);
+});
+
+test('Schema-2-Manifeste lehnen kollusiv erweiterte Nur-Lese-Requestklassen ab', async (t) => {
+  const root = await disposableRepository(t);
+  for (const run of ['run-1', 'run-2']) {
+    const relative = `evidence/playthru-environment-baseline/${run}/manifest.json`;
+    const manifest = upgradeManifestToSchema2(await readJson(root, relative));
+    manifest.readOnlyGuard.allowedRequestClasses.push('POST:xhr');
+    manifest.readOnlyGuard.observedRequestClasses = ['POST:xhr'];
+    await writeJson(root, relative, manifest);
+  }
+  const compare = compareBaselineRuns(root);
+  assert.notEqual(compare.status, 0);
+  assert.match(compare.output, /Nur-Lese-Klassenvertrag/);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /Nur-Lese-Klassenvertrag|beobachtete Requestklassen/);
 });
 
 test('rohes Archiv bleibt ungueltig wenn das automatisierte Policy-Gate nicht erfuellt war', async (t) => {
@@ -166,8 +408,8 @@ test('rohes Archiv bleibt ungueltig wenn das automatisierte Policy-Gate nicht er
   assert.equal(strict.status, 0, strict.output);
   const custom = npmRun(root, 'validate:references');
   assert.notEqual(custom.status, 0);
-  assert.match(custom.output, /archived automated policy gate requires proposedCanonicalUpdate status applied/);
-  assert.match(custom.output, /archived automated policy gate UABC-VER-ENV-POLICY-GATE-001 must remain passed with evidence/);
+  assert.match(custom.output, /archiviertes automatisiertes Policy-Gate erfordert proposedCanonicalUpdate-Status applied/);
+  assert.match(custom.output, /archiviertes automatisiertes Policy-Gate UABC-VER-ENV-POLICY-GATE-001 muss passed bleiben und Evidence besitzen/);
 });
 
 test('Post-Archive-Validierung lehnt kanonische Drift gegenueber dem archivierten Update ab', async (t) => {
@@ -183,7 +425,7 @@ test('Post-Archive-Validierung lehnt kanonische Drift gegenueber dem archivierte
   await writeYaml(root, architecturePath, architecture);
   const custom = npmRun(root, 'validate:references');
   assert.notEqual(custom.status, 0);
-  assert.match(custom.output, /archived architecture baseline facts differ semantically from proposedCanonicalUpdate/);
+  assert.match(custom.output, /archivierte Architektur-Baseline-Fakten weichen semantisch vom proposedCanonicalUpdate ab/);
 });
 
 test('positive Wegwerf-Lifecycle nutzt echten OpenSpec-Merge und besteht die Post-Archive-Validierung', async (t) => {
@@ -195,7 +437,7 @@ test('positive Wegwerf-Lifecycle nutzt echten OpenSpec-Merge und besteht die Pos
   assert.equal(archiveReady.status, 0, archiveReady.output);
   assert.match(archiveReady.output, /Schema 'universaarl-delivery' is valid/);
   assert.match(archiveReady.output, /change\/establish-playthru-environment-baseline/);
-  assert.match(archiveReady.output, /Project validation passed \(archive-ready\)/);
+  assert.match(archiveReady.output, /Projektvalidierung bestanden \(archive-ready\)/);
 
   const archive = openSpecArchive(root);
   assert.equal(archive.status, 0, archive.output);
