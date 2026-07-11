@@ -489,8 +489,8 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
     technicalRepositoryName: 'BCProjectOS',
     productId: 'spectra',
     repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
-    releaseVersion: '1.0.0',
-    releaseTag: 'spectra-v1.0.0',
+    releaseVersion: '0.1.0-alpha.1',
+    releaseTag: 'spectra-v0.1.0-alpha.1',
     tagCommit: 'a'.repeat(40),
     manifestPath: 'release/install-manifest.json',
     manifestSourceCommit: 'b'.repeat(40),
@@ -502,7 +502,7 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
   });
   assert.deepEqual(validateConsumerBindings(gebunden, projectIndex), []);
   const falscherTag = structuredClone(gebunden);
-  falscherTag.spectraReleaseBinding.releaseTag = 'v1.0.0';
+  falscherTag.spectraReleaseBinding.releaseTag = 'v0.1.0-alpha.1';
   assert.notDeepEqual(validateConsumerBindings(falscherTag, projectIndex), [], 'Ein Nicht-Spectra-Tag muss scheitern');
   const readEntry = (sourcePath) => ({ bytes: Buffer.from(`blob:${sourcePath}\n`, 'utf8'), gitMode: '100644' });
   const manifest = buildSnapshotManifest({ binding: gebunden, projectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
@@ -533,7 +533,7 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
     ,['Doppeltrennzeichenpfad', (value) => { value.payloads[0].path = 'docs//file.md'; }]
     ,['URI-Pfad', (value) => { value.payloads[0].path = 'https://example.invalid/file'; }]
     ,['Abschliessender Schraegstrich', (value) => { value.payloads[0].path = 'docs/file.md/'; }]
-    ,['Releaseversion-Tag-Mismatch', (value) => { value.spectraReleaseBinding.releaseTag = 'spectra-v2.0.0'; }]
+    ,['Releaseversion-Tag-Mismatch', (value) => { value.spectraReleaseBinding.releaseTag = 'spectra-v0.1.0-alpha.2'; }]
   ];
   for (const [label, mutate] of invalidFixtures) {
     const candidate = structuredClone(manifest);
