@@ -6,5 +6,3 @@ test-results/
 playwright/.auth/
 evidence/runtime/
 .tmp/
-# Local Codex/control-center instructions; machine-specific and not a project artifact.
-AGENTS.md
