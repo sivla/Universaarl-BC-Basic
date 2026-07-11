@@ -1,6 +1,6 @@
 schemaVersion: 1
 artifactId: UABC-GOV-REFERENCE-001
-title: Stable reference lifecycle
+title: Stabiler Referenzlebenszyklus
 states: [proposed, approved, historical, superseded, retired]
 resolutionOrder:
   - state: approved
@@ -10,7 +10,7 @@ resolutionOrder:
   - state: historical
     pathPattern: openspec/changes/archive/*/specs/**/spec.md
 rules:
-  stableReferenceFormat: fachliche ID, never a change path
+  stableReferenceFormat: fachliche ID, kein Change-Pfad
   activeChangesAllowed: 0..1
   approvedTruthPath: openspec/specs
   historicalFallbackOnly: true
@@ -20,9 +20,9 @@ rules:
     verification-register: { path: evidence/verification-register.yaml, selector: verifications }
     walkthrough-package-registry: { path: exports/project-artifacts/v0.1/index.yaml, selector: artifacts }
   archivePreconditions:
-    - change approval policy gate satisfied
-    - canonical structured artifacts updated from proposed to approved
-    - all required verifications passed
-    - active change specs strict-valid and mergeable by OpenSpec archive
-    - local validation passed
-  conflictRule: duplicate IDs in one lifecycle state are invalid; cross-state resolution follows approved over proposed over historical
+    - automatisiertes Policy-Gate des Changes erfuellt
+    - kanonische strukturierte Artefakte von proposed nach approved aktualisiert
+    - alle erforderlichen Nachweise bestanden
+    - aktive Change-Specs strict-valide und durch OpenSpec-Archivierung mergebar
+    - lokale Validierung bestanden
+  conflictRule: doppelte IDs innerhalb eines Lifecycle-Status sind ungueltig; statusuebergreifende Aufloesung folgt approved vor proposed vor historical

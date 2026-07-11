@@ -66,7 +66,7 @@ async function disposableRepository(t) {
   } catch {
     const archiveRoot = path.join(changesRoot, 'archive');
     const archivedName = (await fs.readdir(archiveRoot)).filter((name) => name.endsWith(`-${activeChange}`)).sort().at(-1);
-    assert.ok(archivedName, `archived fixture source for ${activeChange} is missing`);
+    assert.ok(archivedName, `archivierte Fixture-Quelle fuer ${activeChange} fehlt`);
     await fs.cp(path.join(archiveRoot, archivedName), activePath, { recursive: true });
     await fs.rm(path.join(archiveRoot, archivedName), { recursive: true, force: true });
   }
@@ -120,7 +120,7 @@ async function removeEnvironmentMainSpec(root) {
   await fs.rm(path.join(root, 'openspec/specs/environment-baseline'), { recursive: true, force: true });
 }
 
-test('W0 approval cannot replace the active W1 automated policy gate', async (t) => {
+test('W0-Freigabe ersetzt das aktive automatisierte W1-Policy-Gate nicht', async (t) => {
   const root = await disposableRepository(t);
   const register = await readYaml(root, 'evidence/verification-register.yaml');
   assert.equal(register.verifications.find((item) => item.id === 'UABC-VER-BLUEPRINT-APPROVAL-001').status, 'passed');
@@ -131,7 +131,7 @@ test('W0 approval cannot replace the active W1 automated policy gate', async (t)
   assert.match(result.output, /UABC-VER-ENV-POLICY-GATE-001.*pending/);
 });
 
-test('untargeted capability catalog is not made approval-required', async (t) => {
+test('nicht adressierter Capability-Katalog wird nicht neu freigabepflichtig', async (t) => {
   const root = await disposableRepository(t);
   await setPolicyGate(root, 'pending');
   const result = npmRun(root, 'validate:archive-ready');
@@ -139,7 +139,7 @@ test('untargeted capability catalog is not made approval-required', async (t) =>
   assert.doesNotMatch(result.output, /capability-catalog/);
 });
 
-test('semantically divergent canonical facts are rejected', async (t) => {
+test('semantisch abweichende kanonische Fakten werden abgelehnt', async (t) => {
   const root = await disposableRepository(t);
   await prepareAppliedPolicyState(root);
   const architecturePath = 'architecture/enterprise-blueprint.yaml';
@@ -151,7 +151,7 @@ test('semantically divergent canonical facts are rejected', async (t) => {
   assert.match(result.output, /facts differ semantically from proposedCanonicalUpdate/);
 });
 
-test('raw archive remains invalid when its automated policy gate was not satisfied', async (t) => {
+test('rohes Archiv bleibt ungueltig wenn das automatisierte Policy-Gate nicht erfuellt war', async (t) => {
   const root = await disposableRepository(t);
   await removeEnvironmentMainSpec(root);
   const changePath = `openspec/changes/${activeChange}/.openspec.yaml`;
@@ -170,7 +170,7 @@ test('raw archive remains invalid when its automated policy gate was not satisfi
   assert.match(custom.output, /archived automated policy gate UABC-VER-ENV-POLICY-GATE-001 must remain passed with evidence/);
 });
 
-test('post-archive validation rejects canonical drift from the archived applied update', async (t) => {
+test('Post-Archive-Validierung lehnt kanonische Drift gegenueber dem archivierten Update ab', async (t) => {
   const root = await disposableRepository(t);
   await prepareAppliedPolicyState(root);
   await removeEnvironmentMainSpec(root);
@@ -186,7 +186,7 @@ test('post-archive validation rejects canonical drift from the archived applied 
   assert.match(custom.output, /archived architecture baseline facts differ semantically from proposedCanonicalUpdate/);
 });
 
-test('positive disposable lifecycle uses real OpenSpec merge and passes post-archive validation', async (t) => {
+test('positive Wegwerf-Lifecycle nutzt echten OpenSpec-Merge und besteht die Post-Archive-Validierung', async (t) => {
   const root = await disposableRepository(t);
   await prepareAppliedPolicyState(root);
   await removeEnvironmentMainSpec(root);
@@ -201,7 +201,7 @@ test('positive disposable lifecycle uses real OpenSpec merge and passes post-arc
   assert.equal(archive.status, 0, archive.output);
   await assert.rejects(fs.access(path.join(root, `openspec/changes/${activeChange}`)));
   const archiveDirectories = await fs.readdir(path.join(root, 'openspec/changes/archive'));
-  assert.ok(archiveDirectories.some((name) => name.endsWith(`-${activeChange}`)), 'real OpenSpec archive directory missing');
+  assert.ok(archiveDirectories.some((name) => name.endsWith(`-${activeChange}`)), 'echtes OpenSpec-Archivverzeichnis fehlt');
 
   const mergedSpec = await fs.readFile(path.join(root, 'openspec/specs/environment-baseline/spec.md'), 'utf8');
   assert.match(mergedSpec, /## Purpose/);
@@ -220,12 +220,23 @@ test('positive disposable lifecycle uses real OpenSpec merge and passes post-arc
   }
 });
 
-test('published Main-Specs reject a provisional Purpose', async (t) => {
+test('veroeffentlichte Main-Specs lehnen provisorischen Purpose ab', async (t) => {
   const root = await disposableRepository(t);
   const specPath = path.join(root, 'openspec/specs/project-governance/spec.md');
   const content = await fs.readFile(specPath, 'utf8');
   await fs.writeFile(specPath, content.replace(/## Purpose\s+[\s\S]*?(?=\s+## Requirements)/, '## Purpose\nTBD - Update Purpose after archive.\n'), 'utf8');
   const result = npmRun(root, 'validate:references');
   assert.notEqual(result.status, 0);
-  assert.match(result.output, /provisional Purpose is not allowed/);
+  assert.match(result.output, /provisorischer Purpose ist unzulaessig/);
+});
+
+test('Architekturentscheidungen lehnen nicht deklarierte Felder ab', async (t) => {
+  const root = await disposableRepository(t);
+  const architecturePath = 'architecture/enterprise-blueprint.yaml';
+  const architecture = await readYaml(root, architecturePath);
+  architecture.decisions[0].unexpected = 'not allowed';
+  await writeYaml(root, architecturePath, architecture);
+  const result = npmRun(root, 'validate:references');
+  assert.notEqual(result.status, 0);
+  assert.match(result.output, /Decision-Objekt darf nur id, status, decidedAt und statement enthalten/);
 });

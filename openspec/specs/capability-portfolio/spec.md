@@ -1,4 +1,4 @@
-# capability-portfolio Specification
+# capability-portfolio Spezifikation
 
 ## Purpose
 Definiert das hierarchische BC-Capability-Portfolio, seine Prozessketten, Abhaengigkeiten, Reportinglogik und rollenbasierte Einfuehrung.
@@ -36,7 +36,7 @@ Intercompany-Austausch und finanzielle Konsolidierung MUST als getrennte, aufein
 - **THEN** stimmen Partnerbezug und Betrag ueberein und die Eliminierung ist im Konsolidierungsunternehmen nachvollziehbar
 
 ### Requirement: UABC-REQ-CAP-005 Rollenbasierte Einfuehrung
-Migration, Testing, UAT, Training, Adoption, Cutover und Hypercare MUST als projektbegleitende Workstreams von Strategie und Ownership bis Ausfuehrung und Support geplant werden. Training, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden; Trainingskoordination MUST fachliche UAT-Abnahme durch die jeweiligen Business Owner nicht ersetzen.
+Migration, Tests, UAT, Schulung, Einfuehrung, Cutover und Hypercare MUST als projektbegleitende Workstreams von Strategie und Verantwortung bis Ausfuehrung und Support geplant werden. Schulung, UAT und spaetere Klickanleitungen MUST an realen Rollen, Prozesszielen, Unternehmen und nachgewiesenen UI-Szenarien ausgerichtet werden; Trainingskoordination MUST die fachliche UAT-Abnahme durch die jeweils verantwortlichen Fachbereiche nicht ersetzen.
 
 #### Scenario: UABC-SCN-TRN-001 Trainingsfreigabe pruefen
 - **GIVEN** ein spaeter verifiziertes Prozessszenario

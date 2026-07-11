@@ -1,7 +1,7 @@
-# environment-baseline Specification
+# environment-baseline Spezifikation
 
 ## Purpose
-Definiert die freigegebene, reproduzierbare und strikt read-only ermittelte Ausgangsbaseline der Business-Central-Sandbox `playthru` einschliesslich belegter Fakten, sichtbarer Teilnachweise und ausdruecklicher Unknowns.
+Definiert die freigegebene, reproduzierbare und strikt read-only ermittelte Ausgangsbaseline der Business-Central-Sandbox `playthru` einschliesslich belegter Fakten, sichtbarer Teilnachweise und ausdruecklicher unbekannter Werte.
 ## Requirements
 ### Requirement: UABC-REQ-ENV-001 Sichere Zielgrenze
 Der Baseline-Lauf MUST vor und nach jeder Navigation sichtbar oder aus der aktuellen Client-URL bestaetigen, dass er ausschliesslich in `playthru` und in der unveraenderten aktiven Gesellschaft bleibt. Er MUST vor jedem Company- oder Environment-Switch abbrechen.
@@ -32,7 +32,7 @@ Der Pilot MUST Version/Build, Sprache, Region/Lokalisierung, Experience, Benutze
 
 Die Zielgesellschaften `UAM-DE`, `UAS-DE`, `UAD-DE`, `UAP-DE` und `UAC-CONS` MUST gegen den sichtbaren Playthru-Mandantenbaum als `observed` oder `not-observed-in-accessible-company-pane` klassifiziert werden. `not-observed` MUST ausdruecklich keine Aussage ueber die Existenz ausserhalb des sichtbaren Pane treffen.
 
-### Requirement: UABC-REQ-ENV-003 Koharente visuelle Evidence
+### Requirement: UABC-REQ-ENV-003 Kohaerente visuelle Evidence
 Jeder langlebige Screenshot MUST visuell geprueft sein und zusammen mit Trace und strukturiertem Ergebnis dieselbe Step-ID referenzieren. Identitaeten, Tokens und personenbezogene Daten MUST ausgeschlossen oder maskiert werden.
 
 #### Scenario: UABC-SCN-ENV-005 Evidence-Kette pruefen

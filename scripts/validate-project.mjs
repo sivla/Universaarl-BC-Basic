@@ -183,6 +183,11 @@ async function validateCatalogAndArchitecture({ stableIds, idOwners, people, sou
   registerIds(catalog, 'capabilities/catalog.yaml', stableIds, idOwners);
   registerIds(lifecycle, 'governance/reference-lifecycle.yaml', stableIds, idOwners);
 
+  const decisionKeys = ['decidedAt', 'id', 'statement', 'status'];
+  for (const decision of architecture.decisions ?? []) {
+    check(semanticEqual(Object.keys(decision).sort(), decisionKeys), `${decision.id ?? 'architecture decision'}: Decision-Objekt darf nur id, status, decidedAt und statement enthalten`);
+  }
+
   const lifecycleStates = new Set(lifecycle.states ?? []);
   check(lifecycleStates.has('historical'), 'lifecycle states must declare historical');
   check(lifecycleStates.has(architecture.lifecycleStatus), `architecture: invalid lifecycleStatus ${architecture.lifecycleStatus}`);
@@ -409,8 +414,8 @@ async function validateLifecycleGate({ architecture, catalog, lifecycle, verific
   }
 
   const declaredPreconditions = new Set(lifecycle.rules?.archivePreconditions ?? []);
-  for (const expected of ['change approval policy gate satisfied', 'canonical structured artifacts updated from proposed to approved', 'all required verifications passed', 'active change specs strict-valid and mergeable by OpenSpec archive', 'local validation passed']) {
-    check(declaredPreconditions.has(expected), `archive lifecycle is missing enforced precondition: ${expected}`);
+  for (const expected of ['automatisiertes Policy-Gate des Changes erfuellt', 'kanonische strukturierte Artefakte von proposed nach approved aktualisiert', 'alle erforderlichen Nachweise bestanden', 'aktive Change-Specs strict-valide und durch OpenSpec-Archivierung mergebar', 'lokale Validierung bestanden']) {
+    check(declaredPreconditions.has(expected), `Archivlebenszyklus vermisst erzwungene Vorbedingung: ${expected}`);
   }
 }
 
@@ -554,8 +559,8 @@ async function validateMainSpecPurposes() {
   for (const file of files) {
     const content = await read(file);
     const purpose = content.match(/## Purpose\s+([\s\S]*?)(?=\s+## Requirements)/)?.[1]?.trim() ?? '';
-    check(purpose.length >= 20, `${file}: missing substantive Purpose`);
-    check(!/\bTBD\b|Update Purpose after archive/i.test(purpose), `${file}: provisional Purpose is not allowed`);
+    check(purpose.length >= 20, `${file}: substantieller Purpose fehlt`);
+    check(!/\bTBD\b|Update Purpose after archive/i.test(purpose), `${file}: provisorischer Purpose ist unzulaessig`);
   }
 }
 
@@ -592,8 +597,8 @@ const lifecycle = await yaml('governance/reference-lifecycle.yaml');
 const openSpecConfig = await yaml('openspec/config.yaml');
 const openSpecContext = String(openSpecConfig.context ?? '');
 check(openSpecContext.includes('architecture/enterprise-blueprint.yaml#actualSandboxBaseline'), 'openspec/config.yaml: context must reference the canonical actualSandboxBaseline path');
-check(/(?:only facts confirmed there|nur dort bestätigte Fakten)/i.test(openSpecContext), 'openspec/config.yaml: context must limit baseline use to confirmed canonical facts');
-check(/(?:unknown or only partially visible values|unbekannte oder nur teilweise sichtbare Werte)/i.test(openSpecContext), 'openspec/config.yaml: context must preserve unknown and partial baseline values');
+check(/(?:only facts confirmed there|nur dort best(?:ae|ä)tigte Fakten)/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss die Baseline-Nutzung auf bestaetigte kanonische Fakten begrenzen');
+check(/(?:unknown or only partially visible values|unbekannte oder nur teilweise sichtbare Werte)/i.test(openSpecContext), 'openspec/config.yaml: Kontext muss unbekannte und nur teilweise sichtbare Baseline-Werte erhalten');
 const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
 for (const verification of verificationMap.values()) {
