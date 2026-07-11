@@ -1,0 +1,20 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-DEMO-001
+projectId: UABC-BC-BASIC-001
+classification: synthetic-only
+status: synthetisch-abgeschlossen-real-offen
+guide: docs/runbooks/bc-basic-simulation-demo.md
+stations:
+  - { id: DEMO-01, source: project/bc-basic/data-readiness-check.yaml, status: synthetisch-geprueft }
+  - { id: DEMO-02, source: evidence/simulation/phase-2-p2p-o2c.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-03, source: evidence/simulation/phase-3-cash-inventory-close.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-04, source: project/bc-basic/uat-training-run.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-05, source: evidence/simulation/project-completion.yaml, status: GO_SIMULATION }
+  - { id: DEMO-06, source: project/bc-basic/traceability-matrix.yaml, status: synthetisch-geprueft-real-offen }
+checks:
+  branchContract: required
+  spectraRelease: spectra-v0.1.0-alpha.2
+  realBcExecution: false
+  realAcceptance: open
+  externalTransmission: false
+result: synthetisch-bereit-real-blockiert
