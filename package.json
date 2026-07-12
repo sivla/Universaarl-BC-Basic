@@ -13,6 +13,7 @@
     "validate:snapshot-contract": "node scripts/validate-snapshot-contract.mjs",
     "validate:simulation": "node scripts/validate-simulation-evidence.mjs",
     "validate:bc-playthrough": "node scripts/validate-bc-playthrough.mjs",
+    "validate:project-story": "node scripts/validate-project-story.mjs",
     "generate:snapshot": "node scripts/generate-project-snapshot.mjs",
     "validate:archive-ready": "npm run validate:openspec-schema && npm run validate:openspec && node scripts/validate-project.mjs --archive-ready",
     "test": "npm run validate:openspec-schema && npm run validate:openspec && npm run validate:snapshot-contract && npm run test:language && npm run test:german && npm run test:governance && npm run test:walkthrough && npm run validate:references",

@@ -74,7 +74,7 @@ artifacts:
   - { id: UABC-SRC-BCB-UAT-RUN-001, kindId: uat-training-run, path: project/bc-basic/uat-training-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-READINESS-001, kindId: phase-2-readiness-gate, path: project/bc-basic/phase-2-readiness-gate.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-TRACE-001, kindId: traceability-matrix, path: project/bc-basic/traceability-matrix.yaml, format: yaml, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.1.0-beta.1.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.3.0-alpha.1.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE3-001, kindId: phase-3-cash-inventory-close, path: evidence/simulation/phase-3-cash-inventory-close.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE2-SIM-001, kindId: phase-2-p2p-o2c-simulation, path: evidence/simulation/phase-2-p2p-o2c.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-COMPLETION-001, kindId: synthetic-project-completion, path: evidence/simulation/project-completion.yaml, format: yaml, required: true }
@@ -87,3 +87,11 @@ artifacts:
   - { id: UABC-SRC-BCB-PLAY-LEDGER-001, kindId: bc-playthrough-ledger, path: evidence/simulation/bc-playthrough-ledger.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PLAY-VALIDATOR-001, kindId: bc-playthrough-validator, path: scripts/validate-bc-playthrough.mjs, format: javascript, required: true }
   - { id: UABC-SRC-BCB-CANDIDATES-001, kindId: anonymized-blueprint-candidates, path: project/bc-basic/blueprint-candidates.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-PROJECT-STORY-001, kindId: project-story-core, path: evidence/simulation/project-story.json, format: json, required: true }
+  - { id: UABC-SRC-BCB-STORY-VALIDATOR-001, kindId: project-story-validator, path: scripts/validate-project-story.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-STORY-OFFER-001, kindId: project-story-readable-offer, path: docs/offers/bc-basic-offer.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-STORY-CONFLUENCE-001, kindId: project-story-readable-pages, path: atlassian/confluence/pages/bc-basic-project-story.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-STORY-HYPERCARE-001, kindId: project-story-readable-hypercare, path: atlassian/confluence/pages/bc-basic-hypercare.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-STORY-CHRONICLE-001, kindId: project-story-readable-chronicle, path: docs/reports/bc-basic-project-chronicle.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-STORY-HANDOVER-001, kindId: project-story-readable-handover, path: docs/handover/bc-basic-handover.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-STORY-TICKETS-001, kindId: project-story-readable-tickets, path: atlassian/jira/issues/bc-basic-story-tickets.yaml, format: yaml, required: true }

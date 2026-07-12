@@ -1,0 +1,11 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SPECTRA-03-ALPHA-001
+projectId: UABC-BC-BASIC-001
+classification: remote-read-only-verification
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v0.3.0-alpha.1
+tag: { name: spectra-v0.3.0-alpha.1, annotatedObject: 45114cedbe3099a0d0a5cd1dfca182d975b19e8f, peeledCommit: dc20c89a756139cdd4267d5c5acb2559760a561f, tree: 067e977f7a4da15902544ad112dfd3318514daa3 }
+manifest: { path: release/versions/0.3.0-alpha.1/release-manifest.json, blobSha: 6f182029f03f8c7267f9014f8dcceefa448839a1, manifestSourceCommit: 4c6176fb93a17fe5a569df6a95cdf6f038255061, sourceCommitIsAncestor: true, consumerMode: INSTALLABLE_BLUEPRINT, installableBlueprint: true }
+payload: { digestAlgorithm: SHA-256, bundleDigest: 5d9ff853013969657aa6be168a2cfa580262c55becdb94259aeccc3568593765, fileCount: 65, verifiedGitBlobs: 65, mismatches: 0 }
+release: { version: 0.3.0-alpha.1, prerelease: true, draft: false }
+verification: { status: passed, method: GitHub-API-read-only-Tag-Manifest-Blob-SHA-256-und-Ancestry, verifiedAt: 2026-07-12, workspaceValidator: portable-automation-im-Release-vorhanden-aber-nicht-gegen-fremden-Workspace-ausgeführt, projectStoryContract: released-and-used, noRepositoryMutation: true }

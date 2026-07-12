@@ -469,17 +469,17 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     productId: 'spectra',
     technicalRepositoryName: 'BCProjectOS',
     repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
-    releaseVersion: '0.1.0-beta.1',
-    releaseTag: 'spectra-v0.1.0-beta.1',
-    tagCommit: 'f69b3378ba55327df623002de14fa417677f6cae',
-    manifestPath: 'release/versions/0.1.0-beta.1/release-manifest.json',
-    manifestSourceCommit: '5732067747d42d8296ddac319de659a693e459cc',
+    releaseVersion: '0.3.0-alpha.1',
+    releaseTag: 'spectra-v0.3.0-alpha.1',
+    tagCommit: 'dc20c89a756139cdd4267d5c5acb2559760a561f',
+    manifestPath: 'release/versions/0.3.0-alpha.1/release-manifest.json',
+    manifestSourceCommit: '4c6176fb93a17fe5a569df6a95cdf6f038255061',
     consumerMode: 'INSTALLABLE_BLUEPRINT',
     installableBlueprint: true,
     digestAlgorithm: 'SHA-256',
-    payloadBundleDigest: 'd7dfdee83671602eba3e49a0d770461cbeddb64e41f4277c886f530c05a44abd',
+    payloadBundleDigest: '5d9ff853013969657aa6be168a2cfa580262c55becdb94259aeccc3568593765',
     installationStatus: 'geplant-nicht-installiert',
-    reason: 'Kontrollierte GitHub-Release-Evidence fuer Spectra Beta 1 ist reproduzierbar geprueft; eine Installation in BC Basic erfolgt nicht.'
+    reason: 'Kontrollierte GitHub-Release-Evidence fuer Spectra 0.3.0-alpha.1 ist reproduzierbar geprueft; der Project-Story-Vertrag wird als Kundenmapping verwendet, keine Installation in BC Basic.'
   });
   assert.equal(consumerBindings.consumers?.length, 1);
   const [twin] = consumerBindings.consumers;
@@ -519,7 +519,7 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 
   const serializedBinding = JSON.stringify(consumerBindings);
   assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), true, 'Gebundene Konsumentenbindung muss die Release-Commit-SHA enthalten');
-  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, 'f69b3378ba55327df623002de14fa417677f6cae');
+  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, 'dc20c89a756139cdd4267d5c5acb2559760a561f');
   assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
   assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => sourcePath === 'governance/consumer-bindings.yaml'), false, 'Die interne Consumerbindung darf nicht als Twin-Payload positivgelistet sein');
   assert.equal(projectIndex.artifacts.some(({ kindId, format, path: sourcePath }) => kindId === 'snapshot-manifest-schema' && format === 'json-schema' && sourcePath.endsWith('.json')), true, 'Das Snapshot-Schema muss als json-schema unter .json positivgelistet sein');

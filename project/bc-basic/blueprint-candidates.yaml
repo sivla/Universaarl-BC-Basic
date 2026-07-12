@@ -11,9 +11,13 @@ candidates:
   - { findingId: UABC-FINDING-BCB-PLAY-003, originProject: Universaarl-BC-Basic, problem: Simulationsgates fuer UAT Cutover Go-live Hypercare Restart und Handover benoetigen First-Class-Records., evidence: [evidence/simulation/phase-gate-register.yaml, evidence/simulation/end-to-end-objective-audit.yaml], classification: generic-product-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Projektsteuerung, Project-Twin-Exportvertrag], proposedDecision: Generisches Simulation-Gate-Modell im Produktreview bewerten., status: released, rationale: Beta-1 enthaelt passende Workspace-Gate-Automation; konkrete Kundenrollen bleiben lokal. }
   - { findingId: UABC-FINDING-BCB-PLAY-004, originProject: Universaarl-BC-Basic, problem: Workspace-Validatoren sollten portable commitgebundene Read-only-Pruefungen erlauben., evidence: [evidence/spectra-release-0.1.0-beta.1.yaml, scripts/validate-snapshot-contract.mjs], classification: control-release-side, anonymization: bestanden-keine-kundenwerte, affectedContracts: [Spectra-Releasebindung, Project-Twin-Consumervertrag], proposedDecision: Portable Workspace-Validator-Schnittstelle im Produktreview pruefen., status: released, rationale: Beta-1 veroeffentlicht passende Workspace-Validator-Automation; direkte Ausfuehrung gegen BC Basic bleibt scopebegrenzt. }
 beta1Binding:
-  status: bound
+  status: historical
   release: spectra-v0.1.0-beta.1
-  reason: Beta-1 ist ueber commitgebundene Remote-Evidence mit 57 geprueften Payloadblobs gebunden; Kandidatenstatus beschreibt nur Produktuebernahme.
+currentReleaseBinding:
+  status: bound
+  release: spectra-v0.3.0-alpha.1
+  projectStoryContract: released-and-mapped
+  reason: Der 0.3-Release enthält den generischen Project-Story-Core; Universaarl-spezifische Inhalte bleiben im BC-Basic-Mapping.
 handover:
   spectra: Kandidaten sind anonymisiert; Produktreview und echter Release bleiben erforderlich.
   projectTwin: Keine UI-Anforderung; nur indexierte read-only Quelldaten und Validatorbefunde.
