@@ -10,17 +10,17 @@ spectraReleaseBinding:
   productId: spectra
   technicalRepositoryName: BCProjectOS
   repositoryUrl: https://github.com/sivla/BCProjectOS.git
-  releaseVersion: 0.7.0-alpha.1
-  releaseTag: spectra-v0.7.0-alpha.1
-  tagCommit: dcdefa6a772393d22785ad518172d938c1ad5833
-  manifestPath: release/versions/0.7.0-alpha.1/release-manifest.json
-  manifestSourceCommit: b751673545943bb5a29000b92200a9a91dc0bef1
+  releaseVersion: 0.8.0-alpha.1
+  releaseTag: spectra-v0.8.0-alpha.1
+  tagCommit: 5dd23c2ff2c408c03fd613348fcb305635cfbf9a
+  manifestPath: release/versions/0.8.0-alpha.1/release-manifest.json
+  manifestSourceCommit: b759e0c5c8069808b6f0feb4fd3f5000a6f0851a
   consumerMode: INSTALLABLE_BLUEPRINT
   installableBlueprint: true
   digestAlgorithm: SHA-256
-  payloadBundleDigest: b8bd1d3f42748d08def60d7dece1c1a902d779c358fe279ed52aafc98f60605d
+  payloadBundleDigest: 73cccf2555357f761059cd369358e0ab6315807889995326a55761d3c58d6029
   installationStatus: geplant-nicht-installiert
-  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 0.7.0-alpha.1 ist reproduzierbar geprueft; die portable Full-Conformance wird ueber eine temporaere deterministische Projektion ausgefuehrt, keine Installation in BC Basic.
+  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 0.8.0-alpha.1 ist reproduzierbar geprueft; die portable Full-Conformance wird ueber eine temporaere deterministische Projektion ausgefuehrt, keine Installation in BC Basic.
 consumers:
   - consumerId: project-twin
     displayName: Universaarl Project Twin
