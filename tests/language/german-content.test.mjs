@@ -224,11 +224,12 @@ test('C-Werte gelten nur in den inventarisierten strukturellen Kontexten', () =>
     ].join('\n')),
     entry('capabilities/catalog.yaml', 'statusValues: [planned, validated, approved, deferred, out-of-scope]\n'),
     entry('exports/project-artifacts/v0.1/index.yaml', 'access: read-only\n'),
+    entry('evidence/simulation/adapter-provenance.json', '{"write_protection":{"source_mode":"read-only"}}\n'),
     entry(baselineArchive, 'approvalPolicy:\n  authorizedBy: real-repository-user\n'),
     entry('evidence/verification-register.yaml', 'verifications:\n  - type: human-approval\n')
   ]);
   assert.deepEqual(allowed.violations, []);
-  for (const kind of ['gebundene-schreibbereitschaft', 'gebundener-inventarzweck', 'deklarierter-statuswert', 'gebundener-exportzugriff', 'gebundene-freigabeidentitaet', 'deklarierter-verifikationstyp']) {
+  for (const kind of ['gebundene-schreibbereitschaft', 'gebundener-inventarzweck', 'deklarierter-statuswert', 'gebundener-exportzugriff', 'gebundener-spectra-zugriffsmodus', 'gebundene-freigabeidentitaet', 'deklarierter-verifikationstyp']) {
     assert.equal(allowed.exceptions.some((item) => item.kind === kind), true, kind);
   }
 

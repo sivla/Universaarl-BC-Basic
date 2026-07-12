@@ -12,7 +12,7 @@ test('portable Projektion ist deterministisch und veraendert die native Story ni
   const before = sha(bytes); const first = buildPortableStory(native); const second = buildPortableStory(native);
   assert.deepEqual(first, second);
   assert.equal(sha(fs.readFileSync('evidence/simulation/project-story.json')), before);
-  assert.equal(sha(JSON.stringify(first)), '1a731316822f41108e4eee81e0e088499d08e556221db757b4384a0a405ec5ef');
+  assert.equal(sha(JSON.stringify(first)), '62017d44d73729b923179bded3051cd930872664178ffbd6e3705727a9042452');
 });
 
 test('portable Projektion belegt alle verbindlichen Storymengen', () => {
@@ -27,6 +27,13 @@ test('portable Projektion belegt alle verbindlichen Storymengen', () => {
   assert.equal(portable.hypercare.length, 3);
   assert.equal(native.relations.length, 252);
   assert.equal(portable.graph.length, 190);
+});
+
+test('portable Evidence-Hashes sind gegen Windows-Zeilenenden stabil', () => {
+  const reader = (text) => (id) => { if (!id.includes('/')) throw new Error('synthetische ID'); return Buffer.from(text); };
+  const crlf = buildPortableStory(native, reader('Zeile 1\r\nZeile 2\r\n'));
+  const lf = buildPortableStory(native, reader('Zeile 1\nZeile 2\n'));
+  assert.deepEqual(crlf, lf);
 });
 
 test('portable Multi-Domain-Kanten besitzen genau eine inverse Kante', () => {

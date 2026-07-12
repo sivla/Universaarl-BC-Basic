@@ -138,3 +138,11 @@ Die Snapshotquelle MUST der neueste vollstaendig validierte, saubere Commit des 
 - **GIVEN** der repository-relative Index, das JSON-Manifest oder dessen Payloadliste bietet `governance/consumer-bindings.yaml` als lesbaren Artefaktpfad an
 - **WHEN** der Producer- oder Consumervalidator die Allowlist beziehungsweise das Manifest prueft
 - **THEN** wird der Vertrag fail-closed abgelehnt; nur der Producer darf die interne Bindung zur Digestbildung verwenden
+
+### Requirement: UABC-REQ-BCB-013 Versionierter Reconciliation- und Provenienzvertrag
+Die Kundeninstanz MUST den veroeffentlichten Spectra-0.9-Vertrag fuer Baseline, Angebot und Ist verwenden. Der Datensatz MUST Stunden, Satz, Betrag, Waehrung, Versionen, rechnerische Abweichung und einen nachvollziehbaren Grund enthalten. Er MUST Rechnung, Buchung, Zahlung und produktive Leistung ausdruecklich ausschliessen. Der einzige Branch-Index MUST deterministisch auf eine read-only Twin-Exportmap projiziert werden. Die Adapter-Provenienz MUST sicheren relativen Quellpfad, Source-Hash vor und nach der Projektion, Mappingversion, Projektionsdigest, unveraenderte Kunden-Source-of-Truth und vollstaendigen Schreibschutz belegen.
+
+#### Scenario: UABC-SCN-BCB-020 Reconciliation und Exportprovenienz pruefen
+- **GIVEN** die abgeschlossene synthetische Story und der aktuelle Branch-Index
+- **WHEN** Generator und Validator ausgefuehrt werden
+- **THEN** stimmen 68 Stunden/11.050 EUR Baseline sowie 80 Stunden/9.600 EUR Angebot und Ist, alle indexierten Artefakte erscheinen exakt einmal in der Exportmap, Source und Projektion sind digestgebunden und jede falsche Bindung, Manipulation, Produktivbehauptung, unsichere Pfadangabe oder Schreibberechtigung wird fail-closed abgelehnt

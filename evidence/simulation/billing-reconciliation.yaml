@@ -9,6 +9,7 @@ scope:
   sourceOfTruth: evidence/simulation/project-story.json
   worklogSource: evidence/simulation/project-story.json:tickets[*].worklogs
   offerSource: docs/offers/bc-basic-offer.md
+  spectraContractRecord: evidence/simulation/project-reconciliation.json
 reconciliation:
   ticketWorklogHours: 80
   offerActualHours: 80
@@ -32,6 +33,7 @@ reconciliation:
     hourlyRate: -42.5
     netAmount: -1450
     explanation: Version 2.0 des synthetischen Festpreisangebots ersetzt nur fuer die Projektstory die historische Dienstleisterkalkulation; keine reale Rechnung wird geaendert.
+    reasonCode: scope-change
 process:
   steps:
     - step: worklogs-collect
@@ -50,4 +52,4 @@ decision:
   limitation: Keine reale Jira-Freigabe, Rechnung, Kundenfreigabe oder Zahlung ausgeführt.
 references:
   tickets: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
-  evidence: [evidence/simulation/project-story.json, docs/offers/bc-basic-offer.md, atlassian/jira/issues/bc-basic-project.yaml]
+  evidence: [evidence/simulation/project-story.json, evidence/simulation/project-reconciliation.json, evidence/simulation/adapter-provenance.json, exports/project-data/v1/twin-export-map.json, docs/offers/bc-basic-offer.md, atlassian/jira/issues/bc-basic-project.yaml]

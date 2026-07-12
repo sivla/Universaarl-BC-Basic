@@ -11,3 +11,8 @@ artifacts/walkthrough/generated/UABC-WT-ENV-001/captions.vtt -text
 artifacts/walkthrough/generated/UABC-WT-ENV-001/index.html -text
 artifacts/walkthrough/generated/UABC-WT-ENV-001/manifest.json -text
 exports/project-artifacts/v0.1/index.yaml -text
+exports/project-data/v1/index.yaml text eol=lf
+exports/project-data/v1/twin-export-map.json text eol=lf
+evidence/simulation/project-reconciliation.json text eol=lf
+evidence/simulation/adapter-provenance.json text eol=lf
+evidence/simulation/spectra-0.9-conformance.yaml text eol=lf

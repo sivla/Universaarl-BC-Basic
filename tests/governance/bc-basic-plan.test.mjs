@@ -120,6 +120,7 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
     status: 'simulated-complete', offerVersion: 2, plannedHours: 80, actualHours: 80, hourlyRate: 120,
     plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: 17, reconciliationResult: 'abgestimmt',
     evidence: 'evidence/simulation/billing-reconciliation.yaml',
+    spectraReconciliation: 'evidence/simulation/project-reconciliation.json',
     truthBoundary: 'Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.'
   });
   assert.deepEqual(billing.historicalBaseline, { plannedHours: 68, hourlyRate: 162.5, plannedNetAmount: 11050, status: 'superseded-for-synthetic-project-story-only' });
@@ -476,17 +477,17 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     productId: 'spectra',
     technicalRepositoryName: 'BCProjectOS',
     repositoryUrl: 'https://github.com/sivla/BCProjectOS.git',
-    releaseVersion: '0.8.0-alpha.1',
-    releaseTag: 'spectra-v0.8.0-alpha.1',
-    tagCommit: '5dd23c2ff2c408c03fd613348fcb305635cfbf9a',
-    manifestPath: 'release/versions/0.8.0-alpha.1/release-manifest.json',
-    manifestSourceCommit: 'b759e0c5c8069808b6f0feb4fd3f5000a6f0851a',
+    releaseVersion: '0.9.0-alpha.1',
+    releaseTag: 'spectra-v0.9.0-alpha.1',
+    tagCommit: '8e991afe455406280610a98f15dd776444fb81ef',
+    manifestPath: 'release/versions/0.9.0-alpha.1/release-manifest.json',
+    manifestSourceCommit: 'ad60be1257fc436b623e71cbc6feb0d49addc1fb',
     consumerMode: 'INSTALLABLE_BLUEPRINT',
     installableBlueprint: true,
     digestAlgorithm: 'SHA-256',
-    payloadBundleDigest: '73cccf2555357f761059cd369358e0ab6315807889995326a55761d3c58d6029',
+    payloadBundleDigest: '9fa838b6950ea16f074f438a2476c15661a47567c217e3f60c6e64669d567706',
     installationStatus: 'geplant-nicht-installiert',
-    reason: 'Kontrollierte GitHub-Release-Evidence fuer Spectra 0.8.0-alpha.1 ist reproduzierbar geprueft; die portable Full-Conformance wird ueber eine temporaere deterministische Projektion ausgefuehrt, keine Installation in BC Basic.'
+    reason: 'Kontrollierte GitHub-Release-Evidence fuer Spectra 0.9.0-alpha.1 ist reproduzierbar geprueft; Reconciliation und Adapter-Provenienz werden lokal read-only angewendet, keine Installation in BC Basic.'
   });
   assert.equal(consumerBindings.consumers?.length, 1);
   const [twin] = consumerBindings.consumers;
@@ -526,7 +527,7 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 
   const serializedBinding = JSON.stringify(consumerBindings);
   assert.equal(/\b[a-f0-9]{40}\b/i.test(serializedBinding), true, 'Gebundene Konsumentenbindung muss die Release-Commit-SHA enthalten');
-  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, '5dd23c2ff2c408c03fd613348fcb305635cfbf9a');
+  assert.equal(consumerBindings.spectraReleaseBinding.tagCommit, '8e991afe455406280610a98f15dd776444fb81ef');
   assert.equal(twin.snapshotContract.sourceCommitSha, null, 'Ohne saubere versionierte Snapshot-Quelle muss die Quell-Commit-SHA leer bleiben');
   assert.equal(projectIndex.artifacts.some(({ path: sourcePath }) => sourcePath === 'governance/consumer-bindings.yaml'), false, 'Die interne Consumerbindung darf nicht als Twin-Payload positivgelistet sein');
   assert.equal(projectIndex.artifacts.some(({ kindId, format, path: sourcePath }) => kindId === 'snapshot-manifest-schema' && format === 'json-schema' && sourcePath.endsWith('.json')), true, 'Das Snapshot-Schema muss als json-schema unter .json positivgelistet sein');
@@ -535,24 +536,25 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
   assert.equal(twin.dependency.consumerWritesProducer, false);
 });
 
-test('Spectra 0.8 ist durch Release-Evidence und portable Conformance widerspruchsfrei gebunden', async () => {
-  const releaseEvidence = await yaml('evidence/spectra-release-0.8.0-alpha.1.yaml');
-  const conformanceEvidence = await yaml('evidence/simulation/spectra-0.8-conformance.yaml');
+test('Spectra 0.9 ist durch Release-Evidence, Reconciliation und Provenienz widerspruchsfrei gebunden', async () => {
+  const releaseEvidence = await yaml('evidence/spectra-release-0.9.0-alpha.1.yaml');
+  const conformanceEvidence = await yaml('evidence/simulation/spectra-0.9-conformance.yaml');
   assert.equal(releaseEvidence.tag.name, consumerBindings.spectraReleaseBinding.releaseTag);
   assert.equal(releaseEvidence.tag.peeledCommit, consumerBindings.spectraReleaseBinding.tagCommit);
   assert.equal(releaseEvidence.manifest.manifestSourceCommit, consumerBindings.spectraReleaseBinding.manifestSourceCommit);
   assert.equal(releaseEvidence.payload.bundleDigest, consumerBindings.spectraReleaseBinding.payloadBundleDigest);
-  assert.equal(releaseEvidence.payload.fileCount, 89);
-  assert.equal(releaseEvidence.payload.verifiedGitBlobs, 89);
+  assert.equal(releaseEvidence.payload.fileCount, 102);
+  assert.equal(releaseEvidence.payload.verifiedGitBlobs, 102);
   assert.equal(releaseEvidence.payload.mismatches, 0);
   assert.equal(releaseEvidence.verification.status, 'passed');
   assert.equal(conformanceEvidence.spectraRelease, consumerBindings.spectraReleaseBinding.releaseTag);
   assert.equal(conformanceEvidence.conformance.officialFullConformance, 'passed');
-  assert.equal(conformanceEvidence.graphCoverage.productDecision, 'accepted-graph-separation');
-  assert.equal(conformanceEvidence.graphCoverage.standardizedCoverageMetric, false);
-  assert.deepEqual(conformanceEvidence.deferredCapabilities, { baselineReconciliation: 'not-released', adapterProvenance: 'not-released' });
-  assert.equal(projectIndex.artifacts.find(({ id }) => id === 'UABC-SRC-BCB-SPECTRA-EVIDENCE-001')?.path, 'evidence/spectra-release-0.8.0-alpha.1.yaml');
-  assert.equal(projectIndex.artifacts.find(({ id }) => id === 'UABC-SRC-BCB-SPECTRA-CONFORMANCE-001')?.path, 'evidence/simulation/spectra-0.8-conformance.yaml');
+  assert.equal(conformanceEvidence.reconciliation.baselineHours, 68);
+  assert.equal(conformanceEvidence.reconciliation.actualAmount, 9600);
+  assert.equal(conformanceEvidence.adapterProvenance.sourceUnchanged, true);
+  assert.equal(conformanceEvidence.adapterProvenance.writesPerformed, false);
+  assert.equal(projectIndex.artifacts.find(({ id }) => id === 'UABC-SRC-BCB-SPECTRA-EVIDENCE-001')?.path, 'evidence/spectra-release-0.9.0-alpha.1.yaml');
+  assert.equal(projectIndex.artifacts.find(({ id }) => id === 'UABC-SRC-BCB-SPECTRA-CONFORMANCE-001')?.path, 'evidence/simulation/spectra-0.9-conformance.yaml');
 });
 
 test('Consumer-Vertrag blockiert fehlende Release-, Autorisierungs- und Snapshot-Nachweise fail-closed', () => {

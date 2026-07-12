@@ -4,6 +4,7 @@
 
 - [x] 0.1 BCProjectOS-Releasebindung, BC-Basic-Consumerbindung, zweistufigen Snapshotvertrag, Schema, Generator, Validator und deterministische Negativpruefungen fail-closed synchronisieren; diese technische Aufgabe erteilt keine operative oder menschliche Freigabe.
 - [x] 0.2 Lokale Repository-Inventur und Migrationsvertrag fuer `Universaarl-BC-Basic` dokumentieren: aktuelle Remote-/Branch-/Commit-/Tree-Identitaet erhalten, Zielbranch `main` und Arbeitsbranches `codex/...` festlegen, spaeteren Agenten-Push/PR auf den eigenen Arbeitsbranch begrenzen und Merge/Tag/Release beim Kontrollzentrum belassen; keine fachlichen Daten, IDs, Spectra- oder Snapshotfelder aendern.
+- [x] 0.3 Spectra 0.9 unveraenderlich binden, Baseline-Angebot-Ist-Reconciliation und read-only Adapter-Provenienz auf die bestehende Projektstory anwenden, Twin-Exportmap deterministisch erzeugen und Manipulations-, Wahrheits-, Pfad-, Schreibschutz- sowie Storylink-Negativfaelle pruefen. Evidence: `evidence/spectra-release-0.9.0-alpha.1.yaml`, `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json`, `exports/project-data/v1/twin-export-map.json`.
 
 ## 1. Phase 1 - Vorbereitung, Anforderungen und Datenbereitschaft
 

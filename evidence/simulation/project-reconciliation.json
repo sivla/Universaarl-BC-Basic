@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "contract_version": "0.9",
+  "record_type": "project-reconciliation",
+  "reconciliation_id": "REC-UABC-BCB-001",
+  "product_id": "spectra",
+  "profile": "implementation",
+  "classification": "synthetic-fixture",
+  "synthetic": true,
+  "baseline": {
+    "version": 1,
+    "hours": 68,
+    "rate": 162.5,
+    "amount": 11050,
+    "currency": "EUR"
+  },
+  "offer": {
+    "version": 2,
+    "hours": 80,
+    "rate": 120,
+    "amount": 9600,
+    "currency": "EUR"
+  },
+  "actual": {
+    "version": 3,
+    "hours": 80,
+    "rate": 120,
+    "amount": 9600,
+    "currency": "EUR"
+  },
+  "variance": {
+    "hours": 0,
+    "rate": 0,
+    "amount": 0,
+    "reason_code": "scope-change",
+    "reason": "Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Angebot und Ist stimmen mit 80 Stunden und 9.600 EUR ueberein."
+  },
+  "truth_boundary": {
+    "owner": "synthetic-fixture",
+    "source_of_truth": "synthetic-fixture",
+    "invoice_claim": false,
+    "productive_activity_claim": false,
+    "billing_status": "not-applicable"
+  }
+}

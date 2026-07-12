@@ -10,17 +10,17 @@ spectraReleaseBinding:
   productId: spectra
   technicalRepositoryName: BCProjectOS
   repositoryUrl: https://github.com/sivla/BCProjectOS.git
-  releaseVersion: 0.8.0-alpha.1
-  releaseTag: spectra-v0.8.0-alpha.1
-  tagCommit: 5dd23c2ff2c408c03fd613348fcb305635cfbf9a
-  manifestPath: release/versions/0.8.0-alpha.1/release-manifest.json
-  manifestSourceCommit: b759e0c5c8069808b6f0feb4fd3f5000a6f0851a
+  releaseVersion: 0.9.0-alpha.1
+  releaseTag: spectra-v0.9.0-alpha.1
+  tagCommit: 8e991afe455406280610a98f15dd776444fb81ef
+  manifestPath: release/versions/0.9.0-alpha.1/release-manifest.json
+  manifestSourceCommit: ad60be1257fc436b623e71cbc6feb0d49addc1fb
   consumerMode: INSTALLABLE_BLUEPRINT
   installableBlueprint: true
   digestAlgorithm: SHA-256
-  payloadBundleDigest: 73cccf2555357f761059cd369358e0ab6315807889995326a55761d3c58d6029
+  payloadBundleDigest: 9fa838b6950ea16f074f438a2476c15661a47567c217e3f60c6e64669d567706
   installationStatus: geplant-nicht-installiert
-  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 0.8.0-alpha.1 ist reproduzierbar geprueft; die portable Full-Conformance wird ueber eine temporaere deterministische Projektion ausgefuehrt, keine Installation in BC Basic.
+  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 0.9.0-alpha.1 ist reproduzierbar geprueft; Reconciliation und Adapter-Provenienz werden lokal read-only angewendet, keine Installation in BC Basic.
 consumers:
   - consumerId: project-twin
     displayName: Universaarl Project Twin

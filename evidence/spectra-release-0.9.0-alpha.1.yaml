@@ -1,0 +1,14 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SPECTRA-09-ALPHA-001
+projectId: UABC-BC-BASIC-001
+classification: remote-read-only-verification
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v0.9.0-alpha.1
+tag: { name: spectra-v0.9.0-alpha.1, annotatedObject: f825af0dfdacb88cc3021de2e597bb4ebc0748e2, peeledCommit: 8e991afe455406280610a98f15dd776444fb81ef }
+manifest: { path: release/versions/0.9.0-alpha.1/release-manifest.json, blobSha: cd9f53db272b017c41e7815b9b26945b3a9d50fd, manifestSha256: 919abf973b9689cd1fb50671df29839279ba5055086d8100f1cdb403d976d3ab, manifestSourceCommit: ad60be1257fc436b623e71cbc6feb0d49addc1fb, sourceCommitIsAncestor: true, consumerMode: INSTALLABLE_BLUEPRINT, installableBlueprint: true }
+payload: { digestAlgorithm: SHA-256, checksumsBlob: 3b6fd7ab6b1da32b793ef7c4577fa9c0b7c4572f, bundleDigest: 9fa838b6950ea16f074f438a2476c15661a47567c217e3f60c6e64669d567706, fileCount: 102, verifiedGitBlobs: 102, mismatches: 0 }
+release: { version: 0.9.0-alpha.1, prerelease: true, draft: false }
+publishedContracts:
+  projectReconciliation: { schemaPath: schemas/project-reconciliation.schema.json, schemaBlob: c047ea41b533d3b4923257372ff491760bb50b68, validatorPath: automation/Test-ProjectReconciliation.ps1, validatorBlob: 2e6213f41bc5395501d248a8eb53c968536511db }
+  adapterProvenance: { schemaPath: schemas/adapter-provenance.schema.json, schemaBlob: 3548d217af047b885c8d041c743c4195687ce601, validatorPath: automation/Test-AdapterProvenance.ps1, validatorBlob: 6e645c110d65185f07408ce88668fb8a93d2826f }
+verification: { status: passed, method: GitHub-API-read-only-annotiertes-Tag-Manifest-Checksums-102-Blobs-SHA-256-Ancestry-und-Prerelease, verifiedAt: 2026-07-12, noRepositoryMutation: true }

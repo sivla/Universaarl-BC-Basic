@@ -6,6 +6,7 @@ import process from 'node:process';
 const hash = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const portableId = (prefix, value) => `${prefix}-${hash(String(value)).slice(0, 16).toUpperCase()}`;
 const unique = (values) => [...new Set(values.filter(Boolean))];
+const stableEvidenceBytes = (id, bytes) => /\.(?:csv|json|md|ya?ml)$/i.test(String(id)) ? Buffer.from(Buffer.from(bytes).toString('utf8').replace(/\r\n/g, '\n'), 'utf8') : Buffer.from(bytes);
 
 export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFileSync(path)) {
   const evidenceSourceIds = unique([
@@ -24,7 +25,7 @@ export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFil
   const deliverableId = new Map(deliverableSourceIds.map((id) => [id, portableId('DELIVERABLE', id)]));
   const evidence = evidenceSourceIds.map((id) => {
     let bytes; try { bytes = readBytes(id); } catch { bytes = Buffer.from(String(id), 'utf8'); }
-    return { id: evidenceId.get(id), hash: hash(bytes), type: id.includes('/') ? 'repository-artifact' : 'synthetic-evidence' };
+    return { id: evidenceId.get(id), hash: hash(stableEvidenceBytes(id, bytes)), type: id.includes('/') ? 'repository-artifact' : 'synthetic-evidence' };
   });
   const pages = nativeStory.pages.map((page) => ({ id: page.id, parent: page.parent, version: page.version, status: page.status, sourcePath: `pages/${page.id}.md` }));
   const tickets = nativeStory.tickets.map((ticket) => ({

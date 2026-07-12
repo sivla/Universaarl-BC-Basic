@@ -12,6 +12,8 @@ Der Projekt-Twin-Vertrag ist auf den neuesten vollstaendig validierten Commit de
 
 Der lokale Repository-Migrationsvertrag bewahrt fuer die spaetere Trennung die beobachtete Ausgangsidentitaet `origin=https://github.com/sivla/FiBu.git`, Branch `codex/universaarl-projekt`, HEAD `72bfa9584ad53e74b9c1c442e8025de1a82c063b` und Tree `d778ae148fa94eb0e146ef5d03c98e9563aace56`. Zielname `Universaarl-BC-Basic`, Zielbranch `main` und Arbeitsbranches `codex/...` sind nur geplant; Repository-Anlage, Remote-Aenderung und Veroeffentlichung sind nicht erfolgt.
 
+Spectra `0.9.0-alpha.1` ist ueber annotiertes Tagobjekt, Peeled-Commit, finales Manifest, Manifest-Source-Ancestry, 102 Git-Blobs und Payload-Digest read-only verifiziert. Die produktseitigen Reconciliation- und Adapter-Provenienzschemas sind lokal objektidentisch uebernommen. Generator und Validator pruefen 68 Stunden/11.050 EUR Baseline, 80 Stunden/9.600 EUR Angebot und Ist, alle Branch-Index-Artefakte, Source-/Projektionsdigests, unveraenderte Kundenwahrheit und fehlendes Schreibrecht.
+
 Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Prozesse, fachlichen Abnahmen oder steuerlichen Pruefungen ausgefuehrt.
 
 ## Ergebnisse

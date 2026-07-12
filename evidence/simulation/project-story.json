@@ -36,7 +36,7 @@
         "version": 3,
         "date": "2026-09-03",
         "status": "synthetic-closed",
-        "delta": "Ist-Abgleich und Handover",
+        "delta": "Ist-Abgleich, Reconciliation, Provenienz und Handover",
         "hours": 80,
         "cost": 9600
       }
@@ -1569,7 +1569,7 @@
           "type": "work",
           "time": "2026-09-03",
           "role": "P-002",
-          "text": "Handover bearbeitet",
+          "text": "Handover sowie Reconciliation und read-only Provenienz bearbeitet",
           "evidenceRef": "UABC-STORY-BCB-001"
         },
         {
@@ -1577,7 +1577,7 @@
           "type": "closing",
           "time": "2026-09-03",
           "role": "P-002",
-          "text": "Ergebnis Handover abgeschlossen; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Ergebnis Handover abgeschlossen; Reconciliation und Provenienz validiert; keine Rechnung, produktive Leistung oder Schreibberechtigung behauptet.",
           "evidenceRef": "UABC-STORY-BCB-001"
         }
       ],
@@ -1586,7 +1586,7 @@
           "date": "2026-09-03",
           "role": "P-002",
           "hours": 11,
-          "activity": "Handover",
+          "activity": "Handover und Reconciliation",
           "phase": "PH4",
           "cost": 1320
         }
@@ -1889,10 +1889,10 @@
         "BC-SIM-SETUP-001"
       ],
       "action": "Handover",
-      "result": "abgenommen",
+      "result": "abgenommen; Reconciliation und Provenienz validiert",
       "evidence": "docs/handover/bc-basic-handover.md",
       "decision": "closed",
-      "nextStep": "Ende"
+      "nextStep": "Twin-Read-only-Darstellung"
     }
   ],
   "hypercare": [
@@ -1929,7 +1929,7 @@
       "comment": "COM-36-C",
       "priority": "P1",
       "diagnosis": "VAT-Vermerk",
-      "fix": "Entscheidung dokumentiert",
+      "fix": "Entscheidung sowie Reconciliation und Provenienz dokumentiert",
       "retest": "passed",
       "status": "closed",
       "decision": "EXIT",
@@ -3272,7 +3272,10 @@
       "project/bc-basic/bc-playthrough-catalog.yaml",
       "evidence/simulation/bc-playthrough-ledger.yaml",
       "evidence/simulation/phase-3-cash-inventory-close.yaml",
-      "evidence/simulation/project-completion.yaml"
+      "evidence/simulation/project-completion.yaml",
+      "evidence/simulation/project-reconciliation.json",
+      "evidence/simulation/adapter-provenance.json",
+      "exports/project-data/v1/twin-export-map.json"
     ]
   }
 }

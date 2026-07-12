@@ -31,27 +31,50 @@ const expectedCheckoutBoundFiles = new Map([
   ...expectedDeterministicTextOutputs
 ]);
 
+const expectedLfNormalizedFiles = new Set([
+  'exports/project-data/v1/index.yaml',
+  'exports/project-data/v1/twin-export-map.json',
+  'evidence/simulation/project-reconciliation.json',
+  'evidence/simulation/adapter-provenance.json',
+  'evidence/simulation/spectra-0.9-conformance.yaml'
+]);
+
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 
 function parseExplicitBinaryRules(content) {
   const rules = new Set();
+  const lfRules = new Set();
+  const allPaths = new Set();
   const lines = String(content).split(/\r?\n/);
   if (lines.at(-1) === '') lines.pop();
-  assert.equal(lines.length, expectedCheckoutBoundFiles.size, 'Die .gitattributes muss exakt dreizehn checkoutgebundene Bytezeilen enthalten');
   for (const [index, line] of lines.entries()) {
     assert.equal(line, line.trim(), `.gitattributes-Zeile ${index + 1} darf keinen Randabstand enthalten`);
     const parts = line.split(/\s+/);
-    assert.equal(parts.length, 2, `.gitattributes-Zeile ${index + 1} muss exakt Pfad und -text enthalten`);
-    const [relative, attribute] = parts;
-    assert.equal(attribute, '-text', `${relative}: Attribut muss exakt -text sein`);
+    const relative = parts[0];
     assert.doesNotMatch(relative, /[*?\[]/, `${relative}: breite Muster sind fuer checkoutgebundene Bytes verboten`);
-    assert.equal(rules.has(relative), false, `${relative}: Regel ist doppelt vorhanden`);
-    assert.equal(expectedCheckoutBoundFiles.has(relative), true, `${relative}: unerwartete checkoutgebundene Byteregel`);
-    rules.add(relative);
+    assert.equal(allPaths.has(relative), false, `${relative}: Regel ist doppelt vorhanden`);
+    allPaths.add(relative);
+
+    if (parts.length === 2 && parts[1] === '-text') {
+      assert.equal(expectedCheckoutBoundFiles.has(relative), true, `${relative}: unerwartete checkoutgebundene Byteregel`);
+      rules.add(relative);
+      continue;
+    }
+    if (parts.length === 3 && parts[1] === 'text' && parts[2] === 'eol=lf') {
+      assert.equal(expectedLfNormalizedFiles.has(relative), true, `${relative}: unerwartete LF-Normalisierungsregel`);
+      lfRules.add(relative);
+      continue;
+    }
+    assert.fail(`${relative}: Attribut muss exakt -text oder text eol=lf sein`);
   }
   for (const relative of expectedCheckoutBoundFiles.keys()) {
     assert.equal(rules.has(relative), true, `${relative}: explizite -text-Regel fehlt`);
   }
+  for (const relative of expectedLfNormalizedFiles) {
+    assert.equal(lfRules.has(relative), true, `${relative}: explizite text eol=lf-Regel fehlt`);
+  }
+  assert.equal(rules.size, expectedCheckoutBoundFiles.size, 'Die .gitattributes muss exakt dreizehn checkoutgebundene Bytezeilen enthalten');
+  assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt fuenf deterministische LF-Regeln enthalten');
   return rules;
 }
 
@@ -94,6 +117,19 @@ test('fehlende doppelte und breite Attributregeln scheitern geschlossen', () => 
   );
   assert.throws(
     () => parseExplicitBinaryRules(`${lines.slice(0, -1).join('\n')}\nevidence/** -text\n`),
+    /breite Muster/
+  );
+});
+
+test('fuenf Integrationsartefakte sind exakt und ohne breite Muster auf LF normalisiert', () => {
+  const fixture = repositoryFixture();
+  assert.doesNotThrow(() => parseExplicitBinaryRules(fixture.attributes));
+  const lines = fixture.attributes.trimEnd().split(/\r?\n/);
+  const lfLines = lines.filter((line) => line.endsWith(' text eol=lf'));
+  assert.equal(lfLines.length, 5);
+  assert.deepEqual(new Set(lfLines.map((line) => line.split(' ')[0])), expectedLfNormalizedFiles);
+  assert.throws(
+    () => parseExplicitBinaryRules(`${fixture.attributes.trimEnd()}\nexports/project-data/v1/** text eol=lf\n`),
     /breite Muster/
   );
 });

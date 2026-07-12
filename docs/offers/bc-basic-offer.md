@@ -20,3 +20,9 @@
 Rollen sind Sponsor P-002, Finance P-005, Handel P-011, Daten P-016 und Lager P-019. Abnahmegates sind Datenbereitschaft, Setup, SIT, UAT, Cutover-GO, Hypercare-Exit und Handover. Änderungen werden als Ticket mit Scope-, Kosten- und Evidence-Auswirkung geführt. Es gibt keine echte Unterschrift.
 
 Referenz: `evidence/simulation/project-story.json` (`OFR-UABC-BCB-001`).
+
+## Versionierter Baseline-Angebot-Ist-Abgleich
+
+Die historische Kalkulationsbaseline betrug 68 Stunden zu 162,50 EUR und damit 11.050 EUR netto. Das synthetisch beauftragte Angebot sowie der Ist-Abschluss verwenden 80 Stunden zu 120 EUR und damit jeweils 9.600 EUR netto. Die Abweichung von +12 Stunden, -42,50 EUR Stundensatz und -1.450 EUR Gesamtwert entstand durch die Fortschreibung zum vollständigen Playthrough mit UAT, Cutover, Hypercare und Handover; Angebot und Ist weisen danach keine Differenz auf.
+
+Der Spectra-0.9-konforme Datensatz liegt unter `evidence/simulation/project-reconciliation.json`. Er ist ausschließlich synthetische Sandbox-Evidence und weder Rechnung noch Buchung, Zahlung oder Nachweis produktiver Leistung. Die zugehörige read-only Exportprovenienz liegt unter `evidence/simulation/adapter-provenance.json`; die daraus deterministisch abgeleitete Allowlistdarstellung liegt unter `exports/project-data/v1/twin-export-map.json`.

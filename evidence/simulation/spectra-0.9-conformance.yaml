@@ -1,0 +1,28 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-SPECTRA-CONFORMANCE-001
+classification: synthetic-derived-read-only
+status: passed
+source:
+  baseCommit: 5c646a643b2645d8b9e348cd81acb5fb38383721
+  commitBinding: branch-head-git-blob
+  storyPath: evidence/simulation/project-story.json
+  storyBlob: 8df75e327ce0a8256bb14f48c97c2d4b3e0f3e1e
+  storySha256: 09551d933ad9d6d5e6c4a63b5c31a1e31b4101dc8a57f1187a2718a2c2983473
+  countsPreserved: true
+spectraRelease: spectra-v0.9.0-alpha.1
+adapter:
+  path: scripts/adapt-spectra-portable-story.mjs
+  mode: deterministisch-temporaer-read-only-zur-Quelle
+  outputCommitted: false
+  projectionDigest: 62017d44d73729b923179bded3051cd930872664178ffbd6e3705727a9042452
+conformance:
+  schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
+  publishedSchemaBlob: 8d7ed3bc6bebdf5fc1c2cffbfbfa162e2587a823
+  localValidator: scripts/validate-spectra-0.7-conformance.mjs
+  officialFullConformance: passed
+  spectra09Integration: passed
+  result: passed
+reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false, officialSpectraValidator: passed }
+adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, mappingVersion: 1.0.0, projectionPath: exports/project-data/v1/twin-export-map.json, sourceUnchanged: true, writesPerformed: false, officialSpectraValidator: passed }
+counts: { offerVersions: 3, pages: 19, tickets: 17, comments: 34, worklogs: 17, hours: 80, cost: 9600, timelineEvents: 15, hypercareDays: 3, nativeRelations: 252, portableEdges: 190 }
+truthBoundary: Die Projektion ist abgeleitet und keine zweite Kunden-Source-of-Truth; sie wird nicht nach Spectra geschrieben und nach der Pruefung verworfen.

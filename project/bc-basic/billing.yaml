@@ -19,6 +19,7 @@ simulationClose:
   worklogCount: 17
   reconciliationResult: abgestimmt
   evidence: evidence/simulation/billing-reconciliation.yaml
+  spectraReconciliation: evidence/simulation/project-reconciliation.json
   truthBoundary: Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.
 historicalBaseline:
   plannedHours: 68

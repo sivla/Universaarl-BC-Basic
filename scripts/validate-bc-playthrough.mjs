@@ -44,12 +44,12 @@ if (candidates) {
     if (candidate.anonymization !== 'bestanden-keine-kundenwerte') errors.push(`${candidate.findingId}: Anonymisierungsprüfung fehlt.`);
   }
   const statusByFinding = new Map((candidates.candidates ?? []).map((candidate) => [candidate.findingId, candidate.status]));
-  if (statusByFinding.get('UABC-FINDING-BCB-PLANACTUAL-001') !== 'proposed') errors.push('Baseline-Reconciliation darf ohne Produktnachweis nicht als übernommen gelten.');
-  if (statusByFinding.get('UABC-FINDING-BCB-ADAPTER-001') !== 'proposed') errors.push('Adapter-Provenienz darf ohne Produktnachweis nicht als übernommen gelten.');
+  if (statusByFinding.get('UABC-FINDING-BCB-PLANACTUAL-001') !== 'bound') errors.push('Die veröffentlichte Baseline-Reconciliation ist nicht gebunden.');
+  if (statusByFinding.get('UABC-FINDING-BCB-ADAPTER-001') !== 'bound') errors.push('Die veröffentlichte Adapter-Provenienz ist nicht gebunden.');
   if (statusByFinding.get('UABC-FINDING-BCB-GRAPH-COVERAGE-001') !== 'accepted') errors.push('Die Spectra-0.8-Graphentscheidung ist nicht korrekt als accepted ausgewiesen.');
   if (statusByFinding.get('PROJECT-STORY-VALIDATION-001') !== 'bound') errors.push('Die portable Project-Story-Konformität ist nicht gebunden.');
-  if (candidates.currentReleaseBinding?.status !== 'bound' || candidates.currentReleaseBinding?.release !== 'spectra-v0.8.0-alpha.1') errors.push('Aktuelle Spectra-0.8-Bindung ist inkonsistent.');
-  if (candidates.currentReleaseBinding?.graphCoverageDecision !== 'accepted-not-released' || candidates.currentReleaseBinding?.baselineReconciliation !== 'deferred-not-released' || candidates.currentReleaseBinding?.adapterProvenance !== 'deferred-not-released') errors.push('Spectra-0.8-Kandidatenentscheidungen sind inkonsistent.');
+  if (candidates.currentReleaseBinding?.status !== 'bound' || candidates.currentReleaseBinding?.release !== 'spectra-v0.9.0-alpha.1') errors.push('Aktuelle Spectra-0.9-Bindung ist inkonsistent.');
+  if (candidates.currentReleaseBinding?.graphCoverageDecision !== 'accepted-not-released' || candidates.currentReleaseBinding?.baselineReconciliation !== 'released-and-bound' || candidates.currentReleaseBinding?.adapterProvenance !== 'released-and-bound') errors.push('Spectra-0.9-Kandidatenentscheidungen sind inkonsistent.');
 }
 if (errors.length) {
   console.error(`BC-Playthrough-Pruefung fehlgeschlagen (${errors.length}):`);

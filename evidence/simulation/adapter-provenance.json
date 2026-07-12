@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "contract_version": "0.9",
+  "record_type": "adapter-provenance",
+  "provenance_id": "PRV-UABC-BCB-TWIN-001",
+  "product_id": "spectra",
+  "profile": "implementation",
+  "classification": "customer-workspace",
+  "synthetic": false,
+  "source": {
+    "blob_path": "exports/project-data/v1/index.yaml",
+    "source_hash": "1243cd9bd396fff3124eb96bf918fbdb5c5ab5ba268a3760267e19df79050198",
+    "source_hash_after": "1243cd9bd396fff3124eb96bf918fbdb5c5ab5ba268a3760267e19df79050198",
+    "media_type": "application/yaml"
+  },
+  "mapping": {
+    "mapping_id": "MAP-UABC-BCB-TWIN-001",
+    "mapping_version": "1.0.0",
+    "deterministic": true
+  },
+  "projection": {
+    "projection_path": "exports/project-data/v1/twin-export-map.json",
+    "digest_algorithm": "SHA-256",
+    "projection_digest": "e0be37efc98ba333db73cbfd09e2d30ec01d2dd3745a18ef4fbcbcc7e0c80def"
+  },
+  "source_of_truth": {
+    "owner": "customer-workspace",
+    "unchanged": true
+  },
+  "write_protection": {
+    "source_mode": "read-only",
+    "writes_performed": false,
+    "projection_only": true,
+    "overwrite_allowed": false
+  }
+}

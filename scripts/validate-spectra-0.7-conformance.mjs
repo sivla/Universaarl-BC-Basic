@@ -4,7 +4,7 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { buildPortableStory } from './adapt-spectra-portable-story.mjs';
 
 const nativePath = 'evidence/simulation/project-story.json';
-const evidencePath = 'evidence/simulation/spectra-0.8-conformance.yaml';
+const evidencePath = 'evidence/simulation/spectra-0.9-conformance.yaml';
 const schema = JSON.parse(fs.readFileSync('governance/schemas/spectra-portable-project-story-0.7.schema.json', 'utf8'));
 const nativeStory = JSON.parse(fs.readFileSync(nativePath, 'utf8'));
 const portable = buildPortableStory(nativeStory);
@@ -40,5 +40,5 @@ const edgeKeys = new Set();
 for (const edge of portable.graph) { if (!ids.has(edge.from) || !ids.has(edge.to)) fail('GRAPH-WAISE', `${edge.from}->${edge.to}`); if (!inverse[edge.type]) fail('GRAPH-TYP', edge.type); const key = `${edge.from}|${edge.to}|${edge.type}`; if (edgeKeys.has(key)) fail('GRAPH-DUPLIKAT', key); edgeKeys.add(key); }
 for (const edge of portable.graph) if (!edgeKeys.has(`${edge.to}|${edge.from}|${inverse[edge.type]}`)) fail('GRAPH-INVERSE', `${edge.from}->${edge.to}`);
 if (!fs.readFileSync(evidencePath, 'utf8').includes(`projectionDigest: ${digest}`)) fail('EVIDENCE-DIGEST', digest);
-if (errors.length) { console.error(`Spectra-0.8-Konformitaetspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
-console.log(`Spectra-0.8-Konformitaetspruefung bestanden: 3 Angebotsstaende, 19 Seiten, 17 Tickets, 34 Kommentare, 17 Worklogs, 80h/9600 EUR, 15 Ereignisse, 3 Hypercaretage, 252 native Relationen, ${portable.graph.length} portable Kanten, Digest ${digest}.`);
+if (errors.length) { console.error(`Spectra-0.9-Konformitaetspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
+console.log(`Spectra-0.9-Konformitaetspruefung bestanden: 3 Angebotsstaende, 19 Seiten, 17 Tickets, 34 Kommentare, 17 Worklogs, 80h/9600 EUR, 15 Ereignisse, 3 Hypercaretage, 252 native Relationen, ${portable.graph.length} portable Kanten, Digest ${digest}.`);
