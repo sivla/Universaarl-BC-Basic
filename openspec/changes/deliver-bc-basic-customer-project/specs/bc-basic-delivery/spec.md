@@ -212,3 +212,16 @@ Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenha
 - **AND** belegen messbare Kriterien 80 Stunden/9.600 EUR, Entscheidungen, Daten, Kontrollen, UAT, Operatoren, P1/P2, Transition und Verträge
 - **AND** lautet das Produktresultat `V1_STANDARDPRODUCT_READY`
 - **AND** beginnt jede reale Kundeninstanz über das bestehende Setup-/UAT-Entry-Gate
+
+### Requirement: Fachlich geschlossene V1-Referenzsimulation
+
+Die Kundeninstanz MUSS genau eine kanonische synthetische Firmen-, Stamm-, Setup-, Beleg-, Ledger- und Abschlusswelt verwenden. Verwendete IDs, Buchungsgruppen, Dimensionen, Kostenmethode, Kontenrollen und Buchungsmatrizen MUST vom Datenpaket bis UAT und Handover identisch sein. Jede Belegkette MUST Ausloeser, Auftrag, gebuchten Beleg, Haupt- und Nebenbuchwirkung, Zahlung oder offenen Posten, Kontrolle, Defect, Korrektur, Retest und Evidence nachvollziehbar verbinden.
+
+#### Scenario: O2C und Monatsabschluss stimmen end-to-end
+
+- **WHEN** zehn Einheiten `A-1000` zu 79 EUR verkauft, geliefert, fakturiert und bezahlt werden
+- **THEN** betragen Netto 790 EUR, Umsatzsteuer 150,10 EUR und Brutto 940,10 EUR
+- **AND** ist der neue Debitorenposten ausgeglichen, waehrend der offene Eroeffnungsposten von 940,10 EUR sichtbar bleibt
+- **AND** stimmen Bank 5.440,30 EUR, Lager 99 STK/4.158 EUR, offener Kreditor 499,80 EUR, VAT-Zahllast 70,30 EUR und Schlussbilanz 11.080,20 EUR je Seite ueberein
+- **AND** sind Purchase/Sales Orders nicht selbst als gebuchte Belege bezeichnet
+- **AND** trennen UAT und Training den geplanten echten Kundenlauf von der bestandenen Referenzsimulation

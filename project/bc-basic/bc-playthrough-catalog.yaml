@@ -13,14 +13,14 @@ sessions:
     goal: Grundeinrichtung-und-Berechtigungsprobe
     navigation: ["Tell Me", "Company Information", "General Ledger Setup", "Accounting Periods"]
     steps:
-      - { page: Company Information, action: Edit, fields: {Name: Universaarl-Simulation, Country: DE}, expected: Werte werden synthetisch gespeichert }
+      - { page: Company Information, action: Edit, fields: {Name: Universaarl GmbH, Country: DE}, expected: Werte werden synthetisch gespeichert }
       - { page: General Ledger Setup, action: Open, fields: {Allow Posting From: 2026-08-01, Allow Posting To: 2026-08-31}, expected: Periode ist für den Simulationsmonat offen }
-      - { page: Allgemeines Buchungssetup, action: Validate, fields: {GenBusPostingGroup: DOMESTIC, GenProdPostingGroup: TRADE}, expected: Konto- und MwSt.-Konten sind vollständig }
+      - { page: Allgemeines Buchungssetup, action: Validate, fields: {GenBusPostingGroup: INLAND, GenProdPostingGroup: HANDEL, VatBusPostingGroup: INLAND, VatProdPostingGroup: MWST19}, expected: synthetische Kontenrollen und MwSt.-Konten sind vollständig }
     preview: not-applicable
     documents: [SYN-SETUP-001]
     entries: [SYN-SETUP-PRUEFUNG]
-    controls: {setupCombinations: 1, missingAccounts: 0}
-    negative: {defect: SIM-DEF-SETUP-001, finding: fehlende-DOMESTIC-TRADE-Kombination, correction: Kombination-ergänzt, retest: bestanden-synthetisch}
+    controls: {accountRoles: 11, postingMatrices: 6, missingAccounts: 0}
+    negative: {defect: SIM-DEF-SETUP-001, finding: fehlende-INLAND-HANDEL-Kombination, correction: Kombination-aus-synthetischer-Baseline-ergänzt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
     references: {requirement: UABC-REQ-BCB-001, workPackage: UABC-27, test: UABC-UAT-BCB-001, evidence: UABC-EV-SIM-PLAY-001, sources: [SRC-BC-058, SRC-BC-060]}
   - id: BC-SIM-MASTER-001
@@ -30,8 +30,8 @@ sessions:
     navigation: ["Konfigurationspakete", "Customer Card", "Vendor Card", "Item Card", "Bank Account Card"]
     steps:
       - { page: Konfigurationspakete, action: Import, fields: {Package: SYN-MASTER-001, Records: 8}, expected: Pflichtfelder und Buchungsgruppen werden geprüft }
-      - { page: Customer Card, action: Validate, fields: {No: K-10000, Customer Posting Group: DOMESTIC}, expected: Karte ist nicht gesperrt }
-      - { page: Item Card, action: Validate, fields: {No: A-100, Base Unit of Measure: STK, Inventory Posting Group: FINISHED}, expected: Artikel ist lagerfähig }
+      - { page: Customer Card, action: Validate, fields: {No: K-10000, Customer Posting Group: INLAND}, expected: Karte ist nicht gesperrt }
+      - { page: Item Card, action: Validate, fields: {No: A-1000, Base Unit of Measure: STK, Inventory Posting Group: HANDEL, Costing Method: FIFO}, expected: Artikel ist lagerfähig }
     preview: import-check
     documents: [SYN-MASTER-001]
     entries: [SYN-OPEN-001]
@@ -45,7 +45,7 @@ sessions:
     goal: Bestellung-Wareneingang-Rechnung-Zahlung
     navigation: ["Purchase Orders", "Post", "Preview Posting", "Posted Purchase Receipts", "Vendor Ledger Entries", "Payment Journal"]
     steps:
-      - { page: Purchase Orders, action: New, fields: {Vendor: L-70000, External Document No.: EXT-PO-001, Location: HAUPT, Type: Item, No.: A-100, Quantity: 10, Direct Unit Cost: 42.00}, expected: Zeile übernimmt Buchungsgruppen und MwSt. }
+      - { page: Purchase Orders, action: New, fields: {Vendor: L-70000, External Document No.: EXT-PO-001, Location: HAUPT, Type: Item, No.: A-1000, Quantity: 10, Direct Unit Cost: 42.00}, expected: Zeile übernimmt INLAND HANDEL und MWST19 }
       - { page: Purchase Order, action: Post, fields: {Posting Option: Receive}, expected: SYN-GR-001 entsteht, Bestand plus 10 }
       - { page: Purchase Order, action: Preview Posting, fields: {Posting Option: Invoice}, expected: erwartete G/L-, VAT-, Vendor- und Value-Entries sichtbar }
       - { page: Purchase Order, action: Post, fields: {Posting Option: Invoice}, expected: SYN-AP-002 entsteht }
@@ -63,16 +63,16 @@ sessions:
     goal: Auftrag-Lieferung-Rechnung-Zahlung
     navigation: ["Sales Orders", "Post", "Preview Posting", "Posted Sales Shipments", "Customer Ledger Entries", "Reminders", "Cash Receipt Journal"]
     steps:
-      - { page: Sales Orders, action: New, fields: {Customer: K-10000, Posting Date: 2026-08-26, Location: HAUPT, Type: Item, No.: A-100, Quantity: 10, Unit Price: 80.00}, expected: Preis und Buchungsgruppen werden vorgeschlagen }
+      - { page: Sales Orders, action: New, fields: {Customer: K-10000, Posting Date: 2026-08-26, Location: HAUPT, Type: Item, No.: A-1000, Quantity: 10, Unit Price: 79.00}, expected: Preis und Buchungsgruppen werden vorgeschlagen }
       - { page: Sales Order, action: Preview Posting, fields: {Posting Option: Ship and Invoice}, expected: erwartete Customer-, G/L-, VAT-, Item- und Value-Entries sichtbar }
       - { page: Sales Order, action: Post, fields: {Posting Option: Ship and Invoice}, expected: SYN-SHIP-001 und SYN-AR-002 entstehen }
       - { page: Reminders, action: Erstellen und Ausgeben, fields: {Customer: K-10000, Overdue Document: SYN-AR-002, Reminder Terms: OHNE-GEBUEHR}, expected: SYN-REM-001 dokumentiert den ueberfaelligen Posten ohne Zins Gebuehr E-Mail oder zusaetzliche Buchung }
       - { page: Cash Receipt Journal, action: Post, fields: {Applies-to Doc. No.: SYN-AR-002, Amount: 940.10}, expected: Zahlung gleicht Debitor aus }
     preview: SYN-PREVIEW-O2C-001
     documents: [SYN-SO-001, SYN-SHIP-001, SYN-AR-002, SYN-REM-001, SYN-PAY-AR-001]
-    entries: [SYN-CLE-001, SYN-GLE-AR-001, SYN-VAT-AR-001, SYN-ILE-002, SYN-VLE-002, SYN-BANK-AR-001]
-    controls: {net: 800.00, vat: 140.10, gross: 940.10, inventoryQuantity: -10, cogs: 420.00}
-    negative: {defect: SIM-DEF-O2C-001, finding: Preis-oder-Kreditlimitabweichung, correction: Preis-80-00-und-Freigabe-synthetisch-bestätigt, retest: bestanden-synthetisch}
+    entries: [SYN-CLE-001, SYN-GLE-AR-001, SYN-VAT-AR-001, SYN-ILE-002, SYN-VE-002, SYN-BANK-AR-001]
+    controls: {net: 790.00, vat: 150.10, gross: 940.10, inventoryQuantity: -10, cogs: 420.00}
+    negative: {defect: SIM-DEF-O2C-001, finding: Preis-oder-Kreditlimitabweichung, correction: Preis-79-00-und-Freigabe-synthetisch-bestätigt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
     references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-31, test: UABC-UAT-BCB-003, evidence: UABC-EV-SIM-PLAY-004, sources: [SRC-BC-062, SRC-BC-060, SRC-BC-076]}
   - id: BC-SIM-CASH-001
@@ -97,7 +97,7 @@ sessions:
     goal: Inventur-und-Differenzbuchung
     navigation: ["Physical Inventory Journal", "Calculate Inventory", "Item Journal", "Item Ledger Entries", "Value Entries"]
     steps:
-      - { page: Physical Inventory Journal, action: Calculate Inventory, fields: {Location: HAUPT, Item: A-100}, expected: Qty. Calculated 100 }
+      - { page: Physical Inventory Journal, action: Calculate Inventory, fields: {Location: HAUPT, Item: A-1000}, expected: Qty. Calculated 100 }
       - { page: Physical Inventory Journal, action: Enter Count, fields: {Qty. Phys. Inventory: 99}, expected: Differenz -1 wird berechnet }
       - { page: Item Journal, action: Post, fields: {Document No.: SYN-INV-001, Quantity: -1}, expected: Item Ledger und Value Entry korrigiert }
     preview: inventory-difference-check
@@ -119,7 +119,7 @@ sessions:
     preview: close-control-check
     documents: [SYN-CLOSE-001, SYN-VAT-RETURN-001]
     entries: [SYN-GLE-CLOSE-001, SYN-VAT-RETURN-001]
-    controls: {glDifference: 0.00, bankDifference: 0.00, vatPayable: 70.30, openCustomer: 0.00, openVendor: 0.00}
+    controls: {glDifference: 0.00, bankDifference: 0.00, vatPayable: 70.30, openCustomer: 940.10, openVendor: 499.80, closingTrialBalance: 11080.20}
     negative: {defect: SIM-DEF-CLOSE-001, finding: Perioden-oder-VAT-Setup-fehlt, correction: Zeitraum-und-Matrix-synthetisch-korrigiert, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
     references: {requirement: UABC-REQ-BCB-009, workPackage: UABC-37, test: UABC-UAT-BCB-007, evidence: UABC-EV-SIM-PLAY-007, sources: [SRC-BC-061, SRC-BC-065, SRC-BC-066, SRC-BC-067]}

@@ -1,15 +1,15 @@
 ---
 documentId: UABC-HANDBOOK-BCB-CUSTOMER-001
 projectId: UABC-BC-BASIC-001
-version: 0.1-plan
-status: Entwurf
+version: 1.0-reference
+status: Kundenbereit
 simulation: true
 deliverableRef: UABC-DEL-BCB-009
 ---
 
 # Einsteigerunterlage: BC Basic Einrichtung
 
-Diese Unterlage ist ein geplanter Lieferentwurf fuer die synthetische Sandbox-Simulation. Sie beschreibt den vorgesehenen Standardumfang **BC Basic Einrichtung**, aber keine bereits eingerichtete oder produktionsbereite Kundenloesung. Offene Werte, Ergebnisse und Freigaben bleiben leer.
+Diese Unterlage erklaert das kundenbereite BC-Basic-Standardpaket. Der Universaarl-Referenzfall ist mit synthetischen Daten repositorybasiert vollstaendig durchgespielt und abgestimmt; er beweist weder eine reale BC-Ausfuehrung noch eine produktionsbereite Kundenloesung. Fuer einen neuen Kunden bleiben die gekennzeichneten Vorlagen und Sandboxnachweise neu auszufuellen beziehungsweise auszufuehren.
 
 ## 1. Projektgrenze
 
@@ -23,23 +23,23 @@ Nicht enthalten sind Erweiterungen in AL, eigene Berichte oder Layouts, Integrat
 
 ## 2. Rollen und Freigaben
 
-Die synthetischen Rollen P-001 bis P-019 dienen nur der Simulation. Echte Verantwortliche muessen spaeter Zielgesellschaft, Daten, Lizenz, Finanz-/Steuerdesign, Sandbox-Schreibumfang, fachlichen Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau, Hypercare-Abschluss und Uebergabe freigeben. Eine synthetische Rolle oder automatisierte Pruefung der Projektablage kann das nicht ersetzen.
+Die synthetischen Rollen P-001 bis P-019 haben alle Referenzgates innerhalb der Simulation durchlaufen. In einer neuen Kundeninstanz werden diese Rollen durch echte Verantwortliche ersetzt; Zielgesellschaft, Daten, Lizenz, Finanz-/Steuerdesign, Sandbox-Schreibumfang und Benutzerergebnisse werden dort neu bestaetigt. Die synthetische Abnahme bleibt Demonstrationsnachweis und wird nicht als reale Kundenfreigabe ausgegeben.
 
 ## 3. Grundeinrichtung
 
-Vor jedem Schreibvorgang werden Umgebung, Gesellschaft, Rolle, Arbeitsdatum und Ruecksetzpunkt kontrolliert. Unternehmensdaten, Nummernserien, Buchungsperioden und minimale Rollen werden nur nach Freigabe eingerichtet. Grundlage sind `UABC-PW-BCB-001` und `UABC-PW-BCB-002`; beide Szenarien sind noch nicht ausgefuehrt.
+Vor jedem Schreibvorgang werden Umgebung, Gesellschaft, Rolle, Arbeitsdatum und Ruecksetzpunkt kontrolliert. Unternehmensdaten, Nummernserien, Buchungsperioden und minimale Rollen werden nur nach Freigabe eingerichtet. `UABC-PW-BCB-001` und `UABC-PW-BCB-002` sind im Referenzfall synthetisch abgeschlossen; im echten Kundensandboxlauf bleiben sie bis zum Benutzer- und UI-Nachweis geplant.
 
 Quelle: `SRC-BC-052` fuer Sandbox-Grenzen und `SRC-BC-053` fuer die Unternehmensgrundeinrichtung.
 
 ## 4. Finanzwesen und Buchhaltung
 
-Der Plan umfasst Konten, Debitoren-, Kreditoren-, Bestands- und Mehrwertsteuerbuchungsgruppen, Zahlungsbedingungen, Bankkonten als Stammdaten, zwei Dimensionen, Journale und Basisberichte. Buchungsgruppen duerfen erst nach fachlicher Freigabe verwendet werden. `UABC-PW-BCB-003` prueft spaeter eine synthetische Journalbuchung und ihre Abstimmung.
+Der Standard umfasst Konten, Debitoren-, Kreditoren-, Bestands- und Mehrwertsteuerbuchungsgruppen, Zahlungsbedingungen, Bankkonten als Stammdaten, zwei Dimensionen, Journale und Basisberichte. Die Referenzbaseline verwendet 11 synthetische Kontenrollen, sechs Buchungsmatrizen, `INLAND`, `HANDEL`, `MWST19`, `KOSTENSTELLE`, `GESCHAEFT` und FIFO. `UABC-PW-BCB-003` ist synthetisch abgestimmt; reale Konten und Steuerkennzeichen werden vor Kundennutzung neu bestaetigt.
 
 Quelle: `SRC-BC-016` fuer Buchungsgruppen, `SRC-BC-055` fuer Bankabstimmung und `SRC-BC-056` fuer Periodenabschlussprozesse.
 
 ## 5. Einkauf, Verkauf und einfacher Bestand
 
-Der Einkaufsablauf umfasst Bestellung, Wareneingang, Eingangsrechnung und optional begrenzte Zahlungsvorbereitung. Der Verkaufsablauf umfasst Angebot oder Auftrag, Lieferung, Verkaufsrechnung und optional begrenzten Zahlungseingang. Der Bestand verwendet wenige Artikel und genau einen Lagerort ohne verpflichtende Lagerplaetze. Die geplanten Szenarien sind `UABC-PW-BCB-004` bis `UABC-PW-BCB-006`.
+Der Einkaufsablauf umfasst Bestellung, Wareneingang, Eingangsrechnung, Zahlung und Ausgleich. Der Verkaufsablauf umfasst Auftrag, Lieferung, Verkaufsrechnung, Mahnvorschau, Zahlung und Ausgleich. Der Bestand verwendet wenige Artikel und genau einen Lagerort ohne verpflichtende Lagerplaetze. `UABC-PW-BCB-004` bis `UABC-PW-BCB-006` sind im Referenzfall mit `A-1000`, 42 EUR Einstand und 79 EUR Verkaufspreis synthetisch abgeschlossen.
 
 Quelle: `SRC-BC-054` fuer die einfache Bestandseinrichtung.
 
@@ -59,12 +59,12 @@ Vier Schulungseinheiten decken Navigation/Rollencenter/Tell Me, Finanzwesen, Ein
 
 ## 9. Nachweise und Versionsbezug
 
-| Bereich | Szenarien | Geplanter Nachweis | Aktueller Stand |
+| Bereich | Szenarien | Referenzsimulation | Neue Kundeninstanz |
 | --- | --- | --- | --- |
-| Einrichtung und Prozesse | `UABC-PW-BCB-001` bis `UABC-PW-BCB-006` | `UABC-VER-BCB-E2E-001` | nicht ausgefuehrt |
-| Schulung und Fachabnahme | `UABC-PW-BCB-009` | `UABC-VER-BCB-TRAINING-001` | nicht ausgefuehrt |
-| Abschlussprobe | `UABC-PW-BCB-007` | `UABC-VER-BCB-CLOSE-001` | nicht ausgefuehrt |
-| UStVA-Pruefung | `UABC-PW-BCB-008` | `UABC-VER-BCB-VAT-001` | nicht ausgefuehrt |
-| Uebergabe | `UABC-38` | `UABC-VER-BCB-HANDOVER-001` | nicht ausgefuehrt |
+| Einrichtung und Prozesse | `UABC-PW-BCB-001` bis `UABC-PW-BCB-006` | synthetisch abgeschlossen und abgestimmt | Sandboxlauf mit echten Parametern geplant |
+| Schulung und Fachabnahme | `UABC-PW-BCB-009` | vier Rollen synthetisch bestanden | Benutzer fuehren Kompetenznachweis neu durch |
+| Abschlussprobe | `UABC-PW-BCB-007` | Schlussbilanz 11.080,20 EUR je Seite; Differenz 0,00 EUR | reale Salden und Perioden neu abstimmen |
+| UStVA-Pruefung | `UABC-PW-BCB-008` | 150,10 EUR Ausgangssteuer minus 79,80 EUR Vorsteuer gleich 70,30 EUR Vorschau | Steuerkennzeichen bestaetigen; keine Uebermittlung im Paket |
+| Uebergabe | `UABC-38` | synthetisch abgenommen | reale Betriebsannahme nach Kundensandbox |
 
 Die verbindlichen Quellen und der aktuelle Stand werden ausschliesslich ueber `exports/project-data/v1/index.yaml` aufgeloest. Bei gemeinsam genutzten Dateien gilt nur der dort deklarierte Selektor; Verweise innerhalb einer Quelle erweitern den Leseumfang nicht. Fehlende Werte bleiben leer.

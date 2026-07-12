@@ -34,11 +34,15 @@ fields:
   postingGroupsApprovalStatus:
     description: Freigabestatus der Kandidaten fuer Buchungsgruppen
     required: true
-    allowedValues: pending oder approved
+    allowedValues: pending, simulated-approved oder approved
   taxSetupApprovalStatus:
     description: Freigabestatus der deutschen Steuer- und MwSt.-Einrichtung
     required: true
-    allowedValues: pending oder approved
+    allowedValues: pending, simulated-approved oder approved
+  syntheticConfigurationBaseline:
+    description: Maschinenlesbare, ausschliesslich synthetische Kontenrollen und Buchungsmatrizen fuer die Referenzsimulation
+    required: true
+    allowedValues: Kontenrollen und Matrizen mit syntheticOnly=true und realConfirmationRequired=true
   locationCode:
     description: Code des einzigen Lagerorts im BC-Basic-Scope
     required: true
@@ -54,5 +58,5 @@ fields:
   approvalStatus:
     description: Fachlicher Freigabestatus der Einrichtungsentscheidung
     required: true
-    allowedValues: pending oder approved
+    allowedValues: pending, simulated-approved oder approved
 values: {}

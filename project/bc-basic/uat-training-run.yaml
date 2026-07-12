@@ -15,13 +15,13 @@ triage:
     - fehlende Evidence oder Ruecksetzpunkt: Fall abbrechen
     - Retest erst nach dokumentierter Korrektur und neuer Evidence
 cases:
-  - { uatId: UABC-UAT-BCB-001, priority: P1, role: P-005, training: UABC-TRAIN-BCB-ADM, evidence: UABC-EV-UAT-001, abort: Ziel- oder Rollenbindung fehlt }
-  - { uatId: UABC-UAT-BCB-002, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-002, abort: Belegkette oder Ruecksetzung fehlt }
-  - { uatId: UABC-UAT-BCB-003, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-003, abort: Bestand oder Preise nicht abstimmbar }
-  - { uatId: UABC-UAT-BCB-004, priority: P1, role: P-019, training: UABC-TRAIN-BCB-WHS, evidence: UABC-EV-UAT-004, abort: Lagerort oder Bestandswert abweichend }
-  - { uatId: UABC-UAT-BCB-005, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-005, abort: Soll-Haben oder Nebenbuch nicht abgestimmt }
-  - { uatId: UABC-UAT-BCB-006, priority: P2, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-006, abort: Abschlussdifferenz ohne Befund }
-  - { uatId: UABC-UAT-BCB-007, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-007, abort: UStVA-Vorschau oder Nichtuebermittlung nicht nachweisbar }
+  - { uatId: UABC-UAT-BCB-001, priority: P1, role: P-005, training: UABC-TRAIN-BCB-ADM, evidence: UABC-EV-UAT-001, source: project/bc-basic/bc-playthrough-catalog.yaml, defect: SIM-DEF-SETUP-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Ziel- oder Rollenbindung fehlt }
+  - { uatId: UABC-UAT-BCB-002, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-002, source: evidence/simulation/phase-2-p2p-o2c.yaml, defect: SIM-DEF-P2P-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Belegkette oder Ruecksetzung fehlt }
+  - { uatId: UABC-UAT-BCB-003, priority: P1, role: P-011, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-003, source: evidence/simulation/phase-2-p2p-o2c.yaml, defect: SIM-DEF-O2C-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Bestand oder Preise nicht abstimmbar }
+  - { uatId: UABC-UAT-BCB-004, priority: P1, role: P-019, training: UABC-TRAIN-BCB-WHS, evidence: UABC-EV-UAT-004, source: evidence/simulation/phase-3-cash-inventory-close.yaml, defect: SIM-DEF-INV-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Lagerort oder Bestandswert abweichend }
+  - { uatId: UABC-UAT-BCB-005, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-005, source: evidence/simulation/phase-3-cash-inventory-close.yaml, defect: SIM-DEF-CASH-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Soll-Haben oder Nebenbuch nicht abgestimmt }
+  - { uatId: UABC-UAT-BCB-006, priority: P2, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-006, source: evidence/simulation/phase-3-cash-inventory-close.yaml, defect: SIM-DEF-CLOSE-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: Abschlussdifferenz ohne Befund }
+  - { uatId: UABC-UAT-BCB-007, priority: P1, role: P-005, training: UABC-TRAIN-BCB-FIN, evidence: UABC-EV-UAT-007, source: evidence/simulation/phase-3-cash-inventory-close.yaml, defect: SIM-DEF-VAT-001, result: bestanden-synthetisch, retest: bestanden-synthetisch, abort: UStVA-Vorschau oder Nichtuebermittlung nicht nachweisbar }
 coverage:
   - { requirement: UABC-REQ-BCB-001, jira: UABC-27, uat: UABC-UAT-BCB-001, training: UABC-TRAIN-BCB-ADM, evidence: UABC-EV-UAT-001 }
   - { requirement: UABC-REQ-BCB-003, jira: UABC-30, uat: UABC-UAT-BCB-002, training: UABC-TRAIN-BCB-TRADE, evidence: UABC-EV-UAT-002 }

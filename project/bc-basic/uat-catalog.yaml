@@ -25,6 +25,8 @@ cases:
   - id: UABC-UAT-BCB-001
     title: Navigation und Look-and-Feel
     status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: project/bc-basic/bc-playthrough-catalog.yaml
     initialState: Die autorisierte Zielgesellschaft ist eingerichtet und die Rolle P-005 ist fuer den vorgesehenen Arbeitsplatz vorbereitet.
     roleRef: P-005
     testDataRefs: [project/bc-basic/customer-templates/example/company-setup.example.yaml]
@@ -36,6 +38,8 @@ cases:
   - id: UABC-UAT-BCB-002
     title: Einkauf
     status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-2-p2p-o2c.yaml
     initialState: Der synthetische Kreditor, Artikel und Lagerort sind vorhanden; es bestehen keine offenen Testbelege aus einem Vorlauf.
     roleRef: P-011
     testDataRefs:
@@ -50,6 +54,8 @@ cases:
   - id: UABC-UAT-BCB-003
     title: Verkauf
     status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-2-p2p-o2c.yaml
     initialState: Debitor, Artikel, Preis und ausreichender Bestand sind vorhanden; es bestehen keine offenen Testbelege aus einem Vorlauf.
     roleRef: P-011
     testDataRefs:
@@ -64,6 +70,8 @@ cases:
   - id: UABC-UAT-BCB-004
     title: Einfacher Bestand
     status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Lagerort HAUPT, Artikel A-1000 und der synthetische Anfangsbestand sind vorbereitet.
     roleRef: P-019
     testDataRefs:
@@ -76,8 +84,9 @@ cases:
     acceptanceCriterion: P-019 bestaetigt 100 STK und 4200.00 EUR als abgestimmte synthetische Ausgangswerte.
   - id: UABC-UAT-BCB-005
     title: Finance und Abstimmung
-    status: synthetic-complete
-    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
+    status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Synthetische Eroeffnungszeilen und offene Debitoren-/Kreditorenposten liegen als gepruefte Eingabedaten vor.
     roleRef: P-005
     testDataRefs:
@@ -90,8 +99,9 @@ cases:
     acceptanceCriterion: P-005 bestaetigt Soll gleich Haben sowie 940.10 EUR Debitoren und 499.80 EUR Kreditoren ohne Differenz.
   - id: UABC-UAT-BCB-006
     title: Monatsabschlussprobe
-    status: synthetic-complete
-    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
+    status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Die Pflichtprozesse sind als synthetische Testbewegungen vollstaendig gebucht und die Periode bleibt fuer die Probe kontrolliert offen.
     roleRef: P-005
     testDataRefs:
@@ -104,8 +114,9 @@ cases:
     acceptanceCriterion: P-005 dokumentiert jede Differenz oder bestaetigt die abgestimmte Probe ohne Status einer Produktivfreigabe.
   - id: UABC-UAT-BCB-007
     title: UStVA-Vorschau ohne Uebermittlung
-    status: synthetic-complete
-    syntheticExecutionEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
+    status: planned
+    referenceSimulationStatus: synthetic-complete
+    referenceSimulationEvidence: evidence/simulation/phase-3-cash-inventory-close.yaml
     initialState: Die deutsche Steuer- und Buchungsgruppeneinrichtung ist fachlich geprueft; synthetische Einkaufs- und Verkaufsbuchungen sind vorhanden.
     roleRef: P-005
     testDataRefs:

@@ -24,7 +24,7 @@ Diese Seite ist das kundenverwendbare Ergebnis der repositorybasierten Discovery
 | Belege | Angebot, Verkaufsauftrag, Lieferung, Rechnung, Gutschrift; Einkaufsbestellung, Wareneingang, Rechnung, Gutschrift; Zahlungs- und Artikelbuchblätter | Durchgängige Belegketten und Navigate/Find Entries sind Abnahmekriterium |
 | Zahlung/Bank | SEPA-Überweisung als fachliches Zielbild, synthetisches Bankkonto, manuelle Kontoauszugsprobe, Zahlungsbedingungen 14/30 Tage | Kein echter Zahlungsdateiexport, Bankfeed oder Onlinebanking |
 | Mahnwesen | Eine Mahnstufe nach Fälligkeit plus interne Prüfung; keine Gebühren, Zinsen oder E-Mail-Zustellung in der Simulation | Mahnvorschlag wird fachlich geprüft, aber nicht extern versendet |
-| Lager | Einfache Handelsware, Basiseinheit Stück, gleitender Durchschnitt, kein Tracking | Zugang, Abgang, Inventur und Wertabgleich müssen zusammenpassen |
+| Lager | Einfache Handelsware, Basiseinheit Stück, FIFO, kein Tracking | Zugang, Abgang, Inventur und Wertabgleich müssen zusammenpassen |
 | Abschluss | Monatlicher Nebenbuch-/Sachbuchabgleich, Bank, Lager und UStVA-Vorschau | Keine ELSTER-Übermittlung und keine steuerliche Beratung |
 
 ## Workshopplan und Ergebnisse
@@ -44,10 +44,10 @@ Die sechs Module werden in der Reihenfolge Finance, Einkauf, Verkauf/Forderungen
 | Nr. | Kundenfrage | Standardempfehlung | Owner | Fälligkeit | Auswirkung und echter Bestätigungsbedarf |
 |---:|---|---|---|---|---|
 | 1 | Welche Konten, VAT-Kombinationen und Abschlussregeln gelten? | reduzierter SKR04-orientierter Plan, Inland/19 %, Monatsperioden | `P-005` | Workshop 1 | blockiert Finance-Setup; Konten und Steuerkennzeichen real steuerlich bestätigen |
-| 2 | Welche Auswertungsmerkmale sind Pflicht? | `KOSTENSTELLE` und `GESCHAEFTSBEREICH` auf GuV-Belegen | `P-005` | Workshop 1 | beeinflusst Stammdaten, Buchung und Reporting; reale Werte bestätigen |
+| 2 | Welche Auswertungsmerkmale sind Pflicht? | `KOSTENSTELLE` und `GESCHAEFT` auf GuV-Belegen | `P-005` | Workshop 1 | beeinflusst Stammdaten, Buchung und Reporting; reale Werte bestätigen |
 | 3 | Welche Beleg- und Freigabelogik gilt? | Standard Bestellung/Wareneingang/Rechnung und Auftrag/Lieferung/Rechnung; organisatorische Freigabe | `P-011` | Workshop 2 | beeinflusst P2P/O2C und SoD; Freigabegrenzen real bestätigen |
 | 4 | Wie werden Zahlung, Mahnung und Bank verarbeitet? | 14/30 Tage, Überweisung, eine Mahnstufe, manuelle Bankabstimmung | `P-005` | Workshop 2 | beeinflusst offene Posten und Cutover; Bankformat, Rechte und Mahntext real bestätigen |
-| 5 | Welches Lagerverfahren genügt? | `HAUPT`, `STK`, gleitender Durchschnitt, keine Plätze/Verfolgung | `P-019` | Workshop 2 | beeinflusst Artikel, Bestand und Inventur; reale Bestände bestätigen |
+| 5 | Welches Lagerverfahren genügt? | `HAUPT`, `STK`, FIFO, keine Plätze/Verfolgung | `P-019` | Workshop 2 | beeinflusst Artikel, Bestand und Inventur; reale Bestände bestätigen |
 | 6 | Welche Daten werden in welcher Welle übernommen? | Setup → Stammdaten → Eröffnung/offene Posten; kein Bewegungsdatenvollimport | `P-016` | Workshop 3 | blockiert Probeladung; Quellen, Mengen und Salden real bestätigen |
 | 7 | Wer darf einrichten, erfassen, buchen, zahlen, prüfen und abnehmen? | Trennung von Einrichtung, Erfassung, Mengenprüfung, Buchung, Zahlung und Kontrolle | `P-001` | Workshop 3 | blockiert UAT/Cutover; Benutzer, Lizenzen und Berechtigungssätze real bestätigen |
 
@@ -75,12 +75,12 @@ Nicht in BC Basic aufgenommen werden Produktion, Service, Projekte, Anlagenbuchh
 
 ## Solution Design
 
-- **Konten und Buchungsmatrix:** reduzierter SKR04-orientierter Kontenplan; Geschäftsgruppen `INLAND`, Produktgruppen `HANDEL` und `DIENST`, VAT-Gruppen `DE`/`VAT19`/`VAT0`. Kontonummern und VAT-Kombinationen bleiben vor realem Einsatz steuerlich zu bestätigen.
-- **Dimensionen:** globale Dimensionen `KOSTENSTELLE` und `GESCHAEFTSBEREICH`; Pflicht auf GuV-Belegen, Defaultwerte auf Partnern/Artikeln, Abweichung vor Buchung korrigieren.
+- **Konten und Buchungsmatrix:** reduzierter SKR04-orientierter Kontenplan; Geschäftsgruppe `INLAND`, Produktgruppe `HANDEL` und VAT-Produktgruppe `MWST19`. Die 11 synthetischen Kontenrollen und sechs Matrizen stehen in `company-setup.example.yaml`; Kontonummern und VAT-Kombinationen bleiben vor realem Einsatz steuerlich zu bestätigen.
+- **Dimensionen:** globale Dimensionen `KOSTENSTELLE` und `GESCHAEFT`; Pflicht auf GuV-Belegen, Defaultwerte auf Partnern/Artikeln, Abweichung vor Buchung korrigieren.
 - **Nummernserien:** getrennte synthetische Präfixe für Bestellung, Einkaufsrechnung, Auftrag, Lieferung, Verkaufsrechnung, Zahlung, Mahnung und Korrektur. Manuelle Nummern nur für kontrollierte Eröffnung.
 - **Zahlung/Mahnung:** `14T` und `30T`, Zahlungsart Überweisung; offene Posten per Belegbezug anwenden; eine Mahnstufe ohne externe Zustellung.
 - **Bank:** ein synthetisches EUR-Bankkonto, manuelle Abstimmung; keine reale IBAN, kein Bankfeed, kein Zahlungsverkehr.
-- **Lager:** `HAUPT`, Basiseinheit `STK`, gleitender Durchschnitt, kein Lagerplatz, keine Charge/Serie, kein Negativbestand als Sollprozess.
+- **Lager:** `HAUPT`, Basiseinheit `STK`, FIFO, kein Lagerplatz, keine Charge/Serie, kein Negativbestand als Sollprozess.
 - **Rollen/SoD:** `P-002` richtet ein, `P-011` erfasst Handelsbelege, `P-019` bestätigt Mengen, `P-005` bucht und stimmt ab, `P-001` entscheidet Gates. Zahlungsvorbereitung und Zahlungskontrolle werden getrennt.
 - **Reporting:** Standardlisten, Navigate/Find Entries, Trial Balance, Aging, Inventory Valuation und VAT-Vorschau. Kundenspezifische Berichte, BI und Schnittstellen sind nicht enthalten.
 

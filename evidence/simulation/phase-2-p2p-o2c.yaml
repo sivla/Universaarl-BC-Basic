@@ -34,6 +34,7 @@ inventory:
   openingBalance: { debit: 10140.10, credit: 10140.10, difference: 0.00 }
 setup:
   sequence: [Dimensionen, Dimensionswerte, Konten, Buchungsgruppen, MwSt-Gruppen, Zahlungsbedingungen, Lagerort, Stammdaten, Eroeffnungsbuchungen]
+  configurationBaseline: { source: project/bc-basic/customer-templates/example/company-setup.example.yaml, accountRoles: 11, postingMatrices: 6, dimensions: [KOSTENSTELLE, GESCHAEFT], costingMethod: FIFO, approval: simulated-approved, realConfirmationRequired: true }
   result: synthetisch-geprueft
 purchaseToPay:
   caseId: SIM-P2P-001

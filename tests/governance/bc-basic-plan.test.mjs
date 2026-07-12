@@ -246,8 +246,13 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   const companyFieldNames = Array.isArray(companyBlank.fields) ? companyBlank.fields.map((field) => field.name) : Object.keys(companyBlank.fields ?? {});
   assert.deepEqual(Object.keys(company).sort(), companyFieldNames.sort(), 'Company-Beispielwerte muessen exakt durch Blanko-Felder definiert sein');
   assert.equal(company.chartOfAccountsTemplate, 'SKR04');
-  assert.equal(company.postingGroupsApprovalStatus, 'pending');
-  assert.equal(company.taxSetupApprovalStatus, 'pending');
+  assert.equal(company.postingGroupsApprovalStatus, 'simulated-approved');
+  assert.equal(company.taxSetupApprovalStatus, 'simulated-approved');
+  assert.equal(company.approvalStatus, 'simulated-approved');
+  assert.equal(company.syntheticConfigurationBaseline.accountRoles.length, 11);
+  assert.equal(company.syntheticConfigurationBaseline.postingMatrices.length, 6);
+  assert.equal(company.syntheticConfigurationBaseline.costingMethod, 'FIFO');
+  assert.deepEqual(company.syntheticConfigurationBaseline.dimensionCodes, ['KOSTENSTELLE', 'GESCHAEFT']);
   const dimensionValues = new Set(dimensions.map((entry) => `${entry.dimensionCode}:${entry.valueCode}`));
 
   assert.equal(company.companyId, 'UABC-BASIC-DE');
@@ -257,7 +262,7 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   assert.equal(item.itemNo, 'A-1000');
   assert.equal(Number(item.unitCost), 42);
   assert.equal(Number(item.unitPrice), 79);
-  assert.equal(item.taxDecisionStatus, 'offen');
+  assert.equal(item.taxDecisionStatus, 'simulated-approved');
   assert.equal(inventory.itemNo, item.itemNo);
   assert.equal(inventory.locationCode, company.locationCode);
   assert.equal(Number(inventory.quantity) * Number(inventory.unitCost), Number(inventory.lineAmount));
@@ -274,7 +279,8 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   assert.equal(glOpening.find((entry) => entry.accountRole === 'DEBITOREN-SAMMEL')?.debitAmount, openEntries.find((entry) => entry.accountType === 'customer')?.amount);
   assert.equal(glOpening.find((entry) => entry.accountRole === 'KREDITOREN-SAMMEL')?.creditAmount, openEntries.find((entry) => entry.accountType === 'vendor')?.amount);
   assert.equal(glOpening.find((entry) => entry.accountRole === 'BESTAND-HANDEL')?.debitAmount, inventory.lineAmount);
-  assert.ok(glOpening.every((entry) => entry.accountNoCandidate === '' && entry.approvalStatus === 'pending'), 'SKR04-Konten duerfen im Beispiel nicht als final freigegeben erscheinen');
+  const configuredAccounts = new Map(company.syntheticConfigurationBaseline.accountRoles.map((entry) => [entry.role, entry.accountNoCandidate]));
+  assert.ok(glOpening.every((entry) => entry.accountNoCandidate === configuredAccounts.get(entry.accountRole) && entry.approvalStatus === 'simulated-approved'), 'Eroeffnungszeilen muessen gegen die synthetische Kontenbaseline aufloesen');
 });
 
 test('Datenbereitschaft bleibt geplant und blockiert unvollstaendige oder ungepruefte Daten', () => {
@@ -317,8 +323,9 @@ test('UAT-Katalog enthaelt genau sieben geplante Pflichtfaelle ohne Ausfuehrungs
     'UStVA-Vorschau ohne Uebermittlung'
   ]);
   for (const uatCase of uatCatalog.cases) {
-    assert.ok(['planned', 'synthetic-complete'].includes(uatCase.status));
-    if (uatCase.status === 'synthetic-complete') assert.equal(uatCase.syntheticExecutionEvidence, 'evidence/simulation/phase-3-cash-inventory-close.yaml');
+    assert.equal(uatCase.status, 'planned');
+    assert.equal(uatCase.referenceSimulationStatus, 'synthetic-complete');
+    assert.ok(uatCase.referenceSimulationEvidence?.length > 0, `${uatCase.id}: Referenzsimulationsevidence fehlt`);
     assert.ok(uatCase.initialState?.length > 0, `${uatCase.id}: Ausgangslage fehlt`);
     assert.ok(uatCase.roleRef?.length > 0, `${uatCase.id}: Rolle fehlt`);
     assert.ok(uatCase.testDataRefs?.length > 0, `${uatCase.id}: Testdatenreferenz fehlt`);
@@ -343,6 +350,9 @@ test('Schulungsplan trennt Planung konsequent von Ausfuehrungsnachweisen', () =>
     assert.deepEqual(session.exerciseResults, []);
     assert.deepEqual(session.openQuestions, []);
     assert.equal(session.competencyCheck, null);
+    assert.equal(session.referenceSimulationStatus, 'synthetic-complete');
+    assert.equal(session.referenceSimulationResult, 'bestanden-synthetisch');
+    assert.equal(session.referenceSimulationEvidence, 'evidence/simulation/project-completion.yaml');
     assert.ok(session.agenda?.length > 0);
     assert.ok(session.exercises?.length > 0);
   }
@@ -446,6 +456,10 @@ test('P2P- und O2C-Simulation besitzt Inventar Kontrollsummen Defects und Retest
   assert.equal(simulation.inventory.openingBalance.difference, 0);
   assert.equal(simulation.purchaseToPay.controls.gross, 499.80);
   assert.equal(simulation.orderToCash.controls.gross, 940.10);
+  assert.equal(simulation.orderToCash.controls.net, 790.00);
+  assert.equal(simulation.orderToCash.controls.vat, 150.10);
+  assert.equal(simulation.setup.configurationBaseline.accountRoles, 11);
+  assert.equal(simulation.setup.configurationBaseline.postingMatrices, 6);
   assert.equal(simulation.defectsAndRetest.allDefectsClosedInSimulation, true);
   assert.equal(simulation.defectsAndRetest.realGoNoGo, 'NO_GO_REAL');
 });
@@ -457,7 +471,12 @@ test('Cash Lager Monatsabschluss und UStVA-Simulation besitzen Summen Retests un
   assert.equal(simulation.bankReconciliation.difference, 0);
   assert.equal(simulation.inventory.count.closingValue, 4158.00);
   assert.equal(simulation.monthClose.checklist.length, 6);
+  assert.equal(simulation.monthClose.closingTrialBalance.debit, 11080.20);
+  assert.equal(simulation.monthClose.closingTrialBalance.credit, 11080.20);
+  assert.equal(simulation.monthClose.closingTrialBalance.difference, 0);
+  assert.equal(simulation.monthClose.review.decision, 'synthetisch-abgenommen');
   assert.equal(simulation.vatPreview.calculation.netPayable, 70.30);
+  assert.equal(simulation.vatPreview.review.decision, 'synthetisch-abgenommen');
   assert.equal(simulation.vatPreview.transmission, 'ausgeschlossen');
   assert.equal(simulation.uatExecution.status, 'synthetisch-ausgefuehrt-und-abgenommen');
   assert.equal(simulation.goNoGo.real, 'NO_GO_REAL');

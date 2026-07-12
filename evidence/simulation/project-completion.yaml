@@ -32,7 +32,7 @@ hypercare:
   days:
     - { day: 1, monitoring: Prozesspfade-und-Posten, tickets: [SIM-HC-001], priority: P2, correction: Zahlungsreferenz-ergaenzt, retest: bestanden-synthetisch }
     - { day: 2, monitoring: Lager-und-Inventur, tickets: [SIM-HC-002], priority: P2, correction: Differenzbuchung-dokumentiert, retest: bestanden-synthetisch }
-    - { day: 3, monitoring: Monatsabschluss-und-MwSt, tickets: [SIM-HC-003], priority: P1, correction: Steuerfreigabe-als-offen-markiert, retest: bestanden-synthetisch }
+    - { day: 3, monitoring: Monatsabschluss-und-MwSt, tickets: [SIM-HC-003], priority: P1, correction: synthetische-Schlussbilanz-und-VAT-Review-dokumentiert-reale-Steuerwerte-bleiben-Parameter, retest: bestanden-synthetisch }
   exit: synthetisch-abgenommen
 handover:
   meeting: UABC-MTG-SIM-CLOSE-001

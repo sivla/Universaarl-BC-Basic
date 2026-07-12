@@ -19,11 +19,11 @@ solutionDesignDecision:
   owners: [P-001, P-005, P-011, P-019]
   parameters:
     financeAndVat: reduzierter SKR04-orientierter Kontenplan, Inland-/Handels-Buchungsgruppen und 19-Prozent-VAT-Kombination; Konten und Steuerkennzeichen real steuerlich bestaetigen
-    dimensions: KOSTENSTELLE und GESCHAEFTSBEREICH; beide auf GuV-relevanten Belegen verpflichtend
+    dimensions: KOSTENSTELLE und GESCHAEFT; beide auf GuV-relevanten Belegen verpflichtend
     numberSeries: getrennte Reihen fuer Bestellung, Einkauf, Verkauf, Zahlung, Mahnung und Korrektur; manuell nur fuer kontrollierte Eroeffnung
     paymentAndReminder: 14 und 30 Tage, Ueberweisung, eine Mahnstufe ohne Gebuehren, Zinsen oder externe Zustellung
     bank: synthetischer Kontoauszug und manuelle Abstimmung; kein Bankfeed, Zahlungsdatei oder produktive Bankanbindung
-    inventory: Lagerort HAUPT, Basiseinheit STK, gleitender Durchschnitt; keine Lagerplaetze, Tracking oder Negativbestand als Sollprozess
+    inventory: Lagerort HAUPT, Basiseinheit STK, FIFO; keine Lagerplaetze, Tracking oder Negativbestand als Sollprozess
     rolesAndSod: Einrichtung, Belegerfassung, Mengenbestaetigung, Buchung, Zahlung und Kontrolle werden getrennt; reale Berechtigungssaetze in Sandbox pruefen
     reporting: BC-Standardlisten und -abstimmungen; kundenspezifische Reports, BI, Dokumentlayouts und Integrationen nur per Change
 configurationBaseline:

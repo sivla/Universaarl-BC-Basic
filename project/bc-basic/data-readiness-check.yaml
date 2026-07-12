@@ -9,6 +9,14 @@ simulationState: synthetisch-geprueft
 customerInstanceState: vor-Setup-mit-realen-Quellen-neu-zu-pruefen
 executed: false
 resultClaimed: false
+referenceSimulation:
+  status: synthetisch-geprueft
+  decision: GO_SIMULATION
+  checkedAt: 2026-08-25
+  checksPassed: [UABC-DATA-CHECK-001, UABC-DATA-CHECK-002, UABC-DATA-CHECK-003, UABC-DATA-CHECK-004, UABC-DATA-CHECK-005, UABC-DATA-CHECK-006]
+  controls: { templatePairs: 8, accountRoles: 11, postingMatrices: 6, openingDebit: 10140.10, openingCredit: 10140.10, inventoryQuantity: 100, inventoryValue: 4200.00, customerOpen: 940.10, vendorOpen: 499.80 }
+  evidence: [project/bc-basic/customer-templates/example/company-setup.example.yaml, evidence/simulation/phase-2-p2p-o2c.yaml]
+  realCustomerApproval: nicht-behauptet
 ownerRef: P-016
 approverRefs: [P-005, P-011, P-019]
 classification: synthetic-only
@@ -30,7 +38,7 @@ checks:
     rule: Technische Schluessel der Gesellschaft sowie der Dimensionen und Stammdaten sind je Objekt eindeutig.
   - id: UABC-DATA-CHECK-003
     subject: Buchungsgruppenabhaengigkeiten
-    rule: Buchungsgruppen- und Steuerwerte bleiben Kandidaten bis zur fachlichen sowie Legal-/Tax-Freigabe und werden nicht als finale Einrichtung behandelt.
+    rule: Buchungsgruppen- und Steuerwerte sind fuer die Referenzsimulation simulated-approved; fuer eine reale Kundeninstanz bleiben sie Kandidaten bis zur fachlichen sowie Legal-/Tax-Bestaetigung.
   - id: UABC-DATA-CHECK-004
     subject: Summenabstimmung
     rule: Anfangsbestand entspricht Menge mal Einstandspreis; Soll entspricht Haben; offene Debitoren- und Kreditorenposten stimmen mit den jeweiligen Sammelkontenrollen ab.

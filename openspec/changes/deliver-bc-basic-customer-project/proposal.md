@@ -28,6 +28,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 9. Ein kleiner, rein lokaler Migrationsvertrag fuer die spaetere Trennung aus dem gemeinsam genutzten `sivla/FiBu`-Repository in ein eigenes Repository `Universaarl-BC-Basic`, ohne fachliche Daten, IDs, Spectra-Bindung oder Snapshotfelder zu aendern.
 10. Eine Spectra-0.10-konforme Reconciliation von historischer Baseline, synthetischem Angebot und Ist, eine read-only Adapter-Provenienz sowie eine erklaerte Referenzgraph-Coverage fuer die deterministische Projektion des einzigen Branch-Index. Alle Nachweise bleiben Teil der Kundeninstanz, erzeugen keine Rechnung oder produktive Leistungsbehauptung, behaupten keine 1:1-Graphprojektion und geben dem Twin kein Schreibrecht.
 11. Ein strikt schemavalidierter Dokumentkatalog fuer exakt alle 32 im Branch-Index freigegebenen Markdown-Blobs. Er klassifiziert 19 strukturierte Seiten und 13 weitere Projektdokumente, bindet Rohblob-SHA-256, Hierarchie und Referenzen und laesst unbelegte externe Confluence-Identitaeten sowie Origins leer.
+12. Eine fachlich geschlossene Referenzsimulation mit einer kanonischen Firmen-, Stamm-, Setup-, Beleg-, Ledger- und Abschlusswelt. O2C verwendet durchgehend 10 x 79 EUR = 790 EUR netto + 150,10 EUR USt = 940,10 EUR brutto; offene Eroeffnungsposten, Zahlungen, Lagerwert, VAT und Schlussbilanz werden gemeinsam abgestimmt. Auftraege bleiben von gebuchten Belegen getrennt, und UAT/Training unterscheiden Kundenplan von bestandener Referenzsimulation.
 
 ## Umfang
 
@@ -50,7 +51,7 @@ Der bisherige P001-Entwurf war fuer ein erstes Kundenprodukt noch zu breit und v
 - Kein Produktivstart, kein echter Monatsabschluss und kein Support nach Ende der einwoechigen Hypercare.
 - Keine echte Kunden-, Personen-, Bank-, Steuer- oder Zugangsdaten.
 - Keine Behauptung, **BC Basic** sei eine Microsoft-Lizenz. Lizenz-, Tenant- und sonstige externe Kosten sind nicht im Leistungsbudget enthalten.
-- In diesem Planungsschritt keine BC-Schreibvorgaenge, fachlichen Tests, Erstellungsvorgaenge, Browserlaeufe oder Erfolgsaussagen.
+- Keine realen BC-Schreibvorgaenge, Browserlaeufe oder Produktiverfolgsaussagen; die repositorybasierte Referenzsimulation darf ihre tatsaechlich berechneten synthetischen Ergebnisse als solche ausweisen.
 - Die Repository-Trennung wird nur inventarisiert und vertraglich vorbereitet: Zielbranch `main`, Arbeitsbranches `codex/...`, Push/PR spaeter nur durch den Projekt-Agenten auf einem eigenen Arbeitsbranch; Merge, Tag und Release bleiben beim Kontrollzentrum. Kein Repository wird angelegt oder umbenannt.
 
 ## Risiken und Kontrollen

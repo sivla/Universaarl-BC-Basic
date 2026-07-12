@@ -26,7 +26,7 @@ migrationDiscovery:
     - { id: WAVE-OPENING, sequence: 3, exitCriterion: Sachkonto offene Nebenbuchposten und Lagerbestand sind je Kontrollsumme abgestimmt }
   objects:
     - { id: MIG-COMPANY, wave: WAVE-SETUP, source: synthetischer Unternehmenssteckbrief, volume: 1 Gesellschaft, cleanup: Pflichtparameter und Wahrheitskennzeichnung pruefen, mapping: Unternehmenseinrichtung, ownerRef: P-005, reconciliation: Gesellschaft DE Basiswaehrung EUR und ein Lagerort HAUPT }
-    - { id: MIG-FINANCE-SETUP, wave: WAVE-SETUP, source: synthetischer SKR04-Ausschnitt und Entscheidungsregister, volume: 24 Sachkonten und 12 Buchungsmatrix-Kombinationen, cleanup: Dubletten unzulaessige Kontotypen und fehlende Gegenkonten entfernen, mapping: Sachkonten plus allgemeine und VAT-Buchungsgruppen, ownerRef: P-005, reconciliation: alle verwendeten Rollen loesen auf und jede Buchungsmatrix besitzt Soll-/Habenkonto }
+    - { id: MIG-FINANCE-SETUP, wave: WAVE-SETUP, source: company-setup.example.yaml und Entscheidungsregister, volume: 11 synthetische Kontenrollen und 6 Buchungsmatrizen, cleanup: Dubletten unzulaessige Kontotypen und fehlende Gegenkonten entfernen, mapping: Sachkonten plus allgemeine VAT Nebenbuch Lager und Bank-Buchungsgruppen, ownerRef: P-005, reconciliation: alle verwendeten Rollen loesen auf und jede Buchungsmatrix besitzt Soll-/Habenkonto; reale Kontonummern bleiben bestaetigungspflichtig }
     - { id: MIG-DIMENSIONS, wave: WAVE-SETUP, source: dimensions.example.csv, volume: 2 Dimensionen und 5 Werte, cleanup: Codes normalisieren und gesperrte Werte ausschliessen, mapping: Dimension und Dimension Value, ownerRef: P-005, reconciliation: alle Belegdefaults referenzieren vorhandene Werte }
     - { id: MIG-CUSTOMERS, wave: WAVE-MASTER, source: customers.example.csv, volume: 20 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Nummer Name Land Buchungsgruppen Zahlungsbedingung und Dublette pruefen, mapping: Customer Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; keine realen Kontakt- oder Bankdaten }
     - { id: MIG-VENDORS, wave: WAVE-MASTER, source: vendors.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: externe Nummern und Dubletten pruefen, mapping: Vendor Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; Buchungsgruppen sind gueltig }
@@ -116,8 +116,8 @@ templates:
     approvalStatus: open
     blankTemplatePath: project/bc-basic/customer-templates/blank/company-setup.blank.yaml
     exampleTemplatePath: project/bc-basic/customer-templates/example/company-setup.example.yaml
-    required: [companyId, displayName, countryCode, baseCurrency, fiscalYearStart, language, chartOfAccountsTemplate, locationCode, synthetic, approvalStatus]
-    qualityRules: [companyId entspricht UABC-BASIC-DE, countryCode ist DE, baseCurrency ist EUR, genau ein Lagerort ist enthalten, Konten- und Steuerfreigaben bleiben offen, synthetic ist true]
+    required: [companyId, displayName, countryCode, baseCurrency, fiscalYearStart, language, chartOfAccountsTemplate, syntheticConfigurationBaseline, locationCode, synthetic, approvalStatus]
+    qualityRules: [companyId entspricht UABC-BASIC-DE, countryCode ist DE, baseCurrency ist EUR, genau ein Lagerort ist enthalten, 11 Kontenrollen und 6 Buchungsmatrizen loesen auf, Simulationsfreigabe und reale Kundenbestaetigung bleiben getrennt, synthetic ist true]
   - id: UABC-DATA-TPL-002
     objectId: dimensions
     purpose: Zwei einfache Auswertungsdimensionen fuer Kostenstelle und Geschaeftsbereich vorbereiten.
@@ -137,7 +137,7 @@ templates:
     blankTemplatePath: project/bc-basic/customer-templates/blank/customers.blank.csv
     exampleTemplatePath: project/bc-basic/customer-templates/example/customers.example.csv
     required: [customerNo, name, countryCode, customerPostingGroupCandidate, genBusinessPostingGroupCandidate, vatBusinessPostingGroupCandidate, paymentTermsCode, defaultCostCenter, defaultBusiness, taxDecisionStatus, synthetic]
-    qualityRules: [customerNo ist eindeutig, Dimensionswerte existieren, Buchungsgruppen bleiben Kandidaten bis zur Freigabe, taxDecisionStatus ist offen, synthetic ist true]
+    qualityRules: [customerNo ist eindeutig, Dimensionswerte existieren, Buchungsgruppen sind fuer die Referenzsimulation simulated-approved und bleiben vor realer Nutzung bestaetigungspflichtig, synthetic ist true]
   - id: UABC-DATA-TPL-004
     objectId: vendors
     purpose: Einen plausiblen synthetischen Kreditor fuer den Einkaufsprozess bereitstellen.
@@ -147,7 +147,7 @@ templates:
     blankTemplatePath: project/bc-basic/customer-templates/blank/vendors.blank.csv
     exampleTemplatePath: project/bc-basic/customer-templates/example/vendors.example.csv
     required: [vendorNo, name, countryCode, vendorPostingGroupCandidate, genBusinessPostingGroupCandidate, vatBusinessPostingGroupCandidate, paymentTermsCode, defaultCostCenter, defaultBusiness, taxDecisionStatus, synthetic]
-    qualityRules: [vendorNo ist eindeutig, Dimensionswerte existieren, Buchungsgruppen bleiben Kandidaten bis zur Freigabe, taxDecisionStatus ist offen, synthetic ist true]
+    qualityRules: [vendorNo ist eindeutig, Dimensionswerte existieren, Buchungsgruppen sind fuer die Referenzsimulation simulated-approved und bleiben vor realer Nutzung bestaetigungspflichtig, synthetic ist true]
   - id: UABC-DATA-TPL-005
     objectId: items
     purpose: Einen synthetischen Handelsartikel fuer Einkauf, Verkauf und einfachen Bestand bereitstellen.
@@ -157,7 +157,7 @@ templates:
     blankTemplatePath: project/bc-basic/customer-templates/blank/items.blank.csv
     exampleTemplatePath: project/bc-basic/customer-templates/example/items.example.csv
     required: [itemNo, description, baseUnit, inventoryPostingGroupCandidate, genProductPostingGroupCandidate, vatProductPostingGroupCandidate, costingMethod, unitCost, unitPrice, defaultCostCenter, defaultBusiness, taxDecisionStatus, synthetic]
-    qualityRules: [itemNo ist eindeutig, unitCost bleibt 42.00, unitPrice bleibt 79.00, Buchungsgruppen bleiben Kandidaten bis zur Freigabe, taxDecisionStatus ist offen, synthetic ist true]
+    qualityRules: [itemNo ist eindeutig, unitCost bleibt 42.00, unitPrice bleibt 79.00, Kostenmethode ist FIFO, Buchungsgruppen sind fuer die Referenzsimulation simulated-approved und bleiben vor realer Nutzung bestaetigungspflichtig, synthetic ist true]
   - id: UABC-DATA-TPL-006
     objectId: inventory-opening
     purpose: Einen kontrollierten synthetischen Anfangsbestand fuer genau einen Lagerort vorbereiten.
@@ -177,7 +177,7 @@ templates:
     blankTemplatePath: project/bc-basic/customer-templates/blank/gl-opening.blank.csv
     exampleTemplatePath: project/bc-basic/customer-templates/example/gl-opening.example.csv
     required: [postingDate, accountRole, accountNoCandidate, debitAmount, creditAmount, documentNo, costCenter, business, approvalStatus, synthetic]
-    qualityRules: [Sollsumme entspricht Habensumme, accountNoCandidate bleibt bis zur SKR04-Freigabe leer, Sammelkontenrollen stimmen mit den offenen Posten ab, keine reale Bankverbindung, Belegnummer beginnt mit SYN-, synthetic ist true]
+    qualityRules: [Sollsumme entspricht Habensumme, accountNoCandidate loest gegen die synthetische Kontenrollenbaseline auf und bleibt vor realer Nutzung bestaetigungspflichtig, Sammelkontenrollen stimmen mit den offenen Posten ab, keine reale Bankverbindung, Belegnummer beginnt mit SYN-, synthetic ist true]
   - id: UABC-DATA-TPL-008
     objectId: open-customer-vendor-entries
     purpose: Je einen synthetischen offenen Debitoren- und Kreditorenposten fuer die Abstimmung vorbereiten.

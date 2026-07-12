@@ -12,6 +12,9 @@ const load = (file) => {
 };
 const catalog = load('project/bc-basic/bc-playthrough-catalog.yaml');
 const ledger = load('evidence/simulation/bc-playthrough-ledger.yaml');
+const company = load('project/bc-basic/customer-templates/example/company-setup.example.yaml');
+const phase2 = load('evidence/simulation/phase-2-p2p-o2c.yaml');
+const phase3 = load('evidence/simulation/phase-3-cash-inventory-close.yaml');
 const candidates = load('project/bc-basic/blueprint-candidates.yaml');
 if (catalog) {
   if (catalog.classification !== 'synthetic-only' || catalog.status !== 'synthetisch-abgeschlossen') errors.push('Katalog ist nicht synthetisch abgeschlossen.');
@@ -33,8 +36,25 @@ if (ledger) {
     if (ids.has(entry.id)) errors.push(`Doppelte Entry-ID: ${entry.id}`);
     ids.add(entry.id);
   }
-  if (ledger.controls?.glDebit !== ledger.controls?.glCredit || ledger.controls?.glDifference !== 0) errors.push('G/L-Soll-Haben ist nicht ausgeglichen.');
-  if (ledger.controls?.customerOpenAfterApply !== 0 || ledger.controls?.vendorOpenAfterApply !== 0) errors.push('Nebenbücher sind nach Ausgleich nicht null.');
+  const documents = new Map((ledger.documents ?? []).map((document) => [document.id, document]));
+  const salesInvoice = documents.get('SYN-AR-002');
+  if (salesInvoice?.net !== 790 || salesInvoice?.vat !== 150.10 || salesInvoice?.gross !== 940.10) errors.push('O2C-Rechnung entspricht nicht 10 x 79,00 EUR plus 19 Prozent VAT.');
+  if (documents.get('SYN-SO-001')?.status !== 'fully-shipped-and-invoiced' || documents.get('SYN-PO-001')?.status !== 'fully-received-and-invoiced') errors.push('Auftragsstatus wird unzulaessig als gebuchtes Dokument behandelt.');
+  const glEntries = (ledger.ledgerEntries ?? []).filter((entry) => entry.ledger === 'G/L');
+  const glDebit = Math.round(glEntries.reduce((sum, entry) => sum + Number(entry.debit ?? 0), 0) * 100) / 100;
+  const glCredit = Math.round(glEntries.reduce((sum, entry) => sum + Number(entry.credit ?? 0), 0) * 100) / 100;
+  if (glDebit !== ledger.controls?.glDebit || glCredit !== ledger.controls?.glCredit || glDebit !== glCredit || ledger.controls?.glDifference !== 0) errors.push('G/L-Soll-Haben ist nicht aus den Entry-Zeilen ausgeglichen.');
+  const trial = ledger.controls?.closingTrialBalance ?? [];
+  const trialDebit = Math.round(trial.reduce((sum, entry) => sum + Number(entry.debitBalance ?? 0), 0) * 100) / 100;
+  const trialCredit = Math.round(trial.reduce((sum, entry) => sum + Number(entry.creditBalance ?? 0), 0) * 100) / 100;
+  if (trialDebit !== 11080.20 || trialCredit !== 11080.20 || ledger.controls?.closingTrialBalanceDifference !== 0) errors.push('Vollstaendige Schlussbilanz ist nicht mit 11.080,20 EUR je Seite abgestimmt.');
+  if (ledger.controls?.newCustomerInvoiceOpenAfterApply !== 0 || ledger.controls?.newVendorInvoiceOpenAfterApply !== 0) errors.push('Neue P2P-/O2C-Posten sind nicht vollstaendig ausgeglichen.');
+  if (ledger.controls?.customerOpenAfterApply !== 940.10 || ledger.controls?.vendorOpenAfterApply !== 499.80) errors.push('Offene Eroeffnungsposten stimmen nicht mit den Nebenbuechern ueberein.');
+  const configuredRoles = new Set(company?.values?.syntheticConfigurationBaseline?.accountRoles?.map((entry) => entry.role) ?? []);
+  if (configuredRoles.size !== 11 || company?.values?.syntheticConfigurationBaseline?.postingMatrices?.length !== 6) errors.push('Synthetische Konten-/Buchungsmatrix ist nicht vollstaendig.');
+  for (const entry of glEntries) if (!configuredRoles.has(entry.accountRole)) errors.push(`${entry.id}: Kontenrolle ${entry.accountRole ?? 'leer'} fehlt in der Konfigurationsbaseline.`);
+  if (phase2?.orderToCash?.controls?.net !== 790 || phase2?.orderToCash?.controls?.vat !== 150.10 || phase2?.orderToCash?.controls?.gross !== 940.10) errors.push('Phase-2-O2C-Kontrollsumme weicht vom Ledger ab.');
+  if (phase3?.monthClose?.closingTrialBalance?.debit !== 11080.20 || phase3?.monthClose?.closingTrialBalance?.credit !== 11080.20 || phase3?.monthClose?.closingTrialBalance?.difference !== 0) errors.push('Phase-3-Schlussbilanz weicht vom Ledger ab.');
   if (ledger.controls?.allDefectsRetested !== true) errors.push('Nicht alle Defects wurden retestet.');
 }
 if (candidates) {
@@ -56,4 +76,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log('BC-Playthrough-Pruefung bestanden: 7 Sitzungen, Dokument-/Entry-Ketten, Soll/Haben, Nebenbücher und Retests konsistent.');
+console.log('BC-Playthrough-Pruefung bestanden: 7 Sitzungen, 16 Dokumente, 35 Entries, O2C 790,00/150,10/940,10 EUR, Schlussbilanz 11.080,20 EUR je Seite und Retests konsistent.');

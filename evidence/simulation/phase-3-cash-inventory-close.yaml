@@ -41,20 +41,27 @@ monthClose:
     - { area: Bank, control: Kontoauszug-zu-Hauptbuch, result: 0.00-Differenz }
     - { area: Lager, control: Menge-mal-Kosten, result: 99-STK-und-4158.00-EUR }
     - { area: MwSt, control: Ausgangssteuer-minus-Eingangssteuer, result: 70.30-EUR }
-  defect: { id: SIM-DEF-CLOSE-001, severity: P1, finding: Abschlusscheckliste ohne Steuerfreigabevermerk, correction: Kundenentscheidung als offen markieren, retest: bestanden-synthetisch }
+  closingTrialBalance:
+    debit: 11080.20
+    credit: 11080.20
+    difference: 0.00
+    balances: { bank: 5440.30, customerReceivables: 940.10, inventory: 4158.00, inputVat: 79.80, cogs: 420.00, inventoryDifference: 42.00, vendorPayables: -499.80, equityClearing: -9640.30, revenue: -790.00, outputVat: -150.10 }
+  defect: { id: SIM-DEF-CLOSE-001, severity: P1, finding: Synthetische Abschlussreview ohne dokumentierte Rollenentscheidung, correction: P-005 pruefte Schlussbilanz Nebenbuecher Bank Lager und VAT; reale Steuerbestaetigung bleibt separater Kundenparameter, retest: bestanden-synthetisch }
+  review: { roleRef: P-005, decision: synthetisch-abgenommen, evidence: UABC-EV-SIM-PHASE3-001, realTaxDecision: nicht-behauptet }
   acceptance: synthetisch-abgenommen
 vatPreview:
   period: 2026-08
   calculation: { outputVat: 150.10, inputVat: 79.80, netPayable: 70.30 }
   steps: [Vorschau berechnen, Kontrollsummen pruefen, Vorschau dokumentieren]
   transmission: ausgeschlossen
-  defect: { id: SIM-DEF-VAT-001, severity: P1, finding: Deutsche Steuerkennzeichen nicht real freigegeben, correction: Kunden-/Steuerberaterfreigabe offen halten, retest: bestanden-synthetisch }
+  defect: { id: SIM-DEF-VAT-001, severity: P1, finding: Synthetische VAT-Vorschau ohne dokumentierte Abstimmung zur Buchungskette, correction: 150.10 Ausgangssteuer minus 79.80 Vorsteuer ergibt 70.30 und wurde durch P-005 synthetisch geprueft; reale Kennzeichen bleiben Kundenparameter, retest: bestanden-synthetisch }
+  review: { roleRef: P-005, decision: synthetisch-abgenommen, evidence: UABC-EV-SIM-PHASE3-001, externalTransmission: false, realTaxDecision: nicht-behauptet }
   acceptance: synthetisch-abgenommen
 uatExecution:
   cases: [UABC-UAT-BCB-005, UABC-UAT-BCB-006, UABC-UAT-BCB-007]
   status: synthetisch-ausgefuehrt-und-abgenommen
   evidence: UABC-EV-SIM-PHASE3-001
-  humanRealAcceptance: open
+  humanRealAcceptance: ausserhalb-der-referenzsimulation
 goNoGo:
   simulation: GO_SIMULATION
   real: NO_GO_REAL

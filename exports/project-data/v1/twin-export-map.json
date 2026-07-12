@@ -83,50 +83,10 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-JIRA-BLUEPRINT-WAVE-001",
-      "kindId": "jira-issues",
-      "path": "atlassian/jira/issues/blueprint-wave.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-JIRA-ENVIRONMENT-001",
-      "kindId": "jira-issues",
-      "path": "atlassian/jira/issues/environment-baseline.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-JIRA-WALKTHROUGH-001",
-      "kindId": "jira-issues",
-      "path": "atlassian/jira/issues/walkthrough-pilot.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
       "id": "UABC-SRC-BCB-JIRA-004",
       "kindId": "jira-people",
       "path": "atlassian/jira/people.yaml",
       "selector": "people[id in P-001,P-002,P-003,P-004,P-005,P-011,P-015,P-016,P-019]",
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-ARCH-ENTERPRISE-001",
-      "kindId": "enterprise-blueprint",
-      "path": "architecture/enterprise-blueprint.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-CAP-CATALOG-001",
-      "kindId": "capability-catalog",
-      "path": "capabilities/catalog.yaml",
-      "selector": null,
       "format": "yaml",
       "required": true
     },
@@ -496,54 +456,6 @@
       "path": "governance/schemas/project-snapshot-manifest.schema.json",
       "selector": null,
       "format": "json-schema",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-GOV-REFERENCE-001",
-      "kindId": "reference-lifecycle",
-      "path": "governance/reference-lifecycle.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-SPEC-CAPABILITY-001",
-      "kindId": "reference-definition-spec",
-      "path": "openspec/specs/capability-portfolio/spec.md",
-      "selector": null,
-      "format": "openspec",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-SPEC-ENTERPRISE-001",
-      "kindId": "reference-definition-spec",
-      "path": "openspec/specs/enterprise-model/spec.md",
-      "selector": null,
-      "format": "openspec",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-SPEC-ENVIRONMENT-001",
-      "kindId": "reference-definition-spec",
-      "path": "openspec/specs/environment-baseline/spec.md",
-      "selector": null,
-      "format": "openspec",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-SPEC-GOVERNANCE-001",
-      "kindId": "reference-definition-spec",
-      "path": "openspec/specs/project-governance/spec.md",
-      "selector": null,
-      "format": "openspec",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-SPEC-WALKTHROUGH-001",
-      "kindId": "reference-definition-spec",
-      "path": "openspec/specs/walkthrough-package/spec.md",
-      "selector": null,
-      "format": "openspec",
       "required": true
     },
     {

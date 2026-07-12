@@ -12,7 +12,31 @@ values:
   chartOfAccountsTemplate: SKR04
   locationCode: HAUPT
   locationName: Hauptlager
-  postingGroupsApprovalStatus: pending
-  taxSetupApprovalStatus: pending
+  postingGroupsApprovalStatus: simulated-approved
+  taxSetupApprovalStatus: simulated-approved
+  syntheticConfigurationBaseline:
+    accountRoles:
+      - { role: BANK, accountNoCandidate: "1800", purpose: synthetisches EUR-Bankkonto }
+      - { role: DEBITOREN-SAMMEL, accountNoCandidate: "1200", purpose: Forderungen aus Lieferungen und Leistungen }
+      - { role: KREDITOREN-SAMMEL, accountNoCandidate: "3300", purpose: Verbindlichkeiten aus Lieferungen und Leistungen }
+      - { role: BESTAND-HANDEL, accountNoCandidate: "1140", purpose: Bestand Handelswaren }
+      - { role: EIGENKAPITAL-CLEARING, accountNoCandidate: "2900", purpose: synthetisches Eroeffnungsgegenkonto }
+      - { role: EINKAUF-HANDEL, accountNoCandidate: "5400", purpose: Wareneingang Handelswaren }
+      - { role: ERLOES-HANDEL, accountNoCandidate: "4400", purpose: Umsatzerloese Handelswaren 19 Prozent }
+      - { role: VORSTEUER-19, accountNoCandidate: "1406", purpose: abziehbare Vorsteuer 19 Prozent }
+      - { role: UMSATZSTEUER-19, accountNoCandidate: "3806", purpose: Umsatzsteuer 19 Prozent }
+      - { role: WARENEINSATZ-HANDEL, accountNoCandidate: "5401", purpose: Wareneinsatz Handelswaren }
+      - { role: INVENTURDIFFERENZ, accountNoCandidate: "6900", purpose: synthetische Inventurdifferenz }
+    postingMatrices:
+      - { matrix: general, businessGroup: INLAND, productGroup: HANDEL, salesAccountRole: ERLOES-HANDEL, purchaseAccountRole: EINKAUF-HANDEL, cogsAccountRole: WARENEINSATZ-HANDEL }
+      - { matrix: vat, businessGroup: INLAND, productGroup: MWST19, vatPercent: 19, purchaseVatAccountRole: VORSTEUER-19, salesVatAccountRole: UMSATZSTEUER-19 }
+      - { matrix: customer, postingGroup: INLAND, receivablesAccountRole: DEBITOREN-SAMMEL }
+      - { matrix: vendor, postingGroup: INLAND, payablesAccountRole: KREDITOREN-SAMMEL }
+      - { matrix: inventory, postingGroup: HANDEL, inventoryAccountRole: BESTAND-HANDEL, inventoryAdjustmentAccountRole: INVENTURDIFFERENZ }
+      - { matrix: bank, postingGroup: EUR-BANK, bankAccountRole: BANK }
+    costingMethod: FIFO
+    dimensionCodes: [KOSTENSTELLE, GESCHAEFT]
+    syntheticOnly: true
+    realConfirmationRequired: true
   synthetic: true
-  approvalStatus: pending
+  approvalStatus: simulated-approved
