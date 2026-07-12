@@ -58,3 +58,8 @@ test('PHASE_EPIC blockiert Phasentitel als Epic', () => has(mutate((s) => { s.ti
 test('EPIC_WITHOUT_PHASE blockiert fehlende Phase-Elternbindung', () => has(mutate((s) => { s.tickets.find((t)=>t.type==='epic').parent=null; }), 'EPIC-PHASE'));
 test('STORY_WITHOUT_PHASE blockiert Ergebnis ohne Phase', () => has(mutate((s) => { s.tickets.find((t)=>t.type==='story').phaseId=null; }), 'TICKET-PHASE'));
 test('FALSE_PHASE_ROLLUP blockiert falsche Phasensumme', () => has(mutate((s) => { s.tickets[0].actualHours=23; }), 'PHASE-ROLLUP'));
+test('MIGRATION_PHASE_TARGET blockiert semantisch falsches Phasenziel', () => has(mutate((s) => { s.ticketMigration.find((r) => r.sourceId === 'UABC-PHASE-1').targetId='UABC-19'; }), 'MIGRATIONSMAP'));
+test('MIGRATION_DANGLING_TARGET blockiert unbekanntes aktives Ziel', () => has(mutate((s) => { s.ticketMigration.find((r) => r.targetKind === 'active-ticket').targetId='UABC-99'; }), 'MIGRATIONSMAP'));
+test('AKTIVE_ALT_ID blockiert alte Ticket-ID in dependency', () => has(mutate((s) => { task(s).dependencies = ['TKT-UABC-35']; }), 'AKTIVE-ALT-ID'));
+test('AKTIVE_ALT_ID blockiert alte Phasen-ID als parent', () => has(mutate((s) => { task(s).parent = 'UABC-PHASE-2'; }), 'AKTIVE-ALT-ID'));
+test('AKTIVE_ALT_ID blockiert alte Ticket-ID in Seitenreferenz', () => has(mutate((s) => { s.pages[0].references = ['TKT-UABC-22']; }), 'AKTIVE-ALT-ID'));

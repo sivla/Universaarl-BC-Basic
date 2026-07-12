@@ -10,7 +10,7 @@ order: 7
 storyPageId: PAGE-UABC-170
 purpose: Befähigt operative Rollen für Alltag, Kontrolle, Fehlerdiagnose und Eskalation.
 audience: [Key User, Endanwender, Trainer, Support]
-jiraRefs: [UABC-33, UABC-34, UABC-38]
+jiraRefs: [UABC-45, UABC-46, UABC-50]
 referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-010]
 lastReviewed: 2026-09-03
 ---

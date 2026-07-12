@@ -1,6 +1,6 @@
 schemaVersion: 2
 governingChange: migrate-bc-basic-to-single-uabc-ticket-project
-lifecycleStatus: proposed
+lifecycleStatus: active
 producer:
   projectId: UABC-BC-BASIC-001
   contractId: UABC-PROJECT-DATA-V1
@@ -37,7 +37,7 @@ consumers:
       manifestSchemaPath: governance/schemas/project-snapshot-manifest.schema.json
       manifestPath: null
       pathSemantics: repository-relative
-      lifecycleStatus: proposed
+      lifecycleStatus: active
       sourceCommitSha: null
       consumerBindingDigest: null
       payloadBundleDigest: null
@@ -46,9 +46,9 @@ consumers:
       generationStages:
         - commitgebundene-payloadliste-und-digests
         - manifest-aus-validierter-payloadliste
-      validationStatus: blocked
+      validationStatus: validated
       accessRule: Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.
-      availability: blockiert-bcprojectos-release-und-snapshotnachweise-ausstehend
+      availability: validierter-branch-commit-extern-zu-pinnen
     dependency:
       direction: consumer-to-producer
       blueprintReadsConsumer: false

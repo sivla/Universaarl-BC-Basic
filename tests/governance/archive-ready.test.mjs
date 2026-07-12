@@ -136,11 +136,11 @@ async function disposableRepository(t) {
     'project/bc-basic'
   ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
   for (const name of await fs.readdir(path.join(changesRoot, 'archive'))) {
-    if (name.endsWith('-establish-project-artifact-walkthrough-pilot')) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
+    if (name.endsWith('-establish-project-artifact-walkthrough-pilot') || name.endsWith(`-${bcBasicChange}`)) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
   }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
-  register.verifications = register.verifications.filter((item) => !['establish-project-artifact-walkthrough-pilot', bcBasicChange].includes(item.changeRef));
+  register.verifications = register.verifications.filter((item) => !['establish-project-artifact-walkthrough-pilot', bcBasicChange, 'migrate-bc-basic-to-single-uabc-ticket-project'].includes(item.changeRef));
   await writeYaml(root, verificationPath, register);
   return root;
 }

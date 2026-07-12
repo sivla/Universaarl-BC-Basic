@@ -222,6 +222,7 @@ export function buildTicketExport(story, historicalSources = []) {
 
 export function ticketExportErrors(ticketExport) {
   const errors=[]; const records=ticketExport?.ticketRecords??[]; const byId=new Map(records.map(r=>[r.id,r]));
+  if (/\b(?:TKT-UABC-[A-Z0-9-]+|UABC-PHASE-\d+)\b/.test(JSON.stringify(records))) errors.push('active-legacy-id');
   if(records.length!==50||ticketExport.recordCount!==50||ticketExport.customerStoryCount!==50||ticketExport.internalTraceabilityCount!==0||ticketExport.traceabilityRecords?.length!==0) errors.push('ticket-count');
   if(new Set(records.map(r=>r.id)).size!==records.length) errors.push('duplicate-id');
   if(ticketExport.countedWorklogHours!==80||records.reduce((s,r)=>s+r.worklogHours,0)!==80) errors.push('double-count');

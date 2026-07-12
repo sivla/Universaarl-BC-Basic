@@ -10,7 +10,7 @@ order: 10
 storyPageId: PAGE-UABC-150
 purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und Projektabschluss zusammen.
 audience: [Steering, Projektleitung, Kunde, Kontrollzentrum]
-jiraRefs: [UABC-22, UABC-26, UABC-34, UABC-35, UABC-38]
+jiraRefs: [UABC-32, UABC-33, UABC-46, UABC-47, UABC-50]
 referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
 lastReviewed: 2026-09-03
 ---

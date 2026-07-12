@@ -10,7 +10,7 @@ order: 6
 storyPageId: PAGE-UABC-060
 purpose: Fasst Teststrategie, sieben UAT-Fälle, Defectweg, Kontrollen und Abnahme zusammen.
 audience: [Key User, Projektleitung, Consultant]
-jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
+jiraRefs: [UABC-46, UABC-47, UABC-48, UABC-49]
 referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-008, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
 lastReviewed: 2026-09-03
 ---

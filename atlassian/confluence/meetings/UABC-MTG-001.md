@@ -5,7 +5,7 @@ date: 2026-08-21
 status: simulated-complete
 projectId: UABC-BC-BASIC-001
 participantRefs: [P-001, P-002, P-005, P-011, P-016, P-019]
-ticketRefs: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26]
+ticketRefs: [UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
 evidenceClaimed: false
 ---
 
@@ -80,10 +80,10 @@ Diese Bestätigungen sind vor einem echten Projekt zu parametrisieren oder nachz
 
 | Ticket | Ergebnis | Owner | Nachweis |
 |---|---|---|---|
-| `UABC-22` | Scope, Rollen und Rahmen erklärt | `P-002` | Discovery-Seite und Angebot |
-| `UABC-23` | Finance-/VAT-Design entschieden | `P-005` | Entscheidungsregister und Blueprint |
-| `UABC-24` | E2E-Fit/Gap entschieden | `P-011`, `P-019` | Prozesslandkarte und Playthrough |
-| `UABC-25` | Migrationswellen und Abstimmung festgelegt | `P-016` | Datenpaket |
-| `UABC-26` | UAT-/Cutover-Verwendung bestätigt | `P-001` | UAT-Katalog und Projektstory |
+| `UABC-32` | Scope, Rollen und Rahmen erklärt | `P-002` | Discovery-Seite und Angebot |
+| `UABC-34` | Finance-/VAT-Design entschieden | `P-005` | Entscheidungsregister und Blueprint |
+| `UABC-35`, `UABC-36`, `UABC-37` | E2E-Fit/Gap für Einkauf, Verkauf und Lager entschieden | `P-011`, `P-019` | Prozesslandkarte und Playthrough |
+| `UABC-38` | Migrationswellen und Abstimmung festgelegt | `P-016` | Datenpaket |
+| `UABC-33` | UAT-/Cutover-Verwendung bestätigt | `P-001` | UAT-Katalog und Projektstory |
 
 Synthetische Gate-Entscheidung am 2026-08-21: **GO_DISCOVERY_SIMULATION**. Alle fünf Actions sind innerhalb der Simulation angenommen; keine reale Unterschrift oder externe Freigabe wird behauptet.

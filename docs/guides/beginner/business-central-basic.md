@@ -65,6 +65,6 @@ Vier Schulungseinheiten decken Navigation/Rollencenter/Tell Me, Finanzwesen, Ein
 | Schulung und Fachabnahme | `UABC-PW-BCB-009` | vier Rollen synthetisch bestanden | Benutzer fuehren Kompetenznachweis neu durch |
 | Abschlussprobe | `UABC-PW-BCB-007` | Schlussbilanz 11.080,20 EUR je Seite; Differenz 0,00 EUR | reale Salden und Perioden neu abstimmen |
 | UStVA-Pruefung | `UABC-PW-BCB-008` | 150,10 EUR Ausgangssteuer minus 79,80 EUR Vorsteuer gleich 70,30 EUR Vorschau | Steuerkennzeichen bestaetigen; keine Uebermittlung im Paket |
-| Uebergabe | `UABC-38` | synthetisch abgenommen | reale Betriebsannahme nach Kundensandbox |
+| Uebergabe | `UABC-50` | synthetisch abgenommen | reale Betriebsannahme nach Kundensandbox |
 
 Die verbindlichen Quellen und der aktuelle Stand werden ausschliesslich ueber `exports/project-data/v1/index.yaml` aufgeloest. Bei gemeinsam genutzten Dateien gilt nur der dort deklarierte Selektor; Verweise innerhalb einer Quelle erweitern den Leseumfang nicht. Fehlende Werte bleiben leer.

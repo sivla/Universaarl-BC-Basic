@@ -68,6 +68,9 @@ if (active.length !== 50 || new Set(active.map(t=>t.id)).size !== 50) throw new 
 const oldIds = oldTickets.map(t=>t.id);
 const historical = ['UABC-18','UABC-19','UABC-20','UABC-21','UABC-22','UABC-23','UABC-24','UABC-25','UABC-26','UABC-27','UABC-28','UABC-29','UABC-30','UABC-31','UABC-32','UABC-33','UABC-34','UABC-35','UABC-36','UABC-37','UABC-38','UABC-1','UABC-2','UABC-3','UABC-4','UABC-5','UABC-6','UABC-7','UABC-8','UABC-9','UABC-10','UABC-11','UABC-12','UABC-13','UABC-14','UABC-15','UABC-16','UABC-17'];
 const targetFor = new Map([...Object.entries(storyMap).map(([k,v])=>[k,v[0]]),...Object.entries(taskMap).map(([k,v])=>[k,v[0]]),...Object.entries(oldEpicToNew)]);
+targetFor.set('UABC-PHASE-1', 'UABC-1');
+targetFor.set('UABC-PHASE-2', 'UABC-2');
+targetFor.set('UABC-PHASE-3', 'UABC-3');
 const migration = [...oldIds.map(sourceId => ({ sourceId, sourceKind:'previous-active-ticket', targetId:targetFor.get(sourceId) || (sourceId.startsWith('TKT-UABC-EPIC-') ? oldEpicToNew[sourceId] : null), targetKind:'active-ticket', decision:'fachliche Migration mit erhaltener Evidence' })),
   ...historical.map(sourceId => ({ sourceId, sourceKind:'historical-traceability', targetId: sourceId==='UABC-18'?'project/bc-basic/billing.yaml':(sourceId==='UABC-1'?'atlassian/confluence/pages/30-blueprint.md':'project/bc-basic/ticket-migration.yaml'), targetKind: sourceId==='UABC-18'?'non-ticket-provenance':'non-ticket-provenance', decision:'historische Provenienz, keine aktive Ticketquelle' }))];
 if (migration.length !== 86) throw new Error(`Migration ${migration.length} statt 86`);
@@ -75,6 +78,18 @@ story.tickets = active;
 story.ticketMigration = migration;
 story.controls = { ...story.controls, activeTicketCount:50, activeTicketIdRange:'UABC-1..UABC-50', phaseCount:3, epicCount:10, storyCount:18, taskCount:19, internalTraceabilityCount:0, billableTicketCount:19, planHours:80, actualHours:80, netAmount:9600, phaseHours:{P1:22,P2:40,P3:18}, ticketSource:'evidence/simulation/project-story.json', historicalTicketSource:'provenance-only' };
 story.classification = 'synthetic-only';
+const activeMigrationMap = new Map(migration.filter((row) => row.targetKind === 'active-ticket').map((row) => [row.sourceId, row.targetId]));
+const legacyPattern = /\b(?:TKT-UABC-[A-Z0-9-]+|UABC-PHASE-\d+)\b/g;
+const migrateActive = (value) => {
+  if (Array.isArray(value)) { for (let index = 0; index < value.length; index++) value[index] = typeof value[index] === 'object' && value[index] !== null ? (migrateActive(value[index]), value[index]) : migrateString(value[index]); return; }
+  if (value && typeof value === 'object') for (const key of Object.keys(value)) value[key] = typeof value[key] === 'object' && value[key] !== null ? (migrateActive(value[key]), value[key]) : migrateString(value[key]);
+};
+const migrateString = (value) => typeof value === 'string' ? value.replace(legacyPattern, (sourceId) => {
+  const targetId = activeMigrationMap.get(sourceId);
+  if (!targetId) throw new Error(`Aktive Alt-ID ${sourceId} besitzt kein Migrationsziel`);
+  return targetId;
+}) : value;
+for (const [key, value] of Object.entries(story)) if (key !== 'ticketMigration') migrateActive(value);
 fs.writeFileSync(storyPath, JSON.stringify(story,null,2)+'\n');
 fs.writeFileSync('project/bc-basic/ticket-migration.yaml', YAML.stringify({ schemaVersion:1, migrationId:'UABC-TICKET-MIGRATION-2026-07-12', sourceCount:86, activeTargetRange:'UABC-1..UABC-50', activeTargetCount:50, policy:'alte IDs nur in dieser Provenienzmatrix; keine parallele Ticket-/Billingwahrheit', records:migration }));
 console.log(`UABC-Migration erzeugt: ${active.length} Tickets, ${migration.length} Provenienzrecords, 80h/9600 EUR.`);

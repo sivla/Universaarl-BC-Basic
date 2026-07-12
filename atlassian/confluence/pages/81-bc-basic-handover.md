@@ -11,7 +11,7 @@ audience: Vertrieb, Projektleitung, Consultant, Key User und Support
 owners: [P-002]
 version: 3
 status: published
-jiraRefs: [UABC-38]
+jiraRefs: [UABC-50]
 referenceIds: [UABC-REQ-BCB-010, UABC-REQ-BCB-011]
 lastReviewed: 2026-09-03
 ---

@@ -10,7 +10,7 @@ order: 3
 storyPageId: PAGE-UABC-100
 purpose: Dokumentiert Anforderungen, Standardabbildung, Fit/Gap und die notwendigen Kundenentscheidungen.
 audience: [Projektleitung, Fachbereich, Solution Architect]
-jiraRefs: [UABC-23, UABC-24, UABC-25, UABC-26]
+jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-009]
 lastReviewed: 2026-09-03
 ---

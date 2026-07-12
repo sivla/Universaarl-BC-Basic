@@ -15,7 +15,7 @@ solutionDesignDecision:
   status: simulated-approved
   decidedAt: 2026-08-21
   meetingRef: UABC-MTG-001
-  ticketRefs: [UABC-23, UABC-24, UABC-25, UABC-26]
+  ticketRefs: [UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33]
   owners: [P-001, P-005, P-011, P-019]
   parameters:
     financeAndVat: reduzierter SKR04-orientierter Kontenplan, Inland-/Handels-Buchungsgruppen und 19-Prozent-VAT-Kombination; Konten und Steuerkennzeichen real steuerlich bestaetigen
@@ -42,27 +42,27 @@ openApprovals:
     subject: Exakte Schreibzielgesellschaft Universaarl GmbH in playthru und Ruecksetzerlaubnis
     requiredRole: realer Sandbox-Verantwortlicher
     status: open
-    blocks: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-34, UABC-36]
+    blocks: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-46, UABC-48]
   - id: UABC-APP-BCB-002
     subject: Tatsaechliche Essentials- oder Premium-Lizenzzuordnung und externe Kosten
     requiredRole: realer Kunde und Lizenzverantwortlicher
     status: open
-    blocks: [UABC-26, UABC-27]
+    blocks: [UABC-33, UABC-39]
   - id: UABC-APP-BCB-003
     subject: Konten, Buchungsgruppen, MwSt.-Matrix und UStVA-Kennzeichen
     requiredRole: reale Finanzverantwortung und Steuerberatung
     status: open
-    blocks: [UABC-28, UABC-34, UABC-36, UABC-37]
+    blocks: [UABC-40, UABC-46, UABC-48, UABC-49]
   - id: UABC-APP-BCB-004
     subject: Fachlicher Abnahmetest und simulierter Sandbox-Uebergang
     requiredRole: reale Prozessverantwortliche und Sponsor
     status: open
-    blocks: [UABC-34, UABC-35]
+    blocks: [UABC-46, UABC-47]
   - id: UABC-APP-BCB-005
     subject: Monatsabschlussprobe in der Sandbox, UStVA-Vorschau und Abschluss der Hypercare
     requiredRole: reale Finanzverantwortung, Steuerberatung und Sponsor
     status: open
-    blocks: [UABC-36, UABC-37, UABC-38]
+    blocks: [UABC-48, UABC-49, UABC-50]
   - id: UABC-APP-BCB-006
     subject: Optionales Budgetlimit, falls der reale Auftraggeber eines vorgeben moechte
     requiredRole: realer Sponsor

@@ -1593,7 +1593,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-15
     dependencyRefs:
-      - TKT-UABC-25
+      - UABC-38
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -1698,7 +1698,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-17
     dependencyRefs:
-      - TKT-UABC-23
+      - UABC-34
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -1750,7 +1750,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-18
     dependencyRefs:
-      - TKT-UABC-23
+      - UABC-34
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -1802,7 +1802,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-19
     dependencyRefs:
-      - TKT-UABC-23
+      - UABC-34
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2062,7 +2062,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-24
     dependencyRefs:
-      - TKT-UABC-29
+      - UABC-41
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2114,7 +2114,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-25
     dependencyRefs:
-      - TKT-UABC-30
+      - UABC-42
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2166,7 +2166,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-26
     dependencyRefs:
-      - TKT-UABC-30
+      - UABC-42
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2270,8 +2270,8 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-28
     dependencyRefs:
-      - TKT-UABC-30
-      - TKT-UABC-31
+      - UABC-42
+      - UABC-43
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2324,7 +2324,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-29
     dependencyRefs:
-      - TKT-UABC-31
+      - UABC-43
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2428,7 +2428,7 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-30
     dependencyRefs:
-      - TKT-UABC-36
+      - UABC-48
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
@@ -2480,9 +2480,9 @@ ticketRecords:
     displayColorToken: blue
     parent: UABC-31
     dependencyRefs:
-      - TKT-UABC-35
-      - TKT-UABC-36
-      - TKT-UABC-37
+      - UABC-47
+      - UABC-48
+      - UABC-49
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story

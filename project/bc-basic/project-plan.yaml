@@ -31,10 +31,10 @@ budgetRef: UABC-BUDGET-BCB-001
 phases:
   - id: UABC-PHASE-01
     name: Vorbereitung, Anforderungen und Datenbereitschaft
-    jiraRef: UABC-19
+    jiraRef: UABC-1
     startDate: 2026-08-03
     endDate: 2026-08-21
-    plannedBillableHours: 18
+    plannedBillableHours: 22
     scheduleSynthetic: true
     dependencies: []
     entryCriteria:
@@ -46,7 +46,7 @@ phases:
     deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
   - id: UABC-PHASE-02
     name: Einrichtung und Schulung in einer Woche
-    jiraRef: UABC-20
+    jiraRef: UABC-2
     startDate: 2026-08-24
     endDate: 2026-08-28
     plannedBillableHours: 40
@@ -63,10 +63,10 @@ phases:
     deliverableIds: [UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006]
   - id: UABC-PHASE-03
     name: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
-    jiraRef: UABC-21
+    jiraRef: UABC-3
     startDate: 2026-08-31
     endDate: 2026-09-04
-    plannedBillableHours: 10
+    plannedBillableHours: 18
     scheduleSynthetic: true
     dependencies: [UABC-PHASE-02]
     entryCriteria:

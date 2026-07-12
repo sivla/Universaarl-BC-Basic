@@ -22,7 +22,7 @@ sessions:
     controls: {accountRoles: 11, postingMatrices: 6, missingAccounts: 0}
     negative: {defect: SIM-DEF-SETUP-001, finding: fehlende-INLAND-HANDEL-Kombination, correction: Kombination-aus-synthetischer-Baseline-ergänzt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-001, workPackage: UABC-27, test: UABC-UAT-BCB-001, evidence: UABC-EV-SIM-PLAY-001, sources: [SRC-BC-058, SRC-BC-060]}
+    references: {requirement: UABC-REQ-BCB-001, workPackage: UABC-39, test: UABC-UAT-BCB-001, evidence: UABC-EV-SIM-PLAY-001, sources: [SRC-BC-058, SRC-BC-060]}
   - id: BC-SIM-MASTER-001
     date: 2026-08-25
     role: P-016
@@ -38,7 +38,7 @@ sessions:
     controls: {customers: 1, vendors: 1, items: 1, openingInventoryValue: 4200.00}
     negative: {defect: SIM-DEF-MASTER-001, finding: fehlende-Einheit-STK, correction: Einheit-ergänzt-und-reimportiert, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-29, test: UABC-UAT-BCB-002, evidence: UABC-EV-SIM-PLAY-002, sources: [SRC-BC-037, SRC-BC-058]}
+    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-41, test: UABC-UAT-BCB-002, evidence: UABC-EV-SIM-PLAY-002, sources: [SRC-BC-037, SRC-BC-058]}
   - id: BC-SIM-P2P-001
     date: 2026-08-26
     role: P-011
@@ -56,7 +56,7 @@ sessions:
     controls: {net: 420.00, vat: 79.80, gross: 499.80, inventoryQuantity: 10}
     negative: {defect: SIM-DEF-P2P-001, finding: Teilwareneingang-oder-Preisabweichung, correction: Menge-auf-10-und-Kosten-42-00-korrigiert, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-30, test: UABC-UAT-BCB-002, evidence: UABC-EV-SIM-PLAY-003, sources: [SRC-BC-062, SRC-BC-060]}
+    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-42, test: UABC-UAT-BCB-002, evidence: UABC-EV-SIM-PLAY-003, sources: [SRC-BC-062, SRC-BC-060]}
   - id: BC-SIM-O2C-001
     date: 2026-08-26
     role: P-011
@@ -74,7 +74,7 @@ sessions:
     controls: {net: 790.00, vat: 150.10, gross: 940.10, inventoryQuantity: -10, cogs: 420.00}
     negative: {defect: SIM-DEF-O2C-001, finding: Preis-oder-Kreditlimitabweichung, correction: Preis-79-00-und-Freigabe-synthetisch-bestätigt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-31, test: UABC-UAT-BCB-003, evidence: UABC-EV-SIM-PLAY-004, sources: [SRC-BC-062, SRC-BC-060, SRC-BC-076]}
+    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-43, test: UABC-UAT-BCB-003, evidence: UABC-EV-SIM-PLAY-004, sources: [SRC-BC-062, SRC-BC-060, SRC-BC-076]}
   - id: BC-SIM-CASH-001
     date: 2026-08-27
     role: P-005
@@ -90,7 +90,7 @@ sessions:
     controls: {openingBalance: 5000.00, incoming: 940.10, outgoing: -499.80, closingBalance: 5440.30, difference: 0.00}
     negative: {defect: SIM-DEF-CASH-001, finding: nicht-matchbare-Referenz, correction: Applies-to-Referenz-ergänzt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-009, workPackage: UABC-36, test: UABC-UAT-BCB-005, evidence: UABC-EV-SIM-PLAY-005, sources: [SRC-BC-063]}
+    references: {requirement: UABC-REQ-BCB-009, workPackage: UABC-48, test: UABC-UAT-BCB-005, evidence: UABC-EV-SIM-PLAY-005, sources: [SRC-BC-063]}
   - id: BC-SIM-INVENTORY-001
     date: 2026-08-28
     role: P-019
@@ -106,7 +106,7 @@ sessions:
     controls: {expectedQuantity: 100, countedQuantity: 99, adjustment: -1, closingValue: 4158.00}
     negative: {defect: SIM-DEF-INV-001, finding: falscher-Lagerort, correction: HAUPT-gebunden-und-neu-berechnet, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-32, test: UABC-UAT-BCB-004, evidence: UABC-EV-SIM-PLAY-006, sources: [SRC-BC-064]}
+    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-44, test: UABC-UAT-BCB-004, evidence: UABC-EV-SIM-PLAY-006, sources: [SRC-BC-064]}
   - id: BC-SIM-CLOSE-001
     date: 2026-08-29
     role: P-005
@@ -122,5 +122,5 @@ sessions:
     controls: {glDifference: 0.00, bankDifference: 0.00, vatPayable: 70.30, openCustomer: 940.10, openVendor: 499.80, closingTrialBalance: 11080.20}
     negative: {defect: SIM-DEF-CLOSE-001, finding: Perioden-oder-VAT-Setup-fehlt, correction: Zeitraum-und-Matrix-synthetisch-korrigiert, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-009, workPackage: UABC-37, test: UABC-UAT-BCB-007, evidence: UABC-EV-SIM-PLAY-007, sources: [SRC-BC-061, SRC-BC-065, SRC-BC-066, SRC-BC-067]}
+    references: {requirement: UABC-REQ-BCB-009, workPackage: UABC-49, test: UABC-UAT-BCB-007, evidence: UABC-EV-SIM-PLAY-007, sources: [SRC-BC-061, SRC-BC-065, SRC-BC-066, SRC-BC-067]}
 gate: GO_SIMULATION

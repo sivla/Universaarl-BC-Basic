@@ -8,17 +8,17 @@ policy: alte IDs nur in dieser Provenienzmatrix; keine parallele
 records:
   - sourceId: UABC-PHASE-1
     sourceKind: previous-active-ticket
-    targetId: null
+    targetId: UABC-1
     targetKind: active-ticket
     decision: fachliche Migration mit erhaltener Evidence
   - sourceId: UABC-PHASE-2
     sourceKind: previous-active-ticket
-    targetId: null
+    targetId: UABC-2
     targetKind: active-ticket
     decision: fachliche Migration mit erhaltener Evidence
   - sourceId: UABC-PHASE-3
     sourceKind: previous-active-ticket
-    targetId: null
+    targetId: UABC-3
     targetKind: active-ticket
     decision: fachliche Migration mit erhaltener Evidence
   - sourceId: TKT-UABC-EPIC-PROJECT

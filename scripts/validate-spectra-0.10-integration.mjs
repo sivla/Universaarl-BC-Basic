@@ -127,5 +127,5 @@ export function validateIntegration(data) {
 if (process.argv[1]?.endsWith('validate-spectra-0.10-integration.mjs')) {
   const data = loadIntegration(); const errors = validateIntegration(data);
   if (errors.length) { console.error(`Spectra-0.10-Integrationspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
-  console.log(`Spectra-0.10-Integrationspruefung bestanden: 3 Phase-Tickets, 8 fachliche Epics und 19 abrechenbare Tasks, 80h/9.600 EUR, 252 native Relationen, 328 portable Kanten, ${data.index.artifacts.length} Twin-Artefakte, Source ${sha256(data.indexBytes)}, Projektion ${hash(data.exportMapBytes)}.`);
+  console.log(`Spectra-0.10-Integrationspruefung bestanden: 3 Phase-Tickets, 10 fachliche Epics, 18 Stories und 19 abrechenbare Tasks, 80h/9.600 EUR, ${data.coverageSource.relations.length} native Relationen, ${data.coverageProjection.edges.length} portable Kanten, ${data.index.artifacts.length} Twin-Artefakte, Source ${sha256(data.indexBytes)}, Projektion ${hash(data.exportMapBytes)}.`);
 }

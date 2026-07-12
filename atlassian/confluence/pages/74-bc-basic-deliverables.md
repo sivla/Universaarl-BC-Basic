@@ -10,7 +10,7 @@ order: 2
 storyPageId: PAGE-UABC-130
 purpose: Fasst Auftrag, Leistungsgrenze, kommerzielle Linie und neun Lieferobjekte zusammen.
 audience: [Kunde, Vertrieb, Projektleitung]
-jiraRefs: [UABC-22, UABC-26, UABC-38]
+jiraRefs: [UABC-32, UABC-33, UABC-50]
 referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
 lastReviewed: 2026-09-03
 ---

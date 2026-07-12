@@ -515,7 +515,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "d5a21db4d9594cfb497a0f785acdcc22000186ecbf7d6700fc3f12ae8baca4bf",
+      "contentSha256": "38412d67ef6a028b59240e8fce659d78272f399ea2a2367cff005cf245dee6c6",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -579,10 +579,10 @@
         "P-005"
       ],
       "jiraRefs": [
-        "UABC-22",
-        "UABC-26",
-        "UABC-35",
-        "UABC-38"
+        "UABC-32",
+        "UABC-33",
+        "UABC-47",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
@@ -591,7 +591,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "b3e6bb31a0b8e1d1cfe79f99741324f376e9e5863eb150145aed9ac157dcf96e",
+      "contentSha256": "6f32b517e9d4162082d6011964c74c681ccd8b99c3d625e50b3ebf5cab0d1dbc",
       "visibility": "twin-visible",
       "readiness": "historical-current",
       "externalUrl": null,
@@ -619,10 +619,12 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-22",
-        "UABC-23",
-        "UABC-24",
-        "UABC-25"
+        "UABC-32",
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
@@ -631,7 +633,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "bd9714fb1b263ee64bfea06d115d02bb00284731c3db866e4f4a0286e11072ee",
+      "contentSha256": "f84ede6aedb81ac82fe9f3574b960152c5f33fec9b4be6a3b9d118dd13682eb5",
       "visibility": "twin-visible",
       "readiness": "historical-current",
       "externalUrl": null,
@@ -761,15 +763,15 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-25",
-        "UABC-29"
+        "UABC-38",
+        "UABC-41"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-006",
         "UABC-REQ-BCB-008"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "649c504b1a69dade7c821f27c6979c122d9af0d5b24a3cfa0de023b1a7fa1df9",
+      "contentSha256": "974c56cd521b92e31482a1930b796f8d04a1746ef7bbd66fdd0e0b119ff7605d",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -797,10 +799,10 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-34",
-        "UABC-35",
-        "UABC-36",
-        "UABC-37"
+        "UABC-46",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-007",
@@ -809,7 +811,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "d37aacbd38ff493ff00dddeb8f42404178e1ab71ebc690b27e29e5423722a8aa",
+      "contentSha256": "eb1f0f5ddfbe4fcac87a022c9c213fdd0fd976d922191949c6953c158954617a",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -876,9 +878,9 @@
         "P-016"
       ],
       "jiraRefs": [
-        "UABC-34",
-        "UABC-35",
-        "UABC-38"
+        "UABC-46",
+        "UABC-47",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-002",
@@ -886,7 +888,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "748c7ef51fbd6bcfef1b0840cad2aa645ca0f5b3a5d26b2c3952fdde52157c12",
+      "contentSha256": "f992de0e919d3c81a059000cac36bc9c584e53bd8db5ee2ad131117d9cf7952f",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -951,10 +953,12 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-23",
-        "UABC-24",
-        "UABC-25",
-        "UABC-26"
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38",
+        "UABC-33"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-002",
@@ -964,7 +968,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "36b3a695b71d5c0444cb46464e7eaf954737e5c1404b6f33ce528653af55f2d2",
+      "contentSha256": "811c25ab7c631eb4bce3a18e3210f4e3e425174c5988bbad4ae3ebd396e9507b",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -993,13 +997,13 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-27",
-        "UABC-28",
-        "UABC-29",
-        "UABC-30",
-        "UABC-31",
-        "UABC-32",
-        "UABC-34"
+        "UABC-39",
+        "UABC-40",
+        "UABC-41",
+        "UABC-42",
+        "UABC-43",
+        "UABC-44",
+        "UABC-46"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
@@ -1009,7 +1013,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "ce76d8d37482f3c54d8967d875983320e10090c3d4780e1b6ab01d9cf7b99af6",
+      "contentSha256": "bf1bd4f91377a59978d8a2b858026f538f2e09b6bb60b08158e455b24372cd86",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
@@ -1035,10 +1039,10 @@
       ],
       "jiraRefs": [
         "UABC-21",
-        "UABC-35",
-        "UABC-36",
-        "UABC-37",
-        "UABC-38"
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-002",
@@ -1046,7 +1050,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-12",
-      "contentSha256": "c5f685ab665e61c04492f16d52ccf43c2b288e42ffeae6f380ed37f359cf7990",
+      "contentSha256": "bdf93acfaa19a1f088df9fdb71d54668dacf2bcc6aca4bd85901840893843978",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
@@ -1073,9 +1077,9 @@
         "P-016"
       ],
       "jiraRefs": [
-        "UABC-22",
-        "UABC-26",
-        "UABC-38"
+        "UABC-32",
+        "UABC-33",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
@@ -1085,7 +1089,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "15e198ab422f71880c93b470f72d6943892b674172cc816e170b9f6c0c5e3776",
+      "contentSha256": "596918ccfb46cd74968795700807cf73e0a7c254b76cbba45b9b95c8791b7a5d",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
@@ -1111,30 +1115,32 @@
       ],
       "jiraRefs": [
         "UABC-18",
-        "UABC-22",
-        "UABC-23",
-        "UABC-24",
-        "UABC-25",
-        "UABC-26",
-        "UABC-27",
-        "UABC-28",
-        "UABC-29",
-        "UABC-30",
-        "UABC-31",
         "UABC-32",
-        "UABC-33",
         "UABC-34",
         "UABC-35",
         "UABC-36",
         "UABC-37",
-        "UABC-38"
+        "UABC-38",
+        "UABC-33",
+        "UABC-39",
+        "UABC-40",
+        "UABC-41",
+        "UABC-42",
+        "UABC-43",
+        "UABC-44",
+        "UABC-45",
+        "UABC-46",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-005",
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-12",
-      "contentSha256": "1b181b5b0d844fa2e6bb6eb1a2f6f98219d0867f12ecde27bcfe210e29231b7b",
+      "contentSha256": "5d3c2798b60a41eec8ef391d4f03bd88140d46f5394921cea27aa279ad0a3233",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
@@ -1162,16 +1168,16 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-33",
-        "UABC-34",
-        "UABC-38"
+        "UABC-45",
+        "UABC-46",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-007",
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "4e47c5cbd687927f05eafc10f99da00a3fba6cc4feacee240a1d4b79ac232f39",
+      "contentSha256": "6c2ef34fbaf09a8e6d206c21420089eb57f8836f7e2210d60a9107e44817ade5",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
@@ -1196,14 +1202,14 @@
         "P-002"
       ],
       "jiraRefs": [
-        "UABC-38"
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-010",
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "e05f208ac60b5f5b5fd5f1d60c0465f173d273782b2c3c4b1a9ba94d7777d1ba",
+      "contentSha256": "02ba924ff154f3181f507da4cfdabde31b50feca9420663cc0720fb979306d1a",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
@@ -1229,10 +1235,10 @@
         "P-005"
       ],
       "jiraRefs": [
-        "UABC-35",
-        "UABC-36",
-        "UABC-37",
-        "UABC-38"
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-002",
@@ -1240,7 +1246,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "741ad748342ef05893bf5e7e9b3e48718a1e99bcc58303a699731bd5919d8cb4",
+      "contentSha256": "2fa133ef9489d66efeb3235887c273a6a1f76eb5c9fb1e91b63032b9057c9c29",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -1266,11 +1272,11 @@
         "P-002"
       ],
       "jiraRefs": [
-        "UABC-22",
-        "UABC-26",
-        "UABC-34",
-        "UABC-35",
-        "UABC-38"
+        "UABC-32",
+        "UABC-33",
+        "UABC-46",
+        "UABC-47",
+        "UABC-50"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
@@ -1281,7 +1287,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "3ea53780746afeb3174e94e98c2b2ed162450b2fae24f4ee958bf12f54307366",
+      "contentSha256": "8af37c8a9146cf8ea31454a8af9fce21a56249bfd18acb6111a35654a8a0e517",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -1308,7 +1314,7 @@
         "UABC-DEL-BCB-009"
       ],
       "lastReviewed": null,
-      "contentSha256": "c7d8cf5cf66db17cc4c426232d3912b41f847c0e73afcb095de30f8bfe86b42c",
+      "contentSha256": "4a2d8f2df61e90926f673ed4ad3509a99512017b9f23a8e7a74613fb6f688d11",
       "visibility": "twin-visible",
       "readiness": "draft-template",
       "externalUrl": null,
@@ -1419,7 +1425,7 @@
         "UABC-DEL-BCB-009"
       ],
       "lastReviewed": null,
-      "contentSha256": "79b46fa285d8a837fc8db1830cfcd50f9655892cea3cda5c607ce148d01e4f2b",
+      "contentSha256": "030c6932c1ee1e6f16d368471ba5ca7404de61236fd0074a23485cdd0c5d6692",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
@@ -1545,7 +1551,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "481bd971cd3bb14c39582cc3f4fcf42447acca7c9fbbcdbb24fa8c06c4d59cad",
+      "contentSha256": "f1b0259afde6e6ea9645c9a6ada5f1d7a332ac03b8031894e048e8be3df0c451",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,

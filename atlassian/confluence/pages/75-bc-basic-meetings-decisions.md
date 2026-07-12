@@ -11,7 +11,7 @@ audience: Consultant, Projektleitung, Training und Support
 owners: [P-002]
 version: 4
 status: published
-jiraRefs: [UABC-18, UABC-22, UABC-23, UABC-24, UABC-25, UABC-26, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
+jiraRefs: [UABC-18, UABC-32, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33, UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-45, UABC-46, UABC-47, UABC-48, UABC-49, UABC-50]
 referenceIds: [UABC-REQ-BCB-005, UABC-REQ-BCB-010]
 lastReviewed: 2026-07-12
 ---

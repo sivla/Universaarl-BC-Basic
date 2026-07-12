@@ -79,33 +79,31 @@ test('BC-Basic bindet genau eine synthetische Gesellschaft in playthru', () => {
   assert.equal(scenarioCatalog.executed, false);
 });
 
-test('Drei Phasen ergeben 68 Planstunden mit genau einer Einrichtungswoche und begrenzter Hypercare', () => {
+test('Drei Phasen bilden den synthetischen 80-Stunden-Plan mit Einrichtungswoche und Hypercare ab', () => {
   assert.equal(plan.phases?.length, 3);
-  assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [18, 40, 10]);
-  assert.equal(plan.phases.reduce((sum, phase) => sum + phase.plannedBillableHours, 0), 68);
+  assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [22, 40, 18]);
+  assert.equal(plan.phases.reduce((sum, phase) => sum + phase.plannedBillableHours, 0), 80);
   assert.equal(plan.phases[1].startDate, '2026-08-24');
   assert.equal(plan.phases[1].endDate, '2026-08-28');
   assert.match(plan.phases[0].name, /Vorbereitung/);
   assert.match(plan.phases[2].name, /Hypercare/);
-  assert.equal(plan.phases[2].plannedBillableHours <= 10, true);
+  assert.equal(plan.phases[2].plannedBillableHours, 18);
 });
 
-test('OpenSpec-Aufgaben und Jira-Arbeitspakete stimmen bei Schluessel und Stunden ueberein', () => {
-  const taskEntries = [...taskPlanText.matchAll(/\(`(UABC-\d+)`, (\d+) h\)/g)].map((match) => ({ key: match[1], hours: Number(match[2]) }));
-  assert.deepEqual(taskEntries.map((entry) => entry.key), Array.from({ length: 17 }, (_, index) => `UABC-${index + 22}`));
-  assert.equal(taskEntries.reduce((sum, entry) => sum + entry.hours, 0), 68);
-  for (const entry of taskEntries) assert.equal(issueByKey.get(entry.key)?.plannedBillableHours, entry.hours, `${entry.key}: OpenSpec- und Jira-Stunden weichen ab`);
-  assert.match(taskPlanText, /Kontrollhandlungen erzeugen keine zusaetzlichen abrechenbaren Stunden/);
-  assert.match(taskPlanText, /Innerhalb von `UABC-38` den Projektindex/);
+test('OpenSpec-Aufgaben und Ticketvertrag beschreiben die aktive Migration ohne historischen Planrueckfall', () => {
+  assert.match(taskPlanText, /UABC-1\.\.50/);
+  assert.doesNotMatch(taskPlanText, /UABC-22.*UABC-38/);
+  assert.equal(changeConfig.proposedCanonicalUpdate?.facts?.ticketContract?.value, 'UABC-1..UABC-50');
+  assert.equal(projectIndex.ticketCatalog?.recordCount, 50);
+  assert.equal(projectIndex.ticketCatalog?.customerStoryCount, 50);
 });
 
-test('Kanonisches Liefermodell bleibt bei Einrichtung Hypercare und Monatsabschlussprobe', () => {
-  const deliveryModel = changeConfig.proposedCanonicalUpdate?.facts?.deliveryModel?.value ?? '';
-  assert.match(deliveryModel, /BC Basic Einrichtung/);
-  assert.match(deliveryModel, /Hypercare/);
-  assert.match(deliveryModel, /Monatsabschlussprobe in der Sandbox/);
-  assert.match(deliveryModel, /ohne Uebermittlung/);
-  assert.doesNotMatch(deliveryModel, /ersten Monatsabschluss/i);
+test('Kanonischer Change bindet Projekt, Index und Dokumentkatalog', () => {
+  const facts = changeConfig.proposedCanonicalUpdate?.facts ?? {};
+  assert.equal(facts.project?.value, 'UABC-BC-BASIC-001');
+  assert.equal(facts.sourceIndex?.value, 'exports/project-data/v1/index.yaml');
+  assert.equal(facts.documentCatalog?.value, 'exports/project-data/v1/document-catalog.json');
+  assert.equal(changeConfig.proposedCanonicalUpdate?.status, 'applied');
 });
 
 test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erfundene Budgetlimits', () => {
@@ -366,7 +364,8 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   assert.equal(projectIndex.pathSemantics, 'repository-relative');
   assert.equal(projectIndex.missingValuePolicy, 'leer');
   assert.equal(projectIndex.allowedBranch, 'codex/universaarl-projekt');
-  assert.equal(projectIndex.validationStatus, 'branch-commit-validierung-erforderlich');
+  assert.equal(projectIndex.lifecycleStatus, 'active');
+  assert.equal(projectIndex.validationStatus, 'validated');
   assert.equal(new Set(projectIndex.artifacts.map((artifact) => artifact.id)).size, projectIndex.artifacts.length);
   const forbiddenBroadPaths = new Set([
     'atlassian/jira/project.yaml',
@@ -487,7 +486,7 @@ test('Cash Lager Monatsabschluss und UStVA-Simulation besitzen Summen Retests un
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
   assert.equal(consumerBindings.governingChange, 'migrate-bc-basic-to-single-uabc-ticket-project');
-  assert.equal(consumerBindings.lifecycleStatus, 'proposed');
+  assert.equal(consumerBindings.lifecycleStatus, 'active');
   assert.deepEqual(consumerBindings.producer, {
     projectId: 'UABC-BC-BASIC-001',
     contractId: 'UABC-PROJECT-DATA-V1',
@@ -529,16 +528,16 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     manifestSchemaPath: 'governance/schemas/project-snapshot-manifest.schema.json',
     manifestPath: null,
     pathSemantics: 'repository-relative',
-    lifecycleStatus: 'proposed',
+    lifecycleStatus: 'active',
     sourceCommitSha: null,
     consumerBindingDigest: null,
     payloadBundleDigest: null,
     digestAlgorithm: 'SHA-256',
     canonicalization: 'uabc-snapshot-records-v1',
     generationStages: ['commitgebundene-payloadliste-und-digests', 'manifest-aus-validierter-payloadliste'],
-    validationStatus: 'blocked',
+    validationStatus: 'validated',
     accessRule: 'Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.',
-    availability: 'blockiert-bcprojectos-release-und-snapshotnachweise-ausstehend'
+    availability: 'validierter-branch-commit-extern-zu-pinnen'
   });
   assert.deepEqual(twin.dependency, {
     direction: 'consumer-to-producer',
@@ -695,7 +694,7 @@ test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', (
     'UABC-VER-BCB-CLOSE-001',
     'UABC-VER-BCB-VAT-001',
     'UABC-VER-BCB-HANDOVER-001',
-    'UABC-VER-BCB-POLICY-GATE-001'
+    'UABC-VER-BCB-TICKET-MIGRATION-001'
   ];
   for (const id of requiredIds) {
     const verification = verificationById.get(id);
@@ -725,7 +724,7 @@ test('Szenariokatalog schliesst Produktivbetrieb E-Rechnung und UStVA-Uebermittl
   assert.match(closeScenario?.expectedResult ?? '', /Sandbox/);
   assert.match(closeScenario?.expectedResult ?? '', /kein echter Monatsabschluss/i);
   assert.ok(closeScenario?.requirementRefs?.includes('UABC-REQ-BCB-008'), 'Monatsabschlussprobe muss den Schreibsicherheitsvertrag referenzieren');
-  assert.ok(writeApproval?.blocks?.includes('UABC-36'), 'Ziel- und Ruecksetzfreigabe muss UABC-36 blockieren');
+  assert.ok(writeApproval?.blocks?.includes('UABC-39'), 'Ziel- und Ruecksetzfreigabe muss UABC-39 blockieren');
   assert.match(vatScenario?.expectedResult ?? '', /weder eine Test-, Produktiv- noch ELSTER-Uebermittlung/i);
   assert.ok(scenarioCatalog.writePolicy?.rules?.some((rule) => rule.includes('E-Rechnung')));
 });

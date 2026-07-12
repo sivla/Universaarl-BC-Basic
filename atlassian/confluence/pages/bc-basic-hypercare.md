@@ -10,7 +10,7 @@ order: 9
 storyPageId: PAGE-UABC-160
 purpose: Dokumentiert drei Hypercaretage, Defects, Retests, Restart, Exit und Supportübergabe.
 audience: [Projektleitung, Key User, Support]
-jiraRefs: [UABC-35, UABC-36, UABC-37, UABC-38]
+jiraRefs: [UABC-47, UABC-48, UABC-49, UABC-50]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
 lastReviewed: 2026-09-03
 ---

@@ -10,7 +10,7 @@ order: 4
 storyPageId: PAGE-UABC-110
 purpose: Erklärt die kundenspezifische Standardkonfiguration, Reihenfolge, Prüfungen und Rollenabgrenzung.
 audience: [Consultant, Solution Architect, Key User]
-jiraRefs: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-34]
+jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-46]
 referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-003, UABC-REQ-BCB-006, UABC-REQ-BCB-008, UABC-REQ-BCB-009]
 lastReviewed: 2026-09-03
 ---

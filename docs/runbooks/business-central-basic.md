@@ -25,15 +25,15 @@ Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 
 ### Phase 1: Vorbereitung und Anforderungen
 
-`UABC-22` bis `UABC-26` klaeren Umfang, Finanz-/Steuerdesign, Handels- und Lagerprozesse, Datenbereitschaft und Abnahmeplan. Die Einrichtungswoche darf nicht fuer nachtraegliche Anforderungsklaerung verbraucht werden.
+`UABC-32` bis `UABC-33` klaeren Umfang, Finanz-/Steuerdesign, Handels- und Lagerprozesse, Datenbereitschaft und Abnahmeplan. Die Einrichtungswoche darf nicht fuer nachtraegliche Anforderungsklaerung verbraucht werden.
 
 ### Phase 2: Einrichtungswoche
 
-`UABC-27` bindet das Ziel. Danach folgen Finanzwesen, Konfigurationspakete, Daten, Einkauf, Verkauf und einfacher Bestand in der Reihenfolge `UABC-28` bis `UABC-32`. `UABC-33` schult die Rollen. `UABC-34` dokumentiert Ende-zu-Ende-Pflichtfaelle, fachlichen Abnahmetest, vorbereitete UAT-Faelle und offene Fehler.
+`UABC-39` bindet das Ziel. Danach folgen Finanzwesen, Konfigurationspakete, Daten, Einkauf, Verkauf und einfacher Bestand in der Reihenfolge `UABC-40` bis `UABC-44`. `UABC-45` schult die Rollen. `UABC-46` dokumentiert Ende-zu-Ende-Pflichtfaelle, fachlichen Abnahmetest, vorbereitete UAT-Faelle und offene Fehler.
 
 ### Phase 3: einwoechige Hypercare
 
-`UABC-35` nimmt nur priorisierte UAT- und Hypercare-Befunde auf. `UABC-36` probt den Monatsabschlussprozess in der Sandbox und dokumentiert Abstimmungen. `UABC-37` prueft die UStVA-Vorschau; Test-, Produktiv- und ELSTER-Uebermittlung bleiben gesperrt. `UABC-38` uebergibt Projektdokumentation und Schulungsunterlagen. Nach der einwoechigen Hypercare oder dem dokumentierten Abschluss werden weitere Taetigkeiten als Support oder eigenes Folgepaket bewertet.
+`UABC-47` nimmt nur priorisierte UAT- und Hypercare-Befunde auf. `UABC-48` probt den Monatsabschlussprozess in der Sandbox und dokumentiert Abstimmungen. `UABC-49` prueft die UStVA-Vorschau; Test-, Produktiv- und ELSTER-Uebermittlung bleiben gesperrt. `UABC-50` uebergibt Projektdokumentation und Schulungsunterlagen. Nach der einwoechigen Hypercare oder dem dokumentierten Abschluss werden weitere Taetigkeiten als Support oder eigenes Folgepaket bewertet.
 
 ## 3. Technische Ausfuehrungsgrenze
 

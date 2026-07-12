@@ -7,9 +7,9 @@ catalogPath: exports/project-data/v1/document-catalog.json
 schemaPath: governance/schemas/project-document-catalog.schema.json
 sourceIndexPath: exports/project-data/v1/index.yaml
 commitResolution: allowed-branch-head-resolved-once
-documentCount: 32
+documentCount: 34
 confluenceDocumentCount: 19
-otherDocumentCount: 13
+otherDocumentCount: 15
 spaceCount: 3
 spaceDistribution:
   UABC-SPACE-CUSTOMER: 11

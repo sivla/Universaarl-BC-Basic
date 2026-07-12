@@ -76,7 +76,7 @@
       "time": "2026-08-20T10:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
       "references": [
-        "TKT-UABC-22"
+        "UABC-32"
       ]
     },
     {
@@ -92,7 +92,7 @@
       "time": "2026-08-21T10:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/20-discovery.md",
       "references": [
-        "TKT-UABC-22"
+        "UABC-32"
       ]
     },
     {
@@ -108,7 +108,7 @@
       "time": "2026-08-23T11:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
       "references": [
-        "TKT-UABC-23"
+        "UABC-34"
       ]
     },
     {
@@ -2482,7 +2482,7 @@
       "priority": "P1",
       "parent": "UABC-15",
       "dependencies": [
-        "TKT-UABC-25"
+        "UABC-38"
       ],
       "labels": [
         "uat"
@@ -2684,7 +2684,7 @@
       "priority": "P1",
       "parent": "UABC-17",
       "dependencies": [
-        "TKT-UABC-23"
+        "UABC-34"
       ],
       "labels": [
         "process"
@@ -2786,7 +2786,7 @@
       "priority": "P1",
       "parent": "UABC-18",
       "dependencies": [
-        "TKT-UABC-23"
+        "UABC-34"
       ],
       "labels": [
         "process"
@@ -2888,7 +2888,7 @@
       "priority": "P1",
       "parent": "UABC-19",
       "dependencies": [
-        "TKT-UABC-23"
+        "UABC-34"
       ],
       "labels": [
         "process"
@@ -3387,7 +3387,7 @@
       "priority": "P1",
       "parent": "UABC-24",
       "dependencies": [
-        "TKT-UABC-29"
+        "UABC-41"
       ],
       "labels": [
         "p2p"
@@ -3488,7 +3488,7 @@
       "priority": "P1",
       "parent": "UABC-25",
       "dependencies": [
-        "TKT-UABC-30"
+        "UABC-42"
       ],
       "labels": [
         "o2c"
@@ -3589,7 +3589,7 @@
       "priority": "P1",
       "parent": "UABC-26",
       "dependencies": [
-        "TKT-UABC-30"
+        "UABC-42"
       ],
       "labels": [
         "inventory"
@@ -3789,8 +3789,8 @@
       "priority": "P1",
       "parent": "UABC-28",
       "dependencies": [
-        "TKT-UABC-30",
-        "TKT-UABC-31"
+        "UABC-42",
+        "UABC-43"
       ],
       "labels": [
         "uat"
@@ -3891,7 +3891,7 @@
       "priority": "P2",
       "parent": "UABC-29",
       "dependencies": [
-        "TKT-UABC-31"
+        "UABC-43"
       ],
       "labels": [
         "hypercare"
@@ -4091,7 +4091,7 @@
       "priority": "P2",
       "parent": "UABC-30",
       "dependencies": [
-        "TKT-UABC-36"
+        "UABC-48"
       ],
       "labels": [
         "vat"
@@ -4192,9 +4192,9 @@
       "priority": "P2",
       "parent": "UABC-31",
       "dependencies": [
-        "TKT-UABC-35",
-        "TKT-UABC-36",
-        "TKT-UABC-37"
+        "UABC-47",
+        "UABC-48",
+        "UABC-49"
       ],
       "labels": [
         "handover"
@@ -5945,8 +5945,8 @@
     "deliverables": [
       "OFR-UABC-BCB-001",
       "OFR-UABC-BCB-001",
-      "TKT-UABC-22",
-      "TKT-UABC-23",
+      "UABC-32",
+      "UABC-34",
       "BC-SIM-SETUP-001",
       "BC-SIM-MASTER-001",
       "BC-SIM-P2P-001",

@@ -5,9 +5,9 @@ projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
 governingChange: migrate-bc-basic-to-single-uabc-ticket-project
-lifecycleStatus: proposed
+lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
-validationStatus: branch-commit-validierung-erforderlich
+validationStatus: validated
 readOnly: true
 sourceOfTruth: openspec
 contractRole: repository-relative-data-allowlist
@@ -422,10 +422,10 @@ documentCatalog:
         - P-002
         - P-005
       jiraRefs:
-        - UABC-22
-        - UABC-26
-        - UABC-35
-        - UABC-38
+        - UABC-32
+        - UABC-33
+        - UABC-47
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-001
         - UABC-REQ-BCB-002
@@ -455,10 +455,12 @@ documentCatalog:
         - P-011
         - P-019
       jiraRefs:
-        - UABC-22
-        - UABC-23
-        - UABC-24
-        - UABC-25
+        - UABC-32
+        - UABC-34
+        - UABC-35
+        - UABC-36
+        - UABC-37
+        - UABC-38
       referenceIds:
         - UABC-REQ-BCB-001
         - UABC-REQ-BCB-003
@@ -569,8 +571,8 @@ documentCatalog:
         - P-016
         - P-019
       jiraRefs:
-        - UABC-25
-        - UABC-29
+        - UABC-38
+        - UABC-41
       referenceIds:
         - UABC-REQ-BCB-006
         - UABC-REQ-BCB-008
@@ -598,10 +600,10 @@ documentCatalog:
         - P-011
         - P-019
       jiraRefs:
-        - UABC-34
-        - UABC-35
-        - UABC-36
-        - UABC-37
+        - UABC-46
+        - UABC-47
+        - UABC-48
+        - UABC-49
       referenceIds:
         - UABC-REQ-BCB-007
         - UABC-REQ-BCB-008
@@ -663,9 +665,9 @@ documentCatalog:
         - P-005
         - P-016
       jiraRefs:
-        - UABC-34
-        - UABC-35
-        - UABC-38
+        - UABC-46
+        - UABC-47
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-008
@@ -724,10 +726,12 @@ documentCatalog:
         - P-016
         - P-019
       jiraRefs:
-        - UABC-23
-        - UABC-24
-        - UABC-25
-        - UABC-26
+        - UABC-34
+        - UABC-35
+        - UABC-36
+        - UABC-37
+        - UABC-38
+        - UABC-33
       referenceIds:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-003
@@ -759,13 +763,13 @@ documentCatalog:
         - P-011
         - P-019
       jiraRefs:
-        - UABC-27
-        - UABC-28
-        - UABC-29
-        - UABC-30
-        - UABC-31
-        - UABC-32
-        - UABC-34
+        - UABC-39
+        - UABC-40
+        - UABC-41
+        - UABC-42
+        - UABC-43
+        - UABC-44
+        - UABC-46
       referenceIds:
         - UABC-REQ-BCB-001
         - UABC-REQ-BCB-003
@@ -794,10 +798,10 @@ documentCatalog:
         - P-002
       jiraRefs:
         - UABC-21
-        - UABC-35
-        - UABC-36
-        - UABC-37
-        - UABC-38
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-009
@@ -825,9 +829,9 @@ documentCatalog:
         - P-002
         - P-016
       jiraRefs:
-        - UABC-22
-        - UABC-26
-        - UABC-38
+        - UABC-32
+        - UABC-33
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-001
         - UABC-REQ-BCB-002
@@ -856,23 +860,25 @@ documentCatalog:
         - P-002
       jiraRefs:
         - UABC-18
-        - UABC-22
-        - UABC-23
-        - UABC-24
-        - UABC-25
-        - UABC-26
-        - UABC-27
-        - UABC-28
-        - UABC-29
-        - UABC-30
-        - UABC-31
         - UABC-32
-        - UABC-33
         - UABC-34
         - UABC-35
         - UABC-36
         - UABC-37
         - UABC-38
+        - UABC-33
+        - UABC-39
+        - UABC-40
+        - UABC-41
+        - UABC-42
+        - UABC-43
+        - UABC-44
+        - UABC-45
+        - UABC-46
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-005
         - UABC-REQ-BCB-010
@@ -900,9 +906,9 @@ documentCatalog:
         - P-011
         - P-019
       jiraRefs:
-        - UABC-33
-        - UABC-34
-        - UABC-38
+        - UABC-45
+        - UABC-46
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-007
         - UABC-REQ-BCB-010
@@ -927,7 +933,7 @@ documentCatalog:
       ownerRefs:
         - P-002
       jiraRefs:
-        - UABC-38
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
         - UABC-REQ-BCB-011
@@ -953,10 +959,10 @@ documentCatalog:
         - P-002
         - P-005
       jiraRefs:
-        - UABC-35
-        - UABC-36
-        - UABC-37
-        - UABC-38
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-009
@@ -983,11 +989,11 @@ documentCatalog:
         - P-001
         - P-002
       jiraRefs:
-        - UABC-22
-        - UABC-26
-        - UABC-34
-        - UABC-35
-        - UABC-38
+        - UABC-32
+        - UABC-33
+        - UABC-46
+        - UABC-47
+        - UABC-50
       referenceIds:
         - UABC-REQ-BCB-001
         - UABC-REQ-BCB-002
@@ -1314,6 +1320,18 @@ documentCatalog:
       - UABC-36
       - UABC-37
       - UABC-38
+      - UABC-39
+      - UABC-40
+      - UABC-41
+      - UABC-42
+      - UABC-43
+      - UABC-44
+      - UABC-45
+      - UABC-46
+      - UABC-47
+      - UABC-48
+      - UABC-49
+      - UABC-50
     projectRefs:
       - OFR-UABC-BCB-001
       - SRC-BC-001

@@ -12,7 +12,7 @@ approvalPolicy:
     - 86 Quellidentitäten sind vollständig abgedeckt
     - lokale Validatoren und OpenSpec strict sind grün
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     project: { status: confirmed, value: UABC-BC-BASIC-001 }

@@ -34,7 +34,7 @@ try {
   const branch = gitText(['branch', '--show-current']);
   if (projectIndex.projectId !== 'UABC-BC-BASIC-001' || projectIndex.contractId !== 'UABC-PROJECT-DATA-V1') errors.push('Index-Projektidentitaet oder Vertragsversion ist ungueltig');
   if (projectIndex.allowedBranch !== branch || branch !== 'codex/universaarl-projekt') errors.push('Index erlaubt nicht den aktuellen kanonischen Branch');
-  if (projectIndex.validationStatus !== 'branch-commit-validierung-erforderlich') errors.push('Index-Validierungsstatus ist ungueltig');
+  if (projectIndex.lifecycleStatus !== 'active' || projectIndex.validationStatus !== 'validated') errors.push('Index-Lifecycle oder Validierungsstatus ist ungueltig');
   const artifacts = projectIndex.artifacts ?? [];
   const ids = new Set();
   const paths = new Set();
@@ -62,9 +62,11 @@ try {
       try { errors.push(...validateManifestDigests(manifest, readEntry)); }
       catch (error) { errors.push(`Snapshot-Blobs des Branch-Commits sind nicht vollstaendig lesbar: ${error.message}`); }
     }
-  } else if (binding.consumers?.[0]?.snapshotContract?.validationStatus !== 'blocked') errors.push('Fehlendes Snapshotmanifest erfordert validationStatus blocked');
+  }
+  const snapshotContract = binding.consumers?.[0]?.snapshotContract;
+  if (snapshotContract?.manifestPath !== null || snapshotContract?.lifecycleStatus !== 'active' || snapshotContract?.validationStatus !== 'validated') errors.push('Aktueller Branch-Commit-Vertrag ist nicht als validierter Indexvertrag gebunden');
   if (errors.length) fail(errors);
-  console.log(`Snapshotvertragspruefung bestanden: Spectra=${binding.spectraReleaseBinding.bindingStatus}; Branch-Commit=${consumerCommitSha}; Manifest=${manifestExists ? 'vorhanden' : 'nicht-erzeugt'}; Snapshot=${manifestExists ? 'historisch-oder-aktuell' : binding.consumers[0].snapshotContract.validationStatus}.`);
+  console.log(`Snapshotvertragspruefung bestanden: Spectra=${binding.spectraReleaseBinding.bindingStatus}; Branch-Commit=${consumerCommitSha}; Legacy-Manifest=${manifestExists ? 'vorhanden-nicht-normativ' : 'nicht-vorhanden'}; Branchvertrag=${snapshotContract.validationStatus}.`);
 } catch (error) {
   fail([`Commitgebundener B-Nachweis konnte nicht gelesen werden: ${error.message}`]);
 }

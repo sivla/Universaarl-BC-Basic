@@ -32,11 +32,11 @@ const validatePageMutation = (mutateText) => {
   });
 };
 
-test('vollstaendiger BC-Basic-Katalog bindet 32 Dokumente und 19 strukturierte Seiten', () => {
-  assert.equal(catalog.documents.length, 32);
+test('vollstaendiger BC-Basic-Katalog bindet 34 Dokumente und 19 strukturierte Seiten', () => {
+  assert.equal(catalog.documents.length, 34);
   assert.equal(catalog.documents.filter((document) => document.documentType === 'confluence-page').length, 19);
-  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 32);
-  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 32);
+  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 34);
+  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 34);
   assert.equal(catalog.spaces.length, 3);
   assert.equal(catalog.spaces.every((space) => typeof space.purpose === 'string' && space.purpose.length > 0 && Array.isArray(space.audience) && space.audience.length > 0), true);
   assert.equal(catalog.navigationModules.length, 3);

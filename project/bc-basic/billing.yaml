@@ -44,10 +44,10 @@ currentSimulationTicketRange: UABC-32..UABC-50
 currentSimulationCountingScope: billable-task-worklogs-only
 historicalPlanSource: atlassian/jira/issues/bc-basic-project.yaml
 historicalPlanLeafRange: UABC-22..UABC-38
-ticketTruthNote: Drei Phase-Tickets, acht fachliche Epics und ihre Story-/Bug-Klammern zeigen Schaetzung und Task-Rollup. Ausschliesslich die 19 TKT-UABC-Tasks belegen das fakturierbare synthetische Ist. UABC-22 bis UABC-38 bleiben historische Plan- und Traceability-Issues und werden nicht doppelt gezaehlt.
+ticketTruthNote: Drei Phase-Tickets, zehn fachliche Epics und 18 Stories zeigen ausschließlich Schaetzung und Task-Rollup. Nur die 19 Tasks UABC-32..UABC-50 belegen das fakturierbare synthetische Ist; alte Identitaeten bestehen ausschließlich als nicht zaehlende Provenienz in der Migrationsmatrix.
 rollupRule:
   scope: historical-plan-only
-  parentTickets: [UABC-18, UABC-19, UABC-20, UABC-21]
+  parentTickets: [UABC-1, UABC-2, UABC-3]
   treatment: nicht abrechenbare Plan- und Fortschrittssummen
   noDoubleBilling: Elternsummen und untergeordnete Arbeitsprotokolle duerfen niemals gemeinsam abgerechnet werden.
 weeklyBillingRule:

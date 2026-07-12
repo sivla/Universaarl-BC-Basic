@@ -617,6 +617,8 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
   const issueDocs = await Promise.all((await walk('atlassian/jira/issues', (file) => file.endsWith('.yaml'))).map(yaml));
   const issues = issueDocs.flatMap((doc) => doc.issues ?? []);
   const issueMap = new Map(issues.map((issue) => [issue.key, issue]));
+  const activeTicketExport = await yaml('atlassian/jira/issues/bc-basic-story-tickets.yaml');
+  const visibleTicketIds = new Set((activeTicketExport.records ?? activeTicketExport.ticketRecords ?? []).map((ticket) => ticket.id));
 
   check(project.key === 'UABC', 'Jira-Projektschluessel muss UABC sein');
   check(issueMap.size === issues.length, 'doppelte Jira-Issue-Keys');
@@ -703,7 +705,7 @@ const bcBasicChangeActive = await exists('openspec/changes/migrate-bc-basic-to-s
     check(dateValid(meta.lastReviewed), `${file}: ungueltiges lastReviewed`);
     const syntheticStoryPage = file.endsWith('bc-basic-project-story.md') || file.endsWith('bc-basic-hypercare.md') || file.endsWith('80-bc-basic-training.md') || file.endsWith('81-bc-basic-handover.md');
     if (sourceIndexAvailable) {
-      check((meta.jiraRefs ?? []).length > 0 && (syntheticStoryPage || meta.jiraRefs.every((key) => issueMap.has(key))), `${file}: ungueltige jiraRefs`);
+      check((meta.jiraRefs ?? []).length > 0 && (syntheticStoryPage || meta.jiraRefs.every((key) => visibleTicketIds.has(key))), `${file}: ungueltige jiraRefs`);
       check((meta.referenceIds ?? []).length > 0 && (syntheticStoryPage || meta.referenceIds.every((id) => stableIds.has(id) || openSpecRefs.has(id))), `${file}: ungeloeste referenceIds`);
     }
   }
@@ -736,6 +738,8 @@ async function validateWalkthroughExports({ openSpec, openSpecRefs, verification
   check(Array.isArray(registry.artifacts) && registry.artifacts.length === 1, `${registryPath}: Pilot erfordert genau ein exportiertes Artefakt`);
   const issueDocs = await Promise.all((await walk('atlassian/jira/issues', (file) => file.endsWith('.yaml'))).map(yaml));
   const issueKeys = new Set(issueDocs.flatMap((doc) => (doc.issues ?? []).map((issue) => issue.key)));
+  const activeTicketExport = await yaml('atlassian/jira/issues/bc-basic-story-tickets.yaml');
+  for (const ticket of activeTicketExport.records ?? activeTicketExport.ticketRecords ?? []) issueKeys.add(ticket.id);
   const sha256 = async (relative) => crypto.createHash('sha256').update(await fs.readFile(absolute(relative))).digest('hex');
   for (const artifact of registry.artifacts ?? []) {
     check(artifact.artifactId === 'UABC-WT-ENV-001' && artifact.artifactTypeId === 'UABC-ARTTYPE-WALKTHROUGH-001', `${registryPath}: unerwartete Pilotidentitaet`);

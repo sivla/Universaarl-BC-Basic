@@ -10,7 +10,7 @@ order: 8
 storyPageId: PAGE-UABC-080
 purpose: Beschreibt Mock-Cutover, GO_SIMULATION, simulierten Go-live, Rollback und Wiederanlauf.
 audience: [Steering, Projektleitung, Key User, Support]
-jiraRefs: [UABC-34, UABC-35, UABC-38]
+jiraRefs: [UABC-46, UABC-47, UABC-50]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-008, UABC-REQ-BCB-010]
 lastReviewed: 2026-09-03
 ---

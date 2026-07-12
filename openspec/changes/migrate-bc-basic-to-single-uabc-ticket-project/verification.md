@@ -79,13 +79,13 @@ Der Dokumentkatalog fuehrt Space, Typ, Parent, Reihenfolge und stabile Story-Sei
 
 Die Redirect-Matrix erhaelt alle bisherigen Referenzen. Externe Confluence-URL, Page-ID und Space-Key bleiben ohne echte Quelle leer.
 
-Der Ticketkatalog trennt 17 kundenlesbare Storytickets von 38 historischen Planungs- und Traceability-Issues.
-Die 48 kundenlesbaren Tickets bestehen aus drei Phase-Tickets, acht fachlichen Epics, 17 Stories, einem Bug und 19 Tasks.
+Der Ticketkatalog führt genau einen kundenlesbaren Projektbestand ohne parallele interne Ticketwahrheit.
+Die 50 kundenlesbaren Tickets bestehen aus drei Phase-Tickets, zehn fachlichen Epics, 18 Stories und 19 Tasks.
 Ausschliesslich die 19 Task-Worklogs zählen 80 Stunden und 9.600 EUR.
-Zusammen mit 38 internen Traceability-Issues liefern alle 86 Records Lowercase-Typ, Parent, Sichtbarkeitsrolle und Zählbereich explizit.
+Die 86 früheren Quellidentitäten bleiben ausschließlich in der Migrationsmatrix als Provenienz erhalten und erzeugen weder Boardeinträge noch Stunden oder Fortschritt.
 Der Twin leitet nichts aus Key oder Titel ab.
 
-Board und kompakte Liste enthalten die 48 Kundentickets jeweils genau einmal und gliedern sie in drei Phase-Tickets und acht fachliche Epics. Vier Boardspalten, sechs View-Gruppen, Filter, sichtbare Felder und Expand-Zustaende stammen aus dem Producervertrag.
+Board und kompakte Liste enthalten die 50 Kundentickets jeweils genau einmal und gliedern sie in drei Phase-Tickets und zehn fachliche Epics. Spalten, Gruppen, Filter, sichtbare Felder und Expand-Zustaende stammen aus dem Producervertrag.
 
 Die sechs Tickettypen besitzen deutsche Labels sowie geschlossene Icon- und Farbtoken. Externe Icon-URLs oder eingebettete HTML-/SVG-Fragmente sind nicht zugelassen.
 
@@ -121,7 +121,7 @@ Die Abschlusspruefung umfasst:
 5. isolierte Negativfaelle fuer manipulierte oder unlesbare Dokument- und Seitenstrukturen,
 6. Branch-/Snapshotvertrag, `git diff --check` und leere `REVIEW.md` in Arbeitskopie und Commit.
 
-Die fokussierten Negativ- und Positivsuiten bestehen mit 32 Dokumentkatalog-, 37 Projektstory- und 39 Spectra-/Ticketexport-Fällen.
+Die fokussierten Negativ- und Positivsuiten prüfen 34 Dokumente, die vollständige Projektstory und den Spectra-/Ticketexport einschließlich der semantischen 86/86-Migrationsmatrix.
 Zehn repräsentative Dokumente wurden zusätzlich lokal als HTML gerendert und mit Chromium bei 1.440 × 900 Pixeln ohne horizontales Scrollen, gequetschte Tabellen, Encodingfehler oder unaufgelöste Links geprüft.
 
 Ein technischer Erfolg darf keine reale Kunden-, BC-, Steuer- oder Produktivfreigabe ersetzen.
@@ -134,4 +134,4 @@ Ein reales Kundenprojekt startet separat mit dem dokumentierten Setup-/UAT-Entry
 
 ## Migrationsergebnis
 
-Die aktive Kundenstory verwendet UABC-1..UABC-50; die 86 Quellidentit�ten sind in der Provenienzmatrix abgedeckt. Die drei konsolidierten Transkripte werden fachlich passend referenziert.
+Die aktive Kundenstory verwendet `UABC-1..UABC-50`; die 86 Quellidentitäten sind in der Provenienzmatrix abgedeckt. Die drei konsolidierten Transkripte werden fachlich passend referenziert.

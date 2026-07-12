@@ -19,3 +19,4 @@ test('unerlaubte Typinferenz wird abgelehnt',()=>expectCode(d=>{d.index.ticketCa
 test('unbekannter nativer Typ wird abgelehnt',()=>expectCode(d=>{d.story.tickets[0].type='aus-titel-abgeleitet'},'TICKET_TYP'));
 test('zweite Jira-Zähloberfläche wird abgelehnt',()=>expectCode(d=>{d.index.artifacts.find(a=>a.kindId==='project-story-ticket-catalog').kindId='jira-issues'},'TICKET_COUNTING_SURFACE'));
 test('ungültige Typdarstellung wird abgelehnt',()=>expectCode(d=>{delete d.ticketExport.typePresentations.task},'TICKET_PRAESENTATION'));
+test('aktive Alt-ID im Jiraexport wird abgelehnt',()=>expectCode(d=>{d.ticketExport.ticketRecords.find(t=>t.type==='task').dependencyRefs=['TKT-UABC-35']},'TICKET_EXPORT_ABWEICHUNG'));

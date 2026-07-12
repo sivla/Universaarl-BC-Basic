@@ -11,7 +11,7 @@ audience: Projektleitung, Consultant, Key User und Support
 owners: [P-002]
 version: 4
 status: published
-jiraRefs: [UABC-21, UABC-35, UABC-36, UABC-37, UABC-38]
+jiraRefs: [UABC-21, UABC-47, UABC-48, UABC-49, UABC-50]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
 lastReviewed: 2026-07-12
 ---

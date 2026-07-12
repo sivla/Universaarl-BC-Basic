@@ -15,7 +15,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-22, UABC-26]
+    jiraRefs: [UABC-32, UABC-33]
     requiredSourcePaths:
       - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md
       - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md
@@ -28,7 +28,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-23, UABC-24]
+    jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
     requiredSourcePaths:
       - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/design.md
       - project/bc-basic/decision-register.yaml
@@ -40,7 +40,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-016
-    jiraRefs: [UABC-25]
+    jiraRefs: [UABC-38]
     requiredSourcePaths:
       - project/bc-basic/data-package.yaml
       - project/bc-basic/data-readiness-check.yaml
@@ -52,7 +52,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32]
+    jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
       - atlassian/confluence/pages/72-bc-basic-implementation.md
@@ -63,7 +63,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-33]
+    jiraRefs: [UABC-45]
     requiredSourcePaths:
       - project/bc-basic/training-plan.yaml
       - docs/guides/beginner/business-central-basic.md
@@ -74,7 +74,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-34]
+    jiraRefs: [UABC-46]
     requiredSourcePaths:
       - project/bc-basic/uat-catalog.yaml
       - playwright/scenarios/bc-basic-e2e.yaml
@@ -86,7 +86,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-005
-    jiraRefs: [UABC-35, UABC-36]
+    jiraRefs: [UABC-47, UABC-48]
     requiredSourcePaths:
       - atlassian/confluence/pages/73-bc-basic-hypercare.md
       - playwright/scenarios/bc-basic-e2e.yaml
@@ -97,7 +97,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-005
-    jiraRefs: [UABC-37]
+    jiraRefs: [UABC-49]
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
       - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md
@@ -108,7 +108,7 @@ deliverables:
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
-    jiraRefs: [UABC-38]
+    jiraRefs: [UABC-50]
     requiredSourcePaths:
       - docs/guides/beginner/business-central-basic.md
       - docs/runbooks/business-central-basic.md

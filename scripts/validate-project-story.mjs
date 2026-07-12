@@ -45,6 +45,13 @@ const ownOnly = (obj, allowed, fail, detail) => { if (!obj || typeof obj !== 'ob
 
 export const validateStory = (story, { checkFiles = true, metadataReader = null } = {}) => {
   const errors = []; const fail = (code, detail) => errors.push(`${code}: ${detail}`);
+  const legacyActiveId = /\b(?:TKT-UABC-[A-Z0-9-]+|UABC-PHASE-\d+)\b/;
+  const rejectLegacyActiveIds = (value, location = 'story') => {
+    if (Array.isArray(value)) value.forEach((item, index) => rejectLegacyActiveIds(item, `${location}[${index}]`));
+    else if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) rejectLegacyActiveIds(item, `${location}.${key}`);
+    else if (typeof value === 'string' && legacyActiveId.test(value)) fail('AKTIVE-ALT-ID', `${location}: ${value.match(legacyActiveId)?.[0]}`);
+  };
+  rejectLegacyActiveIds(Object.fromEntries(Object.entries(story).filter(([key]) => key !== 'ticketMigration')));
   const date = (value) => typeof value === 'string' && !Number.isNaN(Date.parse(value));
   const allowedTop = new Set(['schemaVersion','storyId','projectId','classification','status','readableSources','offer','pages','tickets','ticketMigration','timeline','hypercare','controls','relations','catalogs']);
   for (const key of Object.keys(story)) if (!allowedTop.has(key)) fail('UNERLAUBTE-EIGENSCHAFT', key);
@@ -117,6 +124,20 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
   for(const task of tasks){const result=ticketById.get(task.parent); const epic=ticketById.get(result?.parent); if(!result||!epic||result.phaseId!==task.phaseId||!Array.isArray(epic.phaseRefs)||!epic.phaseRefs.includes(task.phaseId)) fail('TASK-VERERBUNG',task.id);}
   if (tasks.filter((task) => task.id === 'UABC-47').reduce((sum,task)=>sum+task.actualHours,0) > 10) fail('HYPERCARE-GRENZE','mehr als 10 Stunden');
   if (!Array.isArray(story.ticketMigration) || story.ticketMigration.length !== 86) fail('MIGRATIONSMAP','86 eindeutige Provenienzrecords erforderlich');
+  else {
+    const sources = new Set();
+    const activeIds = new Set(tickets.map((ticket) => ticket.id));
+    for (const row of story.ticketMigration) {
+      if (!row?.sourceId || sources.has(row.sourceId)) fail('MIGRATIONSMAP', `doppelte oder fehlende Quell-ID ${row?.sourceId ?? ''}`);
+      sources.add(row?.sourceId);
+      if (row.targetKind === 'active-ticket' && !activeIds.has(row.targetId)) fail('MIGRATIONSMAP', `${row.sourceId} verweist nicht auf ein aktives Ticket`);
+      if (row.targetKind === 'non-ticket-provenance' && (typeof row.targetId !== 'string' || !row.targetId.includes('/'))) fail('MIGRATIONSMAP', `${row.sourceId} besitzt kein Provenienzziel`);
+    }
+    for (const [sourceId, targetId] of [['UABC-PHASE-1','UABC-1'],['UABC-PHASE-2','UABC-2'],['UABC-PHASE-3','UABC-3']]) {
+      const row = story.ticketMigration.find((entry) => entry.sourceId === sourceId);
+      if (row?.targetKind !== 'active-ticket' || row?.targetId !== targetId) fail('MIGRATIONSMAP', `${sourceId} muss auf ${targetId} zeigen`);
+    }
+  }
   if (tickets.some((ticket)=>!/^UABC-(?:[1-9]|[1-4][0-9]|50)$/.test(ticket.id)) || new Set(tickets.map((ticket)=>ticket.id)).size!==50) fail('TICKET-ID-VERTRAG','aktive IDs muessen UABC-1..UABC-50 sein');
   const timeline = story.timeline ?? []; const evidenceRefs = new Set(story.catalogs?.evidenceRefs ?? []); const sessions = new Set(story.catalogs?.sessions ?? []); const decisions = new Set(story.catalogs?.decisions ?? []); const deliverables = new Set(story.catalogs?.deliverables ?? []);
   if (timeline.length !== 15) fail('TIMELINE-ANZAHL', String(timeline.length));

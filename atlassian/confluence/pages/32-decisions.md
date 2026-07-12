@@ -10,7 +10,7 @@ order: 5
 storyPageId: PAGE-UABC-050
 purpose: Beschreibt Datenlieferung, Migrationswellen, Qualitätsregeln und Abstimmung.
 audience: [Datenverantwortung, Finance, Consultant]
-jiraRefs: [UABC-25, UABC-29]
+jiraRefs: [UABC-38, UABC-41]
 referenceIds: [UABC-REQ-BCB-006, UABC-REQ-BCB-008]
 lastReviewed: 2026-09-03
 ---
@@ -94,6 +94,6 @@ Für jeden manuellen Schritt sind Ziel, Prüfschritt und Rücksetzweg dokumentie
 - [Datenbereitschaft und Gate](../../../project/bc-basic/data-readiness-check.yaml)
 - [Blanko- und Beispielvorlagen](../../../project/bc-basic/customer-templates/)
 - [Eröffnungs- und Schlusskontrollen](../../../evidence/simulation/bc-playthrough-ledger.yaml)
-- Fachliche Verantwortung: Tickets `UABC-25` und `UABC-29`.
+- Fachliche Verantwortung: Tickets `UABC-38` und `UABC-41`.
 
 <!-- story-metadata {"id":"PAGE-UABC-050","title":"05 Datenmigration","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
