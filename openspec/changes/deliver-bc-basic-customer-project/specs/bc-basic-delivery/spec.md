@@ -113,7 +113,7 @@ Confluence MUST einen navigierbaren Seitenbaum fuer Projekt, drei Phasen, Bespre
 - **THEN** erreicht er die kanonische Blueprint-Quelle ohne widerspruechliche Kopie oder unmarkierte Simulation
 
 ### Requirement: UABC-REQ-BCB-011 Nur lesbarer Twin-Verbrauchervertrag
-Der Projekt-Twin MUST alle angezeigten Projektdaten ausschliesslich ueber das strikt schemavalidierte JSON-Manifest `exports/project-data/v1/snapshot-manifest.json` aufloesen. `exports/project-data/v1/index.yaml` MUST davon getrennt der repository-relative Daten- und Allowlistvertrag bleiben; `governance/consumer-bindings.yaml` MUST die interne Planungsquelle bleiben. Das JSON-Manifest MUST nur verifizierte Release-, Consumer-, Commit- und Digestwerte projizieren und darf weder YAML-Verarbeitung beim Consumer erfordern noch unverifizierte Wahrheit duplizieren. Der Twin unter `https://github.com/sivla/FiBu.git` auf `codex/universaarl-projekt-twin` ist ausschliesslich als Leser autorisiert; diese Identitaet MUST weder Snapshotfreigabe noch Rueckschreiben erlauben.
+Der Projekt-Twin MUST den erlaubten BC-Basic-Branch genau einmal aufloesen, die vollstaendige Commit-SHA extern pinnen und alle angezeigten Projektdaten ausschliesslich aus `exports/project-data/v1/index.yaml`, den dort positivgelisteten Vertraegen und den Git-Blobs desselben Commits lesen. `exports/project-data/v1/index.yaml` MUST der repository-relative Daten- und Allowlistvertrag bleiben; `governance/consumer-bindings.yaml` MUST die interne Planungsquelle bleiben und darf nicht als Twin-Payload angeboten werden. Das historische JSON-Manifest `exports/project-data/v1/snapshot-manifest.json` MAY als unveraenderte Legacy-Evidence bestehen, MUST aber weder den aktuellen Branch-HEAD noch dessen Twin-Lesbarkeit bestimmen. Der Twin unter `https://github.com/sivla/FiBu.git` auf `codex/universaarl-projekt-twin` ist ausschliesslich als Leser autorisiert; diese Identitaet MUST weder Freigabe noch Rueckschreiben erlauben.
 
 Eine Spectra-Bindung im technischen BCProjectOS-Repository MUST bis zum gemeinsamen Nachweis von `productId: spectra`, kanonischer Repository-URL, Release-Version, annotiertem Tag im Muster `spectra-v<SemVer>`, extern aufgeloestem Tag-Commit, finalem installierbarem Manifest, gueltigem Manifest-Quellcommit, unveraendertem Produktumfang und passendem SHA-256-Payload-Digest `PENDING_BCPROJECTOS_RELEASE` bleiben. Erst der vollstaendige Zustand darf `BOUND_BCPROJECTOS_RELEASE` verwenden. PENDING/BOUND-Mischzustaende MUST fail-closed scheitern.
 
@@ -151,6 +151,21 @@ Die Kundeninstanz MUST den veroeffentlichten Spectra-0.10-Vertrag fuer Baseline,
 - **GIVEN** der unveraenderte native Storygraph und seine portable Twin-Projektion
 - **WHEN** der Spectra-0.10-Generator und der Coverage-Validator ausgefuehrt werden
 - **THEN** sind alle nativen Relationen genau einer erklaerten Mappingregel zugeordnet, Quell-, Mapping- und Projektionsdatei ueber SHA-256 gebunden und Schreibzugriff sowie unzutreffende 1:1- oder Vollstaendigkeitsbehauptungen ausgeschlossen
+
+### Requirement: UABC-REQ-BCB-014 Commitgebundener Dokumentkatalog
+Die Kundeninstanz MUST `exports/project-data/v1/document-catalog.json` als strikt schemavalidierten Navigationsvertrag fuer exakt alle 32 im Branch-Index positivgelisteten Markdown-Dokumente bereitstellen. Jeder Record MUST stabile Dokument- und Artefakt-ID, Titel, Dokumenttyp, sicheren Quellpfad, optionale Parent-ID, belegte oder leere Phase und Prozess, Status, Owner-, Jira- und Referenz-IDs, Pruefdatum, SHA-256 der rohen Git-Blobbytes sowie Sichtbarkeit und Readiness tragen. Externe URL, Page-ID und Space-Key MUST ohne kanonische Quelle leer bleiben. Der Katalog MUST keine weitere fachliche Source of Truth und keine eigene Commit-SHA enthalten.
+
+#### Scenario: UABC-SCN-BCB-022 Twin liest 32 Dokumente aus genau einem Commit
+- **GIVEN** der erlaubte Branch wurde genau einmal zu einer vollstaendigen Commit-SHA aufgeloest
+- **WHEN** der Twin Index, Dokumentkatalog und Dokumentinhalte liest
+- **THEN** stammen Katalog, 19 strukturierte Seiten und 13 weitere Dokumente ausschliesslich aus regulaeren `100644`-Git-Blobs dieses Commits
+- **AND** ist die Katalogmenge exakt gleich der Markdown-Allowlist
+
+#### Scenario: UABC-SCN-BCB-023 Dokumentintegritaet scheitert geschlossen
+- **GIVEN** ein Blob fehlt, ein Hash weicht ab, ein Pfad ist unsicher, eine ID ist doppelt, ein Parent oder eine Referenz ist unaufloesbar, die Hierarchie zyklisch, der Dateityp unzulaessig oder eine externe URL nicht freigegeben
+- **WHEN** Generator, Dokumentvalidator oder Snapshotvalidator den Branch-Commit pruefen
+- **THEN** wird der Katalog mit einem stabilen Fehlercode abgelehnt und kein Teilbestand als gueltig ausgegeben
+
 ## Requirement: Kundenverwendbare Discovery und Fit-to-Standard
 
 Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenhaengendes Betriebsmodell, moderierbare Workshopmodule, einen E2E-Fit/Gap, konkrete Solution-Design-Entscheidungen und einen abgestimmten Migrationsplan enthalten. Das Ergebnis MUSS zwischen synthetisch entschiedener Projektwahrheit, vor Projektstart zu parametrisierenden Werten, in einer echten BC-Sandbox zu validierendem Verhalten und kunden-/steuer-/rechtsseitig zu bestaetigenden Punkten unterscheiden. Es DARF keine zusaetzlichen Stunden ausserhalb der bestaetigten 80-Stunden-/9.600-EUR-Projektstory erzeugen.

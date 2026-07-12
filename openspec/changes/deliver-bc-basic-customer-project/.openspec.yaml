@@ -1,6 +1,6 @@
 schema: universaarl-delivery
 created: 2026-07-11
-canonicalTargets: [projektdaten-index, verification-register]
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
 approvalPolicy:
   type: automated-policy-gate
   evidenceId: UABC-VER-BCB-POLICY-GATE-001
@@ -14,10 +14,11 @@ approvalPolicy:
     - die strikte OpenSpec-Pruefung und die lokale Validierung bestehen
 proposedCanonicalUpdate:
   status: unapplied
-  targets: [projektdaten-index, verification-register]
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     project: { status: proposed, value: UABC-BC-BASIC-001 }
     sourceIndex: { status: proposed, value: exports/project-data/v1/index.yaml }
+    documentCatalog: { status: proposed, value: exports/project-data/v1/document-catalog.json }
     deliveryModel: { status: proposed, value: "BC Basic Einrichtung mit Vorbereitung und Datenbereitschaft, genau einer Einrichtungs- und Schulungswoche sowie einer einwoechigen Hypercare bis zur Monatsabschlussprobe in der Sandbox und zur fachlich geprueften UStVA-Vorschau ohne Uebermittlung" }
     billingModel: { status: proposed, value: "68 geplante Dienstleisterstunden; 1.300 EUR netto Tagessatz, 8 Stunden je Arbeitstag, 162,50 EUR netto rechnerischer Stundensatz; kein entschiedenes Budgetlimit" }
   unknowns:

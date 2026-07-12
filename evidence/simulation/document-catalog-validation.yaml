@@ -1,0 +1,43 @@
+evidenceId: UABC-VER-BCB-DOCUMENT-CATALOG-001
+projectId: UABC-BC-BASIC-001
+contractId: UABC-DOCUMENT-CATALOG-V1
+classification: commitgebundener-vertragsnachweis
+synthetic: true
+catalogPath: exports/project-data/v1/document-catalog.json
+schemaPath: governance/schemas/project-document-catalog.schema.json
+sourceIndexPath: exports/project-data/v1/index.yaml
+commitResolution: allowed-branch-head-resolved-once
+documentCount: 32
+confluenceDocumentCount: 19
+otherDocumentCount: 13
+hashAlgorithm: SHA-256
+gitMode: '100644'
+allowedExternalOrigins: []
+externalIdentities:
+  externalUrl: null
+  pageId: null
+  spaceKey: null
+positiveEvidence:
+  expectedStatus: passed
+  coverage: 32/32
+  checks: [schema, markdown-allowlist, regular-git-blob, content-hash, metadata, parent-tree, owner-reference, jira-reference, projektreferenz, external-origin]
+negativeEvidence:
+  isolationRule: je Fall genau eine kontrollierte Mutation
+  cases:
+    - { caseId: DOC-NEG-001, mutation: fehlender-blob, expectedCode: DOKUMENT-BLOB-FEHLT }
+    - { caseId: DOC-NEG-002, mutation: hashabweichung, expectedCode: DOKUMENT-HASH-ABWEICHUNG }
+    - { caseId: DOC-NEG-003, mutation: traversal, expectedCode: DOKUMENT-PFAD-UNSICHER }
+    - { caseId: DOC-NEG-004, mutation: doppelte-id, expectedCode: DOKUMENT-ID-DOPPELT }
+    - { caseId: DOC-NEG-005, mutation: fehlendes-parentziel, expectedCode: DOKUMENT-REFERENZZIEL-FEHLT }
+    - { caseId: DOC-NEG-006, mutation: fehlendes-projektreferenzziel, expectedCode: DOKUMENT-REFERENZZIEL-FEHLT }
+    - { caseId: DOC-NEG-007, mutation: parentzyklus, expectedCode: DOKUMENT-HIERARCHIE-ZYKLUS }
+    - { caseId: DOC-NEG-008, mutation: unzulaessiger-dateityp, expectedCode: DOKUMENT-DATEITYP-UNZULAESSIG }
+    - { caseId: DOC-NEG-009, mutation: unsichere-externe-url, expectedCode: DOKUMENT-URL-UNSICHER }
+    - { caseId: DOC-NEG-010, mutation: unbelegte-katalogmetadaten, expectedCode: DOKUMENT-METADATEN-ABWEICHUNG }
+    - { caseId: DOC-NEG-011, mutation: unzulaessiger-gitmodus, expectedCode: DOKUMENT-GITMODUS-UNZULAESSIG }
+commands:
+  focused: npm run test:document-catalog
+  commitBound: npm run validate:document-catalog
+  integrated: npm run validate:snapshot-contract
+status: passed
+truthBoundary: Der Nachweis belegt ausschließlich Repository- und Git-Blob-Integritaet; er behauptet keine externe Confluence-Instanz, Page-ID, Space-Key oder URL.

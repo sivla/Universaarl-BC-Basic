@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { parseGitTreeEntry, SNAPSHOT_MANIFEST_PATH, SNAPSHOT_SCHEMA_PATH, validateManifestDigests, validateSnapshotManifest } from './lib/snapshot-contract.mjs';
 import { validateConsumerBindings } from './lib/validate-consumer-bindings.mjs';
+import { DOCUMENT_CATALOG_PATH, DOCUMENT_CATALOG_SCHEMA_PATH, buildDocumentCatalog, canonicalCatalogBytes, formatDocumentCatalogErrors, validateDocumentCatalog } from './lib/document-catalog.mjs';
 
 const git = (args, options = {}) => execFileSync('git', args, { ...options, env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' } });
 const gitText = (args) => git(args, { encoding: 'utf8' }).trim();
@@ -45,6 +46,11 @@ try {
     if (safe && !hasBlob(artifact.path)) errors.push(`Index verweist auf fehlenden Git-Blob: ${artifact.path}`);
   }
   errors.push(...validateConsumerBindings(binding, projectIndex));
+  const documentCatalogBytes = readEntry(DOCUMENT_CATALOG_PATH).bytes;
+  const documentCatalog = JSON.parse(documentCatalogBytes.toString('utf8'));
+  const documentCatalogSchema = JSON.parse(readEntry(DOCUMENT_CATALOG_SCHEMA_PATH).bytes.toString('utf8'));
+  errors.push(...formatDocumentCatalogErrors(validateDocumentCatalog({ catalog: documentCatalog, schema: documentCatalogSchema, projectIndex, readEntry })));
+  if (!documentCatalogBytes.equals(canonicalCatalogBytes(buildDocumentCatalog(projectIndex, readEntry)))) errors.push('Dokumentkatalog ist nicht die kanonische Projektion des Branch-Index und seiner Git-Blobs');
   const schema = JSON.parse(blobText(SNAPSHOT_SCHEMA_PATH).toString('utf8'));
   validateSnapshotManifest({}, schema);
   const manifestExists = hasBlob(SNAPSHOT_MANIFEST_PATH);

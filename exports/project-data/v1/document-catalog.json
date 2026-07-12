@@ -1,0 +1,958 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "UABC-DOCUMENT-CATALOG-V1",
+  "contractId": "UABC-PROJECT-DATA-V1",
+  "projectId": "UABC-BC-BASIC-001",
+  "sourceIndexPath": "exports/project-data/v1/index.yaml",
+  "allowedBranch": "codex/universaarl-projekt",
+  "commitBinding": "allowed-branch-head-resolved-once",
+  "readOnly": true,
+  "validationStatus": "validated",
+  "allowedExternalOrigins": [],
+  "documentCount": 32,
+  "confluenceDocumentCount": 19,
+  "documents": [
+    {
+      "artifactId": "UABC-SRC-BCB-MTG-002",
+      "documentId": "UABC-MTG-001",
+      "title": "Synthetischer Discovery- und Fit-to-Standard-Workshop",
+      "documentType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "parentId": null,
+      "phase": "phase-1",
+      "process": "fit-to-standard",
+      "status": "simulated-complete",
+      "ownerRefs": [],
+      "jiraRefs": [
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-25",
+        "UABC-26"
+      ],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "5364b3aab6c744724af898a1d972b211a37a37173bab4a71e44cd5c8d54385cb",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-009",
+      "documentId": "UABC-PROJECT",
+      "title": "Projektfuehrung",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/00-project.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "projektsteuerung",
+      "status": "W0 Complete",
+      "ownerRefs": [
+        "P-001",
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-1",
+        "UABC-5",
+        "UABC-6",
+        "UABC-10"
+      ],
+      "referenceIds": [
+        "UABC-REQ-GOV-001",
+        "UABC-GOV-REFERENCE-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "f33a529b07594d72737368cff3bf5792f2e0a45364de6dd056e5b29c8b0b04e7",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-010",
+      "documentId": "UABC-COMPANY",
+      "title": "Unternehmensprofil Universaarl",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "discovery",
+      "process": "company-model",
+      "status": "Approved",
+      "ownerRefs": [
+        "P-001",
+        "P-003"
+      ],
+      "jiraRefs": [
+        "UABC-2",
+        "UABC-4"
+      ],
+      "referenceIds": [
+        "UABC-ARCH-ENTERPRISE-001",
+        "UABC-REQ-ENT-001",
+        "UABC-REQ-ENT-002"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "d26ad407f4a62f5c70d4fb033c0b17826c335e4b14a411a170f6d73bdb292b6f",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-011",
+      "documentId": "UABC-DISCOVERY",
+      "title": "Discovery und Workshops",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "discovery",
+      "process": "workshop-planning",
+      "status": "Planned",
+      "ownerRefs": [
+        "P-002",
+        "P-016"
+      ],
+      "jiraRefs": [
+        "UABC-1",
+        "UABC-10"
+      ],
+      "referenceIds": [
+        "UABC-ARCH-ENTERPRISE-001",
+        "UABC-REQ-CAP-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "750e6e95d8e66f748754989efda2aa88fb5c938d5505fb5819f20a6f42205b9b",
+      "visibility": "twin-visible",
+      "readiness": "draft-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-012",
+      "documentId": "UABC-BLUEPRINT",
+      "title": "Unternehmens-Blueprint v0.1",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "solution-design",
+      "process": "cross-process",
+      "status": "Approved",
+      "ownerRefs": [
+        "P-002",
+        "P-003"
+      ],
+      "jiraRefs": [
+        "UABC-1",
+        "UABC-2",
+        "UABC-3",
+        "UABC-4",
+        "UABC-10"
+      ],
+      "referenceIds": [
+        "UABC-ARCH-ENTERPRISE-001",
+        "UABC-CAP-CATALOG-001",
+        "UABC-REQ-CAP-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "b7c0e3e8d2ba2a24f2dffd52e30c6b55de073dfbd9c8ed0c059f705c4e9470b2",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-013",
+      "documentId": "UABC-PROCESSES",
+      "title": "Prozesslandkarte",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "parentId": "UABC-BLUEPRINT",
+      "phase": "discovery",
+      "process": "cross-process",
+      "status": "Approved",
+      "ownerRefs": [
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-3"
+      ],
+      "referenceIds": [
+        "UABC-CAP-CATALOG-001",
+        "UABC-REQ-CAP-002"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "3bc92fafe753d16d910f4ed6b8d60c3d9ffea9df233d2e8be49c662c50e9e2e2",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-014",
+      "documentId": "UABC-DECISIONS",
+      "title": "Entscheidungen und offene Punkte",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "parentId": "UABC-BLUEPRINT",
+      "phase": "solution-design",
+      "process": "decision-management",
+      "status": "Approved",
+      "ownerRefs": [
+        "P-001",
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-2",
+        "UABC-4",
+        "UABC-7",
+        "UABC-10"
+      ],
+      "referenceIds": [
+        "UABC-ARCH-ENTERPRISE-001",
+        "UABC-GOV-REFERENCE-001",
+        "UABC-DEC-001",
+        "UABC-DEC-007",
+        "UABC-DEC-008",
+        "SRC-OPSX-001",
+        "SRC-BC-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "1ea0b5793d0f6d60fda8648dc0e7c9d433e964c6c13f466c6bef0d84e3bfed28",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-015",
+      "documentId": "UABC-TESTS",
+      "title": "Tests und Nachweise",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "test-and-acceptance",
+      "process": "cross-process",
+      "status": "W0 Passed",
+      "ownerRefs": [
+        "P-002",
+        "P-004"
+      ],
+      "jiraRefs": [
+        "UABC-8",
+        "UABC-9",
+        "UABC-10"
+      ],
+      "referenceIds": [
+        "UABC-REQ-GOV-002",
+        "UABC-REQ-GOV-003",
+        "UABC-VER-LOCAL-001",
+        "UABC-VER-REFS-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "1f7174a921dba5313d4681478d71d6adc0cdf4ee0551da6a7fe78e5b367e00c9",
+      "visibility": "twin-visible",
+      "readiness": "historical-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-016",
+      "documentId": "UABC-ENVBASELINE",
+      "title": "Playthru-Umgebungsbaseline",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "preparation",
+      "process": "environment",
+      "status": "Done",
+      "ownerRefs": [
+        "P-002",
+        "P-004"
+      ],
+      "jiraRefs": [
+        "UABC-11",
+        "UABC-12",
+        "UABC-13",
+        "UABC-14"
+      ],
+      "referenceIds": [
+        "UABC-REQ-ENV-001",
+        "UABC-REQ-ENV-002",
+        "UABC-REQ-ENV-003",
+        "UABC-REQ-ENV-004",
+        "UABC-REQ-ENV-005",
+        "UABC-VER-ENV-RUN1-001",
+        "UABC-VER-ENV-RUN2-001",
+        "UABC-VER-ENV-GOV-SELFTEST-001",
+        "UABC-VER-ENV-POLICY-GATE-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "948a78003437b38d6788662a30f2b91d103da6575cbee506bf2342f173b20202",
+      "visibility": "twin-visible",
+      "readiness": "reference-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-017",
+      "documentId": "UABC-WALKTHROUGH",
+      "title": "Projektartefakt-Walkthrough-Pilot",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "test-and-acceptance",
+      "process": "demonstration",
+      "status": "Done",
+      "ownerRefs": [
+        "P-002",
+        "P-015"
+      ],
+      "jiraRefs": [
+        "UABC-15",
+        "UABC-16",
+        "UABC-17"
+      ],
+      "referenceIds": [
+        "UABC-REQ-WT-001",
+        "UABC-REQ-WT-002",
+        "UABC-REQ-WT-003",
+        "UABC-VER-WT-BUILD-001"
+      ],
+      "lastReviewed": "2026-07-10",
+      "contentSha256": "758c61fc2bda0c4517ba805b299e7cde95d62abce7e2c1c299d60c2971fed55d",
+      "visibility": "twin-visible",
+      "readiness": "reference-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-003",
+      "documentId": "UABC-BCBPROJECT",
+      "title": "BC Basic V1 Standardprodukt",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "project-wide",
+      "process": "projektsteuerung",
+      "status": "V1 kundenbereit",
+      "ownerRefs": [
+        "P-001",
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-18",
+        "UABC-19",
+        "UABC-20",
+        "UABC-21"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-001",
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-004"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "54e6d5af6cb575bf7107c14af8363d06f9e3488e544d778450004229a5b61012",
+      "visibility": "twin-visible",
+      "readiness": "v1-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-004",
+      "documentId": "UABC-BCBDISCOVERY",
+      "title": "Discovery und Fit-to-Standard",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "phase-1",
+      "process": "fit-to-standard",
+      "status": "Synthetisch abgenommen",
+      "ownerRefs": [
+        "P-002",
+        "P-005",
+        "P-011",
+        "P-016",
+        "P-019"
+      ],
+      "jiraRefs": [
+        "UABC-19",
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-25",
+        "UABC-26"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-003",
+        "UABC-REQ-BCB-005",
+        "UABC-REQ-BCB-006",
+        "UABC-REQ-BCB-009"
+      ],
+      "lastReviewed": "2026-08-21",
+      "contentSha256": "2aae68acf658e9b33585ad3942d904558ef5959d32478626ae15ab9550da5186",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-005",
+      "documentId": "UABC-BCBIMPLEMENTATION",
+      "title": "Einrichtungswoche",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "phase-2",
+      "process": "setup-migration-uat",
+      "status": "Kundenbereites Standardmuster",
+      "ownerRefs": [
+        "P-002",
+        "P-004",
+        "P-005"
+      ],
+      "jiraRefs": [
+        "UABC-20",
+        "UABC-27",
+        "UABC-28",
+        "UABC-29",
+        "UABC-30",
+        "UABC-31",
+        "UABC-32",
+        "UABC-33",
+        "UABC-34"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-003",
+        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-008",
+        "SRC-BC-077",
+        "SRC-BC-078",
+        "SRC-BC-079",
+        "SRC-BC-080",
+        "SRC-BC-081",
+        "SRC-BC-082",
+        "SRC-BC-083",
+        "SRC-BC-084"
+      ],
+      "lastReviewed": "2026-07-11",
+      "contentSha256": "42616e4756ee51cd18b32fa99657ceb5b7df6b5569c783caa190715701df8a82",
+      "visibility": "twin-visible",
+      "readiness": "customer-ready-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-006",
+      "documentId": "UABC-BCBHYPERCARE",
+      "title": "Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "phase-3",
+      "process": "month-end-vat-hypercare",
+      "status": "Synthetisch abgeschlossen",
+      "ownerRefs": [
+        "P-002",
+        "P-005"
+      ],
+      "jiraRefs": [
+        "UABC-21",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-009",
+        "UABC-REQ-BCB-010"
+      ],
+      "lastReviewed": "2026-07-11",
+      "contentSha256": "51ab25d366e36f00e2ee6e18f68a948976bb6a587b21cc183cf414cb03b8213f",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-007",
+      "documentId": "UABC-BCBDELIVERABLES",
+      "title": "V1-Liefer- und Abnahmeübersicht",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "close",
+      "process": "acceptance",
+      "status": "Synthetisch abgeschlossen",
+      "ownerRefs": [
+        "P-002",
+        "P-016"
+      ],
+      "jiraRefs": [
+        "UABC-25",
+        "UABC-29",
+        "UABC-33",
+        "UABC-34",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-006",
+        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-010",
+        "UABC-REQ-BCB-011"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "3188aa7265b6664996397f208ebd5e245cf2668918efafa1395b2d6e1abd4287",
+      "visibility": "twin-visible",
+      "readiness": "v1-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-008",
+      "documentId": "UABC-BCBMEETINGS",
+      "title": "Besprechungen und Entscheidungen",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "project-wide",
+      "process": "decision-management",
+      "status": "Synthetisch abgeschlossen",
+      "ownerRefs": [
+        "P-001",
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-18",
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-25",
+        "UABC-26",
+        "UABC-27",
+        "UABC-28",
+        "UABC-29",
+        "UABC-30",
+        "UABC-31",
+        "UABC-32",
+        "UABC-33",
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-005",
+        "UABC-REQ-BCB-010"
+      ],
+      "lastReviewed": "2026-07-11",
+      "contentSha256": "e03a60c37b650d340acb43665e8157a921e2d51ebf89745551409e6804563352",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-018",
+      "documentId": "UABC-HYPERCARE",
+      "title": "Operatortraining und Hypercare",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "schulung-und-hypercare",
+      "process": "operator-training",
+      "status": "Synthetisch abgeschlossen",
+      "ownerRefs": [
+        "P-002",
+        "P-005",
+        "P-011",
+        "P-019"
+      ],
+      "jiraRefs": [
+        "UABC-33",
+        "UABC-34",
+        "UABC-35"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-010"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "4883e4b4127257310053f5c2099ba410108bc4d1ca07ecc29e42a4694fb0a887",
+      "visibility": "twin-visible",
+      "readiness": "customer-ready-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONF-019",
+      "documentId": "UABC-TRAINING",
+      "title": "V1-Abschluss und Kundenstart",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "close",
+      "process": "handover",
+      "status": "V1 kundenbereit",
+      "ownerRefs": [
+        "P-001",
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-38"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-010",
+        "UABC-REQ-BCB-011"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "fc5a3ec92d1572ef856afad4436296ed16d2420e587efdded78eb08b3c66cb99",
+      "visibility": "twin-visible",
+      "readiness": "v1-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-STORY-HYPERCARE-001",
+      "documentId": "UABC-BCBHCSTORY",
+      "title": "Hypercare Tagesstatus",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "parentId": "UABC-BCBSTORY",
+      "phase": "phase-3",
+      "process": "support",
+      "status": "Abgeschlossen",
+      "ownerRefs": [
+        "P-002",
+        "P-005"
+      ],
+      "jiraRefs": [
+        "UABC-21",
+        "UABC-35"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-009"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "5800e211e6cb3ec43ded170ee31e612727da210d99834c1baebfa0c32cfb822d",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-STORY-CONFLUENCE-001",
+      "documentId": "UABC-BCBSTORY",
+      "title": "BC Basic Projektstory",
+      "documentType": "confluence-page",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "parentId": "UABC-PROJECT",
+      "phase": "project-wide",
+      "process": "project-story",
+      "status": "Abgeschlossen",
+      "ownerRefs": [
+        "P-002"
+      ],
+      "jiraRefs": [
+        "UABC-18",
+        "UABC-21"
+      ],
+      "referenceIds": [
+        "UABC-REQ-BCB-001",
+        "UABC-REQ-BCB-002"
+      ],
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "ac0c9f57e4873fa1f18c75df8bb56e0608c1ee81c73766fd5c2027202f898a3e",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CUST-001",
+      "documentId": "UABC-HANDBOOK-BCB-CUSTOMER-001",
+      "title": "Einsteigerunterlage: BC Basic Einrichtung",
+      "documentType": "customer-handbook",
+      "sourcePath": "docs/guides/beginner/business-central-basic.md",
+      "parentId": null,
+      "phase": "schulung-und-uebergabe",
+      "process": "operator-guidance",
+      "status": "Entwurf",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [
+        "UABC-DEL-BCB-009"
+      ],
+      "lastReviewed": null,
+      "contentSha256": "17e4067a6ec6496177cc26e6135fe95a667e65b7b6621fe3f176516b93c3fce6",
+      "visibility": "twin-visible",
+      "readiness": "draft-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-STORY-HANDOVER-001",
+      "documentId": "UABC-SRC-BCB-STORY-HANDOVER-001",
+      "title": "Handover und Abschluss UABC-BCB-001",
+      "documentType": "project-handover",
+      "sourcePath": "docs/handover/bc-basic-handover.md",
+      "parentId": null,
+      "phase": "close",
+      "process": "support-und-uebergabe",
+      "status": "V1_STANDARDPRODUCT_READY",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "f049dbaf75489c62e9678038fc8e190c44d9b8c5433e3f64614589c803630e96",
+      "visibility": "twin-visible",
+      "readiness": "v1-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-STORY-OFFER-001",
+      "documentId": "UABC-SRC-BCB-STORY-OFFER-001",
+      "title": "Angebot UABC-BCB-001 – BC Basic Fast-Track",
+      "documentType": "commercial-offer",
+      "sourcePath": "docs/offers/bc-basic-offer.md",
+      "parentId": null,
+      "phase": "offer-and-scope",
+      "process": "commercial",
+      "status": "Standardangebot 2.0",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [
+        "OFR-UABC-BCB-001"
+      ],
+      "lastReviewed": null,
+      "contentSha256": "a208fbe07d11281fdd87b4efc53860ab9db64767804a50442c315b4da9b28968",
+      "visibility": "twin-visible",
+      "readiness": "v1-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-STORY-CHRONICLE-001",
+      "documentId": "UABC-SRC-BCB-STORY-CHRONICLE-001",
+      "title": "Projektchronik UABC-BCB-001",
+      "documentType": "project-chronicle",
+      "sourcePath": "docs/reports/bc-basic-project-chronicle.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "project-story",
+      "status": "not_evidenced",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [
+        "UABC-STORY-BCB-001"
+      ],
+      "lastReviewed": null,
+      "contentSha256": "0993b7e91b75be02ff6058175f1c3e342df22c79ce30740006ccdc6f70cddc40",
+      "visibility": "twin-visible",
+      "readiness": "simulation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-DEMO-001",
+      "documentId": "UABC-SRC-BCB-DEMO-001",
+      "title": "Demo- und Abnahmeleitfaden: synthetischer BC-Basic-Projektstand",
+      "documentType": "synthetic-demo-guide",
+      "sourcePath": "docs/runbooks/bc-basic-simulation-demo.md",
+      "parentId": null,
+      "phase": "test-and-acceptance",
+      "process": "demonstration",
+      "status": "not_evidenced",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "34e13dcb8f8f771bead9ac0972b37a991d06b9a06d1693fe308d43d723b4d037",
+      "visibility": "twin-visible",
+      "readiness": "not-ready",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-CONS-001",
+      "documentId": "UABC-HANDBOOK-BCB-CONSULTANT-001",
+      "title": "Beratungshandbuch: BC Basic Einrichtung",
+      "documentType": "consultant-handbook",
+      "sourcePath": "docs/runbooks/business-central-basic.md",
+      "parentId": null,
+      "phase": "setup-and-migration",
+      "process": "implementation",
+      "status": "Kundenbereites Standardmuster",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [
+        "UABC-DEL-BCB-009"
+      ],
+      "lastReviewed": null,
+      "contentSha256": "79b46fa285d8a837fc8db1830cfcd50f9655892cea3cda5c607ce148d01e4f2b",
+      "visibility": "twin-visible",
+      "readiness": "customer-ready-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-DPLAN-001",
+      "documentId": "UABC-SRC-BCB-DPLAN-001",
+      "title": "Lieferplan: BC Basic Einrichtung",
+      "documentType": "delivery-plan",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "project-delivery",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "0b28aaa3952c7aabab1f7ee969534fbe0b9d2936ae92910e81e10aebe10a8032",
+      "visibility": "twin-visible",
+      "readiness": "customer-ready-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-DESIGN-001",
+      "documentId": "UABC-SRC-BCB-DESIGN-001",
+      "title": "Loesungsdesign: BC Basic Einrichtung",
+      "documentType": "solution-design",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/design.md",
+      "parentId": null,
+      "phase": "solution-design",
+      "process": "cross-process",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "909a94e3a977a6ae6cb2082eaa3c84a5d79a24c8727f731e9ef7e4f7d50ff7ef",
+      "visibility": "twin-visible",
+      "readiness": "authoritative-with-history",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-OPENSPEC-001",
+      "documentId": "UABC-SRC-BCB-OPENSPEC-001",
+      "title": "Aenderungsvorschlag: BC Basic Einrichtung",
+      "documentType": "openspec-change",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/proposal.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "project-definition",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "6790e5836ca21d71cc1231b0e9519839e0a4f99dec3564a538f94e35e9f47ad9",
+      "visibility": "twin-visible",
+      "readiness": "authoritative-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-SPEC-001",
+      "documentId": "UABC-SRC-BCB-SPEC-001",
+      "title": "BC Basic Einrichtung Lieferfaehigkeit",
+      "documentType": "requirements",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/specs/bc-basic-delivery/spec.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "requirements",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "977c32eebd0c55d542f9e09fb777ef64a12a388b4544b86a300fc5ee73566498",
+      "visibility": "twin-visible",
+      "readiness": "authoritative-current",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-TASKS-001",
+      "documentId": "UABC-SRC-BCB-TASKS-001",
+      "title": "Aufgaben",
+      "documentType": "delivery-tasks",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/tasks.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "project-delivery",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "ed4a3f0d65a2f79a785d0d61a336b3d7251f6329b29bfc5754710e0ffa8ad90f",
+      "visibility": "twin-visible",
+      "readiness": "implementation-complete",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-VPLAN-001",
+      "documentId": "UABC-SRC-BCB-VPLAN-001",
+      "title": "Verifikation",
+      "documentType": "verification-plan",
+      "sourcePath": "openspec/changes/deliver-bc-basic-customer-project/verification.md",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "quality-assurance",
+      "status": "active-change",
+      "ownerRefs": [],
+      "jiraRefs": [],
+      "referenceIds": [],
+      "lastReviewed": null,
+      "contentSha256": "5d16e15e784a94258d2bc42d9a55a90b1c78ebc9051b02006c5d97b53fae0e06",
+      "visibility": "twin-visible",
+      "readiness": "verified-with-history",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    }
+  ]
+}

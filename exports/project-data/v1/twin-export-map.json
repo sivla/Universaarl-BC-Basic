@@ -83,10 +83,50 @@
       "required": true
     },
     {
+      "id": "UABC-SRC-JIRA-BLUEPRINT-WAVE-001",
+      "kindId": "jira-issues",
+      "path": "atlassian/jira/issues/blueprint-wave.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-JIRA-ENVIRONMENT-001",
+      "kindId": "jira-issues",
+      "path": "atlassian/jira/issues/environment-baseline.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-JIRA-WALKTHROUGH-001",
+      "kindId": "jira-issues",
+      "path": "atlassian/jira/issues/walkthrough-pilot.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
       "id": "UABC-SRC-BCB-JIRA-004",
       "kindId": "jira-people",
       "path": "atlassian/jira/people.yaml",
-      "selector": "people[id in P-001,P-002,P-004,P-005,P-011,P-016,P-019]",
+      "selector": "people[id in P-001,P-002,P-003,P-004,P-005,P-011,P-015,P-016,P-019]",
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-ARCH-ENTERPRISE-001",
+      "kindId": "enterprise-blueprint",
+      "path": "architecture/enterprise-blueprint.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-CAP-CATALOG-001",
+      "kindId": "capability-catalog",
+      "path": "capabilities/catalog.yaml",
+      "selector": null,
       "format": "yaml",
       "required": true
     },
@@ -459,10 +499,58 @@
       "required": true
     },
     {
+      "id": "UABC-SRC-GOV-REFERENCE-001",
+      "kindId": "reference-lifecycle",
+      "path": "governance/reference-lifecycle.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-SPEC-CAPABILITY-001",
+      "kindId": "reference-definition-spec",
+      "path": "openspec/specs/capability-portfolio/spec.md",
+      "selector": null,
+      "format": "openspec",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-SPEC-ENTERPRISE-001",
+      "kindId": "reference-definition-spec",
+      "path": "openspec/specs/enterprise-model/spec.md",
+      "selector": null,
+      "format": "openspec",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-SPEC-ENVIRONMENT-001",
+      "kindId": "reference-definition-spec",
+      "path": "openspec/specs/environment-baseline/spec.md",
+      "selector": null,
+      "format": "openspec",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-SPEC-GOVERNANCE-001",
+      "kindId": "reference-definition-spec",
+      "path": "openspec/specs/project-governance/spec.md",
+      "selector": null,
+      "format": "openspec",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-SPEC-WALKTHROUGH-001",
+      "kindId": "reference-definition-spec",
+      "path": "openspec/specs/walkthrough-package/spec.md",
+      "selector": null,
+      "format": "openspec",
+      "required": true
+    },
+    {
       "id": "UABC-SRC-BCB-SOURCES-001",
       "kindId": "source-register",
       "path": "docs/research/sources.yaml",
-      "selector": "sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-LAW-001,SRC-ELSTER-001]",
+      "selector": "sources[id in SRC-OPSX-001,SRC-BC-001,SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-BC-077,SRC-BC-078,SRC-BC-079,SRC-BC-080,SRC-BC-081,SRC-BC-082,SRC-BC-083,SRC-BC-084,SRC-LAW-001,SRC-ELSTER-001]",
       "format": "yaml",
       "required": true
     },
@@ -824,6 +912,54 @@
       "path": "tests/story/project-story-validator.test.mjs",
       "selector": null,
       "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-CATALOG-001",
+      "kindId": "project-document-catalog",
+      "path": "exports/project-data/v1/document-catalog.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-SCHEMA-001",
+      "kindId": "project-document-catalog-schema",
+      "path": "governance/schemas/project-document-catalog.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-GENERATOR-001",
+      "kindId": "project-document-catalog-generator",
+      "path": "scripts/generate-document-catalog.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-VALIDATOR-001",
+      "kindId": "project-document-catalog-validator",
+      "path": "scripts/validate-document-catalog.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-TESTS-001",
+      "kindId": "project-document-catalog-negative-tests",
+      "path": "tests/governance/document-catalog.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-EVIDENCE-001",
+      "kindId": "project-document-catalog-evidence",
+      "path": "evidence/simulation/document-catalog-validation.yaml",
+      "selector": null,
+      "format": "yaml",
       "required": true
     }
   ]

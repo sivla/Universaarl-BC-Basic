@@ -15,7 +15,7 @@ stations:
 checks:
   spectraRelease: spectra-v0.10.0-alpha.1
   branchContract: exports/project-data/v1/index.yaml
-  twinArtifactCount: 102
+  twinArtifactCount: 108
   realBcExecution: false
   realAcceptance: ausserhalb-des-simulationsziels
   externalTransmission: false

@@ -10,7 +10,7 @@ portableConformance:
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false }
-adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 5c97b3f4ce6ada6f0862813946f99f73078c0da465f0b8888cee861e4fa07da0, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: ac5236a4b259bba188d055c4525230534331baacf92b99fa4b5f8d5cb61b9efb, sourceUnchanged: true, writesPerformed: false }
+adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 3b3a71d74a4e5de0ec4f11051b00a93b72e9ec4a3f293795d3998e3e1dcf25ac, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: 41b35b51d1443d9403c9a0836b90a2dfe4c8f565eece0570525bfc907d9b5d28, sourceUnchanged: true, writesPerformed: false }
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations

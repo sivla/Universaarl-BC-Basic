@@ -30,6 +30,12 @@ Stufe 2 erzeugt aus dieser bereits validierten Payloadliste das Manifest nach `g
 
 Der Project Twin liest spaeter ausschliesslich den neuesten vollstaendig validierten Commit des festgelegten BC-Basic-Branches. Projektpayload, Index und Integritaetsangaben gehoeren gemeinsam in diesen normalen fachlichen Commit; ein separater Manifest-only-Commit und eine kuenstliche A/B-Folge sind nicht erforderlich. Historische A/B-Commits bleiben unveraendert. Ein ungueltiger Branch-HEAD wird fail-closed abgelehnt; ein Release kann diesen Stand optional durch Commit und Tag einfrieren.
 
+### Commitgebundener Dokumentkatalog
+
+`exports/project-data/v1/document-catalog.json` ist der einzige Producer-Vertrag fuer die Navigation ueber alle 32 als Markdown positivgelisteten Projektdokumente. Der Branch-Index bleibt die einzige Allowlist; der Katalog darf keinen zusaetzlichen Quellpfad freigeben. Die 19 Dateien unter `atlassian/confluence/pages/` verwenden ihre vorhandene Frontmatter-ID und Parenthierarchie. Fuer die 13 weiteren Dokumente gilt eine bereits vorhandene Dokument-, Meeting- oder Index-Artefakt-ID als stabiler Fallback. Phase und Prozess bleiben `null` oder `not_evidenced`, wenn die Projektquelle keine belastbare Zuordnung traegt.
+
+Der Twin loest `codex/universaarl-projekt` genau einmal auf und pinnt die Commit-SHA ausserhalb der Dateien dieses Commits. Index, Katalog und Dokumentblobs werden anschliessend nur ueber diesen Commit gelesen. `contentSha256` ist der SHA-256 der rohen Git-Blobbytes; jeder Pfad muss exakt ein regulaerer `100644`-Blob sein. Katalog und Schema enthalten keine Selbst-SHA. Externe URL, Confluence-Page-ID und Space-Key bleiben `null`, solange keine kanonische Quelle und keine sichere HTTPS-Origin belegt sind. Das historische `snapshot-manifest.json` bleibt unveraenderte Legacy-Evidence und bestimmt weder Kataloggueltigkeit noch Branch-Lesbarkeit.
+
 ### Liefermodell
 
 Die folgenden Zeitfenster sind relative Planannahmen und keine Kundenzusage. Kalenderdaten in Jira dienen nur der technisch erforderlichen, als `scheduleSynthetic: true` markierten Simulation.
