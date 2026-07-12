@@ -1,13 +1,30 @@
 schemaVersion: 1
 budgetId: UABC-BUDGET-BCB-001
 projectId: UABC-BC-BASIC-001
-status: planned
+status: simulated-complete
 currency: EUR
 netDailyRate: 1300
 workdayHours: 8
 netHourlyRate: 162.5
 plannedBillableHours: 68
 plannedNetAmount: 11050
+simulationClose:
+  status: simulated-complete
+  offerVersion: 2.0
+  plannedHours: 80
+  actualHours: 80
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  actualNetAmount: 9600
+  worklogCount: 17
+  reconciliationResult: abgestimmt
+  evidence: evidence/simulation/billing-reconciliation.yaml
+  truthBoundary: Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.
+historicalBaseline:
+  plannedHours: 68
+  hourlyRate: 162.5
+  plannedNetAmount: 11050
+  status: superseded-for-synthetic-project-story-only
 budgetLimitStatus: unknown
 budgetLimitNetAmount: null
 contingencyHours: 0

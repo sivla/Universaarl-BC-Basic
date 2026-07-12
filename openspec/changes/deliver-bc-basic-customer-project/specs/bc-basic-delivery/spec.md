@@ -47,6 +47,8 @@ Der Pflichtumfang MUST Grundeinrichtung mit SKR04, Finanzwesen/Buchhaltung, Eink
 ### Requirement: UABC-REQ-BCB-004 Planstunden- und Abrechnungsvertrag
 Die geplanten abrechenbaren Jira-Arbeitspakete auf unterster Ebene MUST zusammen 68 Stunden ergeben. Der Tagessatz MUST 1.300 EUR netto bei 8 Stunden pro Arbeitstag betragen; der rechnerische Stundensatz MUST 162,50 EUR netto betragen. Woechentliche Rechnungen MUST ausschliesslich genehmigte abrechenbare Jira-Istzeiten verwenden; Schaetzungen, Elternsummen, doppelt zugeordnete Zeiten, Kundenaufwaende und externe Kosten MUST ausgeschlossen sein. Ein Budgetlimit MUST als `unknown` oder offen gefuehrt werden, solange der reale Repository-Nutzer keines entschieden hat.
 
+Die abgeschlossene synthetische Projektstory MUST die historische 68-Stunden-Kalkulationsbasis von der versionierten Angebots-/Ist-Basis trennen. Angebotsversion 2.0 MUST 80 synthetische Stunden zu 120 EUR und 9.600 EUR netto, die Abweichung, 17 Worklogs, den Abgleich sowie die Wahrheitgrenze ohne reale Rechnung maschinenlesbar nachweisen.
+
 #### Scenario: UABC-SCN-BCB-005 Wochenrechnung berechnen
 - **GIVEN** eine abgeschlossene Kalenderwoche mit Jira-Arbeitsprotokollen
 - **WHEN** der Rechnungsentwurf erstellt wird

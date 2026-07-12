@@ -11,6 +11,7 @@ issues:
     dueDate: 2026-09-04
     effort: 68h Planwert
     plannedBillableHours: 68
+    finalSimulation: { offerVersion: 2.0, actualHours: 80, actualNetAmount: 9600, worklogCount: 17, evidence: evidence/simulation/billing-reconciliation.yaml, status: simulated-complete }
     billable: false
     worklogEligible: false
     dependencies: []

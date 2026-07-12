@@ -116,6 +116,13 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
   assert.equal(billing.workdayHours, 8);
   assert.equal(billing.netHourlyRate, 162.5);
   assert.equal(billing.plannedNetAmount, 11050);
+  assert.deepEqual(billing.simulationClose, {
+    status: 'simulated-complete', offerVersion: 2, plannedHours: 80, actualHours: 80, hourlyRate: 120,
+    plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: 17, reconciliationResult: 'abgestimmt',
+    evidence: 'evidence/simulation/billing-reconciliation.yaml',
+    truthBoundary: 'Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.'
+  });
+  assert.deepEqual(billing.historicalBaseline, { plannedHours: 68, hourlyRate: 162.5, plannedNetAmount: 11050, status: 'superseded-for-synthetic-project-story-only' });
   assert.equal(billing.budgetLimitStatus, 'unknown');
   assert.equal(billing.budgetLimitNetAmount, null);
   assert.deepEqual(billing.worklogs, []);
@@ -652,7 +659,7 @@ test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', (
 });
 
 test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', () => {
-  assert.equal(decisionRegister.decisions?.length, 7);
+  assert.equal(decisionRegister.decisions?.length, 8);
   for (const decision of decisionRegister.decisions) {
     assert.equal(decision.decidedByRef, 'real-repository-user');
     assert.equal(decision.status, 'decided');

@@ -19,6 +19,19 @@ reconciliation:
   unassignedHours: 0
   arithmetic: 80h * 120 EUR = 9600 EUR
   result: abgestimmt
+  historicalBaseline:
+    hours: 68
+    hourlyRate: 162.5
+    netAmount: 11050
+  simulationOffer:
+    hours: 80
+    hourlyRate: 120
+    netAmount: 9600
+  variance:
+    hours: 12
+    hourlyRate: -42.5
+    netAmount: -1450
+    explanation: Version 2.0 des synthetischen Festpreisangebots ersetzt nur fuer die Projektstory die historische Dienstleisterkalkulation; keine reale Rechnung wird geaendert.
 process:
   steps:
     - step: worklogs-collect

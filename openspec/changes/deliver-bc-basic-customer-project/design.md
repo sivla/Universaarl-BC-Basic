@@ -42,6 +42,8 @@ Die folgenden Zeitfenster sind relative Planannahmen und keine Kundenzusage. Kal
 
 Die 68 Planstunden sind eine Kalkulationsbasis. Es gibt keine Reserve, keine harte Budgetgrenze und keine vorab erfundene Budgetobergrenze; abgerechnet wird nur genehmigte, tatsaechlich geleistete Dienstleisterzeit.
 
+Der synthetische Projektstory-Abschluss verwendet davon getrennt die versionierte Angebotsbasis 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto. Historische Kalkulation, synthetisches Angebot und synthetisches Ist werden getrennt ausgewiesen; daraus entsteht keine reale Rechnung oder Kundenfreigabe.
+
 ### Fachlicher Zuschnitt
 
 - **Grundeinrichtung:** Unternehmensdaten, Sprache/Region, Arbeitsdatumkonzept, SKR04, Nummernserien, Buchungsperioden und minimale Berechtigungsrollen.

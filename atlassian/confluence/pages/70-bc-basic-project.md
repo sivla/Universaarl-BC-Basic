@@ -25,6 +25,8 @@ Geplant ist genau eine synthetische deutsche Gesellschaft `Universaarl GmbH` in 
 
 Die 68 geplanten Dienstleisterstunden werden mit 1.300 EUR netto pro Arbeitstag beziehungsweise 162,50 EUR netto pro Stunde kalkuliert. Daraus entsteht ein Planwert von 11.050 EUR netto. Ein verbindliches Budgetlimit ist nicht entschieden und wird nicht erfunden. Rechnungen duerfen nur aus genehmigten Jira-Arbeitsprotokollen der untersten Ticketebene entstehen.
 
+Im synthetischen Storyabschluss wird diese historische Kalkulation getrennt von Angebotsversion 2.0 gefuehrt: 80 simulierte Stunden zu 120 EUR ergeben 9.600 EUR netto. Der Abgleich ist vollstaendig dokumentiert, erzeugt jedoch keine reale Rechnung, Freigabe oder Zahlung.
+
 ## Offene menschliche Pruefpunkte
 
 Zielgesellschaft und Ruecksetzung, Lizenz, Datenpaket, Finanz- und Steuerdesign, fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau, Uebergabe, Abschluss der Hypercare und optionales Budgetlimit bleiben offen. Synthetische Personen oder automatisierte Pruefungen der Projektablage ersetzen keine dieser Entscheidungen.

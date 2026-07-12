@@ -9,6 +9,7 @@
 - Liefermodell: Vorbereitung und Datenbereitschaft, eine Einrichtungs- und Schulungswoche, danach eine Woche Hypercare mit hoechstens 10 Stunden
 - Planaufwand: 68 geplante abrechenbare Dienstleisterstunden; ein verbindliches Budgetlimit ist noch nicht menschlich entschieden
 - Abrechnungssatz: 1.300 EUR netto pro Arbeitstag, 8 Stunden pro Arbeitstag, rechnerisch 162,50 EUR netto pro Stunde
+- Synthetischer Abschlussstand: Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die Abweichung zur historischen Kalkulationsbasis ist in `evidence/simulation/billing-reconciliation.yaml` nachvollziehbar und erzeugt keine reale Rechnung
 
 ## Problem und Zweck
 

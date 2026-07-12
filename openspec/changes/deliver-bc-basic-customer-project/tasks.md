@@ -33,7 +33,7 @@
 
 ## 4. Steuerung und Abschluss
 
-Diese Kontrollhandlungen erzeugen keine zusaetzlichen abrechenbaren Stunden, kein eigenes Jira-Arbeitsprotokoll und keine eigene Rechnungszeile. Sie werden innerhalb der genannten Arbeitspakete ausgefuehrt; die 68-Stunden-Planung bleibt unveraendert.
+Diese Kontrollhandlungen erzeugen keine zusaetzlichen abrechenbaren Stunden, kein eigenes Jira-Arbeitsprotokoll und keine reale Rechnungszeile. Die historische 68-Stunden-Kalkulation bleibt nachvollziehbar; der abgeschlossene synthetische Angebots-/Ist-Abgleich verwendet versioniert 80 Stunden und 9.600 EUR.
 
 - [x] 4.1 Genehmigte Jira-Istzeiten der Arbeitspakete `UABC-22` bis `UABC-38` im synthetischen Playthrough woechentlich pruefen und den Ticket-/Angebotsabgleich durchführen; Schaetzungen, Elternsummen und nicht entschiedene Budgetlimits nicht fakturieren. Evidence: `evidence/simulation/billing-reconciliation.yaml`. Die Evidence ist ausdrücklich synthetisch und erzeugt keine reale Rechnung oder Freigabe.
 - [x] 4.2 Innerhalb von `UABC-34`, `UABC-36`, `UABC-37` und `UABC-38` alle geplanten Verifikationen ausfuehren und fachliche Freigaben von technischen Nachweisen trennen. Evidence: `scripts/validate-project-story.mjs`, `scripts/validate-bc-playthrough.mjs`, `scripts/validate-simulation-evidence.mjs`, `tests/governance/`.
