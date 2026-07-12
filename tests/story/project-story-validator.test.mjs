@@ -20,3 +20,14 @@ test('UNKNOWN_TIMELINE_REFERENCE erkennt unbekannte Ticketreferenz', () => has(m
 test('OPEN_P1_P2 erkennt offenes P1', () => has(mutate((s) => { s.controls.openP1 = 1; }), 'OFFENES-P1-P2'));
 test('UNKNOWN_RELATION erkennt unbekannten Relationstyp', () => has(mutate((s) => { s.relations = [{ type: 'unknown', from: 'TKT-UABC-22', to: 'TKT-UABC-23', inverse: 'TKT-UABC-23->TKT-UABC-22' }]; }), 'UNBEKANNTE-RELATION'));
 test('INVERSE_RELATION erkennt falsche inverse Kante', () => has(mutate((s) => { s.relations = [{ type: 'blocks', from: 'TKT-UABC-22', to: 'TKT-UABC-23', inverse: 'wrong' }]; }), 'INVERSE-RELATION'));
+test('DUPLICATE_SOURCE_PATH erkennt echten doppelten Quellpfad', () => has(mutate((s) => { s.pages[2].sourcePath = s.pages[1].sourcePath; }), 'SEITE-DOPPELTER-PFAD'));
+test('NESTED_ADDITIONAL_PROPERTY erkennt unerlaubte Kommentareigenschaft', () => has(mutate((s) => { s.tickets[0].comments[0].unexpected = true; }), 'UNERLAUBTE-EIGENSCHAFT'));
+test('PAGE_FILE_METADATA erkennt Abweichung aus injiziertem Leser', () => has(validateStory(source, { checkFiles: false, metadataReader: () => ({ id: 'falsch', parent: null, version: 99, status: 'falsch' }) }), 'SEITE-METADATEN-ABWEICHUNG'));
+test('STATUSHISTORY_TIME_TRAVEL erkennt Zeitreise in strukturierter Historie', () => has(mutate((s) => { s.tickets[0].statusHistory = [{ status: 'created', time: '2026-08-20' }, { status: 'in-progress', time: '2026-08-19' }, { status: 'done', time: '2026-08-20' }]; }), 'STATUSHISTORY-ABWEICHUNG'));
+test('WORKLOG_COST erkennt falsche globale Kosten', () => has(mutate((s) => { s.tickets[0].worklogs[0].cost = 0; }), 'WORKLOG-SUMME'));
+test('TIMELINE_UNKNOWN_EVIDENCE erkennt unbekannte Evidence', () => has(mutate((s) => { s.timeline[0].evidence = 'EVIDENCE-NOT-FOUND'; }), 'UNBEKANNTE-TIMELINE-REFERENZ'));
+test('TIMELINE_UNKNOWN_SESSION erkennt unbekannte BC-Sitzung', () => has(mutate((s) => { s.timeline[0].sessions = ['SESSION-NOT-FOUND']; }), 'UNBEKANNTE-TIMELINE-REFERENZ'));
+test('TIMELINE_UNKNOWN_DECISION erkennt unbekannte Entscheidung', () => has(mutate((s) => { s.timeline[0].decision = 'DECISION-NOT-FOUND'; }), 'UNBEKANNTE-TIMELINE-REFERENZ'));
+test('TIMELINE_OUTSIDE_WINDOW erkennt Zeit ausserhalb Projektzeitraum', () => has(mutate((s) => { s.timeline[0].time = '2027-01-01'; }), 'TIMELINE-GRENZE'));
+test('REFERENCED_OPEN_P1 erkennt tatsächlich offenes P1-Ticket', () => has(mutate((s) => { s.tickets.find((t) => t.id === s.hypercare[0].ticket).status = 'in-progress'; }), 'OFFENES-P1-P2'));
+test('INVERSE_MISSING erkennt fehlende Rückkante', () => has(mutate((s) => { s.relations = s.relations.filter((r) => !(r.type === 'references' && r.from === 'TKT-UABC-29')); }), 'INVERSE-RELATION'));
