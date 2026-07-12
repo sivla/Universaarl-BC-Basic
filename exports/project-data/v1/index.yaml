@@ -85,7 +85,7 @@ artifacts:
   - { id: UABC-SRC-BCB-UAT-RUN-001, kindId: uat-training-run, path: project/bc-basic/uat-training-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-READINESS-001, kindId: phase-2-readiness-gate, path: project/bc-basic/phase-2-readiness-gate.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-TRACE-001, kindId: traceability-matrix, path: project/bc-basic/traceability-matrix.yaml, format: yaml, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.3.0-alpha.1.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.6.0-alpha.1.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE3-001, kindId: phase-3-cash-inventory-close, path: evidence/simulation/phase-3-cash-inventory-close.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE2-SIM-001, kindId: phase-2-p2p-o2c-simulation, path: evidence/simulation/phase-2-p2p-o2c.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-COMPLETION-001, kindId: synthetic-project-completion, path: evidence/simulation/project-completion.yaml, format: yaml, required: true }

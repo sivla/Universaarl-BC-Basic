@@ -1,0 +1,11 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SPECTRA-06-ALPHA-001
+projectId: UABC-BC-BASIC-001
+classification: remote-read-only-verification
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v0.6.0-alpha.1
+tag: { name: spectra-v0.6.0-alpha.1, annotatedObject: 766d1d2a23180e2c8d2cc0dfb05cfac004fedabb, peeledCommit: c5968a22f55b30689a9f81892f09ae24b5284dc1, tree: 067e977f7a4da15902544ad112dfd3318514daa3 }
+manifest: { path: release/versions/0.6.0-alpha.1/release-manifest.json, blobSha: be67ee86892bccebcf96a8643e7527408d50e32a, manifestSourceCommit: 908c95ea817820ed87603b7e26b59318305bb8c4, sourceCommitIsAncestor: true, consumerMode: INSTALLABLE_BLUEPRINT, installableBlueprint: true }
+payload: { digestAlgorithm: SHA-256, bundleDigest: 4aff31dc619c617b5597e395c28a4f3bd376661166036bdb76b6089d09a1cb36, fileCount: 76, verifiedGitBlobs: 76, mismatches: 0 }
+release: { version: 0.6.0-alpha.1, prerelease: true, draft: false }
+verification: { status: passed, method: GitHub-API-read-only-Tag-Manifest-Blob-SHA-256-und-Ancestry, verifiedAt: 2026-07-12, workspaceValidator: portable-automation-read-only-gegen-BC-Basic-Story-nicht-native-CamelCase-Konformitaet, projectStoryContract: released-and-mapped, noRepositoryMutation: true }
