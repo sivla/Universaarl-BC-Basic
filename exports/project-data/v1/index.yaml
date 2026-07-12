@@ -92,6 +92,7 @@ artifacts:
   - { id: UABC-SRC-BCB-BANKSIM-001, kindId: synthetic-bank-statement, path: evidence/simulation/synthetic-bank-statement.csv, format: csv, required: true }
   - { id: UABC-SRC-BCB-DEMO-001, kindId: synthetic-demo-guide, path: docs/runbooks/bc-basic-simulation-demo.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-DEMO-EVIDENCE-001, kindId: synthetic-demo-evidence, path: evidence/simulation/demo-readiness.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-BILLING-SIM-001, kindId: synthetic-billing-reconciliation, path: evidence/simulation/billing-reconciliation.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-AUDIT-001, kindId: synthetic-objective-audit, path: evidence/simulation/end-to-end-objective-audit.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE-GATES-001, kindId: synthetic-phase-gate-register, path: evidence/simulation/phase-gate-register.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PLAY-CATALOG-001, kindId: bc-playthrough-catalog, path: project/bc-basic/bc-playthrough-catalog.yaml, format: yaml, required: true }

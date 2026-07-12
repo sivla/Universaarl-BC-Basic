@@ -1,0 +1,40 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-BILLING-001
+classification: synthetic-only
+status: simulated-complete
+simulationTimestamp: 2026-09-03T16:00:00+02:00
+timelineEvent: STORY-15
+scope:
+  ticketRange: UABC-22..UABC-38
+  sourceOfTruth: evidence/simulation/project-story.json
+  worklogSource: evidence/simulation/project-story.json:tickets[*].worklogs
+  offerSource: docs/offers/bc-basic-offer.md
+reconciliation:
+  ticketWorklogHours: 80
+  offerActualHours: 80
+  ticketWorklogCost: 9600
+  offerActualCost: 9600
+  hourlyRate: 120
+  duplicateParentHours: 0
+  unassignedHours: 0
+  arithmetic: 80h * 120 EUR = 9600 EUR
+  result: abgestimmt
+process:
+  steps:
+    - step: worklogs-collect
+      result: 17 synthetische Ticket-Worklogs aus der kanonischen Story gesammelt
+    - step: parent-deduplication
+      result: Eltern-/Epic-Summen nicht zusätzlich fakturiert
+    - step: offer-match
+      result: Angebots-Istwerte und Story-Kosten identisch
+    - step: approval-simulation
+      result: synthetische interne Prüferrolle P-002 bestätigt den Abgleich
+decision:
+  gate: SIMULIERTE_ABRECHNUNGSFREIGABE
+  outcome: GO_SIMULATION
+  decidedBy: P-002
+  decidedAt: 2026-09-03T16:00:00+02:00
+  limitation: Keine reale Jira-Freigabe, Rechnung, Kundenfreigabe oder Zahlung ausgeführt.
+references:
+  tickets: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
+  evidence: [evidence/simulation/project-story.json, docs/offers/bc-basic-offer.md, atlassian/jira/issues/bc-basic-project.yaml]
