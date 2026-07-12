@@ -1,21 +1,43 @@
 ---
 id: UABC-BCBIMPLEMENTATION
-title: 04 Lösung und Einrichtung
-parent: UABC-PROJECT
-owners: [P-002, P-004, P-005, P-011, P-019]
+title: 02.3 Loesung und Einrichtung
+parent: UABC-BCBDELIVERABLES
+owners:
+  - P-002
+  - P-004
+  - P-005
+  - P-011
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 4
+order: 8
 storyPageId: PAGE-UABC-110
-purpose: Erklärt die kundenspezifische Standardkonfiguration, Reihenfolge, Prüfungen und Rollenabgrenzung.
-audience: [Consultant, Solution Architect, Key User]
-jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-46]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-003, UABC-REQ-BCB-006, UABC-REQ-BCB-008, UABC-REQ-BCB-009]
+purpose: Erklärt die kundenspezifische Standardkonfiguration, Reihenfolge,
+  Prüfungen und Rollenabgrenzung.
+audience:
+  - Consultant
+  - Solution Architect
+  - Key User
+jiraRefs:
+  - UABC-39
+  - UABC-40
+  - UABC-41
+  - UABC-42
+  - UABC-43
+  - UABC-44
+  - UABC-46
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-003
+  - UABC-REQ-BCB-006
+  - UABC-REQ-BCB-008
+  - UABC-REQ-BCB-009
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 04 Lösung und Einrichtung
+# 02.3 Loesung und Einrichtung
 
 ## Lösungsziel
 
@@ -106,4 +128,4 @@ Die Referenzsimulation erstellt nur eine VAT-Vorschau. Sie behauptet keine ELSTE
 - [Offizielles Quellenregister](../../../docs/research/source-register.md)
 - [Maschinenlesbare Quellenzuordnung](../../../docs/research/sources.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-110","title":"04 Lösung und Einrichtung","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-110","title":"02.3 Loesung und Einrichtung","parent":"PAGE-UABC-130","version":5,"status":"published"} -->

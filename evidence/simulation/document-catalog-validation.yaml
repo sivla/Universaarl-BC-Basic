@@ -7,21 +7,21 @@ catalogPath: exports/project-data/v1/document-catalog.json
 schemaPath: governance/schemas/project-document-catalog.schema.json
 sourceIndexPath: exports/project-data/v1/index.yaml
 commitResolution: allowed-branch-head-resolved-once
-documentCount: 34
-confluenceDocumentCount: 19
+documentCount: 43
+confluenceDocumentCount: 28
 otherDocumentCount: 15
 spaceCount: 3
 spaceDistribution:
-  UABC-SPACE-CUSTOMER: 11
-  UABC-SPACE-PRODUCT: 4
-  UABC-SPACE-CONSULTANT: 4
+  UABC-SPACE-CUSTOMER: 12
+  UABC-SPACE-PRODUCT: 8
+  UABC-SPACE-CONSULTANT: 8
 migrationEntryCount: 19
 navigationEvidence:
   moduleCount: 3
-  nodeCount: 22
+  nodeCount: 31
   groupNodeCount: 3
-  pageNodeCount: 19
-  maximumDepth: 2
+  pageNodeCount: 28
+  maximumDepth: 3
   initialStates: { expanded: 11, collapsed: 11 }
   checks: [module-space-binding, unique-node-ids, known-node-types, parent-resolution, cycle-free, sibling-order, exact-document-coverage, explicit-initial-state]
 ticketTypeEvidence:

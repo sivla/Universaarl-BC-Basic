@@ -1,21 +1,35 @@
 ---
 id: UABC-HYPERCARE
-title: 07 Schulung und Befähigung
-parent: UABC-PROJECT
-owners: [P-002, P-005, P-011, P-019]
+title: 04 Handbuecher
+parent: null
+owners:
+  - P-002
+  - P-005
+  - P-011
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 7
+order: 4
 storyPageId: PAGE-UABC-170
 purpose: Befähigt operative Rollen für Alltag, Kontrolle, Fehlerdiagnose und Eskalation.
-audience: [Key User, Endanwender, Trainer, Support]
-jiraRefs: [UABC-45, UABC-46, UABC-50]
-referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-010]
+audience:
+  - Key User
+  - Endanwender
+  - Trainer
+  - Support
+jiraRefs:
+  - UABC-45
+  - UABC-46
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-007
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 07 Schulung und Befähigung
+# 04 Handbuecher
 
 ## Zielgruppen und Lernziele
 
@@ -97,4 +111,4 @@ Ein Supportticket enthält Rolle, Umgebung, Version, Zeitpunkt, Seite/Aktion, Be
 - [Bedienfälle und Fehlerbilder](../../../project/bc-basic/bc-playthrough-catalog.yaml)
 - [Support- und Handover-Regeln](../../../docs/handover/bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-170","title":"07 Schulung und Befähigung","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-170","title":"04 Handbuecher","parent":null,"version":5,"status":"published"} -->

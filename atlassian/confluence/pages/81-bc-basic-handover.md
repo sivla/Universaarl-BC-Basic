@@ -1,22 +1,26 @@
 ---
 id: UABC-TRAINING
 storyPageId: PAGE-UABC-180
-title: 02 Lieferpaket, Tests und Standardtraining
-parent: UABC-BCBPROJECT
+title: 04 Lieferobjekte und Abnahme
+parent: null
 spaceId: UABC-SPACE-PRODUCT
 spaceType: standard-product
-order: 2
+order: 4
 purpose: Verbindlicher Umfang von Lieferobjekten, Qualitätssicherung und Befähigung
 audience: Vertrieb, Projektleitung, Consultant, Key User und Support
-owners: [P-002]
-version: 3
+owners:
+  - P-002
+version: 4
 status: published
-jiraRefs: [UABC-50]
-referenceIds: [UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+jiraRefs:
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-010
+  - UABC-REQ-BCB-011
 lastReviewed: 2026-09-03
 ---
 
-# 02 Lieferpaket, Tests und Standardtraining
+# 04 Lieferobjekte und Abnahme
 
 ## Liefer- und Qualitätsversprechen
 
@@ -89,4 +93,4 @@ Eine Referenzsimulation belegt die Wiederholbarkeit des Pakets. Sie ersetzt wede
 - [Cutover, Hypercare, Betrieb und Erweiterungsgrenzen](73-bc-basic-hypercare.md)
 - [Consultant: Projektsteuerung bis Abschluss](75-bc-basic-meetings-decisions.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-180","parent":"PAGE-UABC-090","version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-180","title":"04 Lieferobjekte und Abnahme","parent":null,"version":4,"status":"published"} -->

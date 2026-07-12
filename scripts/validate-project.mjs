@@ -717,7 +717,7 @@ const bcBasicChangeActive = await exists('openspec/changes/migrate-bc-basic-to-s
   if (sourceIndexAvailable) {
     const projectDataIndex = await yaml(spacePointer.sourceIndex);
     const confluenceDefinitions = (projectDataIndex.documentCatalog?.definitions ?? []).filter((definition) => definition.documentType === 'confluence-page');
-    check((projectDataIndex.documentCatalog?.spaces ?? []).length === 3 && confluenceDefinitions.length === 19, 'Confluence-Katalog muss drei Spaces und 19 Seiten enthalten');
+    check((projectDataIndex.documentCatalog?.spaces ?? []).length === 3 && confluenceDefinitions.length === 28, 'Confluence-Katalog muss drei Spaces und 28 Seiten enthalten');
     const definitionById = new Map(confluenceDefinitions.map((definition) => [definition.documentId, definition]));
     for (const { file, meta } of pages) {
       const definition = definitionById.get(meta.id);

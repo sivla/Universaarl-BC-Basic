@@ -1,21 +1,37 @@
 ---
 id: UABC-WALKTHROUGH
-title: 08 Cutover und Go-live
-parent: UABC-PROJECT
-owners: [P-001, P-002, P-005, P-016]
+title: 03.2 Cutover und Go-live
+parent: UABC-BCBSTORY
+owners:
+  - P-001
+  - P-002
+  - P-005
+  - P-016
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 8
+order: 10
 storyPageId: PAGE-UABC-080
-purpose: Beschreibt Mock-Cutover, GO_SIMULATION, simulierten Go-live, Rollback und Wiederanlauf.
-audience: [Steering, Projektleitung, Key User, Support]
-jiraRefs: [UABC-46, UABC-47, UABC-50]
-referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-008, UABC-REQ-BCB-010]
+purpose: Beschreibt Mock-Cutover, GO_SIMULATION, simulierten Go-live, Rollback
+  und Wiederanlauf.
+audience:
+  - Steering
+  - Projektleitung
+  - Key User
+  - Support
+jiraRefs:
+  - UABC-46
+  - UABC-47
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-008
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-09-03
+version: 4
 ---
 
-# 08 Cutover und Go-live
+# 03.2 Cutover und Go-live
 
 ## Ziel und Eingangskriterien
 
@@ -72,4 +88,4 @@ Der simulierte Go-live erzeugte Tages- und Hypercare-Evidence, aber weder Produk
 - [Wiederanlauf und Handover](../../../docs/handover/bc-basic-handover.md)
 - [Chronologische Story](../../../docs/reports/bc-basic-project-chronicle.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-080","title":"08 Cutover und Go-live","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-080","title":"03.2 Cutover und Go-live","parent":"PAGE-UABC-150","version":4,"status":"published"} -->

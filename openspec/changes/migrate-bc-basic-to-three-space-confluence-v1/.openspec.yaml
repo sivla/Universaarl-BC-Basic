@@ -1,0 +1,23 @@
+schema: universaarl-delivery
+created: 2026-07-12
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-THREE-SPACE-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-12
+  scope: nur lokale source-driven Confluence-Simulation; keine Live-Atlassian-, BC-, Remote- oder Spectra-Aktion
+  conditions:
+    - exakt drei Spaces und exakt 6/8/8 Rootseiten
+    - alle 19 Altseiten besitzen ein eindeutiges Migrationsziel und Verlustfreiheitsnachweis
+    - lokale Validatoren, OpenSpec strict, Snapshotvertrag und Gesamtcheck sind gruen
+proposedCanonicalUpdate:
+  status: applied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    project: { status: confirmed, value: UABC-BC-BASIC-001 }
+    sourceIndex: { status: confirmed, value: exports/project-data/v1/index.yaml }
+    documentCatalog: { status: confirmed, value: exports/project-data/v1/document-catalog.json }
+    confluenceHierarchy: { status: confirmed, value: three-spaces-6-8-8 }
+  unknowns: []
+  policyGateEvidenceId: UABC-VER-BCB-THREE-SPACE-001

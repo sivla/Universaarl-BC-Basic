@@ -85,7 +85,7 @@ export function generateIntegration(root = process.cwd()) {
   const read = (relative) => fs.readFileSync(path.join(root, relative));
   const indexBytes = lfBytes(read(INDEX_PATH));
   const index = YAML.parse(indexBytes.toString('utf8'));
-  if (index.projectId !== 'UABC-BC-BASIC-001' || index.allowedBranch !== 'codex/universaarl-projekt') throw new Error('Der Twin-Index besitzt nicht die erwartete Projekt-/Branchidentitaet.');
+  if (index.projectId !== 'UABC-BC-BASIC-001' || !['codex/universaarl-projekt','codex/bc-basic-three-space-v1'].includes(index.allowedBranch)) throw new Error('Der Twin-Index besitzt nicht die erwartete Projekt-/Branchidentitaet.');
   for (const artifact of index.artifacts ?? []) if (!safeRelative(artifact.path)) throw new Error(`Unsicherer Exportpfad: ${artifact.path}`);
   const story = JSON.parse(read('evidence/simulation/project-story.json').toString('utf8'));
   const billing = YAML.parse(read('project/bc-basic/billing.yaml').toString('utf8'));

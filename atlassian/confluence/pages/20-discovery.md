@@ -1,22 +1,27 @@
 ---
 id: UABC-DISCOVERY
 storyPageId: PAGE-UABC-020
-title: 01 Discovery, Workshops und Fit-to-Standard
-parent: UABC-BLUEPRINT
+title: 01 Discovery und Fit-to-Standard
+parent: null
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
 order: 1
 purpose: Interne Moderationsanleitung für schnelle, belastbare Kundenentscheidungen
 audience: Consultant, Projektleitung und Solution Architecture
-owners: [P-002]
-version: 3
+owners:
+  - P-002
+version: 4
 status: published
-jiraRefs: [UABC-1, UABC-10]
-referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-REQ-CAP-001]
+jiraRefs:
+  - UABC-1
+  - UABC-10
+referenceIds:
+  - UABC-ARCH-ENTERPRISE-001
+  - UABC-REQ-CAP-001
 lastReviewed: 2026-07-12
 ---
 
-# 01 Discovery, Workshops und Fit-to-Standard
+# 01 Discovery und Fit-to-Standard
 
 ## Workshopziel und Vorbereitung
 
@@ -82,4 +87,4 @@ Für jede Anforderung dokumentiert der Consultant Ist-Bedarf, BC-Standardabbildu
 - [Umgebung, Einrichtung, Daten und Testdurchführung](60-environment-baseline.md)
 - [Produkt: Prozess- und Konfigurationsstandard](31-processes.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-020","parent":"PAGE-UABC-030","version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-020","title":"01 Discovery und Fit-to-Standard","parent":null,"version":4,"status":"published"} -->

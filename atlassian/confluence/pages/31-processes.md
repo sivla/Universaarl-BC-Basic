@@ -1,22 +1,26 @@
 ---
 id: UABC-PROCESSES
 storyPageId: PAGE-UABC-040
-title: 01 Prozess- und Konfigurationsstandard
-parent: UABC-BCBPROJECT
+title: 02 Leistungsumfang und Abgrenzung
+parent: null
 spaceId: UABC-SPACE-PRODUCT
 spaceType: standard-product
-order: 1
+order: 2
 purpose: Wiederverwendbare Prozess- und Einrichtungsvorgaben für BC Basic
 audience: Consultant, Solution Architecture und Key User
-owners: [P-002]
-version: 5
+owners:
+  - P-002
+version: 6
 status: published
-jiraRefs: [UABC-3]
-referenceIds: [UABC-CAP-CATALOG-001, UABC-REQ-CAP-002]
+jiraRefs:
+  - UABC-3
+referenceIds:
+  - UABC-CAP-CATALOG-001
+  - UABC-REQ-CAP-002
 lastReviewed: 2026-07-12
 ---
 
-# 01 Prozess- und Konfigurationsstandard
+# 02 Leistungsumfang und Abgrenzung
 
 ## Zweck des Standards
 
@@ -93,4 +97,4 @@ Individuelle BI-Modelle, gesetzlich nicht bestätigte Auswertungen oder kundensp
 - [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 - [Consultant: Umgebung, Einrichtung, Daten und Testdurchführung](60-environment-baseline.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-040","parent":"PAGE-UABC-090","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-040","title":"02 Leistungsumfang und Abgrenzung","parent":null,"version":6,"status":"published"} -->

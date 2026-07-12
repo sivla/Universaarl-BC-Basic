@@ -35,6 +35,7 @@ const REQUIRED_SPACES = Object.freeze([
   { spaceId: 'UABC-SPACE-PRODUCT', spaceType: 'standard-product', homeDocumentId: 'UABC-BCBPROJECT' },
   { spaceId: 'UABC-SPACE-CONSULTANT', spaceType: 'consultant-internal', homeDocumentId: 'UABC-BLUEPRINT' }
 ]);
+const REQUIRED_ROOT_COUNTS = Object.freeze({ 'UABC-SPACE-CUSTOMER': 6, 'UABC-SPACE-PRODUCT': 8, 'UABC-SPACE-CONSULTANT': 8 });
 
 export const sha256Hex = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export const canonicalCatalogBytes = (value) => Buffer.from(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
@@ -262,7 +263,7 @@ function validateSpaces(catalog, config, documents, errors) {
   }
   for (const space of spaces) {
     const roots = pages.filter((page) => page.spaceId === space.spaceId && page.parentId === null);
-    if (roots.length !== 1 || roots[0]?.documentId !== space.homeDocumentId) add(errors, DOCUMENT_CATALOG_ERROR.space, `${space.spaceId}: exakt die deklarierte Startseite muss Wurzel sein`);
+    if (roots.length !== REQUIRED_ROOT_COUNTS[space.spaceId] || !roots.some((root) => root.documentId === space.homeDocumentId)) add(errors, DOCUMENT_CATALOG_ERROR.space, `${space.spaceId}: Rootanzahl oder deklarierte Startseite ist ungueltig`);
     const orders = pages.filter((page) => page.spaceId === space.spaceId).map((page) => page.order).sort((left, right) => left - right);
     if (!orders.every((order, index) => order === index)) add(errors, DOCUMENT_CATALOG_ERROR.space, `${space.spaceId}: Seitenreihenfolge muss lueckenlos bei 0 beginnen`);
   }
@@ -282,7 +283,9 @@ function validateSpaces(catalog, config, documents, errors) {
     const page = pageById.get(redirect.documentId);
     if (!page || redirect.storyPageId !== page.storyPageId || redirect.sourcePath !== page.sourcePath || redirect.targetTitle !== page.title || redirect.targetParentId !== page.parentId || redirect.migrationStatus !== 'migrated-in-place') add(errors, DOCUMENT_CATALOG_ERROR.redirect, `${redirect.documentId}: Migrationseintrag stimmt nicht mit der Zielseite ueberein`);
   }
-  if (pages.some((page) => !redirectIds.has(page.documentId))) add(errors, DOCUMENT_CATALOG_ERROR.redirect, 'Mindestens eine strukturierte Seite fehlt in der Migrationsmatrix');
+  const migratedPages = pages.filter((page) => page.readiness !== 'draft-template');
+  const newPages = pages.filter((page) => page.readiness === 'draft-template');
+  if (migratedPages.length !== 19 || newPages.length !== 9 || migratedPages.some((page) => !redirectIds.has(page.documentId)) || newPages.some((page) => redirectIds.has(page.documentId))) add(errors, DOCUMENT_CATALOG_ERROR.redirect, 'Migrationsmatrix muss exakt 19 Altseiten abdecken und neun neue Roots getrennt halten');
 }
 
 function validateNavigation(catalog, config, documents, errors) {
@@ -291,7 +294,7 @@ function validateNavigation(catalog, config, documents, errors) {
   const nodes = Array.isArray(catalog?.navigationNodes) ? catalog.navigationNodes : [];
   const configNodes = Array.isArray(config?.navigationNodes) ? config.navigationNodes : [];
   if (modules.length !== 3 || configModules.length !== 3 || !semanticEqual(modules, configModules)) add(errors, DOCUMENT_CATALOG_ERROR.navigation, 'Index und Katalog muessen dieselben exakt drei Navigationsmodule definieren');
-  if (nodes.length !== 22 || configNodes.length !== 22 || !semanticEqual(nodes, configNodes)) add(errors, DOCUMENT_CATALOG_ERROR.navigation, 'Index und Katalog muessen dieselben drei Gruppen- und 19 Seitennodes definieren');
+  if (nodes.length !== 31 || configNodes.length !== 31 || !semanticEqual(nodes, configNodes)) add(errors, DOCUMENT_CATALOG_ERROR.navigation, 'Index und Katalog muessen dieselben drei Gruppen- und 28 Seitennodes definieren');
 
   const spaces = new Map((catalog?.spaces ?? []).map((space) => [space.spaceId, space]));
   const moduleById = new Map();
@@ -335,7 +338,7 @@ function validateNavigation(catalog, config, documents, errors) {
   for (const node of nodes) {
     if (node?.parentNodeId !== null) {
       const parent = nodeById.get(node.parentNodeId);
-      if (!parent || parent.moduleId !== node.moduleId || parent.nodeType !== 'group') add(errors, DOCUMENT_CATALOG_ERROR.navigation, `${node?.nodeId ?? 'unbekannt'}: Parentnode fehlt, liegt in einem anderen Modul oder ist keine Gruppe`);
+      if (!parent || parent.moduleId !== node.moduleId || !['group','page'].includes(parent.nodeType)) add(errors, DOCUMENT_CATALOG_ERROR.navigation, `${node?.nodeId ?? 'unbekannt'}: Parentnode fehlt oder liegt in einem anderen Modul`);
     }
     const visited = new Set();
     let current = node;
@@ -347,8 +350,8 @@ function validateNavigation(catalog, config, documents, errors) {
       }
       visited.add(current.nodeId);
       depth += 1;
-      if (depth > 2) {
-        add(errors, DOCUMENT_CATALOG_ERROR.navigation, `${node?.nodeId ?? 'unbekannt'}: Navigation ueberschreitet die maximale Tiefe 2`);
+      if (depth > 3) {
+        add(errors, DOCUMENT_CATALOG_ERROR.navigation, `${node?.nodeId ?? 'unbekannt'}: Navigation ueberschreitet die maximale Tiefe 3`);
         break;
       }
       current = current.parentNodeId === null ? null : nodeById.get(current.parentNodeId);
@@ -362,7 +365,7 @@ function validateNavigation(catalog, config, documents, errors) {
     const pageOrders = moduleNodes.filter((node) => node.nodeType === 'page').map((node) => node.order).sort((left, right) => left - right);
     if (!pageOrders.every((order, index) => order === index)) add(errors, DOCUMENT_CATALOG_ERROR.navigation, `${module.moduleId}: Seitennodes muessen lueckenlos bei 0 beginnen`);
   }
-  if (nodes.filter((node) => node.nodeType === 'group').length !== 3 || nodes.filter((node) => node.nodeType === 'page').length !== 19 || pageDocumentIds.size !== 19 || [...pages.keys()].some((documentId) => !pageDocumentIds.has(documentId))) add(errors, DOCUMENT_CATALOG_ERROR.navigation, 'Navigation muss exakt drei Space-Gruppen und jede der 19 Seiten genau einmal enthalten');
+  if (nodes.filter((node) => node.nodeType === 'group').length !== 3 || nodes.filter((node) => node.nodeType === 'page').length !== 28 || pageDocumentIds.size !== 28 || [...pages.keys()].some((documentId) => !pageDocumentIds.has(documentId))) add(errors, DOCUMENT_CATALOG_ERROR.navigation, 'Navigation muss exakt drei Space-Gruppen und jede der 28 Seiten genau einmal enthalten');
 }
 
 export function validateDocumentCatalog({ catalog, schema, projectIndex, readEntry, referenceSets = null }) {
@@ -381,19 +384,19 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   if (catalog?.catalogId !== DOCUMENT_CATALOG_ID || catalog?.projectId !== projectIndex?.projectId || catalog?.contractId !== projectIndex?.contractId || catalog?.allowedBranch !== projectIndex?.allowedBranch || catalog?.sourceIndexPath !== 'exports/project-data/v1/index.yaml') {
     add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Katalog und Branch-Index besitzen nicht dieselbe Projekt-/Vertragsidentitaet');
   }
-  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 34 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
+  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 43 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
   if (!sameArray(config.allowedExternalOrigins, catalog?.allowedExternalOrigins)) add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Erlaubte externe Origins stimmen nicht zwischen Index und Katalog ueberein');
 
   const documents = Array.isArray(catalog?.documents) ? catalog.documents : [];
-  if (catalog?.documentCount !== documents.length || documents.length !== 34) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 34 Dokumente, gefunden wurden ${documents.length}`);
+  if (catalog?.documentCount !== documents.length || documents.length !== 43) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 43 Dokumente, gefunden wurden ${documents.length}`);
   const pageCount = documents.filter((document) => document.documentType === 'confluence-page').length;
-  if (catalog?.confluenceDocumentCount !== pageCount || pageCount !== 19) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 19 strukturierte Seiten, gefunden wurden ${pageCount}`);
+  if (catalog?.confluenceDocumentCount !== pageCount || pageCount !== 28) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 28 strukturierte Seiten, gefunden wurden ${pageCount}`);
 
   const markdownArtifacts = (projectIndex?.artifacts ?? []).filter((artifact) => artifact.format === 'markdown');
   const artifactById = new Map(markdownArtifacts.map((artifact) => [artifact.id, artifact]));
   const expectedPairs = new Set(markdownArtifacts.map((artifact) => `${artifact.id}\0${artifact.path}`));
   const actualPairs = new Set(documents.map((document) => `${document.artifactId}\0${document.sourcePath}`));
-  if (expectedPairs.size !== 34 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
+  if (expectedPairs.size !== 43 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
 
   const documentIds = new Set();
   const artifactIds = new Set();
@@ -401,7 +404,7 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   const refs = referenceSets ?? collectReferenceSets(projectIndex, readEntry);
   const origins = new Set(catalog?.allowedExternalOrigins ?? []);
   const definitions = new Map((config.definitions ?? []).map((definition) => [definition.artifactId, definition]));
-  if (definitions.size !== 34 || (config.definitions ?? []).length !== 34) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 34 eindeutige Dokumentdefinitionen enthalten');
+  if (definitions.size !== 43 || (config.definitions ?? []).length !== 43) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 43 eindeutige Dokumentdefinitionen enthalten');
   for (const origin of origins) if (!validOrigin(origin)) add(errors, DOCUMENT_CATALOG_ERROR.url, `Erlaubte Origin ist keine sichere kanonische HTTPS-Origin: ${origin}`);
 
   for (const document of documents) {

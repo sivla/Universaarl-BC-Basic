@@ -15,7 +15,7 @@ test('CLOSING_COMMENT erkennt fehlenden Abschlusskommentar', () => has(mutate((s
 test('WORKLOG_SUM erkennt falsche Summe', () => has(mutate((s) => { task(s).worklogs[0].hours = 7; }), 'WORKLOG-SUMME'));
 test('STATUS_TIME_TRAVEL erkennt zeitliche Rückreise', () => has(mutate((s) => { task(s).closedAt = '2020-01-01'; }), 'STATUS-ZEITREISE'));
 test('TERMINAL_STATUS erkennt abweichenden Endstatus', () => has(mutate((s) => { s.tickets[0].statusHistory[s.tickets[0].statusHistory.length - 1] = 'closed'; }), 'ENDSTATUS-ABWEICHUNG'));
-test('PAGE_CYCLE erkennt Seitenzyklus', () => has(mutate((s) => { s.pages[0].parent = 'PAGE-UABC-010'; }), 'SEITE-ZYKLUS'));
+test('PAGE_CYCLE erkennt Seitenzyklus', () => has(mutate((s) => { s.pages.find((p) => p.id === 'PAGE-UABC-130').parent = 'PAGE-UABC-050'; }), 'SEITE-ZYKLUS'));
 test('PAGE_METADATA erkennt verschachtelten Metadatenfehler', () => has(mutate((s) => { s.pages[0].version = '3'; }), 'SEITE-METADATEN-TYP'));
 test('UNKNOWN_TIMELINE_REFERENCE erkennt unbekannte Ticketreferenz', () => has(mutate((s) => { s.timeline[0].tickets = ['TKT-NOT-FOUND']; }), 'UNBEKANNTE-TIMELINE-REFERENZ'));
 test('OPEN_P1_P2 erkennt offenes P1', () => has(mutate((s) => { s.controls.openP1 = 1; }), 'OFFENES-P1-P2'));

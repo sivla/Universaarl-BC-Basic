@@ -1,18 +1,36 @@
 ---
 id: UABC-COMPANY
 title: 01 Unternehmen
-parent: UABC-PROJECT
-owners: [P-001, P-005, P-011, P-019]
+parent: null
+owners:
+  - P-001
+  - P-005
+  - P-011
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 1
 storyPageId: PAGE-UABC-010
 purpose: Beschreibt das synthetische Unternehmen, seine Rollen, Volumina und Wertströme.
-audience: [Sponsor, Projektleitung, Fachbereich]
-jiraRefs: [UABC-32, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-003, UABC-REQ-BCB-006, UABC-REQ-BCB-009]
+audience:
+  - Sponsor
+  - Projektleitung
+  - Fachbereich
+jiraRefs:
+  - UABC-32
+  - UABC-34
+  - UABC-35
+  - UABC-36
+  - UABC-37
+  - UABC-38
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-003
+  - UABC-REQ-BCB-006
+  - UABC-REQ-BCB-009
 lastReviewed: 2026-09-03
+version: 5
 ---
 
 # 01 Unternehmen
@@ -74,4 +92,4 @@ Die Datenrolle liefert und bereinigt Vorlagen. Sponsor und Projektleitung entsch
 - [Beleg- und Postenketten](../../../evidence/simulation/bc-playthrough-ledger.yaml)
 - Der Prozessumfang ist mit den Tickets `UABC-34` und `UABC-35, UABC-36, UABC-37` verbunden.
 
-<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":null,"version":5,"status":"published"} -->

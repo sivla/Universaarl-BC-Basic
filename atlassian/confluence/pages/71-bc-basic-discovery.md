@@ -1,21 +1,42 @@
 ---
 id: UABC-BCBDISCOVERY
-title: 03 Prozesse und Fit-to-Standard
-parent: UABC-PROJECT
-owners: [P-002, P-005, P-011, P-016, P-019]
+title: 02.2 Prozesse und Fit-to-Standard
+parent: UABC-BCBDELIVERABLES
+owners:
+  - P-002
+  - P-005
+  - P-011
+  - P-016
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 3
+order: 7
 storyPageId: PAGE-UABC-100
-purpose: Dokumentiert Anforderungen, Standardabbildung, Fit/Gap und die notwendigen Kundenentscheidungen.
-audience: [Projektleitung, Fachbereich, Solution Architect]
-jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33]
-referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-009]
+purpose: Dokumentiert Anforderungen, Standardabbildung, Fit/Gap und die
+  notwendigen Kundenentscheidungen.
+audience:
+  - Projektleitung
+  - Fachbereich
+  - Solution Architect
+jiraRefs:
+  - UABC-34
+  - UABC-35
+  - UABC-36
+  - UABC-37
+  - UABC-38
+  - UABC-33
+referenceIds:
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-003
+  - UABC-REQ-BCB-005
+  - UABC-REQ-BCB-006
+  - UABC-REQ-BCB-009
 lastReviewed: 2026-09-03
+version: 4
 ---
 
-# 03 Prozesse und Fit-to-Standard
+# 02.2 Prozesse und Fit-to-Standard
 
 ## Discovery-Ziel
 
@@ -118,4 +139,4 @@ Die drei fokussierten Workshops und sieben Entscheidungsbereiche sind als `GO_DI
 - [Daten- und Migrationsumfang](../../../project/bc-basic/data-package.yaml)
 - [UAT- und Trainingsverknüpfung](../../../project/bc-basic/uat-training-run.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-100","title":"03 Prozesse und Fit-to-Standard","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-100","title":"02.2 Prozesse und Fit-to-Standard","parent":"PAGE-UABC-130","version":4,"status":"published"} -->

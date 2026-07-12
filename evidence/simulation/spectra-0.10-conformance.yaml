@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 339e020da25299d8dad56827d6bedb8f79f94886d5f2d86acc7b3a68a12686e8
+  projectionDigest: 71cd669de196d4e79667968ec591a7a063fda1d7aee78d14f8b265e74225fb11
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -25,24 +25,24 @@ reconciliation:
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: d962d067114d5d44bcdbea673423039fdf5b447c48f7c006b87f86cabe9e7493
+  sourceHash: 66b92ab6ac5e829e1ab54512027b1df2da9fdba5ca58241dcb27db94998ce0c8
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: 3773e82a5afcc93b35b9b42665d7506bafe19ca1ea29d426954832c15c3a2e69
+  projectionDigest: fbd9f91ec3d24b9b710dbcedebe06a22477781e30e304fc44a42b982c83f8e11
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
   nativeRelations: 252
-  portableEdges: 348
+  portableEdges: 366
   accountedNativeRelations: 252
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
   sourceDigest: 159f5741d3a742ebb91c24759a6b19904709b67ee43e831e5f92c30b3d2bee78
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: 8cb9ea5e75e68f2ca7ffd808bcd211b7f7e745b9dcfeee350bdf568318f30afd
+  projectionDigest: c8883cdda92ec3c5e92c9d03bc778c360715c90734c15b61eb8b474f837a3744
 counts:
   offerVersions: 3
   pages: 19
@@ -60,7 +60,7 @@ counts:
   projectPhases: 13
   hypercareDays: 3
   nativeRelations: 252
-  portableEdges: 348
+  portableEdges: 366
 processCoverage:
   - Finance
   - P2P

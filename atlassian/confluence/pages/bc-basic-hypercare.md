@@ -1,21 +1,35 @@
 ---
 id: UABC-BCBHCSTORY
-title: 09 Hypercare und Übergabe
-parent: UABC-PROJECT
-owners: [P-002, P-005]
+title: 03.3 Hypercare und Uebergabe
+parent: UABC-BCBSTORY
+owners:
+  - P-002
+  - P-005
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 9
+order: 11
 storyPageId: PAGE-UABC-160
-purpose: Dokumentiert drei Hypercaretage, Defects, Retests, Restart, Exit und Supportübergabe.
-audience: [Projektleitung, Key User, Support]
-jiraRefs: [UABC-47, UABC-48, UABC-49, UABC-50]
-referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
+purpose: Dokumentiert drei Hypercaretage, Defects, Retests, Restart, Exit und
+  Supportübergabe.
+audience:
+  - Projektleitung
+  - Key User
+  - Support
+jiraRefs:
+  - UABC-47
+  - UABC-48
+  - UABC-49
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-009
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-09-03
+version: 4
 ---
 
-# 09 Hypercare und Übergabe
+# 03.3 Hypercare und Uebergabe
 
 ## Betriebslog und Zweck
 
@@ -80,4 +94,4 @@ Bekannte Grenzen und Lessons Learned sind enthalten. Der optionale reale BC-Lauf
 - [Support-Handover](../../../docs/handover/bc-basic-handover.md)
 - [Operator-Smoke-Test](../../../project/bc-basic/training-plan.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-160","title":"09 Hypercare und Übergabe","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-160","title":"03.3 Hypercare und Uebergabe","parent":"PAGE-UABC-150","version":4,"status":"published"} -->

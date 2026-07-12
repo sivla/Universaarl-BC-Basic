@@ -15,7 +15,7 @@ const digest = crypto.createHash('sha256').update(JSON.stringify(portable)).dige
 const validate = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
 if (!validate(portable)) for (const error of validate.errors ?? []) fail('SCHEMA', `${error.instancePath} ${error.message}`);
 if (!portable.project_id.startsWith('PROJECT-') || !portable.story_id.startsWith('STORY-') || portable.classification !== 'synthetic' || portable.status !== 'hypercare') fail('IDENTITAET', portable.project_id);
-if (portable.pages.length !== 19 || portable.tickets.length !== 45 || portable.timeline.length !== 15 || portable.hypercare.length !== 3) fail('MENGEN', '19/45/15/3 erforderlich');
+if (portable.pages.length !== 28 || portable.tickets.length !== 45 || portable.timeline.length !== 15 || portable.hypercare.length !== 3) fail('MENGEN', '28/45/15/3 erforderlich');
 if (nativeStory.relations.length !== 252) fail('NATIVE-RELATIONEN', String(nativeStory.relations.length));
 const ids = new Set([portable.offer.id, ...portable.pages.map((x) => x.id), ...portable.tickets.map((x) => x.id), ...portable.evidence.map((x) => x.id), ...portable.sessions.map((x) => x.id), ...portable.decisions.map((x) => x.id), ...portable.deliverables.map((x) => x.id)]);
 const expectedIdCount = 1 + portable.pages.length + portable.tickets.length + portable.evidence.length + portable.sessions.length + portable.decisions.length + portable.deliverables.length;

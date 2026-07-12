@@ -1,22 +1,30 @@
 ---
 id: UABC-BCBPROJECT
 storyPageId: PAGE-UABC-090
-title: 00 BC Basic Standardprodukt
+title: 00 BC Basic Produktuebersicht
 parent: null
 spaceId: UABC-SPACE-PRODUCT
 spaceType: standard-product
 order: 0
 purpose: Einstieg und Leistungsrahmen des wiederverwendbaren BC-Basic-Standardprodukts
 audience: Vertrieb, Projektleitung, Consultant und Solution Architecture
-owners: [P-002]
-version: 3
+owners:
+  - P-002
+version: 4
 status: published
-jiraRefs: [UABC-18, UABC-19, UABC-20, UABC-21]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004]
+jiraRefs:
+  - UABC-18
+  - UABC-19
+  - UABC-20
+  - UABC-21
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-004
 lastReviewed: 2026-09-03
 ---
 
-# 00 BC Basic Standardprodukt
+# 00 BC Basic Produktuebersicht
 
 ## Produktnutzen und Zielgruppe
 
@@ -73,4 +81,4 @@ Das gilt auch für produktive Bank- oder Steuerübermittlung sowie Rechts- und S
 - [Cutover, Hypercare, Betrieb und Erweiterungsgrenzen](73-bc-basic-hypercare.md)
 - [Internes Consultant-Handbuch](30-blueprint.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-090","parent":null,"version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-090","title":"00 BC Basic Produktuebersicht","parent":null,"version":4,"status":"published"} -->

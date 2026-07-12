@@ -1,21 +1,38 @@
 ---
 id: UABC-TESTS
-title: 06 Test und Abnahme
-parent: UABC-PROJECT
-owners: [P-002, P-005, P-011, P-019]
+title: 03.1 Test und Abnahme
+parent: UABC-BCBSTORY
+owners:
+  - P-002
+  - P-005
+  - P-011
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 6
+order: 9
 storyPageId: PAGE-UABC-060
-purpose: Fasst Teststrategie, sieben UAT-Fälle, Defectweg, Kontrollen und Abnahme zusammen.
-audience: [Key User, Projektleitung, Consultant]
-jiraRefs: [UABC-46, UABC-47, UABC-48, UABC-49]
-referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-008, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
+purpose: Fasst Teststrategie, sieben UAT-Fälle, Defectweg, Kontrollen und
+  Abnahme zusammen.
+audience:
+  - Key User
+  - Projektleitung
+  - Consultant
+jiraRefs:
+  - UABC-46
+  - UABC-47
+  - UABC-48
+  - UABC-49
+referenceIds:
+  - UABC-REQ-BCB-007
+  - UABC-REQ-BCB-008
+  - UABC-REQ-BCB-009
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 06 Test und Abnahme
+# 03.1 Test und Abnahme
 
 ## Prüfzweck und Umfang
 
@@ -75,4 +92,4 @@ Der synthetische Sign-off ist ein vollständiges Prozessgate innerhalb der Simul
 - [Cash-, Lager- und Abschluss-Retests](../../../evidence/simulation/phase-3-cash-inventory-close.yaml)
 - [Gesamtstatus](../../../evidence/simulation/project-completion.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-060","title":"06 Test und Abnahme","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-060","title":"03.1 Test und Abnahme","parent":"PAGE-UABC-150","version":5,"status":"published"} -->

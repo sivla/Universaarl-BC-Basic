@@ -32,24 +32,24 @@ const validatePageMutation = (mutateText) => {
   });
 };
 
-test('vollstaendiger BC-Basic-Katalog bindet 34 Dokumente und 19 strukturierte Seiten', () => {
-  assert.equal(catalog.documents.length, 34);
-  assert.equal(catalog.documents.filter((document) => document.documentType === 'confluence-page').length, 19);
-  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 34);
-  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 34);
+test('vollstaendiger BC-Basic-Katalog bindet 43 Dokumente und 28 strukturierte Seiten', () => {
+  assert.equal(catalog.documents.length, 43);
+  assert.equal(catalog.documents.filter((document) => document.documentType === 'confluence-page').length, 28);
+  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 43);
+  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 43);
   assert.equal(catalog.spaces.length, 3);
   assert.equal(catalog.spaces.every((space) => typeof space.purpose === 'string' && space.purpose.length > 0 && Array.isArray(space.audience) && space.audience.length > 0), true);
   assert.equal(catalog.navigationModules.length, 3);
-  assert.equal(catalog.navigationNodes.length, 22);
+  assert.equal(catalog.navigationNodes.length, 31);
   assert.equal(catalog.navigationNodes.filter((node) => node.nodeType === 'group').length, 3);
-  assert.equal(catalog.navigationNodes.filter((node) => node.nodeType === 'page').length, 19);
+  assert.equal(catalog.navigationNodes.filter((node) => node.nodeType === 'page').length, 28);
   assert.equal(catalog.redirects.length, 19);
   const pages = catalog.documents.filter((document) => document.documentType === 'confluence-page');
-  assert.equal(new Set(pages.map((document) => document.storyPageId)).size, 19);
+  assert.equal(new Set(pages.map((document) => document.storyPageId)).size, 28);
   assert.deepEqual(Object.fromEntries(catalog.spaces.map((space) => [space.spaceId, pages.filter((page) => page.spaceId === space.spaceId).length])), {
-    'UABC-SPACE-CUSTOMER': 11,
-    'UABC-SPACE-PRODUCT': 4,
-    'UABC-SPACE-CONSULTANT': 4
+    'UABC-SPACE-CUSTOMER': 12,
+    'UABC-SPACE-PRODUCT': 8,
+    'UABC-SPACE-CONSULTANT': 8
   });
   assert.deepEqual(validate(catalog), []);
 });

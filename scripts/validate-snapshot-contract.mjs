@@ -33,7 +33,7 @@ try {
   const binding = YAML.parse(blobText('governance/consumer-bindings.yaml'));
   const branch = gitText(['branch', '--show-current']);
   if (projectIndex.projectId !== 'UABC-BC-BASIC-001' || projectIndex.contractId !== 'UABC-PROJECT-DATA-V1') errors.push('Index-Projektidentitaet oder Vertragsversion ist ungueltig');
-  if (projectIndex.allowedBranch !== branch || branch !== 'codex/universaarl-projekt') errors.push('Index erlaubt nicht den aktuellen kanonischen Branch');
+  if (projectIndex.allowedBranch !== 'codex/universaarl-projekt' || ![projectIndex.allowedBranch, projectIndex.deliveryBranch].includes(branch)) errors.push('Index trennt Consumer-Producerbranch und lokalen Delivery-Branch nicht korrekt');
   if (projectIndex.lifecycleStatus !== 'active' || projectIndex.validationStatus !== 'validated') errors.push('Index-Lifecycle oder Validierungsstatus ist ungueltig');
   const artifacts = projectIndex.artifacts ?? [];
   const ids = new Set();

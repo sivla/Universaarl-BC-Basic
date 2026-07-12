@@ -10,9 +10,9 @@ const TIMELINE_FIELDS = new Set(['id','time','phase','role','tickets','pages','s
 const HYPERCARE_FIELDS = new Set(['day','dailyPage','ticket','comment','evidence','priority','diagnosis','fix','retest','status','decision']);
 const RELATION_FIELDS = new Set(['type','from','to']);
 const STORY_SPACES = Object.freeze({
-  'UABC-SPACE-CUSTOMER': { spaceType: 'customer-project', root: 'PAGE-UABC-000' },
-  'UABC-SPACE-PRODUCT': { spaceType: 'standard-product', root: 'PAGE-UABC-090' },
-  'UABC-SPACE-CONSULTANT': { spaceType: 'consultant-internal', root: 'PAGE-UABC-030' }
+  'UABC-SPACE-CUSTOMER': { spaceType: 'customer-project', home: 'PAGE-UABC-000', roots: 6 },
+  'UABC-SPACE-PRODUCT': { spaceType: 'standard-product', home: 'PAGE-UABC-090', roots: 8 },
+  'UABC-SPACE-CONSULTANT': { spaceType: 'consultant-internal', home: 'PAGE-UABC-030', roots: 8 }
 });
 const TICKET_PARENT_TYPES = Object.freeze({
   phase: [],
@@ -61,7 +61,7 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
   const sources = new Set(story.readableSources ?? []); if (sources.size !== 6) fail('QUELLEN-ANZAHL', 'sechs lesbare Quellen erwartet');
   if (checkFiles) for (const source of sources) if (!existsSync(source) || statSync(source).size === 0) fail('QUELLE-FEHLT', source);
   const pages = story.pages ?? []; const pageIds = new Set(); const pagePaths = new Set(); const pageOrders = new Set();
-  if (pages.length !== 19) fail('SEITEN-ANZAHL', String(pages.length));
+  if (pages.length !== 28) fail('SEITEN-ANZAHL', String(pages.length));
   for (const page of pages) {
     ownOnly(page, PAGE_FIELDS, fail, `page[${page.id ?? '?'}]`);
     if (pageIds.has(page.id)) fail('SEITE-DOPPELTE-ID', page.id); pageIds.add(page.id);
@@ -73,10 +73,10 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
     const meta = (metadataReader ?? readPageMetadata)(page.sourcePath); if (!meta || meta.id !== page.id || meta.storyPageId !== page.id || meta.title !== page.title || meta.parent !== page.parent || Number(meta.version) !== page.version || meta.status !== page.status || meta.spaceId !== page.spaceId || meta.spaceType !== page.spaceType || meta.order !== page.order) fail('SEITE-METADATEN-ABWEICHUNG', page.id);
   }
   for (const page of pages) if (page.parent !== null && !pageIds.has(page.parent)) fail('SEITE-WAISE', page.id);
-  const rootPages = pages.filter((p) => p.parent === null); if (rootPages.length !== 3) fail('SEITE-WURZEL', String(rootPages.length));
+  const rootPages = pages.filter((p) => p.parent === null); if (rootPages.length !== 22) fail('SEITE-WURZEL', String(rootPages.length));
   for (const [spaceId, expected] of Object.entries(STORY_SPACES)) {
     const roots = rootPages.filter((page) => page.spaceId === spaceId);
-    if (roots.length !== 1 || roots[0]?.id !== expected.root) fail('SEITE-WURZEL', spaceId);
+    if (roots.length !== expected.roots || !roots.some((root) => root.id === expected.home)) fail('SEITE-WURZEL', spaceId);
   }
   for (const page of pages) if (page.parent !== null && pages.find((candidate) => candidate.id === page.parent)?.spaceId !== page.spaceId) fail('SEITE-SPACE-PARENT', page.id);
   for (const page of pages) { const seen = new Set([page.id]); let parent = page.parent; while (parent) { if (seen.has(parent)) { fail('SEITE-ZYKLUS', page.id); break; } seen.add(parent); parent = pages.find((p) => p.id === parent)?.parent ?? null; } }

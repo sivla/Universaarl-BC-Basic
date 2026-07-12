@@ -13,7 +13,7 @@
     {
       "id": "UABC-SRC-BCB-OPENSPEC-001",
       "kindId": "openspec-change",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/proposal.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -21,7 +21,7 @@
     {
       "id": "UABC-SRC-BCB-SPEC-001",
       "kindId": "requirements",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/specs/bc-basic-ticket-migration/spec.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/specs/bc-basic-ticket-migration/spec.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -29,7 +29,7 @@
     {
       "id": "UABC-SRC-BCB-DESIGN-001",
       "kindId": "solution-design",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/design.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/design.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -37,7 +37,7 @@
     {
       "id": "UABC-SRC-BCB-DPLAN-001",
       "kindId": "delivery-plan",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -45,7 +45,7 @@
     {
       "id": "UABC-SRC-BCB-TASKS-001",
       "kindId": "delivery-tasks",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/tasks.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/tasks.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -53,7 +53,7 @@
     {
       "id": "UABC-SRC-BCB-VPLAN-001",
       "kindId": "verification-plan",
-      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/verification.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -438,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=migrate-bc-basic-to-single-uabc-ticket-project]",
+      "selector": "verifications[changeRef=migrate-bc-basic-to-three-space-confluence-v1]",
       "format": "yaml",
       "required": true
     },
@@ -896,6 +896,86 @@
       "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
       "selector": null,
       "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-025",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/99-archive.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-033",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/76-product-audience.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-035",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/77-product-approach.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-037",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/78-product-offer.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-039",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/79-product-sales-faq.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-042",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/82-consulting-design.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-044",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/83-consulting-tests.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-046",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/84-consulting-handover.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-047",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/85-consulting-checklists.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-THREE-SPACE-001",
+      "kindId": "confluence-three-space-contract",
+      "path": "project/bc-basic/confluence-three-space-v1.yaml",
+      "selector": null,
+      "format": "yaml",
       "required": true
     }
   ]

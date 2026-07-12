@@ -49,307 +49,521 @@
   "pages": [
     {
       "id": "PAGE-UABC-000",
-      "title": "00 Support – Projektumgebung",
+      "title": "00 Support",
       "parent": null,
-      "version": 4,
+      "version": 5,
       "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 0,
-      "author_role": "P-002",
-      "time": "2026-08-20T09:00:00+02:00",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/00-project.md",
       "references": [
-        "OFR-UABC-BCB-001"
-      ]
+        "UABC-32",
+        "UABC-33",
+        "UABC-47",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 0
     },
     {
       "id": "PAGE-UABC-010",
       "title": "01 Unternehmen",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 1,
-      "author_role": "P-002",
-      "time": "2026-08-20T10:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
-      "references": [
-        "UABC-32"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-020",
-      "title": "01 Discovery, Workshops und Fit-to-Standard",
-      "parent": "PAGE-UABC-030",
-      "version": 3,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CONSULTANT",
-      "spaceType": "consultant-internal",
-      "order": 1,
-      "author_role": "P-002",
-      "time": "2026-08-21T10:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
-      "references": [
-        "UABC-32"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-030",
-      "title": "00 Consultant-Handbuch und Fast-Track",
       "parent": null,
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CONSULTANT",
-      "spaceType": "consultant-internal",
-      "order": 0,
-      "author_role": "P-002",
-      "time": "2026-08-23T11:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
-      "references": [
-        "UABC-34"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-040",
-      "title": "01 Prozess- und Konfigurationsstandard",
-      "parent": "PAGE-UABC-090",
       "version": 5,
       "status": "published",
-      "spaceId": "UABC-SPACE-PRODUCT",
-      "spaceType": "standard-product",
-      "order": 1,
-      "author_role": "P-005",
-      "time": "2026-08-25T09:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
       "references": [
-        "BC-SIM-SETUP-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-050",
-      "title": "05 Datenmigration",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
-      "status": "published",
+        "UABC-32",
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
+      ],
       "spaceId": "UABC-SPACE-CUSTOMER",
       "spaceType": "customer-project",
-      "order": 5,
-      "author_role": "P-016",
-      "time": "2026-08-25T14:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
-      "references": [
-        "BC-SIM-MASTER-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-060",
-      "title": "06 Test und Abnahme",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 6,
-      "author_role": "P-011",
-      "time": "2026-08-26T09:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/50-tests.md",
-      "references": [
-        "BC-SIM-P2P-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-070",
-      "title": "02 Umgebung, Einrichtung, Daten und Testdurchführung",
-      "parent": "PAGE-UABC-030",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CONSULTANT",
-      "spaceType": "consultant-internal",
-      "order": 2,
-      "author_role": "P-011",
-      "time": "2026-08-26T14:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
-      "references": [
-        "BC-SIM-O2C-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-080",
-      "title": "08 Cutover und Go-live",
-      "parent": "PAGE-UABC-000",
-      "version": 3,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 8,
-      "author_role": "P-005",
-      "time": "2026-08-27T10:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
-      "references": [
-        "BC-SIM-CASH-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-090",
-      "title": "00 BC Basic Standardprodukt",
-      "parent": null,
-      "version": 3,
-      "status": "published",
-      "spaceId": "UABC-SPACE-PRODUCT",
-      "spaceType": "standard-product",
-      "order": 0,
-      "author_role": "P-019",
-      "time": "2026-08-28T10:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
-      "references": [
-        "BC-SIM-INVENTORY-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-100",
-      "title": "03 Prozesse und Fit-to-Standard",
-      "parent": "PAGE-UABC-000",
-      "version": 3,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 3,
-      "author_role": "P-005",
-      "time": "2026-08-29T15:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
-      "references": [
-        "BC-SIM-CLOSE-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-110",
-      "title": "04 Lösung und Einrichtung",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 4,
-      "author_role": "P-002",
-      "time": "2026-08-23T15:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
-      "references": [
-        "UABC-26"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-120",
-      "title": "03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen",
-      "parent": "PAGE-UABC-090",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-PRODUCT",
-      "spaceType": "standard-product",
-      "order": 3,
-      "author_role": "P-002",
-      "time": "2026-08-24T15:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
-      "references": [
-        "UABC-23"
-      ]
+      "order": 1
     },
     {
       "id": "PAGE-UABC-130",
-      "title": "02 Projektauftrag und Scope",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
+      "title": "02 Business Central",
+      "parent": null,
+      "version": 5,
       "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 2,
-      "author_role": "P-002",
-      "time": "2026-08-29T10:00:00+02:00",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
       "references": [
-        "SIM-DEF-P2P-001"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-140",
-      "title": "03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss",
-      "parent": "PAGE-UABC-030",
-      "version": 4,
-      "status": "published",
-      "spaceId": "UABC-SPACE-CONSULTANT",
-      "spaceType": "consultant-internal",
-      "order": 3,
-      "author_role": "P-005",
-      "time": "2026-08-29T11:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
-      "references": [
-        "UABC-UAT-BCB-001"
-      ]
+        "UABC-32",
+        "UABC-33",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 2
     },
     {
       "id": "PAGE-UABC-150",
-      "title": "10 Projektsteuerung",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
+      "title": "03 Projekte",
+      "parent": null,
+      "version": 5,
       "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 10,
-      "author_role": "P-002",
-      "time": "2026-08-30T10:00:00+02:00",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
       "references": [
-        "UABC-33"
-      ]
-    },
-    {
-      "id": "PAGE-UABC-160",
-      "title": "09 Hypercare und Übergabe",
-      "parent": "PAGE-UABC-000",
-      "version": 3,
-      "status": "published",
+        "UABC-32",
+        "UABC-33",
+        "UABC-46",
+        "UABC-47",
+        "UABC-50"
+      ],
       "spaceId": "UABC-SPACE-CUSTOMER",
       "spaceType": "customer-project",
-      "order": 9,
-      "author_role": "P-002",
-      "time": "2026-08-30T16:00:00+02:00",
-      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
-      "references": [
-        "UABC-35"
-      ]
+      "order": 3
     },
     {
       "id": "PAGE-UABC-170",
-      "title": "07 Schulung und Befähigung",
-      "parent": "PAGE-UABC-000",
-      "version": 4,
+      "title": "04 Handbuecher",
+      "parent": null,
+      "version": 5,
       "status": "published",
-      "spaceId": "UABC-SPACE-CUSTOMER",
-      "spaceType": "customer-project",
-      "order": 7,
-      "author_role": "P-002",
-      "time": "2026-09-02T09:00:00+02:00",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
       "references": [
-        "SIM-HC-001"
-      ]
+        "UABC-45",
+        "UABC-46",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 4
+    },
+    {
+      "id": "PAGE-UABC-190",
+      "title": "99 Archiv",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/99-archive.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 5
+    },
+    {
+      "id": "PAGE-UABC-050",
+      "title": "02.1 Datenmigration",
+      "parent": "PAGE-UABC-130",
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "references": [
+        "UABC-38",
+        "UABC-41"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 6
+    },
+    {
+      "id": "PAGE-UABC-100",
+      "title": "02.2 Prozesse und Fit-to-Standard",
+      "parent": "PAGE-UABC-130",
+      "version": 4,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "references": [
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38",
+        "UABC-33"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 7
+    },
+    {
+      "id": "PAGE-UABC-110",
+      "title": "02.3 Loesung und Einrichtung",
+      "parent": "PAGE-UABC-130",
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "references": [
+        "UABC-39",
+        "UABC-40",
+        "UABC-41",
+        "UABC-42",
+        "UABC-43",
+        "UABC-44",
+        "UABC-46"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 8
+    },
+    {
+      "id": "PAGE-UABC-060",
+      "title": "03.1 Test und Abnahme",
+      "parent": "PAGE-UABC-150",
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "references": [
+        "UABC-46",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 9
+    },
+    {
+      "id": "PAGE-UABC-080",
+      "title": "03.2 Cutover und Go-live",
+      "parent": "PAGE-UABC-150",
+      "version": 4,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "references": [
+        "UABC-46",
+        "UABC-47",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 10
+    },
+    {
+      "id": "PAGE-UABC-160",
+      "title": "03.3 Hypercare und Uebergabe",
+      "parent": "PAGE-UABC-150",
+      "version": 4,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "references": [
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 11
+    },
+    {
+      "id": "PAGE-UABC-090",
+      "title": "00 BC Basic Produktuebersicht",
+      "parent": null,
+      "version": 4,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "references": [
+        "UABC-18",
+        "UABC-19",
+        "UABC-20",
+        "UABC-21"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 0
+    },
+    {
+      "id": "PAGE-UABC-200",
+      "title": "01 Zielgruppe und Einsatzfaelle",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/76-product-audience.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 1
+    },
+    {
+      "id": "PAGE-UABC-040",
+      "title": "02 Leistungsumfang und Abgrenzung",
+      "parent": null,
+      "version": 6,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "references": [
+        "UABC-3"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 2
+    },
+    {
+      "id": "PAGE-UABC-210",
+      "title": "03 Phasen und Vorgehensmodell",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/77-product-approach.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 3
     },
     {
       "id": "PAGE-UABC-180",
-      "title": "02 Lieferpaket, Tests und Standardtraining",
-      "parent": "PAGE-UABC-090",
-      "version": 3,
+      "title": "04 Lieferobjekte und Abnahme",
+      "parent": null,
+      "version": 4,
       "status": "published",
-      "spaceId": "UABC-SPACE-PRODUCT",
-      "spaceType": "standard-product",
-      "order": 2,
-      "author_role": "P-002",
-      "time": "2026-09-03T15:00:00+02:00",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
       "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
       "references": [
-        "UABC-38"
-      ]
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 4
+    },
+    {
+      "id": "PAGE-UABC-220",
+      "title": "05 Angebot, Aufwand und Voraussetzungen",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/78-product-offer.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 5
+    },
+    {
+      "id": "PAGE-UABC-120",
+      "title": "06 Optionen und Erweiterungen",
+      "parent": null,
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "references": [
+        "UABC-21",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 6
+    },
+    {
+      "id": "PAGE-UABC-230",
+      "title": "07 Vertriebsleitfaden und FAQ",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/79-product-sales-faq.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 7
+    },
+    {
+      "id": "PAGE-UABC-030",
+      "title": "00 Consulting-Ueberblick",
+      "parent": null,
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "references": [
+        "UABC-1",
+        "UABC-2",
+        "UABC-3",
+        "UABC-4",
+        "UABC-10"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 0
+    },
+    {
+      "id": "PAGE-UABC-020",
+      "title": "01 Discovery und Fit-to-Standard",
+      "parent": null,
+      "version": 4,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "references": [
+        "UABC-1",
+        "UABC-10"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 1
+    },
+    {
+      "id": "PAGE-UABC-240",
+      "title": "02 Loesungsdesign und Projektplanung",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/82-consulting-design.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 2
+    },
+    {
+      "id": "PAGE-UABC-070",
+      "title": "03 BC-Einrichtung und Konfigurationspakete",
+      "parent": null,
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "references": [
+        "UABC-11",
+        "UABC-12",
+        "UABC-13",
+        "UABC-14"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 3
+    },
+    {
+      "id": "PAGE-UABC-250",
+      "title": "04 Tests, UAT und Evidence",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/83-consulting-tests.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 4
+    },
+    {
+      "id": "PAGE-UABC-140",
+      "title": "05 Schulung, Cutover und Hypercare",
+      "parent": null,
+      "version": 5,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "references": [
+        "UABC-18",
+        "UABC-32",
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38",
+        "UABC-33",
+        "UABC-39",
+        "UABC-40",
+        "UABC-41",
+        "UABC-42",
+        "UABC-43",
+        "UABC-44",
+        "UABC-45",
+        "UABC-46",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 5
+    },
+    {
+      "id": "PAGE-UABC-260",
+      "title": "06 Dokumentation und Uebergabe",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/84-consulting-handover.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 6
+    },
+    {
+      "id": "PAGE-UABC-270",
+      "title": "07 Checklisten, Vorlagen und Fehlerbilder",
+      "parent": null,
+      "version": 1,
+      "status": "published",
+      "author_role": "project-team",
+      "time": "2026-07-12T12:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/85-consulting-checklists.md",
+      "references": [
+        "UABC-50"
+      ],
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 7
     }
   ],
   "tickets": [
@@ -5921,7 +6135,15 @@
       "UABC-MTG-001": "Discovery/Fit-to-Standard",
       "UABC-MTG-002": "Setup/Migration/Prozesse/SIT/UAT/Schulung",
       "UABC-MTG-003": "Go-live/Hypercare/Finance-Abschluss/Handover"
-    }
+    },
+    "confluencePageCount": 28,
+    "confluenceRootCount": 22,
+    "confluenceRootDistribution": {
+      "customer": 6,
+      "product": 8,
+      "consultant": 8
+    },
+    "confluenceMigrationCount": 19
   },
   "catalogs": {
     "sessions": [

@@ -52,8 +52,8 @@
     },
     "navigationNodes": {
       "type": "array",
-      "minItems": 22,
-      "maxItems": 22,
+      "minItems": 31,
+      "maxItems": 31,
       "items": { "$ref": "#/$defs/navigationNode" }
     },
     "redirects": {
@@ -62,12 +62,12 @@
       "maxItems": 19,
       "items": { "$ref": "#/$defs/redirect" }
     },
-    "documentCount": { "const": 34 },
-    "confluenceDocumentCount": { "const": 19 },
+    "documentCount": { "const": 43 },
+    "confluenceDocumentCount": { "const": 28 },
     "documents": {
       "type": "array",
-      "minItems": 34,
-      "maxItems": 34,
+      "minItems": 43,
+      "maxItems": 43,
       "items": { "$ref": "#/$defs/document" }
     }
   },
@@ -128,7 +128,7 @@
         "moduleId": { "$ref": "#/$defs/id" },
         "nodeType": { "enum": ["group", "page"] },
         "title": { "type": "string", "minLength": 1 },
-        "order": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "order": { "type": "integer", "minimum": 0, "maximum": 11 },
         "parentNodeId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
         "documentId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
         "description": { "type": "string", "minLength": 1 },
@@ -251,7 +251,7 @@
         "spaceKey": { "type": ["string", "null"] },
         "spaceId": { "enum": ["UABC-SPACE-CUSTOMER", "UABC-SPACE-PRODUCT", "UABC-SPACE-CONSULTANT"] },
         "spaceType": { "enum": ["customer-project", "standard-product", "consultant-internal"] },
-        "order": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "order": { "type": "integer", "minimum": 0, "maximum": 11 },
         "storyPageId": { "type": "string", "pattern": "^PAGE-UABC-[0-9]{3}$" }
       }
     }

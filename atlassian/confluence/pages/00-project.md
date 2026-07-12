@@ -1,21 +1,35 @@
 ---
 id: UABC-PROJECT
-title: 00 Support – Projektumgebung
+title: 00 Support
 parent: null
-owners: [P-002, P-005]
+owners:
+  - P-002
+  - P-005
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 0
 storyPageId: PAGE-UABC-000
 purpose: Zentraler Einstieg in Projektumgebung, Supportweg und Wahrheitsgrenzen.
-audience: [Projektleitung, Key User, Support]
-jiraRefs: [UABC-32, UABC-33, UABC-47, UABC-50]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+audience:
+  - Projektleitung
+  - Key User
+  - Support
+jiraRefs:
+  - UABC-32
+  - UABC-33
+  - UABC-47
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-010
+  - UABC-REQ-BCB-011
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 00 Support – Projektumgebung
+# 00 Support
 
 ## Zweck und Schnellzugriff
 
@@ -76,4 +90,4 @@ Servicezeiten, reale Kontakte und Tenantdaten werden im echten Projekt bestätig
 - [Hypercare-Exit und Handover](../../../evidence/simulation/project-completion.yaml)
 - [Lesender Twin-Vertrag](../../../exports/project-data/v1/index.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Support – Projektumgebung","parent":null,"version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Support","parent":null,"version":5,"status":"published"} -->

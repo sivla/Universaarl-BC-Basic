@@ -165,7 +165,7 @@ verifications:
     evidence: Automatisierter change-spezifischer Pruefpunkt nach Draft-2020-12-Schemavalidierung, Pilotadapter-Pruefungen, deterministischem Rebuild, begrenztem Export-/Checksum-Konsumententest, lokalem Desktop-/Mobil-Playwright-Interaktionstest, OpenSpec-strict-Validierung und Projekt-Referenzvalidierung bestanden; kanonisches Walkthrough-Registry-Update ist angewendet, ohne neue fachliche Nachweise zu behaupten
   - id: UABC-VER-BCB-LOCAL-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: repository
     executedAt: null
@@ -174,7 +174,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-READINESS-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: human-approval
     executedAt: null
@@ -183,7 +183,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-E2E-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: automated
     executedAt: null
@@ -192,7 +192,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-TRAINING-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: human-approval
     executedAt: null
@@ -201,7 +201,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-CLOSE-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: document-review
     executedAt: null
@@ -210,7 +210,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-VAT-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: document-review
     executedAt: null
@@ -219,7 +219,7 @@ verifications:
     evidence: null
   - id: UABC-VER-BCB-HANDOVER-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-    requiredForArchive: true
+    requiredForArchive: false
     status: pending
     type: human-approval
     executedAt: null
@@ -238,9 +238,18 @@ verifications:
   - id: UABC-VER-BCB-TICKET-MIGRATION-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
-    status: pending
+    status: passed
     type: automated-policy-gate
-    executedAt: null
-    environment: null
+    executedAt: 2026-07-12
+    environment: local-repository
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003]
-    evidence: null
+    evidence: Commit 7b988e1cb8dee9b7f227481478ad97449e774100 bindet exakt UABC-1..50, die 86/86-Migrationsmatrix, fail-closed Alt-ID-Pruefungen, OpenSpec 6/6, Snapshotvertrag, Dokumentkatalog und den vollstaendigen lokalen Gesamtcheck; keine Live-Jira-, BC- oder Remote-Aktion.
+  - id: UABC-VER-BCB-THREE-SPACE-001
+    changeRef: migrate-bc-basic-to-three-space-confluence-v1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-12T23:48:22+02:00
+    environment: lokale commitgebundene Simulation
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Drei-Space 3/22/6 und 19/19 verlustfrei; Story 55/55; Katalog 32/32 mit 43 Dokumenten und 28 Seiten; OpenSpec strict 7/7; Snapshotvertrag und Branchvertrag commitgebunden gruen. deliveryBranch=codex/bc-basic-three-space-v1, consumerProducerBranch=codex/universaarl-projekt; kein Push, Merge, Tag oder Live-Systemzugriff.

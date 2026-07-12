@@ -1,22 +1,31 @@
 ---
 id: UABC-BCBHYPERCARE
 storyPageId: PAGE-UABC-120
-title: 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
-parent: UABC-BCBPROJECT
+title: 06 Optionen und Erweiterungen
+parent: null
 spaceId: UABC-SPACE-PRODUCT
 spaceType: standard-product
-order: 3
+order: 6
 purpose: Wiederverwendbarer Übergang vom abgenommenen Projekt in einen stabilen Betrieb
 audience: Projektleitung, Consultant, Key User und Support
-owners: [P-002]
-version: 4
+owners:
+  - P-002
+version: 5
 status: published
-jiraRefs: [UABC-21, UABC-47, UABC-48, UABC-49, UABC-50]
-referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
+jiraRefs:
+  - UABC-21
+  - UABC-47
+  - UABC-48
+  - UABC-49
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-009
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-07-12
 ---
 
-# 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
+# 06 Optionen und Erweiterungen
 
 ## Betriebsmodell und Geltungsbereich
 
@@ -84,4 +93,4 @@ Sie werden als Supportbedarf, Change oder eigenständiges Projekt eingeordnet un
 - [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 - [Consultant: Projektsteuerung bis Abschluss](75-bc-basic-meetings-decisions.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-120","parent":"PAGE-UABC-090","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-120","title":"06 Optionen und Erweiterungen","parent":null,"version":5,"status":"published"} -->

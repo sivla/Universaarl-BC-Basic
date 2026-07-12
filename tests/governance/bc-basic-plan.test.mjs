@@ -364,6 +364,7 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   assert.equal(projectIndex.pathSemantics, 'repository-relative');
   assert.equal(projectIndex.missingValuePolicy, 'leer');
   assert.equal(projectIndex.allowedBranch, 'codex/universaarl-projekt');
+  assert.equal(projectIndex.deliveryBranch, 'codex/bc-basic-three-space-v1');
   assert.equal(projectIndex.lifecycleStatus, 'active');
   assert.equal(projectIndex.validationStatus, 'validated');
   assert.equal(new Set(projectIndex.artifacts.map((artifact) => artifact.id)).size, projectIndex.artifacts.length);

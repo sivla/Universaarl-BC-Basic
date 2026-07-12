@@ -1,22 +1,31 @@
 ---
 id: UABC-BLUEPRINT
 storyPageId: PAGE-UABC-030
-title: 00 Consultant-Handbuch und Fast-Track
+title: 00 Consulting-Ueberblick
 parent: null
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
 order: 0
 purpose: Interne Durchführungshilfe für ein lean wiederholbares BC-Basic-Projekt
 audience: Consultant, Projektleitung und Solution Architecture
-owners: [P-002]
-version: 4
+owners:
+  - P-002
+version: 5
 status: published
-jiraRefs: [UABC-1, UABC-2, UABC-3, UABC-4, UABC-10]
-referenceIds: [UABC-ARCH-ENTERPRISE-001, UABC-CAP-CATALOG-001, UABC-REQ-CAP-001]
+jiraRefs:
+  - UABC-1
+  - UABC-2
+  - UABC-3
+  - UABC-4
+  - UABC-10
+referenceIds:
+  - UABC-ARCH-ENTERPRISE-001
+  - UABC-CAP-CATALOG-001
+  - UABC-REQ-CAP-001
 lastReviewed: 2026-07-12
 ---
 
-# 00 Consultant-Handbuch und Fast-Track
+# 00 Consulting-Ueberblick
 
 ## Einsatz des Handbuchs
 
@@ -69,4 +78,4 @@ Konfigurations- und Produktfragen gehen an Consultant oder Support. Unklare Buch
 - [Projektsteuerung, Training, Cutover, Hypercare und Abschluss](75-bc-basic-meetings-decisions.md)
 - [BC Basic Standardprodukt](70-bc-basic-project.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-030","parent":null,"version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-030","title":"00 Consulting-Ueberblick","parent":null,"version":5,"status":"published"} -->

@@ -1,22 +1,45 @@
 ---
 id: UABC-BCBMEETINGS
 storyPageId: PAGE-UABC-140
-title: 03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss
-parent: UABC-BLUEPRINT
+title: 05 Schulung, Cutover und Hypercare
+parent: null
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
-order: 3
+order: 5
 purpose: Interne Steuerungsanleitung vom Arbeitsrhythmus bis zur Betriebsübergabe
 audience: Consultant, Projektleitung, Training und Support
-owners: [P-002]
-version: 4
+owners:
+  - P-002
+version: 5
 status: published
-jiraRefs: [UABC-18, UABC-32, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33, UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-45, UABC-46, UABC-47, UABC-48, UABC-49, UABC-50]
-referenceIds: [UABC-REQ-BCB-005, UABC-REQ-BCB-010]
+jiraRefs:
+  - UABC-18
+  - UABC-32
+  - UABC-34
+  - UABC-35
+  - UABC-36
+  - UABC-37
+  - UABC-38
+  - UABC-33
+  - UABC-39
+  - UABC-40
+  - UABC-41
+  - UABC-42
+  - UABC-43
+  - UABC-44
+  - UABC-45
+  - UABC-46
+  - UABC-47
+  - UABC-48
+  - UABC-49
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-005
+  - UABC-REQ-BCB-010
 lastReviewed: 2026-07-12
 ---
 
-# 03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss
+# 05 Schulung, Cutover und Hypercare
 
 ## Zweck und Steuerungsrhythmus
 
@@ -81,4 +104,4 @@ Wiederverwendbare Erkenntnisse werden anonymisiert als Produktkandidaten formuli
 - [Produkt: Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 - [Produkt: Cutover, Hypercare und Betrieb](73-bc-basic-hypercare.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-140","parent":"PAGE-UABC-030","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-140","title":"05 Schulung, Cutover und Hypercare","parent":null,"version":5,"status":"published"} -->

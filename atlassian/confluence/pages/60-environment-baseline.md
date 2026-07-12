@@ -1,22 +1,34 @@
 ---
 id: UABC-ENVBASELINE
 storyPageId: PAGE-UABC-070
-title: 02 Umgebung, Einrichtung, Daten und Testdurchführung
-parent: UABC-BLUEPRINT
+title: 03 BC-Einrichtung und Konfigurationspakete
+parent: null
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
-order: 2
-purpose: Interne Schrittfolge für sichere Vorbereitung, Konfiguration, Migration und Prüfung
+order: 3
+purpose: Interne Schrittfolge für sichere Vorbereitung, Konfiguration, Migration
+  und Prüfung
 audience: Consultant, Solution Architecture, Datenverantwortung und Testleitung
-owners: [P-002]
-version: 4
+owners:
+  - P-002
+version: 5
 status: published
-jiraRefs: [UABC-11, UABC-12, UABC-13, UABC-14]
-referenceIds: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005, UABC-VER-ENV-POLICY-GATE-001]
+jiraRefs:
+  - UABC-11
+  - UABC-12
+  - UABC-13
+  - UABC-14
+referenceIds:
+  - UABC-REQ-ENV-001
+  - UABC-REQ-ENV-002
+  - UABC-REQ-ENV-003
+  - UABC-REQ-ENV-004
+  - UABC-REQ-ENV-005
+  - UABC-VER-ENV-POLICY-GATE-001
 lastReviewed: 2026-07-12
 ---
 
-# 02 Umgebung, Einrichtung, Daten und Testdurchführung
+# 03 BC-Einrichtung und Konfigurationspakete
 
 ## Einsatzvoraussetzungen
 
@@ -90,4 +102,4 @@ UAT beginnt erst, wenn Entscheidungen, Datenqualität, Rollen, Sandboxvoraussetz
 - [Produkt: Prozess- und Konfigurationsstandard](31-processes.md)
 - [Produkt: Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-070","parent":"PAGE-UABC-030","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-070","title":"03 BC-Einrichtung und Konfigurationspakete","parent":null,"version":5,"status":"published"} -->

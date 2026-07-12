@@ -34,7 +34,7 @@ try {
   const catalogBytes = readEntry(DOCUMENT_CATALOG_PATH).bytes;
   const catalog = JSON.parse(catalogBytes.toString('utf8'));
   const errors = validateDocumentCatalog({ catalog, schema, projectIndex: index, readEntry });
-  if (branch !== index.allowedBranch) errors.push({ code: DOCUMENT_CATALOG_ERROR.identity, message: `Aktueller Branch ${branch} ist nicht ${index.allowedBranch}` });
+  if (![index.allowedBranch, index.deliveryBranch].includes(branch)) errors.push({ code: DOCUMENT_CATALOG_ERROR.identity, message: `Aktueller Branch ${branch} ist weder Consumer-Producerbranch noch Delivery-Branch` });
   const expected = canonicalCatalogBytes(buildDocumentCatalog(index, readEntry));
   if (!catalogBytes.equals(expected)) errors.push({ code: DOCUMENT_CATALOG_ERROR.hash, message: 'Katalogbytes sind nicht die deterministische Projektion der Commit-Blobs' });
   if (errors.length > 0) {

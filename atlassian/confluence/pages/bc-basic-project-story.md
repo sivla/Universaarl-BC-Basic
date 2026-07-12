@@ -1,21 +1,40 @@
 ---
 id: UABC-BCBSTORY
-title: 10 Projektsteuerung
-parent: UABC-PROJECT
-owners: [P-001, P-002]
+title: 03 Projekte
+parent: null
+owners:
+  - P-001
+  - P-002
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 10
+order: 3
 storyPageId: PAGE-UABC-150
-purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und Projektabschluss zusammen.
-audience: [Steering, Projektleitung, Kunde, Kontrollzentrum]
-jiraRefs: [UABC-32, UABC-33, UABC-46, UABC-47, UABC-50]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und
+  Projektabschluss zusammen.
+audience:
+  - Steering
+  - Projektleitung
+  - Kunde
+  - Kontrollzentrum
+jiraRefs:
+  - UABC-32
+  - UABC-33
+  - UABC-46
+  - UABC-47
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-004
+  - UABC-REQ-BCB-005
+  - UABC-REQ-BCB-010
+  - UABC-REQ-BCB-011
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 10 Projektsteuerung
+# 03 Projekte
 
 ## Managementsicht
 
@@ -112,4 +131,4 @@ Die aktuelle Space-Struktur ordnet Kundendokumentation, Standardprodukt und inte
 - [Aktueller Angebots-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
 - [Twin-Allowlist](../../../exports/project-data/v1/index.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-150","title":"10 Projektsteuerung","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":5,"status":"published"} -->

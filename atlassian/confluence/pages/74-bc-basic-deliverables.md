@@ -1,21 +1,37 @@
 ---
 id: UABC-BCBDELIVERABLES
-title: 02 Projektauftrag und Scope
-parent: UABC-PROJECT
-owners: [P-001, P-002, P-016]
+title: 02 Business Central
+parent: null
+owners:
+  - P-001
+  - P-002
+  - P-016
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 2
 storyPageId: PAGE-UABC-130
-purpose: Fasst Auftrag, Leistungsgrenze, kommerzielle Linie und neun Lieferobjekte zusammen.
-audience: [Kunde, Vertrieb, Projektleitung]
-jiraRefs: [UABC-32, UABC-33, UABC-50]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+purpose: Fasst Auftrag, Leistungsgrenze, kommerzielle Linie und neun
+  Lieferobjekte zusammen.
+audience:
+  - Kunde
+  - Vertrieb
+  - Projektleitung
+jiraRefs:
+  - UABC-32
+  - UABC-33
+  - UABC-50
+referenceIds:
+  - UABC-REQ-BCB-001
+  - UABC-REQ-BCB-002
+  - UABC-REQ-BCB-004
+  - UABC-REQ-BCB-010
+  - UABC-REQ-BCB-011
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 02 Projektauftrag und Scope
+# 02 Business Central
 
 ## Projektauftrag
 
@@ -93,4 +109,4 @@ Spectra-, Snapshot- und Twin-Vertrag müssen ebenfalls validiert sein. Diese Kri
 - [Aktueller 80-Stunden-Angebots-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
 - [Synthetische Abrechnungskontrolle](../../../evidence/simulation/billing-reconciliation.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Projektauftrag und Scope","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Business Central","parent":null,"version":5,"status":"published"} -->

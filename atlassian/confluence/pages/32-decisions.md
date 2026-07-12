@@ -1,21 +1,33 @@
 ---
 id: UABC-DECISIONS
-title: 05 Datenmigration
-parent: UABC-PROJECT
-owners: [P-002, P-005, P-016, P-019]
+title: 02.1 Datenmigration
+parent: UABC-BCBDELIVERABLES
+owners:
+  - P-002
+  - P-005
+  - P-016
+  - P-019
 status: published
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
-order: 5
+order: 6
 storyPageId: PAGE-UABC-050
 purpose: Beschreibt Datenlieferung, Migrationswellen, Qualitätsregeln und Abstimmung.
-audience: [Datenverantwortung, Finance, Consultant]
-jiraRefs: [UABC-38, UABC-41]
-referenceIds: [UABC-REQ-BCB-006, UABC-REQ-BCB-008]
+audience:
+  - Datenverantwortung
+  - Finance
+  - Consultant
+jiraRefs:
+  - UABC-38
+  - UABC-41
+referenceIds:
+  - UABC-REQ-BCB-006
+  - UABC-REQ-BCB-008
 lastReviewed: 2026-09-03
+version: 5
 ---
 
-# 05 Datenmigration
+# 02.1 Datenmigration
 
 ## Migrationsziel und Lieferumfang
 
@@ -96,4 +108,4 @@ Für jeden manuellen Schritt sind Ziel, Prüfschritt und Rücksetzweg dokumentie
 - [Eröffnungs- und Schlusskontrollen](../../../evidence/simulation/bc-playthrough-ledger.yaml)
 - Fachliche Verantwortung: Tickets `UABC-38` und `UABC-41`.
 
-<!-- story-metadata {"id":"PAGE-UABC-050","title":"05 Datenmigration","parent":"PAGE-UABC-000","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-050","title":"02.1 Datenmigration","parent":"PAGE-UABC-130","version":5,"status":"published"} -->
