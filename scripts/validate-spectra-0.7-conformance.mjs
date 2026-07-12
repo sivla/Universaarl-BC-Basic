@@ -15,7 +15,7 @@ const digest = crypto.createHash('sha256').update(JSON.stringify(portable)).dige
 const validate = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
 if (!validate(portable)) for (const error of validate.errors ?? []) fail('SCHEMA', `${error.instancePath} ${error.message}`);
 if (!portable.project_id.startsWith('PROJECT-') || !portable.story_id.startsWith('STORY-') || portable.classification !== 'synthetic' || portable.status !== 'hypercare') fail('IDENTITAET', portable.project_id);
-if (portable.pages.length !== 19 || portable.tickets.length !== 17 || portable.timeline.length !== 15 || portable.hypercare.length !== 3) fail('MENGEN', '19/17/15/3 erforderlich');
+if (portable.pages.length !== 19 || portable.tickets.length !== 45 || portable.timeline.length !== 15 || portable.hypercare.length !== 3) fail('MENGEN', '19/45/15/3 erforderlich');
 if (nativeStory.relations.length !== 252) fail('NATIVE-RELATIONEN', String(nativeStory.relations.length));
 const ids = new Set([portable.offer.id, ...portable.pages.map((x) => x.id), ...portable.tickets.map((x) => x.id), ...portable.evidence.map((x) => x.id), ...portable.sessions.map((x) => x.id), ...portable.decisions.map((x) => x.id), ...portable.deliverables.map((x) => x.id)]);
 const expectedIdCount = 1 + portable.pages.length + portable.tickets.length + portable.evidence.length + portable.sessions.length + portable.decisions.length + portable.deliverables.length;
@@ -41,4 +41,4 @@ for (const edge of portable.graph) { if (!ids.has(edge.from) || !ids.has(edge.to
 for (const edge of portable.graph) if (!edgeKeys.has(`${edge.to}|${edge.from}|${inverse[edge.type]}`)) fail('GRAPH-INVERSE', `${edge.from}->${edge.to}`);
 if (!fs.readFileSync(evidencePath, 'utf8').includes(`projectionDigest: ${digest}`)) fail('EVIDENCE-DIGEST', digest);
 if (errors.length) { console.error(`Spectra-0.10-Konformitaetspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
-console.log(`Spectra-0.10-Konformitaetspruefung bestanden: 3 Angebotsstaende, 19 Seiten, 17 Tickets, 34 Kommentare, 17 Worklogs, 80h/9600 EUR, 15 Ereignisse, 3 Hypercaretage, 252 native Relationen, ${portable.graph.length} portable Kanten, Digest ${digest}.`);
+console.log(`Spectra-0.10-Konformitaetspruefung bestanden: 3 Angebotsstaende, 19 Seiten, 45 Tickets mit 19 abrechenbaren Tasks, 38 Task-Kommentare, 19 Task-Worklogs, 80h/9600 EUR, 15 Ereignisse, 3 Hypercaretage, 252 native Relationen, ${portable.graph.length} portable Kanten, Digest ${digest}.`);

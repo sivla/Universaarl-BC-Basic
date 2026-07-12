@@ -354,13 +354,1901 @@
   ],
   "tickets": [
     {
-      "id": "TKT-UABC-22",
+      "id": "UABC-PHASE-1",
+      "code": "P1",
+      "title": "Phase 1 – Vorbereitung und Datenbereitschaft",
+      "order": 1,
+      "start": "2026-04-06",
+      "end": "2026-04-24",
+      "status": "done",
+      "estimateHours": 22,
+      "actualHours": 22,
+      "remainingHours": 0,
+      "netAmount": 2640,
+      "type": "phase",
+      "summary": "Phase 1 – Vorbereitung und Datenbereitschaft",
+      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 1 – Vorbereitung und Datenbereitschaft.",
+      "deliverable": "Phase 1 – Vorbereitung und Datenbereitschaft",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "phaseRefs": [
+        "UABC-PHASE-1"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "hourlyRate": null,
+      "parent": null,
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "phase"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Phase 1 – Vorbereitung und Datenbereitschaft ist synthetisch abgeschlossen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [],
+      "comments": [],
+      "worklogs": [],
+      "epicIds": [
+        "TKT-UABC-EPIC-PROJECT",
+        "TKT-UABC-EPIC-FINANCE",
+        "TKT-UABC-EPIC-PURCHASING",
+        "TKT-UABC-EPIC-SALES",
+        "TKT-UABC-EPIC-INVENTORY",
+        "TKT-UABC-EPIC-DATA"
+      ]
+    },
+    {
+      "id": "UABC-PHASE-2",
+      "code": "P2",
+      "title": "Phase 2 – Einrichtung, Tests und Schulung",
+      "order": 2,
+      "start": "2026-04-27",
+      "end": "2026-05-08",
+      "status": "done",
+      "estimateHours": 40,
+      "actualHours": 40,
+      "remainingHours": 0,
+      "netAmount": 4800,
+      "type": "phase",
+      "summary": "Phase 2 – Einrichtung, Tests und Schulung",
+      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 2 – Einrichtung, Tests und Schulung.",
+      "deliverable": "Phase 2 – Einrichtung, Tests und Schulung",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "phaseRefs": [
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "hourlyRate": null,
+      "parent": null,
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "phase"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Phase 2 – Einrichtung, Tests und Schulung ist synthetisch abgeschlossen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [],
+      "comments": [],
+      "worklogs": [],
+      "epicIds": [
+        "TKT-UABC-EPIC-PROJECT",
+        "TKT-UABC-EPIC-FINANCE",
+        "TKT-UABC-EPIC-PURCHASING",
+        "TKT-UABC-EPIC-SALES",
+        "TKT-UABC-EPIC-INVENTORY",
+        "TKT-UABC-EPIC-DATA",
+        "TKT-UABC-EPIC-ENABLEMENT"
+      ]
+    },
+    {
+      "id": "UABC-PHASE-3",
+      "code": "P3",
+      "title": "Phase 3 – Hypercare und Abschluss",
+      "order": 3,
+      "start": "2026-05-11",
+      "end": "2026-05-15",
+      "status": "done",
+      "estimateHours": 18,
+      "actualHours": 18,
+      "remainingHours": 0,
+      "netAmount": 2160,
+      "type": "phase",
+      "summary": "Phase 3 – Hypercare und Abschluss",
+      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 3 – Hypercare und Abschluss.",
+      "deliverable": "Phase 3 – Hypercare und Abschluss",
+      "phaseId": "UABC-PHASE-3",
+      "phase": "P3",
+      "phaseRefs": [
+        "UABC-PHASE-3"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "hourlyRate": null,
+      "parent": null,
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "phase"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-05-11",
+      "startedAt": "2026-05-11",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Phase 3 – Hypercare und Abschluss ist synthetisch abgeschlossen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [],
+      "comments": [],
+      "worklogs": [],
+      "epicIds": [
+        "TKT-UABC-EPIC-FINANCE",
+        "TKT-UABC-EPIC-TRANSITION"
+      ]
+    },
+    {
+      "id": "TKT-UABC-EPIC-PROJECT",
       "type": "epic",
+      "summary": "Projektsteuerung und Scope",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Projektsteuerung und Scope.",
+      "deliverable": "Projektsteuerung und Scope",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 13,
+      "actualHours": 13,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1560,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/project-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml",
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-FINANCE",
+      "type": "epic",
+      "summary": "Finanzwesen und Steuern",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Finanzwesen und Steuern.",
+      "deliverable": "Finanzwesen und Steuern",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2",
+        "UABC-PHASE-3"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 19,
+      "actualHours": 19,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 2280,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Finanzwesen und Steuern sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001",
+        "BC-SIM-CLOSE-001",
+        "SYN-VAT-RETURN-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-PURCHASING",
+      "type": "epic",
+      "summary": "Einkauf",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Einkauf.",
+      "deliverable": "Einkauf",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 6.5,
+      "actualHours": 6.5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 780,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Einkauf sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-SALES",
+      "type": "epic",
+      "summary": "Verkauf und Zahlungseingang",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Verkauf und Zahlungseingang.",
+      "deliverable": "Verkauf und Zahlungseingang",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 6.5,
+      "actualHours": 6.5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 780,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Verkauf und Zahlungseingang sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001",
+        "BC-SIM-O2C-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-INVENTORY",
+      "type": "epic",
+      "summary": "Lager und Inventur",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Lager und Inventur.",
+      "deliverable": "Lager und Inventur",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 6,
+      "actualHours": 6,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 720,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Lager und Inventur sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001",
+        "BC-SIM-INVENTORY-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-DATA",
+      "type": "epic",
+      "summary": "Stammdaten und Migration",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Stammdaten und Migration.",
+      "deliverable": "Stammdaten und Migration",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-1",
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 9,
+      "actualHours": 9,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1080,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-1",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Stammdaten und Migration sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/data-readiness-check.yaml",
+        "BC-SIM-MASTER-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-ENABLEMENT",
+      "type": "epic",
+      "summary": "Test, UAT und Schulung",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Test, UAT und Schulung.",
+      "deliverable": "Test, UAT und Schulung",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-2"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 7,
+      "actualHours": 7,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 840,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-2",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Test, UAT und Schulung sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/training-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-EPIC-TRANSITION",
+      "type": "epic",
+      "summary": "Go-live, Hypercare und Betriebsübergabe",
+      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Go-live, Hypercare und Betriebsübergabe.",
+      "deliverable": "Go-live, Hypercare und Betriebsübergabe",
+      "phaseId": null,
+      "phaseRefs": [
+        "UABC-PHASE-3"
+      ],
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 13,
+      "actualHours": 13,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1560,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-PHASE-3",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-05-11",
+      "startedAt": "2026-05-11",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Go-live, Hypercare und Betriebsübergabe sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "SIM-HC-001",
+        "UABC-STORY-BCB-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-PROJECT",
+      "type": "story",
+      "summary": "Projektauftrag und Scope sind startklar",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Projektauftrag und Scope sind startklar.",
+      "deliverable": "Projektauftrag und Scope sind startklar",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 6,
+      "actualHours": 6,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 720,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-PROJECT",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Projektauftrag und Scope sind startklar.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/project-plan.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-ACCEPTANCE",
+      "type": "story",
+      "summary": "Abnahme- und Cutover-Eintritt ist vorbereitet",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Abnahme- und Cutover-Eintritt ist vorbereitet.",
+      "deliverable": "Abnahme- und Cutover-Eintritt ist vorbereitet",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 3,
+      "actualHours": 3,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 360,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-PROJECT",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Abnahme- und Cutover-Eintritt ist vorbereitet.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/uat-training-run.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-FINANCE",
+      "type": "story",
+      "summary": "Finance- und Steuerdesign ist entschieden",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Finance- und Steuerdesign ist entschieden.",
+      "deliverable": "Finance- und Steuerdesign ist entschieden",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 480,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-FINANCE",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Finance- und Steuerdesign ist entschieden.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-PURCHASING",
+      "type": "story",
+      "summary": "Einkaufsstandard ist entschieden",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Einkaufsstandard ist entschieden.",
+      "deliverable": "Einkaufsstandard ist entschieden",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 180,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-PURCHASING",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Einkaufsstandard ist entschieden.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-SALES",
+      "type": "story",
+      "summary": "Verkaufsstandard ist entschieden",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Verkaufsstandard ist entschieden.",
+      "deliverable": "Verkaufsstandard ist entschieden",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 180,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-SALES",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Verkaufsstandard ist entschieden.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-INVENTORY",
+      "type": "story",
+      "summary": "Lagerstandard ist entschieden",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Lagerstandard ist entschieden.",
+      "deliverable": "Lagerstandard ist entschieden",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 1,
+      "actualHours": 1,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 120,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-INVENTORY",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Lagerstandard ist entschieden.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P1-DATA",
+      "type": "story",
+      "summary": "Datenpaket ist bereit",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Datenpaket ist bereit.",
+      "deliverable": "Datenpaket ist bereit",
+      "phaseId": "UABC-PHASE-1",
+      "phase": "P1",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-DATA",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p1",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-04-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-04-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Datenpaket ist bereit.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/data-readiness-check.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-FOUNDATION",
+      "type": "story",
+      "summary": "Gesellschaft, Rollen und Basis sind eingerichtet",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Gesellschaft, Rollen und Basis sind eingerichtet.",
+      "deliverable": "Gesellschaft, Rollen und Basis sind eingerichtet",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 480,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-PROJECT",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Gesellschaft, Rollen und Basis sind eingerichtet.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-FINANCE",
+      "type": "story",
+      "summary": "Finance, VAT und SoD sind eingerichtet",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Finance, VAT und SoD sind eingerichtet.",
+      "deliverable": "Finance, VAT und SoD sind eingerichtet",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 10,
+      "actualHours": 10,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1200,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-FINANCE",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Finance, VAT und SoD sind eingerichtet.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-DATA",
+      "type": "story",
+      "summary": "Migration und Eröffnungswerte sind abgestimmt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Migration und Eröffnungswerte sind abgestimmt.",
+      "deliverable": "Migration und Eröffnungswerte sind abgestimmt",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 480,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-DATA",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Migration und Eröffnungswerte sind abgestimmt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-MASTER-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-PURCHASING",
+      "type": "story",
+      "summary": "Purchase-to-Pay ist durchgespielt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Purchase-to-Pay ist durchgespielt.",
+      "deliverable": "Purchase-to-Pay ist durchgespielt",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-PURCHASING",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Purchase-to-Pay ist durchgespielt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-SALES",
+      "type": "story",
+      "summary": "Order-to-Cash ist durchgespielt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Order-to-Cash ist durchgespielt.",
+      "deliverable": "Order-to-Cash ist durchgespielt",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-SALES",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Order-to-Cash ist durchgespielt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-O2C-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-INVENTORY",
+      "type": "story",
+      "summary": "Lager und Inventur sind abgestimmt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Lager und Inventur sind abgestimmt.",
+      "deliverable": "Lager und Inventur sind abgestimmt",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-INVENTORY",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Lager und Inventur sind abgestimmt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-INVENTORY-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-TRAINING",
+      "type": "story",
+      "summary": "Key User sind befähigt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Key User sind befähigt.",
+      "deliverable": "Key User sind befähigt",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 480,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-ENABLEMENT",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Key User sind befähigt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/training-plan.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P2-UAT",
+      "type": "story",
+      "summary": "SIT, UAT und Cutover-Probe sind bestanden",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: SIT, UAT und Cutover-Probe sind bestanden.",
+      "deliverable": "SIT, UAT und Cutover-Probe sind bestanden",
+      "phaseId": "UABC-PHASE-2",
+      "phase": "P2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 3,
+      "actualHours": 3,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 360,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-ENABLEMENT",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p2",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-27",
+      "startedAt": "2026-04-27",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-27"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "SIT, UAT und Cutover-Probe sind bestanden.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/uat-training-run.yaml"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-BUG-P3-PAYMENT",
+      "type": "bug",
+      "summary": "Zahlungsreferenz-Abweichung ist behoben",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Zahlungsreferenz-Abweichung ist behoben.",
+      "deliverable": "Zahlungsreferenz-Abweichung ist behoben",
+      "phaseId": "UABC-PHASE-3",
+      "phase": "P3",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 2,
+      "actualHours": 2,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 240,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P2",
+      "parent": "TKT-UABC-EPIC-TRANSITION",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p3",
+        "bug"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-05-11",
+      "startedAt": "2026-05-11",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Zahlungsreferenz-Abweichung ist behoben.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "SIM-HC-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P3-CLOSE",
+      "type": "story",
+      "summary": "Monatsabschluss und UStVA-Vorschau sind abgestimmt",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Monatsabschluss und UStVA-Vorschau sind abgestimmt.",
+      "deliverable": "Monatsabschluss und UStVA-Vorschau sind abgestimmt",
+      "phaseId": "UABC-PHASE-3",
+      "phase": "P3",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-FINANCE",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p3",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-05-11",
+      "startedAt": "2026-05-11",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Monatsabschluss und UStVA-Vorschau sind abgestimmt.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-CLOSE-001",
+        "SYN-VAT-RETURN-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-STORY-P3-HANDOVER",
+      "type": "story",
+      "summary": "Betrieb und Abschluss sind übergeben",
+      "description": "Nicht fakturierbare fachliche Ergebnisklammer: Betrieb und Abschluss sind übergeben.",
+      "deliverable": "Betrieb und Abschluss sind übergeben",
+      "phaseId": "UABC-PHASE-3",
+      "phase": "P3",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 11,
+      "actualHours": 11,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1320,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "TKT-UABC-EPIC-TRANSITION",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "p3",
+        "story"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-05-11",
+      "startedAt": "2026-05-11",
+      "testedAt": "2026-05-15",
+      "closedAt": "2026-05-15",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-05-11"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-15"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-15"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Betrieb und Abschluss sind übergeben.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "UABC-STORY-BCB-001"
+      ],
+      "comments": [],
+      "worklogs": []
+    },
+    {
+      "id": "TKT-UABC-22",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": null,
+      "parent": "TKT-UABC-STORY-P1-PROJECT",
       "dependencies": [],
       "labels": [
         "scope"
@@ -413,29 +2301,45 @@
           "type": "closing",
           "time": "2026-08-20",
           "role": "P-002",
-          "text": "Ergebnis Scope erfüllt; Evidence Test Einschränkung und nächster Bezug dokumentiert.",
+          "text": "Abgestimmter Projektauftrag, Scope und Startbaseline. Ergebnis Scope erfüllt; Evidence Test Einschränkung und nächster Bezug dokumentiert.",
           "evidenceRef": "project/bc-basic/project-plan.yaml"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-22-01",
+          "taskId": "TKT-UABC-22",
           "date": "2026-08-20",
           "role": "P-002",
           "hours": 6,
           "activity": "Scope",
-          "phase": "PH0",
-          "cost": 720
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 720
         }
-      ]
+      ],
+      "summary": "Projektauftrag und Scope startklar machen",
+      "description": "Abrechenbare Kundenleistung: Projektauftrag und Scope startklar machen.",
+      "deliverable": "Abgestimmter Projektauftrag, Scope und Startbaseline",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 6,
+      "actualHours": 6,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 720,
+      "phaseId": "UABC-PHASE-1"
     },
     {
       "id": "TKT-UABC-23",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P1",
-      "parent": "TKT-UABC-22",
+      "parent": "TKT-UABC-STORY-P1-FINANCE",
       "dependencies": [],
       "labels": [
         "finance"
@@ -488,29 +2392,45 @@
           "type": "closing",
           "time": "2026-08-23",
           "role": "P-005",
-          "text": "Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation. Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-SETUP-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-23-01",
+          "taskId": "TKT-UABC-23",
           "date": "2026-08-23",
           "role": "P-005",
           "hours": 4,
           "activity": "Finance",
-          "phase": "PH1",
-          "cost": 480
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 480
         }
-      ]
+      ],
+      "summary": "Finance- und Steuerdesign entscheiden",
+      "description": "Abrechenbare Kundenleistung: Finance- und Steuerdesign entscheiden.",
+      "deliverable": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 480,
+      "phaseId": "UABC-PHASE-1"
     },
     {
       "id": "TKT-UABC-24",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-011",
       "priority": "P1",
-      "parent": "TKT-UABC-22",
+      "parent": "TKT-UABC-STORY-P1-PURCHASING",
       "dependencies": [
         "TKT-UABC-23"
       ],
@@ -557,7 +2477,7 @@
           "type": "work",
           "time": "2026-08-23",
           "role": "P-011",
-          "text": "Prozesse bearbeitet",
+          "text": "Einkaufs-Fit-to-Standard entscheiden bearbeitet.",
           "evidenceRef": "BC-SIM-P2P-001"
         },
         {
@@ -565,20 +2485,36 @@
           "type": "closing",
           "time": "2026-08-23",
           "role": "P-011",
-          "text": "Ergebnis Prozesse retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Einkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-P2P-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-24-01",
+          "taskId": "TKT-UABC-24",
           "date": "2026-08-23",
           "role": "P-011",
-          "hours": 4,
-          "activity": "Prozesse",
-          "phase": "PH1",
-          "cost": 480
+          "hours": 1.5,
+          "activity": "Einkaufs-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 180
         }
-      ]
+      ],
+      "summary": "Einkaufs-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Einkaufs-Fit-to-Standard entscheiden.",
+      "deliverable": "Einkaufsstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 180,
+      "phaseId": "UABC-PHASE-1"
     },
     {
       "id": "TKT-UABC-25",
@@ -587,7 +2523,7 @@
       "reporter": "P-002",
       "assignee": "P-016",
       "priority": "P1",
-      "parent": "TKT-UABC-22",
+      "parent": "TKT-UABC-STORY-P1-DATA",
       "dependencies": [],
       "labels": [
         "data"
@@ -640,29 +2576,45 @@
           "type": "closing",
           "time": "2026-08-25",
           "role": "P-016",
-          "text": "Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Geprueftes synthetisches Datenpaket mit Kontrollsummen. Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-25-01",
+          "taskId": "TKT-UABC-25",
           "date": "2026-08-25",
           "role": "P-016",
           "hours": 5,
           "activity": "Daten",
-          "phase": "PH1",
-          "cost": 600
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 600
         }
-      ]
+      ],
+      "summary": "Datenbereitschaft herstellen",
+      "description": "Abrechenbare Kundenleistung: Datenbereitschaft herstellen.",
+      "deliverable": "Geprueftes synthetisches Datenpaket mit Kontrollsummen",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 600,
+      "phaseId": "UABC-PHASE-1"
     },
     {
       "id": "TKT-UABC-26",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": "TKT-UABC-22",
+      "parent": "TKT-UABC-STORY-P1-ACCEPTANCE",
       "dependencies": [
         "TKT-UABC-25"
       ],
@@ -717,20 +2669,36 @@
           "type": "closing",
           "time": "2026-08-24",
           "role": "P-002",
-          "text": "Ergebnis UAT abgedeckt; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe. Ergebnis UAT abgedeckt; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "project/bc-basic/uat-training-run.yaml"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-26-01",
+          "taskId": "TKT-UABC-26",
           "date": "2026-08-24",
           "role": "P-002",
           "hours": 3,
           "activity": "UAT",
-          "phase": "PH1",
-          "cost": 360
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 360
         }
-      ]
+      ],
+      "summary": "UAT- und Cutover-Eintritt vorbereiten",
+      "description": "Abrechenbare Kundenleistung: UAT- und Cutover-Eintritt vorbereiten.",
+      "deliverable": "Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 3,
+      "actualHours": 3,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 360,
+      "phaseId": "UABC-PHASE-1"
     },
     {
       "id": "TKT-UABC-27",
@@ -739,7 +2707,7 @@
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P1",
-      "parent": "TKT-UABC-22",
+      "parent": "TKT-UABC-STORY-P2-FOUNDATION",
       "dependencies": [],
       "labels": [
         "setup"
@@ -792,20 +2760,36 @@
           "type": "closing",
           "time": "2026-08-25",
           "role": "P-005",
-          "text": "Ergebnis Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Gepruefte Grundeinrichtung der synthetischen Gesellschaft. Ergebnis Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-SETUP-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-27-01",
+          "taskId": "TKT-UABC-27",
           "date": "2026-08-25",
           "role": "P-005",
           "hours": 4,
           "activity": "Gesellschaft",
-          "phase": "PH2",
-          "cost": 480
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 480
         }
-      ]
+      ],
+      "summary": "Gesellschaft, Rollen und Grundeinrichtung konfigurieren",
+      "description": "Abrechenbare Kundenleistung: Gesellschaft, Rollen und Grundeinrichtung konfigurieren.",
+      "deliverable": "Gepruefte Grundeinrichtung der synthetischen Gesellschaft",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 480,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-28",
@@ -814,7 +2798,7 @@
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P1",
-      "parent": "TKT-UABC-27",
+      "parent": "TKT-UABC-STORY-P2-FINANCE",
       "dependencies": [],
       "labels": [
         "setup"
@@ -867,20 +2851,36 @@
           "type": "closing",
           "time": "2026-08-25",
           "role": "P-005",
-          "text": "Ergebnis Posting geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline. Ergebnis Posting geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-SETUP-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-28-01",
+          "taskId": "TKT-UABC-28",
           "date": "2026-08-25",
           "role": "P-005",
           "hours": 10,
           "activity": "Posting",
-          "phase": "PH2",
-          "cost": 1200
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 1200
         }
-      ]
+      ],
+      "summary": "Finance, Buchungsmatrizen, VAT und Berechtigungen konfigurieren",
+      "description": "Abrechenbare Kundenleistung: Finance, Buchungsmatrizen, VAT und Berechtigungen konfigurieren.",
+      "deliverable": "Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 10,
+      "actualHours": 10,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 1200,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-29",
@@ -889,7 +2889,7 @@
       "reporter": "P-002",
       "assignee": "P-016",
       "priority": "P1",
-      "parent": "TKT-UABC-27",
+      "parent": "TKT-UABC-STORY-P2-DATA",
       "dependencies": [],
       "labels": [
         "data"
@@ -942,29 +2942,45 @@
           "type": "closing",
           "time": "2026-08-25",
           "role": "P-016",
-          "text": "Ergebnis Import retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Abgestimmte synthetische Migration mit Fehlerkorrektur. Ergebnis Import retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-MASTER-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-29-01",
+          "taskId": "TKT-UABC-29",
           "date": "2026-08-25",
           "role": "P-016",
           "hours": 4,
           "activity": "Import",
-          "phase": "PH2",
-          "cost": 480
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 480
         }
-      ]
+      ],
+      "summary": "Stammdaten und Eroeffnungswerte migrieren und abstimmen",
+      "description": "Abrechenbare Kundenleistung: Stammdaten und Eroeffnungswerte migrieren und abstimmen.",
+      "deliverable": "Abgestimmte synthetische Migration mit Fehlerkorrektur",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 480,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-30",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-011",
       "priority": "P1",
-      "parent": "TKT-UABC-24",
+      "parent": "TKT-UABC-STORY-P2-PURCHASING",
       "dependencies": [
         "TKT-UABC-29"
       ],
@@ -1019,29 +3035,45 @@
           "type": "closing",
           "time": "2026-08-26",
           "role": "P-011",
-          "text": "Ergebnis P2P retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette. Ergebnis P2P retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-P2P-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-30-01",
+          "taskId": "TKT-UABC-30",
           "date": "2026-08-26",
           "role": "P-011",
           "hours": 5,
           "activity": "P2P",
-          "phase": "PH2",
-          "cost": 600
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 600
         }
-      ]
+      ],
+      "summary": "Purchase-to-Pay Ende-zu-Ende durchspielen",
+      "description": "Abrechenbare Kundenleistung: Purchase-to-Pay Ende-zu-Ende durchspielen.",
+      "deliverable": "Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 600,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-31",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-011",
       "priority": "P1",
-      "parent": "TKT-UABC-24",
+      "parent": "TKT-UABC-STORY-P2-SALES",
       "dependencies": [
         "TKT-UABC-30"
       ],
@@ -1096,29 +3128,45 @@
           "type": "closing",
           "time": "2026-08-26",
           "role": "P-011",
-          "text": "Ergebnis O2C retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette. Ergebnis O2C retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-O2C-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-31-01",
+          "taskId": "TKT-UABC-31",
           "date": "2026-08-26",
           "role": "P-011",
           "hours": 5,
           "activity": "O2C",
-          "phase": "PH2",
-          "cost": 600
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 600
         }
-      ]
+      ],
+      "summary": "Order-to-Cash Ende-zu-Ende durchspielen",
+      "description": "Abrechenbare Kundenleistung: Order-to-Cash Ende-zu-Ende durchspielen.",
+      "deliverable": "Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 600,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-32",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-019",
       "priority": "P1",
-      "parent": "TKT-UABC-24",
+      "parent": "TKT-UABC-STORY-P2-INVENTORY",
       "dependencies": [
         "TKT-UABC-30"
       ],
@@ -1173,20 +3221,36 @@
           "type": "closing",
           "time": "2026-08-28",
           "role": "P-019",
-          "text": "Ergebnis Inventur retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Abgestimmte Lagerbewegungen, Inventur und Bewertung. Ergebnis Inventur retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-INVENTORY-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-32-01",
+          "taskId": "TKT-UABC-32",
           "date": "2026-08-28",
           "role": "P-019",
           "hours": 5,
           "activity": "Inventur",
-          "phase": "PH2",
-          "cost": 600
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 600
         }
-      ]
+      ],
+      "summary": "Lager und Inventur durchspielen",
+      "description": "Abrechenbare Kundenleistung: Lager und Inventur durchspielen.",
+      "deliverable": "Abgestimmte Lagerbewegungen, Inventur und Bewertung",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 600,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-33",
@@ -1195,7 +3259,7 @@
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P2",
-      "parent": "TKT-UABC-26",
+      "parent": "TKT-UABC-STORY-P2-TRAINING",
       "dependencies": [],
       "labels": [
         "training"
@@ -1248,29 +3312,45 @@
           "type": "closing",
           "time": "2026-08-30",
           "role": "P-002",
-          "text": "Ergebnis Training bestanden; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager. Ergebnis Training bestanden; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "project/bc-basic/training-plan.yaml"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-33-01",
+          "taskId": "TKT-UABC-33",
           "date": "2026-08-30",
           "role": "P-002",
           "hours": 4,
           "activity": "Training",
-          "phase": "PH3",
-          "cost": 480
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 480
         }
-      ]
+      ],
+      "summary": "Key User rollenbasiert befaehigen",
+      "description": "Abrechenbare Kundenleistung: Key User rollenbasiert befaehigen.",
+      "deliverable": "Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 480,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-34",
-      "type": "story",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": "TKT-UABC-26",
+      "parent": "TKT-UABC-STORY-P2-UAT",
       "dependencies": [
         "TKT-UABC-30",
         "TKT-UABC-31"
@@ -1326,29 +3406,45 @@
           "type": "closing",
           "time": "2026-08-29",
           "role": "P-002",
-          "text": "Ergebnis GO_SIMULATION; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Bestandene UAT- und Mock-Cutover-Entscheidung GO_SIMULATION. Ergebnis GO_SIMULATION; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "project/bc-basic/uat-training-run.yaml"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-34-01",
+          "taskId": "TKT-UABC-34",
           "date": "2026-08-29",
           "role": "P-002",
           "hours": 3,
           "activity": "UAT",
-          "phase": "PH3",
-          "cost": 360
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 360
         }
-      ]
+      ],
+      "summary": "SIT, UAT und Go-live-Rehearsal abschliessen",
+      "description": "Abrechenbare Kundenleistung: SIT, UAT und Go-live-Rehearsal abschliessen.",
+      "deliverable": "Bestandene UAT- und Mock-Cutover-Entscheidung GO_SIMULATION",
+      "phase": "P2",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 3,
+      "actualHours": 3,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 360,
+      "phaseId": "UABC-PHASE-2"
     },
     {
       "id": "TKT-UABC-35",
-      "type": "bug",
+      "type": "task",
       "status": "closed",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-34",
+      "parent": "TKT-UABC-BUG-P3-PAYMENT",
       "dependencies": [
         "TKT-UABC-31"
       ],
@@ -1403,20 +3499,36 @@
           "type": "closing",
           "time": "2026-09-01",
           "role": "P-005",
-          "text": "Ergebnis Fix Retest Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Korrigierter Hypercare-Befund mit bestandenem Retest. Ergebnis Fix Retest Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "SIM-HC-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-35-01",
+          "taskId": "TKT-UABC-35",
           "date": "2026-09-01",
           "role": "P-005",
           "hours": 2,
           "activity": "Hypercare",
-          "phase": "PH4",
-          "cost": 240
+          "phase": "P3",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 240
         }
-      ]
+      ],
+      "summary": "Zahlungsreferenz korrigieren und erneut testen",
+      "description": "Abrechenbare Kundenleistung: Zahlungsreferenz korrigieren und erneut testen.",
+      "deliverable": "Korrigierter Hypercare-Befund mit bestandenem Retest",
+      "phase": "P3",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 2,
+      "actualHours": 2,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 240,
+      "phaseId": "UABC-PHASE-3"
     },
     {
       "id": "TKT-UABC-36",
@@ -1425,7 +3537,7 @@
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-34",
+      "parent": "TKT-UABC-STORY-P3-CLOSE",
       "dependencies": [],
       "labels": [
         "close"
@@ -1478,20 +3590,36 @@
           "type": "closing",
           "time": "2026-08-29",
           "role": "P-005",
-          "text": "Ergebnis Abschluss retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Abgestimmter synthetischer Monatsabschluss. Ergebnis Abschluss retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "BC-SIM-CLOSE-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-36-01",
+          "taskId": "TKT-UABC-36",
           "date": "2026-08-29",
           "role": "P-005",
           "hours": 3,
           "activity": "Abschluss",
-          "phase": "PH4",
-          "cost": 360
+          "phase": "P3",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 360
         }
-      ]
+      ],
+      "summary": "Monatsabschluss und Abstimmungen proben",
+      "description": "Abrechenbare Kundenleistung: Monatsabschluss und Abstimmungen proben.",
+      "deliverable": "Abgestimmter synthetischer Monatsabschluss",
+      "phase": "P3",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 3,
+      "actualHours": 3,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 360,
+      "phaseId": "UABC-PHASE-3"
     },
     {
       "id": "TKT-UABC-37",
@@ -1500,7 +3628,7 @@
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-34",
+      "parent": "TKT-UABC-STORY-P3-CLOSE",
       "dependencies": [
         "TKT-UABC-36"
       ],
@@ -1555,29 +3683,45 @@
           "type": "closing",
           "time": "2026-08-29",
           "role": "P-005",
-          "text": "Ergebnis VAT retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "text": "Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung. Ergebnis VAT retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
           "evidenceRef": "SYN-VAT-RETURN-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-37-01",
+          "taskId": "TKT-UABC-37",
           "date": "2026-08-29",
           "role": "P-005",
           "hours": 2,
           "activity": "VAT",
-          "phase": "PH4",
-          "cost": 240
+          "phase": "P3",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 240
         }
-      ]
+      ],
+      "summary": "UStVA-Vorschau pruefen",
+      "description": "Abrechenbare Kundenleistung: UStVA-Vorschau pruefen.",
+      "deliverable": "Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung",
+      "phase": "P3",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 2,
+      "actualHours": 2,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 240,
+      "phaseId": "UABC-PHASE-3"
     },
     {
       "id": "TKT-UABC-38",
-      "type": "epic",
+      "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P2",
-      "parent": null,
+      "parent": "TKT-UABC-STORY-P3-HANDOVER",
       "dependencies": [
         "TKT-UABC-35",
         "TKT-UABC-36",
@@ -1634,20 +3778,222 @@
           "type": "closing",
           "time": "2026-09-03",
           "role": "P-002",
-          "text": "Ergebnis Handover abgeschlossen; Reconciliation und Provenienz validiert; keine Rechnung, produktive Leistung oder Schreibberechtigung behauptet.",
+          "text": "Abschluss, Supportstart und Handover-Paket. Ergebnis Handover abgeschlossen; Reconciliation und Provenienz validiert; keine Rechnung, produktive Leistung oder Schreibberechtigung behauptet.",
           "evidenceRef": "UABC-STORY-BCB-001"
         }
       ],
       "worklogs": [
         {
+          "id": "WL-TKT-UABC-38-01",
+          "taskId": "TKT-UABC-38",
           "date": "2026-09-03",
           "role": "P-002",
           "hours": 11,
           "activity": "Handover und Reconciliation",
-          "phase": "PH4",
-          "cost": 1320
+          "phase": "P3",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 1320
         }
-      ]
+      ],
+      "summary": "Projekt abschliessen und Betrieb uebergeben",
+      "description": "Abrechenbare Kundenleistung: Projekt abschliessen und Betrieb uebergeben.",
+      "deliverable": "Abschluss, Supportstart und Handover-Paket",
+      "phase": "P3",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 11,
+      "actualHours": 11,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 1320,
+      "phaseId": "UABC-PHASE-3"
+    },
+    {
+      "id": "TKT-UABC-24-SALES",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "TKT-UABC-STORY-P1-SALES",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-SALES-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Verkaufs-Fit-to-Standard entscheiden bearbeitet.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-SALES-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Verkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-TKT-UABC-24-SALES-01",
+          "taskId": "TKT-UABC-24-SALES",
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 1.5,
+          "activity": "Verkaufs-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 180
+        }
+      ],
+      "summary": "Verkaufs-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Verkaufs-Fit-to-Standard entscheiden.",
+      "deliverable": "Verkaufsstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 180,
+      "phaseId": "UABC-PHASE-1"
+    },
+    {
+      "id": "TKT-UABC-24-INVENTORY",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "TKT-UABC-STORY-P1-INVENTORY",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-INVENTORY-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Lager-Fit-to-Standard entscheiden bearbeitet.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-INVENTORY-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Lagerstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-TKT-UABC-24-INVENTORY-01",
+          "taskId": "TKT-UABC-24-INVENTORY",
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 1,
+          "activity": "Lager-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 120
+        }
+      ],
+      "summary": "Lager-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Lager-Fit-to-Standard entscheiden.",
+      "deliverable": "Lagerstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1,
+      "actualHours": 1,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 120,
+      "phaseId": "UABC-PHASE-1"
     }
   ],
   "timeline": [
@@ -3334,5 +5680,197 @@
       "evidence/simulation/adapter-provenance.json",
       "exports/project-data/v1/twin-export-map.json"
     ]
-  }
+  },
+  "ticketMigration": [
+    {
+      "legacyTicketId": "TKT-UABC-22",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-22",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-PROJECT",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-22-01",
+      "hours": 6
+    },
+    {
+      "legacyTicketId": "TKT-UABC-23",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-23",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-FINANCE",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-23-01",
+      "hours": 4
+    },
+    {
+      "legacyTicketId": "TKT-UABC-24",
+      "legacyType": "story",
+      "newTicketId": "TKT-UABC-24",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-PURCHASING",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-24-01",
+      "hours": 1.5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-25",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-25",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-DATA",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-25-01",
+      "hours": 5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-26",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-26",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-ACCEPTANCE",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-26-01",
+      "hours": 3
+    },
+    {
+      "legacyTicketId": "TKT-UABC-27",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-27",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-FOUNDATION",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-27-01",
+      "hours": 4
+    },
+    {
+      "legacyTicketId": "TKT-UABC-28",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-28",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-FINANCE",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-28-01",
+      "hours": 10
+    },
+    {
+      "legacyTicketId": "TKT-UABC-29",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-29",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-DATA",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-29-01",
+      "hours": 4
+    },
+    {
+      "legacyTicketId": "TKT-UABC-30",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-30",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-PURCHASING",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-30-01",
+      "hours": 5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-31",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-31",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-SALES",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-31-01",
+      "hours": 5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-32",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-32",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-INVENTORY",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-32-01",
+      "hours": 5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-33",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-33",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-TRAINING",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-33-01",
+      "hours": 4
+    },
+    {
+      "legacyTicketId": "TKT-UABC-34",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-34",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P2-UAT",
+      "phaseId": "UABC-PHASE-2",
+      "worklogId": "WL-TKT-UABC-34-01",
+      "hours": 3
+    },
+    {
+      "legacyTicketId": "TKT-UABC-35",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-35",
+      "newType": "task",
+      "parentId": "TKT-UABC-BUG-P3-PAYMENT",
+      "phaseId": "UABC-PHASE-3",
+      "worklogId": "WL-TKT-UABC-35-01",
+      "hours": 2
+    },
+    {
+      "legacyTicketId": "TKT-UABC-36",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-36",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P3-CLOSE",
+      "phaseId": "UABC-PHASE-3",
+      "worklogId": "WL-TKT-UABC-36-01",
+      "hours": 3
+    },
+    {
+      "legacyTicketId": "TKT-UABC-37",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-37",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P3-CLOSE",
+      "phaseId": "UABC-PHASE-3",
+      "worklogId": "WL-TKT-UABC-37-01",
+      "hours": 2
+    },
+    {
+      "legacyTicketId": "TKT-UABC-38",
+      "legacyType": "task",
+      "newTicketId": "TKT-UABC-38",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P3-HANDOVER",
+      "phaseId": "UABC-PHASE-3",
+      "worklogId": "WL-TKT-UABC-38-01",
+      "hours": 11
+    },
+    {
+      "legacyTicketId": "TKT-UABC-24",
+      "legacyType": "story",
+      "newTicketId": "TKT-UABC-24-SALES",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-SALES",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-24-SALES-01",
+      "hours": 1.5
+    },
+    {
+      "legacyTicketId": "TKT-UABC-24",
+      "legacyType": "story",
+      "newTicketId": "TKT-UABC-24-INVENTORY",
+      "newType": "task",
+      "parentId": "TKT-UABC-STORY-P1-INVENTORY",
+      "phaseId": "UABC-PHASE-1",
+      "worklogId": "WL-TKT-UABC-24-INVENTORY-01",
+      "hours": 1
+    }
+  ]
 }

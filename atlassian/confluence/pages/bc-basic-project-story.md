@@ -83,7 +83,9 @@ Meetings führen zu Ticket oder Entscheidung. Ein Ticket ist nur abgeschlossen, 
 
 Die 17 Records in `bc-basic-story-tickets.yaml` bilden den kanonischen kundenlesbaren Projektverlauf. Nur diese Menge zählt in Angebot, Worklogs, 80-Stunden-Ist, Timeline, Status und Abschlusskennzahlen.
 
-Weitere 38 ältere Issues aus Projekt-, Blueprint-, Umgebungs- und Walkthrough-Planung bleiben als interne historische Traceability erhalten. Sie erklären Vorbereitung und Herkunft einzelner Anforderungen, sind aber kein zweites Kundenbacklog und werden nicht zu den 17 Storytickets oder ihren Stunden addiert.
+Weitere 38 ältere Issues aus Projekt-, Blueprint-, Umgebungs- und Walkthrough-Planung bleiben als interne historische Traceability erhalten.
+Sie erklären Vorbereitung und Herkunft einzelner Anforderungen, sind aber kein zweites Kundenbacklog.
+Sie werden nicht zu den 48 kundenlesbaren Tickets oder den 19 abrechenbaren Task-Worklogs addiert.
 
 Der Twin erhält für jedes sichtbare Ticket den expliziten kanonischen Typ, die Parent-Beziehung, die Sichtbarkeitsrolle und den Zählbereich. Typen werden weder aus Ticket-Key noch Titel oder Großschreibung erraten.
 

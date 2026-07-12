@@ -4,7 +4,7 @@ Produktstatus: **V1_STANDARDPRODUCT_READY**. Neun Lieferobjekte, sieben UAT-Fäl
 
 ## Spectra-0.10-Abschluss
 
-Der Abschluss bindet `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json`, `exports/project-data/v1/twin-export-map.json`, `evidence/simulation/reference-graph-coverage.json`, `exports/project-data/v1/reference-graph-native.json`, `exports/project-data/v1/reference-graph-mapping.json` und `exports/project-data/v1/reference-graph-portable.json`. Damit kann der Twin Baseline, Angebot, Ist und die Differenz zwischen 252 nativen Relationen und 190 portablen Kanten erklaeren. Eine produktive Leistung, Rechnung, Zahlung, Schreibberechtigung oder 1:1-Vollstaendigkeitsbehauptung wird nicht abgeleitet.
+Der Abschluss bindet `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json`, `exports/project-data/v1/twin-export-map.json`, `evidence/simulation/reference-graph-coverage.json`, `exports/project-data/v1/reference-graph-native.json`, `exports/project-data/v1/reference-graph-mapping.json` und `exports/project-data/v1/reference-graph-portable.json`. Damit kann der Twin Baseline, Angebot, Ist und die Differenz zwischen 252 nativen Relationen und 328 portablen Kanten erklaeren. Eine produktive Leistung, Rechnung, Zahlung, Schreibberechtigung oder 1:1-Vollstaendigkeitsbehauptung wird nicht abgeleitet.
 
 **Page-ID:** PAGE-UABC-180 · **Version:** 2 · **Status:** published · **Datum:** 03.09.2026
 

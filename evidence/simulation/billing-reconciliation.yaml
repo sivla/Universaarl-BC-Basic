@@ -7,10 +7,10 @@ timelineEvent: STORY-15
 scope:
   ticketRange: TKT-UABC-22..TKT-UABC-38
   sourceOfTruth: evidence/simulation/project-story.json
-  worklogSource: evidence/simulation/project-story.json:tickets[*].worklogs
+  worklogSource: evidence/simulation/project-story.json:tickets[type=task].worklogs
   offerSource: docs/offers/bc-basic-offer.md
   spectraContractRecord: evidence/simulation/project-reconciliation.json
-  countingScope: canonical-project-story-only
+  countingScope: billable-task-worklogs-only
   historicalPlan:
     ticketRange: UABC-22..UABC-38
     source: atlassian/jira/issues/bc-basic-project.yaml
@@ -43,7 +43,7 @@ reconciliation:
 process:
   steps:
     - step: worklogs-collect
-      result: 17 synthetische Ticket-Worklogs aus der kanonischen Story gesammelt
+      result: 19 synthetische Ticket-Worklogs aus der kanonischen Story gesammelt
     - step: parent-deduplication
       result: Eltern-/Epic-Summen nicht zusätzlich fakturiert
     - step: offer-match

@@ -34,7 +34,7 @@ export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFil
     status_history: ticket.statusHistory.map((entry, index) => ({ status: index === 0 ? 'open' : entry.status, time: entry.time })),
     acceptance: ticket.acceptanceCriteria.map((criterion) => criterion.text), evidence: ticket.evidenceRefs.map((id) => evidenceId.get(id)),
     comments: ticket.comments.map((comment) => ({ id: comment.id, type: comment.type, time: comment.time, author_role: comment.role, text: comment.text, evidence: evidenceId.get(comment.evidenceRef) })),
-    worklogs: ticket.worklogs.map((worklog) => ({ date: worklog.date, author_role: worklog.role, hours: worklog.hours, cost: worklog.cost, activity: worklog.activity, phase: worklog.phase }))
+    worklogs: ticket.worklogs.map((worklog) => ({ date: worklog.date, author_role: worklog.role, hours: worklog.hours, cost: worklog.netAmount, activity: worklog.activity, phase: worklog.phase }))
   }));
   const timeline = nativeStory.timeline.map((event) => ({
     id: event.id, time: event.time, phase: event.phase,

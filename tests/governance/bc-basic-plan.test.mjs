@@ -109,6 +109,8 @@ test('Kanonisches Liefermodell bleibt bei Einrichtung Hypercare und Monatsabschl
 });
 
 test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erfundene Budgetlimits', () => {
+  const story = JSON.parse(readFileSync(path.join(root, 'evidence/simulation/project-story.json'), 'utf8'));
+  const taskWorklogCount = story.tickets.filter(({ type }) => type === 'task').flatMap(({ worklogs }) => worklogs).length;
   assert.equal(billing.plannedBillableHours, 68);
   assert.equal(billing.contingencyHours, 0);
   assert.equal(billing.maximumBillableHours, null);
@@ -118,7 +120,7 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
   assert.equal(billing.plannedNetAmount, 11050);
   assert.deepEqual(billing.simulationClose, {
     status: 'simulated-complete', offerVersion: 2, plannedHours: 80, actualHours: 80, hourlyRate: 120,
-    plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: 17, reconciliationResult: 'abgestimmt',
+    plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: taskWorklogCount, reconciliationResult: 'abgestimmt',
     evidence: 'evidence/simulation/billing-reconciliation.yaml',
     spectraReconciliation: 'evidence/simulation/project-reconciliation.json',
     truthBoundary: 'Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.'
@@ -558,6 +560,7 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
 test('Spectra 0.10 ist durch Release-Evidence, Reconciliation, Provenienz und Coverage widerspruchsfrei gebunden', async () => {
   const releaseEvidence = await yaml('evidence/spectra-release-0.10.0-alpha.1.yaml');
   const conformanceEvidence = await yaml('evidence/simulation/spectra-0.10-conformance.yaml');
+  const portableGraph = JSON.parse(await fs.readFile(path.join(root, 'exports/project-data/v1/reference-graph-portable.json'), 'utf8'));
   assert.equal(releaseEvidence.tag.name, consumerBindings.spectraReleaseBinding.releaseTag);
   assert.equal(releaseEvidence.tag.peeledCommit, consumerBindings.spectraReleaseBinding.tagCommit);
   assert.equal(releaseEvidence.manifest.manifestSourceCommit, consumerBindings.spectraReleaseBinding.manifestSourceCommit);
@@ -573,7 +576,7 @@ test('Spectra 0.10 ist durch Release-Evidence, Reconciliation, Provenienz und Co
   assert.equal(conformanceEvidence.adapterProvenance.sourceUnchanged, true);
   assert.equal(conformanceEvidence.adapterProvenance.writesPerformed, false);
   assert.equal(conformanceEvidence.referenceGraphCoverage.nativeRelations, 252);
-  assert.equal(conformanceEvidence.referenceGraphCoverage.portableEdges, 190);
+  assert.equal(conformanceEvidence.referenceGraphCoverage.portableEdges, portableGraph.edges.length);
   assert.equal(conformanceEvidence.referenceGraphCoverage.oneToOneClaim, false);
   assert.equal(conformanceEvidence.referenceGraphCoverage.completeProjectionClaim, false);
   assert.equal(projectIndex.artifacts.find(({ id }) => id === 'UABC-SRC-BCB-SPECTRA-EVIDENCE-001')?.path, 'evidence/spectra-release-0.10.0-alpha.1.yaml');

@@ -140,7 +140,7 @@ Die Snapshotquelle MUST der neueste vollstaendig validierte, saubere Commit des 
 - **THEN** wird der Vertrag fail-closed abgelehnt; nur der Producer darf die interne Bindung zur Digestbildung verwenden
 
 ### Requirement: UABC-REQ-BCB-013 Versionierter Reconciliation-, Provenienz- und Coverage-Vertrag
-Die Kundeninstanz MUST den veroeffentlichten Spectra-0.10-Vertrag fuer Baseline, Angebot und Ist verwenden. Der Datensatz MUST Stunden, Satz, Betrag, Waehrung, Versionen, rechnerische Abweichung und einen nachvollziehbaren Grund enthalten. Er MUST Rechnung, Buchung, Zahlung und produktive Leistung ausdruecklich ausschliessen. Der einzige Branch-Index MUST deterministisch auf eine read-only Twin-Exportmap projiziert werden. Die Adapter-Provenienz MUST sicheren relativen Quellpfad, Source-Hash vor und nach der Projektion, Mappingversion, Projektionsdigest, unveraenderte Kunden-Source-of-Truth und vollstaendigen Schreibschutz belegen. Die Referenzgraph-Coverage MUST alle 252 nativen Relationen erklaeren, die 190 portablen Kanten commitgebunden nachweisen und MUST eine 1:1- oder Vollstaendigkeitsbehauptung ausdruecklich ausschliessen.
+Die Kundeninstanz MUST den veroeffentlichten Spectra-0.10-Vertrag fuer Baseline, Angebot und Ist verwenden. Der Datensatz MUST Stunden, Satz, Betrag, Waehrung, Versionen, rechnerische Abweichung und einen nachvollziehbaren Grund enthalten. Er MUST Rechnung, Buchung, Zahlung und produktive Leistung ausdruecklich ausschliessen. Der einzige Branch-Index MUST deterministisch auf eine read-only Twin-Exportmap projiziert werden. Die Adapter-Provenienz MUST sicheren relativen Quellpfad, Source-Hash vor und nach der Projektion, Mappingversion, Projektionsdigest, unveraenderte Kunden-Source-of-Truth und vollstaendigen Schreibschutz belegen. Die Referenzgraph-Coverage MUST alle 252 nativen Relationen erklaeren, die 328 portablen Kanten commitgebunden nachweisen und MUST eine 1:1- oder Vollstaendigkeitsbehauptung ausdruecklich ausschliessen.
 
 #### Scenario: UABC-SCN-BCB-020 Reconciliation und Exportprovenienz pruefen
 - **GIVEN** die abgeschlossene synthetische Story und der aktuelle Branch-Index
@@ -189,7 +189,7 @@ Die Kundeninstanz MUST ihre 19 bestehenden Confluence-Seiten mit unveraenderten 
 #### Scenario: UABC-SCN-BCB-027 Kundenverlauf und historische Planung werden nicht doppelt gezaehlt
 - **GIVEN** 17 vollstaendige Storytickets und 38 aeltere Planungs- beziehungsweise Traceability-Issues bestehen mit stabilen IDs fort
 - **WHEN** der Twin-Export die Ticketwelt projiziert
-- **THEN** sind nur die 17 Storytickets kundenlesbarer Projektverlauf und Grundlage fuer Worklogs, 80 Stunden, 9.600 EUR, Timeline und Abschlusszahlen
+- **THEN** bilden 48 Tickets mit drei Phase-Tickets und acht fachliche Epics und 19 abrechenbaren Tasks den kundenlesbaren Projektverlauf; ausschliesslich Task-Worklogs sind Grundlage fuer 80 Stunden und 9.600 EUR
 - **AND** tragen die 38 aelteren Issues die Rolle `internal-traceability` und den Ausschluss aus Story- und Stundenzaehlung, ohne geloescht oder fachlich umklassifiziert zu werden
 
 #### Scenario: UABC-SCN-BCB-028 Twin rendert nur Producer-Module und Ticketviews
@@ -263,3 +263,28 @@ Die Kundeninstanz MUSS genau eine kanonische synthetische Firmen-, Stamm-, Setup
 - **AND** stimmen Bank 5.440,30 EUR, Lager 99 STK/4.158 EUR, offener Kreditor 499,80 EUR, VAT-Zahllast 70,30 EUR und Schlussbilanz 11.080,20 EUR je Seite ueberein
 - **AND** sind Purchase/Sales Orders nicht selbst als gebuchte Belege bezeichnet
 - **AND** trennen UAT und Training den geplanten echten Kundenlauf von der bestandenen Referenzsimulation
+
+### Requirement: Abrechenbare Jira-Projektstory
+
+Die kundenlesbare Projektstory MUSS genau drei geordnete Phase-Tickets und acht phasenuebergreifend stabile fachliche Epics besitzen. Die Hierarchie lautet `Phase-Ticket -> Epic -> Story oder Bug -> Task`. `phase` ist ein producerdefinierter Tickettyp und niemals abrechenbar. Jede Story und jeder Bug gehoert genau zu einem Epic und einer Phase; jeder Task erbt beides von seiner Ergebnisklammer. Unter einem Epic sind ausschliesslich fachliche Stories oder Bugs und darunter ausschliesslich Tasks zulaessig. Nur Tasks duerfen `billable: true`, fakturierbare Worklogs und Rechnungszeilen tragen. Alle Tasks der Phasen 1 bis 3 MUESSEN abrechenbar sein. Epics, Stories und Bugs DUERFEN Schaetzwerte und aus ihren Tasks abgeleitete Ist-/Reststunden darstellen, MUESSEN diese Werte jedoch als nicht fakturierbare Rollups kennzeichnen.
+
+#### Scenario: Taskbasierte Abrechnung
+
+- **WHEN** die Projektstory, Worklogs und Abrechnung erzeugt werden
+- **THEN** ergeben ausschliesslich die 19 Task-Worklogs 22/40/18 Stunden je Phase, insgesamt 80 Stunden und bei 120 EUR genau 9.600 EUR
+- **AND** erzeugen Epics, Stories und Bugs weder fakturierbare Worklogs noch Rechnungszeilen
+- **AND** werden Rollups nicht zu den Taskwerten addiert
+
+#### Scenario: Kundenboard und interne Traceability
+
+- **WHEN** Board und kompakte Liste exportiert werden
+- **THEN** zeigen sie die drei Phase-Tickets und acht fachliche Epics, deren Stories/Bugs und Tasks mit explizitem Typ und gueltiger Hierarchie
+- **AND** bleiben die 38 historischen Traceability-Issues ausschliesslich in einer getrennten internen Ansicht
+- **AND** erzeugen sie weder Stunden, Kosten noch Projektfortschritt
+
+#### Scenario: Nachvollziehbare Migration
+
+- **WHEN** die bisherige 17-Ticket-Arbeitsstory migriert wird
+- **THEN** dokumentiert eine eindeutige Migrationsmap Alt-Typ, neue fachliche Elternklammer und stabile Worklog-Zuordnung; der gemischte Vier-Stunden-Fit-to-Standard-Worklog wird nachvollziehbar auf Einkauf, Verkauf und Lager verteilt
+- **AND** bleiben bestehende fachliche Task-IDs und Evidence-Referenzen erhalten
+- **AND** weisen Phase-3-Leistungen Go-live/Hypercare innerhalb der Zehn-Stunden-Grenze sowie Monatsabschluss, UStVA-Vorschau und Handover getrennt aus

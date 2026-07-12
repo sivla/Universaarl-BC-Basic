@@ -113,10 +113,10 @@ ticketCatalog:
   path: atlassian/jira/issues/bc-basic-story-tickets.yaml
   sourceContract: evidence/simulation/project-story.json
   historicalSources: [atlassian/jira/issues/bc-basic-project.yaml, atlassian/jira/issues/blueprint-wave.yaml, atlassian/jira/issues/environment-baseline.yaml, atlassian/jira/issues/walkthrough-pilot.yaml]
-  recordCount: 55
-  customerStoryCount: 17
+  recordCount: 86
+  customerStoryCount: 48
   internalTraceabilityCount: 38
-  canonicalTypes: [epic, story, task, subtask, bug, change]
+  canonicalTypes: [phase, epic, story, task, subtask, bug, change]
   typeField: type
   canonicalTypeField: canonicalType
   parentField: parent
@@ -128,27 +128,27 @@ ticketCatalog:
   displayColorTokenField: displayColorToken
   liveIconPolicyField: liveIconPolicy
   viewsField: views
-  presentationTypes: [epic, story, task, subtask, bug, change]
+  presentationTypes: [phase, epic, story, task, subtask, bug, change]
   viewIds: [UABC-TICKET-VIEW-BOARD-001, UABC-TICKET-VIEW-COMPACT-001]
   viewTypes: [board, compact-list]
   inferTypeFromKeyOrTitle: false
 consumerRules:
-  - Dieser Index ist nur der repository-relative Daten- und Allowlistvertrag; das spaetere JSON-Snapshotmanifest wird getrennt und commitgebunden erzeugt.
-  - Nur die unter artifacts positivgelisteten Pfade duerfen als Projektdaten gelesen werden.
-  - Ein deklarierter selector begrenzt den lesbaren Ausschnitt einer gemeinsam genutzten Datei und ist verbindlich.
-  - Verweise, Links und relative Pfade innerhalb einer Quelle erlauben keine zusaetzlichen, nicht positivgelisteten Lesezugriffe.
-  - Der Index enthaelt keine duplizierte fachliche Wahrheit; Werte werden aus den referenzierten Quellen aufgeloest.
-  - Fehlende, unlesbare oder nicht freigegebene Werte bleiben leer und werden weder erfunden noch aus einer zweiten Quelle ergaenzt.
-  - Konsumenten duerfen weder Blueprint-Quellen noch eigene Projektinhalte schreiben.
-  - Der Project Twin loest den erlaubten Branch genau einmal auf, pinnt diesen Commit extern und liest Index, Dokumentkatalog und alle Dokumentblobs ausschliesslich aus diesem selben Commit.
-  - Der Dokumentkatalog ordnet die 19 strukturierten Projektseiten genau drei internen Spaces zu; externe Confluence-URL, Page-ID und Space-Key bleiben ohne kanonische Quelle null.
-  - Die 19 Migrationseintraege erhalten Dokument-ID, Story-Page-ID und Quellpfad; Umbenennung und Neuordnung erzeugen weder neue Seitenidentitaeten noch eine zweite fachliche Wahrheit.
-  - Ausschliesslich ticketCatalog.path ist die aktuelle Ticketansicht und Zaehlsurface: 17 Kundenstory-Tickets zaehlen 80 Stunden; 38 historische Plan-/Traceability-Issues sind sichtbar, aber aus Storyzaehlung und Worklogs ausgeschlossen.
-  - Jeder Ticketrecord liefert Source, kanonischen Lowercase-Typ, Rohquelltyp, Parent, Sichtbarkeitsrolle und Zaehlscope explizit; der Consumer darf Typen oder Zaehlscope niemals aus Key, Titel, Parent oder Position ableiten.
-  - Nur die deklarierten Board- und Kompaktlisten-Views duerfen Kundenstory-Tickets darstellen; interne Traceability-Issues bleiben aus beiden Views ausgeschlossen.
-  - Typdarstellungen verwenden ausschliesslich die geschlossene lokale Positivliste; Live-Icons benoetigen einen positivgelisteten lokalen Pfad und SHA-256-Digest, die aktuelle Assetliste ist leer.
-  - Der Dokumentkatalog ist die einzige Producer-Klassifikation fuer Twin-sichtbare Dokumente; externe Confluence-Identitaeten oder URLs duerfen nur aus belegten sicheren HTTPS-Origins stammen.
-  - Pfade zu .env-Dateien, Authentifizierungszustaenden, Geheimnissen, Browserprofilen, Logs, Videos und rohen Laufzeitnachweisen sind unzulaessig.
+  - "Dieser Index ist nur der repository-relative Daten- und Allowlistvertrag; das spaetere JSON-Snapshotmanifest wird getrennt und commitgebunden erzeugt."
+  - "Nur die unter artifacts positivgelisteten Pfade duerfen als Projektdaten gelesen werden."
+  - "Ein deklarierter selector begrenzt den lesbaren Ausschnitt einer gemeinsam genutzten Datei und ist verbindlich."
+  - "Verweise, Links und relative Pfade innerhalb einer Quelle erlauben keine zusaetzlichen, nicht positivgelisteten Lesezugriffe."
+  - "Der Index enthaelt keine duplizierte fachliche Wahrheit; Werte werden aus den referenzierten Quellen aufgeloest."
+  - "Fehlende, unlesbare oder nicht freigegebene Werte bleiben leer und werden weder erfunden noch aus einer zweiten Quelle ergaenzt."
+  - "Konsumenten duerfen weder Blueprint-Quellen noch eigene Projektinhalte schreiben."
+  - "Der Project Twin loest den erlaubten Branch genau einmal auf, pinnt diesen Commit extern und liest Index, Dokumentkatalog und alle Dokumentblobs ausschliesslich aus diesem selben Commit."
+  - "Der Dokumentkatalog ordnet die 19 strukturierten Projektseiten genau drei internen Spaces zu; externe Confluence-URL, Page-ID und Space-Key bleiben ohne kanonische Quelle null."
+  - "Die 19 Migrationseintraege erhalten Dokument-ID, Story-Page-ID und Quellpfad; Umbenennung und Neuordnung erzeugen weder neue Seitenidentitaeten noch eine zweite fachliche Wahrheit."
+  - "Ausschliesslich ticketCatalog.path ist die aktuelle Ticketansicht und Zaehlsurface: drei Phase-Tickets fuehren acht fachliche Epics, 17 Stories, einen Bug und 19 abrechenbare Tasks; nur die Task-Worklogs zaehlen 80 Stunden und 9.600 EUR, waehrend 38 historische Plan-/Traceability-Issues aus Storyzaehlung, Kundenboard und Worklogs ausgeschlossen bleiben."
+  - "Jeder Ticketrecord liefert Source, kanonischen Lowercase-Typ, Rohquelltyp, Parent, Sichtbarkeitsrolle und Zaehlscope explizit; der Consumer darf Typen oder Zaehlscope niemals aus Key, Titel, Parent oder Position ableiten."
+  - "Nur die deklarierten Board- und Kompaktlisten-Views duerfen Kundenstory-Tickets darstellen; interne Traceability-Issues bleiben aus beiden Views ausgeschlossen."
+  - "Typdarstellungen verwenden ausschliesslich die geschlossene lokale Positivliste; Live-Icons benoetigen einen positivgelisteten lokalen Pfad und SHA-256-Digest, die aktuelle Assetliste ist leer."
+  - "Der Dokumentkatalog ist die einzige Producer-Klassifikation fuer Twin-sichtbare Dokumente; externe Confluence-Identitaeten oder URLs duerfen nur aus belegten sicheren HTTPS-Origins stammen."
+  - "Pfade zu .env-Dateien, Authentifizierungszustaenden, Geheimnissen, Browserprofilen, Logs, Videos und rohen Laufzeitnachweisen sind unzulaessig."
 artifacts:
   - { id: UABC-SRC-BCB-OPENSPEC-001, kindId: openspec-change, path: openspec/changes/deliver-bc-basic-customer-project/proposal.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-SPEC-001, kindId: requirements, path: openspec/changes/deliver-bc-basic-customer-project/specs/bc-basic-delivery/spec.md, format: markdown, required: true }

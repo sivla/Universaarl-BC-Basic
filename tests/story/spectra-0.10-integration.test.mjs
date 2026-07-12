@@ -15,13 +15,13 @@ const clone = () => ({
 const expectCode = (mutate, code) => { const data = clone(); mutate(data); assert.ok(validateIntegration(data).some((error) => error.startsWith(`${code}:`)), `Fehlercode ${code} fehlt`); };
 
 test('vollstaendige Spectra-0.10-Integration besteht auf der echten Projektstory', () => assert.deepEqual(validateIntegration(clone()), []));
-test('Ticketexport trennt 17 Storytickets und 38 interne Traceability-Issues ohne Doppelzaehlung', () => {
-  assert.equal(base.ticketExport.recordCount, 55);
-  assert.equal(base.ticketExport.customerStoryCount, 17);
+test('Ticketexport trennt 48 Kundentickets und 38 interne Traceability-Issues ohne Doppelzaehlung', () => {
+  assert.equal(base.ticketExport.recordCount, 86);
+  assert.equal(base.ticketExport.customerStoryCount, 48);
   assert.equal(base.ticketExport.internalTraceabilityCount, 38);
-  assert.equal(base.ticketExport.ticketRecords.length, 17);
+  assert.equal(base.ticketExport.ticketRecords.length, 48);
   assert.equal(base.ticketExport.traceabilityRecords.length, 38);
-  assert.equal(base.ticketExport.traceabilityRelations.length, 17);
+  assert.equal(base.ticketExport.traceabilityRelations.length, 19);
   assert.equal(base.ticketExport.countedWorklogHours, 80);
 });
 test('Ticketexport liefert genau Board und kompakte Phasenliste ohne historische Issues', () => {
@@ -31,13 +31,13 @@ test('Ticketexport liefert genau Board und kompakte Phasenliste ohne historische
   ]);
   for (const view of base.ticketExport.views) {
     const ticketIds = view.groups.flatMap((group) => group.ticketIds);
-    assert.equal(ticketIds.length, 17);
-    assert.equal(new Set(ticketIds).size, 17);
-    assert.ok(ticketIds.every((id) => id.startsWith('TKT-UABC-')));
+    assert.equal(ticketIds.length, 55);
+    assert.equal(new Set(ticketIds).size, 48);
+    assert.ok(ticketIds.every((id) => id.startsWith('TKT-UABC-') || id.startsWith('UABC-PHASE-')));
   }
 });
 test('Tickettypen besitzen geschlossene deutsche Darstellung und leere lokale Live-Icon-Allowlist', () => {
-  assert.deepEqual(Object.keys(base.ticketExport.typePresentations), ['epic', 'story', 'task', 'subtask', 'bug', 'change']);
+  assert.deepEqual(Object.keys(base.ticketExport.typePresentations), ['phase', 'epic', 'story', 'task', 'subtask', 'bug', 'change']);
   assert.deepEqual(base.ticketExport.typePresentations.bug, { typeLabel: 'Fehler', displayIconKey: 'jira-bug', displayColorToken: 'red' });
   assert.deepEqual(base.ticketExport.liveIconPolicy.allowlistedAssets, []);
   assert.deepEqual(base.ticketExport.liveIconPolicy.allowedOrigins, []);
@@ -62,7 +62,7 @@ test('abweichende Coverage-Mappingregel wird abgelehnt', () => expectCode((data)
 test('unvollstaendige Storyverknuepfung wird abgelehnt', () => expectCode((data) => { data.story.catalogs.evidenceRefs = data.story.catalogs.evidenceRefs.filter((path) => path !== 'evidence/simulation/project-reconciliation.json'); }, 'STORY_LINK_INCOMPLETE'));
 test('unvollstaendige Exportmap wird abgelehnt', () => expectCode((data) => { data.exportMap.artifacts.pop(); data.exportMapBytes = jsonBytes(data.exportMap); }, 'EXPORT_MAP_INCOMPLETE'));
 test('Ticketexport ohne expliziten Typ wird abgelehnt', () => expectCode((data) => { delete data.ticketExport.ticketRecords[0].type; }, 'TICKET_EXPORT_ABWEICHUNG'));
-test('Ticketexport mit abweichendem Parent wird abgelehnt', () => expectCode((data) => { data.ticketExport.ticketRecords[1].parent = null; }, 'TICKET_EXPORT_ABWEICHUNG'));
+test('Ticketexport mit abweichendem Parent wird abgelehnt', () => expectCode((data) => { data.ticketExport.ticketRecords.find((ticket) => ticket.canonicalType === 'task').parent = null; }, 'TICKET_EXPORT_ABWEICHUNG'));
 test('Ticketvertrag mit Typinferenz wird abgelehnt', () => expectCode((data) => { data.index.ticketCatalog.inferTypeFromKeyOrTitle = true; }, 'TICKET_EXPORT_VERTRAG'));
 test('Unbekannter nativer Tickettyp wird abgelehnt', () => expectCode((data) => { data.story.tickets[0].type = 'aus-titel-abgeleitet'; }, 'TICKET_TYP'));
 test('Inkonsistenter nativer Parent-Typ wird abgelehnt', () => expectCode((data) => { data.story.tickets.find((ticket) => ticket.id === 'TKT-UABC-23').parent = 'TKT-UABC-35'; }, 'TICKET_PARENT_TYP'));
@@ -72,7 +72,8 @@ test('Historische Issues duerfen keine Worklogstunden doppelt zaehlen', () => ex
 test('Fehlende realizes-plan-item-Kante wird abgelehnt', () => expectCode((data) => { data.ticketExport.traceabilityRelations.pop(); }, 'TICKET_ZAEHLSCOPE'));
 test('Unsicherer Ticketquellpfad wird abgelehnt', () => expectCode((data) => { data.ticketExport.traceabilityRecords[0].sourcePath = '../jira.yaml'; }, 'TICKET_ZAEHLSCOPE'));
 test('Nicht-lowercase Consumer-Typ wird abgelehnt', () => expectCode((data) => { data.ticketExport.traceabilityRecords[0].type = 'Epic'; }, 'TICKET_TYP'));
-test('Abgeleitete statt explizite Planreferenz wird abgelehnt', () => expectCode((data) => { data.ticketExport.ticketRecords[0].planningRef = 'UABC-23'; }, 'TICKET_ZAEHLSCOPE'));
+test('Abgeleitete statt explizite Planreferenz wird abgelehnt', () => expectCode((data) => { data.ticketExport.ticketRecords.find((ticket) => ticket.canonicalType === 'task').planningRef = 'UABC-23'; }, 'TICKET_ZAEHLSCOPE'));
+test('consumerRules Mapping statt String wird abgelehnt', () => expectCode((data) => { data.index.consumerRules[0] = { falsch: true }; }, 'CONSUMER_REGEL_TYP'));
 test('Zweite aktuelle Jira-Zaehlsurface wird abgelehnt', () => expectCode((data) => { data.index.artifacts.find((artifact) => artifact.id === 'UABC-SRC-BCB-JIRA-003').kindId = 'jira-issues'; }, 'TICKET_COUNTING_SURFACE'));
 test('Unaufloesbare historische Dependency wird abgelehnt', () => expectCode((data) => { data.ticketExport.traceabilityRecords.find((ticket) => ticket.id === 'UABC-15').dependencyRefs = ['UABC-NICHT-VORHANDEN']; }, 'TICKET_ZAEHLSCOPE'));
 test('Historisches Issue in einer Customer-View wird abgelehnt', () => expectCode((data) => { data.ticketExport.views[0].groups[0].ticketIds[0] = 'UABC-22'; }, 'TICKET_VIEW'));

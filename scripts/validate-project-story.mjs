@@ -3,9 +3,9 @@ import process from 'node:process';
 import YAML from 'yaml';
 
 const PAGE_FIELDS = new Set(['id','title','parent','version','status','author_role','time','sourcePath','references','spaceId','spaceType','order']);
-const TICKET_FIELDS = new Set(['id','type','status','reporter','assignee','priority','parent','dependencies','labels','components','createdAt','startedAt','testedAt','closedAt','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs']);
+const TICKET_FIELDS = new Set(['id','type','summary','description','deliverable','phaseId','phase','phaseRefs','code','title','order','start','end','epicIds','billable','billingSource','estimateHours','actualHours','remainingHours','hourlyRate','netAmount','status','reporter','assignee','priority','parent','dependencies','labels','components','createdAt','startedAt','testedAt','closedAt','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs']);
 const COMMENT_FIELDS = new Set(['id','type','time','role','text','evidenceRef']);
-const WORKLOG_FIELDS = new Set(['date','role','hours','cost','activity','phase']);
+const WORKLOG_FIELDS = new Set(['id','taskId','date','role','hours','activity','phase','billable','hourlyRate','netAmount']);
 const TIMELINE_FIELDS = new Set(['id','time','phase','role','tickets','pages','sessions','evidence','decision','deliverable','action','result','nextStep']);
 const HYPERCARE_FIELDS = new Set(['day','dailyPage','ticket','comment','evidence','priority','diagnosis','fix','retest','status','decision']);
 const RELATION_FIELDS = new Set(['type','from','to']);
@@ -15,12 +15,11 @@ const STORY_SPACES = Object.freeze({
   'UABC-SPACE-CONSULTANT': { spaceType: 'consultant-internal', root: 'PAGE-UABC-030' }
 });
 const TICKET_PARENT_TYPES = Object.freeze({
-  epic: [],
-  story: ['epic', 'story'],
-  task: ['epic', 'story', 'task'],
-  subtask: ['story', 'task', 'bug', 'change'],
-  bug: ['epic', 'story', 'task'],
-  change: ['epic', 'story', 'task']
+  phase: [],
+  epic: ['phase'],
+  story: ['epic'],
+  bug: ['epic'],
+  task: ['story', 'bug']
 });
 export const readPageMetadata = (filePath) => {
   if (!existsSync(filePath)) return null;
@@ -47,7 +46,7 @@ const ownOnly = (obj, allowed, fail, detail) => { if (!obj || typeof obj !== 'ob
 export const validateStory = (story, { checkFiles = true, metadataReader = null } = {}) => {
   const errors = []; const fail = (code, detail) => errors.push(`${code}: ${detail}`);
   const date = (value) => typeof value === 'string' && !Number.isNaN(Date.parse(value));
-  const allowedTop = new Set(['schemaVersion','storyId','projectId','classification','status','readableSources','offer','pages','tickets','timeline','hypercare','controls','relations','catalogs']);
+  const allowedTop = new Set(['schemaVersion','storyId','projectId','classification','status','readableSources','offer','pages','tickets','ticketMigration','timeline','hypercare','controls','relations','catalogs']);
   for (const key of Object.keys(story)) if (!allowedTop.has(key)) fail('UNERLAUBTE-EIGENSCHAFT', key);
   if (story.classification !== 'synthetic-only' || story.status !== 'closed') fail('STORY-STATUS', 'synthetic-only/closed erforderlich');
   if (story.offer?.planned_hours !== 80 || story.offer?.actual_hours !== 80 || story.offer?.planned_cost !== 9600 || story.offer?.actual_cost !== 9600 || story.offer?.currentVersion !== 3) fail('BUDGET-ABWEICHUNG', 'Angebot nicht 80h/9600 EUR');
@@ -76,32 +75,48 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
   for (const page of pages) { const seen = new Set([page.id]); let parent = page.parent; while (parent) { if (seen.has(parent)) { fail('SEITE-ZYKLUS', page.id); break; } seen.add(parent); parent = pages.find((p) => p.id === parent)?.parent ?? null; } }
   const tickets = story.tickets ?? []; const ticketIds = new Set(); const commentIds = new Set(); let totalHours = 0; let totalCost = 0;
   const ticketById = new Map(tickets.map((ticket) => [ticket.id, ticket]));
-  if (tickets.length !== 17) fail('TICKETS-ANZAHL', String(tickets.length));
+  if (tickets.length !== 48) fail('TICKETS-ANZAHL', String(tickets.length));
+  const phases=tickets.filter((ticket)=>ticket.type==='phase'); const phaseIds=new Set(phases.map((phase)=>phase.id));
+  if(phases.length!==3||tickets.slice(0,3).map((ticket)=>ticket.id).join('|')!=='UABC-PHASE-1|UABC-PHASE-2|UABC-PHASE-3'||phases.some((phase,index)=>phase.order!==index+1||phase.parent!==null||phase.billable!==false||phase.worklogs.length!==0||!Array.isArray(phase.epicIds))) fail('PHASE-VERTRAG','genau drei geordnete Phase-Tickets erforderlich');
   for (const ticket of tickets) {
     ownOnly(ticket, TICKET_FIELDS, fail, `ticket[${ticket.id ?? '?'}]`);
     if (ticketIds.has(ticket.id)) fail('TICKET-DOPPELTE-ID', ticket.id); ticketIds.add(ticket.id);
-    for (const field of ['id','type','status','reporter','assignee','priority','parent','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','createdAt','startedAt','testedAt','closedAt']) if (ticket[field] === undefined) fail('TICKET-NESTED-FEHLT', ticket.id);
+    for (const field of ['id','type','summary','description','deliverable','billable','billingSource','estimateHours','actualHours','remainingHours','hourlyRate','netAmount','status','reporter','assignee','priority','parent','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','createdAt','startedAt','testedAt','closedAt']) if (ticket[field] === undefined) fail('TICKET-NESTED-FEHLT', ticket.id);
     if (!Object.hasOwn(TICKET_PARENT_TYPES, ticket.type)) fail('TICKET-TYP', ticket.id);
+    if(ticket.type==='phase'){ if(ticket.parent!==null||ticket.phaseId!==ticket.id) fail('PHASE-VERTRAG',ticket.id); }
+    else if(ticket.type==='epic'){ if(ticket.phaseId!==null||!phaseIds.has(ticket.parent)||!Array.isArray(ticket.phaseRefs)||ticket.phaseRefs.length===0||ticket.phaseRefs.some((id)=>!phaseIds.has(id))||!ticket.phaseRefs.includes(ticket.parent)||/^Phase [123]/i.test(ticket.summary)) fail('EPIC-PHASE',ticket.id); }
+    else if(!phaseIds.has(ticket.phaseId)||ticket.phase!==phases.find((phase)=>phase.id===ticket.phaseId)?.code) fail('TICKET-PHASE',ticket.id);
     const parent = ticket.parent === null ? null : ticketById.get(ticket.parent);
-    if (ticket.type === 'epic') {
-      if (ticket.parent !== null) fail('TICKET-PARENT-TYP', `${ticket.id}: Epic darf keinen Parent besitzen`);
+    if (ticket.type === 'phase') {
+      if (ticket.parent !== null) fail('TICKET-PARENT-TYP', `${ticket.id}: Phase darf keinen Parent besitzen`);
     } else if (!parent || !TICKET_PARENT_TYPES[ticket.type]?.includes(parent.type)) fail('TICKET-PARENT-TYP', `${ticket.id}: ${ticket.type} unter ${parent?.type ?? 'fehlend'} ist unzulaessig`);
     if (![ticket.createdAt,ticket.startedAt,ticket.testedAt,ticket.closedAt].every(date) || !(ticket.createdAt <= ticket.startedAt && ticket.startedAt <= ticket.testedAt && ticket.testedAt <= ticket.closedAt)) fail('STATUS-ZEITREISE', ticket.id);
     const history = ticket.statusHistory ?? []; const records = history;
     if (!Array.isArray(history) || records.length < 3 || records.some((h) => !h || typeof h === 'string' || typeof h.status !== 'string' || !date(h.time)) || records.some((h,i) => i && h.time < records[i-1].time) || records[0]?.status !== 'created' || records.at(-1)?.status !== ticket.status || (records.some((h) => h.time < ticket.createdAt || h.time > ticket.closedAt))) fail('STATUSHISTORY-ABWEICHUNG', ticket.id);
     if (records.at(-1)?.status !== ticket.status) fail('ENDSTATUS-ABWEICHUNG', ticket.id);
     if (!Array.isArray(ticket.acceptanceCriteria) || ticket.acceptanceCriteria.length === 0 || ticket.acceptanceCriteria.some((a) => typeof a !== 'object' || a.fulfilled !== true)) fail('ABNAHME-NICHT-ERFUELLT', ticket.id);
-    if (!Array.isArray(ticket.evidenceRefs) || ticket.evidenceRefs.length === 0) fail('EVIDENCE-FEHLT', ticket.id);
-    if (!Array.isArray(ticket.comments) || ticket.comments.length < 2 || ticket.comments.filter((c) => c?.type === 'closing').length !== 1) fail('ABSCHLUSS-KOMMENTAR-FEHLT', ticket.id);
+    if (!Array.isArray(ticket.evidenceRefs) || (ticket.type === 'task' && ticket.evidenceRefs.length === 0)) fail('EVIDENCE-FEHLT', ticket.id);
+    if (!Array.isArray(ticket.comments) || (ticket.type === 'task' && (ticket.comments.length < 2 || ticket.comments.filter((c) => c?.type === 'closing').length !== 1))) fail('ABSCHLUSS-KOMMENTAR-FEHLT', ticket.id);
     for (const comment of ticket.comments ?? []) { ownOnly(comment, COMMENT_FIELDS, fail, `comment[${comment.id ?? '?'}]`); if (!comment.id || !date(comment.time) || !comment.role || !comment.type || !comment.text || !comment.evidenceRef) fail('KOMMENTAR-NESTED-TYP', ticket.id); commentIds.add(comment.id); }
-    if (!Array.isArray(ticket.worklogs) || ticket.worklogs.length === 0) fail('WORKLOG-FEHLT', ticket.id);
-    for (const worklog of ticket.worklogs ?? []) { ownOnly(worklog, WORKLOG_FIELDS, fail, `worklog[${ticket.id}]`); if (!date(worklog.date) || typeof worklog.role !== 'string' || typeof worklog.activity !== 'string' || typeof worklog.phase !== 'string' || typeof worklog.hours !== 'number' || worklog.hours <= 0 || typeof worklog.cost !== 'number' || worklog.cost <= 0) fail('WORKLOG-NESTED-TYP', ticket.id); totalHours += worklog.hours; totalCost += worklog.cost; }
+    if (!Array.isArray(ticket.worklogs) || (ticket.type === 'task' ? ticket.worklogs.length !== 1 : ticket.worklogs.length !== 0)) fail(ticket.type === 'task' ? 'WORKLOG-FEHLT' : 'ELTERN-WORKLOG', ticket.id);
+    if (ticket.type === 'task') {
+      if (ticket.billable !== true || ticket.billingSource !== 'task-worklogs' || ticket.hourlyRate !== 120 || ticket.netAmount !== ticket.actualHours * 120) fail('TASK-ABRECHNUNG', ticket.id);
+    } else if (ticket.billable !== false || ticket.billingSource !== 'task-rollup-only' || ticket.hourlyRate !== null) fail('ELTERN-ABRECHNUNG', ticket.id);
+    for (const worklog of ticket.worklogs ?? []) { ownOnly(worklog, WORKLOG_FIELDS, fail, `worklog[${ticket.id}]`); if (!worklog.id || worklog.taskId !== ticket.id || !date(worklog.date) || typeof worklog.role !== 'string' || typeof worklog.activity !== 'string' || worklog.phase !== ticket.phase || typeof worklog.hours !== 'number' || worklog.hours <= 0 || worklog.billable !== true || worklog.hourlyRate !== 120 || worklog.netAmount !== worklog.hours * 120) fail('WORKLOG-NESTED-TYP', ticket.id); totalHours += worklog.hours; totalCost += worklog.netAmount; }
   }
   for (const ticket of tickets) {
     const seen = new Set([ticket.id]); let parent = ticket.parent;
     while (parent !== null) { if (seen.has(parent)) { fail('TICKET-PARENT-ZYKLUS', ticket.id); break; } seen.add(parent); parent = ticketById.get(parent)?.parent ?? null; }
   }
   if (totalHours !== 80 || totalCost !== 9600 || story.controls?.worklogHours !== 80 || story.controls?.worklogCost !== 9600) fail('WORKLOG-SUMME', `${totalHours}/${totalCost}`);
+  const tasks = tickets.filter((ticket) => ticket.type === 'task'); const epics = tickets.filter((ticket) => ticket.type === 'epic');
+  if (tasks.length !== 19 || epics.length !== 8 || phases.length !== 3) fail('TICKET-HIERARCHIE', '3 Phase-Tickets, 8 fachliche Epics und 19 Tasks erforderlich');
+  for (const parentTicket of tickets.filter((ticket) => !['task','phase'].includes(ticket.type))) { const descendants = tasks.filter((task) => { let current = task.parent; while (current) { if (current === parentTicket.id) return true; current = ticketById.get(current)?.parent ?? null; } return false; }); const hours = descendants.reduce((sum, task) => sum + task.actualHours, 0); if (parentTicket.actualHours !== hours || parentTicket.netAmount !== hours * 120) fail('ROLLUP-ABWEICHUNG', parentTicket.id); }
+  const phaseHours = Object.fromEntries(['P1','P2','P3'].map((phase) => [phase,tasks.filter((task) => task.phase === phase).reduce((sum,task) => sum + task.actualHours,0)])); if (phaseHours.P1 !== 22 || phaseHours.P2 !== 40 || phaseHours.P3 !== 18) fail('PHASEN-SUMME', JSON.stringify(phaseHours));
+  for(const phase of phases){const hours=phaseHours[phase.code]; if(phase.actualHours!==hours||phase.netAmount!==hours*120||new Set(phase.epicIds).size!==phase.epicIds.length||phase.epicIds.some((id)=>!epics.some((epic)=>epic.id===id&&epic.phaseRefs.includes(phase.id)))) fail('PHASE-ROLLUP',phase.id);}
+  for(const task of tasks){const result=ticketById.get(task.parent); const epic=ticketById.get(result?.parent); if(!result||!epic||result.phaseId!==task.phaseId||!epic.phaseRefs.includes(task.phaseId)) fail('TASK-VERERBUNG',task.id);}
+  if (tasks.filter((task) => task.id === 'TKT-UABC-35').reduce((sum,task)=>sum+task.actualHours,0) > 10) fail('HYPERCARE-GRENZE','mehr als 10 Stunden');
+  if (!Array.isArray(story.ticketMigration) || story.ticketMigration.length !== 19 || new Set(story.ticketMigration.map((item)=>item.newTicketId)).size !== 19) fail('MIGRATIONSMAP','19 eindeutige Task-Ziele erforderlich');
   const timeline = story.timeline ?? []; const evidenceRefs = new Set(story.catalogs?.evidenceRefs ?? []); const sessions = new Set(story.catalogs?.sessions ?? []); const decisions = new Set(story.catalogs?.decisions ?? []); const deliverables = new Set(story.catalogs?.deliverables ?? []);
   if (timeline.length !== 15) fail('TIMELINE-ANZAHL', String(timeline.length));
   const start = story.offer?.versions?.[0]?.date; const end = story.hypercare?.at(-1)?.day ? '2026-09-03T23:59:59+02:00' : null;

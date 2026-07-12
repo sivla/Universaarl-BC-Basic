@@ -27,8 +27,8 @@ navigationEvidence:
 ticketTypeEvidence:
   sourceContract: evidence/simulation/project-story.json
   exportPath: atlassian/jira/issues/bc-basic-story-tickets.yaml
-  recordCount: 55
-  customerStoryCount: 17
+  recordCount: 86
+  customerStoryCount: 48
   internalTraceabilityCount: 38
   countedWorklogHours: 80
   historicalPlanningBaselineHours: 68

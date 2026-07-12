@@ -4,6 +4,7 @@ import path from 'node:path';
 import process from 'node:process';
 import YAML from 'yaml';
 import { buildPortableStory } from './adapt-spectra-portable-story.mjs';
+import { EPIC_DEFINITIONS, PHASES, RESULT_DEFINITIONS } from './lib/ticket-hierarchy.mjs';
 
 export const INDEX_PATH = 'exports/project-data/v1/index.yaml';
 export const MAP_PATH = 'exports/project-data/v1/twin-export-map.json';
@@ -19,9 +20,11 @@ export const MAPPING_VERSION = '1.1.0';
 export const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export const jsonBytes = (value) => Buffer.from(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
 export const lfBytes = (bytes) => Buffer.from(Buffer.from(bytes).toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
-export const CANONICAL_TICKET_TYPES = Object.freeze(['epic', 'story', 'task', 'subtask', 'bug', 'change']);
-const TICKET_PARENT_TYPES = Object.freeze({ epic: [], story: ['epic', 'story'], task: ['epic', 'story', 'task'], subtask: ['story', 'task', 'bug', 'change'], bug: ['epic', 'story', 'task'], change: ['epic', 'story', 'task'] });
+export const CANONICAL_TICKET_TYPES = Object.freeze(['phase', 'epic', 'story', 'task', 'subtask', 'bug', 'change']);
+const TICKET_PARENT_TYPES = Object.freeze({ phase: [], epic: ['phase'], story: ['epic'], bug: ['epic'], task: ['story', 'bug'] });
+const LEGACY_PARENT_TYPES = Object.freeze({ epic: [], story: ['epic', 'story'], task: ['epic', 'story', 'task'], subtask: ['story', 'task', 'bug', 'change'], bug: ['epic', 'story', 'task'], change: ['epic', 'story', 'task'] });
 export const TICKET_TYPE_PRESENTATIONS = Object.freeze({
+  phase: Object.freeze({ typeLabel: 'Phase', displayIconKey: 'jira-phase', displayColorToken: 'teal' }),
   epic: Object.freeze({ typeLabel: 'Epic', displayIconKey: 'jira-epic', displayColorToken: 'purple' }),
   story: Object.freeze({ typeLabel: 'Story', displayIconKey: 'jira-story', displayColorToken: 'green' }),
   task: Object.freeze({ typeLabel: 'Aufgabe', displayIconKey: 'jira-task', displayColorToken: 'blue' }),
@@ -36,6 +39,11 @@ export const TICKET_LIVE_ICON_POLICY = Object.freeze({
   digestAlgorithm: 'SHA-256',
   digestRequired: true
 });
+const PHASE_VIEW_GROUPS = Object.freeze(PHASES.map((phase) => {
+  const results = RESULT_DEFINITIONS.filter((result) => result[3] === phase.id);
+  const epicIds = [...new Set(results.map((result) => result[2]))];
+  return Object.freeze({ id:`UABC-TICKET-GROUP-${phase.code}`, type:'phase', phaseId:phase.id, title:phase.title, order:phase.order, collapsible:true, initialState:'expanded', epicIds:Object.freeze(epicIds), ticketIds:Object.freeze([phase.id,...epicIds,...results.flatMap((result)=>[result[0],...result[5]])]) });
+}));
 export const TICKET_VIEWS = Object.freeze([
   Object.freeze({
     id: 'UABC-TICKET-VIEW-BOARD-001',
@@ -51,10 +59,7 @@ export const TICKET_VIEWS = Object.freeze([
       Object.freeze({ id: 'tested', title: 'Getestet', order: 3, statuses: Object.freeze(['tested']) }),
       Object.freeze({ id: 'done-closed', title: 'Erledigt', order: 4, statuses: Object.freeze(['done', 'closed']) })
     ]),
-    groups: Object.freeze([
-      Object.freeze({ id: 'UABC-TICKET-GROUP-EPIC-22', type: 'epic', title: 'Auftrag und Scope', order: 1, collapsible: true, initialState: 'expanded', ticketIds: Object.freeze(['TKT-UABC-22', 'TKT-UABC-23', 'TKT-UABC-24', 'TKT-UABC-25', 'TKT-UABC-26', 'TKT-UABC-27', 'TKT-UABC-28', 'TKT-UABC-29', 'TKT-UABC-30', 'TKT-UABC-31', 'TKT-UABC-32', 'TKT-UABC-33', 'TKT-UABC-34', 'TKT-UABC-35', 'TKT-UABC-36', 'TKT-UABC-37']) }),
-      Object.freeze({ id: 'UABC-TICKET-GROUP-EPIC-38', type: 'epic', title: 'Handover', order: 2, collapsible: true, initialState: 'expanded', ticketIds: Object.freeze(['TKT-UABC-38']) })
-    ])
+    groups: PHASE_VIEW_GROUPS
   }),
   Object.freeze({
     id: 'UABC-TICKET-VIEW-COMPACT-001',
@@ -64,11 +69,7 @@ export const TICKET_VIEWS = Object.freeze([
     initialState: 'expanded',
     allowedFilters: Object.freeze(['status', 'type']),
     visibleFields: Object.freeze(['id', 'type', 'summary', 'status', 'parent']),
-    groups: Object.freeze([
-      Object.freeze({ id: 'UABC-TICKET-GROUP-PHASE-1', type: 'phase', title: 'Phase 1 - Vorbereitung und Datenbereitschaft', order: 1, collapsible: true, initialState: 'expanded', ticketIds: Object.freeze(['TKT-UABC-22', 'TKT-UABC-23', 'TKT-UABC-24', 'TKT-UABC-25', 'TKT-UABC-26']) }),
-      Object.freeze({ id: 'UABC-TICKET-GROUP-PHASE-2', type: 'phase', title: 'Phase 2 - Einrichtung, Tests und Schulung', order: 2, collapsible: true, initialState: 'expanded', ticketIds: Object.freeze(['TKT-UABC-27', 'TKT-UABC-28', 'TKT-UABC-29', 'TKT-UABC-30', 'TKT-UABC-31', 'TKT-UABC-32', 'TKT-UABC-33', 'TKT-UABC-34']) }),
-      Object.freeze({ id: 'UABC-TICKET-GROUP-PHASE-3', type: 'phase', title: 'Phase 3 - Hypercare und Abschluss', order: 3, collapsible: true, initialState: 'expanded', ticketIds: Object.freeze(['TKT-UABC-35', 'TKT-UABC-36', 'TKT-UABC-37', 'TKT-UABC-38']) })
-    ])
+    groups: PHASE_VIEW_GROUPS
   })
 ]);
 export const HISTORICAL_TICKET_SOURCES = Object.freeze([
@@ -77,12 +78,13 @@ export const HISTORICAL_TICKET_SOURCES = Object.freeze([
   'atlassian/jira/issues/environment-baseline.yaml',
   'atlassian/jira/issues/walkthrough-pilot.yaml'
 ]);
-const SOURCE_TYPE_TO_CANONICAL = Object.freeze({ Epic: 'epic', Story: 'story', Task: 'task', 'Sub-task': 'subtask', Bug: 'bug', Change: 'change', epic: 'epic', story: 'story', task: 'task', subtask: 'subtask', bug: 'bug', change: 'change' });
+const SOURCE_TYPE_TO_CANONICAL = Object.freeze({ Phase: 'phase', Epic: 'epic', Story: 'story', Task: 'task', 'Sub-task': 'subtask', Bug: 'bug', Change: 'change', epic: 'epic', story: 'story', task: 'task', subtask: 'subtask', bug: 'bug', change: 'change', phase: 'phase' });
 const STORY_TO_PLAN_ITEM = Object.freeze({
   'TKT-UABC-22': 'UABC-22', 'TKT-UABC-23': 'UABC-23', 'TKT-UABC-24': 'UABC-24', 'TKT-UABC-25': 'UABC-25', 'TKT-UABC-26': 'UABC-26',
   'TKT-UABC-27': 'UABC-27', 'TKT-UABC-28': 'UABC-28', 'TKT-UABC-29': 'UABC-29', 'TKT-UABC-30': 'UABC-30', 'TKT-UABC-31': 'UABC-31',
   'TKT-UABC-32': 'UABC-32', 'TKT-UABC-33': 'UABC-33', 'TKT-UABC-34': 'UABC-34', 'TKT-UABC-35': 'UABC-35', 'TKT-UABC-36': 'UABC-36',
   'TKT-UABC-37': 'UABC-37', 'TKT-UABC-38': 'UABC-38'
+  , 'TKT-UABC-24-SALES': 'UABC-24', 'TKT-UABC-24-INVENTORY': 'UABC-24'
 });
 const STORY_TICKET_SUMMARIES = Object.freeze({
   'TKT-UABC-22': 'Auftrag und Scope', 'TKT-UABC-23': 'Finance- und Steuerdesign', 'TKT-UABC-24': 'P2P, O2C und Lager',
@@ -178,8 +180,10 @@ export function buildTicketExport(story, historicalSources = []) {
       countingScope: 'project-story',
       planningRef: STORY_TO_PLAN_ITEM[ticket.id] ?? null,
       status: ticket.status,
-      summary: STORY_TICKET_SUMMARIES[ticket.id] ?? ticket.acceptanceCriteria[0]?.text ?? ticket.id,
-      acceptance: ticket.acceptanceCriteria.map((criterion) => criterion.text),
+      summary: ticket.summary ?? STORY_TICKET_SUMMARIES[ticket.id] ?? ticket.acceptanceCriteria[0]?.text ?? ticket.id,
+      description: ticket.description, deliverable: ticket.deliverable, phaseId: ticket.phaseId, phaseRefs: ticket.phaseRefs ?? null, phase: ticket.phase ?? null, billable: ticket.billable, billingSource: ticket.billingSource,
+      estimateHours: ticket.estimateHours, actualHours: ticket.actualHours, remainingHours: ticket.remainingHours, hourlyRate: ticket.hourlyRate, netAmount: ticket.netAmount,
+      acceptance: ticket.acceptanceCriteria.map((criterion) => criterion.text ?? criterion.criterion),
       history: ticket.statusHistory.map((entry) => ({ status: entry.status, time: entry.time })),
       worklogHours: ticket.worklogs.reduce((sum, worklog) => sum + worklog.hours, 0),
       evidence: [...ticket.evidenceRefs],
@@ -217,7 +221,7 @@ export function ticketExportErrors(ticketExport) {
   const historicalRecords = ticketExport?.traceabilityRecords ?? [];
   const records = [...storyRecords, ...historicalRecords];
   const byId = new Map(records.map((ticket) => [ticket.id, ticket]));
-  if (records.length !== 55 || ticketExport?.recordCount !== 55 || ticketExport?.customerStoryCount !== 17 || ticketExport?.internalTraceabilityCount !== 38 || storyRecords.length !== 17 || historicalRecords.length !== 38) errors.push('ticket-count');
+  if (records.length !== 86 || ticketExport?.recordCount !== 86 || ticketExport?.customerStoryCount !== 48 || ticketExport?.internalTraceabilityCount !== 38 || storyRecords.length !== 48 || historicalRecords.length !== 38) errors.push('ticket-count');
   if (byId.size !== records.length) errors.push('duplicate-id');
   if (ticketExport?.countedWorklogHours !== 80 || storyRecords.reduce((sum, ticket) => sum + ticket.worklogHours, 0) !== 80 || historicalRecords.some((ticket) => Object.hasOwn(ticket, 'worklogHours'))) errors.push('double-count');
   if (ticketExport?.historicalPlanningBaselineHours !== 68) errors.push('historical-baseline');
@@ -231,18 +235,22 @@ export function ticketExportErrors(ticketExport) {
     const isStory = ticket.sourcePath === 'evidence/simulation/project-story.json';
     if (ticket.visibility !== 'twin-visible' || (isStory ? (ticket.visibilityRole !== 'customer-project-story' || ticket.countingScope !== 'project-story') : (ticket.visibilityRole !== 'internal-traceability' || ticket.countingScope !== 'excluded-from-story-counts'))) errors.push(`${ticket.id}:scope`);
     const parent = ticket.parent === null ? null : byId.get(ticket.parent);
-    if (ticket.canonicalType === 'epic' ? ticket.parent !== null : (!parent || !TICKET_PARENT_TYPES[ticket.canonicalType]?.includes(parent.canonicalType))) errors.push(`${ticket.id}:parent-type`);
+    const parentTypes = isStory ? TICKET_PARENT_TYPES : LEGACY_PARENT_TYPES;
+    const rootType=isStory?'phase':'epic';
+    if (ticket.canonicalType === rootType ? ticket.parent !== null : (!parent || !parentTypes[ticket.canonicalType]?.includes(parent.canonicalType))) errors.push(`${ticket.id}:parent-type`);
     const seen = new Set([ticket.id]); let parentId = ticket.parent;
     while (parentId !== null) { if (seen.has(parentId)) { errors.push(`${ticket.id}:parent-cycle`); break; } seen.add(parentId); parentId = byId.get(parentId)?.parent ?? null; }
     if (!Array.isArray(ticket.dependencyRefs) || ticket.dependencyRefs.some((dependency) => !byId.has(dependency))) errors.push(`${ticket.id}:dependency`);
   }
   const relations = ticketExport?.traceabilityRelations ?? [];
   const relationKeys = new Set(relations.map((relation) => `${relation.type}|${relation.from}|${relation.to}`));
-  if (relations.length !== 17 || relationKeys.size !== 17 || storyRecords.some((ticket) => STORY_TO_PLAN_ITEM[ticket.id] !== ticket.planningRef || !relationKeys.has(`realizes-plan-item|${ticket.id}|${ticket.planningRef}`)) || relations.some((relation) => relation.type !== 'realizes-plan-item' || !storyRecords.some((ticket) => ticket.id === relation.from) || !historicalRecords.some((ticket) => ticket.id === relation.to))) errors.push('traceability');
+  const taskRecords = storyRecords.filter((ticket) => ticket.canonicalType === 'task');
+  if (relations.length !== 19 || relationKeys.size !== 19 || taskRecords.some((ticket) => STORY_TO_PLAN_ITEM[ticket.id] !== ticket.planningRef || !relationKeys.has(`realizes-plan-item|${ticket.id}|${ticket.planningRef}`)) || relations.some((relation) => relation.type !== 'realizes-plan-item' || !taskRecords.some((ticket) => ticket.id === relation.from) || !historicalRecords.some((ticket) => ticket.id === relation.to))) errors.push('traceability');
   if (JSON.stringify(ticketExport?.views) !== JSON.stringify(TICKET_VIEWS)) errors.push('ticket-view-contract');
   for (const view of ticketExport?.views ?? []) {
     const listedIds = (view.groups ?? []).flatMap((group) => group.ticketIds ?? []);
-    if (listedIds.length !== 17 || new Set(listedIds).size !== 17 || listedIds.some((id) => !storyRecords.some((ticket) => ticket.id === id)) || storyRecords.some((ticket) => !listedIds.includes(ticket.id))) errors.push(`${view.id ?? 'unknown'}:ticket-view-coverage`);
+    const uniqueIds=new Set(listedIds); const nonEpic=storyRecords.filter((ticket)=>ticket.canonicalType!=='epic');
+    if (listedIds.some((id) => !storyRecords.some((ticket) => ticket.id === id)) || nonEpic.some((ticket) => listedIds.filter((id)=>id===ticket.id).length!==1) || storyRecords.filter((ticket)=>ticket.canonicalType==='epic').some((ticket)=>listedIds.filter((id)=>id===ticket.id).length!==(ticket.phaseRefs?.length??0))) errors.push(`${view.id ?? 'unknown'}:ticket-view-coverage`);
     if (!['expanded', 'collapsed'].includes(view.initialState) || (view.groups ?? []).some((group) => group.collapsible !== true || !['expanded', 'collapsed'].includes(group.initialState))) errors.push(`${view.id ?? 'unknown'}:ticket-view-state`);
   }
   return errors;
@@ -256,7 +264,7 @@ export function ticketTopologyErrors(story) {
   for (const ticket of tickets) {
     if (!CANONICAL_TICKET_TYPES.includes(ticket.type)) errors.push(`${ticket.id}:unknown-type`);
     const parent = ticket.parent === null ? null : byId.get(ticket.parent);
-    if (ticket.type === 'epic' ? ticket.parent !== null : (!parent || !TICKET_PARENT_TYPES[ticket.type]?.includes(parent.type))) errors.push(`${ticket.id}:parent-type`);
+    if (ticket.type === 'phase' ? ticket.parent !== null : (!parent || !TICKET_PARENT_TYPES[ticket.type]?.includes(parent.type))) errors.push(`${ticket.id}:parent-type`);
     const seen = new Set([ticket.id]); let parentId = ticket.parent;
     while (parentId !== null) { if (seen.has(parentId)) { errors.push(`${ticket.id}:parent-cycle`); break; } seen.add(parentId); parentId = byId.get(parentId)?.parent ?? null; }
   }
@@ -339,7 +347,7 @@ export function generateIntegration(root = process.cwd()) {
   const reconciliation = buildReconciliation(story, billing);
   const ticketExport = buildTicketExport(story, historicalTicketSources);
   const ticketExportFailures = ticketExportErrors(ticketExport);
-  if (ticketExportFailures.length > 0) throw new Error(`Kanonischer 55-Ticket-Export ist ungueltig: ${ticketExportFailures.join(', ')}`);
+  if (ticketExportFailures.length > 0) throw new Error(`Kanonischer Ticket-Export ist ungueltig: ${ticketExportFailures.join(', ')}`);
   const exportMap = buildTwinExportMap(index);
   const exportMapBytes = jsonBytes(exportMap);
   const provenance = buildProvenance(indexBytes, exportMapBytes);
@@ -363,5 +371,5 @@ export function writeIntegration(root = process.cwd()) {
 if (process.argv[1]?.endsWith('generate-spectra-0.10-integration.mjs')) {
   if (!process.argv.includes('--write')) throw new Error('Die Erzeugung benoetigt --write; ohne Schalter bleibt der Arbeitsbaum unveraendert.');
   const generated = writeIntegration();
-  console.log(`Spectra-0.10-Integration erzeugt: 17 kanonische Storytickets und 38 interne Traceability-Issues ohne Doppelzaehlung, 68h/11.050 EUR Baseline, 80h/9.600 EUR Angebot/Ist, ${generated.source.relations.length} native Relationen, ${generated.projection.edges.length} portable Kanten und ${generated.exportMap.artifacts.length} Twin-Artefakte.`);
+  console.log(`Spectra-0.10-Integration erzeugt: 48 kundenlesbare Tickets mit 3 Phase-Tickets mit 8 fachlichen Epics und 19 abrechenbaren Tasks sowie 38 interne Traceability-Issues ohne Doppelzaehlung, 80h/9.600 EUR, ${generated.source.relations.length} native Relationen, ${generated.projection.edges.length} portable Kanten und ${generated.exportMap.artifacts.length} Twin-Artefakte.`);
 }

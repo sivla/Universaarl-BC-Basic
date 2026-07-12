@@ -16,7 +16,7 @@ simulationClose:
   hourlyRate: 120
   plannedNetAmount: 9600
   actualNetAmount: 9600
-  worklogCount: 17
+  worklogCount: 19
   reconciliationResult: abgestimmt
   evidence: evidence/simulation/billing-reconciliation.yaml
   spectraReconciliation: evidence/simulation/project-reconciliation.json
@@ -39,12 +39,12 @@ externalCosts:
   - Fremdsoftware, Erweiterungen und Integrationen
   - Reise- und sonstige Auslagen, falls spaeter beauftragt
 customerEffortBilling: Kundeninterne Arbeitszeiten werden nicht erfasst und nicht abgerechnet.
-currentSimulationWorklogSource: evidence/simulation/project-story.json:tickets[*].worklogs
+currentSimulationWorklogSource: evidence/simulation/project-story.json:tickets[type=task].worklogs
 currentSimulationTicketRange: TKT-UABC-22..TKT-UABC-38
-currentSimulationCountingScope: canonical-project-story-only
+currentSimulationCountingScope: billable-task-worklogs-only
 historicalPlanSource: atlassian/jira/issues/bc-basic-project.yaml
 historicalPlanLeafRange: UABC-22..UABC-38
-ticketTruthNote: Die TKT-Storytickets belegen das synthetische Ist. UABC-22 bis UABC-38 bleiben historische Plan- und Traceability-Issues und werden nicht doppelt gezaehlt.
+ticketTruthNote: Drei Phase-Tickets, acht fachliche Epics und ihre Story-/Bug-Klammern zeigen Schaetzung und Task-Rollup. Ausschliesslich die 19 TKT-UABC-Tasks belegen das fakturierbare synthetische Ist. UABC-22 bis UABC-38 bleiben historische Plan- und Traceability-Issues und werden nicht doppelt gezaehlt.
 rollupRule:
   scope: historical-plan-only
   parentTickets: [UABC-18, UABC-19, UABC-20, UABC-21]
@@ -56,7 +56,7 @@ weeklyBillingRule:
     - Jira-Ticket auf unterster Ebene hat billable true.
     - Das Jira-Arbeitsprotokoll beschreibt tatsaechlich geleistete Arbeit, ist einem Jira-Key zugeordnet und fachlich genehmigt.
     - Das Jira-Arbeitsprotokoll ist noch keiner Rechnung zugeordnet.
-  calculation: Summe genehmigter, nicht fakturierter Dienstleister-Iststunden der Woche mal 162,50 EUR netto
+  calculation: Summe genehmigter, nicht fakturierter Task-Iststunden der Woche mal 120 EUR netto
   excluded:
     - Schaetzungen und Elternsummen
     - Eltern-, Epic- und Storysummen sowie jede doppelte Zuordnung desselben Arbeitsprotokolls

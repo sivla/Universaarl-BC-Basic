@@ -9,8 +9,8 @@
   "synthetic": false,
   "source": {
     "blob_path": "exports/project-data/v1/index.yaml",
-    "source_hash": "975655b2533d2c20f5bbc599486eff3771bdbca520870726e32198ff5ba6ad4a",
-    "source_hash_after": "975655b2533d2c20f5bbc599486eff3771bdbca520870726e32198ff5ba6ad4a",
+    "source_hash": "5f6cd1d0bdd8540825cf7cd2cb86101b8433f7821215ed8de970b857862ed741",
+    "source_hash_after": "5f6cd1d0bdd8540825cf7cd2cb86101b8433f7821215ed8de970b857862ed741",
     "media_type": "application/yaml"
   },
   "mapping": {

@@ -80,9 +80,12 @@ Der Dokumentkatalog fuehrt Space, Typ, Parent, Reihenfolge und stabile Story-Sei
 Die Redirect-Matrix erhaelt alle bisherigen Referenzen. Externe Confluence-URL, Page-ID und Space-Key bleiben ohne echte Quelle leer.
 
 Der Ticketkatalog trennt 17 kundenlesbare Storytickets von 38 historischen Planungs- und Traceability-Issues.
-Nur die 17 Storytickets zählen für 80 Stunden, 9.600 EUR, Timeline und Abschlussstatus. Alle 55 Records liefern Lowercase-Typ, Parent, Sichtbarkeitsrolle und Zählbereich explizit. Der Twin leitet nichts aus Key oder Titel ab.
+Die 48 kundenlesbaren Tickets bestehen aus drei Phase-Tickets, acht fachlichen Epics, 17 Stories, einem Bug und 19 Tasks.
+Ausschliesslich die 19 Task-Worklogs zählen 80 Stunden und 9.600 EUR.
+Zusammen mit 38 internen Traceability-Issues liefern alle 86 Records Lowercase-Typ, Parent, Sichtbarkeitsrolle und Zählbereich explizit.
+Der Twin leitet nichts aus Key oder Titel ab.
 
-Board und kompakte Liste enthalten die 17 Storytickets jeweils genau einmal. Vier Boardspalten, fünf Gruppen, Filter, sichtbare Felder und Expand-Zustaende stammen aus dem Producervertrag.
+Board und kompakte Liste enthalten die 48 Kundentickets jeweils genau einmal und gliedern sie in drei Phase-Tickets und acht fachliche Epics. Vier Boardspalten, sechs View-Gruppen, Filter, sichtbare Felder und Expand-Zustaende stammen aus dem Producervertrag.
 
 Die sechs Tickettypen besitzen deutsche Labels sowie geschlossene Icon- und Farbtoken. Externe Icon-URLs oder eingebettete HTML-/SVG-Fragmente sind nicht zugelassen.
 
@@ -125,4 +128,6 @@ Ein technischer Erfolg darf keine reale Kunden-, BC-, Steuer- oder Produktivfrei
 
 ## Freigabe
 
-`GO_SIMULATION` und `V1_STANDARDPRODUCT_READY` gelten ausschliesslich fuer die repositorybasierte synthetische Referenzsimulation. Der Stand ist fuer einen commitgebundenen, ausschliesslich lesenden Twin-Konsum vorbereitet. Ein reales Kundenprojekt startet separat mit dem dokumentierten Setup-/UAT-Entry-Gate.
+`GO_SIMULATION` und `V1_STANDARDPRODUCT_READY` gelten ausschliesslich fuer die repositorybasierte synthetische Referenzsimulation.
+Der Stand ist fuer einen commitgebundenen, ausschliesslich lesenden Twin-Konsum vorbereitet.
+Ein reales Kundenprojekt startet separat mit dem dokumentierten Setup-/UAT-Entry-Gate.

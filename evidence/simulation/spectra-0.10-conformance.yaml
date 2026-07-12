@@ -6,23 +6,23 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 690bea4891b882b18ef0cc705f8688daf23cf5b723296013842375e375f6f78c
+  projectionDigest: 4d4919b0fb991f566120c3dce318971c3ba1a491f682d85007aaace01468fe21
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false }
-adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 975655b2533d2c20f5bbc599486eff3771bdbca520870726e32198ff5ba6ad4a, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: 914c59a9cc3282c68224386601130dfc34e71e43be40200c44ad23c852df42b5, sourceUnchanged: true, writesPerformed: false }
+adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 5f6cd1d0bdd8540825cf7cd2cb86101b8433f7821215ed8de970b857862ed741, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: 914c59a9cc3282c68224386601130dfc34e71e43be40200c44ad23c852df42b5, sourceUnchanged: true, writesPerformed: false }
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
   nativeRelations: 252
-  portableEdges: 190
+  portableEdges: 328
   accountedNativeRelations: 252
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
   sourceDigest: bb18e270d84c429928142ae14a262163e5e9c8d55eaafa90f38cb4bb820b814f
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: 572ff0307a518539954677e8762780909ba4cd3930ac2658aaf8a4be42befb62
-counts: { offerVersions: 3, pages: 19, tickets: 17, comments: 34, worklogs: 17, hours: 80, cost: 9600, timelineEvents: 15, projectPhases: 13, hypercareDays: 3, nativeRelations: 252, portableEdges: 190 }
+  projectionDigest: b1c11932347873a3e0edad1c9f4b666778854f1ff1d645137b77fdead0f30372
+counts: { offerVersions: 3, pages: 19, phaseTickets: 3, tickets: 48, epics: 8, stories: 17, bugs: 1, tasks: 19, comments: 38, worklogs: 19, hours: 80, cost: 9600, timelineEvents: 15, projectPhases: 13, hypercareDays: 3, nativeRelations: 252, portableEdges: 328 }
 processCoverage: [Finance, P2P, O2C, Payments, Reconciliation, Inventory, Month-end, VAT, UAT, Training, Cutover, GO_SIMULATION, Hypercare]
 truthBoundary: Vollstaendige repositorybasierte Sandbox-Simulation ohne echten BC-Zugriff, Rechnung, Zahlung, produktive Leistung oder externe Kundenfreigabe. Simulierte Gates sind abgeschlossen und keine externen Blocker.
