@@ -3,7 +3,7 @@ contractId: UABC-CONFLUENCE-THREE-SPACE-V1
 projectId: UABC-BC-BASIC-001
 governingChange: migrate-bc-basic-to-three-space-confluence-v1
 sourceMode: repository-quelle
-deliveryBranch: codex/bc-basic-three-space-v1
+deliveryBranch: codex/bc-basic-jira-story-realism-v1
 consumerProducerBranch: codex/universaarl-projekt
 spaceCount: 3
 rootDistribution:

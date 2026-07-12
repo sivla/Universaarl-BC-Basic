@@ -3,17 +3,19 @@ registerId: UABC-DEC-BCB-REGISTER-001
 projectId: UABC-BC-BASIC-001
 simulation: true
 decisions:
-  - { id: UABC-DEC-BCB-001, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Genau eine synthetische deutsche Gesellschaft in playthru und genau ein Lagerort werden verwendet. }
-  - { id: UABC-DEC-BCB-002, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst Erweiterungen, Integrationen, E-Rechnung, Seriennummern, Chargen, Produktion, Projekte, Service und Anlagenbuchhaltung aus. }
-  - { id: UABC-DEC-BCB-003, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung, Anforderungen und Datenbereitschaft, genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und einer Woche Hypercare mit hoechstens 10 Stunden; konkrete Kundentermine sind offen. }
-  - { id: UABC-DEC-BCB-004, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: 68 Dienstleisterstunden sind geplant; ein verbindliches Budgetlimit ist nicht entschieden und bleibt offen. }
-  - { id: UABC-DEC-BCB-005, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Nur genehmigte Jira-Istzeiten auf unterster Ticketebene werden woechentlich zu 162,50 EUR netto pro Stunde abgerechnet; Elternsummen und Kundenaufwaende sind nicht abrechenbar. }
-  - { id: UABC-DEC-BCB-008, status: decided, decidedAt: 2026-09-03, decidedByRef: real-repository-user, statement: "Fuer die abgeschlossene synthetische Projektstory gilt Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die historische 68-Stunden-Dienstleisterkalkulation bleibt nachvollziehbar, erzeugt aber keine reale Rechnung." }
-  - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
-  - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
+  - { id: UABC-DEC-BCB-001, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Genau eine synthetische deutsche Gesellschaft in playthru und genau ein Lagerort werden verwendet. }
+  - { id: UABC-DEC-BCB-002, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst Erweiterungen, Integrationen, E-Rechnung, Seriennummern, Chargen, Produktion, Projekte, Service und Anlagenbuchhaltung aus. }
+  - { id: UABC-DEC-BCB-003, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung, Anforderungen und Datenbereitschaft, genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und einer Woche Hypercare mit hoechstens 10 Stunden; konkrete Kundentermine sind offen. }
+  - { id: UABC-DEC-BCB-004, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Die historische 68-Stunden-Kalkulation wurde durch die aktuelle 80-Stunden-Baseline ersetzt und bleibt ausschliesslich als Provenienz erhalten. }
+  - { id: UABC-DEC-BCB-005, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Der historische Satz wurde durch die aktuelle Baseline von 120 EUR je Taskstunde ersetzt; Elternrollups bleiben nicht abrechenbar. }
+  - { id: UABC-DEC-BCB-008, status: decided, decidedAt: 2026-05-29, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: "Fuer die abgeschlossene synthetische Projektstory gilt Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die historische 68-Stunden-Dienstleisterkalkulation bleibt nachvollziehbar, erzeugt aber keine reale Rechnung." }
+  - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
+  - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
 solutionDesignDecision:
   status: simulated-approved
-  decidedAt: 2026-08-21
+  decidedAt: 2026-04-24
+  facilitatorActorRef: P-PILOT-LEAD-001
+  facilitatorRole: Lead BC Consultant und Solution Architect
   meetingRef: UABC-MTG-001
   ticketRefs: [UABC-34, UABC-35, UABC-36, UABC-37, UABC-38, UABC-33]
   owners: [P-001, P-005, P-011, P-019]

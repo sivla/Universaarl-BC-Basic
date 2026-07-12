@@ -2,7 +2,7 @@
 
 ## Status
 
-Der fachliche Drei-Space-, Ergebnisobjekt- und Materialisierungsstand ist lokal erzeugt und fokussiert geprueft. Der commitgebundene Abschluss ist noch nicht behauptet, weil die aktuelle Laufzeit den Git-Index nicht beschreiben kann.
+Der fachliche Drei-Space-, Ergebnisobjekt- und Materialisierungsstand ist mit Commit `683aed2e3f150ae680a67e2a9cd189a9c5ff83c4` commitgebunden abgeschlossen und reproduzierbar geprueft.
 
 ## Fachlicher Nachweis
 
@@ -32,9 +32,9 @@ Der fachliche Drei-Space-, Ergebnisobjekt- und Materialisierungsstand ist lokal 
 - Neun `UABC-DEL-BCB-*` sind echte Kundendeliverables; OpenSpec, Validatoren, Evidence und technische Quellen sind keine Kundendeliverables.
 - Forecast und Abrechnung stammen ausschliesslich aus 19 billable Task-Worklogs: 80 Stunden, 9.600 EUR, Phasen 22/40/18, Rest und ETC 0, EAC 80 Stunden beziehungsweise 9.600 EUR. Phase, Epic und Story erzeugen keine Rechnungszeile.
 
-## Noch ausstehender commitgebundener Abschluss
+## Commitgebundener Abschluss
 
-Staging und damit Katalogerzeugung aus dem Git-Index, Gesamtcheck, lokaler Commit, commitgebundener Snapshot-/Katalognachweis sowie REVIEW-/Clean-Head-Abschluss sind offen. Der konkrete Laufzeitfehler lautet: `fatal: Unable to create '.git/index.lock': Permission denied`.
+Dokumentkatalog, Branch-Index, Referenzgraph, Snapshotvertrag, OpenSpec, Deutsch und der Gesamtcheck sind am sauberen Commit gruen. `REVIEW.md` ist in Arbeitskopie und HEAD leer; es gab keinen Push, keine Live-Systemmutation und keinen Secretzugriff.
 
 ## Wahrheits- und Sicherheitsgrenze
 

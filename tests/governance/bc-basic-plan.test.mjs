@@ -9,6 +9,7 @@ import { validateConsumerBindings } from '../../scripts/lib/validate-consumer-bi
 import { buildSnapshotManifest, hasSingleParent, parseGitTreeEntry, validateManifestDigests, validateSnapshotManifest } from '../../scripts/lib/snapshot-contract.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const projectStory = JSON.parse(readFileSync(path.join(root, 'evidence/simulation/project-story.json'), 'utf8'));
 
 async function exists(relativePath) {
   try {
@@ -171,9 +172,12 @@ test('Jedes Jira-Ticket nennt Lieferergebnis und synthetischen Transkriptbezug',
     assert.ok(issue.deliverableIds.every((id) => deliverableById.has(id)), `${issue.key} verweist auf unbekanntes Lieferergebnis`);
     assert.ok(issue.transcriptRefs.every((id) => meetingById.has(id)), `${issue.key} verweist auf unbekanntes Transkript`);
   }
-  assert.equal(meetings.length, 1);
-  assert.equal(meetings[0].evidenceClaimed, false);
-  assert.equal(await exists(meetings[0].transcriptPath), true);
+  const referencedMeetings = new Set(projectStory.tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.meetingTranscriptRefs ?? []));
+  assert.deepEqual(referencedMeetings, new Set(meetings.map((meeting) => meeting.id)));
+  for (const meeting of meetings) {
+    assert.equal(meeting.evidenceClaimed, false);
+    assert.equal(await exists(meeting.transcriptPath), true);
+  }
 });
 
 test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async () => {
@@ -372,7 +376,8 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   assert.equal(projectIndex.pathSemantics, 'repository-relative');
   assert.equal(projectIndex.missingValuePolicy, 'leer');
   assert.equal(projectIndex.allowedBranch, 'codex/universaarl-projekt');
-  assert.equal(projectIndex.deliveryBranch, 'codex/bc-basic-three-space-v1');
+  const threeSpaceContract = await yaml('project/bc-basic/confluence-three-space-v1.yaml');
+  assert.equal(projectIndex.deliveryBranch, threeSpaceContract.deliveryBranch);
   assert.equal(projectIndex.lifecycleStatus, 'active');
   assert.equal(projectIndex.validationStatus, 'validated');
   assert.equal(new Set(projectIndex.artifacts.map((artifact) => artifact.id)).size, projectIndex.artifacts.length);

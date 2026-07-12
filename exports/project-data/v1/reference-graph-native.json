@@ -1399,12 +1399,12 @@
       "id": "NATIVE-233",
       "class": "native-reference",
       "from": "HYPERCARE-1",
-      "to": "COM-35-C"
+      "to": "COM-UABC-47-CLOSING"
     },
     {
       "id": "NATIVE-234",
       "class": "native-reference",
-      "from": "COM-35-C",
+      "from": "COM-UABC-47-CLOSING",
       "to": "HYPERCARE-1"
     },
     {
@@ -1447,12 +1447,12 @@
       "id": "NATIVE-241",
       "class": "native-reference",
       "from": "HYPERCARE-2",
-      "to": "COM-32-C"
+      "to": "COM-UABC-44-CLOSING"
     },
     {
       "id": "NATIVE-242",
       "class": "native-reference",
-      "from": "COM-32-C",
+      "from": "COM-UABC-44-CLOSING",
       "to": "HYPERCARE-2"
     },
     {
@@ -1495,12 +1495,12 @@
       "id": "NATIVE-249",
       "class": "native-reference",
       "from": "HYPERCARE-3",
-      "to": "COM-36-C"
+      "to": "COM-UABC-48-CLOSING"
     },
     {
       "id": "NATIVE-250",
       "class": "native-reference",
-      "from": "COM-36-C",
+      "from": "COM-UABC-48-CLOSING",
       "to": "HYPERCARE-3"
     },
     {

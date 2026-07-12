@@ -3,11 +3,11 @@ import process from 'node:process';
 import YAML from 'yaml';
 
 const PAGE_FIELDS = new Set(['id','title','parent','version','status','author_role','time','sourcePath','references','spaceId','spaceType','order']);
-const TICKET_FIELDS = new Set(['id','type','summary','description','deliverable','phaseId','phase','phaseRefs','code','title','order','start','end','epicIds','billable','billingSource','estimateHours','actualHours','remainingHours','hourlyRate','netAmount','status','reporter','assignee','priority','parent','dependencies','labels','components','createdAt','startedAt','testedAt','closedAt','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','category','participants','meetingTranscriptRefs']);
-const COMMENT_FIELDS = new Set(['id','type','time','role','text','evidenceRef']);
-const WORKLOG_FIELDS = new Set(['id','taskId','date','role','hours','activity','phase','billable','hourlyRate','netAmount']);
-const TIMELINE_FIELDS = new Set(['id','time','phase','role','tickets','pages','sessions','evidence','decision','deliverable','action','result','nextStep']);
-const HYPERCARE_FIELDS = new Set(['day','dailyPage','ticket','comment','evidence','priority','diagnosis','fix','retest','status','decision']);
+const TICKET_FIELDS = new Set(['id','type','summary','description','deliverable','phaseId','phase','phaseRefs','code','title','order','start','end','epicIds','billable','billingSource','estimateHours','actualHours','remainingHours','hourlyRate','netAmount','status','reporter','assignee','reporterRole','assigneeRole','priority','parent','dependencies','labels','components','createdAt','startedAt','testedAt','closedAt','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','category','participants','meetingTranscriptRefs','statusReason','decisionRefs','pageRefs','deliverableRefs','childTicketIds']);
+const COMMENT_FIELDS = new Set(['id','type','time','role','actorRef','actorType','actionRole','text','evidenceRef']);
+const WORKLOG_FIELDS = new Set(['id','taskId','date','role','actorRef','actorType','actionRole','hours','activity','phase','billable','hourlyRate','netAmount']);
+const TIMELINE_FIELDS = new Set(['id','time','phase','role','actorRef','actorType','actionRole','tickets','pages','sessions','evidence','decision','deliverable','action','result','nextStep']);
+const HYPERCARE_FIELDS = new Set(['day','dailyPage','ticket','comment','evidence','priority','diagnosis','fix','retest','status','decision','actorRef','actorType','actionRole']);
 const RELATION_FIELDS = new Set(['type','from','to']);
 const STORY_SPACES = Object.freeze({
   'UABC-SPACE-CUSTOMER': { spaceType: 'customer-project', home: 'PAGE-UABC-000', roots: 6 },
@@ -53,7 +53,7 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
   };
   rejectLegacyActiveIds(Object.fromEntries(Object.entries(story).filter(([key]) => key !== 'ticketMigration')));
   const date = (value) => typeof value === 'string' && !Number.isNaN(Date.parse(value));
-  const allowedTop = new Set(['schemaVersion','storyId','projectId','classification','status','readableSources','offer','pages','tickets','ticketMigration','timeline','hypercare','controls','relations','catalogs']);
+  const allowedTop = new Set(['schemaVersion','storyId','projectId','classification','status','readableSources','offer','pages','tickets','ticketMigration','timeline','hypercare','controls','relations','catalogs','actors']);
   for (const key of Object.keys(story)) if (!allowedTop.has(key)) fail('UNERLAUBTE-EIGENSCHAFT', key);
   if (story.classification !== 'synthetic-only' || story.status !== 'closed') fail('STORY-STATUS', 'synthetic-only/closed erforderlich');
   if (story.offer?.planned_hours !== 80 || story.offer?.actual_hours !== 80 || story.offer?.planned_cost !== 9600 || story.offer?.actual_cost !== 9600 || story.offer?.currentVersion !== 3) fail('BUDGET-ABWEICHUNG', 'Angebot nicht 80h/9600 EUR');

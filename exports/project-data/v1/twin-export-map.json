@@ -438,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=migrate-bc-basic-to-three-space-confluence-v1]",
+      "selector": "verifications[changeRef=make-bc-basic-jira-story-human-readable-v1]",
       "format": "yaml",
       "required": true
     },
@@ -598,6 +598,38 @@
       "id": "UABC-SRC-BCB-SPECTRA10-TEST-001",
       "kindId": "spectra10-integration-tests",
       "path": "tests/story/spectra-0.10-integration.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ACTOR-REGISTER-001",
+      "kindId": "project-actor-register",
+      "path": "project/bc-basic/actor-register.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-GEN-001",
+      "kindId": "jira-story-realism-generator",
+      "path": "scripts/enrich-jira-story-realism.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-VAL-001",
+      "kindId": "jira-story-realism-validator",
+      "path": "scripts/validate-jira-story-realism.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-TEST-001",
+      "kindId": "jira-story-realism-tests",
+      "path": "tests/story/jira-story-realism.test.mjs",
       "selector": null,
       "format": "javascript",
       "required": true

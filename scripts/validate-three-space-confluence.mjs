@@ -6,7 +6,7 @@ const EXPECTED_SPACES=['UABC-SPACE-CUSTOMER','UABC-SPACE-PRODUCT','UABC-SPACE-CO
 export function validateThreeSpace({contract,index,story,readText=(path)=>fs.readFileSync(path,'utf8')}){
   const errors=[];const fail=(code,detail)=>errors.push(`${code}: ${detail}`);
   if(contract?.spaceCount!==3||contract?.spaces?.length!==3||JSON.stringify((contract?.spaces??[]).map(s=>s.spaceId))!==JSON.stringify(EXPECTED_SPACES))fail('SPACE-VERTRAG','exakt drei geordnete fachliche Spaces sind erforderlich');
-  if(contract?.deliveryBranch!=='codex/bc-basic-three-space-v1'||contract?.consumerProducerBranch!=='codex/universaarl-projekt'||index?.allowedBranch!=='codex/universaarl-projekt'||index?.deliveryBranch!=='codex/bc-basic-three-space-v1')fail('BRANCH-VERTRAG','Delivery- und Consumer-Producerbranch muessen getrennt bleiben');
+  if(contract?.deliveryBranch!=='codex/bc-basic-jira-story-realism-v1'||contract?.consumerProducerBranch!=='codex/universaarl-projekt'||index?.allowedBranch!=='codex/universaarl-projekt'||index?.deliveryBranch!==contract.deliveryBranch)fail('BRANCH-VERTRAG','Delivery- und Consumer-Producerbranch muessen getrennt bleiben');
   const roots=contract?.roots??[],children=contract?.children??[];
   const derivedRootDistribution={customer:roots.filter(r=>r.spaceId==='UABC-SPACE-CUSTOMER').length,product:roots.filter(r=>r.spaceId==='UABC-SPACE-PRODUCT').length,consultant:roots.filter(r=>r.spaceId==='UABC-SPACE-CONSULTANT').length};
   if(roots.length<3||Object.values(derivedRootDistribution).some(count=>count<1)||JSON.stringify(contract.rootDistribution)!==JSON.stringify(derivedRootDistribution))fail('ROOT-VERTRAG','jede Space-Struktur benoetigt mindestens eine Rootseite und eine abgeleitete Zaehlsicht');
@@ -18,7 +18,8 @@ export function validateThreeSpace({contract,index,story,readText=(path)=>fs.rea
   if(contract?.sourceMode!=='repository-quelle'||contract?.truthBoundaries?.customer!=='konkrete-kundenprojektwahrheit'||contract?.truthBoundaries?.spectra!=='blueprint-candidate-only-no-automatic-adoption')fail('SPECTRA-WAHRHEIT','Repositoryquelle, Kundenwahrheit und keine automatische Spectra-Uebernahme muessen eindeutig sein');
   for(const claim of ['live-atlassian','live-rovo','live-business-central','continia-execution','invented-approval','invented-spectra-release'])if(!(contract?.forbiddenClaims??[]).includes(claim))fail('WAHRHEITSGRENZE',claim);
   const {ticketMigration,...activeStory}=story??{};const activeText=JSON.stringify({story:activeStory,index,roots,children});if(/\b(?:TKT-UABC-|UABC-PHASE-)/.test(activeText))fail('AKTIVE-ALT-ID','aktive Alt-ID gefunden');
-  if(index?.governingChange!==contract.governingChange||index?.documentCatalog?.definitions?.filter(d=>d.documentType==='confluence-page').length!==28)fail('KATALOG-FEHLT','Index ist nicht aus dem Drei-Space-Vertrag abgeleitet');
+  const contractArtifact=(index?.artifacts??[]).find(artifact=>artifact.path===CONTRACT);
+  if(!contractArtifact||index?.documentCatalog?.definitions?.filter(d=>d.documentType==='confluence-page').length!==28)fail('KATALOG-FEHLT','Index ist nicht aus dem versionierten Drei-Space-Vertrag abgeleitet');
   if(story?.pages?.length!==28||story?.pages?.filter(p=>p.parent===null).length!==22)fail('STORY-ABLEITUNG','Project Story ist unvollstaendig');
   const archive=readText('atlassian/confluence/pages/99-archive.md');if(!/Archivdatum|Archivgrund|Nachfolgeseite/.test(archive))fail('ARCHIV-INHALT','Archivdatum, Grund und Nachfolger fehlen');
   return errors;

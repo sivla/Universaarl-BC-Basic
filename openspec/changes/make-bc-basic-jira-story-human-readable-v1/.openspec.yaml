@@ -1,0 +1,22 @@
+schema: universaarl-delivery
+created: 2026-07-13
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-JIRA-REALISM-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-13
+  scope: lokale fachliche Jira-Projektstory; keine Live-Atlassian-, BC-, Remote- oder Publishing-Aktion
+  conditions:
+    - 50 Tickets bleiben in der kanonischen Hierarchie erhalten
+    - 80 Stunden und 9.600 EUR werden ausschliesslich aus Task-Worklogs abgeleitet
+    - lokale Validatoren, OpenSpec strict, Snapshotvertrag und Gesamtcheck sind gruen
+proposedCanonicalUpdate:
+  status: applied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    project: { status: confirmed, value: UABC-BC-BASIC-001 }
+    sourceStory: { status: confirmed, value: evidence/simulation/project-story.json }
+    actorRegister: { status: confirmed, value: project/bc-basic/actor-register.yaml }
+  unknowns: []
+  policyGateEvidenceId: UABC-VER-BCB-JIRA-REALISM-001

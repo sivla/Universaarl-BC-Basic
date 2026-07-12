@@ -22,7 +22,7 @@ objects:
     ownerRef: P-002
     ticketRefs: [UABC-32, UABC-33]
     status: simulated-complete
-    resultPath: atlassian/confluence/pages/70-bc-basic-project.md
+    resultPath: docs/offers/bc-basic-offer.md
     evidencePath: evidence/simulation/project-completion.yaml
     acceptance: Scope, Rollen, Budget, Gates und Change-Regel sind lesbar und synthetisch abgenommen.
   - objectId: UABC-DEL-BCB-002
@@ -92,7 +92,7 @@ objects:
     ownerRef: P-005
     ticketRefs: [UABC-49]
     status: simulated-complete
-    resultPath: evidence/simulation/phase-3-cash-inventory-close.yaml
+    resultPath: atlassian/confluence/pages/bc-basic-hypercare.md
     evidencePath: evidence/simulation/project-completion.yaml
     acceptance: Nebenbuecher, Bank, Lager und VAT sind abgestimmt; keine externe Uebermittlung wird behauptet.
   - objectId: UABC-DEL-BCB-009

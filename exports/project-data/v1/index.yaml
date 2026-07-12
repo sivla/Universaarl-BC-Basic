@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: migrate-bc-basic-to-three-space-confluence-v1
+governingChange: make-bc-basic-jira-story-human-readable-v1
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -2021,7 +2021,7 @@ artifacts:
   - id: UABC-SRC-BCB-VER-001
     kindId: verification-register
     path: evidence/verification-register.yaml
-    selector: verifications[changeRef=migrate-bc-basic-to-three-space-confluence-v1]
+    selector: verifications[changeRef=make-bc-basic-jira-story-human-readable-v1]
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001
@@ -2124,6 +2124,26 @@ artifacts:
   - id: UABC-SRC-BCB-SPECTRA10-TEST-001
     kindId: spectra10-integration-tests
     path: tests/story/spectra-0.10-integration.test.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-ACTOR-REGISTER-001
+    kindId: project-actor-register
+    path: project/bc-basic/actor-register.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-JIRA-REALISM-GEN-001
+    kindId: jira-story-realism-generator
+    path: scripts/enrich-jira-story-realism.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-JIRA-REALISM-VAL-001
+    kindId: jira-story-realism-validator
+    path: scripts/validate-jira-story-realism.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-JIRA-REALISM-TEST-001
+    kindId: jira-story-realism-tests
+    path: tests/story/jira-story-realism.test.mjs
     format: javascript
     required: true
   - id: UABC-SRC-BCB-SPECTRA10-COVERAGE-SCHEMA-001
@@ -2438,4 +2458,4 @@ referenceDefinitions:
     - UABC-48
     - UABC-49
     - UABC-50
-deliveryBranch: codex/bc-basic-three-space-v1
+deliveryBranch: codex/bc-basic-jira-story-realism-v1

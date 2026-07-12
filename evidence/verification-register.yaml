@@ -247,9 +247,18 @@ verifications:
   - id: UABC-VER-BCB-THREE-SPACE-001
     changeRef: migrate-bc-basic-to-three-space-confluence-v1
     requiredForArchive: true
-    status: pending
+    status: passed
     type: automated-policy-gate
-    executedAt: null
-    environment: null
+    executedAt: 2026-07-13
+    environment: local-repository
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
-    evidence: null
+    evidence: Commit 683aed2e3f150ae680a67e2a9cd189a9c5ff83c4 bindet drei Spaces mit 28 konkreten Seiten, 19 Altseitenmigrationen, neun getrennte neue Seiten, neun klassifizierte Kundendeliverables, 78 trockene Atlassian-Entscheidungen, Katalog/Index/Referenzgraph/Snapshot sowie den commitgebundenen Gesamtcheck; REVIEW in Arbeitskopie und HEAD leer, keine Live- oder Publishing-Aktion.
+  - id: UABC-VER-BCB-JIRA-REALISM-001
+    changeRef: make-bc-basic-jira-story-human-readable-v1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Lokaler Gesamtcheck bestanden mit OpenSpec 8/8, Sprache 18/18, Governance 107/107, Walkthrough 10/10, Browser 2/2, Snapshotvertrag, Dokumentkatalog und Referenzen; Jira-Realismus 15/15, 50 Tickets, 11 Akteure, 19 Task-Worklogs, 80 Stunden und 9.600 EUR; keine Live- oder Publishing-Aktion.
