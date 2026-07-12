@@ -354,7 +354,7 @@
   ],
   "tickets": [
     {
-      "id": "UABC-PHASE-1",
+      "id": "UABC-1",
       "code": "P1",
       "title": "Phase 1 – Vorbereitung und Datenbereitschaft",
       "order": 1,
@@ -367,12 +367,12 @@
       "netAmount": 2640,
       "type": "phase",
       "summary": "Phase 1 – Vorbereitung und Datenbereitschaft",
-      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 1 – Vorbereitung und Datenbereitschaft.",
+      "description": "Phasenticket Phase 1 – Vorbereitung und Datenbereitschaft.",
       "deliverable": "Phase 1 – Vorbereitung und Datenbereitschaft",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "phaseRefs": [
-        "UABC-PHASE-1"
+        "UABC-1"
       ],
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -421,21 +421,18 @@
       "comments": [],
       "worklogs": [],
       "epicIds": [
-        "TKT-UABC-EPIC-PROJECT",
-        "TKT-UABC-EPIC-FINANCE",
-        "TKT-UABC-EPIC-PURCHASING",
-        "TKT-UABC-EPIC-SALES",
-        "TKT-UABC-EPIC-INVENTORY",
-        "TKT-UABC-EPIC-DATA"
+        "UABC-4",
+        "UABC-5",
+        "UABC-6"
       ]
     },
     {
-      "id": "UABC-PHASE-2",
+      "id": "UABC-2",
       "code": "P2",
       "title": "Phase 2 – Einrichtung, Tests und Schulung",
       "order": 2,
       "start": "2026-04-27",
-      "end": "2026-05-08",
+      "end": "2026-05-22",
       "status": "done",
       "estimateHours": 40,
       "actualHours": 40,
@@ -443,12 +440,12 @@
       "netAmount": 4800,
       "type": "phase",
       "summary": "Phase 2 – Einrichtung, Tests und Schulung",
-      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 2 – Einrichtung, Tests und Schulung.",
+      "description": "Phasenticket Phase 2 – Einrichtung, Tests und Schulung.",
       "deliverable": "Phase 2 – Einrichtung, Tests und Schulung",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "phaseRefs": [
-        "UABC-PHASE-2"
+        "UABC-2"
       ],
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -497,22 +494,19 @@
       "comments": [],
       "worklogs": [],
       "epicIds": [
-        "TKT-UABC-EPIC-PROJECT",
-        "TKT-UABC-EPIC-FINANCE",
-        "TKT-UABC-EPIC-PURCHASING",
-        "TKT-UABC-EPIC-SALES",
-        "TKT-UABC-EPIC-INVENTORY",
-        "TKT-UABC-EPIC-DATA",
-        "TKT-UABC-EPIC-ENABLEMENT"
+        "UABC-7",
+        "UABC-8",
+        "UABC-9",
+        "UABC-10"
       ]
     },
     {
-      "id": "UABC-PHASE-3",
+      "id": "UABC-3",
       "code": "P3",
       "title": "Phase 3 – Hypercare und Abschluss",
       "order": 3,
-      "start": "2026-05-11",
-      "end": "2026-05-15",
+      "start": "2026-05-25",
+      "end": "2026-05-29",
       "status": "done",
       "estimateHours": 18,
       "actualHours": 18,
@@ -520,12 +514,12 @@
       "netAmount": 2160,
       "type": "phase",
       "summary": "Phase 3 – Hypercare und Abschluss",
-      "description": "Nicht fakturierbares Phasen-Ticket fuer Phase 3 – Hypercare und Abschluss.",
+      "description": "Phasenticket Phase 3 – Hypercare und Abschluss.",
       "deliverable": "Phase 3 – Hypercare und Abschluss",
-      "phaseId": "UABC-PHASE-3",
+      "phaseId": "UABC-3",
       "phase": "P3",
       "phaseRefs": [
-        "UABC-PHASE-3"
+        "UABC-3"
       ],
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -574,33 +568,30 @@
       "comments": [],
       "worklogs": [],
       "epicIds": [
-        "TKT-UABC-EPIC-FINANCE",
-        "TKT-UABC-EPIC-TRANSITION"
+        "UABC-11",
+        "UABC-12",
+        "UABC-13"
       ]
     },
     {
-      "id": "TKT-UABC-EPIC-PROJECT",
+      "id": "UABC-4",
       "type": "epic",
-      "summary": "Projektsteuerung und Scope",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Projektsteuerung und Scope.",
-      "deliverable": "Projektsteuerung und Scope",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2"
-      ],
+      "summary": "Projektinitiierung und Discovery",
+      "description": "Fachlicher Arbeitsstrang: Projektinitiierung und Discovery.",
+      "deliverable": "Projektinitiierung und Discovery",
+      "phaseId": "UABC-1",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 13,
-      "actualHours": 13,
+      "estimateHours": 9,
+      "actualHours": 9,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 1560,
+      "netAmount": 1080,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-1",
+      "parent": "UABC-1",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -643,32 +634,31 @@
         "BC-SIM-SETUP-001"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P1",
+      "phaseRefs": [
+        "UABC-1"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-FINANCE",
+      "id": "UABC-5",
       "type": "epic",
-      "summary": "Finanzwesen und Steuern",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Finanzwesen und Steuern.",
-      "deliverable": "Finanzwesen und Steuern",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2",
-        "UABC-PHASE-3"
-      ],
+      "summary": "Finance- und Lösungsdesign",
+      "description": "Fachlicher Arbeitsstrang: Finance- und Lösungsdesign.",
+      "deliverable": "Finance- und Lösungsdesign",
+      "phaseId": "UABC-1",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 19,
-      "actualHours": 19,
+      "estimateHours": 8,
+      "actualHours": 8,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 2280,
+      "netAmount": 960,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-1",
+      "parent": "UABC-1",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -711,31 +701,31 @@
         "SYN-VAT-RETURN-001"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P1",
+      "phaseRefs": [
+        "UABC-1"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-PURCHASING",
+      "id": "UABC-6",
       "type": "epic",
-      "summary": "Einkauf",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Einkauf.",
-      "deliverable": "Einkauf",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2"
-      ],
+      "summary": "Datenbereitschaft",
+      "description": "Fachlicher Arbeitsstrang: Datenbereitschaft.",
+      "deliverable": "Datenbereitschaft",
+      "phaseId": "UABC-1",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 6.5,
-      "actualHours": 6.5,
+      "estimateHours": 5,
+      "actualHours": 5,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 780,
+      "netAmount": 600,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-1",
+      "parent": "UABC-1",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -768,39 +758,41 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Alle fachlichen Ergebnisse für Einkauf sind synthetisch abgenommen.",
+          "criterion": "Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind synthetisch abgenommen.",
           "fulfilled": true
         }
       ],
       "evidenceRefs": [
-        "BC-SIM-P2P-001"
+        "project/bc-basic/project-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml",
+        "BC-SIM-SETUP-001"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P1",
+      "phaseRefs": [
+        "UABC-1"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-SALES",
+      "id": "UABC-7",
       "type": "epic",
-      "summary": "Verkauf und Zahlungseingang",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Verkauf und Zahlungseingang.",
-      "deliverable": "Verkauf und Zahlungseingang",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2"
-      ],
+      "summary": "BC-Grundeinrichtung und Finance",
+      "description": "Fachlicher Arbeitsstrang: BC-Grundeinrichtung und Finance.",
+      "deliverable": "BC-Grundeinrichtung und Finance",
+      "phaseId": "UABC-2",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 6.5,
-      "actualHours": 6.5,
+      "estimateHours": 14,
+      "actualHours": 14,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 780,
+      "netAmount": 1680,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-1",
+      "parent": "UABC-2",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -833,106 +825,41 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Alle fachlichen Ergebnisse für Verkauf und Zahlungseingang sind synthetisch abgenommen.",
+          "criterion": "Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind synthetisch abgenommen.",
           "fulfilled": true
         }
       ],
       "evidenceRefs": [
-        "BC-SIM-P2P-001",
-        "BC-SIM-O2C-001"
+        "project/bc-basic/project-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml",
+        "BC-SIM-SETUP-001"
       ],
       "comments": [],
-      "worklogs": []
-    },
-    {
-      "id": "TKT-UABC-EPIC-INVENTORY",
-      "type": "epic",
-      "summary": "Lager und Inventur",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Lager und Inventur.",
-      "deliverable": "Lager und Inventur",
-      "phaseId": null,
+      "worklogs": [],
+      "phase": "P2",
       "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2"
-      ],
-      "billable": false,
-      "billingSource": "task-rollup-only",
-      "estimateHours": 6,
-      "actualHours": 6,
-      "remainingHours": 0,
-      "hourlyRate": null,
-      "netAmount": 720,
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-003",
-      "priority": "P1",
-      "parent": "UABC-PHASE-1",
-      "dependencies": [],
-      "labels": [
-        "kundenprojekt",
-        "fachlicher-arbeitsstrang"
-      ],
-      "components": [
-        "BC Basic"
-      ],
-      "createdAt": "2026-04-06",
-      "startedAt": "2026-04-06",
-      "testedAt": "2026-05-08",
-      "closedAt": "2026-05-08",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-04-06"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-04-06"
-        },
-        {
-          "status": "tested",
-          "time": "2026-05-08"
-        },
-        {
-          "status": "done",
-          "time": "2026-05-08"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "criterion": "Alle fachlichen Ergebnisse für Lager und Inventur sind synthetisch abgenommen.",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "BC-SIM-P2P-001",
-        "BC-SIM-INVENTORY-001"
-      ],
-      "comments": [],
-      "worklogs": []
+        "UABC-2"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-DATA",
+      "id": "UABC-8",
       "type": "epic",
       "summary": "Stammdaten und Migration",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Stammdaten und Migration.",
+      "description": "Fachlicher Arbeitsstrang: Stammdaten und Migration.",
       "deliverable": "Stammdaten und Migration",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-1",
-        "UABC-PHASE-2"
-      ],
+      "phaseId": "UABC-2",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 9,
-      "actualHours": 9,
+      "estimateHours": 4,
+      "actualHours": 4,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 1080,
+      "netAmount": 480,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-1",
+      "parent": "UABC-2",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -974,18 +901,84 @@
         "BC-SIM-MASTER-001"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P2",
+      "phaseRefs": [
+        "UABC-2"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-ENABLEMENT",
+      "id": "UABC-9",
       "type": "epic",
-      "summary": "Test, UAT und Schulung",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Test, UAT und Schulung.",
-      "deliverable": "Test, UAT und Schulung",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-2"
+      "summary": "Einkaufs-, Verkaufs- und Lagerprozesse",
+      "description": "Fachlicher Arbeitsstrang: Einkaufs-, Verkaufs- und Lagerprozesse.",
+      "deliverable": "Einkaufs-, Verkaufs- und Lagerprozesse",
+      "phaseId": "UABC-2",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 15,
+      "actualHours": 15,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1800,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-2",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
       ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Einkauf sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [],
+      "worklogs": [],
+      "phase": "P2",
+      "phaseRefs": [
+        "UABC-2"
+      ]
+    },
+    {
+      "id": "UABC-10",
+      "type": "epic",
+      "summary": "Schulung und Abnahme",
+      "description": "Fachlicher Arbeitsstrang: Schulung und Abnahme.",
+      "deliverable": "Schulung und Abnahme",
+      "phaseId": "UABC-2",
       "billable": false,
       "billingSource": "task-rollup-only",
       "estimateHours": 7,
@@ -997,7 +990,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-2",
+      "parent": "UABC-2",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1039,30 +1032,31 @@
         "project/bc-basic/uat-training-run.yaml"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P2",
+      "phaseRefs": [
+        "UABC-2"
+      ]
     },
     {
-      "id": "TKT-UABC-EPIC-TRANSITION",
+      "id": "UABC-11",
       "type": "epic",
-      "summary": "Go-live, Hypercare und Betriebsübergabe",
-      "description": "Nicht fakturierbarer fachlicher Arbeitsstrang: Go-live, Hypercare und Betriebsübergabe.",
-      "deliverable": "Go-live, Hypercare und Betriebsübergabe",
-      "phaseId": null,
-      "phaseRefs": [
-        "UABC-PHASE-3"
-      ],
+      "summary": "Hypercare und Stabilisierung",
+      "description": "Fachlicher Arbeitsstrang: Hypercare und Stabilisierung.",
+      "deliverable": "Hypercare und Stabilisierung",
+      "phaseId": "UABC-3",
       "billable": false,
       "billingSource": "task-rollup-only",
-      "estimateHours": 13,
-      "actualHours": 13,
+      "estimateHours": 2,
+      "actualHours": 2,
       "remainingHours": 0,
       "hourlyRate": null,
-      "netAmount": 1560,
+      "netAmount": 240,
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "UABC-PHASE-3",
+      "parent": "UABC-3",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1104,15 +1098,153 @@
         "UABC-STORY-BCB-001"
       ],
       "comments": [],
-      "worklogs": []
+      "worklogs": [],
+      "phase": "P3",
+      "phaseRefs": [
+        "UABC-3"
+      ]
     },
     {
-      "id": "TKT-UABC-STORY-P1-PROJECT",
+      "id": "UABC-12",
+      "type": "epic",
+      "summary": "Finance-Abschluss",
+      "description": "Fachlicher Arbeitsstrang: Finance-Abschluss.",
+      "deliverable": "Finance-Abschluss",
+      "phaseId": "UABC-3",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 600,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-3",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/project-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml",
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": [],
+      "phase": "P3",
+      "phaseRefs": [
+        "UABC-3"
+      ]
+    },
+    {
+      "id": "UABC-13",
+      "type": "epic",
+      "summary": "Dokumentation und Betriebsübergabe",
+      "description": "Fachlicher Arbeitsstrang: Dokumentation und Betriebsübergabe.",
+      "deliverable": "Dokumentation und Betriebsübergabe",
+      "phaseId": "UABC-3",
+      "billable": false,
+      "billingSource": "task-rollup-only",
+      "estimateHours": 11,
+      "actualHours": 11,
+      "remainingHours": 0,
+      "hourlyRate": null,
+      "netAmount": 1320,
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-003",
+      "priority": "P1",
+      "parent": "UABC-3",
+      "dependencies": [],
+      "labels": [
+        "kundenprojekt",
+        "fachlicher-arbeitsstrang"
+      ],
+      "components": [
+        "BC Basic"
+      ],
+      "createdAt": "2026-04-06",
+      "startedAt": "2026-04-06",
+      "testedAt": "2026-05-08",
+      "closedAt": "2026-05-08",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-04-06"
+        },
+        {
+          "status": "tested",
+          "time": "2026-05-08"
+        },
+        {
+          "status": "done",
+          "time": "2026-05-08"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "criterion": "Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind synthetisch abgenommen.",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/project-plan.yaml",
+        "project/bc-basic/uat-training-run.yaml",
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [],
+      "worklogs": [],
+      "phase": "P3",
+      "phaseRefs": [
+        "UABC-3"
+      ]
+    },
+    {
+      "id": "UABC-14",
       "type": "story",
       "summary": "Projektauftrag und Scope sind startklar",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Projektauftrag und Scope sind startklar.",
       "deliverable": "Projektauftrag und Scope sind startklar",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1125,7 +1257,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-PROJECT",
+      "parent": "UABC-4",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1170,12 +1302,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-ACCEPTANCE",
+      "id": "UABC-15",
       "type": "story",
       "summary": "Abnahme- und Cutover-Eintritt ist vorbereitet",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Abnahme- und Cutover-Eintritt ist vorbereitet.",
       "deliverable": "Abnahme- und Cutover-Eintritt ist vorbereitet",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1188,7 +1320,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-PROJECT",
+      "parent": "UABC-4",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1233,12 +1365,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-FINANCE",
+      "id": "UABC-16",
       "type": "story",
       "summary": "Finance- und Steuerdesign ist entschieden",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Finance- und Steuerdesign ist entschieden.",
       "deliverable": "Finance- und Steuerdesign ist entschieden",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1251,7 +1383,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-FINANCE",
+      "parent": "UABC-5",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1296,12 +1428,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-PURCHASING",
+      "id": "UABC-17",
       "type": "story",
       "summary": "Einkaufsstandard ist entschieden",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Einkaufsstandard ist entschieden.",
       "deliverable": "Einkaufsstandard ist entschieden",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1314,7 +1446,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-PURCHASING",
+      "parent": "UABC-5",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1359,12 +1491,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-SALES",
+      "id": "UABC-18",
       "type": "story",
       "summary": "Verkaufsstandard ist entschieden",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Verkaufsstandard ist entschieden.",
       "deliverable": "Verkaufsstandard ist entschieden",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1377,7 +1509,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-SALES",
+      "parent": "UABC-5",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1422,12 +1554,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-INVENTORY",
+      "id": "UABC-19",
       "type": "story",
       "summary": "Lagerstandard ist entschieden",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Lagerstandard ist entschieden.",
       "deliverable": "Lagerstandard ist entschieden",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1440,7 +1572,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-INVENTORY",
+      "parent": "UABC-5",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1485,12 +1617,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P1-DATA",
+      "id": "UABC-20",
       "type": "story",
       "summary": "Datenpaket ist bereit",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Datenpaket ist bereit.",
       "deliverable": "Datenpaket ist bereit",
-      "phaseId": "UABC-PHASE-1",
+      "phaseId": "UABC-1",
       "phase": "P1",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1503,7 +1635,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-DATA",
+      "parent": "UABC-6",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1548,12 +1680,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-FOUNDATION",
+      "id": "UABC-21",
       "type": "story",
       "summary": "Gesellschaft, Rollen und Basis sind eingerichtet",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Gesellschaft, Rollen und Basis sind eingerichtet.",
       "deliverable": "Gesellschaft, Rollen und Basis sind eingerichtet",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1566,7 +1698,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-PROJECT",
+      "parent": "UABC-7",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1611,12 +1743,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-FINANCE",
+      "id": "UABC-22",
       "type": "story",
       "summary": "Finance, VAT und SoD sind eingerichtet",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Finance, VAT und SoD sind eingerichtet.",
       "deliverable": "Finance, VAT und SoD sind eingerichtet",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1629,7 +1761,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-FINANCE",
+      "parent": "UABC-7",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1674,12 +1806,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-DATA",
+      "id": "UABC-23",
       "type": "story",
       "summary": "Migration und Eröffnungswerte sind abgestimmt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Migration und Eröffnungswerte sind abgestimmt.",
       "deliverable": "Migration und Eröffnungswerte sind abgestimmt",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1692,7 +1824,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-DATA",
+      "parent": "UABC-8",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1737,12 +1869,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-PURCHASING",
+      "id": "UABC-24",
       "type": "story",
       "summary": "Purchase-to-Pay ist durchgespielt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Purchase-to-Pay ist durchgespielt.",
       "deliverable": "Purchase-to-Pay ist durchgespielt",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1755,7 +1887,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-PURCHASING",
+      "parent": "UABC-9",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1800,12 +1932,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-SALES",
+      "id": "UABC-25",
       "type": "story",
       "summary": "Order-to-Cash ist durchgespielt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Order-to-Cash ist durchgespielt.",
       "deliverable": "Order-to-Cash ist durchgespielt",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1818,7 +1950,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-SALES",
+      "parent": "UABC-9",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1863,12 +1995,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-INVENTORY",
+      "id": "UABC-26",
       "type": "story",
       "summary": "Lager und Inventur sind abgestimmt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Lager und Inventur sind abgestimmt.",
       "deliverable": "Lager und Inventur sind abgestimmt",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1881,7 +2013,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-INVENTORY",
+      "parent": "UABC-9",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1926,12 +2058,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-TRAINING",
+      "id": "UABC-27",
       "type": "story",
       "summary": "Key User sind befähigt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Key User sind befähigt.",
       "deliverable": "Key User sind befähigt",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -1944,7 +2076,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-ENABLEMENT",
+      "parent": "UABC-10",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -1989,12 +2121,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P2-UAT",
+      "id": "UABC-28",
       "type": "story",
       "summary": "SIT, UAT und Cutover-Probe sind bestanden",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: SIT, UAT und Cutover-Probe sind bestanden.",
       "deliverable": "SIT, UAT und Cutover-Probe sind bestanden",
-      "phaseId": "UABC-PHASE-2",
+      "phaseId": "UABC-2",
       "phase": "P2",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -2007,7 +2139,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-ENABLEMENT",
+      "parent": "UABC-10",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -2052,12 +2184,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-BUG-P3-PAYMENT",
-      "type": "bug",
+      "id": "UABC-29",
+      "type": "story",
       "summary": "Zahlungsreferenz-Abweichung ist behoben",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Zahlungsreferenz-Abweichung ist behoben.",
       "deliverable": "Zahlungsreferenz-Abweichung ist behoben",
-      "phaseId": "UABC-PHASE-3",
+      "phaseId": "UABC-3",
       "phase": "P3",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -2070,7 +2202,7 @@
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-EPIC-TRANSITION",
+      "parent": "UABC-11",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -2115,12 +2247,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P3-CLOSE",
+      "id": "UABC-30",
       "type": "story",
       "summary": "Monatsabschluss und UStVA-Vorschau sind abgestimmt",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Monatsabschluss und UStVA-Vorschau sind abgestimmt.",
       "deliverable": "Monatsabschluss und UStVA-Vorschau sind abgestimmt",
-      "phaseId": "UABC-PHASE-3",
+      "phaseId": "UABC-3",
       "phase": "P3",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -2133,7 +2265,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-FINANCE",
+      "parent": "UABC-12",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -2179,12 +2311,12 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-STORY-P3-HANDOVER",
+      "id": "UABC-31",
       "type": "story",
       "summary": "Betrieb und Abschluss sind übergeben",
       "description": "Nicht fakturierbare fachliche Ergebnisklammer: Betrieb und Abschluss sind übergeben.",
       "deliverable": "Betrieb und Abschluss sind übergeben",
-      "phaseId": "UABC-PHASE-3",
+      "phaseId": "UABC-3",
       "phase": "P3",
       "billable": false,
       "billingSource": "task-rollup-only",
@@ -2197,7 +2329,7 @@
       "reporter": "P-002",
       "assignee": "P-003",
       "priority": "P1",
-      "parent": "TKT-UABC-EPIC-TRANSITION",
+      "parent": "UABC-13",
       "dependencies": [],
       "labels": [
         "kundenprojekt",
@@ -2242,13 +2374,13 @@
       "worklogs": []
     },
     {
-      "id": "TKT-UABC-22",
+      "id": "UABC-32",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-PROJECT",
+      "parent": "UABC-14",
       "dependencies": [],
       "labels": [
         "scope"
@@ -2307,8 +2439,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-22-01",
-          "taskId": "TKT-UABC-22",
+          "id": "WL-UABC-32-01",
+          "taskId": "UABC-32",
           "date": "2026-08-20",
           "role": "P-002",
           "hours": 6,
@@ -2330,291 +2462,25 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 720,
-      "phaseId": "UABC-PHASE-1"
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-23",
-      "type": "task",
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-005",
-      "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-FINANCE",
-      "dependencies": [],
-      "labels": [
-        "finance"
-      ],
-      "components": [
-        "setup"
-      ],
-      "createdAt": "2026-08-23",
-      "startedAt": "2026-08-23",
-      "testedAt": "2026-08-23",
-      "closedAt": "2026-08-23",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "tested",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "done",
-          "time": "2026-08-23"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "text": "Finance",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "BC-SIM-SETUP-001"
-      ],
-      "comments": [
-        {
-          "id": "COM-23-W",
-          "type": "work",
-          "time": "2026-08-23",
-          "role": "P-005",
-          "text": "Finance bearbeitet",
-          "evidenceRef": "BC-SIM-SETUP-001"
-        },
-        {
-          "id": "COM-23-C",
-          "type": "closing",
-          "time": "2026-08-23",
-          "role": "P-005",
-          "text": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation. Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.",
-          "evidenceRef": "BC-SIM-SETUP-001"
-        }
-      ],
-      "worklogs": [
-        {
-          "id": "WL-TKT-UABC-23-01",
-          "taskId": "TKT-UABC-23",
-          "date": "2026-08-23",
-          "role": "P-005",
-          "hours": 4,
-          "activity": "Finance",
-          "phase": "P1",
-          "billable": true,
-          "hourlyRate": 120,
-          "netAmount": 480
-        }
-      ],
-      "summary": "Finance- und Steuerdesign entscheiden",
-      "description": "Abrechenbare Kundenleistung: Finance- und Steuerdesign entscheiden.",
-      "deliverable": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation",
-      "phase": "P1",
-      "billable": true,
-      "billingSource": "task-worklogs",
-      "estimateHours": 4,
-      "actualHours": 4,
-      "remainingHours": 0,
-      "hourlyRate": 120,
-      "netAmount": 480,
-      "phaseId": "UABC-PHASE-1"
-    },
-    {
-      "id": "TKT-UABC-24",
-      "type": "task",
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-011",
-      "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-PURCHASING",
-      "dependencies": [
-        "TKT-UABC-23"
-      ],
-      "labels": [
-        "process"
-      ],
-      "components": [
-        "trade"
-      ],
-      "createdAt": "2026-08-23",
-      "startedAt": "2026-08-23",
-      "testedAt": "2026-08-23",
-      "closedAt": "2026-08-23",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "tested",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "done",
-          "time": "2026-08-23"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "text": "Prozesse",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "BC-SIM-P2P-001"
-      ],
-      "comments": [
-        {
-          "id": "COM-24-W",
-          "type": "work",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Einkaufs-Fit-to-Standard entscheiden bearbeitet.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        },
-        {
-          "id": "COM-24-C",
-          "type": "closing",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Einkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        }
-      ],
-      "worklogs": [
-        {
-          "id": "WL-TKT-UABC-24-01",
-          "taskId": "TKT-UABC-24",
-          "date": "2026-08-23",
-          "role": "P-011",
-          "hours": 1.5,
-          "activity": "Einkaufs-Fit-to-Standard entscheiden",
-          "phase": "P1",
-          "billable": true,
-          "hourlyRate": 120,
-          "netAmount": 180
-        }
-      ],
-      "summary": "Einkaufs-Fit-to-Standard entscheiden",
-      "description": "Abrechenbare Kundenleistung: Einkaufs-Fit-to-Standard entscheiden.",
-      "deliverable": "Einkaufsstandard und Ausnahmen sind entschieden",
-      "phase": "P1",
-      "billable": true,
-      "billingSource": "task-worklogs",
-      "estimateHours": 1.5,
-      "actualHours": 1.5,
-      "remainingHours": 0,
-      "hourlyRate": 120,
-      "netAmount": 180,
-      "phaseId": "UABC-PHASE-1"
-    },
-    {
-      "id": "TKT-UABC-25",
-      "type": "task",
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-016",
-      "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-DATA",
-      "dependencies": [],
-      "labels": [
-        "data"
-      ],
-      "components": [
-        "migration"
-      ],
-      "createdAt": "2026-08-25",
-      "startedAt": "2026-08-25",
-      "testedAt": "2026-08-25",
-      "closedAt": "2026-08-25",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-08-25"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-08-25"
-        },
-        {
-          "status": "tested",
-          "time": "2026-08-25"
-        },
-        {
-          "status": "done",
-          "time": "2026-08-25"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "text": "Daten",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "project/bc-basic/data-readiness-check.yaml"
-      ],
-      "comments": [
-        {
-          "id": "COM-25-W",
-          "type": "work",
-          "time": "2026-08-25",
-          "role": "P-016",
-          "text": "Daten bearbeitet",
-          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
-        },
-        {
-          "id": "COM-25-C",
-          "type": "closing",
-          "time": "2026-08-25",
-          "role": "P-016",
-          "text": "Geprueftes synthetisches Datenpaket mit Kontrollsummen. Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.",
-          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
-        }
-      ],
-      "worklogs": [
-        {
-          "id": "WL-TKT-UABC-25-01",
-          "taskId": "TKT-UABC-25",
-          "date": "2026-08-25",
-          "role": "P-016",
-          "hours": 5,
-          "activity": "Daten",
-          "phase": "P1",
-          "billable": true,
-          "hourlyRate": 120,
-          "netAmount": 600
-        }
-      ],
-      "summary": "Datenbereitschaft herstellen",
-      "description": "Abrechenbare Kundenleistung: Datenbereitschaft herstellen.",
-      "deliverable": "Geprueftes synthetisches Datenpaket mit Kontrollsummen",
-      "phase": "P1",
-      "billable": true,
-      "billingSource": "task-worklogs",
-      "estimateHours": 5,
-      "actualHours": 5,
-      "remainingHours": 0,
-      "hourlyRate": 120,
-      "netAmount": 600,
-      "phaseId": "UABC-PHASE-1"
-    },
-    {
-      "id": "TKT-UABC-26",
+      "id": "UABC-33",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-ACCEPTANCE",
+      "parent": "UABC-15",
       "dependencies": [
         "TKT-UABC-25"
       ],
@@ -2675,8 +2541,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-26-01",
-          "taskId": "TKT-UABC-26",
+          "id": "WL-UABC-33-01",
+          "taskId": "UABC-33",
           "date": "2026-08-24",
           "role": "P-002",
           "hours": 3,
@@ -2698,16 +2564,531 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 360,
-      "phaseId": "UABC-PHASE-1"
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-27",
+      "id": "UABC-34",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-FOUNDATION",
+      "parent": "UABC-16",
+      "dependencies": [],
+      "labels": [
+        "finance"
+      ],
+      "components": [
+        "setup"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Finance",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-23-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-005",
+          "text": "Finance bearbeitet",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        },
+        {
+          "id": "COM-23-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-005",
+          "text": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation. Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-UABC-34-01",
+          "taskId": "UABC-34",
+          "date": "2026-08-23",
+          "role": "P-005",
+          "hours": 4,
+          "activity": "Finance",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 480
+        }
+      ],
+      "summary": "Finance- und Steuerdesign entscheiden",
+      "description": "Abrechenbare Kundenleistung: Finance- und Steuerdesign entscheiden.",
+      "deliverable": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 4,
+      "actualHours": 4,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 480,
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
+    },
+    {
+      "id": "UABC-35",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "UABC-17",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Einkaufs-Fit-to-Standard entscheiden bearbeitet.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Einkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-UABC-35-01",
+          "taskId": "UABC-35",
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 1.5,
+          "activity": "Einkaufs-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 180
+        }
+      ],
+      "summary": "Einkaufs-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Einkaufs-Fit-to-Standard entscheiden.",
+      "deliverable": "Einkaufsstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 180,
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
+    },
+    {
+      "id": "UABC-36",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "UABC-18",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-SALES-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Verkaufs-Fit-to-Standard entscheiden bearbeitet.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-SALES-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Verkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-UABC-36-01",
+          "taskId": "UABC-36",
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 1.5,
+          "activity": "Verkaufs-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 180
+        }
+      ],
+      "summary": "Verkaufs-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Verkaufs-Fit-to-Standard entscheiden.",
+      "deliverable": "Verkaufsstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1.5,
+      "actualHours": 1.5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 180,
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
+    },
+    {
+      "id": "UABC-37",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "UABC-19",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-INVENTORY-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Lager-Fit-to-Standard entscheiden bearbeitet.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-INVENTORY-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Lagerstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-UABC-37-01",
+          "taskId": "UABC-37",
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 1,
+          "activity": "Lager-Fit-to-Standard entscheiden",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 120
+        }
+      ],
+      "summary": "Lager-Fit-to-Standard entscheiden",
+      "description": "Abrechenbare Kundenleistung: Lager-Fit-to-Standard entscheiden.",
+      "deliverable": "Lagerstandard und Ausnahmen sind entschieden",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 1,
+      "actualHours": 1,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 120,
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
+    },
+    {
+      "id": "UABC-38",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-016",
+      "priority": "P1",
+      "parent": "UABC-20",
+      "dependencies": [],
+      "labels": [
+        "data"
+      ],
+      "components": [
+        "migration"
+      ],
+      "createdAt": "2026-08-25",
+      "startedAt": "2026-08-25",
+      "testedAt": "2026-08-25",
+      "closedAt": "2026-08-25",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-25"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Daten",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/data-readiness-check.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-25-W",
+          "type": "work",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Daten bearbeitet",
+          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
+        },
+        {
+          "id": "COM-25-C",
+          "type": "closing",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Geprueftes synthetisches Datenpaket mit Kontrollsummen. Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "id": "WL-UABC-38-01",
+          "taskId": "UABC-38",
+          "date": "2026-08-25",
+          "role": "P-016",
+          "hours": 5,
+          "activity": "Daten",
+          "phase": "P1",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 600
+        }
+      ],
+      "summary": "Datenbereitschaft herstellen",
+      "description": "Abrechenbare Kundenleistung: Datenbereitschaft herstellen.",
+      "deliverable": "Geprueftes synthetisches Datenpaket mit Kontrollsummen",
+      "phase": "P1",
+      "billable": true,
+      "billingSource": "task-worklogs",
+      "estimateHours": 5,
+      "actualHours": 5,
+      "remainingHours": 0,
+      "hourlyRate": 120,
+      "netAmount": 600,
+      "phaseId": "UABC-1",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-001",
+        "UABC-MTG-002"
+      ]
+    },
+    {
+      "id": "UABC-39",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P1",
+      "parent": "UABC-21",
       "dependencies": [],
       "labels": [
         "setup"
@@ -2766,8 +3147,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-27-01",
-          "taskId": "TKT-UABC-27",
+          "id": "WL-UABC-39-01",
+          "taskId": "UABC-39",
           "date": "2026-08-25",
           "role": "P-005",
           "hours": 4,
@@ -2789,16 +3170,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 480,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-28",
+      "id": "UABC-40",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-FINANCE",
+      "parent": "UABC-22",
       "dependencies": [],
       "labels": [
         "setup"
@@ -2857,8 +3246,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-28-01",
-          "taskId": "TKT-UABC-28",
+          "id": "WL-UABC-40-01",
+          "taskId": "UABC-40",
           "date": "2026-08-25",
           "role": "P-005",
           "hours": 10,
@@ -2880,16 +3269,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 1200,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-29",
+      "id": "UABC-41",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-016",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-DATA",
+      "parent": "UABC-23",
       "dependencies": [],
       "labels": [
         "data"
@@ -2948,8 +3345,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-29-01",
-          "taskId": "TKT-UABC-29",
+          "id": "WL-UABC-41-01",
+          "taskId": "UABC-41",
           "date": "2026-08-25",
           "role": "P-016",
           "hours": 4,
@@ -2971,16 +3368,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 480,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-30",
+      "id": "UABC-42",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-011",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-PURCHASING",
+      "parent": "UABC-24",
       "dependencies": [
         "TKT-UABC-29"
       ],
@@ -3041,8 +3446,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-30-01",
-          "taskId": "TKT-UABC-30",
+          "id": "WL-UABC-42-01",
+          "taskId": "UABC-42",
           "date": "2026-08-26",
           "role": "P-011",
           "hours": 5,
@@ -3064,16 +3469,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 600,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-31",
+      "id": "UABC-43",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-011",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-SALES",
+      "parent": "UABC-25",
       "dependencies": [
         "TKT-UABC-30"
       ],
@@ -3134,8 +3547,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-31-01",
-          "taskId": "TKT-UABC-31",
+          "id": "WL-UABC-43-01",
+          "taskId": "UABC-43",
           "date": "2026-08-26",
           "role": "P-011",
           "hours": 5,
@@ -3157,16 +3570,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 600,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-32",
+      "id": "UABC-44",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-019",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-INVENTORY",
+      "parent": "UABC-26",
       "dependencies": [
         "TKT-UABC-30"
       ],
@@ -3227,8 +3648,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-32-01",
-          "taskId": "TKT-UABC-32",
+          "id": "WL-UABC-44-01",
+          "taskId": "UABC-44",
           "date": "2026-08-28",
           "role": "P-019",
           "hours": 5,
@@ -3250,16 +3671,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 600,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-33",
+      "id": "UABC-45",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P2",
-      "parent": "TKT-UABC-STORY-P2-TRAINING",
+      "parent": "UABC-27",
       "dependencies": [],
       "labels": [
         "training"
@@ -3318,8 +3747,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-33-01",
-          "taskId": "TKT-UABC-33",
+          "id": "WL-UABC-45-01",
+          "taskId": "UABC-45",
           "date": "2026-08-30",
           "role": "P-002",
           "hours": 4,
@@ -3341,16 +3770,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 480,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-34",
+      "id": "UABC-46",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P1",
-      "parent": "TKT-UABC-STORY-P2-UAT",
+      "parent": "UABC-28",
       "dependencies": [
         "TKT-UABC-30",
         "TKT-UABC-31"
@@ -3412,8 +3849,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-34-01",
-          "taskId": "TKT-UABC-34",
+          "id": "WL-UABC-46-01",
+          "taskId": "UABC-46",
           "date": "2026-08-29",
           "role": "P-002",
           "hours": 3,
@@ -3435,16 +3872,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 360,
-      "phaseId": "UABC-PHASE-2"
+      "phaseId": "UABC-2",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-002"
+      ]
     },
     {
-      "id": "TKT-UABC-35",
+      "id": "UABC-47",
       "type": "task",
       "status": "closed",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-BUG-P3-PAYMENT",
+      "parent": "UABC-29",
       "dependencies": [
         "TKT-UABC-31"
       ],
@@ -3505,8 +3950,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-35-01",
-          "taskId": "TKT-UABC-35",
+          "id": "WL-UABC-47-01",
+          "taskId": "UABC-47",
           "date": "2026-09-01",
           "role": "P-005",
           "hours": 2,
@@ -3528,16 +3973,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 240,
-      "phaseId": "UABC-PHASE-3"
+      "phaseId": "UABC-3",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-003"
+      ]
     },
     {
-      "id": "TKT-UABC-36",
+      "id": "UABC-48",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-STORY-P3-CLOSE",
+      "parent": "UABC-30",
       "dependencies": [],
       "labels": [
         "close"
@@ -3596,8 +4049,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-36-01",
-          "taskId": "TKT-UABC-36",
+          "id": "WL-UABC-48-01",
+          "taskId": "UABC-48",
           "date": "2026-08-29",
           "role": "P-005",
           "hours": 3,
@@ -3619,16 +4072,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 360,
-      "phaseId": "UABC-PHASE-3"
+      "phaseId": "UABC-3",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-003"
+      ]
     },
     {
-      "id": "TKT-UABC-37",
+      "id": "UABC-49",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-005",
       "priority": "P2",
-      "parent": "TKT-UABC-STORY-P3-CLOSE",
+      "parent": "UABC-30",
       "dependencies": [
         "TKT-UABC-36"
       ],
@@ -3689,8 +4150,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-37-01",
-          "taskId": "TKT-UABC-37",
+          "id": "WL-UABC-49-01",
+          "taskId": "UABC-49",
           "date": "2026-08-29",
           "role": "P-005",
           "hours": 2,
@@ -3712,16 +4173,24 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 240,
-      "phaseId": "UABC-PHASE-3"
+      "phaseId": "UABC-3",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
+      ],
+      "meetingTranscriptRefs": [
+        "UABC-MTG-003"
+      ]
     },
     {
-      "id": "TKT-UABC-38",
+      "id": "UABC-50",
       "type": "task",
       "status": "done",
       "reporter": "P-002",
       "assignee": "P-002",
       "priority": "P2",
-      "parent": "TKT-UABC-STORY-P3-HANDOVER",
+      "parent": "UABC-31",
       "dependencies": [
         "TKT-UABC-35",
         "TKT-UABC-36",
@@ -3784,8 +4253,8 @@
       ],
       "worklogs": [
         {
-          "id": "WL-TKT-UABC-38-01",
-          "taskId": "TKT-UABC-38",
+          "id": "WL-UABC-50-01",
+          "taskId": "UABC-50",
           "date": "2026-09-03",
           "role": "P-002",
           "hours": 11,
@@ -3807,193 +4276,15 @@
       "remainingHours": 0,
       "hourlyRate": 120,
       "netAmount": 1320,
-      "phaseId": "UABC-PHASE-3"
-    },
-    {
-      "id": "TKT-UABC-24-SALES",
-      "type": "task",
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-011",
-      "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-SALES",
-      "dependencies": [
-        "TKT-UABC-23"
+      "phaseId": "UABC-3",
+      "category": "fachliche BC-Basic-Leistung",
+      "participants": [
+        "P-002",
+        "P-003"
       ],
-      "labels": [
-        "process"
-      ],
-      "components": [
-        "trade"
-      ],
-      "createdAt": "2026-08-23",
-      "startedAt": "2026-08-23",
-      "testedAt": "2026-08-23",
-      "closedAt": "2026-08-23",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "tested",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "done",
-          "time": "2026-08-23"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "text": "Prozesse",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "BC-SIM-P2P-001"
-      ],
-      "comments": [
-        {
-          "id": "COM-24-SALES-W",
-          "type": "work",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Verkaufs-Fit-to-Standard entscheiden bearbeitet.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        },
-        {
-          "id": "COM-24-SALES-C",
-          "type": "closing",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Verkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        }
-      ],
-      "worklogs": [
-        {
-          "id": "WL-TKT-UABC-24-SALES-01",
-          "taskId": "TKT-UABC-24-SALES",
-          "date": "2026-08-23",
-          "role": "P-011",
-          "hours": 1.5,
-          "activity": "Verkaufs-Fit-to-Standard entscheiden",
-          "phase": "P1",
-          "billable": true,
-          "hourlyRate": 120,
-          "netAmount": 180
-        }
-      ],
-      "summary": "Verkaufs-Fit-to-Standard entscheiden",
-      "description": "Abrechenbare Kundenleistung: Verkaufs-Fit-to-Standard entscheiden.",
-      "deliverable": "Verkaufsstandard und Ausnahmen sind entschieden",
-      "phase": "P1",
-      "billable": true,
-      "billingSource": "task-worklogs",
-      "estimateHours": 1.5,
-      "actualHours": 1.5,
-      "remainingHours": 0,
-      "hourlyRate": 120,
-      "netAmount": 180,
-      "phaseId": "UABC-PHASE-1"
-    },
-    {
-      "id": "TKT-UABC-24-INVENTORY",
-      "type": "task",
-      "status": "done",
-      "reporter": "P-002",
-      "assignee": "P-011",
-      "priority": "P1",
-      "parent": "TKT-UABC-STORY-P1-INVENTORY",
-      "dependencies": [
-        "TKT-UABC-23"
-      ],
-      "labels": [
-        "process"
-      ],
-      "components": [
-        "trade"
-      ],
-      "createdAt": "2026-08-23",
-      "startedAt": "2026-08-23",
-      "testedAt": "2026-08-23",
-      "closedAt": "2026-08-23",
-      "statusHistory": [
-        {
-          "status": "created",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "in-progress",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "tested",
-          "time": "2026-08-23"
-        },
-        {
-          "status": "done",
-          "time": "2026-08-23"
-        }
-      ],
-      "acceptanceCriteria": [
-        {
-          "text": "Prozesse",
-          "fulfilled": true
-        }
-      ],
-      "evidenceRefs": [
-        "BC-SIM-P2P-001"
-      ],
-      "comments": [
-        {
-          "id": "COM-24-INVENTORY-W",
-          "type": "work",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Lager-Fit-to-Standard entscheiden bearbeitet.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        },
-        {
-          "id": "COM-24-INVENTORY-C",
-          "type": "closing",
-          "time": "2026-08-23",
-          "role": "P-011",
-          "text": "Lagerstandard und Ausnahmen sind entschieden. Ergebnis synthetisch abgenommen; Evidence und nächster Bezug dokumentiert.",
-          "evidenceRef": "BC-SIM-P2P-001"
-        }
-      ],
-      "worklogs": [
-        {
-          "id": "WL-TKT-UABC-24-INVENTORY-01",
-          "taskId": "TKT-UABC-24-INVENTORY",
-          "date": "2026-08-23",
-          "role": "P-011",
-          "hours": 1,
-          "activity": "Lager-Fit-to-Standard entscheiden",
-          "phase": "P1",
-          "billable": true,
-          "hourlyRate": 120,
-          "netAmount": 120
-        }
-      ],
-      "summary": "Lager-Fit-to-Standard entscheiden",
-      "description": "Abrechenbare Kundenleistung: Lager-Fit-to-Standard entscheiden.",
-      "deliverable": "Lagerstandard und Ausnahmen sind entschieden",
-      "phase": "P1",
-      "billable": true,
-      "billingSource": "task-worklogs",
-      "estimateHours": 1,
-      "actualHours": 1,
-      "remainingHours": 0,
-      "hourlyRate": 120,
-      "netAmount": 120,
-      "phaseId": "UABC-PHASE-1"
+      "meetingTranscriptRefs": [
+        "UABC-MTG-003"
+      ]
     }
   ],
   "timeline": [
@@ -4003,7 +4294,7 @@
       "phase": "Angebot",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-22"
+        "UABC-32"
       ],
       "pages": [
         "PAGE-UABC-010"
@@ -4023,7 +4314,7 @@
       "phase": "Projektstart",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-22"
+        "UABC-32"
       ],
       "pages": [
         "PAGE-UABC-020"
@@ -4043,7 +4334,7 @@
       "phase": "Discovery",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-23"
+        "UABC-34"
       ],
       "pages": [
         "PAGE-UABC-030"
@@ -4063,7 +4354,7 @@
       "phase": "Setup",
       "role": "P-005",
       "tickets": [
-        "TKT-UABC-27"
+        "UABC-39"
       ],
       "pages": [
         "PAGE-UABC-040"
@@ -4083,7 +4374,7 @@
       "phase": "Migration",
       "role": "P-016",
       "tickets": [
-        "TKT-UABC-29"
+        "UABC-41"
       ],
       "pages": [
         "PAGE-UABC-050"
@@ -4103,7 +4394,7 @@
       "phase": "P2P",
       "role": "P-011",
       "tickets": [
-        "TKT-UABC-30"
+        "UABC-42"
       ],
       "pages": [
         "PAGE-UABC-060"
@@ -4123,7 +4414,7 @@
       "phase": "O2C",
       "role": "P-011",
       "tickets": [
-        "TKT-UABC-31"
+        "UABC-43"
       ],
       "pages": [
         "PAGE-UABC-070"
@@ -4143,7 +4434,7 @@
       "phase": "Cash",
       "role": "P-005",
       "tickets": [
-        "TKT-UABC-35"
+        "UABC-47"
       ],
       "pages": [
         "PAGE-UABC-080"
@@ -4163,7 +4454,7 @@
       "phase": "Lager",
       "role": "P-019",
       "tickets": [
-        "TKT-UABC-32"
+        "UABC-44"
       ],
       "pages": [
         "PAGE-UABC-090"
@@ -4183,7 +4474,7 @@
       "phase": "UAT",
       "role": "P-005",
       "tickets": [
-        "TKT-UABC-34"
+        "UABC-46"
       ],
       "pages": [
         "PAGE-UABC-140"
@@ -4203,7 +4494,7 @@
       "phase": "Cutover",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-35"
+        "UABC-47"
       ],
       "pages": [
         "PAGE-UABC-160"
@@ -4223,7 +4514,7 @@
       "phase": "Go-live",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-34"
+        "UABC-46"
       ],
       "pages": [
         "PAGE-UABC-160"
@@ -4243,7 +4534,7 @@
       "phase": "Hypercare",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-35"
+        "UABC-47"
       ],
       "pages": [
         "PAGE-UABC-170"
@@ -4263,7 +4554,7 @@
       "phase": "Hypercare",
       "role": "P-005",
       "tickets": [
-        "TKT-UABC-35"
+        "UABC-47"
       ],
       "pages": [
         "PAGE-UABC-170"
@@ -4283,7 +4574,7 @@
       "phase": "Handover",
       "role": "P-002",
       "tickets": [
-        "TKT-UABC-38"
+        "UABC-50"
       ],
       "pages": [
         "PAGE-UABC-180"
@@ -4302,7 +4593,7 @@
     {
       "day": 1,
       "dailyPage": "PAGE-UABC-170",
-      "ticket": "TKT-UABC-35",
+      "ticket": "UABC-47",
       "comment": "COM-35-C",
       "priority": "P2",
       "diagnosis": "Zahlungsreferenz",
@@ -4315,7 +4606,7 @@
     {
       "day": 2,
       "dailyPage": "PAGE-UABC-170",
-      "ticket": "TKT-UABC-32",
+      "ticket": "UABC-44",
       "comment": "COM-32-C",
       "priority": "P2",
       "diagnosis": "Inventur",
@@ -4328,7 +4619,7 @@
     {
       "day": 3,
       "dailyPage": "PAGE-UABC-180",
-      "ticket": "TKT-UABC-36",
+      "ticket": "UABC-48",
       "comment": "COM-36-C",
       "priority": "P1",
       "diagnosis": "VAT-Vermerk",
@@ -4363,11 +4654,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-010",
-      "to": "TKT-UABC-22"
+      "to": "UABC-32"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-22",
+      "from": "UABC-32",
       "to": "PAGE-UABC-010"
     },
     {
@@ -4383,11 +4674,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-020",
-      "to": "TKT-UABC-22"
+      "to": "UABC-32"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-22",
+      "from": "UABC-32",
       "to": "PAGE-UABC-020"
     },
     {
@@ -4403,11 +4694,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-030",
-      "to": "TKT-UABC-23"
+      "to": "UABC-34"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-23",
+      "from": "UABC-34",
       "to": "PAGE-UABC-030"
     },
     {
@@ -4423,31 +4714,31 @@
     {
       "type": "references",
       "from": "PAGE-UABC-040",
-      "to": "TKT-UABC-23"
+      "to": "UABC-34"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-23",
+      "from": "UABC-34",
       "to": "PAGE-UABC-040"
     },
     {
       "type": "references",
       "from": "PAGE-UABC-040",
-      "to": "TKT-UABC-27"
+      "to": "UABC-39"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-27",
+      "from": "UABC-39",
       "to": "PAGE-UABC-040"
     },
     {
       "type": "references",
       "from": "PAGE-UABC-040",
-      "to": "TKT-UABC-28"
+      "to": "UABC-40"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-28",
+      "from": "UABC-40",
       "to": "PAGE-UABC-040"
     },
     {
@@ -4463,11 +4754,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-050",
-      "to": "TKT-UABC-29"
+      "to": "UABC-41"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-29",
+      "from": "UABC-41",
       "to": "PAGE-UABC-050"
     },
     {
@@ -4483,21 +4774,21 @@
     {
       "type": "references",
       "from": "PAGE-UABC-060",
-      "to": "TKT-UABC-24"
+      "to": "UABC-35"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-24",
+      "from": "UABC-35",
       "to": "PAGE-UABC-060"
     },
     {
       "type": "references",
       "from": "PAGE-UABC-060",
-      "to": "TKT-UABC-30"
+      "to": "UABC-42"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-30",
+      "from": "UABC-42",
       "to": "PAGE-UABC-060"
     },
     {
@@ -4513,11 +4804,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-070",
-      "to": "TKT-UABC-31"
+      "to": "UABC-43"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-31",
+      "from": "UABC-43",
       "to": "PAGE-UABC-070"
     },
     {
@@ -4543,11 +4834,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-090",
-      "to": "TKT-UABC-32"
+      "to": "UABC-44"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-32",
+      "from": "UABC-44",
       "to": "PAGE-UABC-090"
     },
     {
@@ -4563,11 +4854,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-100",
-      "to": "TKT-UABC-36"
+      "to": "UABC-48"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-36",
+      "from": "UABC-48",
       "to": "PAGE-UABC-100"
     },
     {
@@ -4583,11 +4874,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-110",
-      "to": "TKT-UABC-26"
+      "to": "UABC-33"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-26",
+      "from": "UABC-33",
       "to": "PAGE-UABC-110"
     },
     {
@@ -4603,11 +4894,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-120",
-      "to": "TKT-UABC-23"
+      "to": "UABC-34"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-23",
+      "from": "UABC-34",
       "to": "PAGE-UABC-120"
     },
     {
@@ -4643,11 +4934,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-150",
-      "to": "TKT-UABC-33"
+      "to": "UABC-45"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-33",
+      "from": "UABC-45",
       "to": "PAGE-UABC-150"
     },
     {
@@ -4663,11 +4954,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-160",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "PAGE-UABC-160"
     },
     {
@@ -4683,11 +4974,11 @@
     {
       "type": "references",
       "from": "PAGE-UABC-170",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "PAGE-UABC-170"
     },
     {
@@ -4703,191 +4994,191 @@
     {
       "type": "references",
       "from": "PAGE-UABC-180",
-      "to": "TKT-UABC-38"
+      "to": "UABC-50"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-38",
+      "from": "UABC-50",
       "to": "PAGE-UABC-180"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-22",
+      "from": "UABC-32",
       "to": "project/bc-basic/project-plan.yaml"
     },
     {
       "type": "references",
       "from": "project/bc-basic/project-plan.yaml",
-      "to": "TKT-UABC-22"
+      "to": "UABC-32"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-23",
+      "from": "UABC-34",
       "to": "BC-SIM-SETUP-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-SETUP-001",
-      "to": "TKT-UABC-23"
+      "to": "UABC-34"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-24",
+      "from": "UABC-35",
       "to": "BC-SIM-P2P-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-P2P-001",
-      "to": "TKT-UABC-24"
+      "to": "UABC-35"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-25",
+      "from": "UABC-38",
       "to": "project/bc-basic/data-readiness-check.yaml"
     },
     {
       "type": "references",
       "from": "project/bc-basic/data-readiness-check.yaml",
-      "to": "TKT-UABC-25"
+      "to": "UABC-38"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-26",
+      "from": "UABC-33",
       "to": "project/bc-basic/uat-training-run.yaml"
     },
     {
       "type": "references",
       "from": "project/bc-basic/uat-training-run.yaml",
-      "to": "TKT-UABC-26"
+      "to": "UABC-33"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-27",
+      "from": "UABC-39",
       "to": "BC-SIM-SETUP-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-SETUP-001",
-      "to": "TKT-UABC-27"
+      "to": "UABC-39"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-28",
+      "from": "UABC-40",
       "to": "BC-SIM-SETUP-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-SETUP-001",
-      "to": "TKT-UABC-28"
+      "to": "UABC-40"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-29",
+      "from": "UABC-41",
       "to": "BC-SIM-MASTER-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-MASTER-001",
-      "to": "TKT-UABC-29"
+      "to": "UABC-41"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-30",
+      "from": "UABC-42",
       "to": "BC-SIM-P2P-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-P2P-001",
-      "to": "TKT-UABC-30"
+      "to": "UABC-42"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-31",
+      "from": "UABC-43",
       "to": "BC-SIM-O2C-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-O2C-001",
-      "to": "TKT-UABC-31"
+      "to": "UABC-43"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-32",
+      "from": "UABC-44",
       "to": "BC-SIM-INVENTORY-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-INVENTORY-001",
-      "to": "TKT-UABC-32"
+      "to": "UABC-44"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-33",
+      "from": "UABC-45",
       "to": "project/bc-basic/training-plan.yaml"
     },
     {
       "type": "references",
       "from": "project/bc-basic/training-plan.yaml",
-      "to": "TKT-UABC-33"
+      "to": "UABC-45"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-34",
+      "from": "UABC-46",
       "to": "project/bc-basic/uat-training-run.yaml"
     },
     {
       "type": "references",
       "from": "project/bc-basic/uat-training-run.yaml",
-      "to": "TKT-UABC-34"
+      "to": "UABC-46"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "SIM-HC-001"
     },
     {
       "type": "references",
       "from": "SIM-HC-001",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-36",
+      "from": "UABC-48",
       "to": "BC-SIM-CLOSE-001"
     },
     {
       "type": "references",
       "from": "BC-SIM-CLOSE-001",
-      "to": "TKT-UABC-36"
+      "to": "UABC-48"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-37",
+      "from": "UABC-49",
       "to": "SYN-VAT-RETURN-001"
     },
     {
       "type": "references",
       "from": "SYN-VAT-RETURN-001",
-      "to": "TKT-UABC-37"
+      "to": "UABC-49"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-38",
+      "from": "UABC-50",
       "to": "UABC-STORY-BCB-001"
     },
     {
       "type": "references",
       "from": "UABC-STORY-BCB-001",
-      "to": "TKT-UABC-38"
+      "to": "UABC-50"
     },
     {
       "type": "references",
       "from": "STORY-01",
-      "to": "TKT-UABC-22"
+      "to": "UABC-32"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-22",
+      "from": "UABC-32",
       "to": "STORY-01"
     },
     {
@@ -4923,11 +5214,11 @@
     {
       "type": "references",
       "from": "STORY-02",
-      "to": "TKT-UABC-22"
+      "to": "UABC-32"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-22",
+      "from": "UABC-32",
       "to": "STORY-02"
     },
     {
@@ -4963,11 +5254,11 @@
     {
       "type": "references",
       "from": "STORY-03",
-      "to": "TKT-UABC-23"
+      "to": "UABC-34"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-23",
+      "from": "UABC-34",
       "to": "STORY-03"
     },
     {
@@ -5003,11 +5294,11 @@
     {
       "type": "references",
       "from": "STORY-04",
-      "to": "TKT-UABC-27"
+      "to": "UABC-39"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-27",
+      "from": "UABC-39",
       "to": "STORY-04"
     },
     {
@@ -5043,11 +5334,11 @@
     {
       "type": "references",
       "from": "STORY-05",
-      "to": "TKT-UABC-29"
+      "to": "UABC-41"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-29",
+      "from": "UABC-41",
       "to": "STORY-05"
     },
     {
@@ -5083,11 +5374,11 @@
     {
       "type": "references",
       "from": "STORY-06",
-      "to": "TKT-UABC-30"
+      "to": "UABC-42"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-30",
+      "from": "UABC-42",
       "to": "STORY-06"
     },
     {
@@ -5123,11 +5414,11 @@
     {
       "type": "references",
       "from": "STORY-07",
-      "to": "TKT-UABC-31"
+      "to": "UABC-43"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-31",
+      "from": "UABC-43",
       "to": "STORY-07"
     },
     {
@@ -5163,11 +5454,11 @@
     {
       "type": "references",
       "from": "STORY-08",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "STORY-08"
     },
     {
@@ -5203,11 +5494,11 @@
     {
       "type": "references",
       "from": "STORY-09",
-      "to": "TKT-UABC-32"
+      "to": "UABC-44"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-32",
+      "from": "UABC-44",
       "to": "STORY-09"
     },
     {
@@ -5243,11 +5534,11 @@
     {
       "type": "references",
       "from": "STORY-10",
-      "to": "TKT-UABC-34"
+      "to": "UABC-46"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-34",
+      "from": "UABC-46",
       "to": "STORY-10"
     },
     {
@@ -5283,11 +5574,11 @@
     {
       "type": "references",
       "from": "STORY-11",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "STORY-11"
     },
     {
@@ -5323,11 +5614,11 @@
     {
       "type": "references",
       "from": "STORY-12",
-      "to": "TKT-UABC-34"
+      "to": "UABC-46"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-34",
+      "from": "UABC-46",
       "to": "STORY-12"
     },
     {
@@ -5363,11 +5654,11 @@
     {
       "type": "references",
       "from": "STORY-13",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "STORY-13"
     },
     {
@@ -5403,11 +5694,11 @@
     {
       "type": "references",
       "from": "STORY-14",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "STORY-14"
     },
     {
@@ -5443,11 +5734,11 @@
     {
       "type": "references",
       "from": "STORY-15",
-      "to": "TKT-UABC-38"
+      "to": "UABC-50"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-38",
+      "from": "UABC-50",
       "to": "STORY-15"
     },
     {
@@ -5483,11 +5774,11 @@
     {
       "type": "references",
       "from": "HYPERCARE-1",
-      "to": "TKT-UABC-35"
+      "to": "UABC-47"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-35",
+      "from": "UABC-47",
       "to": "HYPERCARE-1"
     },
     {
@@ -5523,11 +5814,11 @@
     {
       "type": "references",
       "from": "HYPERCARE-2",
-      "to": "TKT-UABC-32"
+      "to": "UABC-44"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-32",
+      "from": "UABC-44",
       "to": "HYPERCARE-2"
     },
     {
@@ -5563,11 +5854,11 @@
     {
       "type": "references",
       "from": "HYPERCARE-3",
-      "to": "TKT-UABC-36"
+      "to": "UABC-48"
     },
     {
       "type": "references",
-      "from": "TKT-UABC-36",
+      "from": "UABC-48",
       "to": "HYPERCARE-3"
     },
     {
@@ -5607,7 +5898,30 @@
     "worklogHours": 80,
     "worklogCost": 9600,
     "worklogRate": 120,
-    "realBcExecution": false
+    "realBcExecution": false,
+    "activeTicketCount": 50,
+    "activeTicketIdRange": "UABC-1..UABC-50",
+    "phaseCount": 3,
+    "epicCount": 10,
+    "storyCount": 18,
+    "taskCount": 19,
+    "internalTraceabilityCount": 0,
+    "billableTicketCount": 19,
+    "planHours": 80,
+    "actualHours": 80,
+    "netAmount": 9600,
+    "phaseHours": {
+      "P1": 22,
+      "P2": 40,
+      "P3": 18
+    },
+    "ticketSource": "evidence/simulation/project-story.json",
+    "historicalTicketSource": "provenance-only",
+    "transcriptCoverage": {
+      "UABC-MTG-001": "Discovery/Fit-to-Standard",
+      "UABC-MTG-002": "Setup/Migration/Prozesse/SIT/UAT/Schulung",
+      "UABC-MTG-003": "Go-live/Hypercare/Finance-Abschluss/Handover"
+    }
   },
   "catalogs": {
     "sessions": [
@@ -5683,194 +5997,606 @@
   },
   "ticketMigration": [
     {
-      "legacyTicketId": "TKT-UABC-22",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-22",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-PROJECT",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-22-01",
-      "hours": 6
+      "sourceId": "UABC-PHASE-1",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-1",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-23",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-23",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-FINANCE",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-23-01",
-      "hours": 4
+      "sourceId": "UABC-PHASE-2",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-2",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-24",
-      "legacyType": "story",
-      "newTicketId": "TKT-UABC-24",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-PURCHASING",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-24-01",
-      "hours": 1.5
+      "sourceId": "UABC-PHASE-3",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-3",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-25",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-25",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-DATA",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-25-01",
-      "hours": 5
+      "sourceId": "TKT-UABC-EPIC-PROJECT",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-4",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-26",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-26",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-ACCEPTANCE",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-26-01",
-      "hours": 3
+      "sourceId": "TKT-UABC-EPIC-FINANCE",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-5",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-27",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-27",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-FOUNDATION",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-27-01",
-      "hours": 4
+      "sourceId": "TKT-UABC-EPIC-PURCHASING",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-9",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-28",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-28",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-FINANCE",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-28-01",
-      "hours": 10
+      "sourceId": "TKT-UABC-EPIC-SALES",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-9",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-29",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-29",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-DATA",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-29-01",
-      "hours": 4
+      "sourceId": "TKT-UABC-EPIC-INVENTORY",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-9",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-30",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-30",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-PURCHASING",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-30-01",
-      "hours": 5
+      "sourceId": "TKT-UABC-EPIC-DATA",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-8",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-31",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-31",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-SALES",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-31-01",
-      "hours": 5
+      "sourceId": "TKT-UABC-EPIC-ENABLEMENT",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-10",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-32",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-32",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-INVENTORY",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-32-01",
-      "hours": 5
+      "sourceId": "TKT-UABC-EPIC-TRANSITION",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-11",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-33",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-33",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-TRAINING",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-33-01",
-      "hours": 4
+      "sourceId": "TKT-UABC-STORY-P1-PROJECT",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-14",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-34",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-34",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P2-UAT",
-      "phaseId": "UABC-PHASE-2",
-      "worklogId": "WL-TKT-UABC-34-01",
-      "hours": 3
+      "sourceId": "TKT-UABC-STORY-P1-ACCEPTANCE",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-15",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-35",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-35",
-      "newType": "task",
-      "parentId": "TKT-UABC-BUG-P3-PAYMENT",
-      "phaseId": "UABC-PHASE-3",
-      "worklogId": "WL-TKT-UABC-35-01",
-      "hours": 2
+      "sourceId": "TKT-UABC-STORY-P1-FINANCE",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-16",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-36",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-36",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P3-CLOSE",
-      "phaseId": "UABC-PHASE-3",
-      "worklogId": "WL-TKT-UABC-36-01",
-      "hours": 3
+      "sourceId": "TKT-UABC-STORY-P1-PURCHASING",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-17",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-37",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-37",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P3-CLOSE",
-      "phaseId": "UABC-PHASE-3",
-      "worklogId": "WL-TKT-UABC-37-01",
-      "hours": 2
+      "sourceId": "TKT-UABC-STORY-P1-SALES",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-18",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-38",
-      "legacyType": "task",
-      "newTicketId": "TKT-UABC-38",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P3-HANDOVER",
-      "phaseId": "UABC-PHASE-3",
-      "worklogId": "WL-TKT-UABC-38-01",
-      "hours": 11
+      "sourceId": "TKT-UABC-STORY-P1-INVENTORY",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-19",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-24",
-      "legacyType": "story",
-      "newTicketId": "TKT-UABC-24-SALES",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-SALES",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-24-SALES-01",
-      "hours": 1.5
+      "sourceId": "TKT-UABC-STORY-P1-DATA",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-20",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
     },
     {
-      "legacyTicketId": "TKT-UABC-24",
-      "legacyType": "story",
-      "newTicketId": "TKT-UABC-24-INVENTORY",
-      "newType": "task",
-      "parentId": "TKT-UABC-STORY-P1-INVENTORY",
-      "phaseId": "UABC-PHASE-1",
-      "worklogId": "WL-TKT-UABC-24-INVENTORY-01",
-      "hours": 1
+      "sourceId": "TKT-UABC-STORY-P2-FOUNDATION",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-21",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-FINANCE",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-22",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-DATA",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-23",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-PURCHASING",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-24",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-SALES",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-25",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-INVENTORY",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-26",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-TRAINING",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-27",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P2-UAT",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-28",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-BUG-P3-PAYMENT",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-29",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P3-CLOSE",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-30",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-STORY-P3-HANDOVER",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-31",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-22",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-32",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-23",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-34",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-24",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-35",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-25",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-38",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-26",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-33",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-27",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-39",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-28",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-40",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-29",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-41",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-30",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-42",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-31",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-43",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-32",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-44",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-33",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-45",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-34",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-46",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-35",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-47",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-36",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-48",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-37",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-49",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-38",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-50",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-24-SALES",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-36",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "TKT-UABC-24-INVENTORY",
+      "sourceKind": "previous-active-ticket",
+      "targetId": "UABC-37",
+      "targetKind": "active-ticket",
+      "decision": "fachliche Migration mit erhaltener Evidence"
+    },
+    {
+      "sourceId": "UABC-18",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/billing.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-19",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-20",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-21",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-22",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-23",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-24",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-25",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-26",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-27",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-28",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-29",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-30",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-31",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-32",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-33",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-34",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-35",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-36",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-37",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-38",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-1",
+      "sourceKind": "historical-traceability",
+      "targetId": "atlassian/confluence/pages/30-blueprint.md",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-2",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-3",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-4",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-5",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-6",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-7",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-8",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-9",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-10",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-11",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-12",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-13",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-14",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-15",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-16",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
+    },
+    {
+      "sourceId": "UABC-17",
+      "sourceKind": "historical-traceability",
+      "targetId": "project/bc-basic/ticket-migration.yaml",
+      "targetKind": "non-ticket-provenance",
+      "decision": "historische Provenienz, keine aktive Ticketquelle"
     }
   ]
 }

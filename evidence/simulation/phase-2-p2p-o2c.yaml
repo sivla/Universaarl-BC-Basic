@@ -1,7 +1,7 @@
 schemaVersion: 1
 evidenceId: UABC-EV-SIM-PHASE2-001
 projectId: UABC-BC-BASIC-001
-changeRef: deliver-bc-basic-customer-project
+changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 classification: synthetic-only
 simulationStatus: synthetisch-abgenommen
 realBcExecution: false

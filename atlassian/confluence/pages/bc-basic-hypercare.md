@@ -28,7 +28,7 @@ Hypercare ist synthetisch abgeschlossen. Am Exit waren P1 = 0 und P2 = 0 offen, 
 ## Tag 1 – Zahlungseingang
 
 - **Lage:** Zahlungseingang konnte nicht automatisch dem Debitorenposten zugeordnet werden.
-- **Ticket:** `TKT-UABC-35`, Priorität P2; Tages-Evidence `SIM-HC-001`.
+- **Ticket:** `UABC-47`, Priorität P2; Tages-Evidence `SIM-HC-001`.
 - **Diagnose:** Ausgleichsreferenz auf `SYN-AR-002` fehlte; Betrag und Bankbewegung waren korrekt.
 - **Korrektur:** Applies-to-Referenz ergänzen und Ausgleich erneut prüfen.
 - **Retest:** Debitorenposten geschlossen, Bank- und Sachkontowirkung abgestimmt.
@@ -37,7 +37,7 @@ Hypercare ist synthetisch abgeschlossen. Am Exit waren P1 = 0 und P2 = 0 offen, 
 ## Tag 2 – Inventurdifferenz
 
 - **Lage:** Die Zählung wich um eine Einheit vom erwarteten Lagerbestand ab.
-- **Ticket:** `TKT-UABC-32`, Priorität P2; Tages-Evidence `SIM-HC-002`.
+- **Ticket:** `UABC-44`, Priorität P2; Tages-Evidence `SIM-HC-002`.
 - **Diagnose:** Falscher Lagerort im Erfassungsschritt; Artikel und Einstandspreis waren korrekt.
 - **Korrektur:** Lagerort auf `HAUPT` setzen und Differenz `SYN-INV-001` buchen.
 - **Retest:** Schlussbestand 99 Stück, Lagerwert 4.158,00 EUR, Item und Value Entries konsistent.
@@ -46,7 +46,7 @@ Hypercare ist synthetisch abgeschlossen. Am Exit waren P1 = 0 und P2 = 0 offen, 
 ## Tag 3 – VAT-Kennzeichnung
 
 - **Lage:** Der Hinweis auf die synthetische Steuerentscheidung fehlte in der VAT-Abnahme.
-- **Ticket:** `TKT-UABC-36`, Priorität P1 wegen unklarer Wahrheitsgrenze; Tages-Evidence `SIM-HC-003`.
+- **Ticket:** `UABC-48`, Priorität P1 wegen unklarer Wahrheitsgrenze; Tages-Evidence `SIM-HC-003`.
 - **Diagnose:** Berechnung war mit 70,30 EUR korrekt, aber die Nichtübermittlung und fehlende Steuerberatung waren nicht deutlich genug markiert.
 - **Korrektur:** synthetischen Status, Reviewgrenze und Nichtübermittlung in Evidence und Handover ergänzen.
 - **Retest:** VAT-Vorschau, Referenzen und Wahrheitshinweis vollständig; keine externe Übermittlung.

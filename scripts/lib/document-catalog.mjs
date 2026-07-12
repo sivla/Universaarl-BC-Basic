@@ -381,11 +381,11 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   if (catalog?.catalogId !== DOCUMENT_CATALOG_ID || catalog?.projectId !== projectIndex?.projectId || catalog?.contractId !== projectIndex?.contractId || catalog?.allowedBranch !== projectIndex?.allowedBranch || catalog?.sourceIndexPath !== 'exports/project-data/v1/index.yaml') {
     add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Katalog und Branch-Index besitzen nicht dieselbe Projekt-/Vertragsidentitaet');
   }
-  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 32 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
+  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 34 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
   if (!sameArray(config.allowedExternalOrigins, catalog?.allowedExternalOrigins)) add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Erlaubte externe Origins stimmen nicht zwischen Index und Katalog ueberein');
 
   const documents = Array.isArray(catalog?.documents) ? catalog.documents : [];
-  if (catalog?.documentCount !== documents.length || documents.length !== 32) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 32 Dokumente, gefunden wurden ${documents.length}`);
+  if (catalog?.documentCount !== documents.length || documents.length !== 34) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 34 Dokumente, gefunden wurden ${documents.length}`);
   const pageCount = documents.filter((document) => document.documentType === 'confluence-page').length;
   if (catalog?.confluenceDocumentCount !== pageCount || pageCount !== 19) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 19 strukturierte Seiten, gefunden wurden ${pageCount}`);
 
@@ -393,7 +393,7 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   const artifactById = new Map(markdownArtifacts.map((artifact) => [artifact.id, artifact]));
   const expectedPairs = new Set(markdownArtifacts.map((artifact) => `${artifact.id}\0${artifact.path}`));
   const actualPairs = new Set(documents.map((document) => `${document.artifactId}\0${document.sourcePath}`));
-  if (expectedPairs.size !== 32 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
+  if (expectedPairs.size !== 34 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
 
   const documentIds = new Set();
   const artifactIds = new Set();
@@ -401,7 +401,7 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   const refs = referenceSets ?? collectReferenceSets(projectIndex, readEntry);
   const origins = new Set(catalog?.allowedExternalOrigins ?? []);
   const definitions = new Map((config.definitions ?? []).map((definition) => [definition.artifactId, definition]));
-  if (definitions.size !== 32 || (config.definitions ?? []).length !== 32) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 32 eindeutige Dokumentdefinitionen enthalten');
+  if (definitions.size !== 34 || (config.definitions ?? []).length !== 34) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 34 eindeutige Dokumentdefinitionen enthalten');
   for (const origin of origins) if (!validOrigin(origin)) add(errors, DOCUMENT_CATALOG_ERROR.url, `Erlaubte Origin ist keine sichere kanonische HTTPS-Origin: ${origin}`);
 
   for (const document of documents) {

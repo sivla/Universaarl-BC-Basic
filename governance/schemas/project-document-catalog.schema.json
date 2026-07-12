@@ -62,12 +62,12 @@
       "maxItems": 19,
       "items": { "$ref": "#/$defs/redirect" }
     },
-    "documentCount": { "const": 32 },
+    "documentCount": { "const": 34 },
     "confluenceDocumentCount": { "const": 19 },
     "documents": {
       "type": "array",
-      "minItems": 32,
-      "maxItems": 32,
+      "minItems": 34,
+      "maxItems": 34,
       "items": { "$ref": "#/$defs/document" }
     }
   },

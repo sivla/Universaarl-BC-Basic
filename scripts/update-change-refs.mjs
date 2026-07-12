@@ -1,0 +1,3 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(); const old='deliver-bc-basic-customer-project'; const next='migrate-bc-basic-to-single-uabc-ticket-project';
+const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.relative(root,path.join(d,e.name)).replaceAll('\\','/');if(e.name==='node_modules'||e.name==='.git'||p.startsWith('openspec/changes/archive/'))continue;if(e.isDirectory())walk(path.join(d,e.name));else if(/\.(md|yaml|yml|json)$/.test(e.name))files.push(p)}};walk(root);for(const p of files){const s=fs.readFileSync(p,'utf8'),n=s.split(old).join(next);if(n!==s)fs.writeFileSync(p,n)}console.log(`Change-Referenzen aktualisiert: ${files.length} Dateien geprüft.`);

@@ -1,0 +1,23 @@
+schema: universaarl-delivery
+created: 2026-07-12
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-TICKET-MIGRATION-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-12
+  scope: nur Migration der kundenlesbaren Ticketquelle und ihrer Provenienz; keine Live-Jira-, BC- oder Remote-Aktion
+  conditions:
+    - aktive Tickets sind exakt UABC-1..UABC-50
+    - 86 Quellidentitäten sind vollständig abgedeckt
+    - lokale Validatoren und OpenSpec strict sind grün
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    project: { status: confirmed, value: UABC-BC-BASIC-001 }
+    sourceIndex: { status: confirmed, value: exports/project-data/v1/index.yaml }
+    documentCatalog: { status: confirmed, value: exports/project-data/v1/document-catalog.json }
+    ticketContract: { status: confirmed, value: UABC-1..UABC-50 }
+  unknowns: []
+  policyGateEvidenceId: UABC-VER-BCB-TICKET-MIGRATION-001

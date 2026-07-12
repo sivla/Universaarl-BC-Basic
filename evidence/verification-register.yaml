@@ -164,7 +164,7 @@ verifications:
     subjectRefs: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
     evidence: Automatisierter change-spezifischer Pruefpunkt nach Draft-2020-12-Schemavalidierung, Pilotadapter-Pruefungen, deterministischem Rebuild, begrenztem Export-/Checksum-Konsumententest, lokalem Desktop-/Mobil-Playwright-Interaktionstest, OpenSpec-strict-Validierung und Projekt-Referenzvalidierung bestanden; kanonisches Walkthrough-Registry-Update ist angewendet, ohne neue fachliche Nachweise zu behaupten
   - id: UABC-VER-BCB-LOCAL-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: repository
@@ -173,7 +173,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-004, UABC-REQ-BCB-011]
     evidence: null
   - id: UABC-VER-BCB-READINESS-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: human-approval
@@ -182,7 +182,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-002, UABC-REQ-BCB-005, UABC-REQ-BCB-006]
     evidence: null
   - id: UABC-VER-BCB-E2E-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: automated
@@ -191,7 +191,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
     evidence: null
   - id: UABC-VER-BCB-TRAINING-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: human-approval
@@ -200,7 +200,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-007, UABC-REQ-BCB-008]
     evidence: null
   - id: UABC-VER-BCB-CLOSE-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: document-review
@@ -209,7 +209,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-009]
     evidence: null
   - id: UABC-VER-BCB-VAT-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: document-review
@@ -218,7 +218,7 @@ verifications:
     subjectRefs: [UABC-REQ-BCB-009]
     evidence: null
   - id: UABC-VER-BCB-HANDOVER-001
-    changeRef: deliver-bc-basic-customer-project
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: true
     status: pending
     type: human-approval
@@ -229,9 +229,18 @@ verifications:
   - id: UABC-VER-BCB-POLICY-GATE-001
     changeRef: deliver-bc-basic-customer-project
     requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-12
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-007, UABC-REQ-BCB-008, UABC-REQ-BCB-009, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+    evidence: Archivierung des vollständig abgeschlossenen Changes ist kontrolliert in die Projektablage erfolgt.
+  - id: UABC-VER-BCB-TICKET-MIGRATION-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: true
     status: pending
     type: automated-policy-gate
     executedAt: null
     environment: null
-    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-007, UABC-REQ-BCB-008, UABC-REQ-BCB-009, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003]
     evidence: null

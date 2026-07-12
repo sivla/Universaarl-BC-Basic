@@ -17,8 +17,8 @@ deliverables:
     ownerRef: P-002
     jiraRefs: [UABC-22, UABC-26]
     requiredSourcePaths:
-      - openspec/changes/deliver-bc-basic-customer-project/proposal.md
-      - openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md
+      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md
+      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md
       - project/bc-basic/uat-catalog.yaml
       - atlassian/confluence/pages/70-bc-basic-project.md
     completionEvidence: evidence/simulation/project-completion.yaml
@@ -30,7 +30,7 @@ deliverables:
     ownerRef: P-002
     jiraRefs: [UABC-23, UABC-24]
     requiredSourcePaths:
-      - openspec/changes/deliver-bc-basic-customer-project/design.md
+      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/design.md
       - project/bc-basic/decision-register.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
     completionEvidence: evidence/simulation/project-completion.yaml
@@ -78,7 +78,7 @@ deliverables:
     requiredSourcePaths:
       - project/bc-basic/uat-catalog.yaml
       - playwright/scenarios/bc-basic-e2e.yaml
-      - openspec/changes/deliver-bc-basic-customer-project/verification.md
+      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-007
     phaseRef: UABC-PHASE-03
@@ -100,7 +100,7 @@ deliverables:
     jiraRefs: [UABC-37]
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
-      - openspec/changes/deliver-bc-basic-customer-project/verification.md
+      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-009
     phaseRef: UABC-PHASE-03

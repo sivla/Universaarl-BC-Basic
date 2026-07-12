@@ -687,7 +687,7 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
   findCycle(issueMap.keys(), dependencyEdges, 'Jira-Abhaengigkeit');
 
   const spacePointer = await yaml('atlassian/confluence/space.yaml');
-  const bcBasicChangeActive = await exists('openspec/changes/deliver-bc-basic-customer-project');
+const bcBasicChangeActive = await exists('openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project');
   const sourceIndexAvailable = typeof spacePointer.sourceIndex === 'string' && await exists(spacePointer.sourceIndex);
   const pageFiles = await walk('atlassian/confluence/pages', (file) => file.endsWith('.md'));
   const pages = await Promise.all(pageFiles.map(async (file) => ({ file, meta: frontmatter(await read(file), file) })));
@@ -807,7 +807,7 @@ const openSpec = await openSpecReferences(lifecycle);
 await validateMainSpecPurposes();
 const projectIndexPath = 'exports/project-data/v1/index.yaml';
 const consumerBindingsPath = 'governance/consumer-bindings.yaml';
-const bcBasicContractTargeted = openSpec.activeChanges.includes('deliver-bc-basic-customer-project')
+const bcBasicContractTargeted = openSpec.activeChanges.includes('migrate-bc-basic-to-single-uabc-ticket-project')
   || await exists(projectIndexPath);
 if (bcBasicContractTargeted) {
   check(await exists(projectIndexPath), `${projectIndexPath}: BC-Basic-Projektindex fehlt`);

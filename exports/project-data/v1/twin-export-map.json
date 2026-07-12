@@ -13,7 +13,7 @@
     {
       "id": "UABC-SRC-BCB-OPENSPEC-001",
       "kindId": "openspec-change",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/proposal.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -21,7 +21,7 @@
     {
       "id": "UABC-SRC-BCB-SPEC-001",
       "kindId": "requirements",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/specs/bc-basic-delivery/spec.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/specs/bc-basic-ticket-migration/spec.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -29,7 +29,7 @@
     {
       "id": "UABC-SRC-BCB-DESIGN-001",
       "kindId": "solution-design",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/design.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/design.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -37,7 +37,7 @@
     {
       "id": "UABC-SRC-BCB-DPLAN-001",
       "kindId": "delivery-plan",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -45,7 +45,7 @@
     {
       "id": "UABC-SRC-BCB-TASKS-001",
       "kindId": "delivery-tasks",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/tasks.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/tasks.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -53,7 +53,7 @@
     {
       "id": "UABC-SRC-BCB-VPLAN-001",
       "kindId": "verification-plan",
-      "path": "openspec/changes/deliver-bc-basic-customer-project/verification.md",
+      "path": "openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -232,14 +232,6 @@
       "path": "atlassian/confluence/meetings/index.yaml",
       "selector": null,
       "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-MTG-002",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
-      "selector": null,
-      "format": "markdown",
       "required": true
     },
     {
@@ -446,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=deliver-bc-basic-customer-project]",
+      "selector": "verifications[changeRef=migrate-bc-basic-to-single-uabc-ticket-project]",
       "format": "yaml",
       "required": true
     },
@@ -872,6 +864,38 @@
       "path": "evidence/simulation/document-catalog-validation.yaml",
       "selector": null,
       "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TICKET-MIGRATION-001",
+      "kindId": "ticket-migration-provenance",
+      "path": "project/bc-basic/ticket-migration.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "selector": null,
+      "format": "markdown",
       "required": true
     }
   ]

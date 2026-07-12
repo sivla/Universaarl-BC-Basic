@@ -58,9 +58,9 @@ const deliverableById = new Map(deliverables.map((deliverable) => [deliverable.i
 const meetings = meetingIndex.meetings ?? [];
 const meetingById = new Map(meetings.map((meeting) => [meeting.id, meeting]));
 const verificationById = new Map((verificationRegister.verifications ?? []).map((verification) => [verification.id, verification]));
-const taskPlanText = await fs.readFile(path.join(root, 'openspec', 'changes', 'deliver-bc-basic-customer-project', 'tasks.md'), 'utf8');
+const taskPlanText = await fs.readFile(path.join(root, 'openspec', 'changes', 'migrate-bc-basic-to-single-uabc-ticket-project', 'tasks.md'), 'utf8');
 const [changeConfig, decisionRegister] = await Promise.all([
-  yaml('openspec/changes/deliver-bc-basic-customer-project/.openspec.yaml'),
+  yaml('openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/.openspec.yaml'),
   yaml('project/bc-basic/decision-register.yaml')
 ]);
 
@@ -377,7 +377,7 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   ]);
   const requiredSelectors = new Map([
     ['atlassian/jira/people.yaml', 'people[id in P-001,P-002,P-003,P-004,P-005,P-011,P-015,P-016,P-019]'],
-    ['evidence/verification-register.yaml', 'verifications[changeRef=deliver-bc-basic-customer-project]'],
+    ['evidence/verification-register.yaml', 'verifications[changeRef=migrate-bc-basic-to-single-uabc-ticket-project]'],
     ['docs/research/sources.yaml', 'sources[id in SRC-OPSX-001,SRC-BC-001,SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-BC-077,SRC-BC-078,SRC-BC-079,SRC-BC-080,SRC-BC-081,SRC-BC-082,SRC-BC-083,SRC-BC-084,SRC-LAW-001,SRC-ELSTER-001]']
   ]);
   assert.ok(projectIndex.artifacts.some((artifact) => artifact.path === 'evidence/simulation/phase-2-p2p-o2c.yaml'));
@@ -486,7 +486,7 @@ test('Cash Lager Monatsabschluss und UStVA-Simulation besitzen Summen Retests un
 
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
-  assert.equal(consumerBindings.governingChange, 'deliver-bc-basic-customer-project');
+  assert.equal(consumerBindings.governingChange, 'migrate-bc-basic-to-single-uabc-ticket-project');
   assert.equal(consumerBindings.lifecycleStatus, 'proposed');
   assert.deepEqual(consumerBindings.producer, {
     projectId: 'UABC-BC-BASIC-001',

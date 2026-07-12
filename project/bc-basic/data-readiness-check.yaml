@@ -1,7 +1,7 @@
 schemaVersion: 1
 checkId: UABC-DATA-READY-BCB-001
 projectId: UABC-BC-BASIC-001
-changeRef: deliver-bc-basic-customer-project
+changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 dryRunPath: project/bc-basic/phase-2-dry-run.yaml
 status: planned
 templateState: kundenbereit

@@ -1,5 +1,5 @@
 schemaVersion: 2
-governingChange: deliver-bc-basic-customer-project
+governingChange: migrate-bc-basic-to-single-uabc-ticket-project
 lifecycleStatus: proposed
 producer:
   projectId: UABC-BC-BASIC-001

@@ -40,7 +40,7 @@ externalCosts:
   - Reise- und sonstige Auslagen, falls spaeter beauftragt
 customerEffortBilling: Kundeninterne Arbeitszeiten werden nicht erfasst und nicht abgerechnet.
 currentSimulationWorklogSource: evidence/simulation/project-story.json:tickets[type=task].worklogs
-currentSimulationTicketRange: TKT-UABC-22..TKT-UABC-38
+currentSimulationTicketRange: UABC-32..UABC-50
 currentSimulationCountingScope: billable-task-worklogs-only
 historicalPlanSource: atlassian/jira/issues/bc-basic-project.yaml
 historicalPlanLeafRange: UABC-22..UABC-38

@@ -1,7 +1,7 @@
 schemaVersion: 1
 catalogId: UABC-UAT-BCB-001
 projectId: UABC-BC-BASIC-001
-changeRef: deliver-bc-basic-customer-project
+changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 status: planned
 templateState: kundenbereit
 simulationState: synthetisch-sieben-Faelle-abgenommen

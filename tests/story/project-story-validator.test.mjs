@@ -31,7 +31,7 @@ test('TIMELINE_UNKNOWN_SESSION erkennt unbekannte BC-Sitzung', () => has(mutate(
 test('TIMELINE_UNKNOWN_DECISION erkennt unbekannte Entscheidung', () => has(mutate((s) => { s.timeline[0].decision = 'DECISION-NOT-FOUND'; }), 'UNBEKANNTE-TIMELINE-REFERENZ'));
 test('TIMELINE_OUTSIDE_WINDOW erkennt Zeit ausserhalb Projektzeitraum', () => has(mutate((s) => { s.timeline[0].time = '2027-01-01'; }), 'TIMELINE-GRENZE'));
 test('REFERENCED_OPEN_P1 erkennt tatsächlich offenes P1-Ticket', () => has(mutate((s) => { s.tickets.find((t) => t.id === s.hypercare[0].ticket).status = 'in-progress'; }), 'OFFENES-P1-P2'));
-test('INVERSE_MISSING erkennt fehlende Rückkante', () => has(mutate((s) => { s.relations = s.relations.filter((r) => !(r.type === 'references' && r.from === 'TKT-UABC-29')); }), 'INVERSE-RELATION'));
+test('INVERSE_MISSING erkennt fehlende Rückkante', () => has(mutate((s) => { s.relations = s.relations.filter((r) => !(r.type === 'references' && r.from === 'UABC-32')); }), 'INVERSE-RELATION'));
 test('STRING_STATUSHISTORY wird nicht als kanonisch akzeptiert', () => has(mutate((s) => { s.tickets[0].statusHistory = ['created','in-progress','done']; }), 'STATUSHISTORY-ABWEICHUNG'));
 test('FEHLENDE_WORKLOG_KOSTEN werden abgelehnt', () => has(mutate((s) => { delete task(s).worklogs[0].netAmount; }), 'WORKLOG-NESTED-TYP'));
 test('FEHLENDE_HYPERCARE_EVIDENCE wird abgelehnt', () => has(mutate((s) => { delete s.hypercare[0].evidence; }), 'HYPERCARE-RECORD'));
@@ -43,13 +43,13 @@ test('PAGE_ORDER erkennt doppelte Reihenfolge im Space', () => has(mutate((s) =>
 test('PAGE_ROOT erkennt fehlende deklarierte Space-Wurzel', () => has(mutate((s) => { s.pages.find((p) => p.id === 'PAGE-UABC-090').parent = 'PAGE-UABC-000'; }), 'SEITE-WURZEL'));
 test('TICKET_TYPE_MISSING erkennt fehlenden kanonischen Typ', () => has(mutate((s) => { delete s.tickets[0].type; }), 'TICKET-TYP'));
 test('TICKET_TYPE_UNKNOWN erkennt unbekannten kanonischen Typ', () => has(mutate((s) => { s.tickets[0].type = 'ableitung-aus-titel'; }), 'TICKET-TYP'));
-test('TICKET_PARENT_TYPE erkennt inkonsistenten Parent-Typ', () => has(mutate((s) => { s.tickets.find((t) => t.id === 'TKT-UABC-23').parent = 'TKT-UABC-35'; }), 'TICKET-PARENT-TYP'));
-test('TICKET_PARENT_TYPE erkennt Parent an Epic', () => has(mutate((s) => { s.tickets[0].parent = 'TKT-UABC-38'; }), 'TICKET-PARENT-TYP'));
+test('TICKET_PARENT_TYPE erkennt inkonsistenten Parent-Typ', () => has(mutate((s) => { s.tickets.find((t) => t.id === 'UABC-34').parent = 'UABC-47'; }), 'TICKET-PARENT-TYP'));
+test('TICKET_PARENT_TYPE erkennt Parent an Epic', () => has(mutate((s) => { s.tickets[0].parent = 'UABC-50'; }), 'TICKET-PARENT-TYP'));
 test('ELTERN_WORKLOG blockiert fakturierbaren Worklog auf Epic', () => has(mutate((s) => { s.tickets[0].worklogs = [structuredClone(task(s).worklogs[0])]; }), 'ELTERN-WORKLOG'));
 test('TASK_BILLABLE blockiert nicht abrechenbaren Phasen-Task', () => has(mutate((s) => { task(s).billable = false; }), 'TASK-ABRECHNUNG'));
-test('TASK_PARENT blockiert Task ohne Story- oder Bug-Elternteil', () => has(mutate((s) => { task(s).parent = 'TKT-UABC-EPIC-P1'; }), 'TICKET-PARENT-TYP'));
+test('TASK_PARENT blockiert Task ohne Story- oder Bug-Elternteil', () => has(mutate((s) => { task(s).parent = 'UABC-4'; }), 'TICKET-PARENT-TYP'));
 test('DOPPELTES_WORKLOG wird blockiert', () => has(mutate((s) => { task(s).worklogs.push(structuredClone(task(s).worklogs[0])); }), 'WORKLOG-FEHLT'));
-test('HYPERCARE_GRENZE blockiert mehr als zehn Stunden', () => has(mutate((s) => { const t=s.tickets.find((x)=>x.id==='TKT-UABC-35'); t.actualHours=11; t.netAmount=1320; t.worklogs[0].hours=11; t.worklogs[0].netAmount=1320; }), 'HYPERCARE-GRENZE'));
+test('HYPERCARE_GRENZE blockiert mehr als zehn Stunden', () => has(mutate((s) => { const t=s.tickets.find((x)=>x.id==='UABC-47'); t.actualHours=11; t.netAmount=1320; t.worklogs[0].hours=11; t.worklogs[0].netAmount=1320; }), 'HYPERCARE-GRENZE'));
 test('FEHLENDES_PHASE_TICKET blockiert externe Phase ohne Ticket', () => has(mutate((s) => { s.tickets.shift(); }), 'PHASE-VERTRAG'));
 test('ZUSAETZLICHES_PHASE_TICKET wird blockiert', () => has(mutate((s) => { s.tickets.splice(3,0,structuredClone(s.tickets[0])); }), 'PHASE-VERTRAG'));
 test('PHASE_REIHENFOLGE wird blockiert', () => has(mutate((s) => { [s.tickets[0],s.tickets[1]]=[s.tickets[1],s.tickets[0]]; }), 'PHASE-VERTRAG'));

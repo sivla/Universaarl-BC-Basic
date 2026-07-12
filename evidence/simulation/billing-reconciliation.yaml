@@ -5,7 +5,7 @@ status: simulated-complete
 simulationTimestamp: 2026-09-03T16:00:00+02:00
 timelineEvent: STORY-15
 scope:
-  ticketRange: TKT-UABC-22..TKT-UABC-38
+  ticketRange: UABC-32..UABC-50
   sourceOfTruth: evidence/simulation/project-story.json
   worklogSource: evidence/simulation/project-story.json:tickets[type=task].worklogs
   offerSource: docs/offers/bc-basic-offer.md
@@ -57,6 +57,6 @@ decision:
   decidedAt: 2026-09-03T16:00:00+02:00
   limitation: Keine reale Jira-Freigabe, Rechnung, Kundenfreigabe oder Zahlung ausgeführt.
 references:
-  canonicalStoryTickets: [TKT-UABC-22, TKT-UABC-23, TKT-UABC-24, TKT-UABC-25, TKT-UABC-26, TKT-UABC-27, TKT-UABC-28, TKT-UABC-29, TKT-UABC-30, TKT-UABC-31, TKT-UABC-32, TKT-UABC-33, TKT-UABC-34, TKT-UABC-35, TKT-UABC-36, TKT-UABC-37, TKT-UABC-38]
+  canonicalStoryTickets: [UABC-32, UABC-34, UABC-35, UABC-38, UABC-33, UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-45, UABC-46, UABC-47, UABC-48, UABC-49, UABC-50]
   historicalPlanTickets: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
   evidence: [evidence/simulation/project-story.json, evidence/simulation/project-reconciliation.json, evidence/simulation/adapter-provenance.json, exports/project-data/v1/twin-export-map.json, docs/offers/bc-basic-offer.md, atlassian/jira/issues/bc-basic-project.yaml]

@@ -21,7 +21,7 @@ export function validateConsumerBindings(binding, projectIndex) {
   const check = (condition, message) => { if (!condition) errors.push(message); };
   const prefix = 'governance/consumer-bindings.yaml';
   check(binding?.schemaVersion === 2, `${prefix}: schemaVersion muss 2 sein`);
-  check(binding?.governingChange === 'deliver-bc-basic-customer-project' && binding?.lifecycleStatus === 'proposed', `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
+  check(binding?.governingChange === 'migrate-bc-basic-to-single-uabc-ticket-project' && ['proposed','active'].includes(binding?.lifecycleStatus), `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
   check(exactKeys(binding?.producer, ['projectId', 'contractId', 'contractPath']), `${prefix}: producer enthaelt unerlaubte oder fehlende Felder`);
   check(binding?.producer?.projectId === projectIndex?.projectId && binding?.producer?.contractId === projectIndex?.contractId && binding?.producer?.contractPath === 'exports/project-data/v1/index.yaml', `${prefix}: Producervertrag stimmt nicht mit dem Index ueberein`);
   check(projectIndex?.contractRole === 'repository-relative-data-allowlist' && projectIndex?.snapshotManifestIncluded === false, `${prefix}: Index muss Allowlist und kein Snapshotmanifest sein`);

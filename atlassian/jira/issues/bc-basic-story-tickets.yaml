@@ -5,18 +5,12 @@ sourceContract: evidence/simulation/project-story.json
 generated: true
 derivedFrom:
   - evidence/simulation/project-story.json
-  - atlassian/jira/issues/bc-basic-project.yaml
-  - atlassian/jira/issues/blueprint-wave.yaml
-  - atlassian/jira/issues/environment-baseline.yaml
-  - atlassian/jira/issues/walkthrough-pilot.yaml
+  - project/bc-basic/ticket-migration.yaml
 canonicalTypes:
   - phase
   - epic
   - story
   - task
-  - subtask
-  - bug
-  - change
 typePresentations:
   phase:
     typeLabel: Phase
@@ -34,18 +28,6 @@ typePresentations:
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-  subtask:
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-  bug:
-    typeLabel: Fehler
-    displayIconKey: jira-bug
-    displayColorToken: red
-  change:
-    typeLabel: Aenderung
-    displayIconKey: jira-change
-    displayColorToken: orange
 liveIconPolicy:
   sourceMode: local-allowlist-only
   allowlistedAssets: []
@@ -92,101 +74,91 @@ views:
     groups: &a1
       - id: UABC-TICKET-GROUP-P1
         type: phase
-        phaseId: UABC-PHASE-1
+        phaseId: UABC-1
         title: Phase 1 – Vorbereitung und Datenbereitschaft
         order: 1
         collapsible: true
         initialState: expanded
         epicIds:
-          - TKT-UABC-EPIC-PROJECT
-          - TKT-UABC-EPIC-FINANCE
-          - TKT-UABC-EPIC-PURCHASING
-          - TKT-UABC-EPIC-SALES
-          - TKT-UABC-EPIC-INVENTORY
-          - TKT-UABC-EPIC-DATA
+          - UABC-4
+          - UABC-5
+          - UABC-6
         ticketIds:
-          - UABC-PHASE-1
-          - TKT-UABC-EPIC-PROJECT
-          - TKT-UABC-EPIC-FINANCE
-          - TKT-UABC-EPIC-PURCHASING
-          - TKT-UABC-EPIC-SALES
-          - TKT-UABC-EPIC-INVENTORY
-          - TKT-UABC-EPIC-DATA
-          - TKT-UABC-STORY-P1-PROJECT
-          - TKT-UABC-22
-          - TKT-UABC-STORY-P1-ACCEPTANCE
-          - TKT-UABC-26
-          - TKT-UABC-STORY-P1-FINANCE
-          - TKT-UABC-23
-          - TKT-UABC-STORY-P1-PURCHASING
-          - TKT-UABC-24
-          - TKT-UABC-STORY-P1-SALES
-          - TKT-UABC-24-SALES
-          - TKT-UABC-STORY-P1-INVENTORY
-          - TKT-UABC-24-INVENTORY
-          - TKT-UABC-STORY-P1-DATA
-          - TKT-UABC-25
+          - UABC-1
+          - UABC-4
+          - UABC-5
+          - UABC-6
+          - UABC-14
+          - UABC-32
+          - UABC-15
+          - UABC-33
+          - UABC-16
+          - UABC-34
+          - UABC-17
+          - UABC-35
+          - UABC-18
+          - UABC-36
+          - UABC-19
+          - UABC-37
+          - UABC-20
+          - UABC-38
       - id: UABC-TICKET-GROUP-P2
         type: phase
-        phaseId: UABC-PHASE-2
+        phaseId: UABC-2
         title: Phase 2 – Einrichtung, Tests und Schulung
         order: 2
         collapsible: true
         initialState: expanded
         epicIds:
-          - TKT-UABC-EPIC-PROJECT
-          - TKT-UABC-EPIC-FINANCE
-          - TKT-UABC-EPIC-DATA
-          - TKT-UABC-EPIC-PURCHASING
-          - TKT-UABC-EPIC-SALES
-          - TKT-UABC-EPIC-INVENTORY
-          - TKT-UABC-EPIC-ENABLEMENT
+          - UABC-7
+          - UABC-8
+          - UABC-9
+          - UABC-10
         ticketIds:
-          - UABC-PHASE-2
-          - TKT-UABC-EPIC-PROJECT
-          - TKT-UABC-EPIC-FINANCE
-          - TKT-UABC-EPIC-DATA
-          - TKT-UABC-EPIC-PURCHASING
-          - TKT-UABC-EPIC-SALES
-          - TKT-UABC-EPIC-INVENTORY
-          - TKT-UABC-EPIC-ENABLEMENT
-          - TKT-UABC-STORY-P2-FOUNDATION
-          - TKT-UABC-27
-          - TKT-UABC-STORY-P2-FINANCE
-          - TKT-UABC-28
-          - TKT-UABC-STORY-P2-DATA
-          - TKT-UABC-29
-          - TKT-UABC-STORY-P2-PURCHASING
-          - TKT-UABC-30
-          - TKT-UABC-STORY-P2-SALES
-          - TKT-UABC-31
-          - TKT-UABC-STORY-P2-INVENTORY
-          - TKT-UABC-32
-          - TKT-UABC-STORY-P2-TRAINING
-          - TKT-UABC-33
-          - TKT-UABC-STORY-P2-UAT
-          - TKT-UABC-34
+          - UABC-2
+          - UABC-7
+          - UABC-8
+          - UABC-9
+          - UABC-10
+          - UABC-21
+          - UABC-39
+          - UABC-22
+          - UABC-40
+          - UABC-23
+          - UABC-41
+          - UABC-24
+          - UABC-42
+          - UABC-25
+          - UABC-43
+          - UABC-26
+          - UABC-44
+          - UABC-27
+          - UABC-45
+          - UABC-28
+          - UABC-46
       - id: UABC-TICKET-GROUP-P3
         type: phase
-        phaseId: UABC-PHASE-3
+        phaseId: UABC-3
         title: Phase 3 – Hypercare und Abschluss
         order: 3
         collapsible: true
         initialState: expanded
         epicIds:
-          - TKT-UABC-EPIC-TRANSITION
-          - TKT-UABC-EPIC-FINANCE
+          - UABC-11
+          - UABC-12
+          - UABC-13
         ticketIds:
-          - UABC-PHASE-3
-          - TKT-UABC-EPIC-TRANSITION
-          - TKT-UABC-EPIC-FINANCE
-          - TKT-UABC-BUG-P3-PAYMENT
-          - TKT-UABC-35
-          - TKT-UABC-STORY-P3-CLOSE
-          - TKT-UABC-36
-          - TKT-UABC-37
-          - TKT-UABC-STORY-P3-HANDOVER
-          - TKT-UABC-38
+          - UABC-3
+          - UABC-11
+          - UABC-12
+          - UABC-13
+          - UABC-29
+          - UABC-47
+          - UABC-30
+          - UABC-48
+          - UABC-49
+          - UABC-31
+          - UABC-50
   - id: UABC-TICKET-VIEW-COMPACT-001
     type: compact-list
     title: Kompakte Phasenliste
@@ -202,13 +174,12 @@ views:
       - status
       - parent
     groups: *a1
-recordCount: 86
-customerStoryCount: 48
-internalTraceabilityCount: 38
+recordCount: 50
+customerStoryCount: 50
+internalTraceabilityCount: 0
 countedWorklogHours: 80
-historicalPlanningBaselineHours: 68
 ticketRecords:
-  - id: UABC-PHASE-1
+  - id: UABC-1
     type: phase
     sourceType: phase
     canonicalType: phase
@@ -220,16 +191,14 @@ ticketRecords:
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Phase 1 – Vorbereitung und Datenbereitschaft
-    description: Nicht fakturierbares Phasen-Ticket fuer Phase 1 – Vorbereitung und
-      Datenbereitschaft.
+    description: Phasenticket Phase 1 – Vorbereitung und Datenbereitschaft.
     deliverable: Phase 1 – Vorbereitung und Datenbereitschaft
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs:
-      - UABC-PHASE-1
+      - UABC-1
     phase: P1
     billable: false
     billingSource: task-rollup-only
@@ -253,7 +222,7 @@ ticketRecords:
     worklogHours: 0
     evidence: []
     comments: []
-  - id: UABC-PHASE-2
+  - id: UABC-2
     type: phase
     sourceType: phase
     canonicalType: phase
@@ -265,16 +234,14 @@ ticketRecords:
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Phase 2 – Einrichtung, Tests und Schulung
-    description: Nicht fakturierbares Phasen-Ticket fuer Phase 2 – Einrichtung,
-      Tests und Schulung.
+    description: Phasenticket Phase 2 – Einrichtung, Tests und Schulung.
     deliverable: Phase 2 – Einrichtung, Tests und Schulung
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs:
-      - UABC-PHASE-2
+      - UABC-2
     phase: P2
     billable: false
     billingSource: task-rollup-only
@@ -297,7 +264,7 @@ ticketRecords:
     worklogHours: 0
     evidence: []
     comments: []
-  - id: UABC-PHASE-3
+  - id: UABC-3
     type: phase
     sourceType: phase
     canonicalType: phase
@@ -309,15 +276,14 @@ ticketRecords:
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Phase 3 – Hypercare und Abschluss
-    description: Nicht fakturierbares Phasen-Ticket fuer Phase 3 – Hypercare und Abschluss.
+    description: Phasenticket Phase 3 – Hypercare und Abschluss.
     deliverable: Phase 3 – Hypercare und Abschluss
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs:
-      - UABC-PHASE-3
+      - UABC-3
     phase: P3
     billable: false
     billingSource: task-rollup-only
@@ -340,37 +306,34 @@ ticketRecords:
     worklogHours: 0
     evidence: []
     comments: []
-  - id: TKT-UABC-EPIC-PROJECT
+  - id: UABC-4
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-1
+    parent: UABC-1
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Projektsteuerung und Scope
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Projektsteuerung
-      und Scope."
-    deliverable: Projektsteuerung und Scope
-    phaseId: null
+    summary: Projektinitiierung und Discovery
+    description: "Fachlicher Arbeitsstrang: Projektinitiierung und Discovery."
+    deliverable: Projektinitiierung und Discovery
+    phaseId: UABC-1
     phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-    phase: null
+      - UABC-1
+    phase: P1
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 13
-    actualHours: 13
+    estimateHours: 9
+    actualHours: 9
     remainingHours: 0
     hourlyRate: null
-    netAmount: 1560
+    netAmount: 1080
     acceptance:
       - Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind
         synthetisch abgenommen.
@@ -389,37 +352,34 @@ ticketRecords:
       - project/bc-basic/uat-training-run.yaml
       - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-EPIC-FINANCE
+  - id: UABC-5
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-1
+    parent: UABC-1
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Finanzwesen und Steuern
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Finanzwesen und Steuern."
-    deliverable: Finanzwesen und Steuern
-    phaseId: null
+    summary: Finance- und Lösungsdesign
+    description: "Fachlicher Arbeitsstrang: Finance- und Lösungsdesign."
+    deliverable: Finance- und Lösungsdesign
+    phaseId: UABC-1
     phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-      - UABC-PHASE-3
-    phase: null
+      - UABC-1
+    phase: P1
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 19
-    actualHours: 19
+    estimateHours: 8
+    actualHours: 8
     remainingHours: 0
     hourlyRate: null
-    netAmount: 2280
+    netAmount: 960
     acceptance:
       - Alle fachlichen Ergebnisse für Finanzwesen und Steuern sind synthetisch
         abgenommen.
@@ -438,84 +398,36 @@ ticketRecords:
       - BC-SIM-CLOSE-001
       - SYN-VAT-RETURN-001
     comments: []
-  - id: TKT-UABC-EPIC-PURCHASING
+  - id: UABC-6
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-1
+    parent: UABC-1
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Einkauf
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Einkauf."
-    deliverable: Einkauf
-    phaseId: null
+    summary: Datenbereitschaft
+    description: "Fachlicher Arbeitsstrang: Datenbereitschaft."
+    deliverable: Datenbereitschaft
+    phaseId: UABC-1
     phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-    phase: null
+      - UABC-1
+    phase: P1
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 6.5
-    actualHours: 6.5
+    estimateHours: 5
+    actualHours: 5
     remainingHours: 0
     hourlyRate: null
-    netAmount: 780
+    netAmount: 600
     acceptance:
-      - Alle fachlichen Ergebnisse für Einkauf sind synthetisch abgenommen.
-    history:
-      - status: created
-        time: 2026-04-06
-      - status: in-progress
-        time: 2026-04-06
-      - status: tested
-        time: 2026-05-08
-      - status: done
-        time: 2026-05-08
-    worklogHours: 0
-    evidence:
-      - BC-SIM-P2P-001
-    comments: []
-  - id: TKT-UABC-EPIC-SALES
-    type: epic
-    sourceType: epic
-    canonicalType: epic
-    typeLabel: Epic
-    displayIconKey: jira-epic
-    displayColorToken: purple
-    parent: UABC-PHASE-1
-    dependencyRefs: []
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
-    status: done
-    summary: Verkauf und Zahlungseingang
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Verkauf und
-      Zahlungseingang."
-    deliverable: Verkauf und Zahlungseingang
-    phaseId: null
-    phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-    phase: null
-    billable: false
-    billingSource: task-rollup-only
-    estimateHours: 6.5
-    actualHours: 6.5
-    remainingHours: 0
-    hourlyRate: null
-    netAmount: 780
-    acceptance:
-      - Alle fachlichen Ergebnisse für Verkauf und Zahlungseingang sind
+      - Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind
         synthetisch abgenommen.
     history:
       - status: created
@@ -528,42 +440,41 @@ ticketRecords:
         time: 2026-05-08
     worklogHours: 0
     evidence:
-      - BC-SIM-P2P-001
-      - BC-SIM-O2C-001
+      - project/bc-basic/project-plan.yaml
+      - project/bc-basic/uat-training-run.yaml
+      - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-EPIC-INVENTORY
+  - id: UABC-7
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-1
+    parent: UABC-2
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Lager und Inventur
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Lager und Inventur."
-    deliverable: Lager und Inventur
-    phaseId: null
+    summary: BC-Grundeinrichtung und Finance
+    description: "Fachlicher Arbeitsstrang: BC-Grundeinrichtung und Finance."
+    deliverable: BC-Grundeinrichtung und Finance
+    phaseId: UABC-2
     phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-    phase: null
+      - UABC-2
+    phase: P2
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 6
-    actualHours: 6
+    estimateHours: 14
+    actualHours: 14
     remainingHours: 0
     hourlyRate: null
-    netAmount: 720
+    netAmount: 1680
     acceptance:
-      - Alle fachlichen Ergebnisse für Lager und Inventur sind synthetisch
-        abgenommen.
+      - Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind
+        synthetisch abgenommen.
     history:
       - status: created
         time: 2026-04-06
@@ -575,39 +486,38 @@ ticketRecords:
         time: 2026-05-08
     worklogHours: 0
     evidence:
-      - BC-SIM-P2P-001
-      - BC-SIM-INVENTORY-001
+      - project/bc-basic/project-plan.yaml
+      - project/bc-basic/uat-training-run.yaml
+      - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-EPIC-DATA
+  - id: UABC-8
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-1
+    parent: UABC-2
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Stammdaten und Migration
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Stammdaten und Migration."
+    description: "Fachlicher Arbeitsstrang: Stammdaten und Migration."
     deliverable: Stammdaten und Migration
-    phaseId: null
+    phaseId: UABC-2
     phaseRefs:
-      - UABC-PHASE-1
-      - UABC-PHASE-2
-    phase: null
+      - UABC-2
+    phase: P2
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 9
-    actualHours: 9
+    estimateHours: 4
+    actualHours: 4
     remainingHours: 0
     hourlyRate: null
-    netAmount: 1080
+    netAmount: 480
     acceptance:
       - Alle fachlichen Ergebnisse für Stammdaten und Migration sind synthetisch
         abgenommen.
@@ -625,28 +535,70 @@ ticketRecords:
       - project/bc-basic/data-readiness-check.yaml
       - BC-SIM-MASTER-001
     comments: []
-  - id: TKT-UABC-EPIC-ENABLEMENT
+  - id: UABC-9
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-2
+    parent: UABC-2
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Test, UAT und Schulung
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Test, UAT und Schulung."
-    deliverable: Test, UAT und Schulung
-    phaseId: null
+    summary: Einkaufs-, Verkaufs- und Lagerprozesse
+    description: "Fachlicher Arbeitsstrang: Einkaufs-, Verkaufs- und Lagerprozesse."
+    deliverable: Einkaufs-, Verkaufs- und Lagerprozesse
+    phaseId: UABC-2
     phaseRefs:
-      - UABC-PHASE-2
-    phase: null
+      - UABC-2
+    phase: P2
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 15
+    actualHours: 15
+    remainingHours: 0
+    hourlyRate: null
+    netAmount: 1800
+    acceptance:
+      - Alle fachlichen Ergebnisse für Einkauf sind synthetisch abgenommen.
+    history:
+      - status: created
+        time: 2026-04-06
+      - status: in-progress
+        time: 2026-04-06
+      - status: tested
+        time: 2026-05-08
+      - status: done
+        time: 2026-05-08
+    worklogHours: 0
+    evidence:
+      - BC-SIM-P2P-001
+    comments: []
+  - id: UABC-10
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-2
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Schulung und Abnahme
+    description: "Fachlicher Arbeitsstrang: Schulung und Abnahme."
+    deliverable: Schulung und Abnahme
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
     billable: false
     billingSource: task-rollup-only
     estimateHours: 7
@@ -671,36 +623,34 @@ ticketRecords:
       - project/bc-basic/training-plan.yaml
       - project/bc-basic/uat-training-run.yaml
     comments: []
-  - id: TKT-UABC-EPIC-TRANSITION
+  - id: UABC-11
     type: epic
     sourceType: epic
     canonicalType: epic
     typeLabel: Epic
     displayIconKey: jira-epic
     displayColorToken: purple
-    parent: UABC-PHASE-3
+    parent: UABC-3
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
-    summary: Go-live, Hypercare und Betriebsübergabe
-    description: "Nicht fakturierbarer fachlicher Arbeitsstrang: Go-live, Hypercare
-      und Betriebsübergabe."
-    deliverable: Go-live, Hypercare und Betriebsübergabe
-    phaseId: null
+    summary: Hypercare und Stabilisierung
+    description: "Fachlicher Arbeitsstrang: Hypercare und Stabilisierung."
+    deliverable: Hypercare und Stabilisierung
+    phaseId: UABC-3
     phaseRefs:
-      - UABC-PHASE-3
-    phase: null
+      - UABC-3
+    phase: P3
     billable: false
     billingSource: task-rollup-only
-    estimateHours: 13
-    actualHours: 13
+    estimateHours: 2
+    actualHours: 2
     remainingHours: 0
     hourlyRate: null
-    netAmount: 1560
+    netAmount: 240
     acceptance:
       - Alle fachlichen Ergebnisse für Go-live, Hypercare und Betriebsübergabe
         sind synthetisch abgenommen.
@@ -718,26 +668,117 @@ ticketRecords:
       - SIM-HC-001
       - UABC-STORY-BCB-001
     comments: []
-  - id: TKT-UABC-STORY-P1-PROJECT
+  - id: UABC-12
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-3
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Finance-Abschluss
+    description: "Fachlicher Arbeitsstrang: Finance-Abschluss."
+    deliverable: Finance-Abschluss
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 5
+    remainingHours: 0
+    hourlyRate: null
+    netAmount: 600
+    acceptance:
+      - Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind
+        synthetisch abgenommen.
+    history:
+      - status: created
+        time: 2026-04-06
+      - status: in-progress
+        time: 2026-04-06
+      - status: tested
+        time: 2026-05-08
+      - status: done
+        time: 2026-05-08
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/project-plan.yaml
+      - project/bc-basic/uat-training-run.yaml
+      - BC-SIM-SETUP-001
+    comments: []
+  - id: UABC-13
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-3
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Dokumentation und Betriebsübergabe
+    description: "Fachlicher Arbeitsstrang: Dokumentation und Betriebsübergabe."
+    deliverable: Dokumentation und Betriebsübergabe
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 11
+    actualHours: 11
+    remainingHours: 0
+    hourlyRate: null
+    netAmount: 1320
+    acceptance:
+      - Alle fachlichen Ergebnisse für Projektsteuerung und Scope sind
+        synthetisch abgenommen.
+    history:
+      - status: created
+        time: 2026-04-06
+      - status: in-progress
+        time: 2026-04-06
+      - status: tested
+        time: 2026-05-08
+      - status: done
+        time: 2026-05-08
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/project-plan.yaml
+      - project/bc-basic/uat-training-run.yaml
+      - BC-SIM-SETUP-001
+    comments: []
+  - id: UABC-14
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-PROJECT
+    parent: UABC-4
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Projektauftrag und Scope sind startklar
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Projektauftrag und
       Scope sind startklar."
     deliverable: Projektauftrag und Scope sind startklar
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -762,26 +803,25 @@ ticketRecords:
     evidence:
       - project/bc-basic/project-plan.yaml
     comments: []
-  - id: TKT-UABC-STORY-P1-ACCEPTANCE
+  - id: UABC-15
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-PROJECT
+    parent: UABC-4
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Abnahme- und Cutover-Eintritt ist vorbereitet
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Abnahme- und
       Cutover-Eintritt ist vorbereitet."
     deliverable: Abnahme- und Cutover-Eintritt ist vorbereitet
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -806,26 +846,25 @@ ticketRecords:
     evidence:
       - project/bc-basic/uat-training-run.yaml
     comments: []
-  - id: TKT-UABC-STORY-P1-FINANCE
+  - id: UABC-16
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-FINANCE
+    parent: UABC-5
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Finance- und Steuerdesign ist entschieden
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Finance- und
       Steuerdesign ist entschieden."
     deliverable: Finance- und Steuerdesign ist entschieden
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -850,26 +889,25 @@ ticketRecords:
     evidence:
       - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-STORY-P1-PURCHASING
+  - id: UABC-17
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-PURCHASING
+    parent: UABC-5
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Einkaufsstandard ist entschieden
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Einkaufsstandard
       ist entschieden."
     deliverable: Einkaufsstandard ist entschieden
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -894,26 +932,25 @@ ticketRecords:
     evidence:
       - BC-SIM-P2P-001
     comments: []
-  - id: TKT-UABC-STORY-P1-SALES
+  - id: UABC-18
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-SALES
+    parent: UABC-5
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Verkaufsstandard ist entschieden
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Verkaufsstandard
       ist entschieden."
     deliverable: Verkaufsstandard ist entschieden
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -938,26 +975,25 @@ ticketRecords:
     evidence:
       - BC-SIM-P2P-001
     comments: []
-  - id: TKT-UABC-STORY-P1-INVENTORY
+  - id: UABC-19
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-INVENTORY
+    parent: UABC-5
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Lagerstandard ist entschieden
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Lagerstandard ist
       entschieden."
     deliverable: Lagerstandard ist entschieden
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -982,25 +1018,24 @@ ticketRecords:
     evidence:
       - BC-SIM-P2P-001
     comments: []
-  - id: TKT-UABC-STORY-P1-DATA
+  - id: UABC-20
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-DATA
+    parent: UABC-6
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Datenpaket ist bereit
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Datenpaket ist bereit."
     deliverable: Datenpaket ist bereit
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: false
@@ -1025,26 +1060,25 @@ ticketRecords:
     evidence:
       - project/bc-basic/data-readiness-check.yaml
     comments: []
-  - id: TKT-UABC-STORY-P2-FOUNDATION
+  - id: UABC-21
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-PROJECT
+    parent: UABC-7
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Gesellschaft, Rollen und Basis sind eingerichtet
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Gesellschaft,
       Rollen und Basis sind eingerichtet."
     deliverable: Gesellschaft, Rollen und Basis sind eingerichtet
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1069,26 +1103,25 @@ ticketRecords:
     evidence:
       - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-STORY-P2-FINANCE
+  - id: UABC-22
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-FINANCE
+    parent: UABC-7
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Finance, VAT und SoD sind eingerichtet
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Finance, VAT und
       SoD sind eingerichtet."
     deliverable: Finance, VAT und SoD sind eingerichtet
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1113,26 +1146,25 @@ ticketRecords:
     evidence:
       - BC-SIM-SETUP-001
     comments: []
-  - id: TKT-UABC-STORY-P2-DATA
+  - id: UABC-23
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-DATA
+    parent: UABC-8
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Migration und Eröffnungswerte sind abgestimmt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Migration und
       Eröffnungswerte sind abgestimmt."
     deliverable: Migration und Eröffnungswerte sind abgestimmt
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1157,26 +1189,25 @@ ticketRecords:
     evidence:
       - BC-SIM-MASTER-001
     comments: []
-  - id: TKT-UABC-STORY-P2-PURCHASING
+  - id: UABC-24
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-PURCHASING
+    parent: UABC-9
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Purchase-to-Pay ist durchgespielt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Purchase-to-Pay ist
       durchgespielt."
     deliverable: Purchase-to-Pay ist durchgespielt
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1201,26 +1232,25 @@ ticketRecords:
     evidence:
       - BC-SIM-P2P-001
     comments: []
-  - id: TKT-UABC-STORY-P2-SALES
+  - id: UABC-25
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-SALES
+    parent: UABC-9
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Order-to-Cash ist durchgespielt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Order-to-Cash ist
       durchgespielt."
     deliverable: Order-to-Cash ist durchgespielt
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1245,26 +1275,25 @@ ticketRecords:
     evidence:
       - BC-SIM-O2C-001
     comments: []
-  - id: TKT-UABC-STORY-P2-INVENTORY
+  - id: UABC-26
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-INVENTORY
+    parent: UABC-9
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Lager und Inventur sind abgestimmt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Lager und Inventur
       sind abgestimmt."
     deliverable: Lager und Inventur sind abgestimmt
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1289,25 +1318,24 @@ ticketRecords:
     evidence:
       - BC-SIM-INVENTORY-001
     comments: []
-  - id: TKT-UABC-STORY-P2-TRAINING
+  - id: UABC-27
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-ENABLEMENT
+    parent: UABC-10
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Key User sind befähigt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Key User sind befähigt."
     deliverable: Key User sind befähigt
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1332,26 +1360,25 @@ ticketRecords:
     evidence:
       - project/bc-basic/training-plan.yaml
     comments: []
-  - id: TKT-UABC-STORY-P2-UAT
+  - id: UABC-28
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-ENABLEMENT
+    parent: UABC-10
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: SIT, UAT und Cutover-Probe sind bestanden
     description: "Nicht fakturierbare fachliche Ergebnisklammer: SIT, UAT und
       Cutover-Probe sind bestanden."
     deliverable: SIT, UAT und Cutover-Probe sind bestanden
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: false
@@ -1376,26 +1403,25 @@ ticketRecords:
     evidence:
       - project/bc-basic/uat-training-run.yaml
     comments: []
-  - id: TKT-UABC-BUG-P3-PAYMENT
-    type: bug
-    sourceType: bug
-    canonicalType: bug
-    typeLabel: Fehler
-    displayIconKey: jira-bug
-    displayColorToken: red
-    parent: TKT-UABC-EPIC-TRANSITION
+  - id: UABC-29
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-11
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Zahlungsreferenz-Abweichung ist behoben
     description: "Nicht fakturierbare fachliche Ergebnisklammer:
       Zahlungsreferenz-Abweichung ist behoben."
     deliverable: Zahlungsreferenz-Abweichung ist behoben
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: false
@@ -1420,26 +1446,25 @@ ticketRecords:
     evidence:
       - SIM-HC-001
     comments: []
-  - id: TKT-UABC-STORY-P3-CLOSE
+  - id: UABC-30
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-FINANCE
+    parent: UABC-12
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Monatsabschluss und UStVA-Vorschau sind abgestimmt
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Monatsabschluss und
       UStVA-Vorschau sind abgestimmt."
     deliverable: Monatsabschluss und UStVA-Vorschau sind abgestimmt
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: false
@@ -1465,26 +1490,25 @@ ticketRecords:
       - BC-SIM-CLOSE-001
       - SYN-VAT-RETURN-001
     comments: []
-  - id: TKT-UABC-STORY-P3-HANDOVER
+  - id: UABC-31
     type: story
     sourceType: story
     canonicalType: story
     typeLabel: Story
     displayIconKey: jira-story
     displayColorToken: green
-    parent: TKT-UABC-EPIC-TRANSITION
+    parent: UABC-13
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: null
+    countingScope: active-project
     status: done
     summary: Betrieb und Abschluss sind übergeben
     description: "Nicht fakturierbare fachliche Ergebnisklammer: Betrieb und
       Abschluss sind übergeben."
     deliverable: Betrieb und Abschluss sind übergeben
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: false
@@ -1509,25 +1533,24 @@ ticketRecords:
     evidence:
       - UABC-STORY-BCB-001
     comments: []
-  - id: TKT-UABC-22
+  - id: UABC-32
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-PROJECT
+    parent: UABC-14
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-22
+    countingScope: active-project
     status: done
     summary: Projektauftrag und Scope startklar machen
     description: "Abrechenbare Kundenleistung: Projektauftrag und Scope startklar machen."
     deliverable: Abgestimmter Projektauftrag, Scope und Startbaseline
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: true
@@ -1561,184 +1584,25 @@ ticketRecords:
         time: 2026-08-20
         text: Abgestimmter Projektauftrag, Scope und Startbaseline. Ergebnis Scope
           erfüllt; Evidence Test Einschränkung und nächster Bezug dokumentiert.
-  - id: TKT-UABC-23
+  - id: UABC-33
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-FINANCE
-    dependencyRefs: []
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-23
-    status: done
-    summary: Finance- und Steuerdesign entscheiden
-    description: "Abrechenbare Kundenleistung: Finance- und Steuerdesign entscheiden."
-    deliverable: Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation
-    phaseId: UABC-PHASE-1
-    phaseRefs: null
-    phase: P1
-    billable: true
-    billingSource: task-worklogs
-    estimateHours: 4
-    actualHours: 4
-    remainingHours: 0
-    hourlyRate: 120
-    netAmount: 480
-    acceptance:
-      - Finance
-    history:
-      - status: created
-        time: 2026-08-23
-      - status: in-progress
-        time: 2026-08-23
-      - status: tested
-        time: 2026-08-23
-      - status: done
-        time: 2026-08-23
-    worklogHours: 4
-    evidence:
-      - BC-SIM-SETUP-001
-    comments:
-      - id: COM-23-W
-        type: work
-        time: 2026-08-23
-        text: Finance bearbeitet
-      - id: COM-23-C
-        type: closing
-        time: 2026-08-23
-        text: Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation. Ergebnis
-          Finance synthetisch freigegeben; Evidence Test Einschränkung nächster
-          Bezug dokumentiert.
-  - id: TKT-UABC-24
-    type: task
-    sourceType: task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-PURCHASING
-    dependencyRefs:
-      - TKT-UABC-23
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-24
-    status: done
-    summary: Einkaufs-Fit-to-Standard entscheiden
-    description: "Abrechenbare Kundenleistung: Einkaufs-Fit-to-Standard entscheiden."
-    deliverable: Einkaufsstandard und Ausnahmen sind entschieden
-    phaseId: UABC-PHASE-1
-    phaseRefs: null
-    phase: P1
-    billable: true
-    billingSource: task-worklogs
-    estimateHours: 1.5
-    actualHours: 1.5
-    remainingHours: 0
-    hourlyRate: 120
-    netAmount: 180
-    acceptance:
-      - Prozesse
-    history:
-      - status: created
-        time: 2026-08-23
-      - status: in-progress
-        time: 2026-08-23
-      - status: tested
-        time: 2026-08-23
-      - status: done
-        time: 2026-08-23
-    worklogHours: 1.5
-    evidence:
-      - BC-SIM-P2P-001
-    comments:
-      - id: COM-24-W
-        type: work
-        time: 2026-08-23
-        text: Einkaufs-Fit-to-Standard entscheiden bearbeitet.
-      - id: COM-24-C
-        type: closing
-        time: 2026-08-23
-        text: Einkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
-          abgenommen; Evidence und nächster Bezug dokumentiert.
-  - id: TKT-UABC-25
-    type: task
-    sourceType: task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-DATA
-    dependencyRefs: []
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-25
-    status: done
-    summary: Datenbereitschaft herstellen
-    description: "Abrechenbare Kundenleistung: Datenbereitschaft herstellen."
-    deliverable: Geprueftes synthetisches Datenpaket mit Kontrollsummen
-    phaseId: UABC-PHASE-1
-    phaseRefs: null
-    phase: P1
-    billable: true
-    billingSource: task-worklogs
-    estimateHours: 5
-    actualHours: 5
-    remainingHours: 0
-    hourlyRate: 120
-    netAmount: 600
-    acceptance:
-      - Daten
-    history:
-      - status: created
-        time: 2026-08-25
-      - status: in-progress
-        time: 2026-08-25
-      - status: tested
-        time: 2026-08-25
-      - status: done
-        time: 2026-08-25
-    worklogHours: 5
-    evidence:
-      - project/bc-basic/data-readiness-check.yaml
-    comments:
-      - id: COM-25-W
-        type: work
-        time: 2026-08-25
-        text: Daten bearbeitet
-      - id: COM-25-C
-        type: closing
-        time: 2026-08-25
-        text: Geprueftes synthetisches Datenpaket mit Kontrollsummen. Ergebnis Daten
-          grün; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-26
-    type: task
-    sourceType: task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-ACCEPTANCE
+    parent: UABC-15
     dependencyRefs:
       - TKT-UABC-25
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-26
+    countingScope: active-project
     status: done
     summary: UAT- und Cutover-Eintritt vorbereiten
     description: "Abrechenbare Kundenleistung: UAT- und Cutover-Eintritt vorbereiten."
     deliverable: Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe
-    phaseId: UABC-PHASE-1
+    phaseId: UABC-1
     phaseRefs: null
     phase: P1
     billable: true
@@ -1773,26 +1637,284 @@ ticketRecords:
         text: Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe. Ergebnis
           UAT abgedeckt; Evidence Test Einschränkung nächster Bezug
           dokumentiert.
-  - id: TKT-UABC-27
+  - id: UABC-34
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-FOUNDATION
+    parent: UABC-16
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-27
+    countingScope: active-project
+    status: done
+    summary: Finance- und Steuerdesign entscheiden
+    description: "Abrechenbare Kundenleistung: Finance- und Steuerdesign entscheiden."
+    deliverable: Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 4
+    actualHours: 4
+    remainingHours: 0
+    hourlyRate: 120
+    netAmount: 480
+    acceptance:
+      - Finance
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 4
+    evidence:
+      - BC-SIM-SETUP-001
+    comments:
+      - id: COM-23-W
+        type: work
+        time: 2026-08-23
+        text: Finance bearbeitet
+      - id: COM-23-C
+        type: closing
+        time: 2026-08-23
+        text: Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation. Ergebnis
+          Finance synthetisch freigegeben; Evidence Test Einschränkung nächster
+          Bezug dokumentiert.
+  - id: UABC-35
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-17
+    dependencyRefs:
+      - TKT-UABC-23
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Einkaufs-Fit-to-Standard entscheiden
+    description: "Abrechenbare Kundenleistung: Einkaufs-Fit-to-Standard entscheiden."
+    deliverable: Einkaufsstandard und Ausnahmen sind entschieden
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1.5
+    actualHours: 1.5
+    remainingHours: 0
+    hourlyRate: 120
+    netAmount: 180
+    acceptance:
+      - Prozesse
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 1.5
+    evidence:
+      - BC-SIM-P2P-001
+    comments:
+      - id: COM-24-W
+        type: work
+        time: 2026-08-23
+        text: Einkaufs-Fit-to-Standard entscheiden bearbeitet.
+      - id: COM-24-C
+        type: closing
+        time: 2026-08-23
+        text: Einkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
+          abgenommen; Evidence und nächster Bezug dokumentiert.
+  - id: UABC-36
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-18
+    dependencyRefs:
+      - TKT-UABC-23
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Verkaufs-Fit-to-Standard entscheiden
+    description: "Abrechenbare Kundenleistung: Verkaufs-Fit-to-Standard entscheiden."
+    deliverable: Verkaufsstandard und Ausnahmen sind entschieden
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1.5
+    actualHours: 1.5
+    remainingHours: 0
+    hourlyRate: 120
+    netAmount: 180
+    acceptance:
+      - Prozesse
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 1.5
+    evidence:
+      - BC-SIM-P2P-001
+    comments:
+      - id: COM-24-SALES-W
+        type: work
+        time: 2026-08-23
+        text: Verkaufs-Fit-to-Standard entscheiden bearbeitet.
+      - id: COM-24-SALES-C
+        type: closing
+        time: 2026-08-23
+        text: Verkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
+          abgenommen; Evidence und nächster Bezug dokumentiert.
+  - id: UABC-37
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-19
+    dependencyRefs:
+      - TKT-UABC-23
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Lager-Fit-to-Standard entscheiden
+    description: "Abrechenbare Kundenleistung: Lager-Fit-to-Standard entscheiden."
+    deliverable: Lagerstandard und Ausnahmen sind entschieden
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1
+    actualHours: 1
+    remainingHours: 0
+    hourlyRate: 120
+    netAmount: 120
+    acceptance:
+      - Prozesse
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 1
+    evidence:
+      - BC-SIM-P2P-001
+    comments:
+      - id: COM-24-INVENTORY-W
+        type: work
+        time: 2026-08-23
+        text: Lager-Fit-to-Standard entscheiden bearbeitet.
+      - id: COM-24-INVENTORY-C
+        type: closing
+        time: 2026-08-23
+        text: Lagerstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
+          abgenommen; Evidence und nächster Bezug dokumentiert.
+  - id: UABC-38
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-20
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: done
+    summary: Datenbereitschaft herstellen
+    description: "Abrechenbare Kundenleistung: Datenbereitschaft herstellen."
+    deliverable: Geprueftes synthetisches Datenpaket mit Kontrollsummen
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 5
+    remainingHours: 0
+    hourlyRate: 120
+    netAmount: 600
+    acceptance:
+      - Daten
+    history:
+      - status: created
+        time: 2026-08-25
+      - status: in-progress
+        time: 2026-08-25
+      - status: tested
+        time: 2026-08-25
+      - status: done
+        time: 2026-08-25
+    worklogHours: 5
+    evidence:
+      - project/bc-basic/data-readiness-check.yaml
+    comments:
+      - id: COM-25-W
+        type: work
+        time: 2026-08-25
+        text: Daten bearbeitet
+      - id: COM-25-C
+        type: closing
+        time: 2026-08-25
+        text: Geprueftes synthetisches Datenpaket mit Kontrollsummen. Ergebnis Daten
+          grün; Evidence Test Einschränkung nächster Bezug dokumentiert.
+  - id: UABC-39
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-21
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
     status: done
     summary: Gesellschaft, Rollen und Grundeinrichtung konfigurieren
     description: "Abrechenbare Kundenleistung: Gesellschaft, Rollen und
       Grundeinrichtung konfigurieren."
     deliverable: Gepruefte Grundeinrichtung der synthetischen Gesellschaft
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -1827,26 +1949,25 @@ ticketRecords:
         text: Gepruefte Grundeinrichtung der synthetischen Gesellschaft. Ergebnis
           Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug
           dokumentiert.
-  - id: TKT-UABC-28
+  - id: UABC-40
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-FINANCE
+    parent: UABC-22
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-28
+    countingScope: active-project
     status: done
     summary: Finance, Buchungsmatrizen, VAT und Berechtigungen konfigurieren
     description: "Abrechenbare Kundenleistung: Finance, Buchungsmatrizen, VAT und
       Berechtigungen konfigurieren."
     deliverable: Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -1880,26 +2001,25 @@ ticketRecords:
         time: 2026-08-25
         text: Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline. Ergebnis Posting
           geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-29
+  - id: UABC-41
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-DATA
+    parent: UABC-23
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-29
+    countingScope: active-project
     status: done
     summary: Stammdaten und Eroeffnungswerte migrieren und abstimmen
     description: "Abrechenbare Kundenleistung: Stammdaten und Eroeffnungswerte
       migrieren und abstimmen."
     deliverable: Abgestimmte synthetische Migration mit Fehlerkorrektur
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -1933,26 +2053,25 @@ ticketRecords:
         time: 2026-08-25
         text: Abgestimmte synthetische Migration mit Fehlerkorrektur. Ergebnis Import
           retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-30
+  - id: UABC-42
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-PURCHASING
+    parent: UABC-24
     dependencyRefs:
       - TKT-UABC-29
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-30
+    countingScope: active-project
     status: done
     summary: Purchase-to-Pay Ende-zu-Ende durchspielen
     description: "Abrechenbare Kundenleistung: Purchase-to-Pay Ende-zu-Ende durchspielen."
     deliverable: Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -1986,26 +2105,25 @@ ticketRecords:
         time: 2026-08-26
         text: Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette. Ergebnis P2P
           retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-31
+  - id: UABC-43
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-SALES
+    parent: UABC-25
     dependencyRefs:
       - TKT-UABC-30
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-31
+    countingScope: active-project
     status: done
     summary: Order-to-Cash Ende-zu-Ende durchspielen
     description: "Abrechenbare Kundenleistung: Order-to-Cash Ende-zu-Ende durchspielen."
     deliverable: Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -2039,26 +2157,25 @@ ticketRecords:
         time: 2026-08-26
         text: Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette. Ergebnis O2C
           retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-32
+  - id: UABC-44
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-INVENTORY
+    parent: UABC-26
     dependencyRefs:
       - TKT-UABC-30
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-32
+    countingScope: active-project
     status: done
     summary: Lager und Inventur durchspielen
     description: "Abrechenbare Kundenleistung: Lager und Inventur durchspielen."
     deliverable: Abgestimmte Lagerbewegungen, Inventur und Bewertung
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -2092,25 +2209,24 @@ ticketRecords:
         time: 2026-08-28
         text: Abgestimmte Lagerbewegungen, Inventur und Bewertung. Ergebnis Inventur
           retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-33
+  - id: UABC-45
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-TRAINING
+    parent: UABC-27
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-33
+    countingScope: active-project
     status: done
     summary: Key User rollenbasiert befaehigen
     description: "Abrechenbare Kundenleistung: Key User rollenbasiert befaehigen."
     deliverable: Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -2145,27 +2261,26 @@ ticketRecords:
         text: Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager. Ergebnis
           Training bestanden; Evidence Test Einschränkung nächster Bezug
           dokumentiert.
-  - id: TKT-UABC-34
+  - id: UABC-46
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P2-UAT
+    parent: UABC-28
     dependencyRefs:
       - TKT-UABC-30
       - TKT-UABC-31
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-34
+    countingScope: active-project
     status: done
     summary: SIT, UAT und Go-live-Rehearsal abschliessen
     description: "Abrechenbare Kundenleistung: SIT, UAT und Go-live-Rehearsal abschliessen."
     deliverable: Bestandene UAT- und Mock-Cutover-Entscheidung GO_SIMULATION
-    phaseId: UABC-PHASE-2
+    phaseId: UABC-2
     phaseRefs: null
     phase: P2
     billable: true
@@ -2200,27 +2315,26 @@ ticketRecords:
         text: Bestandene UAT- und Mock-Cutover-Entscheidung GO_SIMULATION. Ergebnis
           GO_SIMULATION; Evidence Test Einschränkung nächster Bezug
           dokumentiert.
-  - id: TKT-UABC-35
+  - id: UABC-47
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-BUG-P3-PAYMENT
+    parent: UABC-29
     dependencyRefs:
       - TKT-UABC-31
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-35
+    countingScope: active-project
     status: closed
     summary: Zahlungsreferenz korrigieren und erneut testen
     description: "Abrechenbare Kundenleistung: Zahlungsreferenz korrigieren und
       erneut testen."
     deliverable: Korrigierter Hypercare-Befund mit bestandenem Retest
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: true
@@ -2254,25 +2368,24 @@ ticketRecords:
         time: 2026-09-01
         text: Korrigierter Hypercare-Befund mit bestandenem Retest. Ergebnis Fix Retest
           Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-36
+  - id: UABC-48
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P3-CLOSE
+    parent: UABC-30
     dependencyRefs: []
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-36
+    countingScope: active-project
     status: done
     summary: Monatsabschluss und Abstimmungen proben
     description: "Abrechenbare Kundenleistung: Monatsabschluss und Abstimmungen proben."
     deliverable: Abgestimmter synthetischer Monatsabschluss
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: true
@@ -2306,26 +2419,25 @@ ticketRecords:
         time: 2026-08-29
         text: Abgestimmter synthetischer Monatsabschluss. Ergebnis Abschluss retestet;
           Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-37
+  - id: UABC-49
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P3-CLOSE
+    parent: UABC-30
     dependencyRefs:
       - TKT-UABC-36
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-37
+    countingScope: active-project
     status: done
     summary: UStVA-Vorschau pruefen
     description: "Abrechenbare Kundenleistung: UStVA-Vorschau pruefen."
     deliverable: Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: true
@@ -2359,14 +2471,14 @@ ticketRecords:
         time: 2026-08-29
         text: Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung. Ergebnis
           VAT retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.
-  - id: TKT-UABC-38
+  - id: UABC-50
     type: task
     sourceType: task
     canonicalType: task
     typeLabel: Aufgabe
     displayIconKey: jira-task
     displayColorToken: blue
-    parent: TKT-UABC-STORY-P3-HANDOVER
+    parent: UABC-31
     dependencyRefs:
       - TKT-UABC-35
       - TKT-UABC-36
@@ -2374,13 +2486,12 @@ ticketRecords:
     sourcePath: evidence/simulation/project-story.json
     visibility: twin-visible
     visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-38
+    countingScope: active-project
     status: done
     summary: Projekt abschliessen und Betrieb uebergeben
     description: "Abrechenbare Kundenleistung: Projekt abschliessen und Betrieb uebergeben."
     deliverable: Abschluss, Supportstart und Handover-Paket
-    phaseId: UABC-PHASE-3
+    phaseId: UABC-3
     phaseRefs: null
     phase: P3
     billable: true
@@ -2415,779 +2526,5 @@ ticketRecords:
         text: Abschluss, Supportstart und Handover-Paket. Ergebnis Handover
           abgeschlossen; Reconciliation und Provenienz validiert; keine
           Rechnung, produktive Leistung oder Schreibberechtigung behauptet.
-  - id: TKT-UABC-24-SALES
-    type: task
-    sourceType: task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-SALES
-    dependencyRefs:
-      - TKT-UABC-23
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-24
-    status: done
-    summary: Verkaufs-Fit-to-Standard entscheiden
-    description: "Abrechenbare Kundenleistung: Verkaufs-Fit-to-Standard entscheiden."
-    deliverable: Verkaufsstandard und Ausnahmen sind entschieden
-    phaseId: UABC-PHASE-1
-    phaseRefs: null
-    phase: P1
-    billable: true
-    billingSource: task-worklogs
-    estimateHours: 1.5
-    actualHours: 1.5
-    remainingHours: 0
-    hourlyRate: 120
-    netAmount: 180
-    acceptance:
-      - Prozesse
-    history:
-      - status: created
-        time: 2026-08-23
-      - status: in-progress
-        time: 2026-08-23
-      - status: tested
-        time: 2026-08-23
-      - status: done
-        time: 2026-08-23
-    worklogHours: 1.5
-    evidence:
-      - BC-SIM-P2P-001
-    comments:
-      - id: COM-24-SALES-W
-        type: work
-        time: 2026-08-23
-        text: Verkaufs-Fit-to-Standard entscheiden bearbeitet.
-      - id: COM-24-SALES-C
-        type: closing
-        time: 2026-08-23
-        text: Verkaufsstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
-          abgenommen; Evidence und nächster Bezug dokumentiert.
-  - id: TKT-UABC-24-INVENTORY
-    type: task
-    sourceType: task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: TKT-UABC-STORY-P1-INVENTORY
-    dependencyRefs:
-      - TKT-UABC-23
-    sourcePath: evidence/simulation/project-story.json
-    visibility: twin-visible
-    visibilityRole: customer-project-story
-    countingScope: project-story
-    planningRef: UABC-24
-    status: done
-    summary: Lager-Fit-to-Standard entscheiden
-    description: "Abrechenbare Kundenleistung: Lager-Fit-to-Standard entscheiden."
-    deliverable: Lagerstandard und Ausnahmen sind entschieden
-    phaseId: UABC-PHASE-1
-    phaseRefs: null
-    phase: P1
-    billable: true
-    billingSource: task-worklogs
-    estimateHours: 1
-    actualHours: 1
-    remainingHours: 0
-    hourlyRate: 120
-    netAmount: 120
-    acceptance:
-      - Prozesse
-    history:
-      - status: created
-        time: 2026-08-23
-      - status: in-progress
-        time: 2026-08-23
-      - status: tested
-        time: 2026-08-23
-      - status: done
-        time: 2026-08-23
-    worklogHours: 1
-    evidence:
-      - BC-SIM-P2P-001
-    comments:
-      - id: COM-24-INVENTORY-W
-        type: work
-        time: 2026-08-23
-        text: Lager-Fit-to-Standard entscheiden bearbeitet.
-      - id: COM-24-INVENTORY-C
-        type: closing
-        time: 2026-08-23
-        text: Lagerstandard und Ausnahmen sind entschieden. Ergebnis synthetisch
-          abgenommen; Evidence und nächster Bezug dokumentiert.
-traceabilityRecords:
-  - id: UABC-18
-    type: epic
-    sourceType: Epic
-    canonicalType: epic
-    typeLabel: Epic
-    displayIconKey: jira-epic
-    displayColorToken: purple
-    parent: null
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: BC Basic Einrichtung als wiederverwendbares Grundpaket planen
-  - id: UABC-19
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-18
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Phase 1 Vorbereitung, Anforderungen und Datenbereitschaft abschliessen
-  - id: UABC-20
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-18
-    dependencyRefs:
-      - UABC-19
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Phase 2 Standardumfang in genau einer Woche einrichten und schulen
-  - id: UABC-21
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-18
-    dependencyRefs:
-      - UABC-20
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Phase 3 Hypercare, Monatsabschlussprobe und UStVA-Vorschau abschliessen
-  - id: UABC-22
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-19
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Projektauftakt, Umfang, Rollen und Abrechnung vorbereiten
-  - id: UABC-23
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-19
-    dependencyRefs:
-      - UABC-22
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Finanz- und Steueranforderungen dokumentieren
-  - id: UABC-24
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-19
-    dependencyRefs:
-      - UABC-22
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Einkaufs-, Verkaufs- und Lagerprozesse standardnah entscheiden
-  - id: UABC-25
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-19
-    dependencyRefs:
-      - UABC-23
-      - UABC-24
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Synthetisches Datenpaket pruefbereit machen
-  - id: UABC-26
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-19
-    dependencyRefs:
-      - UABC-23
-      - UABC-24
-      - UABC-25
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Loesungs-, Pruef-, Uebergangs- und Abnahmeplan vorlegen
-  - id: UABC-27
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-26
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Zielgesellschaft, Grundeinrichtung und Rollen binden
-  - id: UABC-28
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-27
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Finanzwesen und Buchungsmatrix einrichten
-  - id: UABC-29
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-28
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Konfigurationspakete erstellen, Stammdaten laden und abstimmen
-  - id: UABC-30
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-29
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Einkaufsprozess vom Auftrag bis zur Zahlungsvorbereitung pruefen
-  - id: UABC-31
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-29
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Verkaufsprozess vom Auftrag bis zum Zahlungseingang pruefen
-  - id: UABC-32
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-29
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Einfachen Bestand an einem Lagerort pruefen
-  - id: UABC-33
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-30
-      - UABC-31
-      - UABC-32
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Rollenbezogene Schulungen durchfuehren und protokollieren
-  - id: UABC-34
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-20
-    dependencyRefs:
-      - UABC-28
-      - UABC-30
-      - UABC-31
-      - UABC-32
-      - UABC-33
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Ende-zu-Ende-Pflichtfaelle, Fachabnahme und UAT-Begleitung durchfuehren
-  - id: UABC-35
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-21
-    dependencyRefs:
-      - UABC-34
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: UAT- und Hypercare-Befunde priorisieren und begrenzt bearbeiten
-  - id: UABC-36
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-21
-    dependencyRefs:
-      - UABC-35
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Monatsabschlussprozess in der Sandbox proben und Basisberichte abstimmen
-  - id: UABC-37
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-21
-    dependencyRefs:
-      - UABC-36
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: UStVA-Vorschau fachlich pruefen, nicht uebermitteln
-  - id: UABC-38
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-21
-    dependencyRefs:
-      - UABC-35
-      - UABC-36
-      - UABC-37
-    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Backlog
-    summary: Schulungsunterlagen, Projektdokumentation und Uebergabe abschliessen
-  - id: UABC-1
-    type: epic
-    sourceType: Epic
-    canonicalType: epic
-    typeLabel: Epic
-    displayIconKey: jira-epic
-    displayColorToken: purple
-    parent: null
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Universaarl-Unternehmens-Blueprint v0.1 etablieren
-  - id: UABC-2
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-1
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Unternehmens- und BC-Unternehmensarchitektur definieren
-  - id: UABC-3
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-1
-    dependencyRefs:
-      - UABC-2
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Prozess- und Faehigkeitsportfolio definieren
-  - id: UABC-4
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-1
-    dependencyRefs:
-      - UABC-2
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Sicherheits-, Daten-, Berichts- und Trainingsgovernance definieren
-  - id: UABC-5
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-1
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: OpenSpec-Steuerung und projektlokalen Arbeitsablauf etablieren
-  - id: UABC-6
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-1
-    dependencyRefs:
-      - UABC-5
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Blueprint-Projekt in lokaler Jira- und Confluence-Simulation abbilden
-  - id: UABC-7
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-5
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Offizielle Quellen und Versionsbaseline erfassen
-  - id: UABC-8
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-5
-    dependencyRefs:
-      - UABC-7
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: OpenSpec-Schema und aktiven Change validieren
-  - id: UABC-9
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-6
-    dependencyRefs:
-      - UABC-7
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Jira- und Confluence-Referenzen validieren
-  - id: UABC-10
-    type: task
-    sourceType: Task
-    canonicalType: task
-    typeLabel: Aufgabe
-    displayIconKey: jira-task
-    displayColorToken: blue
-    parent: UABC-1
-    dependencyRefs:
-      - UABC-2
-      - UABC-3
-      - UABC-4
-      - UABC-8
-      - UABC-9
-    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Bereichsuebergreifende Blueprint-Pruefung durchfuehren
-  - id: UABC-11
-    type: epic
-    sourceType: Epic
-    canonicalType: epic
-    typeLabel: Epic
-    displayIconKey: jira-epic
-    displayColorToken: purple
-    parent: null
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/environment-baseline.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Verifizierte playthru-Umgebungsbaseline etablieren
-  - id: UABC-12
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-11
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/environment-baseline.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: playthru-Umgebung und aktive Gesellschaft read-only nachweisen
-  - id: UABC-13
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-12
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/environment-baseline.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Abgesicherten Baseline-Test und Nachweisplan definieren
-  - id: UABC-14
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-12
-    dependencyRefs:
-      - UABC-13
-    sourcePath: atlassian/jira/issues/environment-baseline.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Wiederholbare Baseline ausfuehren und Nachweise kuratieren
-  - id: UABC-15
-    type: epic
-    sourceType: Epic
-    canonicalType: epic
-    typeLabel: Epic
-    displayIconKey: jira-epic
-    displayColorToken: purple
-    parent: null
-    dependencyRefs:
-      - UABC-11
-    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Projektartefakt-Walkthrough-Pilot etablieren
-  - id: UABC-16
-    type: story
-    sourceType: Story
-    canonicalType: story
-    typeLabel: Story
-    displayIconKey: jira-story
-    displayColorToken: green
-    parent: UABC-15
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Baseline-Walkthrough-Paket aus verifizierten Nachweisen erzeugen
-  - id: UABC-17
-    type: subtask
-    sourceType: Sub-task
-    canonicalType: subtask
-    typeLabel: Unteraufgabe
-    displayIconKey: jira-subtask
-    displayColorToken: blue-muted
-    parent: UABC-16
-    dependencyRefs: []
-    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
-    visibility: twin-visible
-    visibilityRole: internal-traceability
-    countingScope: excluded-from-story-counts
-    status: Done
-    summary: Deterministische Walkthrough-Ausgaben bauen und verifizieren
-traceabilityRelations:
-  - type: realizes-plan-item
-    from: TKT-UABC-22
-    to: UABC-22
-  - type: realizes-plan-item
-    from: TKT-UABC-23
-    to: UABC-23
-  - type: realizes-plan-item
-    from: TKT-UABC-24
-    to: UABC-24
-  - type: realizes-plan-item
-    from: TKT-UABC-25
-    to: UABC-25
-  - type: realizes-plan-item
-    from: TKT-UABC-26
-    to: UABC-26
-  - type: realizes-plan-item
-    from: TKT-UABC-27
-    to: UABC-27
-  - type: realizes-plan-item
-    from: TKT-UABC-28
-    to: UABC-28
-  - type: realizes-plan-item
-    from: TKT-UABC-29
-    to: UABC-29
-  - type: realizes-plan-item
-    from: TKT-UABC-30
-    to: UABC-30
-  - type: realizes-plan-item
-    from: TKT-UABC-31
-    to: UABC-31
-  - type: realizes-plan-item
-    from: TKT-UABC-32
-    to: UABC-32
-  - type: realizes-plan-item
-    from: TKT-UABC-33
-    to: UABC-33
-  - type: realizes-plan-item
-    from: TKT-UABC-34
-    to: UABC-34
-  - type: realizes-plan-item
-    from: TKT-UABC-35
-    to: UABC-35
-  - type: realizes-plan-item
-    from: TKT-UABC-36
-    to: UABC-36
-  - type: realizes-plan-item
-    from: TKT-UABC-37
-    to: UABC-37
-  - type: realizes-plan-item
-    from: TKT-UABC-38
-    to: UABC-38
-  - type: realizes-plan-item
-    from: TKT-UABC-24-SALES
-    to: UABC-24
-  - type: realizes-plan-item
-    from: TKT-UABC-24-INVENTORY
-    to: UABC-24
+traceabilityRecords: []
+traceabilityRelations: []

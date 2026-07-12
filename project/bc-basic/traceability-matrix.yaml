@@ -5,7 +5,7 @@ status: synthetisch-geprueft-real-nicht-abgenommen
 claimPolicy: Diese Matrix ist wiederverwendbare Planungsstruktur; die Referenzsimulation belegt ihre synthetische Ausfuehrung ueber die referenzierte Evidence; eine reale Kundeninstanz benoetigt neue Sandbox- und Abnahmenachweise.
 entries:
   - { requirement: UABC-REQ-BCB-001, solution: project/bc-basic/project-plan.yaml, workPackages: [UABC-27], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-UAT-001 }
-  - { requirement: UABC-REQ-BCB-002, solution: openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md, workPackages: [UABC-22, UABC-26], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-PLAN-002 }
+  - { requirement: UABC-REQ-BCB-002, solution: openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md, workPackages: [UABC-22, UABC-26], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-PLAN-002 }
   - { requirement: UABC-REQ-BCB-003, solution: project/bc-basic/data-package.yaml, workPackages: [UABC-28, UABC-30, UABC-31, UABC-32], uat: [UABC-UAT-BCB-002, UABC-UAT-BCB-003, UABC-UAT-BCB-004], training: [UABC-TRAIN-BCB-TRADE, UABC-TRAIN-BCB-WHS], evidence: UABC-EV-UAT-003 }
   - { requirement: UABC-REQ-BCB-004, solution: project/bc-basic/billing.yaml, workPackages: [UABC-22], uat: [UABC-UAT-BCB-005], training: [UABC-TRAIN-BCB-FIN], evidence: UABC-EV-PLAN-004 }
   - { requirement: UABC-REQ-BCB-005, solution: atlassian/jira/issues/bc-basic-project.yaml, workPackages: [UABC-22, UABC-38], uat: [], training: [], evidence: UABC-EV-PLAN-005 }
@@ -15,7 +15,7 @@ entries:
   - { requirement: UABC-REQ-BCB-009, solution: project/bc-basic/uat-training-run.yaml, workPackages: [UABC-36, UABC-37], uat: [UABC-UAT-BCB-006, UABC-UAT-BCB-007], training: [UABC-TRAIN-BCB-FIN], evidence: UABC-EV-UAT-009 }
   - { requirement: UABC-REQ-BCB-010, solution: project/bc-basic/deliverables.yaml, workPackages: [UABC-38], uat: [], training: [], evidence: UABC-EV-HANDOVER-010 }
   - { requirement: UABC-REQ-BCB-011, solution: governance/consumer-bindings.yaml, workPackages: [UABC-38], uat: [], training: [], evidence: UABC-EV-SNAPSHOT-011 }
-  - { requirement: UABC-REQ-BCB-012, solution: openspec/changes/deliver-bc-basic-customer-project/proposal.md, workPackages: [], uat: [], training: [], evidence: UABC-EV-REPOSITORY-012 }
+  - { requirement: UABC-REQ-BCB-012, solution: openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md, workPackages: [], uat: [], training: [], evidence: UABC-EV-REPOSITORY-012 }
 evidenceStatus:
   allEntries: synthetisch-oder-geplant
   realExecution: false

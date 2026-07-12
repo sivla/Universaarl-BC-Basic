@@ -13,7 +13,7 @@ approvalPolicy:
     - Projektindex und Verifikationsregister entsprechen den geprueften Quellartefakten
     - die strikte OpenSpec-Pruefung und die lokale Validierung bestehen
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     project: { status: proposed, value: UABC-BC-BASIC-001 }
