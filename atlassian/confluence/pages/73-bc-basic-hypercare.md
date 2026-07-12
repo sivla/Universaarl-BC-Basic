@@ -3,7 +3,7 @@ id: UABC-BCBHYPERCARE
 title: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
 parent: UABC-BCBPROJECT
 owners: [P-002, P-005]
-status: Geplant
+status: Synthetisch abgeschlossen
 jiraRefs: [UABC-21, UABC-35, UABC-36, UABC-37, UABC-38]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
 lastReviewed: 2026-07-11
@@ -11,7 +11,7 @@ lastReviewed: 2026-07-11
 
 # Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
 
-Phase 3 ist mit hoechstens 10 Stunden innerhalb einer Kalenderwoche geplant und beginnt erst nach fachlicher Pruefung der Einrichtung, Schulung und vorbereiteten UAT-Faelle. Die derzeitigen Inhalte sind Prueflisten und keine ausgefuehrten Unterstuetzungs-, Abschluss- oder Steuerergebnisse.
+Phase 3 bleibt eine wiederverwendbare Vorlage mit höchstens 10 Stunden innerhalb einer Kalenderwoche. Die Referenzsimulation hat Monatsabschluss, VAT-Vorschau, Restart und drei Hypercaretage abgeschlossen; ein echter Kunde wiederholt sie nach UAT in seiner Sandbox.
 
 ## Begrenzte Hypercare
 
@@ -23,10 +23,10 @@ Phase 3 ist mit hoechstens 10 Stunden innerhalb einer Kalenderwoche geplant und 
 
 ## UStVA-Vorschau
 
-`UABC-37` prueft Periode, Betraege und freigegebene Kennzeichen fachlich gegen die abgestimmte Probe. Die UStVA wird nur als Vorschau betrachtet; Test-, Produktiv- oder ELSTER-Uebermittlung an eine Behoerde sind ausgeschlossen. Das Lieferergebnis `UABC-DEL-BCB-008` bleibt bis zur fachlichen Pruefung geplant.
+`UABC-37` prüft Periode, Beträge und Kennzeichen gegen die Abstimmung. Die Referenzvorschau ist synthetisch bestanden; beim Kunden werden Konten/Kennzeichen steuerlich bestätigt. Test-, Produktiv- oder ELSTER-Übermittlung bleiben ausgeschlossen.
 
 ## Uebergabe
 
-`UABC-38` uebergibt Projektdokumentation, Schulungsunterlagen und Nachweisindex. Der Abschluss der Hypercare erfordert echte Entscheider; eine synthetische Rolle oder Pruefung der Projektablage reicht nicht aus.
+`UABC-38` hat die Referenzdokumentation, Schulungsunterlagen und den Index synthetisch übergeben. In einer Kundeninstanz bestätigen echte Entscheider den Hypercare-Exit und Betriebsübergang erneut.
 
 <!-- story-metadata {"id":"PAGE-UABC-120","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

@@ -4,6 +4,10 @@ displayName: BC Basic Einrichtung
 servicePackage: BC Basic Einrichtung
 servicePackageNotice: Universaarl-Standardleistung; kein Microsoft-Lizenzname
 status: planned
+templateState: kundenbereite-wiederverwendbare-Vorlage
+simulationState: simulated-complete
+productState: V1_STANDARDPRODUCT_READY
+customerInstanceState: nach-Entry-Gate-auszufuehren
 simulation: true
 environment: playthru
 company:

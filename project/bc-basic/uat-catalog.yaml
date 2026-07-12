@@ -3,6 +3,9 @@ catalogId: UABC-UAT-BCB-001
 projectId: UABC-BC-BASIC-001
 changeRef: deliver-bc-basic-customer-project
 status: planned
+templateState: kundenbereit
+simulationState: synthetisch-sieben-Faelle-abgenommen
+customerInstanceState: durch-echte-Key-User-in-Sandbox-auszufuehren
 executed: false
 resultClaimed: false
 ownerRef: P-016

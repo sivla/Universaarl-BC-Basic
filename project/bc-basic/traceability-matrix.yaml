@@ -2,7 +2,7 @@ schemaVersion: 1
 matrixId: UABC-TRACE-BCB-001
 projectId: UABC-BC-BASIC-001
 status: synthetisch-geprueft-real-nicht-abgenommen
-claimPolicy: Diese Matrix belegt Rueckverfolgbarkeit der Planung, nicht Ausfuehrung oder Abnahme.
+claimPolicy: Diese Matrix ist wiederverwendbare Planungsstruktur; die Referenzsimulation belegt ihre synthetische Ausfuehrung ueber die referenzierte Evidence; eine reale Kundeninstanz benoetigt neue Sandbox- und Abnahmenachweise.
 entries:
   - { requirement: UABC-REQ-BCB-001, solution: project/bc-basic/project-plan.yaml, workPackages: [UABC-27], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-UAT-001 }
   - { requirement: UABC-REQ-BCB-002, solution: openspec/changes/deliver-bc-basic-customer-project/delivery-plan.md, workPackages: [UABC-22, UABC-26], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-PLAN-002 }

@@ -1,5 +1,7 @@
 # Handover und Abschluss UABC-BCB-001
 
+Produktstatus: **V1_STANDARDPRODUCT_READY**. Neun Lieferobjekte, sieben UAT-Fälle, vier Operatorpfade, Cutover, Restart und drei Hypercaretage sind in der Referenzsimulation abgeschlossen. Der Branchvertrag ist mit Spectra 0.10 validiert und für den rein lesenden Twin vorbereitet.
+
 ## Spectra-0.10-Abschluss
 
 Der Abschluss bindet `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json`, `exports/project-data/v1/twin-export-map.json`, `evidence/simulation/reference-graph-coverage.json`, `exports/project-data/v1/reference-graph-native.json`, `exports/project-data/v1/reference-graph-mapping.json` und `exports/project-data/v1/reference-graph-portable.json`. Damit kann der Twin Baseline, Angebot, Ist und die Differenz zwischen 252 nativen Relationen und 190 portablen Kanten erklaeren. Eine produktive Leistung, Rechnung, Zahlung, Schreibberechtigung oder 1:1-Vollstaendigkeitsbehauptung wird nicht abgeleitet.
@@ -19,3 +21,5 @@ Die Referenzsimulation hat die vier Rollenpfade aus `project/bc-basic/training-p
 Der Operator-Smoke-Test `UABC-SMOKE-BCB-OPERATOR-001` wird am ersten Arbeitstag und während Hypercare täglich wiederholt. Support übernimmt einen Fall nur mit Rolle, Umgebung, Version, Seite/Aktion, Belegnummer, letztem erfolgreichen Schritt, Fehlertext, Soll/Ist, Kontrollwerten, sicherer Evidence, Reproduktionsweg, Rücksetzpunkt, Auswirkung und Eskalationsausgang. Damit bleibt die Diagnose reproduzierbar und frei von Zugangsdaten oder realen Bank-/Personengeheimnissen.
 
 Der finale Handover enthält außerdem den Spectra-konformen Abgleich `evidence/simulation/project-reconciliation.json`, die read-only Herkunftsbindung `evidence/simulation/adapter-provenance.json` und die daraus erzeugte Allowlistprojektion `exports/project-data/v1/twin-export-map.json`. Damit kann der Twin Baseline, Angebot, Ist und Exportherkunft darstellen, ohne BC Basic zu überschreiben oder eine produktive Leistung, Rechnung, Buchung oder Zahlung abzuleiten.
+
+Für eine reale Kundeninstanz bleiben exakt zu parametrisieren: Sponsor/Owner und Termine; Tenant, Zielgesellschaft, Lizenz, BC-Version und deutsche Lokalisierung; Benutzer, Profile und Permission Sets; Konten, VAT-/UStVA-Kennzeichen und Steuerberaterentscheidung; Datenquellen, Volumina, Anfangssalden und offene Posten; Bank-, Zahlungs-, Mahn- und Dokumentparameter; Sandbox-Schreibrecht, Rücksetz-/Wiederanlaufpunkt; echte UAT-, Cutover-, Hypercare- und Betriebsannahme. Diese Parameter durchlaufen das bestehende Entry-Gate und ändern das V1-Produkt nicht.

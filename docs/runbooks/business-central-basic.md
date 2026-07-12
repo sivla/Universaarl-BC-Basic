@@ -1,15 +1,15 @@
 ---
 documentId: UABC-HANDBOOK-BCB-CONSULTANT-001
 projectId: UABC-BC-BASIC-001
-version: 0.1-plan
-status: Entwurf
+version: 1.0
+status: Kundenbereites Standardmuster
 simulation: true
 deliverableRef: UABC-DEL-BCB-009
 ---
 
 # Beratungshandbuch: BC Basic Einrichtung
 
-Diese Betriebsanleitung ist ein Planungs- und Kontrollvertrag fuer die spaetere Sandbox-Grundeinrichtung. Sie autorisiert keinen Browserlauf, keinen BC-Schreibvorgang und keine fachliche Freigabe. Jede Ausfuehrung muss an einen unveraenderten Versionsstand, `playthru`, genau `UABC-BASIC-DE` und eine separate menschliche Autorisierung gebunden sein.
+Diese Betriebsanleitung führt den Consultant durch das kundenbereite BC-Basic-V1-Muster. Die Referenzsimulation ist vollständig abgeschlossen. Für eine reale Kundeninstanz werden Ziel, Daten, Benutzer und Entscheidungen neu gebunden; erst das Entry-Gate autorisiert Sandboxschritte.
 
 ## 1. Vorbedingungen
 
@@ -17,7 +17,7 @@ Diese Betriebsanleitung ist ein Planungs- und Kontrollvertrag fuer die spaetere 
 2. Zielgesellschaft, erlaubte Schreibvorgaenge, Arbeitsdatum und Ruecksetzplan sind projektspezifisch freigegeben.
 3. Datenpaket und Finanz-/Steuerdesign haben benannte echte Pruefer.
 4. Alle verwendeten Datensaetze sind synthetisch; keine `.env`, Browserprofile, Tokens, Bank- oder ELSTER-Zugangsdaten werden in Projektartefakte uebernommen.
-5. Der Abrechnungssatz von 1.300 EUR netto pro Tag beziehungsweise 162,50 EUR netto pro Stunde ist verwendet; ein Budgetlimit wird nur angewendet, wenn es menschlich entschieden wurde.
+5. Das aktuelle Standardangebot umfasst 80 Stunden zu 120 EUR und 9.600 EUR netto. Die historische 68-Stunden-Kalkulation ist kein paralleles Angebot.
 
 Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 
@@ -43,21 +43,21 @@ Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 - Nachweis je Szenario: Lauf-ID, Szenario, Jira-Key, Anforderungsreferenz, Schrittereignisse, Screenshots, Datensatz-IDs, erwartete Buchungswirkung, beobachtetes Ergebnis und Pruefer.
 - Aufbewahrung: Rohartefakte bleiben temporaer und werden erst nach Datenschutz- und Inhaltspruefung kuratiert.
 
-Der aktuelle Katalog ist geplant, aber nicht ausgefuehrt. Kein Szenario ist bestanden.
+Der Katalog ist in der Referenzsimulation synthetisch bestanden. In einer realen Kundeninstanz bleibt jeder Fall `planned`, bis Benutzer, Berechtigung, UI-Antwort, Buchung und Reset in der Sandbox belegt sind.
 
 ## 4. Datenkontrolle
 
-`project/bc-basic/data-package.yaml` ist die einzige geplante Datengrundlage. Jede Vorlage wird gegen Pflichtfelder, Eindeutigkeit, synthetische Kennzeichnung und Summen geprueft. Konfigurationspakete sind der bevorzugte Dienstleisterweg fuer Setupdaten, Stammdaten und kontrollierte offene Posten; manuelle BC-Schritte werden als Ausnahme begruendet. Historische Bewegungsdaten, reale offene Posten, Bankverbindungen, Steuerkennungen und Personendaten sind ausgeschlossen.
+`project/bc-basic/data-package.yaml` ist die einzige Datengrundlage. Acht kundenbereite Vorlagen und drei Wellen wurden synthetisch geprüft. Der Kunde ersetzt ausschließlich die synthetischen Werte durch freigegebene Quellen; Pflichtfelder, Eindeutigkeit, Referenzen und Summen werden vor jedem Import erneut geprüft.
 
 ## 5. Abrechnung
 
-Nur Arbeitsprotokolle zu `UABC-22` bis `UABC-38` koennen abrechenbar sein. Epic `UABC-18` und Stories `UABC-19` bis `UABC-21` sind reine Summen. Eine Rechnungszeile entsteht erst aus einer tatsaechlich geleisteten, genehmigten und noch nicht fakturierten Jira-Istzeit. Schaetzungen, Elternsummen, doppelte Arbeitsprotokolle, Kundenaufwaende und nicht entschiedene Budgetlimits sind ausgeschlossen.
+Das Standardangebot beträgt 80 Stunden/9.600 EUR. Nur genehmigte Arbeitsprotokolle der untersten Ticketebene zählen zum Ist; Elternsummen, Schätzungen und Kundenaufwand werden nicht doppelt erfasst. Die Referenzsimulation erzeugt keine Rechnung oder Zahlung.
 
 ## 6. Fachliche Abschlusskontrollen
 
-- UAT: vorbereitete Faelle konnten ausgefuehrt werden oder blockieren nachvollziehbar; kein produktiver Start.
-- Monatsabschluss: Prozess in der Sandbox geprobt und Abstimmungen dokumentiert, kein echter Monatsabschluss.
-- UStVA: Vorschau fachlich geprueft, keine Test-, Produktiv- oder ELSTER-Uebermittlung.
+- UAT: sieben Referenzfälle sind synthetisch bestanden; reale Key User wiederholen sie in der Kundensandbox.
+- Monatsabschluss: Referenzprozess und Abstimmungen sind synthetisch bestanden; kein echter Monatsabschluss.
+- UStVA: Referenzvorschau ist abgestimmt; keine Test-, Produktiv- oder ELSTER-Übermittlung.
 - Steuergrenze: keine Steuer- oder Rechtsberatung und keine GoBD-Garantie.
 - Handbuecher: Quellen, Version, Szenarien und Nachweise sind nachvollziehbar; fehlende Werte bleiben leer.
 
@@ -67,4 +67,8 @@ Ausgeschlossen sind AL-Entwicklung, eigene Berichte oder Layouts, Integrationen,
 
 ## 8. Quellen und Nachweise
 
-Die fachliche Grundlage bilden `SRC-BC-016`, `SRC-BC-052` bis `SRC-BC-057`, `SRC-LAW-001` und `SRC-ELSTER-001`. Projektanforderungen stehen in `UABC-REQ-BCB-001` bis `UABC-REQ-BCB-011`. Ausfuehrungsnachweise `UABC-VER-BCB-E2E-001`, `UABC-VER-BCB-TRAINING-001`, `UABC-VER-BCB-CLOSE-001`, `UABC-VER-BCB-VAT-001` und `UABC-VER-BCB-HANDOVER-001` bleiben bis zur echten Ausfuehrung `pending`.
+Die fachliche Grundlage bilden `SRC-BC-016`, `SRC-BC-052` bis `SRC-BC-084`, `SRC-LAW-001` und `SRC-ELSTER-001`. Die Referenznachweise sind synthetisch abgeschlossen. Dieselben Evidence-IDs bleiben in einer realen Kundeninstanz offen, bis die echte Sandboxausführung belegt ist.
+
+## 9. V1-Exit und Kundenstart
+
+Das wiederverwendbare Produkt hat `V1_STANDARDPRODUCT_READY`. Der Consultant beginnt eine Kundeninstanz mit Angebot, sieben Entscheidungen, acht Datenvorlagen, Konfigurations-/SoD-Baseline und Entry-Gate. Er konfiguriert, prüft, dokumentiert, übergibt an UAT und behandelt jede Abweichung als Standard, Parametrisierung, Change oder außerhalb des Pakets.

@@ -3,7 +3,7 @@ id: UABC-BCBIMPLEMENTATION
 title: Einrichtungswoche
 parent: UABC-BCBPROJECT
 owners: [P-002, P-004, P-005]
-status: Geplant
+status: Kundenbereites Standardmuster
 jiraRefs: [UABC-20, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34]
 referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-007, UABC-REQ-BCB-008, SRC-BC-077, SRC-BC-078, SRC-BC-079, SRC-BC-080, SRC-BC-081, SRC-BC-082, SRC-BC-083, SRC-BC-084]
 lastReviewed: 2026-07-11
@@ -11,7 +11,7 @@ lastReviewed: 2026-07-11
 
 # Einrichtungswoche
 
-Phase 2 umfasst genau fuenf aufeinanderfolgende Arbeitstage und 40 geplante Stunden. Sie ist weder gestartet noch freigegeben. Jeder spaetere Schreibvorgang benoetigt eine projektspezifische Zielbindung, menschliche Schreibfreigabe und einen Ruecksetzplan.
+Phase 2 ist als wiederverwendbare Fünf-Tage-Vorlage geplant und in der Referenzsimulation synthetisch abgeschlossen. Eine reale Kundeninstanz startet sie erst nach bestandenem Entry-Gate; jeder Schreibvorgang benötigt Zielbindung, Freigabe und Rücksetzpunkt.
 
 ## Reihenfolge
 
@@ -28,7 +28,7 @@ Phase 2 umfasst genau fuenf aufeinanderfolgende Arbeitstage und 40 geplante Stun
 - `UABC-DEL-BCB-005`: Schulungs- und Kompetenzpaket.
 - `UABC-DEL-BCB-006`: fachlicher Abnahmetest und UAT-Begleitung.
 
-Alle drei Lieferergebnisse bleiben `planned`, bis echte Ausfuehrungsnachweise und menschliche Entscheidungen vorliegen. Der Playwright-Katalog ist nur ein Szenarienplan und wurde in diesem Auftrag nicht ausgefuehrt.
+Alle drei Lieferergebnisse sind in der Referenzsimulation `simulated-complete`. Für eine reale Kundeninstanz bleiben die Vorlagen `planned`, bis echte Benutzer, Sandboxausführung und Freigaben belegt sind. Keine simulierte Evidence wird als reale BC-Ausführung ausgegeben.
 
 ## Ausführbare Standardbaseline
 

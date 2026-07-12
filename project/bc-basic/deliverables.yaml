@@ -2,6 +2,10 @@ schemaVersion: 1
 registerId: UABC-DEL-BCB-REGISTER-001
 projectId: UABC-BC-BASIC-001
 status: planned
+templateState: kundenbereites-Lieferregister
+simulationState: neun-von-neun-simulated-complete
+productState: V1_STANDARDPRODUCT_READY
+customerInstanceState: je-Lieferobjekt-mit-realen-Parametern-neu-abzunehmen
 simulation: true
 claimPolicy: Ein vorhandener Plan oder eine Vorlage ist kein Ausfuehrungs-, Abnahme- oder Uebergabenachweis.
 deliverables:

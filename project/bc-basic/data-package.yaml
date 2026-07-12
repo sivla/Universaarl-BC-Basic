@@ -2,6 +2,9 @@ schemaVersion: 1
 packageId: UABC-DATA-BCB-001
 projectId: UABC-BC-BASIC-001
 status: template
+templateState: kundenbereit
+simulationState: simulated-complete
+customerInstanceState: reale-Werte-vor-Import-zu-bestaetigen
 classification: synthetic-only
 companyRef: UABC-BASIC-DE
 prohibitedContent:

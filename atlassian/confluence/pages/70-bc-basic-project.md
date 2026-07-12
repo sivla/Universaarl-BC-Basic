@@ -1,41 +1,37 @@
 ---
 id: UABC-BCBPROJECT
-title: BC Basic Einrichtung
+title: BC Basic V1 Standardprodukt
 parent: UABC-PROJECT
 owners: [P-001, P-002]
-status: Geplant
+status: V1 kundenbereit
 jiraRefs: [UABC-18, UABC-19, UABC-20, UABC-21]
 referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004]
-lastReviewed: 2026-07-11
+lastReviewed: 2026-09-03
 ---
 
-# BC Basic Einrichtung
+# BC Basic V1 Standardprodukt
 
-Diese Seite ist die navigierende Startseite der synthetischen Produktsimulation `UABC-BC-BASIC-001`. Sie dokumentiert das wiederverwendbare Grundpaket **BC Basic Einrichtung** und keine bereits ausgefuehrte Kundenlieferung. Echte Freigaben, Iststunden, BC-Schreibvorgaenge, Abnahmen und Ergebnisse sind nicht vorhanden.
+BC Basic V1 ist ein wiederverwendbares, standardnahes Einführungspaket für eine Gesellschaft und einen einfachen Lagerort. Die Universaarl-Referenzsimulation ist vollständig von Angebot bis Hypercare durchgespielt und mit `V1_STANDARDPRODUCT_READY` abgenommen. Sie ist keine reale Kundenlieferung oder BC-Ausführung.
 
-## Ziel und Grenze
+## Drei Wahrheiten
 
-Geplant ist genau eine synthetische deutsche Gesellschaft `Universaarl GmbH` in `playthru` und genau ein Lagerort `HAUPT`. Der Standardumfang umfasst SKR04, Grundeinrichtung, Finanzwesen und Buchhaltung, Debitoren, Kreditoren, wenige Artikel, Einkauf, Verkauf, einfachen Bestand, Monatsabschlussprobe und UStVA-Vorschau. Erweiterungen, Integrationen, Produktivbetrieb, E-Rechnung, produktive Bankanbindung und echte Steueruebermittlung sind ausgeschlossen.
+- **Wiederverwendbare Vorlage:** Pläne, Datenvorlagen, UAT- und Trainingskataloge bleiben für jede neue Kundeninstanz zunächst `planned` und werden kundenspezifisch parametrisiert.
+- **Referenzsimulation:** 80 Stunden/9.600 EUR, Prozesse, Daten, Konfiguration, UAT, Training, Cutover, Restart, Hypercare und neun Deliverables sind synthetisch abgeschlossen.
+- **Reale Kundeninstanz:** Tenant, Benutzer, Lizenzen, Konten, Steuerwerte, reale Daten, Sandboxbuchungen und Freigaben werden über `UABC-GATE-BCB-PHASE2-001` neu bestätigt.
 
-## Drei Phasen
+## Leistungsweg und Scope
 
-1. [Vorbereitung, Anforderungen und Datenbereitschaft](71-bc-basic-discovery.md), geplant mit 18 abrechenbaren Dienstleisterstunden.
-2. [Einrichtung und Schulung in genau einer Woche](72-bc-basic-implementation.md), geplant mit 40 abrechenbaren Stunden.
-3. [Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau](73-bc-basic-hypercare.md), geplant mit hoechstens 10 abrechenbaren Stunden.
+**Angebot → Kundenvorbereitung → drei Workshops → Setup/Migration → UAT → Mock-Cutover → Go-live/Hypercare.** Enthalten sind Finance, P2P, O2C, Zahlung/Bank, Mahnung, einfacher Bestand, Monatsabschluss/VAT-Vorschau, Rollen/SoD, Training, Support und Handover. Erweiterungen, Integrationen, E-Rechnung, erweitertes Lager, Produktion, Projekte, Service, Anlagen, Intercompany, produktive Bank-/ELSTER-Übermittlung sowie Steuer-/Rechtsberatung sind ausgeschlossen oder Change.
 
-Die 68 geplanten Dienstleisterstunden werden mit 1.300 EUR netto pro Arbeitstag beziehungsweise 162,50 EUR netto pro Stunde kalkuliert. Daraus entsteht ein Planwert von 11.050 EUR netto. Ein verbindliches Budgetlimit ist nicht entschieden und wird nicht erfunden. Rechnungen duerfen nur aus genehmigten Jira-Arbeitsprotokollen der untersten Ticketebene entstehen.
+## V1-Ergebnis
 
-Im synthetischen Storyabschluss wird diese historische Kalkulation getrennt von Angebotsversion 2.0 gefuehrt: 80 simulierte Stunden zu 120 EUR ergeben 9.600 EUR netto. Der Abgleich ist vollstaendig dokumentiert, erzeugt jedoch keine reale Rechnung, Freigabe oder Zahlung.
+- Produktangebot: 80 Stunden zu 120 EUR = 9.600 EUR netto.
+- sieben Entscheidungsbereiche, acht Datenvorlagen, drei Migrationswellen;
+- reproduzierbare Konfiguration mit SoD- und Berechtigungsproben;
+- sieben UAT-Fälle, vier Operatorpfade, P1/P2 am Exit = 0;
+- Cutover, Restart, drei Hypercaretage und neun Lieferobjekte synthetisch bestanden;
+- Spectra 0.10 gebunden, Branchvertrag und Twin-Allowlist validiert.
 
-## Offene menschliche Pruefpunkte
-
-Zielgesellschaft und Ruecksetzung, Lizenz, Datenpaket, Finanz- und Steuerdesign, fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau, Uebergabe, Abschluss der Hypercare und optionales Budgetlimit bleiben offen. Synthetische Personen oder automatisierte Pruefungen der Projektablage ersetzen keine dieser Entscheidungen.
-
-## Quellen
-
-- Jira-Epic `UABC-18` und untergeordnete Tickets `UABC-19` bis `UABC-38`.
-- OpenSpec-Anforderungen `UABC-REQ-BCB-001` bis `UABC-REQ-BCB-011`.
-- Lieferregister `project/bc-basic/deliverables.yaml`.
-- Nur lesbarer Projekt-Twin-Einstieg `exports/project-data/v1/index.yaml`.
+Der historische 68-Stunden-/11.050-EUR-Plan bleibt nachvollziehbare Baseline, ist aber kein aktuelles Angebot. Kundenspezifische Parameter sind keine V1-Produktlücke, sondern Eingangswerte der realen Kundeninstanz.
 
 <!-- story-metadata {"id":"PAGE-UABC-090","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

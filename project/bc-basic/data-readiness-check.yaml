@@ -4,6 +4,9 @@ projectId: UABC-BC-BASIC-001
 changeRef: deliver-bc-basic-customer-project
 dryRunPath: project/bc-basic/phase-2-dry-run.yaml
 status: planned
+templateState: kundenbereit
+simulationState: synthetisch-geprueft
+customerInstanceState: vor-Setup-mit-realen-Quellen-neu-zu-pruefen
 executed: false
 resultClaimed: false
 ownerRef: P-016

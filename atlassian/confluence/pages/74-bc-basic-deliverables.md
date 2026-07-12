@@ -1,39 +1,34 @@
 ---
 id: UABC-BCBDELIVERABLES
-title: Lieferergebnisse und Handbuecher
+title: V1-Liefer- und Abnahmeübersicht
 parent: UABC-BCBPROJECT
 owners: [P-002, P-016]
-status: Geplant
+status: Synthetisch abgeschlossen
 jiraRefs: [UABC-25, UABC-29, UABC-33, UABC-34, UABC-36, UABC-37, UABC-38]
 referenceIds: [UABC-REQ-BCB-006, UABC-REQ-BCB-007, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
-lastReviewed: 2026-07-11
+lastReviewed: 2026-09-03
 ---
 
-# Lieferergebnisse und Handbuecher
+# V1-Liefer- und Abnahmeübersicht
 
-Das maschinenlesbare Lieferregister liegt unter `project/bc-basic/deliverables.yaml`. Es enthaelt neun Lieferergebnisse mit Phase, Eigentuemer, Jira-Bezug, Quellpfaden, Planstatus und leerem Abschlussnachweis. Vorlagen und Plaene behaupten keine Ausfuehrung.
+Das kanonische Register bleibt `project/bc-basic/deliverables.yaml`. Die folgende Kundensicht verbindet Versprechen, Referenzergebnis und reale Parametrisierung, ohne eine zweite Wahrheit zu erzeugen.
 
-## Datenanforderungen
+| Lieferobjekt | Versprechen und synthetisches Ergebnis | Abnahmekriterium / Evidence | Realer Parameter | Owner |
+|---|---|---|---|---|
+| `UABC-DEL-BCB-001` | Projektauftrag, Scope, Fast-Track und Abnahmeplan abgeschlossen | Angebot, Projektplan, `project-completion.yaml` | Personen, Termine, Vertragsfreigabe | `P-002` |
+| `UABC-DEL-BCB-002` | Discovery, Fit/Gap und sieben Entscheidungen abgeschlossen | Discovery, Entscheidungsregister, `GO_DISCOVERY_SIMULATION` | Konten, Steuer-, Bank-, Freigabe- und Lagerentscheidungen | `P-002` |
+| `UABC-DEL-BCB-003` | acht Vorlagen, zehn Objekte und drei Migrationswellen geprüft | Datenbereitschaft, Summen-/Referenzkontrollen | Quellsysteme, Mengen, reale Salden und Owner | `P-016` |
+| `UABC-DEL-BCB-004` | Standardkonfiguration und SoD-Baseline synthetisch geprüft | Setupfolge, Preview Posting, Berechtigungsproben | Tenantfelder, Apps, Permission Sets, echte Benutzer | `P-002` |
+| `UABC-DEL-BCB-005` | vier Rollenpfade mit Fall, Fehler, Retest und Kompetenzpass | Trainingsplan und Operator-Smoke-Test | Teilnehmer, Berechtigungen, reale Übungsergebnisse | `P-002` |
+| `UABC-DEL-BCB-006` | sieben UAT-Pflichtfälle und Defect-/Retestweg bestanden | UAT-Run, Evidence vollständig, P1/P2 = 0 | echte Key User, Seiten und Sandboxbuchungen | `P-002` |
+| `UABC-DEL-BCB-007` | Cutover, Restart und drei Hypercaretage abgeschlossen | `project-completion.yaml`, tägliches GO, Exit | Freezezeit, Restorepunkt, Supportkontakte | `P-005` |
+| `UABC-DEL-BCB-008` | VAT-/UStVA-Vorschau abgestimmt, nicht übermittelt | VAT 70,30 EUR, Nichtübermittlung belegt | Steuerkennzeichen, Konten, Steuerberaterbestätigung | `P-005` |
+| `UABC-DEL-BCB-009` | Dokumentation, Supportdiagnose und Twin-Übergabe vollständig | Handover, Branch-Index, Snapshotvalidator | Betreiber, SLA, Tenant-/Produktionsannahme | `P-002` |
 
-`project/bc-basic/data-package.yaml` beschreibt acht synthetische Datenobjekte und den Konfigurationspaketplan. Jedes Objekt verweist auf eine getrennte Blankovorlage mit Struktur, Feldbeschreibung und Wertregeln sowie auf eine vollstaendig synthetische Beispieldatei. `project/bc-basic/data-readiness-check.yaml` prueft Vollstaendigkeit, Eindeutigkeit, Buchungsgruppenabhaengigkeiten, Summen, synthetische Klassifikation und offene Freigaben. Konfigurationspakete bleiben Dienstleisterwerkzeug; ihre Erstellung und Pflege ist kein Schulungsinhalt.
+## Messbare V1-Abnahme
 
-## UAT-Grundlage
+`V1_STANDARDPRODUCT_READY` gilt, weil 80 Stunden/9.600 EUR abgeglichen, sieben Entscheidungen bearbeitet, acht Vorlagen und drei Wellen vorhanden, Buchungs-/Abstimmkontrollen ohne unerklärte Differenz, sieben UAT-Fälle und vier Operatorpfade vollständig, P1/P2 = 0, Cutover/Restart/Hypercare bestanden, neun Deliverables synthetisch abgeschlossen sowie Spectra-0.10-, Snapshot- und Twin-Vertrag validiert sind.
 
-`project/bc-basic/uat-catalog.yaml` enthaelt genau sieben geplante Pflichtfaelle fuer Navigation und Look-and-Feel, Einkauf, Verkauf, einfachen Bestand, Finance und Abstimmung, Monatsabschlussprobe sowie UStVA-Vorschau ohne Uebermittlung. Die Faelle sind nicht ausgefuehrt und besitzen keinen Abnahme- oder Erfolgsnachweis.
-
-## Schulungsartefakte
-
-`project/bc-basic/training-plan.yaml` trennt Lernziel, Agenda, Uebung und Planungsbezug von spaeterem Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offenen Fragen und Kompetenzpruefung. Die Ausfuehrungsfelder bleiben leer.
-
-## Dokumentation und Schulungsunterlagen
-
-- Einsteigerunterlage: `docs/guides/beginner/business-central-basic.md`.
-- Beratungs- und Ausfuehrungsunterlage: `docs/runbooks/business-central-basic.md`.
-
-Beide Dokumente sind strukturierte Lieferentwuerfe mit Quellen-, Versions-, Szenario- und Nachweisbezug. Erst `UABC-38` darf sie nach echter Pruefung als uebergeben kennzeichnen.
-
-## Projekt-Twin
-
-Der Projekt-Twin liest ausschliesslich `exports/project-data/v1/index.yaml`. Von dort aus darf er nur positivgelistete relative Quellpfade und bei gemeinsam genutzten Dateien nur den deklarierten Selektor aufloesen. Links oder Verweise innerhalb einer Quelle erweitern den Leseumfang nicht. Fehlende Werte bleiben leer; eine zweite Datenquelle oder erfundene Ersatzwerte sind verboten.
+Für einen echten Kunden wird dieselbe Matrix neu befüllt. Das Entry-Gate bleibt geschlossen, bis reale Entscheidungen, Daten, Rollen und Sandboxvoraussetzungen nachgewiesen sind.
 
 <!-- story-metadata {"id":"PAGE-UABC-130","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

@@ -6,7 +6,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 24f9216464d181d9bdf1a750738280f2aa73d8952fc0949c8183d616e4d8cdd9
+  projectionDigest: a6c3409860a7c1a5732aa6c6c7db10de0c03b763b25a27adcfd2fa67e842d380
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false }

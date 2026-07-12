@@ -188,3 +188,12 @@ Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenha
 - **AND** werden Berechtigungen über erlaubte und verweigerte Aktionen geprüft, ohne Permission-Set-Namen zu erfinden
 - **AND** trennt der DE-Check dokumentiertes Standardverhalten, Projektannahme, synthetischen Wert und offene Kunden-/Steuer-/Sandboxbestätigung
 - **AND** endet jede Abweichung als Standard übernehmen, kundenspezifisch parametrisieren, Change oder Out-of-Scope
+
+### Scenario: V1 wird als Standardprodukt abgenommen
+
+- **WHEN** der vollständige Referenzfall den V1-Exit erreicht
+- **THEN** sind Vorlage, Referenzsimulation und reale Kundeninstanz in allen Kundenflächen unterscheidbar
+- **AND** sind neun Lieferobjekte mit Versprechen, Ergebnis, Kriterium, Evidence, realem Parameter und Owner nachvollziehbar
+- **AND** belegen messbare Kriterien 80 Stunden/9.600 EUR, Entscheidungen, Daten, Kontrollen, UAT, Operatoren, P1/P2, Transition und Verträge
+- **AND** lautet das Produktresultat `V1_STANDARDPRODUCT_READY`
+- **AND** beginnt jede reale Kundeninstanz über das bestehende Setup-/UAT-Entry-Gate
