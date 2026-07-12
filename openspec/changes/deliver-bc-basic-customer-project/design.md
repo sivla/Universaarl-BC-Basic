@@ -44,11 +44,13 @@ Die 68 Planstunden sind eine Kalkulationsbasis. Es gibt keine Reserve, keine har
 
 Der synthetische Projektstory-Abschluss verwendet davon getrennt die versionierte Angebotsbasis 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto. Historische Kalkulation, synthetisches Angebot und synthetisches Ist werden getrennt ausgewiesen; daraus entsteht keine reale Rechnung oder Kundenfreigabe.
 
-### Spectra-0.9-Reconciliation und Adapter-Provenienz
+### Spectra-0.10-Reconciliation, Adapter-Provenienz und Referenzgraph-Coverage
 
-`evidence/simulation/project-reconciliation.json` bildet die historische Kalkulation von 68 Stunden zu 162,50 EUR und 11.050 EUR sowie das synthetische Angebot und Ist von jeweils 80 Stunden zu 120 EUR und 9.600 EUR nach dem veroeffentlichten Spectra-0.9-Vertrag ab. Die Fortschreibung des Playthrough-Scopes ist begruendet; Rechnung, Buchung, Zahlung und produktive Leistung bleiben explizit `false` beziehungsweise nicht anwendbar.
+`evidence/simulation/project-reconciliation.json` bildet die historische Kalkulation von 68 Stunden zu 162,50 EUR und 11.050 EUR sowie das synthetische Angebot und Ist von jeweils 80 Stunden zu 120 EUR und 9.600 EUR nach dem veroeffentlichten Spectra-0.10-Vertrag ab. Der neue Coverage-Nachweis ist ein technischer Lieferstand ohne zusaetzliche Stunden oder Kosten; Rechnung, Buchung, Zahlung und produktive Leistung bleiben explizit `false` beziehungsweise nicht anwendbar.
 
-Der einzige Branch-Index wird durch `scripts/generate-spectra-0.9-integration.mjs` deterministisch in `exports/project-data/v1/twin-export-map.json` projiziert. `evidence/simulation/adapter-provenance.json` bindet Indexhash, Mappingversion und Projektionsdigest. Source-Hash vor und nach der Projektion muessen identisch sein; Source-Modus ist read-only, Schreiben und Ueberschreiben sind verboten. Die Exportmap ist abgeleitet und keine zweite fachliche Source of Truth.
+Der einzige Branch-Index wird durch `scripts/generate-spectra-0.10-integration.mjs` deterministisch in `exports/project-data/v1/twin-export-map.json` projiziert. `evidence/simulation/adapter-provenance.json` bindet Indexhash, Mappingversion und Projektionsdigest. Source-Hash vor und nach der Projektion muessen identisch sein; Source-Modus ist read-only, Schreiben und Ueberschreiben sind verboten. Die Exportmap ist abgeleitet und keine zweite fachliche Source of Truth.
+
+Der gleiche Generator normalisiert die unveraenderten 252 nativen Storyrelationen und die 190 portablen Kanten in getrennte, abgeleitete Exportdateien. `evidence/simulation/reference-graph-coverage.json` bindet Quellgraph, Mappingregel und portable Projektion ueber SHA-256. Die Coverage-Semantik `explained-native-relations` erklaert alle nativen Relationen, behauptet aber weder eine 1:1-Abbildung noch eine vollstaendige portable Repräsentation.
 
 ### Fachlicher Zuschnitt
 

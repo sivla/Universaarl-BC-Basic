@@ -1,0 +1,1519 @@
+{
+  "schemaVersion": 1,
+  "recordType": "native-reference-graph",
+  "sourceOfTruth": "evidence/simulation/project-story.json",
+  "relations": [
+    {
+      "id": "NATIVE-001",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-000"
+    },
+    {
+      "id": "NATIVE-002",
+      "class": "native-reference",
+      "from": "PAGE-UABC-000",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-003",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "id": "NATIVE-004",
+      "class": "native-reference",
+      "from": "PAGE-UABC-010",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-005",
+      "class": "native-reference",
+      "from": "PAGE-UABC-010",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "id": "NATIVE-006",
+      "class": "native-reference",
+      "from": "TKT-UABC-22",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "id": "NATIVE-007",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "id": "NATIVE-008",
+      "class": "native-reference",
+      "from": "PAGE-UABC-020",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-009",
+      "class": "native-reference",
+      "from": "PAGE-UABC-020",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "id": "NATIVE-010",
+      "class": "native-reference",
+      "from": "TKT-UABC-22",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "id": "NATIVE-011",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "id": "NATIVE-012",
+      "class": "native-reference",
+      "from": "PAGE-UABC-030",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-013",
+      "class": "native-reference",
+      "from": "PAGE-UABC-030",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "id": "NATIVE-014",
+      "class": "native-reference",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "id": "NATIVE-015",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "id": "NATIVE-016",
+      "class": "native-reference",
+      "from": "PAGE-UABC-040",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-017",
+      "class": "native-reference",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "id": "NATIVE-018",
+      "class": "native-reference",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "id": "NATIVE-019",
+      "class": "native-reference",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "id": "NATIVE-020",
+      "class": "native-reference",
+      "from": "TKT-UABC-27",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "id": "NATIVE-021",
+      "class": "native-reference",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-28"
+    },
+    {
+      "id": "NATIVE-022",
+      "class": "native-reference",
+      "from": "TKT-UABC-28",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "id": "NATIVE-023",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "id": "NATIVE-024",
+      "class": "native-reference",
+      "from": "PAGE-UABC-050",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-025",
+      "class": "native-reference",
+      "from": "PAGE-UABC-050",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "id": "NATIVE-026",
+      "class": "native-reference",
+      "from": "TKT-UABC-29",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "id": "NATIVE-027",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "id": "NATIVE-028",
+      "class": "native-reference",
+      "from": "PAGE-UABC-060",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-029",
+      "class": "native-reference",
+      "from": "PAGE-UABC-060",
+      "to": "TKT-UABC-24"
+    },
+    {
+      "id": "NATIVE-030",
+      "class": "native-reference",
+      "from": "TKT-UABC-24",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "id": "NATIVE-031",
+      "class": "native-reference",
+      "from": "PAGE-UABC-060",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "id": "NATIVE-032",
+      "class": "native-reference",
+      "from": "TKT-UABC-30",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "id": "NATIVE-033",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "id": "NATIVE-034",
+      "class": "native-reference",
+      "from": "PAGE-UABC-070",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-035",
+      "class": "native-reference",
+      "from": "PAGE-UABC-070",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "id": "NATIVE-036",
+      "class": "native-reference",
+      "from": "TKT-UABC-31",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "id": "NATIVE-037",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-080"
+    },
+    {
+      "id": "NATIVE-038",
+      "class": "native-reference",
+      "from": "PAGE-UABC-080",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-039",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "id": "NATIVE-040",
+      "class": "native-reference",
+      "from": "PAGE-UABC-090",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-041",
+      "class": "native-reference",
+      "from": "PAGE-UABC-090",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "id": "NATIVE-042",
+      "class": "native-reference",
+      "from": "TKT-UABC-32",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "id": "NATIVE-043",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-100"
+    },
+    {
+      "id": "NATIVE-044",
+      "class": "native-reference",
+      "from": "PAGE-UABC-100",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-045",
+      "class": "native-reference",
+      "from": "PAGE-UABC-100",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "id": "NATIVE-046",
+      "class": "native-reference",
+      "from": "TKT-UABC-36",
+      "to": "PAGE-UABC-100"
+    },
+    {
+      "id": "NATIVE-047",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-110"
+    },
+    {
+      "id": "NATIVE-048",
+      "class": "native-reference",
+      "from": "PAGE-UABC-110",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-049",
+      "class": "native-reference",
+      "from": "PAGE-UABC-110",
+      "to": "TKT-UABC-26"
+    },
+    {
+      "id": "NATIVE-050",
+      "class": "native-reference",
+      "from": "TKT-UABC-26",
+      "to": "PAGE-UABC-110"
+    },
+    {
+      "id": "NATIVE-051",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-120"
+    },
+    {
+      "id": "NATIVE-052",
+      "class": "native-reference",
+      "from": "PAGE-UABC-120",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-053",
+      "class": "native-reference",
+      "from": "PAGE-UABC-120",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "id": "NATIVE-054",
+      "class": "native-reference",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-120"
+    },
+    {
+      "id": "NATIVE-055",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-130"
+    },
+    {
+      "id": "NATIVE-056",
+      "class": "native-reference",
+      "from": "PAGE-UABC-130",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-057",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-140"
+    },
+    {
+      "id": "NATIVE-058",
+      "class": "native-reference",
+      "from": "PAGE-UABC-140",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-059",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-150"
+    },
+    {
+      "id": "NATIVE-060",
+      "class": "native-reference",
+      "from": "PAGE-UABC-150",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-061",
+      "class": "native-reference",
+      "from": "PAGE-UABC-150",
+      "to": "TKT-UABC-33"
+    },
+    {
+      "id": "NATIVE-062",
+      "class": "native-reference",
+      "from": "TKT-UABC-33",
+      "to": "PAGE-UABC-150"
+    },
+    {
+      "id": "NATIVE-063",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "id": "NATIVE-064",
+      "class": "native-reference",
+      "from": "PAGE-UABC-160",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-065",
+      "class": "native-reference",
+      "from": "PAGE-UABC-160",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-066",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "id": "NATIVE-067",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-068",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-069",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-070",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-071",
+      "class": "native-reference",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "id": "NATIVE-072",
+      "class": "native-reference",
+      "from": "PAGE-UABC-180",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "id": "NATIVE-073",
+      "class": "native-reference",
+      "from": "PAGE-UABC-180",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "id": "NATIVE-074",
+      "class": "native-reference",
+      "from": "TKT-UABC-38",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "id": "NATIVE-075",
+      "class": "native-reference",
+      "from": "TKT-UABC-22",
+      "to": "project/bc-basic/project-plan.yaml"
+    },
+    {
+      "id": "NATIVE-076",
+      "class": "native-reference",
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "id": "NATIVE-077",
+      "class": "native-reference",
+      "from": "TKT-UABC-23",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-078",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "id": "NATIVE-079",
+      "class": "native-reference",
+      "from": "TKT-UABC-24",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "id": "NATIVE-080",
+      "class": "native-reference",
+      "from": "BC-SIM-P2P-001",
+      "to": "TKT-UABC-24"
+    },
+    {
+      "id": "NATIVE-081",
+      "class": "native-reference",
+      "from": "TKT-UABC-25",
+      "to": "project/bc-basic/data-readiness-check.yaml"
+    },
+    {
+      "id": "NATIVE-082",
+      "class": "native-reference",
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "TKT-UABC-25"
+    },
+    {
+      "id": "NATIVE-083",
+      "class": "native-reference",
+      "from": "TKT-UABC-26",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "id": "NATIVE-084",
+      "class": "native-reference",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "TKT-UABC-26"
+    },
+    {
+      "id": "NATIVE-085",
+      "class": "native-reference",
+      "from": "TKT-UABC-27",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-086",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "id": "NATIVE-087",
+      "class": "native-reference",
+      "from": "TKT-UABC-28",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-088",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-28"
+    },
+    {
+      "id": "NATIVE-089",
+      "class": "native-reference",
+      "from": "TKT-UABC-29",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "id": "NATIVE-090",
+      "class": "native-reference",
+      "from": "BC-SIM-MASTER-001",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "id": "NATIVE-091",
+      "class": "native-reference",
+      "from": "TKT-UABC-30",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "id": "NATIVE-092",
+      "class": "native-reference",
+      "from": "BC-SIM-P2P-001",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "id": "NATIVE-093",
+      "class": "native-reference",
+      "from": "TKT-UABC-31",
+      "to": "BC-SIM-O2C-001"
+    },
+    {
+      "id": "NATIVE-094",
+      "class": "native-reference",
+      "from": "BC-SIM-O2C-001",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "id": "NATIVE-095",
+      "class": "native-reference",
+      "from": "TKT-UABC-32",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "id": "NATIVE-096",
+      "class": "native-reference",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "id": "NATIVE-097",
+      "class": "native-reference",
+      "from": "TKT-UABC-33",
+      "to": "project/bc-basic/training-plan.yaml"
+    },
+    {
+      "id": "NATIVE-098",
+      "class": "native-reference",
+      "from": "project/bc-basic/training-plan.yaml",
+      "to": "TKT-UABC-33"
+    },
+    {
+      "id": "NATIVE-099",
+      "class": "native-reference",
+      "from": "TKT-UABC-34",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "id": "NATIVE-100",
+      "class": "native-reference",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "id": "NATIVE-101",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "SIM-HC-001"
+    },
+    {
+      "id": "NATIVE-102",
+      "class": "native-reference",
+      "from": "SIM-HC-001",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-103",
+      "class": "native-reference",
+      "from": "TKT-UABC-36",
+      "to": "BC-SIM-CLOSE-001"
+    },
+    {
+      "id": "NATIVE-104",
+      "class": "native-reference",
+      "from": "BC-SIM-CLOSE-001",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "id": "NATIVE-105",
+      "class": "native-reference",
+      "from": "TKT-UABC-37",
+      "to": "SYN-VAT-RETURN-001"
+    },
+    {
+      "id": "NATIVE-106",
+      "class": "native-reference",
+      "from": "SYN-VAT-RETURN-001",
+      "to": "TKT-UABC-37"
+    },
+    {
+      "id": "NATIVE-107",
+      "class": "native-reference",
+      "from": "TKT-UABC-38",
+      "to": "UABC-STORY-BCB-001"
+    },
+    {
+      "id": "NATIVE-108",
+      "class": "native-reference",
+      "from": "UABC-STORY-BCB-001",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "id": "NATIVE-109",
+      "class": "native-reference",
+      "from": "STORY-01",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "id": "NATIVE-110",
+      "class": "native-reference",
+      "from": "TKT-UABC-22",
+      "to": "STORY-01"
+    },
+    {
+      "id": "NATIVE-111",
+      "class": "native-reference",
+      "from": "STORY-01",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "id": "NATIVE-112",
+      "class": "native-reference",
+      "from": "PAGE-UABC-010",
+      "to": "STORY-01"
+    },
+    {
+      "id": "NATIVE-113",
+      "class": "native-reference",
+      "from": "STORY-01",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-114",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-01"
+    },
+    {
+      "id": "NATIVE-115",
+      "class": "native-reference",
+      "from": "STORY-01",
+      "to": "docs/offers/bc-basic-offer.md"
+    },
+    {
+      "id": "NATIVE-116",
+      "class": "native-reference",
+      "from": "docs/offers/bc-basic-offer.md",
+      "to": "STORY-01"
+    },
+    {
+      "id": "NATIVE-117",
+      "class": "native-reference",
+      "from": "STORY-02",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "id": "NATIVE-118",
+      "class": "native-reference",
+      "from": "TKT-UABC-22",
+      "to": "STORY-02"
+    },
+    {
+      "id": "NATIVE-119",
+      "class": "native-reference",
+      "from": "STORY-02",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "id": "NATIVE-120",
+      "class": "native-reference",
+      "from": "PAGE-UABC-020",
+      "to": "STORY-02"
+    },
+    {
+      "id": "NATIVE-121",
+      "class": "native-reference",
+      "from": "STORY-02",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-122",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-02"
+    },
+    {
+      "id": "NATIVE-123",
+      "class": "native-reference",
+      "from": "STORY-02",
+      "to": "project/bc-basic/project-plan.yaml"
+    },
+    {
+      "id": "NATIVE-124",
+      "class": "native-reference",
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "STORY-02"
+    },
+    {
+      "id": "NATIVE-125",
+      "class": "native-reference",
+      "from": "STORY-03",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "id": "NATIVE-126",
+      "class": "native-reference",
+      "from": "TKT-UABC-23",
+      "to": "STORY-03"
+    },
+    {
+      "id": "NATIVE-127",
+      "class": "native-reference",
+      "from": "STORY-03",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "id": "NATIVE-128",
+      "class": "native-reference",
+      "from": "PAGE-UABC-030",
+      "to": "STORY-03"
+    },
+    {
+      "id": "NATIVE-129",
+      "class": "native-reference",
+      "from": "STORY-03",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "id": "NATIVE-130",
+      "class": "native-reference",
+      "from": "BC-SIM-MASTER-001",
+      "to": "STORY-03"
+    },
+    {
+      "id": "NATIVE-131",
+      "class": "native-reference",
+      "from": "STORY-03",
+      "to": "project/bc-basic/traceability-matrix.yaml"
+    },
+    {
+      "id": "NATIVE-132",
+      "class": "native-reference",
+      "from": "project/bc-basic/traceability-matrix.yaml",
+      "to": "STORY-03"
+    },
+    {
+      "id": "NATIVE-133",
+      "class": "native-reference",
+      "from": "STORY-04",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "id": "NATIVE-134",
+      "class": "native-reference",
+      "from": "TKT-UABC-27",
+      "to": "STORY-04"
+    },
+    {
+      "id": "NATIVE-135",
+      "class": "native-reference",
+      "from": "STORY-04",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "id": "NATIVE-136",
+      "class": "native-reference",
+      "from": "PAGE-UABC-040",
+      "to": "STORY-04"
+    },
+    {
+      "id": "NATIVE-137",
+      "class": "native-reference",
+      "from": "STORY-04",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-138",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-04"
+    },
+    {
+      "id": "NATIVE-139",
+      "class": "native-reference",
+      "from": "STORY-04",
+      "to": "project/bc-basic/bc-playthrough-catalog.yaml"
+    },
+    {
+      "id": "NATIVE-140",
+      "class": "native-reference",
+      "from": "project/bc-basic/bc-playthrough-catalog.yaml",
+      "to": "STORY-04"
+    },
+    {
+      "id": "NATIVE-141",
+      "class": "native-reference",
+      "from": "STORY-05",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "id": "NATIVE-142",
+      "class": "native-reference",
+      "from": "TKT-UABC-29",
+      "to": "STORY-05"
+    },
+    {
+      "id": "NATIVE-143",
+      "class": "native-reference",
+      "from": "STORY-05",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "id": "NATIVE-144",
+      "class": "native-reference",
+      "from": "PAGE-UABC-050",
+      "to": "STORY-05"
+    },
+    {
+      "id": "NATIVE-145",
+      "class": "native-reference",
+      "from": "STORY-05",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "id": "NATIVE-146",
+      "class": "native-reference",
+      "from": "BC-SIM-MASTER-001",
+      "to": "STORY-05"
+    },
+    {
+      "id": "NATIVE-147",
+      "class": "native-reference",
+      "from": "STORY-05",
+      "to": "project/bc-basic/data-readiness-check.yaml"
+    },
+    {
+      "id": "NATIVE-148",
+      "class": "native-reference",
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "STORY-05"
+    },
+    {
+      "id": "NATIVE-149",
+      "class": "native-reference",
+      "from": "STORY-06",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "id": "NATIVE-150",
+      "class": "native-reference",
+      "from": "TKT-UABC-30",
+      "to": "STORY-06"
+    },
+    {
+      "id": "NATIVE-151",
+      "class": "native-reference",
+      "from": "STORY-06",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "id": "NATIVE-152",
+      "class": "native-reference",
+      "from": "PAGE-UABC-060",
+      "to": "STORY-06"
+    },
+    {
+      "id": "NATIVE-153",
+      "class": "native-reference",
+      "from": "STORY-06",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "id": "NATIVE-154",
+      "class": "native-reference",
+      "from": "BC-SIM-P2P-001",
+      "to": "STORY-06"
+    },
+    {
+      "id": "NATIVE-155",
+      "class": "native-reference",
+      "from": "STORY-06",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "id": "NATIVE-156",
+      "class": "native-reference",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-06"
+    },
+    {
+      "id": "NATIVE-157",
+      "class": "native-reference",
+      "from": "STORY-07",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "id": "NATIVE-158",
+      "class": "native-reference",
+      "from": "TKT-UABC-31",
+      "to": "STORY-07"
+    },
+    {
+      "id": "NATIVE-159",
+      "class": "native-reference",
+      "from": "STORY-07",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "id": "NATIVE-160",
+      "class": "native-reference",
+      "from": "PAGE-UABC-070",
+      "to": "STORY-07"
+    },
+    {
+      "id": "NATIVE-161",
+      "class": "native-reference",
+      "from": "STORY-07",
+      "to": "BC-SIM-O2C-001"
+    },
+    {
+      "id": "NATIVE-162",
+      "class": "native-reference",
+      "from": "BC-SIM-O2C-001",
+      "to": "STORY-07"
+    },
+    {
+      "id": "NATIVE-163",
+      "class": "native-reference",
+      "from": "STORY-07",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "id": "NATIVE-164",
+      "class": "native-reference",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-07"
+    },
+    {
+      "id": "NATIVE-165",
+      "class": "native-reference",
+      "from": "STORY-08",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-166",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "STORY-08"
+    },
+    {
+      "id": "NATIVE-167",
+      "class": "native-reference",
+      "from": "STORY-08",
+      "to": "PAGE-UABC-080"
+    },
+    {
+      "id": "NATIVE-168",
+      "class": "native-reference",
+      "from": "PAGE-UABC-080",
+      "to": "STORY-08"
+    },
+    {
+      "id": "NATIVE-169",
+      "class": "native-reference",
+      "from": "STORY-08",
+      "to": "BC-SIM-CASH-001"
+    },
+    {
+      "id": "NATIVE-170",
+      "class": "native-reference",
+      "from": "BC-SIM-CASH-001",
+      "to": "STORY-08"
+    },
+    {
+      "id": "NATIVE-171",
+      "class": "native-reference",
+      "from": "STORY-08",
+      "to": "evidence/simulation/phase-3-cash-inventory-close.yaml"
+    },
+    {
+      "id": "NATIVE-172",
+      "class": "native-reference",
+      "from": "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "to": "STORY-08"
+    },
+    {
+      "id": "NATIVE-173",
+      "class": "native-reference",
+      "from": "STORY-09",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "id": "NATIVE-174",
+      "class": "native-reference",
+      "from": "TKT-UABC-32",
+      "to": "STORY-09"
+    },
+    {
+      "id": "NATIVE-175",
+      "class": "native-reference",
+      "from": "STORY-09",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "id": "NATIVE-176",
+      "class": "native-reference",
+      "from": "PAGE-UABC-090",
+      "to": "STORY-09"
+    },
+    {
+      "id": "NATIVE-177",
+      "class": "native-reference",
+      "from": "STORY-09",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "id": "NATIVE-178",
+      "class": "native-reference",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "STORY-09"
+    },
+    {
+      "id": "NATIVE-179",
+      "class": "native-reference",
+      "from": "STORY-09",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "id": "NATIVE-180",
+      "class": "native-reference",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-09"
+    },
+    {
+      "id": "NATIVE-181",
+      "class": "native-reference",
+      "from": "STORY-10",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "id": "NATIVE-182",
+      "class": "native-reference",
+      "from": "TKT-UABC-34",
+      "to": "STORY-10"
+    },
+    {
+      "id": "NATIVE-183",
+      "class": "native-reference",
+      "from": "STORY-10",
+      "to": "PAGE-UABC-140"
+    },
+    {
+      "id": "NATIVE-184",
+      "class": "native-reference",
+      "from": "PAGE-UABC-140",
+      "to": "STORY-10"
+    },
+    {
+      "id": "NATIVE-185",
+      "class": "native-reference",
+      "from": "STORY-10",
+      "to": "BC-SIM-CLOSE-001"
+    },
+    {
+      "id": "NATIVE-186",
+      "class": "native-reference",
+      "from": "BC-SIM-CLOSE-001",
+      "to": "STORY-10"
+    },
+    {
+      "id": "NATIVE-187",
+      "class": "native-reference",
+      "from": "STORY-10",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "id": "NATIVE-188",
+      "class": "native-reference",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "STORY-10"
+    },
+    {
+      "id": "NATIVE-189",
+      "class": "native-reference",
+      "from": "STORY-11",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-190",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "STORY-11"
+    },
+    {
+      "id": "NATIVE-191",
+      "class": "native-reference",
+      "from": "STORY-11",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "id": "NATIVE-192",
+      "class": "native-reference",
+      "from": "PAGE-UABC-160",
+      "to": "STORY-11"
+    },
+    {
+      "id": "NATIVE-193",
+      "class": "native-reference",
+      "from": "STORY-11",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-194",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-11"
+    },
+    {
+      "id": "NATIVE-195",
+      "class": "native-reference",
+      "from": "STORY-11",
+      "to": "evidence/simulation/project-completion.yaml"
+    },
+    {
+      "id": "NATIVE-196",
+      "class": "native-reference",
+      "from": "evidence/simulation/project-completion.yaml",
+      "to": "STORY-11"
+    },
+    {
+      "id": "NATIVE-197",
+      "class": "native-reference",
+      "from": "STORY-12",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "id": "NATIVE-198",
+      "class": "native-reference",
+      "from": "TKT-UABC-34",
+      "to": "STORY-12"
+    },
+    {
+      "id": "NATIVE-199",
+      "class": "native-reference",
+      "from": "STORY-12",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "id": "NATIVE-200",
+      "class": "native-reference",
+      "from": "PAGE-UABC-160",
+      "to": "STORY-12"
+    },
+    {
+      "id": "NATIVE-201",
+      "class": "native-reference",
+      "from": "STORY-12",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-202",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-12"
+    },
+    {
+      "id": "NATIVE-203",
+      "class": "native-reference",
+      "from": "STORY-12",
+      "to": "evidence/simulation/project-completion.yaml"
+    },
+    {
+      "id": "NATIVE-204",
+      "class": "native-reference",
+      "from": "evidence/simulation/project-completion.yaml",
+      "to": "STORY-12"
+    },
+    {
+      "id": "NATIVE-205",
+      "class": "native-reference",
+      "from": "STORY-13",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-206",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "STORY-13"
+    },
+    {
+      "id": "NATIVE-207",
+      "class": "native-reference",
+      "from": "STORY-13",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-208",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "STORY-13"
+    },
+    {
+      "id": "NATIVE-209",
+      "class": "native-reference",
+      "from": "STORY-13",
+      "to": "BC-SIM-CASH-001"
+    },
+    {
+      "id": "NATIVE-210",
+      "class": "native-reference",
+      "from": "BC-SIM-CASH-001",
+      "to": "STORY-13"
+    },
+    {
+      "id": "NATIVE-211",
+      "class": "native-reference",
+      "from": "STORY-13",
+      "to": "SIM-HC-001"
+    },
+    {
+      "id": "NATIVE-212",
+      "class": "native-reference",
+      "from": "SIM-HC-001",
+      "to": "STORY-13"
+    },
+    {
+      "id": "NATIVE-213",
+      "class": "native-reference",
+      "from": "STORY-14",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-214",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "STORY-14"
+    },
+    {
+      "id": "NATIVE-215",
+      "class": "native-reference",
+      "from": "STORY-14",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-216",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "STORY-14"
+    },
+    {
+      "id": "NATIVE-217",
+      "class": "native-reference",
+      "from": "STORY-14",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "id": "NATIVE-218",
+      "class": "native-reference",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "STORY-14"
+    },
+    {
+      "id": "NATIVE-219",
+      "class": "native-reference",
+      "from": "STORY-14",
+      "to": "SIM-HC-003"
+    },
+    {
+      "id": "NATIVE-220",
+      "class": "native-reference",
+      "from": "SIM-HC-003",
+      "to": "STORY-14"
+    },
+    {
+      "id": "NATIVE-221",
+      "class": "native-reference",
+      "from": "STORY-15",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "id": "NATIVE-222",
+      "class": "native-reference",
+      "from": "TKT-UABC-38",
+      "to": "STORY-15"
+    },
+    {
+      "id": "NATIVE-223",
+      "class": "native-reference",
+      "from": "STORY-15",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "id": "NATIVE-224",
+      "class": "native-reference",
+      "from": "PAGE-UABC-180",
+      "to": "STORY-15"
+    },
+    {
+      "id": "NATIVE-225",
+      "class": "native-reference",
+      "from": "STORY-15",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "id": "NATIVE-226",
+      "class": "native-reference",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-15"
+    },
+    {
+      "id": "NATIVE-227",
+      "class": "native-reference",
+      "from": "STORY-15",
+      "to": "docs/handover/bc-basic-handover.md"
+    },
+    {
+      "id": "NATIVE-228",
+      "class": "native-reference",
+      "from": "docs/handover/bc-basic-handover.md",
+      "to": "STORY-15"
+    },
+    {
+      "id": "NATIVE-229",
+      "class": "native-reference",
+      "from": "HYPERCARE-1",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "id": "NATIVE-230",
+      "class": "native-reference",
+      "from": "TKT-UABC-35",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "id": "NATIVE-231",
+      "class": "native-reference",
+      "from": "HYPERCARE-1",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-232",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "id": "NATIVE-233",
+      "class": "native-reference",
+      "from": "HYPERCARE-1",
+      "to": "COM-35-C"
+    },
+    {
+      "id": "NATIVE-234",
+      "class": "native-reference",
+      "from": "COM-35-C",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "id": "NATIVE-235",
+      "class": "native-reference",
+      "from": "HYPERCARE-1",
+      "to": "SIM-HC-001"
+    },
+    {
+      "id": "NATIVE-236",
+      "class": "native-reference",
+      "from": "SIM-HC-001",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "id": "NATIVE-237",
+      "class": "native-reference",
+      "from": "HYPERCARE-2",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "id": "NATIVE-238",
+      "class": "native-reference",
+      "from": "TKT-UABC-32",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "id": "NATIVE-239",
+      "class": "native-reference",
+      "from": "HYPERCARE-2",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "id": "NATIVE-240",
+      "class": "native-reference",
+      "from": "PAGE-UABC-170",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "id": "NATIVE-241",
+      "class": "native-reference",
+      "from": "HYPERCARE-2",
+      "to": "COM-32-C"
+    },
+    {
+      "id": "NATIVE-242",
+      "class": "native-reference",
+      "from": "COM-32-C",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "id": "NATIVE-243",
+      "class": "native-reference",
+      "from": "HYPERCARE-2",
+      "to": "SIM-HC-002"
+    },
+    {
+      "id": "NATIVE-244",
+      "class": "native-reference",
+      "from": "SIM-HC-002",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "id": "NATIVE-245",
+      "class": "native-reference",
+      "from": "HYPERCARE-3",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "id": "NATIVE-246",
+      "class": "native-reference",
+      "from": "TKT-UABC-36",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "id": "NATIVE-247",
+      "class": "native-reference",
+      "from": "HYPERCARE-3",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "id": "NATIVE-248",
+      "class": "native-reference",
+      "from": "PAGE-UABC-180",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "id": "NATIVE-249",
+      "class": "native-reference",
+      "from": "HYPERCARE-3",
+      "to": "COM-36-C"
+    },
+    {
+      "id": "NATIVE-250",
+      "class": "native-reference",
+      "from": "COM-36-C",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "id": "NATIVE-251",
+      "class": "native-reference",
+      "from": "HYPERCARE-3",
+      "to": "SIM-HC-003"
+    },
+    {
+      "id": "NATIVE-252",
+      "class": "native-reference",
+      "from": "SIM-HC-003",
+      "to": "HYPERCARE-3"
+    }
+  ]
+}

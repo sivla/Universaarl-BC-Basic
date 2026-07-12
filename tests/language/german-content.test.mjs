@@ -129,11 +129,13 @@ test('Review- und Exportnarrative besitzen keine pauschale Ausnahme', () => {
 test('.gitattributes wird als technische Regeldatei eng und fail-closed behandelt', () => {
   const allowed = scanEntries([entry('.gitattributes', [
     'evidence/run-1/manifest.json -text',
-    'artifacts/generated/index.html -text'
+    'artifacts/generated/index.html -text',
+    'exports/project-data/v1/index.yaml text eol=lf',
+    'exports/project-data/v1/reference-graph-native.json text eol=lf'
   ].join('\n'))]);
   assert.deepEqual(allowed.violations, []);
   assert.equal(allowed.scannedFileCount, 1);
-  assert.equal(allowed.exceptions.filter((item) => item.kind === 'technische-gitattributes-regel').length, 2);
+  assert.equal(allowed.exceptions.filter((item) => item.kind === 'technische-gitattributes-regel').length, 4);
 
   const comment = scanEntries([entry('.gitattributes', '# This unfamiliar customer workflow requires careful approval.\n')]);
   assert.equal(comment.violations.length, 1);
@@ -225,11 +227,13 @@ test('C-Werte gelten nur in den inventarisierten strukturellen Kontexten', () =>
     entry('capabilities/catalog.yaml', 'statusValues: [planned, validated, approved, deferred, out-of-scope]\n'),
     entry('exports/project-artifacts/v0.1/index.yaml', 'access: read-only\n'),
     entry('evidence/simulation/adapter-provenance.json', '{"write_protection":{"source_mode":"read-only"}}\n'),
+    entry('evidence/simulation/reference-graph-coverage.json', '{"provenance":{"source_mode":"read-only"}}\n'),
+    entry('exports/project-data/v1/reference-graph-mapping.json', '{"recordType":"reference-graph-mapping-rules"}\n'),
     entry(baselineArchive, 'approvalPolicy:\n  authorizedBy: real-repository-user\n'),
     entry('evidence/verification-register.yaml', 'verifications:\n  - type: human-approval\n')
   ]);
   assert.deepEqual(allowed.violations, []);
-  for (const kind of ['gebundene-schreibbereitschaft', 'gebundener-inventarzweck', 'deklarierter-statuswert', 'gebundener-exportzugriff', 'gebundener-spectra-zugriffsmodus', 'gebundene-freigabeidentitaet', 'deklarierter-verifikationstyp']) {
+  for (const kind of ['gebundene-schreibbereitschaft', 'gebundener-inventarzweck', 'deklarierter-statuswert', 'gebundener-exportzugriff', 'gebundener-spectra-zugriffsmodus', 'gebundener-coverage-zugriffsmodus', 'gebundener-coverage-recordtyp', 'gebundene-freigabeidentitaet', 'deklarierter-verifikationstyp']) {
     assert.equal(allowed.exceptions.some((item) => item.kind === kind), true, kind);
   }
 

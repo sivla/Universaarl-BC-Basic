@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "contract_version": "0.9",
+  "contract_version": "0.10",
   "record_type": "project-reconciliation",
   "reconciliation_id": "REC-UABC-BCB-001",
   "product_id": "spectra",
@@ -33,7 +33,7 @@
     "rate": 0,
     "amount": 0,
     "reason_code": "scope-change",
-    "reason": "Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Angebot und Ist stimmen mit 80 Stunden und 9.600 EUR ueberein."
+    "reason": "Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Spectra 0.10 ergaenzt den read-only Coverage-Nachweis ohne neue Leistung, und Angebot sowie Ist bleiben bei 80 Stunden und 9.600 EUR."
   },
   "truth_boundary": {
     "owner": "synthetic-fixture",

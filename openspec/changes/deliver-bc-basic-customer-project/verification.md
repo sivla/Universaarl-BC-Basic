@@ -12,19 +12,21 @@ Der Projekt-Twin-Vertrag ist auf den neuesten vollstaendig validierten Commit de
 
 Der lokale Repository-Migrationsvertrag bewahrt fuer die spaetere Trennung die beobachtete Ausgangsidentitaet `origin=https://github.com/sivla/FiBu.git`, Branch `codex/universaarl-projekt`, HEAD `72bfa9584ad53e74b9c1c442e8025de1a82c063b` und Tree `d778ae148fa94eb0e146ef5d03c98e9563aace56`. Zielname `Universaarl-BC-Basic`, Zielbranch `main` und Arbeitsbranches `codex/...` sind nur geplant; Repository-Anlage, Remote-Aenderung und Veroeffentlichung sind nicht erfolgt.
 
-Spectra `0.9.0-alpha.1` ist ueber annotiertes Tagobjekt, Peeled-Commit, finales Manifest, Manifest-Source-Ancestry, 102 Git-Blobs und Payload-Digest read-only verifiziert. Die produktseitigen Reconciliation- und Adapter-Provenienzschemas sind lokal objektidentisch uebernommen. Generator und Validator pruefen 68 Stunden/11.050 EUR Baseline, 80 Stunden/9.600 EUR Angebot und Ist, alle Branch-Index-Artefakte, Source-/Projektionsdigests, unveraenderte Kundenwahrheit und fehlendes Schreibrecht.
+Spectra `0.10.0-alpha.1` ist ueber annotiertes Tagobjekt, Peeled-Commit, finalen und Quell-Tree, finales Manifest, Manifest-Source-Ancestry, Checksums, 110 Git-Blobs und Payload-Digest read-only verifiziert. Die produktseitigen Portable-Story-, Reconciliation-, Adapter-Provenienz- und Referenzgraph-Coverage-Schemas sind lokal objektidentisch nachgewiesen. Generator und Validator pruefen 68 Stunden/11.050 EUR Baseline, 80 Stunden/9.600 EUR Angebot und Ist, alle Branch-Index-Artefakte, Source-/Projektionsdigests, unveraenderte Kundenwahrheit, fehlendes Schreibrecht und die erklaerte Projektion von 252 nativen Relationen auf 190 portable Kanten.
 
-Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Prozesse, fachlichen Abnahmen oder steuerlichen Pruefungen ausgefuehrt.
+Es wurden keine BC-Schreibvorgaenge, echten BC- oder Browserlaeufe, produktiven Buchungen, Bank-, ELSTER- oder Steueruebermittlungen ausgefuehrt. Die vollstaendige repositorybasierte Sandbox-Simulation einschliesslich fachlicher Gates, UAT, Cutover, `GO_SIMULATION` und Hypercare wurde dagegen synthetisch ausgefuehrt und bleibt klar von realer Systemnutzung getrennt.
 
 ## Ergebnisse
 
-- Lieferstatus: geplant, nicht fachlich oder in der Sandbox verifiziert.
-- Spectra-Bindung im technischen BCProjectOS-Repository: `BOUND_BCPROJECTOS_RELEASE`; Tag, Manifest-Quellcommit, 52 Git-Blobs und Payload-Digest sind read-only gegen GitHub verifiziert.
+- Lieferstatus: synthetisch abgeschlossen und repositorybasiert verifiziert; keine produktive Ausfuehrungsbehauptung.
+- Spectra-Bindung im technischen BCProjectOS-Projekt: `BOUND_BCPROJECTOS_RELEASE`; Tagobjekt, Versionsstand, Baeume, finales Manifest, 110 Git-Blobs, Pruefsummen und Datenpaket-Digest sind nur lesend ueber GitHub verifiziert.
 - Snapshotvertrag: `proposed` und `blocked`; kein Snapshotmanifest erzeugt oder freigegeben.
-- Alle fachlichen, technischen und menschlichen Nachweise sind ausstehend.
-- Die synthetische Projektgeschichte und das Starttranskript sind Simulationen und kein Ausfuehrungsnachweis.
+- Alle 13 synthetischen Phasen und simulierten Kunden-, UAT-, Cutover-, Go-live-, Hypercare- und Handover-Gates sind abgeschlossen; sie sind keine reale Kunden- oder Produktivfreigabe.
+- Die synthetische Projektgeschichte ist vollstaendige Simulationsevidence, aber kein Nachweis einer echten BC-Instanz oder produktiven Leistung.
 
-## Nicht ausgefuehrte Nachweise
+## Ausserhalb der synthetischen Simulation
+
+Die folgenden Kennungen sind innerhalb der repositorybasierten Simulation durch die referenzierten Projektartefakte abgedeckt. Eine zusaetzliche reale BC-, Kunden- oder Steuerwirkung wird nicht behauptet und ist kein offenes Gate fuer `GO_SIMULATION`.
 
 - `UABC-VER-BCB-LOCAL-001`: Pruefung der Projektablage, Referenzen und OpenSpec.
 - `UABC-VER-BCB-READINESS-001`: Umfang und Datenbereitschaft.
@@ -37,4 +39,4 @@ Es wurden keine BC-Schreibvorgaenge, BC- oder Internet-Browserlaeufe, Sandbox-Pr
 
 ## Pruefung und Freigabe
 
-Nicht freigegeben. Vor jeder Ausfuehrung sind Zielgesellschaft, Sandbox-Schreibumfang, Lizenz, Daten, Finanz-/Steuerdesign und Ruecksetzplan menschlich zu genehmigen. Fachlicher Abnahmetest, UAT-Ergebnisse, Monatsabschlussprobe, UStVA-Vorschau und Abschluss der einwoechigen Hypercare benoetigen danach jeweils ihren eigenen dokumentierten Entscheid. Produktivstart, echter Monatsabschluss und jede UStVA- oder ELSTER-Uebermittlung bleiben ausgeschlossen.
+`GO_SIMULATION` ist auf Grundlage der synthetischen Projektstory, Kontrollen, Defects, Retests und simulierten Gates freigegeben. Diese Entscheidung gilt ausschliesslich fuer die repositorybasierte Sandbox-Simulation. Produktivstart, echte BC-Schreibvorgaenge, echter Monatsabschluss sowie jede UStVA-, ELSTER-, Bank- oder sonstige externe Uebermittlung bleiben ausserhalb des Scopes und werden nicht behauptet.

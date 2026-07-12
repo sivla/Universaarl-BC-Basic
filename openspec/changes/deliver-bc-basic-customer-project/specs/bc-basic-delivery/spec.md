@@ -139,10 +139,15 @@ Die Snapshotquelle MUST der neueste vollstaendig validierte, saubere Commit des 
 - **WHEN** der Producer- oder Consumervalidator die Allowlist beziehungsweise das Manifest prueft
 - **THEN** wird der Vertrag fail-closed abgelehnt; nur der Producer darf die interne Bindung zur Digestbildung verwenden
 
-### Requirement: UABC-REQ-BCB-013 Versionierter Reconciliation- und Provenienzvertrag
-Die Kundeninstanz MUST den veroeffentlichten Spectra-0.9-Vertrag fuer Baseline, Angebot und Ist verwenden. Der Datensatz MUST Stunden, Satz, Betrag, Waehrung, Versionen, rechnerische Abweichung und einen nachvollziehbaren Grund enthalten. Er MUST Rechnung, Buchung, Zahlung und produktive Leistung ausdruecklich ausschliessen. Der einzige Branch-Index MUST deterministisch auf eine read-only Twin-Exportmap projiziert werden. Die Adapter-Provenienz MUST sicheren relativen Quellpfad, Source-Hash vor und nach der Projektion, Mappingversion, Projektionsdigest, unveraenderte Kunden-Source-of-Truth und vollstaendigen Schreibschutz belegen.
+### Requirement: UABC-REQ-BCB-013 Versionierter Reconciliation-, Provenienz- und Coverage-Vertrag
+Die Kundeninstanz MUST den veroeffentlichten Spectra-0.10-Vertrag fuer Baseline, Angebot und Ist verwenden. Der Datensatz MUST Stunden, Satz, Betrag, Waehrung, Versionen, rechnerische Abweichung und einen nachvollziehbaren Grund enthalten. Er MUST Rechnung, Buchung, Zahlung und produktive Leistung ausdruecklich ausschliessen. Der einzige Branch-Index MUST deterministisch auf eine read-only Twin-Exportmap projiziert werden. Die Adapter-Provenienz MUST sicheren relativen Quellpfad, Source-Hash vor und nach der Projektion, Mappingversion, Projektionsdigest, unveraenderte Kunden-Source-of-Truth und vollstaendigen Schreibschutz belegen. Die Referenzgraph-Coverage MUST alle 252 nativen Relationen erklaeren, die 190 portablen Kanten commitgebunden nachweisen und MUST eine 1:1- oder Vollstaendigkeitsbehauptung ausdruecklich ausschliessen.
 
 #### Scenario: UABC-SCN-BCB-020 Reconciliation und Exportprovenienz pruefen
 - **GIVEN** die abgeschlossene synthetische Story und der aktuelle Branch-Index
 - **WHEN** Generator und Validator ausgefuehrt werden
 - **THEN** stimmen 68 Stunden/11.050 EUR Baseline sowie 80 Stunden/9.600 EUR Angebot und Ist, alle indexierten Artefakte erscheinen exakt einmal in der Exportmap, Source und Projektion sind digestgebunden und jede falsche Bindung, Manipulation, Produktivbehauptung, unsichere Pfadangabe oder Schreibberechtigung wird fail-closed abgelehnt
+
+#### Scenario: UABC-SCN-BCB-021 Referenzgraph-Coverage pruefen
+- **GIVEN** der unveraenderte native Storygraph und seine portable Twin-Projektion
+- **WHEN** der Spectra-0.10-Generator und der Coverage-Validator ausgefuehrt werden
+- **THEN** sind alle nativen Relationen genau einer erklaerten Mappingregel zugeordnet, Quell-, Mapping- und Projektionsdatei ueber SHA-256 gebunden und Schreibzugriff sowie unzutreffende 1:1- oder Vollstaendigkeitsbehauptungen ausgeschlossen

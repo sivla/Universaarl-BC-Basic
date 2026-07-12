@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contractVersion": "0.9",
+  "contractVersion": "0.10",
   "recordType": "twin-export-map",
   "mappingId": "MAP-UABC-BCB-TWIN-001",
-  "mappingVersion": "1.0.0",
+  "mappingVersion": "1.1.0",
   "projectId": "UABC-BC-BASIC-001",
   "allowedBranch": "codex/universaarl-projekt",
   "classification": "synthetische-projektevidence",
@@ -462,7 +462,7 @@
       "id": "UABC-SRC-BCB-SOURCES-001",
       "kindId": "source-register",
       "path": "docs/research/sources.yaml",
-      "selector": "sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-LAW-001,SRC-ELSTER-001]",
+      "selector": "sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-LAW-001,SRC-ELSTER-001]",
       "format": "yaml",
       "required": true
     },
@@ -501,7 +501,7 @@
     {
       "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-001",
       "kindId": "spectra-release-evidence",
-      "path": "evidence/spectra-release-0.9.0-alpha.1.yaml",
+      "path": "evidence/spectra-release-0.10.0-alpha.1.yaml",
       "selector": null,
       "format": "yaml",
       "required": true
@@ -509,7 +509,7 @@
     {
       "id": "UABC-SRC-BCB-SPECTRA-CONFORMANCE-001",
       "kindId": "spectra-portable-conformance-evidence",
-      "path": "evidence/simulation/spectra-0.9-conformance.yaml",
+      "path": "evidence/simulation/spectra-0.10-conformance.yaml",
       "selector": null,
       "format": "yaml",
       "required": true
@@ -587,27 +587,67 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-SPECTRA09-GEN-001",
-      "kindId": "spectra09-integration-generator",
-      "path": "scripts/generate-spectra-0.9-integration.mjs",
+      "id": "UABC-SRC-BCB-SPECTRA10-GEN-001",
+      "kindId": "spectra10-integration-generator",
+      "path": "scripts/generate-spectra-0.10-integration.mjs",
       "selector": null,
       "format": "javascript",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-SPECTRA09-VAL-001",
-      "kindId": "spectra09-integration-validator",
-      "path": "scripts/validate-spectra-0.9-integration.mjs",
+      "id": "UABC-SRC-BCB-SPECTRA10-VAL-001",
+      "kindId": "spectra10-integration-validator",
+      "path": "scripts/validate-spectra-0.10-integration.mjs",
       "selector": null,
       "format": "javascript",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-SPECTRA09-TEST-001",
-      "kindId": "spectra09-integration-tests",
-      "path": "tests/story/spectra-0.9-integration.test.mjs",
+      "id": "UABC-SRC-BCB-SPECTRA10-TEST-001",
+      "kindId": "spectra10-integration-tests",
+      "path": "tests/story/spectra-0.10-integration.test.mjs",
       "selector": null,
       "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-COVERAGE-SCHEMA-001",
+      "kindId": "spectra-reference-graph-coverage-schema",
+      "path": "governance/schemas/spectra-reference-graph-coverage-0.10.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-COVERAGE-001",
+      "kindId": "spectra-reference-graph-coverage",
+      "path": "evidence/simulation/reference-graph-coverage.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-NATIVE-GRAPH-001",
+      "kindId": "derived-native-reference-graph",
+      "path": "exports/project-data/v1/reference-graph-native.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-GRAPH-MAPPING-001",
+      "kindId": "reference-graph-mapping-rules",
+      "path": "exports/project-data/v1/reference-graph-mapping.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-PORTABLE-GRAPH-001",
+      "kindId": "portable-reference-graph",
+      "path": "exports/project-data/v1/reference-graph-portable.json",
+      "selector": null,
+      "format": "json",
       "required": true
     },
     {

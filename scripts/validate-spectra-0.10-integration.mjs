@@ -1,0 +1,114 @@
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+import Ajv2020 from 'ajv/dist/2020.js';
+import YAML from 'yaml';
+import { buildPortableStory } from './adapt-spectra-portable-story.mjs';
+import {
+  COVERAGE_MAPPING_PATH, COVERAGE_PATH, COVERAGE_PROJECTION_PATH, COVERAGE_SOURCE_PATH, INDEX_PATH, MAP_PATH,
+  MAPPING_ID, MAPPING_VERSION, PROVENANCE_PATH, RECONCILIATION_PATH, buildTwinExportMap, jsonBytes, lfBytes, safeRelative, sha256
+} from './generate-spectra-0.10-integration.mjs';
+
+const RELEASE = {
+  releaseVersion: '0.10.0-alpha.1', releaseTag: 'spectra-v0.10.0-alpha.1', tagCommit: 'f89b4de9a9be63932f942f1b0fd8225512a12029',
+  manifestSourceCommit: '5c39c4223009ad87a226022a679bee1a691f0cc2', payloadBundleDigest: 'ee21672c215de04cb7ae51f57b1d40ef95c79add1868f49c36d042f7cb9416df'
+};
+const RELEASE_EVIDENCE_PATH = 'evidence/spectra-release-0.10.0-alpha.1.yaml';
+const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
+const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH, RELEASE_EVIDENCE_PATH, CONFORMANCE_PATH];
+const LINK_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH];
+const hash = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
+const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+
+export function loadIntegration(root = process.cwd()) {
+  const bytes = (relative) => fs.readFileSync(path.join(root, relative));
+  const json = (relative) => JSON.parse(bytes(relative).toString('utf8'));
+  const yaml = (relative) => YAML.parse(bytes(relative).toString('utf8'));
+  return {
+    root,
+    binding: yaml('governance/consumer-bindings.yaml'), releaseEvidence: yaml(RELEASE_EVIDENCE_PATH), conformance: yaml(CONFORMANCE_PATH), index: yaml(INDEX_PATH), indexBytes: lfBytes(bytes(INDEX_PATH)),
+    reconciliation: json(RECONCILIATION_PATH), provenance: json(PROVENANCE_PATH), exportMap: json(MAP_PATH), exportMapBytes: bytes(MAP_PATH),
+    coverage: json(COVERAGE_PATH), coverageSource: json(COVERAGE_SOURCE_PATH), coverageSourceBytes: bytes(COVERAGE_SOURCE_PATH),
+    coverageMapping: json(COVERAGE_MAPPING_PATH), coverageMappingBytes: bytes(COVERAGE_MAPPING_PATH),
+    coverageProjection: json(COVERAGE_PROJECTION_PATH), coverageProjectionBytes: bytes(COVERAGE_PROJECTION_PATH),
+    story: json('evidence/simulation/project-story.json'),
+    reconciliationSchema: json('governance/schemas/spectra-project-reconciliation-0.9.schema.json'), reconciliationSchemaBytes: bytes('governance/schemas/spectra-project-reconciliation-0.9.schema.json'),
+    provenanceSchema: json('governance/schemas/spectra-adapter-provenance-0.9.schema.json'), provenanceSchemaBytes: bytes('governance/schemas/spectra-adapter-provenance-0.9.schema.json'),
+    coverageSchema: json('governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'), coverageSchemaBytes: bytes('governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'),
+    portableSchemaBytes: bytes('governance/schemas/spectra-portable-project-story-0.7.schema.json'),
+    linkedText: [
+      'docs/offers/bc-basic-offer.md', 'atlassian/confluence/pages/bc-basic-project-story.md', 'atlassian/confluence/pages/bc-basic-hypercare.md',
+      'atlassian/jira/issues/bc-basic-story-tickets.yaml', 'docs/reports/bc-basic-project-chronicle.md', 'docs/handover/bc-basic-handover.md'
+    ].map((relative) => bytes(relative).toString('utf8')).join('\n')
+  };
+}
+
+export function validateIntegration(data) {
+  const errors = []; const fail = (code, detail) => errors.push(`${code}: ${detail}`);
+  const release = data.binding?.spectraReleaseBinding ?? {};
+  for (const [field, expected] of Object.entries(RELEASE)) if (release[field] !== expected) fail('SPECTRA_BINDUNG', `${field}=${release[field]}`);
+  if (release.bindingStatus !== 'BOUND' || release.productId !== 'spectra' || release.consumerMode !== 'INSTALLABLE_BLUEPRINT' || release.installableBlueprint !== true) fail('SPECTRA_BINDUNG', 'BOUND/installierbar erforderlich');
+  const evidence = data.releaseEvidence;
+  if (evidence?.tag?.annotatedObject !== 'f656f9c4e311bb4a1277f26d0b05edfbcda9f0fe' || evidence?.tag?.peeledCommit !== RELEASE.tagCommit || evidence?.commit?.tree !== '378f704e8a19f74423b4d6c065919d2bbeb44398' || evidence?.manifest?.manifestSourceCommit !== RELEASE.manifestSourceCommit || evidence?.manifest?.sourceTree !== '26c9ba19730972358b6ce126ff7198f1dcd8a3b3' || evidence?.payload?.fileCount !== 110 || evidence?.payload?.verifiedGitBlobs !== 110 || evidence?.payload?.mismatches !== 0 || evidence?.payload?.bundleDigest !== RELEASE.payloadBundleDigest || evidence?.release?.draft !== false || evidence?.release?.prerelease !== true || evidence?.verification?.status !== 'passed') fail('VEROEFFENTLICHUNGSNACHWEIS', '0.10-Releaseanker oder 110-Blob-Nachweis weicht ab');
+  for (const [name, bytes] of [['portableProjectStory', data.portableSchemaBytes], ['projectReconciliation', data.reconciliationSchemaBytes], ['adapterProvenance', data.provenanceSchemaBytes], ['referenceGraphCoverage', data.coverageSchemaBytes]]) if (evidence?.publishedContracts?.[name]?.sha256 !== sha256(bytes) || evidence?.publishedContracts?.[name]?.parity !== 'exact') fail('SCHEMA_PARITY', name);
+
+  const rec = data.reconciliation; const prv = data.provenance; const coverage = data.coverage;
+  const baselineDiffers = rec.baseline?.hours !== rec.offer?.hours || rec.baseline?.rate !== rec.offer?.rate || rec.baseline?.amount !== rec.offer?.amount;
+  if (baselineDiffers && (rec.variance?.reason_code === 'none' || !rec.variance?.reason?.trim() || !rec.variance.reason.includes('Spectra 0.10'))) fail('VARIANCE_REASON_REQUIRED', 'Baseline, Angebot und 0.10-Lieferstand sind nicht erklaert');
+  if (rec.contract_version !== '0.10' || prv.contract_version !== '0.10' || data.exportMap.contractVersion !== '0.10') fail('CONTRACT_VERSION', '0.10 in Reconciliation, Provenienz und Exportmap erforderlich');
+  if (rec.truth_boundary?.invoice_claim !== false || rec.truth_boundary?.productive_activity_claim !== false || rec.truth_boundary?.billing_status !== 'not-applicable') fail('TRUTH_CLAIM', 'Rechnung, produktive Leistung oder Abrechnung behauptet');
+  for (const state of ['baseline', 'offer', 'actual']) if (rec[state]?.amount !== rec[state]?.hours * rec[state]?.rate) fail('RECONCILIATION_AMOUNT', state);
+  if (rec.variance?.hours !== rec.actual?.hours - rec.offer?.hours || rec.variance?.rate !== rec.actual?.rate - rec.offer?.rate || rec.variance?.amount !== rec.actual?.amount - rec.offer?.amount) fail('RECONCILIATION_VARIANCE', 'Ist minus Angebot stimmt nicht');
+
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  if (!ajv.compile(data.reconciliationSchema)(rec)) fail('RECONCILIATION_SCHEMA', 'Spectra-Reconciliation-Schema verletzt');
+  if (!ajv.compile(data.provenanceSchema)(prv)) fail('PROVENANCE_SCHEMA', 'Spectra-Provenienzschema verletzt');
+  if (!ajv.compile(data.coverageSchema)(coverage)) fail('COVERAGE_SCHEMA', 'Spectra-0.10-Coverage-Schema verletzt');
+  if (!safeRelative(prv.source?.blob_path) || !safeRelative(prv.projection?.projection_path)) fail('PATH_UNSAFE', `${prv.source?.blob_path}/${prv.projection?.projection_path}`);
+  if (prv.source?.blob_path !== INDEX_PATH || prv.projection?.projection_path !== MAP_PATH) fail('PROVENANCE_TARGET', 'Index und Exportmap erforderlich');
+  const actualSourceHash = sha256(data.indexBytes);
+  if (prv.source?.source_hash !== actualSourceHash) fail('SOURCE_HASH', actualSourceHash);
+  if (prv.source?.source_hash_after !== prv.source?.source_hash) fail('SOURCE_MUTATION', 'Source-Hash vor/nach Projektion weicht ab');
+  if (prv.projection?.projection_digest !== hash(data.exportMapBytes)) fail('PROJECTION_DIGEST', hash(data.exportMapBytes));
+  if (prv.mapping?.mapping_id !== MAPPING_ID || prv.mapping?.mapping_version !== MAPPING_VERSION || prv.mapping?.deterministic !== true) fail('MAPPING_VERSION', 'Mappingidentitaet ist ungueltig');
+  if (prv.source_of_truth?.owner !== 'customer-workspace' || prv.source_of_truth?.unchanged !== true) fail('QUELLWAHRHEIT', 'BC Basic muss unveraenderte Source of Truth bleiben');
+  const wp = prv.write_protection ?? {};
+  if (wp.source_mode !== 'read-only' || wp.writes_performed !== false || wp.projection_only !== true || wp.overwrite_allowed !== false) fail('WRITE_PROTECTION', 'Schreibschutz ist nicht fail-closed');
+
+  const bindings = [[coverage?.provenance?.source, COVERAGE_SOURCE_PATH, data.coverageSourceBytes], [coverage?.provenance?.mapping, COVERAGE_MAPPING_PATH, data.coverageMappingBytes], [coverage?.provenance?.projection, COVERAGE_PROJECTION_PATH, data.coverageProjectionBytes]];
+  for (const [binding, expectedPath, bytes] of bindings) {
+    if (!safeRelative(binding?.path) || binding?.path !== expectedPath) fail('COVERAGE_PATH', expectedPath);
+    if (binding?.sha256 !== sha256(bytes)) fail('COVERAGE_DIGEST', expectedPath);
+  }
+  if (coverage?.provenance?.source_mode !== 'read-only' || coverage?.provenance?.source_unchanged !== true || coverage?.provenance?.writes_performed !== false || coverage?.provenance?.projection_only !== true) fail('COVERAGE_WRITE_PROTECTION', 'Coverage-Provenienz ist nicht read-only');
+  const native = data.coverageSource?.relations ?? []; const portable = data.coverageProjection?.edges ?? []; const mappings = data.coverageMapping?.mappings ?? [];
+  if (native.length !== 252 || portable.length !== 190 || new Set(native.map((item) => item.id)).size !== 252 || new Set(portable.map((item) => item.id)).size !== 190) fail('COVERAGE_COUNTS', '252 native Relationen und 190 portable Kanten mit eindeutigen IDs erforderlich');
+  if (mappings.length !== 1 || mappings[0]?.mapping_id !== coverage?.mappings?.[0]?.mapping_id || mappings[0]?.native_class !== coverage?.mappings?.[0]?.native_class || mappings[0]?.portable_class !== coverage?.mappings?.[0]?.portable_class || mappings[0]?.outcome !== coverage?.mappings?.[0]?.outcome || mappings[0]?.reason_code !== coverage?.mappings?.[0]?.reason_code) fail('COVERAGE_MAPPING', 'Mappingregel und Coverage-Record weichen ab');
+  if (coverage?.summary?.native_total !== 252 || coverage?.summary?.portable_edge_total !== 190 || coverage?.summary?.accounted_native_total !== 252 || coverage?.summary?.coverage_ratio !== 1 || coverage?.claims?.one_to_one_claim !== false || coverage?.claims?.complete_projection_claim !== false || coverage?.claims?.explanation_complete !== true) fail('COVERAGE_SUMMARY', 'Coverage erklaert nicht alle nativen Relationen ohne Vollstaendigkeitsbehauptung');
+  const conformance = data.conformance;
+  const portableDigest = hash(Buffer.from(JSON.stringify(buildPortableStory(data.story, (relative) => fs.readFileSync(path.join(data.root, relative)))), 'utf8'));
+  if (conformance?.status !== 'passed' || conformance?.spectraRelease !== RELEASE.releaseTag || conformance?.portableConformance?.projectionDigest !== portableDigest || conformance?.adapterProvenance?.sourceHash !== sha256(data.indexBytes) || conformance?.adapterProvenance?.projectionDigest !== hash(data.exportMapBytes) || conformance?.referenceGraphCoverage?.sourceDigest !== sha256(data.coverageSourceBytes) || conformance?.referenceGraphCoverage?.mappingDigest !== sha256(data.coverageMappingBytes) || conformance?.referenceGraphCoverage?.projectionDigest !== sha256(data.coverageProjectionBytes) || conformance?.referenceGraphCoverage?.nativeRelations !== 252 || conformance?.referenceGraphCoverage?.portableEdges !== 190 || conformance?.referenceGraphCoverage?.oneToOneClaim !== false || conformance?.referenceGraphCoverage?.completeProjectionClaim !== false) fail('CONFORMANCE_EVIDENCE', '0.10-Konformitaetsevidence oder Digests weichen ab');
+
+  const expectedMap = buildTwinExportMap(data.index);
+  if (!equal(data.exportMap, expectedMap) || !equal(data.exportMap, JSON.parse(jsonBytes(data.exportMap).toString('utf8')))) fail('EXPORT_MAP_INCOMPLETE', 'Exportmap stimmt nicht exakt mit dem Branch-Index ueberein');
+  const ids = new Set(); const paths = new Set();
+  for (const artifact of data.index.artifacts ?? []) { if (ids.has(artifact.id) || paths.has(artifact.path)) fail('INDEX_DUPLICATE', artifact.id); ids.add(artifact.id); paths.add(artifact.path); if (!safeRelative(artifact.path)) fail('PATH_UNSAFE', artifact.path); }
+  for (const required of REQUIRED_INDEX_PATHS) if (!paths.has(required)) fail('INDEX_LINK_MISSING', required);
+
+  const story = data.story;
+  const comments = story.tickets?.flatMap((ticket) => ticket.comments ?? []) ?? [];
+  const worklogs = story.tickets?.flatMap((ticket) => ticket.worklogs ?? []) ?? [];
+  if (story.offer?.versions?.length !== 3 || story.pages?.length !== 19 || story.tickets?.length !== 17 || comments.length !== 34 || worklogs.length !== 17 || worklogs.reduce((sum, item) => sum + item.hours, 0) !== 80 || worklogs.reduce((sum, item) => sum + item.cost, 0) !== 9600 || story.timeline?.length !== 15 || story.hypercare?.length !== 3 || story.relations?.length !== 252) fail('STORY_COUNTS', '3/19/17/34/17/80/9600/15/3/252 erforderlich');
+  const handover = story.tickets?.find((ticket) => ticket.id === 'TKT-UABC-38');
+  if (!handover?.comments?.some((comment) => comment.type === 'closing' && /Reconciliation/.test(comment.text) && /Provenienz/.test(comment.text)) || !handover?.worklogs?.some((worklog) => /Reconciliation/.test(worklog.activity)) || !/Reconciliation/.test(story.timeline?.at(-1)?.result ?? '') || !/Provenienz/.test(story.hypercare?.at(-1)?.fix ?? '')) fail('STORY_LINK_INCOMPLETE', 'Bestehende Storyverknuepfung ist unvollstaendig');
+  for (const relative of [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH]) if (!(story.catalogs?.evidenceRefs ?? []).includes(relative)) fail('STORY_LINK_INCOMPLETE', relative);
+  for (const relative of LINK_PATHS) if (!data.linkedText.includes(relative)) fail('DOCUMENT_LINK_INCOMPLETE', relative);
+  return errors;
+}
+
+if (process.argv[1]?.endsWith('validate-spectra-0.10-integration.mjs')) {
+  const data = loadIntegration(); const errors = validateIntegration(data);
+  if (errors.length) { console.error(`Spectra-0.10-Integrationspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
+  console.log(`Spectra-0.10-Integrationspruefung bestanden: 68h/11.050 EUR Baseline, 80h/9.600 EUR Angebot/Ist, 252 native Relationen, 190 portable Kanten, ${data.index.artifacts.length} Twin-Artefakte, Source ${sha256(data.indexBytes)}, Projektion ${hash(data.exportMapBytes)}.`);
+}

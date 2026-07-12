@@ -51,6 +51,8 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['capabilities/catalog.yaml\u001f$.statusValues[4]\u001fout-of-scope', 'deklarierter-statuswert'],
   ['exports/project-artifacts/v0.1/index.yaml\u001f$.access\u001fread-only', 'gebundener-exportzugriff'],
   ['evidence/simulation/adapter-provenance.json\u001f$.write_protection.source_mode\u001fread-only', 'gebundener-spectra-zugriffsmodus'],
+  ['evidence/simulation/reference-graph-coverage.json\u001f$.provenance.source_mode\u001fread-only', 'gebundener-coverage-zugriffsmodus'],
+  ['exports/project-data/v1/reference-graph-mapping.json\u001f$.recordType\u001freference-graph-mapping-rules', 'gebundener-coverage-recordtyp'],
   ['governance/consumer-bindings.yaml\u001f$.spectraReleaseBinding.bindingStatus\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-spectra-release-status'],
   ['openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/.openspec.yaml\u001f$.approvalPolicy.authorizedBy\u001freal-repository-user', 'gebundene-freigabeidentitaet']
 ]);
@@ -581,7 +583,7 @@ function scanGitAttributes(report, entry) {
   for (const [index, originalLine] of asText(entry.content).split(/\r?\n/).entries()) {
     const line = originalLine.trim();
     if (!line) continue;
-    if (/^[^\s#]+\s+-text$/.test(line)) {
+    if (/^[^\s#]+\s+(?:-text|text\s+eol=lf)$/.test(line)) {
       report.exceptions.push({ path: entry.path, line: index + 1, kind: 'technische-gitattributes-regel', value: line });
       continue;
     }

@@ -80,13 +80,13 @@ artifacts:
   - { id: UABC-SRC-BCB-PW-001, kindId: playwright-scenario-catalog, path: playwright/scenarios/bc-basic-e2e.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-VER-001, kindId: verification-register, path: evidence/verification-register.yaml, selector: 'verifications[changeRef=deliver-bc-basic-customer-project]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001, kindId: snapshot-manifest-schema, path: governance/schemas/project-snapshot-manifest.schema.json, format: json-schema, required: true }
-  - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SOURCES-001, kindId: source-register, path: docs/research/sources.yaml, selector: 'sources[id in SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-LAW-001,SRC-ELSTER-001]', format: yaml, required: true }
   - { id: UABC-SRC-BCB-DRYRUN-001, kindId: phase-2-dry-run, path: project/bc-basic/phase-2-dry-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-UAT-RUN-001, kindId: uat-training-run, path: project/bc-basic/uat-training-run.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-READINESS-001, kindId: phase-2-readiness-gate, path: project/bc-basic/phase-2-readiness-gate.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-TRACE-001, kindId: traceability-matrix, path: project/bc-basic/traceability-matrix.yaml, format: yaml, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.9.0-alpha.1.yaml, format: yaml, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA-CONFORMANCE-001, kindId: spectra-portable-conformance-evidence, path: evidence/simulation/spectra-0.9-conformance.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001, kindId: spectra-release-evidence, path: evidence/spectra-release-0.10.0-alpha.1.yaml, format: yaml, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA-CONFORMANCE-001, kindId: spectra-portable-conformance-evidence, path: evidence/simulation/spectra-0.10-conformance.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-SPECTRA-SCHEMA-001, kindId: spectra-portable-project-story-schema, path: governance/schemas/spectra-portable-project-story-0.7.schema.json, format: json-schema, required: true }
   - { id: UABC-SRC-BCB-SPECTRA-ADAPTER-001, kindId: spectra-portable-project-story-adapter, path: scripts/adapt-spectra-portable-story.mjs, format: javascript, required: true }
   - { id: UABC-SRC-BCB-SPECTRA-VALIDATOR-001, kindId: spectra-portable-project-story-validator, path: scripts/validate-spectra-0.7-conformance.mjs, format: javascript, required: true }
@@ -96,9 +96,14 @@ artifacts:
   - { id: UABC-SRC-BCB-SPECTRA09-REC-001, kindId: spectra-project-reconciliation, path: evidence/simulation/project-reconciliation.json, format: json, required: true }
   - { id: UABC-SRC-BCB-SPECTRA09-PRV-001, kindId: spectra-adapter-provenance, path: evidence/simulation/adapter-provenance.json, format: json, required: true }
   - { id: UABC-SRC-BCB-TWIN-MAP-001, kindId: twin-export-map, path: exports/project-data/v1/twin-export-map.json, format: json, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA09-GEN-001, kindId: spectra09-integration-generator, path: scripts/generate-spectra-0.9-integration.mjs, format: javascript, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA09-VAL-001, kindId: spectra09-integration-validator, path: scripts/validate-spectra-0.9-integration.mjs, format: javascript, required: true }
-  - { id: UABC-SRC-BCB-SPECTRA09-TEST-001, kindId: spectra09-integration-tests, path: tests/story/spectra-0.9-integration.test.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-GEN-001, kindId: spectra10-integration-generator, path: scripts/generate-spectra-0.10-integration.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-VAL-001, kindId: spectra10-integration-validator, path: scripts/validate-spectra-0.10-integration.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-TEST-001, kindId: spectra10-integration-tests, path: tests/story/spectra-0.10-integration.test.mjs, format: javascript, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-COVERAGE-SCHEMA-001, kindId: spectra-reference-graph-coverage-schema, path: governance/schemas/spectra-reference-graph-coverage-0.10.schema.json, format: json-schema, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-COVERAGE-001, kindId: spectra-reference-graph-coverage, path: evidence/simulation/reference-graph-coverage.json, format: json, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-NATIVE-GRAPH-001, kindId: derived-native-reference-graph, path: exports/project-data/v1/reference-graph-native.json, format: json, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-GRAPH-MAPPING-001, kindId: reference-graph-mapping-rules, path: exports/project-data/v1/reference-graph-mapping.json, format: json, required: true }
+  - { id: UABC-SRC-BCB-SPECTRA10-PORTABLE-GRAPH-001, kindId: portable-reference-graph, path: exports/project-data/v1/reference-graph-portable.json, format: json, required: true }
   - { id: UABC-SRC-BCB-PHASE3-001, kindId: phase-3-cash-inventory-close, path: evidence/simulation/phase-3-cash-inventory-close.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-PHASE2-SIM-001, kindId: phase-2-p2p-o2c-simulation, path: evidence/simulation/phase-2-p2p-o2c.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-COMPLETION-001, kindId: synthetic-project-completion, path: evidence/simulation/project-completion.yaml, format: yaml, required: true }

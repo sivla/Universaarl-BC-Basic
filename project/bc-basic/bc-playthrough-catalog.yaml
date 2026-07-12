@@ -61,19 +61,20 @@ sessions:
     date: 2026-08-26
     role: P-011
     goal: Auftrag-Lieferung-Rechnung-Zahlung
-    navigation: ["Sales Orders", "Post", "Preview Posting", "Posted Sales Shipments", "Customer Ledger Entries", "Cash Receipt Journal"]
+    navigation: ["Sales Orders", "Post", "Preview Posting", "Posted Sales Shipments", "Customer Ledger Entries", "Reminders", "Cash Receipt Journal"]
     steps:
       - { page: Sales Orders, action: New, fields: {Customer: K-10000, Posting Date: 2026-08-26, Location: HAUPT, Type: Item, No.: A-100, Quantity: 10, Unit Price: 80.00}, expected: Preis und Buchungsgruppen werden vorgeschlagen }
       - { page: Sales Order, action: Preview Posting, fields: {Posting Option: Ship and Invoice}, expected: erwartete Customer-, G/L-, VAT-, Item- und Value-Entries sichtbar }
       - { page: Sales Order, action: Post, fields: {Posting Option: Ship and Invoice}, expected: SYN-SHIP-001 und SYN-AR-002 entstehen }
+      - { page: Reminders, action: Erstellen und Ausgeben, fields: {Customer: K-10000, Overdue Document: SYN-AR-002, Reminder Terms: OHNE-GEBUEHR}, expected: SYN-REM-001 dokumentiert den ueberfaelligen Posten ohne Zins Gebuehr E-Mail oder zusaetzliche Buchung }
       - { page: Cash Receipt Journal, action: Post, fields: {Applies-to Doc. No.: SYN-AR-002, Amount: 940.10}, expected: Zahlung gleicht Debitor aus }
     preview: SYN-PREVIEW-O2C-001
-    documents: [SYN-SO-001, SYN-SHIP-001, SYN-AR-002, SYN-PAY-AR-001]
+    documents: [SYN-SO-001, SYN-SHIP-001, SYN-AR-002, SYN-REM-001, SYN-PAY-AR-001]
     entries: [SYN-CLE-001, SYN-GLE-AR-001, SYN-VAT-AR-001, SYN-ILE-002, SYN-VLE-002, SYN-BANK-AR-001]
     controls: {net: 800.00, vat: 140.10, gross: 940.10, inventoryQuantity: -10, cogs: 420.00}
     negative: {defect: SIM-DEF-O2C-001, finding: Preis-oder-Kreditlimitabweichung, correction: Preis-80-00-und-Freigabe-synthetisch-bestätigt, retest: bestanden-synthetisch}
     result: synthetisch-abgenommen
-    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-31, test: UABC-UAT-BCB-003, evidence: UABC-EV-SIM-PLAY-004, sources: [SRC-BC-062, SRC-BC-060]}
+    references: {requirement: UABC-REQ-BCB-003, workPackage: UABC-31, test: UABC-UAT-BCB-003, evidence: UABC-EV-SIM-PLAY-004, sources: [SRC-BC-062, SRC-BC-060, SRC-BC-076]}
   - id: BC-SIM-CASH-001
     date: 2026-08-27
     role: P-005

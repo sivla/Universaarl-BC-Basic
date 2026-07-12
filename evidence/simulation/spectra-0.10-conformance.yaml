@@ -1,0 +1,28 @@
+schemaVersion: 1
+status: passed
+classification: synthetische-sandbox-simulation
+source: { path: evidence/simulation/project-story.json, commitBinding: branch-head-git-blob, unchanged: true }
+spectraRelease: spectra-v0.10.0-alpha.1
+releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
+portableConformance:
+  outputCommitted: false
+  projectionDigest: 2ddcfe25883a1b8f3688f2a177f1eefba3052e52f7b76c15afb8dfbf20478cc3
+  schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
+  publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
+reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false }
+adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 5c97b3f4ce6ada6f0862813946f99f73078c0da465f0b8888cee861e4fa07da0, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: ac5236a4b259bba188d055c4525230534331baacf92b99fa4b5f8d5cb61b9efb, sourceUnchanged: true, writesPerformed: false }
+referenceGraphCoverage:
+  path: evidence/simulation/reference-graph-coverage.json
+  semantics: explained-native-relations
+  nativeRelations: 252
+  portableEdges: 190
+  accountedNativeRelations: 252
+  coverageRatio: 1
+  oneToOneClaim: false
+  completeProjectionClaim: false
+  sourceDigest: bb18e270d84c429928142ae14a262163e5e9c8d55eaafa90f38cb4bb820b814f
+  mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
+  projectionDigest: 572ff0307a518539954677e8762780909ba4cd3930ac2658aaf8a4be42befb62
+counts: { offerVersions: 3, pages: 19, tickets: 17, comments: 34, worklogs: 17, hours: 80, cost: 9600, timelineEvents: 15, projectPhases: 13, hypercareDays: 3, nativeRelations: 252, portableEdges: 190 }
+processCoverage: [Finance, P2P, O2C, Payments, Reconciliation, Inventory, Month-end, VAT, UAT, Training, Cutover, GO_SIMULATION, Hypercare]
+truthBoundary: Vollstaendige repositorybasierte Sandbox-Simulation ohne echten BC-Zugriff, Rechnung, Zahlung, produktive Leistung oder externe Kundenfreigabe. Simulierte Gates sind abgeschlossen und keine externen Blocker.

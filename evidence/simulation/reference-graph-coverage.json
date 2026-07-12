@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "record_type": "reference-graph-projection-coverage",
+  "coverage_id": "RGC-UABC-BCB-001",
+  "product_id": "spectra",
+  "classification": "customer-workspace",
+  "coverage_semantics": "explained-native-relations",
+  "native_relation_classes": [
+    {
+      "class_id": "native-reference",
+      "count": 252
+    }
+  ],
+  "portable_relation_classes": [
+    {
+      "class_id": "portable-reference",
+      "count": 190
+    }
+  ],
+  "mappings": [
+    {
+      "mapping_id": "MAP-UABC-BCB-REFERENCE-001",
+      "native_class": "native-reference",
+      "portable_class": "portable-reference",
+      "outcome": "transformed",
+      "reason_code": "transformed-domain",
+      "native_count": 252,
+      "portable_edge_count": 190
+    }
+  ],
+  "summary": {
+    "native_total": 252,
+    "portable_edge_total": 190,
+    "accounted_native_total": 252,
+    "projected_native_total": 252,
+    "excluded_native_total": 0,
+    "coverage_numerator": 252,
+    "coverage_denominator": 252,
+    "coverage_ratio": 1
+  },
+  "provenance": {
+    "source": {
+      "path": "exports/project-data/v1/reference-graph-native.json",
+      "sha256": "bb18e270d84c429928142ae14a262163e5e9c8d55eaafa90f38cb4bb820b814f"
+    },
+    "mapping": {
+      "path": "exports/project-data/v1/reference-graph-mapping.json",
+      "sha256": "a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26"
+    },
+    "projection": {
+      "path": "exports/project-data/v1/reference-graph-portable.json",
+      "sha256": "572ff0307a518539954677e8762780909ba4cd3930ac2658aaf8a4be42befb62"
+    },
+    "digest_algorithm": "SHA-256",
+    "source_mode": "read-only",
+    "source_unchanged": true,
+    "writes_performed": false,
+    "projection_only": true
+  },
+  "claims": {
+    "one_to_one_claim": false,
+    "complete_projection_claim": false,
+    "explanation_complete": true
+  }
+}

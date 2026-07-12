@@ -36,7 +36,15 @@ const expectedLfNormalizedFiles = new Set([
   'exports/project-data/v1/twin-export-map.json',
   'evidence/simulation/project-reconciliation.json',
   'evidence/simulation/adapter-provenance.json',
-  'evidence/simulation/spectra-0.9-conformance.yaml'
+  'evidence/simulation/spectra-0.10-conformance.yaml',
+  'evidence/simulation/reference-graph-coverage.json',
+  'exports/project-data/v1/reference-graph-native.json',
+  'exports/project-data/v1/reference-graph-mapping.json',
+  'exports/project-data/v1/reference-graph-portable.json',
+  'governance/schemas/spectra-portable-project-story-0.7.schema.json',
+  'governance/schemas/spectra-project-reconciliation-0.9.schema.json',
+  'governance/schemas/spectra-adapter-provenance-0.9.schema.json',
+  'governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'
 ]);
 
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -74,7 +82,7 @@ function parseExplicitBinaryRules(content) {
     assert.equal(lfRules.has(relative), true, `${relative}: explizite text eol=lf-Regel fehlt`);
   }
   assert.equal(rules.size, expectedCheckoutBoundFiles.size, 'Die .gitattributes muss exakt dreizehn checkoutgebundene Bytezeilen enthalten');
-  assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt fuenf deterministische LF-Regeln enthalten');
+  assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt dreizehn deterministische LF-Regeln enthalten');
   return rules;
 }
 
@@ -121,12 +129,12 @@ test('fehlende doppelte und breite Attributregeln scheitern geschlossen', () => 
   );
 });
 
-test('fuenf Integrationsartefakte sind exakt und ohne breite Muster auf LF normalisiert', () => {
+test('dreizehn Integrationsartefakte sind exakt und ohne breite Muster auf LF normalisiert', () => {
   const fixture = repositoryFixture();
   assert.doesNotThrow(() => parseExplicitBinaryRules(fixture.attributes));
   const lines = fixture.attributes.trimEnd().split(/\r?\n/);
   const lfLines = lines.filter((line) => line.endsWith(' text eol=lf'));
-  assert.equal(lfLines.length, 5);
+  assert.equal(lfLines.length, 13);
   assert.deepEqual(new Set(lfLines.map((line) => line.split(' ')[0])), expectedLfNormalizedFiles);
   assert.throws(
     () => parseExplicitBinaryRules(`${fixture.attributes.trimEnd()}\nexports/project-data/v1/** text eol=lf\n`),

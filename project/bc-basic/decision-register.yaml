@@ -11,6 +11,7 @@ decisions:
   - { id: UABC-DEC-BCB-008, status: decided, decidedAt: 2026-09-03, decidedByRef: real-repository-user, statement: "Fuer die abgeschlossene synthetische Projektstory gilt Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die historische 68-Stunden-Dienstleisterkalkulation bleibt nachvollziehbar, erzeugt aber keine reale Rechnung." }
   - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
   - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
+openApprovalsScope: Die folgenden Punkte blockieren nicht die abgeschlossene repositorybasierte Simulation. Sie sind vor einer echten BC-Sandbox- oder Produktivausfuehrung kundenspezifisch zu entscheiden und nachzuweisen.
 openApprovals:
   - id: UABC-APP-BCB-001
     subject: Exakte Schreibzielgesellschaft Universaarl GmbH in playthru und Ruecksetzerlaubnis
