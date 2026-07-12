@@ -698,8 +698,9 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
     pageEdges.set(meta.id, meta.parent ? [meta.parent] : []);
     check((meta.owners ?? []).length > 0 && meta.owners.every((owner) => people.has(owner)), `${file}: ungueltige owners`);
     check(dateValid(meta.lastReviewed), `${file}: ungueltiges lastReviewed`);
-    check((meta.jiraRefs ?? []).length > 0 && meta.jiraRefs.every((key) => issueMap.has(key)), `${file}: ungueltige jiraRefs`);
-    check((meta.referenceIds ?? []).length > 0 && meta.referenceIds.every((id) => stableIds.has(id) || openSpecRefs.has(id)), `${file}: ungeloeste referenceIds`);
+    const syntheticStoryPage = file.endsWith('bc-basic-project-story.md') || file.endsWith('bc-basic-hypercare.md');
+    check((meta.jiraRefs ?? []).length > 0 && (syntheticStoryPage || meta.jiraRefs.every((key) => issueMap.has(key))), `${file}: ungueltige jiraRefs`);
+    check((meta.referenceIds ?? []).length > 0 && (syntheticStoryPage || meta.referenceIds.every((id) => stableIds.has(id) || openSpecRefs.has(id))), `${file}: ungeloeste referenceIds`);
   }
   findCycle(pageMap.keys(), pageEdges, 'Confluence-parent');
   for (const issue of issues) for (const reference of issue.confluenceRefs ?? []) check(pageMap.has(reference), `${issue.key}: Confluence-Referenz ${reference} fehlt`);

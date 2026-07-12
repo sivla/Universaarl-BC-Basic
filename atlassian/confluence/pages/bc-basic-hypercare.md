@@ -4,8 +4,8 @@ title: Hypercare Tagesstatus
 parent: UABC-BCBSTORY
 owners: [P-002, P-005]
 status: Abgeschlossen
-jiraRefs: [UABC-35, UABC-36, UABC-37]
-referenceIds: [UABC-REQ-BCB-009, UABC-REQ-BCB-010]
+jiraRefs: [UABC-21, UABC-35]
+referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009]
 lastReviewed: 2026-09-03
 ---
 

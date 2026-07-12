@@ -43,7 +43,7 @@ if (candidates) {
     if (!['proposed', 'partially-adopted', 'released', 'bound'].includes(candidate.status)) errors.push(`${candidate.findingId}: ungültiger Kandidatenstatus.`);
     if (candidate.anonymization !== 'bestanden-keine-kundenwerte') errors.push(`${candidate.findingId}: Anonymisierungsprüfung fehlt.`);
   }
-  if (candidates.beta1Binding?.status !== 'bound' || candidates.beta1Binding?.release !== 'spectra-v0.1.0-beta.1') errors.push('Spectra-Beta-1-Bindungsstatus ist inkonsistent.');
+  if (candidates.currentReleaseBinding?.status !== 'bound' || candidates.currentReleaseBinding?.release !== 'spectra-v0.3.0-alpha.1') errors.push('Aktuelle Spectra-0.3-Bindung ist inkonsistent.');
 }
 if (errors.length) {
   console.error(`BC-Playthrough-Pruefung fehlgeschlagen (${errors.length}):`);

@@ -4,8 +4,8 @@ title: BC Basic Projektstory
 parent: UABC-PROJECT
 owners: [P-002]
 status: Abgeschlossen
-jiraRefs: [UABC-22, UABC-38]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-010]
+jiraRefs: [UABC-18, UABC-21]
+referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002]
 lastReviewed: 2026-09-03
 ---
 
