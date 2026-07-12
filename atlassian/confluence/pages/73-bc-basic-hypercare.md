@@ -28,3 +28,5 @@ Phase 3 ist mit hoechstens 10 Stunden innerhalb einer Kalenderwoche geplant und 
 ## Uebergabe
 
 `UABC-38` uebergibt Projektdokumentation, Schulungsunterlagen und Nachweisindex. Der Abschluss der Hypercare erfordert echte Entscheider; eine synthetische Rolle oder Pruefung der Projektablage reicht nicht aus.
+
+<!-- story-metadata {"id":"PAGE-UABC-120","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

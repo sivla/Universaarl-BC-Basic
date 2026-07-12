@@ -31,3 +31,8 @@ test('TIMELINE_UNKNOWN_DECISION erkennt unbekannte Entscheidung', () => has(muta
 test('TIMELINE_OUTSIDE_WINDOW erkennt Zeit ausserhalb Projektzeitraum', () => has(mutate((s) => { s.timeline[0].time = '2027-01-01'; }), 'TIMELINE-GRENZE'));
 test('REFERENCED_OPEN_P1 erkennt tatsächlich offenes P1-Ticket', () => has(mutate((s) => { s.tickets.find((t) => t.id === s.hypercare[0].ticket).status = 'in-progress'; }), 'OFFENES-P1-P2'));
 test('INVERSE_MISSING erkennt fehlende Rückkante', () => has(mutate((s) => { s.relations = s.relations.filter((r) => !(r.type === 'references' && r.from === 'TKT-UABC-29')); }), 'INVERSE-RELATION'));
+test('STRING_STATUSHISTORY wird nicht als kanonisch akzeptiert', () => has(mutate((s) => { s.tickets[0].statusHistory = ['created','in-progress','done']; }), 'STATUSHISTORY-ABWEICHUNG'));
+test('FEHLENDE_WORKLOG_KOSTEN werden abgelehnt', () => has(mutate((s) => { delete s.tickets[0].worklogs[0].cost; }), 'WORKLOG-NESTED-TYP'));
+test('FEHLENDE_HYPERCARE_EVIDENCE wird abgelehnt', () => has(mutate((s) => { delete s.hypercare[0].evidence; }), 'HYPERCARE-RECORD'));
+test('GRAPH_WAISE erkennt eine unbekannte Domänenkante', () => has(mutate((s) => { s.relations.push({ type: 'references', from: 'PAGE-NOT-FOUND', to: 'TKT-UABC-22' }); }), 'RELATION-WAISE'));
+test('GRAPH_DUPLIKAT erkennt doppelte Kante', () => has(mutate((s) => { s.relations.push(structuredClone(s.relations[0])); }), 'RELATION-DOPPELT'));

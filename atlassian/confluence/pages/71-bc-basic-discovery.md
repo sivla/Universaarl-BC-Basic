@@ -32,3 +32,5 @@ Die Einrichtungswoche darf nur beginnen, wenn Pflichtdaten, Verantwortungen und 
 ## Transkriptbezug
 
 Alle Tickets der Phase verweisen auf `UABC-MTG-001`. Dieses Dokument ist ein gemeinsames synthetisches Planungsprotokoll und kein Nachweis, dass Arbeitsrunden, Freigaben oder Arbeiten stattgefunden haben.
+
+<!-- story-metadata {"id":"PAGE-UABC-100","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

@@ -18,3 +18,5 @@ Die verbindlichen Planentscheidungen `UABC-DEC-BCB-001` bis `UABC-DEC-BCB-007` s
 ## Ticketvertrag
 
 Jedes Jira-Ticket `UABC-18` bis `UABC-38` nennt mindestens ein Lieferergebnis und mindestens eine Transkriptreferenz. Die gemeinsame Referenz verhindert keine spaetere Pflicht, bei ausgefuehrten Arbeitsrunden, Schulungen oder Abnahmen ein echtes, datenschutzkonformes Transkript beziehungsweise Protokoll zu hinterlegen.
+
+<!-- story-metadata {"id":"PAGE-UABC-140","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

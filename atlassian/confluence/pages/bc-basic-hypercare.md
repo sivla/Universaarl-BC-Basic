@@ -20,3 +20,5 @@ lastReviewed: 2026-09-03
 | 3 · 03.09.2026 | VAT-Vermerk fehlte | SIM-HC-003, P1 | synthetische Steuerentscheidung dokumentiert, bestanden | Hypercare-Exit |
 
 Am Ende sind P1=0 und P2=0 offen. Das verbleibende Support-Backlog ist der optionale reale BC-Lauf und keine offene Simulationsabweichung.
+
+<!-- story-metadata {"id":"PAGE-UABC-160","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

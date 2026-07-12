@@ -36,3 +36,5 @@ Der Pilot liest ausschliesslich sichtbare UI-Zustaende der Sandbox `playthru`. E
 - Berater-Runbook: `docs/runbooks/playthru-environment-baseline.md`.
 
 Der fruehere Status `In Review` war keine menschliche Freigabe. Die kanonische Aktualisierung von `actualSandboxBaseline` erfolgte durch das autorisierte automatisierte Policy-Gate und die semantische Gleichheitspruefung; daraus folgt weiterhin keine BC-Schreibfreigabe.
+
+<!-- story-metadata {"id":"PAGE-UABC-070","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

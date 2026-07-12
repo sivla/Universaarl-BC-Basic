@@ -14,3 +14,5 @@ lastReviewed: 2026-07-10
 W0 prueft Repository, OpenSpec, Quellen, Architektur, Faehigkeitenplan, lokale Referenzen und die reale bedingte Freigabe. BC-, UI-, Konfigurations- und Buchungsnachweise sind explizit ausstehend.
 
 Spaetere Szenarien dokumentieren Ausgangszustand, Umgebung, Unternehmen, Rolle, Sprache, Daten, Schritte, sichtbaren Zustand, erwartete Buchungswirkung, Nachweise und Reset. Eine chronologische Screenshotkette verbindet Behauptung und Ergebnis.
+
+<!-- story-metadata {"id":"PAGE-UABC-060","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

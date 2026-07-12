@@ -29,3 +29,5 @@ Phase 2 umfasst genau fuenf aufeinanderfolgende Arbeitstage und 40 geplante Stun
 - `UABC-DEL-BCB-006`: fachlicher Abnahmetest und UAT-Begleitung.
 
 Alle drei Lieferergebnisse bleiben `planned`, bis echte Ausfuehrungsnachweise und menschliche Entscheidungen vorliegen. Der Playwright-Katalog ist nur ein Szenarienplan und wurde in diesem Auftrag nicht ausgefuehrt.
+
+<!-- story-metadata {"id":"PAGE-UABC-110","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

@@ -35,3 +35,5 @@ Zielgesellschaft und Ruecksetzung, Lizenz, Datenpaket, Finanz- und Steuerdesign,
 - OpenSpec-Anforderungen `UABC-REQ-BCB-001` bis `UABC-REQ-BCB-011`.
 - Lieferregister `project/bc-basic/deliverables.yaml`.
 - Nur lesbarer Projekt-Twin-Einstieg `exports/project-data/v1/index.yaml`.
+
+<!-- story-metadata {"id":"PAGE-UABC-090","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

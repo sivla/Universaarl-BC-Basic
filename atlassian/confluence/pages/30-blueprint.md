@@ -16,3 +16,5 @@ Der W0-Blueprint umfasst Geschaeftsmodell, Gesellschaften, BC-Unternehmen, Stand
 Der reale Repository-Nutzer hat ihn am 2026-07-10 bedingt freigegeben; dies ist keine Freigabe durch P-001. Die Freigabe bestaetigt Architektur und Plan, nicht `playthru`-Fakten, Rechts-/Steuerdetails, finale Lizenzen, einzelne Faehigkeiten, W1-Schreibvorgaenge oder Produktivstart.
 
 Bereichsuebergreifende Beraterpruefung und Lieferkorrektur 2026-07-10: Datenmigration, Tests/UAT, Training/Einfuehrungsbegleitung, Cutover und Hypercare laufen W1-W5. IC-Mapping und UAS->UAD liegen vor abhaengigen Prozessen; lokale Berichte beginnen W1, Konzernberichtswesen W4. Die Anzahl der Faehigkeiten ist kein Zielwert; einzelne Faehigkeiten bleiben `planned` oder `deferred` und muessen spaeter nachgewiesen werden.
+
+<!-- story-metadata {"id":"PAGE-UABC-030","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

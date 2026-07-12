@@ -16,3 +16,5 @@ Die Blueprint-Annahmen werden in fokussierten Workshops geprueft: Finanzwesen/St
 Jeder Workshop liefert Entscheidung, offene Frage mit Verantwortlichem, Datenanforderung und betroffene Requirement-/Scenario-ID. Ungeklaerte Punkte OQ-001 bis OQ-014 stehen synchron im OpenSpec-Design und im dauerhaften Architekturartefakt.
 
 UABC-OQ-006 und UABC-OQ-011 sind durch UABC-DEC-007/008 entschieden. Fuer W1 offen bleiben `synthetic-universaarl-business-fact` UABC-OQ-003/004/008/012/014, `legal-tax-licensing-review` UABC-OQ-002/007/009/010/013 und `later-playthru-technical-fact` UABC-OQ-001/005. Die Feldmatrix und der `playthru`-PoC konkretisieren DEC-008, ohne die Source-Company-Policy erneut zu oeffnen.
+
+<!-- story-metadata {"id":"PAGE-UABC-020","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

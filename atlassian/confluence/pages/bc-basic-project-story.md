@@ -16,3 +16,5 @@ lastReviewed: 2026-09-03
 Diese Seite ist die synthetische Projekt-Home. Von der Angebotsbaseline führt der Seitenbaum über Scope, Discovery, Setup, Datenmigration, P2P, O2C, Cash, Lager, Abschluss, UAT, Training und Cutover bis zu drei Hypercaretagen und Handover. Jede Station verweist auf Ticket, BC-Sitzung und Evidence im Storyvertrag.
 
 Die neunzehn Unterseiten sind vollständig im Storyvertrag referenziert. Die Inhalte werden durch die bestehenden Discovery-, Einrichtungs-, Test- und Lieferseiten ergänzt; technische Seiten- und Ticketantworten sind synthetische Projektdaten.
+
+<!-- story-metadata {"id":"PAGE-UABC-150","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

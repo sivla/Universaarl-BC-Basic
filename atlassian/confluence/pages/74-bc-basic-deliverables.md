@@ -35,3 +35,5 @@ Beide Dokumente sind strukturierte Lieferentwuerfe mit Quellen-, Versions-, Szen
 ## Projekt-Twin
 
 Der Projekt-Twin liest ausschliesslich `exports/project-data/v1/index.yaml`. Von dort aus darf er nur positivgelistete relative Quellpfade und bei gemeinsam genutzten Dateien nur den deklarierten Selektor aufloesen. Links oder Verweise innerhalb einer Quelle erweitern den Leseumfang nicht. Fehlende Werte bleiben leer; eine zweite Datenquelle oder erfundene Ersatzwerte sind verboten.
+
+<!-- story-metadata {"id":"PAGE-UABC-130","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

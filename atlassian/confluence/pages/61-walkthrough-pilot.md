@@ -18,3 +18,5 @@ Diese Seite navigiert zum freigegebenen Walkthrough-Piloten. Normativ sind die M
 - Konsumentenvertrag: `exports/project-artifacts/v0.1/index.yaml`
 - Die Konsumentenbindung des BC-Basic-Projektindex gehoert ausschliesslich zum aktiven Change `deliver-bc-basic-customer-project`. Sie bleibt `proposed`, nicht bereitgestellt und erteilt weder diesem archivierten Walkthrough-Piloten noch dem Projekt-Twin einen Schreibzugriff.
 - Buildstatus: reproduzierbar und technisch geprueft; das autorisierte automatische Policy-Gate ist change-spezifisch bestanden. Das Paket selbst bleibt nicht-evidenzgebend.
+
+<!-- story-metadata {"id":"PAGE-UABC-080","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

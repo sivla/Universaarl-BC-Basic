@@ -249,6 +249,7 @@ function looksLikeTechnicalValue(value) {
   if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}(?:T[^\s]+)?$/.test(text)) return true;
   if (/^[0-9a-f]{40,64}$/i.test(text)) return true;
   if (/^(?:UABC|SRC|ENV|STEP|RUN|UAS|UAD|SLS|NK|P|W)-[A-Z0-9._:-]+$/.test(text)) return true;
+  if (/^PAGE-UABC-[0-9]+$/.test(text)) return true;
   if (/^(?:GET|HEAD|OPTIONS|POST|PUT|PATCH|DELETE)(?::[a-z-]+)?$/.test(text)) return true;
   if (/^(?:\^|\/).*(?:\$|\/[dgimsuvy]*)$/.test(text)) return true;
   if (/^(?:#|\.|\[)[A-Za-z0-9_#.[\]=:'" -]+$/.test(text)) return true;
@@ -262,6 +263,7 @@ function enumException(tokens, value) {
 
 function technicalFieldException(tokens, value) {
   const field = nearestField(tokens);
+  if (/\bPAGE-UABC-[0-9]+\b/.test(String(value))) return true;
   if (TECHNICAL_FIELD_PATTERN.test(field) || TECHNICAL_SUFFIX_PATTERN.test(field)) return true;
   if (tokens.some((token) => ['enum', 'required', 'properties', 'additionalProperties', '$defs'].includes(token))) return true;
   if (enumException(tokens, value)) return true;
@@ -335,6 +337,8 @@ function addViolation(report, { file, line = null, location = null, kind = 'engl
 }
 
 function checkText(report, file, text, { line = null, location = null, tokens = [] } = {}) {
+  if (/^parent:\s*PAGE-UABC-[0-9]+$/.test(String(text).trim())) return;
+  if (/^<!-- story-metadata .*PAGE-UABC-[0-9]+/.test(String(text).trim())) return;
   const bounded = stripBoundTechnicalFragments(report, file, text, { line, location, tokens });
   const normalized = bounded.replace(FIXED_OPENSPEC_PATTERN, ' ').replace(/`[^`]*`/g, ' ').trim();
   if (!normalized || looksLikeTechnicalValue(normalized)) return;

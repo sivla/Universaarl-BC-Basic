@@ -1,27 +1,3278 @@
 {
-"schemaVersion":1,"storyId":"UABC-STORY-BCB-001","projectId":"UABC-BC-BASIC-001","classification":"synthetic-only","status":"closed",
-"readableSources":["docs/offers/bc-basic-offer.md","atlassian/confluence/pages/bc-basic-project-story.md","atlassian/confluence/pages/bc-basic-hypercare.md","docs/reports/bc-basic-project-chronicle.md","docs/handover/bc-basic-handover.md","atlassian/jira/issues/bc-basic-story-tickets.yaml"],
-"offer":{"id":"OFR-UABC-BCB-001","currentVersion":3,"versions":[{"version":1,"date":"2026-08-20","status":"offered","delta":"Baseline","hours":80,"cost":9600},{"version":2,"date":"2026-08-21","status":"synthetic-commissioned","delta":"Playthrough und Hypercare","hours":80,"cost":9600},{"version":3,"date":"2026-09-03","status":"synthetic-closed","delta":"Ist-Abgleich und Handover","hours":80,"cost":9600}],"planned_hours":80,"planned_cost":9600,"actual_hours":80,"actual_cost":9600},
-"pages":[{"id":"PAGE-UABC-000","title":"Projekt-Home","parent":null,"version":3,"status":"published","author_role":"P-002","time":"2026-08-20T09:00:00+02:00","sourcePath":"atlassian/confluence/pages/70-bc-basic-project.md","references":["OFR-UABC-BCB-001"]},{"id":"PAGE-UABC-010","title":"Angebot und Scope","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-20T10:00:00+02:00","sourcePath":"docs/offers/bc-basic-offer.md","references":["TKT-UABC-22"]},{"id":"PAGE-UABC-020","title":"Organisation","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-002","time":"2026-08-21T10:00:00+02:00","sourcePath":"atlassian/confluence/pages/70-bc-basic-project.md","references":["TKT-UABC-22"]},{"id":"PAGE-UABC-030","title":"Discovery","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-23T11:00:00+02:00","sourcePath":"atlassian/confluence/pages/71-bc-basic-discovery.md","references":["TKT-UABC-23"]},{"id":"PAGE-UABC-040","title":"Finance Setup","parent":"PAGE-UABC-000","version":4,"status":"published","author_role":"P-005","time":"2026-08-25T09:00:00+02:00","sourcePath":"atlassian/confluence/pages/72-bc-basic-implementation.md","references":["BC-SIM-SETUP-001"]},{"id":"PAGE-UABC-050","title":"Datenmigration","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-016","time":"2026-08-25T14:00:00+02:00","sourcePath":"project/bc-basic/data-readiness-check.yaml","references":["BC-SIM-MASTER-001"]},{"id":"PAGE-UABC-060","title":"P2P","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-011","time":"2026-08-26T09:00:00+02:00","sourcePath":"evidence/simulation/phase-2-p2p-o2c.yaml","references":["BC-SIM-P2P-001"]},{"id":"PAGE-UABC-070","title":"O2C","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-011","time":"2026-08-26T14:00:00+02:00","sourcePath":"evidence/simulation/phase-2-p2p-o2c.yaml","references":["BC-SIM-O2C-001"]},{"id":"PAGE-UABC-080","title":"Cash und Bank","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-005","time":"2026-08-27T10:00:00+02:00","sourcePath":"evidence/simulation/phase-3-cash-inventory-close.yaml","references":["BC-SIM-CASH-001"]},{"id":"PAGE-UABC-090","title":"Lager und Inventur","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-019","time":"2026-08-28T10:00:00+02:00","sourcePath":"evidence/simulation/phase-3-cash-inventory-close.yaml","references":["BC-SIM-INVENTORY-001"]},{"id":"PAGE-UABC-100","title":"Monatsabschluss und VAT","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-005","time":"2026-08-29T15:00:00+02:00","sourcePath":"evidence/simulation/phase-3-cash-inventory-close.yaml","references":["BC-SIM-CLOSE-001"]},{"id":"PAGE-UABC-110","title":"Traceability","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-23T15:00:00+02:00","sourcePath":"project/bc-basic/traceability-matrix.yaml","references":["UABC-26"]},{"id":"PAGE-UABC-120","title":"Entscheidungen","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-24T15:00:00+02:00","sourcePath":"project/bc-basic/decision-register.yaml","references":["UABC-23"]},{"id":"PAGE-UABC-130","title":"SIT und Defects","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-29T10:00:00+02:00","sourcePath":"project/bc-basic/uat-training-run.yaml","references":["SIM-DEF-P2P-001"]},{"id":"PAGE-UABC-140","title":"UAT","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-005","time":"2026-08-29T11:00:00+02:00","sourcePath":"project/bc-basic/uat-training-run.yaml","references":["UABC-UAT-BCB-001"]},{"id":"PAGE-UABC-150","title":"Training","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-08-30T10:00:00+02:00","sourcePath":"project/bc-basic/training-plan.yaml","references":["UABC-33"]},{"id":"PAGE-UABC-160","title":"Cutover und Go-live","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-002","time":"2026-08-30T16:00:00+02:00","sourcePath":"docs/runbooks/bc-basic-simulation-demo.md","references":["UABC-35"]},{"id":"PAGE-UABC-170","title":"Hypercare","parent":"PAGE-UABC-000","version":3,"status":"published","author_role":"P-002","time":"2026-09-02T09:00:00+02:00","sourcePath":"atlassian/confluence/pages/bc-basic-hypercare.md","references":["SIM-HC-001"]},{"id":"PAGE-UABC-180","title":"Handover","parent":"PAGE-UABC-000","version":2,"status":"published","author_role":"P-002","time":"2026-09-03T15:00:00+02:00","sourcePath":"docs/handover/bc-basic-handover.md","references":["UABC-38"]}],
-"tickets":[{"id":"TKT-UABC-22","type":"epic","status":"done","reporter":"P-002","assignee":"P-002","priority":"P1","parent":null,"dependencies":[],"labels":["scope"],"components":["project"],"createdAt":"2026-08-20","startedAt":"2026-08-20","testedAt":"2026-08-20","closedAt":"2026-08-20","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Scope","fulfilled":true}],"evidenceRefs":["project/bc-basic/project-plan.yaml"],"comments":[{"id":"COM-22-W","type":"work","time":"2026-08-20","role":"P-002","text":"Scope bearbeitet","evidenceRef":"project/bc-basic/project-plan.yaml"},{"id":"COM-22-C","type":"closing","time":"2026-08-20","role":"P-002","text":"Ergebnis Scope erfüllt; Evidence Test Einschränkung und nächster Bezug dokumentiert.","evidenceRef":"project/bc-basic/project-plan.yaml"}],"worklogs":[{"date":"2026-08-20","role":"P-002","hours":6,"activity":"Scope","phase":"PH0"}]},
-{"id":"TKT-UABC-23","type":"story","status":"done","reporter":"P-002","assignee":"P-005","priority":"P1","parent":"TKT-UABC-22","dependencies":[],"labels":["finance"],"components":["setup"],"createdAt":"2026-08-23","startedAt":"2026-08-23","testedAt":"2026-08-23","closedAt":"2026-08-23","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Finance","fulfilled":true}],"evidenceRefs":["BC-SIM-SETUP-001"],"comments":[{"id":"COM-23-W","type":"work","time":"2026-08-23","role":"P-005","text":"Finance bearbeitet","evidenceRef":"BC-SIM-SETUP-001"},{"id":"COM-23-C","type":"closing","time":"2026-08-23","role":"P-005","text":"Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-SETUP-001"}],"worklogs":[{"date":"2026-08-23","role":"P-005","hours":4,"activity":"Finance","phase":"PH1"}]},
-{"id":"TKT-UABC-24","type":"story","status":"done","reporter":"P-002","assignee":"P-011","priority":"P1","parent":"TKT-UABC-22","dependencies":["TKT-UABC-23"],"labels":["process"],"components":["trade"],"createdAt":"2026-08-23","startedAt":"2026-08-23","testedAt":"2026-08-23","closedAt":"2026-08-23","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Prozesse","fulfilled":true}],"evidenceRefs":["BC-SIM-P2P-001"],"comments":[{"id":"COM-24-W","type":"work","time":"2026-08-23","role":"P-011","text":"Prozesse bearbeitet","evidenceRef":"BC-SIM-P2P-001"},{"id":"COM-24-C","type":"closing","time":"2026-08-23","role":"P-011","text":"Ergebnis Prozesse retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-P2P-001"}],"worklogs":[{"date":"2026-08-23","role":"P-011","hours":4,"activity":"Prozesse","phase":"PH1"}]},
-{"id":"TKT-UABC-25","type":"task","status":"done","reporter":"P-002","assignee":"P-016","priority":"P1","parent":"TKT-UABC-22","dependencies":[],"labels":["data"],"components":["migration"],"createdAt":"2026-08-25","startedAt":"2026-08-25","testedAt":"2026-08-25","closedAt":"2026-08-25","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Daten","fulfilled":true}],"evidenceRefs":["project/bc-basic/data-readiness-check.yaml"],"comments":[{"id":"COM-25-W","type":"work","time":"2026-08-25","role":"P-016","text":"Daten bearbeitet","evidenceRef":"project/bc-basic/data-readiness-check.yaml"},{"id":"COM-25-C","type":"closing","time":"2026-08-25","role":"P-016","text":"Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"project/bc-basic/data-readiness-check.yaml"}],"worklogs":[{"date":"2026-08-25","role":"P-016","hours":5,"activity":"Daten","phase":"PH1"}]},
-{"id":"TKT-UABC-26","type":"story","status":"done","reporter":"P-002","assignee":"P-002","priority":"P1","parent":"TKT-UABC-22","dependencies":["TKT-UABC-25"],"labels":["uat"],"components":["testing"],"createdAt":"2026-08-24","startedAt":"2026-08-24","testedAt":"2026-08-24","closedAt":"2026-08-24","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"UAT","fulfilled":true}],"evidenceRefs":["project/bc-basic/uat-training-run.yaml"],"comments":[{"id":"COM-26-W","type":"work","time":"2026-08-24","role":"P-002","text":"UAT bearbeitet","evidenceRef":"project/bc-basic/uat-training-run.yaml"},{"id":"COM-26-C","type":"closing","time":"2026-08-24","role":"P-002","text":"Ergebnis UAT abgedeckt; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"project/bc-basic/uat-training-run.yaml"}],"worklogs":[{"date":"2026-08-24","role":"P-002","hours":3,"activity":"UAT","phase":"PH1"}]},
-{"id":"TKT-UABC-27","type":"task","status":"done","reporter":"P-002","assignee":"P-005","priority":"P1","parent":"TKT-UABC-22","dependencies":[],"labels":["setup"],"components":["company"],"createdAt":"2026-08-25","startedAt":"2026-08-25","testedAt":"2026-08-25","closedAt":"2026-08-25","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Gesellschaft","fulfilled":true}],"evidenceRefs":["BC-SIM-SETUP-001"],"comments":[{"id":"COM-27-W","type":"work","time":"2026-08-25","role":"P-005","text":"Gesellschaft bearbeitet","evidenceRef":"BC-SIM-SETUP-001"},{"id":"COM-27-C","type":"closing","time":"2026-08-25","role":"P-005","text":"Ergebnis Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-SETUP-001"}],"worklogs":[{"date":"2026-08-25","role":"P-005","hours":4,"activity":"Gesellschaft","phase":"PH2"}]},
-{"id":"TKT-UABC-28","type":"task","status":"done","reporter":"P-002","assignee":"P-005","priority":"P1","parent":"TKT-UABC-27","dependencies":[],"labels":["setup"],"components":["finance"],"createdAt":"2026-08-25","startedAt":"2026-08-25","testedAt":"2026-08-25","closedAt":"2026-08-25","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Posting","fulfilled":true}],"evidenceRefs":["BC-SIM-SETUP-001"],"comments":[{"id":"COM-28-W","type":"work","time":"2026-08-25","role":"P-005","text":"Posting bearbeitet","evidenceRef":"BC-SIM-SETUP-001"},{"id":"COM-28-C","type":"closing","time":"2026-08-25","role":"P-005","text":"Ergebnis Posting geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-SETUP-001"}],"worklogs":[{"date":"2026-08-25","role":"P-005","hours":10,"activity":"Posting","phase":"PH2"}]},
-{"id":"TKT-UABC-29","type":"task","status":"done","reporter":"P-002","assignee":"P-016","priority":"P1","parent":"TKT-UABC-27","dependencies":[],"labels":["data"],"components":["migration"],"createdAt":"2026-08-25","startedAt":"2026-08-25","testedAt":"2026-08-25","closedAt":"2026-08-25","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Import","fulfilled":true}],"evidenceRefs":["BC-SIM-MASTER-001"],"comments":[{"id":"COM-29-W","type":"work","time":"2026-08-25","role":"P-016","text":"Import bearbeitet","evidenceRef":"BC-SIM-MASTER-001"},{"id":"COM-29-C","type":"closing","time":"2026-08-25","role":"P-016","text":"Ergebnis Import retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-MASTER-001"}],"worklogs":[{"date":"2026-08-25","role":"P-016","hours":4,"activity":"Import","phase":"PH2"}]},
-{"id":"TKT-UABC-30","type":"story","status":"done","reporter":"P-002","assignee":"P-011","priority":"P1","parent":"TKT-UABC-24","dependencies":["TKT-UABC-29"],"labels":["p2p"],"components":["trade"],"createdAt":"2026-08-26","startedAt":"2026-08-26","testedAt":"2026-08-26","closedAt":"2026-08-26","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"P2P","fulfilled":true}],"evidenceRefs":["BC-SIM-P2P-001"],"comments":[{"id":"COM-30-W","type":"work","time":"2026-08-26","role":"P-011","text":"P2P bearbeitet","evidenceRef":"BC-SIM-P2P-001"},{"id":"COM-30-C","type":"closing","time":"2026-08-26","role":"P-011","text":"Ergebnis P2P retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-P2P-001"}],"worklogs":[{"date":"2026-08-26","role":"P-011","hours":5,"activity":"P2P","phase":"PH2"}]},
-{"id":"TKT-UABC-31","type":"story","status":"done","reporter":"P-002","assignee":"P-011","priority":"P1","parent":"TKT-UABC-24","dependencies":["TKT-UABC-30"],"labels":["o2c"],"components":["trade"],"createdAt":"2026-08-26","startedAt":"2026-08-26","testedAt":"2026-08-26","closedAt":"2026-08-26","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"O2C","fulfilled":true}],"evidenceRefs":["BC-SIM-O2C-001"],"comments":[{"id":"COM-31-W","type":"work","time":"2026-08-26","role":"P-011","text":"O2C bearbeitet","evidenceRef":"BC-SIM-O2C-001"},{"id":"COM-31-C","type":"closing","time":"2026-08-26","role":"P-011","text":"Ergebnis O2C retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-O2C-001"}],"worklogs":[{"date":"2026-08-26","role":"P-011","hours":5,"activity":"O2C","phase":"PH2"}]},
-{"id":"TKT-UABC-32","type":"story","status":"done","reporter":"P-002","assignee":"P-019","priority":"P1","parent":"TKT-UABC-24","dependencies":["TKT-UABC-30"],"labels":["inventory"],"components":["warehouse"],"createdAt":"2026-08-28","startedAt":"2026-08-28","testedAt":"2026-08-28","closedAt":"2026-08-28","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Inventur","fulfilled":true}],"evidenceRefs":["BC-SIM-INVENTORY-001"],"comments":[{"id":"COM-32-W","type":"work","time":"2026-08-28","role":"P-019","text":"Inventur bearbeitet","evidenceRef":"BC-SIM-INVENTORY-001"},{"id":"COM-32-C","type":"closing","time":"2026-08-28","role":"P-019","text":"Ergebnis Inventur retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-INVENTORY-001"}],"worklogs":[{"date":"2026-08-28","role":"P-019","hours":5,"activity":"Inventur","phase":"PH2"}]},
-{"id":"TKT-UABC-33","type":"task","status":"done","reporter":"P-002","assignee":"P-002","priority":"P2","parent":"TKT-UABC-26","dependencies":[],"labels":["training"],"components":["training"],"createdAt":"2026-08-30","startedAt":"2026-08-30","testedAt":"2026-08-30","closedAt":"2026-08-30","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Training","fulfilled":true}],"evidenceRefs":["project/bc-basic/training-plan.yaml"],"comments":[{"id":"COM-33-W","type":"work","time":"2026-08-30","role":"P-002","text":"Training bearbeitet","evidenceRef":"project/bc-basic/training-plan.yaml"},{"id":"COM-33-C","type":"closing","time":"2026-08-30","role":"P-002","text":"Ergebnis Training bestanden; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"project/bc-basic/training-plan.yaml"}],"worklogs":[{"date":"2026-08-30","role":"P-002","hours":4,"activity":"Training","phase":"PH3"}]},
-{"id":"TKT-UABC-34","type":"story","status":"done","reporter":"P-002","assignee":"P-002","priority":"P1","parent":"TKT-UABC-26","dependencies":["TKT-UABC-30","TKT-UABC-31"],"labels":["uat"],"components":["testing"],"createdAt":"2026-08-29","startedAt":"2026-08-29","testedAt":"2026-08-29","closedAt":"2026-08-29","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"SIT-UAT","fulfilled":true}],"evidenceRefs":["project/bc-basic/uat-training-run.yaml"],"comments":[{"id":"COM-34-W","type":"work","time":"2026-08-29","role":"P-002","text":"UAT bearbeitet","evidenceRef":"project/bc-basic/uat-training-run.yaml"},{"id":"COM-34-C","type":"closing","time":"2026-08-29","role":"P-002","text":"Ergebnis GO_SIMULATION; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"project/bc-basic/uat-training-run.yaml"}],"worklogs":[{"date":"2026-08-29","role":"P-002","hours":3,"activity":"UAT","phase":"PH3"}]},
-{"id":"TKT-UABC-35","type":"bug","status":"closed","reporter":"P-002","assignee":"P-005","priority":"P2","parent":"TKT-UABC-34","dependencies":["TKT-UABC-31"],"labels":["hypercare"],"components":["cash"],"createdAt":"2026-09-01","startedAt":"2026-09-01","testedAt":"2026-09-01","closedAt":"2026-09-01","statusHistory":["created","in-progress","closed"],"acceptanceCriteria":[{"text":"Retest","fulfilled":true}],"evidenceRefs":["SIM-HC-001"],"comments":[{"id":"COM-35-W","type":"work","time":"2026-09-01","role":"P-005","text":"Hypercare bearbeitet","evidenceRef":"SIM-HC-001"},{"id":"COM-35-C","type":"closing","time":"2026-09-01","role":"P-005","text":"Ergebnis Fix Retest Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"SIM-HC-001"}],"worklogs":[{"date":"2026-09-01","role":"P-005","hours":2,"activity":"Hypercare","phase":"PH4"}]},
-{"id":"TKT-UABC-36","type":"task","status":"done","reporter":"P-002","assignee":"P-005","priority":"P2","parent":"TKT-UABC-34","dependencies":[],"labels":["close"],"components":["finance"],"createdAt":"2026-08-29","startedAt":"2026-08-29","testedAt":"2026-08-29","closedAt":"2026-08-29","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Abschluss","fulfilled":true}],"evidenceRefs":["BC-SIM-CLOSE-001"],"comments":[{"id":"COM-36-W","type":"work","time":"2026-08-29","role":"P-005","text":"Abschluss bearbeitet","evidenceRef":"BC-SIM-CLOSE-001"},{"id":"COM-36-C","type":"closing","time":"2026-08-29","role":"P-005","text":"Ergebnis Abschluss retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"BC-SIM-CLOSE-001"}],"worklogs":[{"date":"2026-08-29","role":"P-005","hours":3,"activity":"Abschluss","phase":"PH4"}]},
-{"id":"TKT-UABC-37","type":"task","status":"done","reporter":"P-002","assignee":"P-005","priority":"P2","parent":"TKT-UABC-34","dependencies":["TKT-UABC-36"],"labels":["vat"],"components":["finance"],"createdAt":"2026-08-29","startedAt":"2026-08-29","testedAt":"2026-08-29","closedAt":"2026-08-29","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"VAT Vorschau","fulfilled":true}],"evidenceRefs":["SYN-VAT-RETURN-001"],"comments":[{"id":"COM-37-W","type":"work","time":"2026-08-29","role":"P-005","text":"VAT bearbeitet","evidenceRef":"SYN-VAT-RETURN-001"},{"id":"COM-37-C","type":"closing","time":"2026-08-29","role":"P-005","text":"Ergebnis VAT retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"SYN-VAT-RETURN-001"}],"worklogs":[{"date":"2026-08-29","role":"P-005","hours":2,"activity":"VAT","phase":"PH4"}]},
-{"id":"TKT-UABC-38","type":"epic","status":"done","reporter":"P-002","assignee":"P-002","priority":"P2","parent":null,"dependencies":["TKT-UABC-35","TKT-UABC-36","TKT-UABC-37"],"labels":["handover"],"components":["support"],"createdAt":"2026-09-03","startedAt":"2026-09-03","testedAt":"2026-09-03","closedAt":"2026-09-03","statusHistory":["created","in-progress","done"],"acceptanceCriteria":[{"text":"Handover","fulfilled":true}],"evidenceRefs":["UABC-STORY-BCB-001"],"comments":[{"id":"COM-38-W","type":"work","time":"2026-09-03","role":"P-002","text":"Handover bearbeitet","evidenceRef":"UABC-STORY-BCB-001"},{"id":"COM-38-C","type":"closing","time":"2026-09-03","role":"P-002","text":"Ergebnis Handover abgeschlossen; Evidence Test Einschränkung nächster Bezug dokumentiert.","evidenceRef":"UABC-STORY-BCB-001"}],"worklogs":[{"date":"2026-09-03","role":"P-002","hours":11,"activity":"Handover","phase":"PH4"}]}],
-"timeline":[{"id":"STORY-01","time":"2026-08-20T09:00:00+02:00","phase":"Angebot","role":"P-002","tickets":["TKT-UABC-22"],"pages":["PAGE-UABC-010"],"sessions":["BC-SIM-SETUP-001"],"action":"Angebot","result":"Baseline","evidence":"docs/offers/bc-basic-offer.md","decision":"beauftragt","nextStep":"Projektstart"},{"id":"STORY-02","time":"2026-08-21T10:00:00+02:00","phase":"Projektstart","role":"P-002","tickets":["TKT-UABC-22"],"pages":["PAGE-UABC-020"],"sessions":["BC-SIM-SETUP-001"],"action":"Scope","result":"GO_SIMULATION","evidence":"project/bc-basic/project-plan.yaml","decision":"GO","nextStep":"Discovery"},{"id":"STORY-03","time":"2026-08-23T11:00:00+02:00","phase":"Discovery","role":"P-002","tickets":["TKT-UABC-23"],"pages":["PAGE-UABC-030"],"sessions":["BC-SIM-MASTER-001"],"action":"Anforderungen","result":"Traceability","evidence":"project/bc-basic/traceability-matrix.yaml","decision":"abgenommen","nextStep":"Setup"},{"id":"STORY-04","time":"2026-08-25T09:00:00+02:00","phase":"Setup","role":"P-005","tickets":["TKT-UABC-27"],"pages":["PAGE-UABC-040"],"sessions":["BC-SIM-SETUP-001"],"action":"Setup","result":"konsistent","evidence":"project/bc-basic/bc-playthrough-catalog.yaml","decision":"abgenommen","nextStep":"Migration"},{"id":"STORY-05","time":"2026-08-25T14:00:00+02:00","phase":"Migration","role":"P-016","tickets":["TKT-UABC-29"],"pages":["PAGE-UABC-050"],"sessions":["BC-SIM-MASTER-001"],"action":"Probeimport","result":"bereit","evidence":"project/bc-basic/data-readiness-check.yaml","decision":"abgenommen","nextStep":"P2P"},{"id":"STORY-06","time":"2026-08-26T09:00:00+02:00","phase":"P2P","role":"P-011","tickets":["TKT-UABC-30"],"pages":["PAGE-UABC-060"],"sessions":["BC-SIM-P2P-001"],"action":"P2P","result":"SYN-PO-001","evidence":"evidence/simulation/bc-playthrough-ledger.yaml","decision":"abgenommen","nextStep":"O2C"},{"id":"STORY-07","time":"2026-08-26T14:00:00+02:00","phase":"O2C","role":"P-011","tickets":["TKT-UABC-31"],"pages":["PAGE-UABC-070"],"sessions":["BC-SIM-O2C-001"],"action":"O2C","result":"SYN-SO-001","evidence":"evidence/simulation/bc-playthrough-ledger.yaml","decision":"abgenommen","nextStep":"Cash"},{"id":"STORY-08","time":"2026-08-27T10:00:00+02:00","phase":"Cash","role":"P-005","tickets":["TKT-UABC-35"],"pages":["PAGE-UABC-080"],"sessions":["BC-SIM-CASH-001"],"action":"Abstimmung","result":"0.00","evidence":"evidence/simulation/phase-3-cash-inventory-close.yaml","decision":"abgenommen","nextStep":"Lager"},{"id":"STORY-09","time":"2026-08-28T10:00:00+02:00","phase":"Lager","role":"P-019","tickets":["TKT-UABC-32"],"pages":["PAGE-UABC-090"],"sessions":["BC-SIM-INVENTORY-001"],"action":"Inventur","result":"99 STK","evidence":"evidence/simulation/bc-playthrough-ledger.yaml","decision":"abgenommen","nextStep":"UAT"},{"id":"STORY-10","time":"2026-08-29T15:00:00+02:00","phase":"UAT","role":"P-005","tickets":["TKT-UABC-34"],"pages":["PAGE-UABC-140"],"sessions":["BC-SIM-CLOSE-001"],"action":"UAT","result":"GO_SIMULATION","evidence":"project/bc-basic/uat-training-run.yaml","decision":"signoff","nextStep":"Cutover"},{"id":"STORY-11","time":"2026-08-30T16:00:00+02:00","phase":"Cutover","role":"P-002","tickets":["TKT-UABC-35"],"pages":["PAGE-UABC-160"],"sessions":["BC-SIM-SETUP-001"],"action":"Freeze","result":"GO_SIMULATION","evidence":"evidence/simulation/project-completion.yaml","decision":"GO","nextStep":"Go-live"},{"id":"STORY-12","time":"2026-08-31T09:00:00+02:00","phase":"Go-live","role":"P-002","tickets":["TKT-UABC-34"],"pages":["PAGE-UABC-160"],"sessions":["BC-SIM-SETUP-001"],"action":"Generalprobe","result":"simuliert","evidence":"evidence/simulation/project-completion.yaml","decision":"GO_SIMULATION","nextStep":"Hypercare"},{"id":"STORY-13","time":"2026-09-01T09:00:00+02:00","phase":"Hypercare","role":"P-002","tickets":["TKT-UABC-35"],"pages":["PAGE-UABC-170"],"sessions":["BC-SIM-CASH-001"],"action":"P2-Triage","result":"retest","evidence":"SIM-HC-001","decision":"GO","nextStep":"Tag2"},{"id":"STORY-14","time":"2026-09-02T09:00:00+02:00","phase":"Hypercare","role":"P-005","tickets":["TKT-UABC-35"],"pages":["PAGE-UABC-170"],"sessions":["BC-SIM-INVENTORY-001"],"action":"Restart","result":"retest","evidence":"SIM-HC-003","decision":"Exit","nextStep":"Handover"},{"id":"STORY-15","time":"2026-09-03T15:00:00+02:00","phase":"Handover","role":"P-002","tickets":["TKT-UABC-38"],"pages":["PAGE-UABC-180"],"sessions":["BC-SIM-SETUP-001"],"action":"Handover","result":"abgenommen","evidence":"docs/handover/bc-basic-handover.md","decision":"closed","nextStep":"Ende"}],
-"hypercare":[{"day":1,"dailyPage":"PAGE-UABC-170","ticket":"TKT-UABC-35","comment":"COM-35-C","priority":"P2","diagnosis":"Zahlungsreferenz","fix":"Referenz ergänzt","retest":"passed","status":"closed","decision":"GO"},{"day":2,"dailyPage":"PAGE-UABC-170","ticket":"TKT-UABC-32","comment":"COM-32-C","priority":"P2","diagnosis":"Inventur","fix":"Differenz gebucht","retest":"passed","status":"closed","decision":"GO"},{"day":3,"dailyPage":"PAGE-UABC-180","ticket":"TKT-UABC-36","comment":"COM-36-C","priority":"P1","diagnosis":"VAT-Vermerk","fix":"Entscheidung dokumentiert","retest":"passed","status":"closed","decision":"EXIT"}],
-"relations":[{"type":"references","from":"TKT-UABC-30","to":"TKT-UABC-29"},{"type":"references","from":"TKT-UABC-29","to":"TKT-UABC-30"},{"type":"references","from":"TKT-UABC-31","to":"TKT-UABC-30"},{"type":"references","from":"TKT-UABC-30","to":"TKT-UABC-31"}],
-"controls":{"openP1":0,"openP2":0,"worklogHours":80,"worklogCost":9600,"worklogRate":120,"realBcExecution":false}
+  "schemaVersion": 1,
+  "storyId": "UABC-STORY-BCB-001",
+  "projectId": "UABC-BC-BASIC-001",
+  "classification": "synthetic-only",
+  "status": "closed",
+  "readableSources": [
+    "docs/offers/bc-basic-offer.md",
+    "atlassian/confluence/pages/bc-basic-project-story.md",
+    "atlassian/confluence/pages/bc-basic-hypercare.md",
+    "docs/reports/bc-basic-project-chronicle.md",
+    "docs/handover/bc-basic-handover.md",
+    "atlassian/jira/issues/bc-basic-story-tickets.yaml"
+  ],
+  "offer": {
+    "id": "OFR-UABC-BCB-001",
+    "currentVersion": 3,
+    "versions": [
+      {
+        "version": 1,
+        "date": "2026-08-20",
+        "status": "offered",
+        "delta": "Baseline",
+        "hours": 80,
+        "cost": 9600
+      },
+      {
+        "version": 2,
+        "date": "2026-08-21",
+        "status": "synthetic-commissioned",
+        "delta": "Playthrough und Hypercare",
+        "hours": 80,
+        "cost": 9600
+      },
+      {
+        "version": 3,
+        "date": "2026-09-03",
+        "status": "synthetic-closed",
+        "delta": "Ist-Abgleich und Handover",
+        "hours": 80,
+        "cost": 9600
+      }
+    ],
+    "planned_hours": 80,
+    "planned_cost": 9600,
+    "actual_hours": 80,
+    "actual_cost": 9600
+  },
+  "pages": [
+    {
+      "id": "PAGE-UABC-000",
+      "title": "Projekt-Home",
+      "parent": null,
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-20T09:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/00-project.md",
+      "references": [
+        "OFR-UABC-BCB-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-010",
+      "title": "Angebot und Scope",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-20T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+      "references": [
+        "TKT-UABC-22"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-020",
+      "title": "Organisation",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-21T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "references": [
+        "TKT-UABC-22"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-030",
+      "title": "Discovery",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-23T11:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "references": [
+        "TKT-UABC-23"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-040",
+      "title": "Finance Setup",
+      "parent": "PAGE-UABC-000",
+      "version": 4,
+      "status": "published",
+      "author_role": "P-005",
+      "time": "2026-08-25T09:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "references": [
+        "BC-SIM-SETUP-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-050",
+      "title": "Datenmigration",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-016",
+      "time": "2026-08-25T14:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "references": [
+        "BC-SIM-MASTER-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-060",
+      "title": "P2P",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-011",
+      "time": "2026-08-26T09:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "references": [
+        "BC-SIM-P2P-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-070",
+      "title": "O2C",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-011",
+      "time": "2026-08-26T14:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "references": [
+        "BC-SIM-O2C-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-080",
+      "title": "Cash und Bank",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-005",
+      "time": "2026-08-27T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "references": [
+        "BC-SIM-CASH-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-090",
+      "title": "Lager und Inventur",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-019",
+      "time": "2026-08-28T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "references": [
+        "BC-SIM-INVENTORY-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-100",
+      "title": "Monatsabschluss und VAT",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-005",
+      "time": "2026-08-29T15:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "references": [
+        "BC-SIM-CLOSE-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-110",
+      "title": "Traceability",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-23T15:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "references": [
+        "UABC-26"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-120",
+      "title": "Entscheidungen",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-24T15:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "references": [
+        "UABC-23"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-130",
+      "title": "SIT und Defects",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-29T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "references": [
+        "SIM-DEF-P2P-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-140",
+      "title": "UAT",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-005",
+      "time": "2026-08-29T11:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "references": [
+        "UABC-UAT-BCB-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-150",
+      "title": "Training",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-30T10:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "references": [
+        "UABC-33"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-160",
+      "title": "Cutover und Go-live",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-08-30T16:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "references": [
+        "UABC-35"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-170",
+      "title": "Hypercare",
+      "parent": "PAGE-UABC-000",
+      "version": 3,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-09-02T09:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "references": [
+        "SIM-HC-001"
+      ]
+    },
+    {
+      "id": "PAGE-UABC-180",
+      "title": "Handover",
+      "parent": "PAGE-UABC-000",
+      "version": 2,
+      "status": "published",
+      "author_role": "P-002",
+      "time": "2026-09-03T15:00:00+02:00",
+      "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "references": [
+        "UABC-38"
+      ]
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TKT-UABC-22",
+      "type": "epic",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-002",
+      "priority": "P1",
+      "parent": null,
+      "dependencies": [],
+      "labels": [
+        "scope"
+      ],
+      "components": [
+        "project"
+      ],
+      "createdAt": "2026-08-20",
+      "startedAt": "2026-08-20",
+      "testedAt": "2026-08-20",
+      "closedAt": "2026-08-20",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-20"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-20"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-20"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-20"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Scope",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/project-plan.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-22-W",
+          "type": "work",
+          "time": "2026-08-20",
+          "role": "P-002",
+          "text": "Scope bearbeitet",
+          "evidenceRef": "project/bc-basic/project-plan.yaml"
+        },
+        {
+          "id": "COM-22-C",
+          "type": "closing",
+          "time": "2026-08-20",
+          "role": "P-002",
+          "text": "Ergebnis Scope erfüllt; Evidence Test Einschränkung und nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/project-plan.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-20",
+          "role": "P-002",
+          "hours": 6,
+          "activity": "Scope",
+          "phase": "PH0",
+          "cost": 720
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-23",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P1",
+      "parent": "TKT-UABC-22",
+      "dependencies": [],
+      "labels": [
+        "finance"
+      ],
+      "components": [
+        "setup"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Finance",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-23-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-005",
+          "text": "Finance bearbeitet",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        },
+        {
+          "id": "COM-23-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-005",
+          "text": "Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-23",
+          "role": "P-005",
+          "hours": 4,
+          "activity": "Finance",
+          "phase": "PH1",
+          "cost": 480
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-24",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "TKT-UABC-22",
+      "dependencies": [
+        "TKT-UABC-23"
+      ],
+      "labels": [
+        "process"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-23",
+      "startedAt": "2026-08-23",
+      "testedAt": "2026-08-23",
+      "closedAt": "2026-08-23",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-23"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-23"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Prozesse",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-24-W",
+          "type": "work",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Prozesse bearbeitet",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-24-C",
+          "type": "closing",
+          "time": "2026-08-23",
+          "role": "P-011",
+          "text": "Ergebnis Prozesse retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-23",
+          "role": "P-011",
+          "hours": 4,
+          "activity": "Prozesse",
+          "phase": "PH1",
+          "cost": 480
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-25",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-016",
+      "priority": "P1",
+      "parent": "TKT-UABC-22",
+      "dependencies": [],
+      "labels": [
+        "data"
+      ],
+      "components": [
+        "migration"
+      ],
+      "createdAt": "2026-08-25",
+      "startedAt": "2026-08-25",
+      "testedAt": "2026-08-25",
+      "closedAt": "2026-08-25",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-25"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Daten",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/data-readiness-check.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-25-W",
+          "type": "work",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Daten bearbeitet",
+          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
+        },
+        {
+          "id": "COM-25-C",
+          "type": "closing",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/data-readiness-check.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-25",
+          "role": "P-016",
+          "hours": 5,
+          "activity": "Daten",
+          "phase": "PH1",
+          "cost": 600
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-26",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-002",
+      "priority": "P1",
+      "parent": "TKT-UABC-22",
+      "dependencies": [
+        "TKT-UABC-25"
+      ],
+      "labels": [
+        "uat"
+      ],
+      "components": [
+        "testing"
+      ],
+      "createdAt": "2026-08-24",
+      "startedAt": "2026-08-24",
+      "testedAt": "2026-08-24",
+      "closedAt": "2026-08-24",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-24"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-24"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-24"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-24"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "UAT",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/uat-training-run.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-26-W",
+          "type": "work",
+          "time": "2026-08-24",
+          "role": "P-002",
+          "text": "UAT bearbeitet",
+          "evidenceRef": "project/bc-basic/uat-training-run.yaml"
+        },
+        {
+          "id": "COM-26-C",
+          "type": "closing",
+          "time": "2026-08-24",
+          "role": "P-002",
+          "text": "Ergebnis UAT abgedeckt; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/uat-training-run.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-24",
+          "role": "P-002",
+          "hours": 3,
+          "activity": "UAT",
+          "phase": "PH1",
+          "cost": 360
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-27",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P1",
+      "parent": "TKT-UABC-22",
+      "dependencies": [],
+      "labels": [
+        "setup"
+      ],
+      "components": [
+        "company"
+      ],
+      "createdAt": "2026-08-25",
+      "startedAt": "2026-08-25",
+      "testedAt": "2026-08-25",
+      "closedAt": "2026-08-25",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-25"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Gesellschaft",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-27-W",
+          "type": "work",
+          "time": "2026-08-25",
+          "role": "P-005",
+          "text": "Gesellschaft bearbeitet",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        },
+        {
+          "id": "COM-27-C",
+          "type": "closing",
+          "time": "2026-08-25",
+          "role": "P-005",
+          "text": "Ergebnis Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-25",
+          "role": "P-005",
+          "hours": 4,
+          "activity": "Gesellschaft",
+          "phase": "PH2",
+          "cost": 480
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-28",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P1",
+      "parent": "TKT-UABC-27",
+      "dependencies": [],
+      "labels": [
+        "setup"
+      ],
+      "components": [
+        "finance"
+      ],
+      "createdAt": "2026-08-25",
+      "startedAt": "2026-08-25",
+      "testedAt": "2026-08-25",
+      "closedAt": "2026-08-25",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-25"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Posting",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-SETUP-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-28-W",
+          "type": "work",
+          "time": "2026-08-25",
+          "role": "P-005",
+          "text": "Posting bearbeitet",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        },
+        {
+          "id": "COM-28-C",
+          "type": "closing",
+          "time": "2026-08-25",
+          "role": "P-005",
+          "text": "Ergebnis Posting geprüft; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-SETUP-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-25",
+          "role": "P-005",
+          "hours": 10,
+          "activity": "Posting",
+          "phase": "PH2",
+          "cost": 1200
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-29",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-016",
+      "priority": "P1",
+      "parent": "TKT-UABC-27",
+      "dependencies": [],
+      "labels": [
+        "data"
+      ],
+      "components": [
+        "migration"
+      ],
+      "createdAt": "2026-08-25",
+      "startedAt": "2026-08-25",
+      "testedAt": "2026-08-25",
+      "closedAt": "2026-08-25",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-25"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-25"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Import",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-MASTER-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-29-W",
+          "type": "work",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Import bearbeitet",
+          "evidenceRef": "BC-SIM-MASTER-001"
+        },
+        {
+          "id": "COM-29-C",
+          "type": "closing",
+          "time": "2026-08-25",
+          "role": "P-016",
+          "text": "Ergebnis Import retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-MASTER-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-25",
+          "role": "P-016",
+          "hours": 4,
+          "activity": "Import",
+          "phase": "PH2",
+          "cost": 480
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-30",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "TKT-UABC-24",
+      "dependencies": [
+        "TKT-UABC-29"
+      ],
+      "labels": [
+        "p2p"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-26",
+      "startedAt": "2026-08-26",
+      "testedAt": "2026-08-26",
+      "closedAt": "2026-08-26",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-26"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "P2P",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-P2P-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-30-W",
+          "type": "work",
+          "time": "2026-08-26",
+          "role": "P-011",
+          "text": "P2P bearbeitet",
+          "evidenceRef": "BC-SIM-P2P-001"
+        },
+        {
+          "id": "COM-30-C",
+          "type": "closing",
+          "time": "2026-08-26",
+          "role": "P-011",
+          "text": "Ergebnis P2P retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-P2P-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-26",
+          "role": "P-011",
+          "hours": 5,
+          "activity": "P2P",
+          "phase": "PH2",
+          "cost": 600
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-31",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-011",
+      "priority": "P1",
+      "parent": "TKT-UABC-24",
+      "dependencies": [
+        "TKT-UABC-30"
+      ],
+      "labels": [
+        "o2c"
+      ],
+      "components": [
+        "trade"
+      ],
+      "createdAt": "2026-08-26",
+      "startedAt": "2026-08-26",
+      "testedAt": "2026-08-26",
+      "closedAt": "2026-08-26",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-26"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-26"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "O2C",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-O2C-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-31-W",
+          "type": "work",
+          "time": "2026-08-26",
+          "role": "P-011",
+          "text": "O2C bearbeitet",
+          "evidenceRef": "BC-SIM-O2C-001"
+        },
+        {
+          "id": "COM-31-C",
+          "type": "closing",
+          "time": "2026-08-26",
+          "role": "P-011",
+          "text": "Ergebnis O2C retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-O2C-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-26",
+          "role": "P-011",
+          "hours": 5,
+          "activity": "O2C",
+          "phase": "PH2",
+          "cost": 600
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-32",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-019",
+      "priority": "P1",
+      "parent": "TKT-UABC-24",
+      "dependencies": [
+        "TKT-UABC-30"
+      ],
+      "labels": [
+        "inventory"
+      ],
+      "components": [
+        "warehouse"
+      ],
+      "createdAt": "2026-08-28",
+      "startedAt": "2026-08-28",
+      "testedAt": "2026-08-28",
+      "closedAt": "2026-08-28",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-28"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-28"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-28"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-28"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Inventur",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-INVENTORY-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-32-W",
+          "type": "work",
+          "time": "2026-08-28",
+          "role": "P-019",
+          "text": "Inventur bearbeitet",
+          "evidenceRef": "BC-SIM-INVENTORY-001"
+        },
+        {
+          "id": "COM-32-C",
+          "type": "closing",
+          "time": "2026-08-28",
+          "role": "P-019",
+          "text": "Ergebnis Inventur retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-INVENTORY-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-28",
+          "role": "P-019",
+          "hours": 5,
+          "activity": "Inventur",
+          "phase": "PH2",
+          "cost": 600
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-33",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-002",
+      "priority": "P2",
+      "parent": "TKT-UABC-26",
+      "dependencies": [],
+      "labels": [
+        "training"
+      ],
+      "components": [
+        "training"
+      ],
+      "createdAt": "2026-08-30",
+      "startedAt": "2026-08-30",
+      "testedAt": "2026-08-30",
+      "closedAt": "2026-08-30",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-30"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-30"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-30"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-30"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Training",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/training-plan.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-33-W",
+          "type": "work",
+          "time": "2026-08-30",
+          "role": "P-002",
+          "text": "Training bearbeitet",
+          "evidenceRef": "project/bc-basic/training-plan.yaml"
+        },
+        {
+          "id": "COM-33-C",
+          "type": "closing",
+          "time": "2026-08-30",
+          "role": "P-002",
+          "text": "Ergebnis Training bestanden; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/training-plan.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-30",
+          "role": "P-002",
+          "hours": 4,
+          "activity": "Training",
+          "phase": "PH3",
+          "cost": 480
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-34",
+      "type": "story",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-002",
+      "priority": "P1",
+      "parent": "TKT-UABC-26",
+      "dependencies": [
+        "TKT-UABC-30",
+        "TKT-UABC-31"
+      ],
+      "labels": [
+        "uat"
+      ],
+      "components": [
+        "testing"
+      ],
+      "createdAt": "2026-08-29",
+      "startedAt": "2026-08-29",
+      "testedAt": "2026-08-29",
+      "closedAt": "2026-08-29",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-29"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "SIT-UAT",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "project/bc-basic/uat-training-run.yaml"
+      ],
+      "comments": [
+        {
+          "id": "COM-34-W",
+          "type": "work",
+          "time": "2026-08-29",
+          "role": "P-002",
+          "text": "UAT bearbeitet",
+          "evidenceRef": "project/bc-basic/uat-training-run.yaml"
+        },
+        {
+          "id": "COM-34-C",
+          "type": "closing",
+          "time": "2026-08-29",
+          "role": "P-002",
+          "text": "Ergebnis GO_SIMULATION; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "project/bc-basic/uat-training-run.yaml"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-29",
+          "role": "P-002",
+          "hours": 3,
+          "activity": "UAT",
+          "phase": "PH3",
+          "cost": 360
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-35",
+      "type": "bug",
+      "status": "closed",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P2",
+      "parent": "TKT-UABC-34",
+      "dependencies": [
+        "TKT-UABC-31"
+      ],
+      "labels": [
+        "hypercare"
+      ],
+      "components": [
+        "cash"
+      ],
+      "createdAt": "2026-09-01",
+      "startedAt": "2026-09-01",
+      "testedAt": "2026-09-01",
+      "closedAt": "2026-09-01",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-09-01"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-09-01"
+        },
+        {
+          "status": "tested",
+          "time": "2026-09-01"
+        },
+        {
+          "status": "closed",
+          "time": "2026-09-01"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Retest",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "SIM-HC-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-35-W",
+          "type": "work",
+          "time": "2026-09-01",
+          "role": "P-005",
+          "text": "Hypercare bearbeitet",
+          "evidenceRef": "SIM-HC-001"
+        },
+        {
+          "id": "COM-35-C",
+          "type": "closing",
+          "time": "2026-09-01",
+          "role": "P-005",
+          "text": "Ergebnis Fix Retest Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "SIM-HC-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-09-01",
+          "role": "P-005",
+          "hours": 2,
+          "activity": "Hypercare",
+          "phase": "PH4",
+          "cost": 240
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-36",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P2",
+      "parent": "TKT-UABC-34",
+      "dependencies": [],
+      "labels": [
+        "close"
+      ],
+      "components": [
+        "finance"
+      ],
+      "createdAt": "2026-08-29",
+      "startedAt": "2026-08-29",
+      "testedAt": "2026-08-29",
+      "closedAt": "2026-08-29",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-29"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Abschluss",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "BC-SIM-CLOSE-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-36-W",
+          "type": "work",
+          "time": "2026-08-29",
+          "role": "P-005",
+          "text": "Abschluss bearbeitet",
+          "evidenceRef": "BC-SIM-CLOSE-001"
+        },
+        {
+          "id": "COM-36-C",
+          "type": "closing",
+          "time": "2026-08-29",
+          "role": "P-005",
+          "text": "Ergebnis Abschluss retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "BC-SIM-CLOSE-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-29",
+          "role": "P-005",
+          "hours": 3,
+          "activity": "Abschluss",
+          "phase": "PH4",
+          "cost": 360
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-37",
+      "type": "task",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-005",
+      "priority": "P2",
+      "parent": "TKT-UABC-34",
+      "dependencies": [
+        "TKT-UABC-36"
+      ],
+      "labels": [
+        "vat"
+      ],
+      "components": [
+        "finance"
+      ],
+      "createdAt": "2026-08-29",
+      "startedAt": "2026-08-29",
+      "testedAt": "2026-08-29",
+      "closedAt": "2026-08-29",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "tested",
+          "time": "2026-08-29"
+        },
+        {
+          "status": "done",
+          "time": "2026-08-29"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "VAT Vorschau",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "SYN-VAT-RETURN-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-37-W",
+          "type": "work",
+          "time": "2026-08-29",
+          "role": "P-005",
+          "text": "VAT bearbeitet",
+          "evidenceRef": "SYN-VAT-RETURN-001"
+        },
+        {
+          "id": "COM-37-C",
+          "type": "closing",
+          "time": "2026-08-29",
+          "role": "P-005",
+          "text": "Ergebnis VAT retestet; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "SYN-VAT-RETURN-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-08-29",
+          "role": "P-005",
+          "hours": 2,
+          "activity": "VAT",
+          "phase": "PH4",
+          "cost": 240
+        }
+      ]
+    },
+    {
+      "id": "TKT-UABC-38",
+      "type": "epic",
+      "status": "done",
+      "reporter": "P-002",
+      "assignee": "P-002",
+      "priority": "P2",
+      "parent": null,
+      "dependencies": [
+        "TKT-UABC-35",
+        "TKT-UABC-36",
+        "TKT-UABC-37"
+      ],
+      "labels": [
+        "handover"
+      ],
+      "components": [
+        "support"
+      ],
+      "createdAt": "2026-09-03",
+      "startedAt": "2026-09-03",
+      "testedAt": "2026-09-03",
+      "closedAt": "2026-09-03",
+      "statusHistory": [
+        {
+          "status": "created",
+          "time": "2026-09-03"
+        },
+        {
+          "status": "in-progress",
+          "time": "2026-09-03"
+        },
+        {
+          "status": "tested",
+          "time": "2026-09-03"
+        },
+        {
+          "status": "done",
+          "time": "2026-09-03"
+        }
+      ],
+      "acceptanceCriteria": [
+        {
+          "text": "Handover",
+          "fulfilled": true
+        }
+      ],
+      "evidenceRefs": [
+        "UABC-STORY-BCB-001"
+      ],
+      "comments": [
+        {
+          "id": "COM-38-W",
+          "type": "work",
+          "time": "2026-09-03",
+          "role": "P-002",
+          "text": "Handover bearbeitet",
+          "evidenceRef": "UABC-STORY-BCB-001"
+        },
+        {
+          "id": "COM-38-C",
+          "type": "closing",
+          "time": "2026-09-03",
+          "role": "P-002",
+          "text": "Ergebnis Handover abgeschlossen; Evidence Test Einschränkung nächster Bezug dokumentiert.",
+          "evidenceRef": "UABC-STORY-BCB-001"
+        }
+      ],
+      "worklogs": [
+        {
+          "date": "2026-09-03",
+          "role": "P-002",
+          "hours": 11,
+          "activity": "Handover",
+          "phase": "PH4",
+          "cost": 1320
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": "STORY-01",
+      "time": "2026-08-20T09:00:00+02:00",
+      "phase": "Angebot",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-22"
+      ],
+      "pages": [
+        "PAGE-UABC-010"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Angebot",
+      "result": "Baseline",
+      "evidence": "docs/offers/bc-basic-offer.md",
+      "decision": "beauftragt",
+      "nextStep": "Projektstart"
+    },
+    {
+      "id": "STORY-02",
+      "time": "2026-08-21T10:00:00+02:00",
+      "phase": "Projektstart",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-22"
+      ],
+      "pages": [
+        "PAGE-UABC-020"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Scope",
+      "result": "GO_SIMULATION",
+      "evidence": "project/bc-basic/project-plan.yaml",
+      "decision": "GO",
+      "nextStep": "Discovery"
+    },
+    {
+      "id": "STORY-03",
+      "time": "2026-08-23T11:00:00+02:00",
+      "phase": "Discovery",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-23"
+      ],
+      "pages": [
+        "PAGE-UABC-030"
+      ],
+      "sessions": [
+        "BC-SIM-MASTER-001"
+      ],
+      "action": "Anforderungen",
+      "result": "Traceability",
+      "evidence": "project/bc-basic/traceability-matrix.yaml",
+      "decision": "abgenommen",
+      "nextStep": "Setup"
+    },
+    {
+      "id": "STORY-04",
+      "time": "2026-08-25T09:00:00+02:00",
+      "phase": "Setup",
+      "role": "P-005",
+      "tickets": [
+        "TKT-UABC-27"
+      ],
+      "pages": [
+        "PAGE-UABC-040"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Setup",
+      "result": "konsistent",
+      "evidence": "project/bc-basic/bc-playthrough-catalog.yaml",
+      "decision": "abgenommen",
+      "nextStep": "Migration"
+    },
+    {
+      "id": "STORY-05",
+      "time": "2026-08-25T14:00:00+02:00",
+      "phase": "Migration",
+      "role": "P-016",
+      "tickets": [
+        "TKT-UABC-29"
+      ],
+      "pages": [
+        "PAGE-UABC-050"
+      ],
+      "sessions": [
+        "BC-SIM-MASTER-001"
+      ],
+      "action": "Probeimport",
+      "result": "bereit",
+      "evidence": "project/bc-basic/data-readiness-check.yaml",
+      "decision": "abgenommen",
+      "nextStep": "P2P"
+    },
+    {
+      "id": "STORY-06",
+      "time": "2026-08-26T09:00:00+02:00",
+      "phase": "P2P",
+      "role": "P-011",
+      "tickets": [
+        "TKT-UABC-30"
+      ],
+      "pages": [
+        "PAGE-UABC-060"
+      ],
+      "sessions": [
+        "BC-SIM-P2P-001"
+      ],
+      "action": "P2P",
+      "result": "SYN-PO-001",
+      "evidence": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "decision": "abgenommen",
+      "nextStep": "O2C"
+    },
+    {
+      "id": "STORY-07",
+      "time": "2026-08-26T14:00:00+02:00",
+      "phase": "O2C",
+      "role": "P-011",
+      "tickets": [
+        "TKT-UABC-31"
+      ],
+      "pages": [
+        "PAGE-UABC-070"
+      ],
+      "sessions": [
+        "BC-SIM-O2C-001"
+      ],
+      "action": "O2C",
+      "result": "SYN-SO-001",
+      "evidence": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "decision": "abgenommen",
+      "nextStep": "Cash"
+    },
+    {
+      "id": "STORY-08",
+      "time": "2026-08-27T10:00:00+02:00",
+      "phase": "Cash",
+      "role": "P-005",
+      "tickets": [
+        "TKT-UABC-35"
+      ],
+      "pages": [
+        "PAGE-UABC-080"
+      ],
+      "sessions": [
+        "BC-SIM-CASH-001"
+      ],
+      "action": "Abstimmung",
+      "result": "0.00",
+      "evidence": "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "decision": "abgenommen",
+      "nextStep": "Lager"
+    },
+    {
+      "id": "STORY-09",
+      "time": "2026-08-28T10:00:00+02:00",
+      "phase": "Lager",
+      "role": "P-019",
+      "tickets": [
+        "TKT-UABC-32"
+      ],
+      "pages": [
+        "PAGE-UABC-090"
+      ],
+      "sessions": [
+        "BC-SIM-INVENTORY-001"
+      ],
+      "action": "Inventur",
+      "result": "99 STK",
+      "evidence": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "decision": "abgenommen",
+      "nextStep": "UAT"
+    },
+    {
+      "id": "STORY-10",
+      "time": "2026-08-29T15:00:00+02:00",
+      "phase": "UAT",
+      "role": "P-005",
+      "tickets": [
+        "TKT-UABC-34"
+      ],
+      "pages": [
+        "PAGE-UABC-140"
+      ],
+      "sessions": [
+        "BC-SIM-CLOSE-001"
+      ],
+      "action": "UAT",
+      "result": "GO_SIMULATION",
+      "evidence": "project/bc-basic/uat-training-run.yaml",
+      "decision": "signoff",
+      "nextStep": "Cutover"
+    },
+    {
+      "id": "STORY-11",
+      "time": "2026-08-30T16:00:00+02:00",
+      "phase": "Cutover",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-35"
+      ],
+      "pages": [
+        "PAGE-UABC-160"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Freeze",
+      "result": "GO_SIMULATION",
+      "evidence": "evidence/simulation/project-completion.yaml",
+      "decision": "GO",
+      "nextStep": "Go-live"
+    },
+    {
+      "id": "STORY-12",
+      "time": "2026-08-31T09:00:00+02:00",
+      "phase": "Go-live",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-34"
+      ],
+      "pages": [
+        "PAGE-UABC-160"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Generalprobe",
+      "result": "simuliert",
+      "evidence": "evidence/simulation/project-completion.yaml",
+      "decision": "GO_SIMULATION",
+      "nextStep": "Hypercare"
+    },
+    {
+      "id": "STORY-13",
+      "time": "2026-09-01T09:00:00+02:00",
+      "phase": "Hypercare",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-35"
+      ],
+      "pages": [
+        "PAGE-UABC-170"
+      ],
+      "sessions": [
+        "BC-SIM-CASH-001"
+      ],
+      "action": "P2-Triage",
+      "result": "retest",
+      "evidence": "SIM-HC-001",
+      "decision": "GO",
+      "nextStep": "Tag2"
+    },
+    {
+      "id": "STORY-14",
+      "time": "2026-09-02T09:00:00+02:00",
+      "phase": "Hypercare",
+      "role": "P-005",
+      "tickets": [
+        "TKT-UABC-35"
+      ],
+      "pages": [
+        "PAGE-UABC-170"
+      ],
+      "sessions": [
+        "BC-SIM-INVENTORY-001"
+      ],
+      "action": "Restart",
+      "result": "retest",
+      "evidence": "SIM-HC-003",
+      "decision": "Exit",
+      "nextStep": "Handover"
+    },
+    {
+      "id": "STORY-15",
+      "time": "2026-09-03T15:00:00+02:00",
+      "phase": "Handover",
+      "role": "P-002",
+      "tickets": [
+        "TKT-UABC-38"
+      ],
+      "pages": [
+        "PAGE-UABC-180"
+      ],
+      "sessions": [
+        "BC-SIM-SETUP-001"
+      ],
+      "action": "Handover",
+      "result": "abgenommen",
+      "evidence": "docs/handover/bc-basic-handover.md",
+      "decision": "closed",
+      "nextStep": "Ende"
+    }
+  ],
+  "hypercare": [
+    {
+      "day": 1,
+      "dailyPage": "PAGE-UABC-170",
+      "ticket": "TKT-UABC-35",
+      "comment": "COM-35-C",
+      "priority": "P2",
+      "diagnosis": "Zahlungsreferenz",
+      "fix": "Referenz ergänzt",
+      "retest": "passed",
+      "status": "closed",
+      "decision": "GO",
+      "evidence": "SIM-HC-001"
+    },
+    {
+      "day": 2,
+      "dailyPage": "PAGE-UABC-170",
+      "ticket": "TKT-UABC-32",
+      "comment": "COM-32-C",
+      "priority": "P2",
+      "diagnosis": "Inventur",
+      "fix": "Differenz gebucht",
+      "retest": "passed",
+      "status": "closed",
+      "decision": "GO",
+      "evidence": "SIM-HC-002"
+    },
+    {
+      "day": 3,
+      "dailyPage": "PAGE-UABC-180",
+      "ticket": "TKT-UABC-36",
+      "comment": "COM-36-C",
+      "priority": "P1",
+      "diagnosis": "VAT-Vermerk",
+      "fix": "Entscheidung dokumentiert",
+      "retest": "passed",
+      "status": "closed",
+      "decision": "EXIT",
+      "evidence": "SIM-HC-003"
+    }
+  ],
+  "relations": [
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-000"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-000",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-010",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-010",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-22",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-020",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-020",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-22",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-030",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-030",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-040",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-27",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-040",
+      "to": "TKT-UABC-28"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-28",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-050",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-050",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-29",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-060",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-060",
+      "to": "TKT-UABC-24"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-24",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-060",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-30",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-070",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-070",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-31",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-080"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-080",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-090",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-090",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-32",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-100"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-100",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-100",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-36",
+      "to": "PAGE-UABC-100"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-110"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-110",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-110",
+      "to": "TKT-UABC-26"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-26",
+      "to": "PAGE-UABC-110"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-120"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-120",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-120",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-23",
+      "to": "PAGE-UABC-120"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-130"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-130",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-140"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-140",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-150"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-150",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-150",
+      "to": "TKT-UABC-33"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-33",
+      "to": "PAGE-UABC-150"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-160",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-160",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "OFR-UABC-BCB-001",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-180",
+      "to": "OFR-UABC-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-180",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-38",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-22",
+      "to": "project/bc-basic/project-plan.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-23",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-24",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-P2P-001",
+      "to": "TKT-UABC-24"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-25",
+      "to": "project/bc-basic/data-readiness-check.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "TKT-UABC-25"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-26",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "TKT-UABC-26"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-27",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-28",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "TKT-UABC-28"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-29",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-MASTER-001",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-30",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-P2P-001",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-31",
+      "to": "BC-SIM-O2C-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-O2C-001",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-32",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-33",
+      "to": "project/bc-basic/training-plan.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/training-plan.yaml",
+      "to": "TKT-UABC-33"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-34",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "SIM-HC-001"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-001",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-36",
+      "to": "BC-SIM-CLOSE-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-CLOSE-001",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-37",
+      "to": "SYN-VAT-RETURN-001"
+    },
+    {
+      "type": "references",
+      "from": "SYN-VAT-RETURN-001",
+      "to": "TKT-UABC-37"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-38",
+      "to": "UABC-STORY-BCB-001"
+    },
+    {
+      "type": "references",
+      "from": "UABC-STORY-BCB-001",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "type": "references",
+      "from": "STORY-01",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-22",
+      "to": "STORY-01"
+    },
+    {
+      "type": "references",
+      "from": "STORY-01",
+      "to": "PAGE-UABC-010"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-010",
+      "to": "STORY-01"
+    },
+    {
+      "type": "references",
+      "from": "STORY-01",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-01"
+    },
+    {
+      "type": "references",
+      "from": "STORY-01",
+      "to": "docs/offers/bc-basic-offer.md"
+    },
+    {
+      "type": "references",
+      "from": "docs/offers/bc-basic-offer.md",
+      "to": "STORY-01"
+    },
+    {
+      "type": "references",
+      "from": "STORY-02",
+      "to": "TKT-UABC-22"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-22",
+      "to": "STORY-02"
+    },
+    {
+      "type": "references",
+      "from": "STORY-02",
+      "to": "PAGE-UABC-020"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-020",
+      "to": "STORY-02"
+    },
+    {
+      "type": "references",
+      "from": "STORY-02",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-02"
+    },
+    {
+      "type": "references",
+      "from": "STORY-02",
+      "to": "project/bc-basic/project-plan.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "STORY-02"
+    },
+    {
+      "type": "references",
+      "from": "STORY-03",
+      "to": "TKT-UABC-23"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-23",
+      "to": "STORY-03"
+    },
+    {
+      "type": "references",
+      "from": "STORY-03",
+      "to": "PAGE-UABC-030"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-030",
+      "to": "STORY-03"
+    },
+    {
+      "type": "references",
+      "from": "STORY-03",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-MASTER-001",
+      "to": "STORY-03"
+    },
+    {
+      "type": "references",
+      "from": "STORY-03",
+      "to": "project/bc-basic/traceability-matrix.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/traceability-matrix.yaml",
+      "to": "STORY-03"
+    },
+    {
+      "type": "references",
+      "from": "STORY-04",
+      "to": "TKT-UABC-27"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-27",
+      "to": "STORY-04"
+    },
+    {
+      "type": "references",
+      "from": "STORY-04",
+      "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-040",
+      "to": "STORY-04"
+    },
+    {
+      "type": "references",
+      "from": "STORY-04",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-04"
+    },
+    {
+      "type": "references",
+      "from": "STORY-04",
+      "to": "project/bc-basic/bc-playthrough-catalog.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/bc-playthrough-catalog.yaml",
+      "to": "STORY-04"
+    },
+    {
+      "type": "references",
+      "from": "STORY-05",
+      "to": "TKT-UABC-29"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-29",
+      "to": "STORY-05"
+    },
+    {
+      "type": "references",
+      "from": "STORY-05",
+      "to": "PAGE-UABC-050"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-050",
+      "to": "STORY-05"
+    },
+    {
+      "type": "references",
+      "from": "STORY-05",
+      "to": "BC-SIM-MASTER-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-MASTER-001",
+      "to": "STORY-05"
+    },
+    {
+      "type": "references",
+      "from": "STORY-05",
+      "to": "project/bc-basic/data-readiness-check.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "STORY-05"
+    },
+    {
+      "type": "references",
+      "from": "STORY-06",
+      "to": "TKT-UABC-30"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-30",
+      "to": "STORY-06"
+    },
+    {
+      "type": "references",
+      "from": "STORY-06",
+      "to": "PAGE-UABC-060"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-060",
+      "to": "STORY-06"
+    },
+    {
+      "type": "references",
+      "from": "STORY-06",
+      "to": "BC-SIM-P2P-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-P2P-001",
+      "to": "STORY-06"
+    },
+    {
+      "type": "references",
+      "from": "STORY-06",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-06"
+    },
+    {
+      "type": "references",
+      "from": "STORY-07",
+      "to": "TKT-UABC-31"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-31",
+      "to": "STORY-07"
+    },
+    {
+      "type": "references",
+      "from": "STORY-07",
+      "to": "PAGE-UABC-070"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-070",
+      "to": "STORY-07"
+    },
+    {
+      "type": "references",
+      "from": "STORY-07",
+      "to": "BC-SIM-O2C-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-O2C-001",
+      "to": "STORY-07"
+    },
+    {
+      "type": "references",
+      "from": "STORY-07",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-07"
+    },
+    {
+      "type": "references",
+      "from": "STORY-08",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "STORY-08"
+    },
+    {
+      "type": "references",
+      "from": "STORY-08",
+      "to": "PAGE-UABC-080"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-080",
+      "to": "STORY-08"
+    },
+    {
+      "type": "references",
+      "from": "STORY-08",
+      "to": "BC-SIM-CASH-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-CASH-001",
+      "to": "STORY-08"
+    },
+    {
+      "type": "references",
+      "from": "STORY-08",
+      "to": "evidence/simulation/phase-3-cash-inventory-close.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "to": "STORY-08"
+    },
+    {
+      "type": "references",
+      "from": "STORY-09",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-32",
+      "to": "STORY-09"
+    },
+    {
+      "type": "references",
+      "from": "STORY-09",
+      "to": "PAGE-UABC-090"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-090",
+      "to": "STORY-09"
+    },
+    {
+      "type": "references",
+      "from": "STORY-09",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "STORY-09"
+    },
+    {
+      "type": "references",
+      "from": "STORY-09",
+      "to": "evidence/simulation/bc-playthrough-ledger.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "to": "STORY-09"
+    },
+    {
+      "type": "references",
+      "from": "STORY-10",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-34",
+      "to": "STORY-10"
+    },
+    {
+      "type": "references",
+      "from": "STORY-10",
+      "to": "PAGE-UABC-140"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-140",
+      "to": "STORY-10"
+    },
+    {
+      "type": "references",
+      "from": "STORY-10",
+      "to": "BC-SIM-CLOSE-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-CLOSE-001",
+      "to": "STORY-10"
+    },
+    {
+      "type": "references",
+      "from": "STORY-10",
+      "to": "project/bc-basic/uat-training-run.yaml"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/uat-training-run.yaml",
+      "to": "STORY-10"
+    },
+    {
+      "type": "references",
+      "from": "STORY-11",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "STORY-11"
+    },
+    {
+      "type": "references",
+      "from": "STORY-11",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-160",
+      "to": "STORY-11"
+    },
+    {
+      "type": "references",
+      "from": "STORY-11",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-11"
+    },
+    {
+      "type": "references",
+      "from": "STORY-11",
+      "to": "evidence/simulation/project-completion.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/project-completion.yaml",
+      "to": "STORY-11"
+    },
+    {
+      "type": "references",
+      "from": "STORY-12",
+      "to": "TKT-UABC-34"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-34",
+      "to": "STORY-12"
+    },
+    {
+      "type": "references",
+      "from": "STORY-12",
+      "to": "PAGE-UABC-160"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-160",
+      "to": "STORY-12"
+    },
+    {
+      "type": "references",
+      "from": "STORY-12",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-12"
+    },
+    {
+      "type": "references",
+      "from": "STORY-12",
+      "to": "evidence/simulation/project-completion.yaml"
+    },
+    {
+      "type": "references",
+      "from": "evidence/simulation/project-completion.yaml",
+      "to": "STORY-12"
+    },
+    {
+      "type": "references",
+      "from": "STORY-13",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "STORY-13"
+    },
+    {
+      "type": "references",
+      "from": "STORY-13",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "STORY-13"
+    },
+    {
+      "type": "references",
+      "from": "STORY-13",
+      "to": "BC-SIM-CASH-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-CASH-001",
+      "to": "STORY-13"
+    },
+    {
+      "type": "references",
+      "from": "STORY-13",
+      "to": "SIM-HC-001"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-001",
+      "to": "STORY-13"
+    },
+    {
+      "type": "references",
+      "from": "STORY-14",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "STORY-14"
+    },
+    {
+      "type": "references",
+      "from": "STORY-14",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "STORY-14"
+    },
+    {
+      "type": "references",
+      "from": "STORY-14",
+      "to": "BC-SIM-INVENTORY-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-INVENTORY-001",
+      "to": "STORY-14"
+    },
+    {
+      "type": "references",
+      "from": "STORY-14",
+      "to": "SIM-HC-003"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-003",
+      "to": "STORY-14"
+    },
+    {
+      "type": "references",
+      "from": "STORY-15",
+      "to": "TKT-UABC-38"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-38",
+      "to": "STORY-15"
+    },
+    {
+      "type": "references",
+      "from": "STORY-15",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-180",
+      "to": "STORY-15"
+    },
+    {
+      "type": "references",
+      "from": "STORY-15",
+      "to": "BC-SIM-SETUP-001"
+    },
+    {
+      "type": "references",
+      "from": "BC-SIM-SETUP-001",
+      "to": "STORY-15"
+    },
+    {
+      "type": "references",
+      "from": "STORY-15",
+      "to": "docs/handover/bc-basic-handover.md"
+    },
+    {
+      "type": "references",
+      "from": "docs/handover/bc-basic-handover.md",
+      "to": "STORY-15"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-1",
+      "to": "TKT-UABC-35"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-35",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-1",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-1",
+      "to": "COM-35-C"
+    },
+    {
+      "type": "references",
+      "from": "COM-35-C",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-1",
+      "to": "SIM-HC-001"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-001",
+      "to": "HYPERCARE-1"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-2",
+      "to": "TKT-UABC-32"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-32",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-2",
+      "to": "PAGE-UABC-170"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-170",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-2",
+      "to": "COM-32-C"
+    },
+    {
+      "type": "references",
+      "from": "COM-32-C",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-2",
+      "to": "SIM-HC-002"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-002",
+      "to": "HYPERCARE-2"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-3",
+      "to": "TKT-UABC-36"
+    },
+    {
+      "type": "references",
+      "from": "TKT-UABC-36",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-3",
+      "to": "PAGE-UABC-180"
+    },
+    {
+      "type": "references",
+      "from": "PAGE-UABC-180",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-3",
+      "to": "COM-36-C"
+    },
+    {
+      "type": "references",
+      "from": "COM-36-C",
+      "to": "HYPERCARE-3"
+    },
+    {
+      "type": "references",
+      "from": "HYPERCARE-3",
+      "to": "SIM-HC-003"
+    },
+    {
+      "type": "references",
+      "from": "SIM-HC-003",
+      "to": "HYPERCARE-3"
+    }
+  ],
+  "controls": {
+    "openP1": 0,
+    "openP2": 0,
+    "worklogHours": 80,
+    "worklogCost": 9600,
+    "worklogRate": 120,
+    "realBcExecution": false
+  },
+  "catalogs": {
+    "sessions": [
+      "BC-SIM-SETUP-001",
+      "BC-SIM-MASTER-001",
+      "BC-SIM-P2P-001",
+      "BC-SIM-O2C-001",
+      "BC-SIM-CASH-001",
+      "BC-SIM-INVENTORY-001",
+      "BC-SIM-CLOSE-001"
+    ],
+    "decisions": [
+      "beauftragt",
+      "GO",
+      "abgenommen",
+      "signoff",
+      "GO_SIMULATION",
+      "Exit",
+      "closed"
+    ],
+    "deliverables": [
+      "OFR-UABC-BCB-001",
+      "OFR-UABC-BCB-001",
+      "TKT-UABC-22",
+      "TKT-UABC-23",
+      "BC-SIM-SETUP-001",
+      "BC-SIM-MASTER-001",
+      "BC-SIM-P2P-001",
+      "BC-SIM-O2C-001",
+      "BC-SIM-CASH-001",
+      "BC-SIM-INVENTORY-001",
+      "BC-SIM-CLOSE-001",
+      "UABC-26",
+      "UABC-23",
+      "SIM-DEF-P2P-001",
+      "UABC-UAT-BCB-001",
+      "UABC-33",
+      "UABC-35",
+      "SIM-HC-001",
+      "UABC-38"
+    ],
+    "evidenceRefs": [
+      "docs/offers/bc-basic-offer.md",
+      "atlassian/confluence/pages/bc-basic-project-story.md",
+      "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "docs/reports/bc-basic-project-chronicle.md",
+      "docs/handover/bc-basic-handover.md",
+      "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "project/bc-basic/project-plan.yaml",
+      "BC-SIM-SETUP-001",
+      "BC-SIM-P2P-001",
+      "project/bc-basic/data-readiness-check.yaml",
+      "project/bc-basic/uat-training-run.yaml",
+      "BC-SIM-MASTER-001",
+      "BC-SIM-O2C-001",
+      "BC-SIM-INVENTORY-001",
+      "project/bc-basic/training-plan.yaml",
+      "SIM-HC-001",
+      "BC-SIM-CLOSE-001",
+      "SYN-VAT-RETURN-001",
+      "UABC-STORY-BCB-001",
+      "SIM-HC-002",
+      "SIM-HC-003",
+      "project/bc-basic/traceability-matrix.yaml",
+      "project/bc-basic/bc-playthrough-catalog.yaml",
+      "evidence/simulation/bc-playthrough-ledger.yaml",
+      "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "evidence/simulation/project-completion.yaml"
+    ]
+  }
 }

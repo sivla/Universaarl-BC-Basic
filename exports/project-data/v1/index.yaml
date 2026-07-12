@@ -40,6 +40,17 @@ artifacts:
   - { id: UABC-SRC-BCB-CONF-006, kindId: confluence-page, path: atlassian/confluence/pages/73-bc-basic-hypercare.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-CONF-007, kindId: confluence-page, path: atlassian/confluence/pages/74-bc-basic-deliverables.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-CONF-008, kindId: confluence-page, path: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-009, kindId: confluence-page, path: atlassian/confluence/pages/00-project.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-010, kindId: confluence-page, path: atlassian/confluence/pages/10-company-profile.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-011, kindId: confluence-page, path: atlassian/confluence/pages/20-discovery.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-012, kindId: confluence-page, path: atlassian/confluence/pages/30-blueprint.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-013, kindId: confluence-page, path: atlassian/confluence/pages/31-processes.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-014, kindId: confluence-page, path: atlassian/confluence/pages/32-decisions.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-015, kindId: confluence-page, path: atlassian/confluence/pages/50-tests.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-016, kindId: confluence-page, path: atlassian/confluence/pages/60-environment-baseline.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-017, kindId: confluence-page, path: atlassian/confluence/pages/61-walkthrough-pilot.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-018, kindId: confluence-page, path: atlassian/confluence/pages/80-bc-basic-training.md, format: markdown, required: true }
+  - { id: UABC-SRC-BCB-CONF-019, kindId: confluence-page, path: atlassian/confluence/pages/81-bc-basic-handover.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-MTG-001, kindId: meeting-index, path: atlassian/confluence/meetings/index.yaml, format: yaml, required: true }
   - { id: UABC-SRC-BCB-MTG-002, kindId: meeting-transcript, path: atlassian/confluence/meetings/UABC-MTG-001.md, format: markdown, required: true }
   - { id: UABC-SRC-BCB-DEC-001, kindId: decision-register, path: project/bc-basic/decision-register.yaml, format: yaml, required: true }
