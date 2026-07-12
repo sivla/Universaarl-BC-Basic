@@ -8,6 +8,8 @@ resultClaimed: false
 ownerRef: P-016
 customerAcceptanceOwnerRef: P-005
 configurationPackageResponsibility: Konfigurationspakete sind ein Werkzeug des Dienstleisters und kein Schulungs- oder Pflegegegenstand fuer den Kunden.
+operatorAcceptanceRule: Ein Fall gilt fuer die Kundenbefaehigung nur als bestanden wenn die Rolle ihn ohne Anleitung ausfuehrt Kontrollen erklaert einen vorhandenen Fehler diagnostiziert den Retest besteht und einen der vier Eskalationsausgaenge korrekt waehlt.
+simulationBoundary: Referenzsimulation belegt Ablauf Werte Fehler und Retest; reale Benutzer Berechtigungen Seiten Buchungen und Reset werden spaeter in der Kundensandbox bestaetigt und blockieren GO_SIMULATION nicht.
 cases:
   - id: UABC-UAT-BCB-001
     title: Navigation und Look-and-Feel

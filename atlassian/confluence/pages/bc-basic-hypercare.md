@@ -21,6 +21,8 @@ lastReviewed: 2026-09-03
 
 Am Ende sind P1=0 und P2=0 offen. Das verbleibende Support-Backlog ist der optionale reale BC-Lauf und keine offene Simulationsabweichung.
 
+Jeder Tagesstart verwendet `UABC-SMOKE-BCB-OPERATOR-001`. Reversible Eingabefehler in eigener Rolle werden selbst korrigiert, Prozessfragen gehen an den Key User, Setup-/Berechtigungsfehler mit Diagnosepaket an Consultant/Support. Bei falscher Gesellschaft, unklarer Buchungs-/VAT-/Bestandswirkung oder Datenschutzgefahr gilt sofortiger Buchungsstopp. Der Tagesstatus nennt Fall, Rolle, Beleg, Befund, Kontrollwerte, Fix, Retest und Go/No-Go.
+
 Beim Exit wurden zusätzlich `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json` und `exports/project-data/v1/twin-export-map.json` geprüft. Der Baseline-Angebot-Ist-Abgleich ist rechnerisch geschlossen; Source und Projektion sind digestgebunden und read-only. Diese Kontrolle ändert keine Hypercarestunden, Tickets oder Defects und erzeugt keine Rechnung, Buchung oder produktive Übergabe.
 
 <!-- story-metadata {"id":"PAGE-UABC-160","parent":"PAGE-UABC-000","version":2,"status":"published"} -->

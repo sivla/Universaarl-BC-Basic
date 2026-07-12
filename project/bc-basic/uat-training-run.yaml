@@ -34,6 +34,17 @@ evidenceRules:
   requiredPerCase: [startState, steps, result, screenshotRef, resultRef, defectRef, resetRef]
   missingEvidence: block
   realAcceptance: ausserhalb-des-simulationsziels
+operatorSmokeTest:
+  id: UABC-SMOKE-BCB-OPERATOR-001
+  occasions: [erster-Arbeitstag, jeder-Hypercare-Tagesstart]
+  sequence:
+    - Zielgesellschaft Benutzerrolle Arbeitsdatum und Buchungszeitraum pruefen
+    - je Rolle Pflichtarbeitsliste und einen vorhandenen Testbeleg oeffnen
+    - Belegstatus Menge Betrag VAT offene Posten Bank-oder-Lagerkontrolle rollenbezogen pruefen
+    - Navigate-oder-Find-Entries fuer einen gebuchten Beleg ausfuehren
+    - Supportweg aufrufen und Diagnosepaket ohne reale Geheimnisse vorbereiten
+  pass: alle Rollenkontrollen ohne unerklaerte Differenz und ohne P1/P2; sonst passender Eskalationsausgang
+supportTicketRequiredInformation: [Fallkennung, Rolle-Gesellschaft-Umgebung-Version-Zeitpunkt, Seite-Aktion-Belegnummer-letzter-erfolgreicher-Schritt, Erwartung-Befund-Fehlertext, Betrag-Menge-VAT-Status-Entry-IDs, sichere-Evidence, Reproduktion-Korrektur-Ruecksetzpunkt, Auswirkung-Prioritaet-Eskalationsausgang]
 realBoundary:
   bcExecution: nicht-ausgefuehrt
   customerSignoff: nicht-behauptet

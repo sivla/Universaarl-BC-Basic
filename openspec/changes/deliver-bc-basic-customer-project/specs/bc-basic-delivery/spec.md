@@ -170,3 +170,12 @@ Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenha
 - **AND** Sponsor, Projektleitung, sieben Kundenentscheidungen, acht Datenlieferungen und drei Workshops sind mit Owner und Fälligkeit sichtbar
 - **AND** genau ein fachliches Gate entscheidet die Bereitschaft für Setup und UAT
 - **AND** Lernpfad und Betriebsübergabe trennen die abgeschlossene Referenzsimulation von der im Kundenprojekt nachzuweisenden Befähigung
+
+### Scenario: Operator arbeitet nach UAT sicher ohne Anleitung
+
+- **WHEN** Finance, Handel oder Lager das rollenbezogene Training abschliessen
+- **THEN** führt die Rolle ihren positiven Kernfall, einen Fehlerfall und den Retest ohne Anleitung aus
+- **AND** erklärt sie ihre täglichen, wöchentlichen und monatlichen Kontrollen sowie ihre Verantwortungsgrenze
+- **AND** wählt sie genau einen der vier Ausgänge selbst korrigieren, Key User, Consultant/Support oder sofortiger Buchungsstopp
+- **AND** liefert sie für Support das reproduzierbare Diagnosepaket ohne Geheimnisse
+- **AND** bleiben reale Benutzer, Berechtigungen, Buchungen und Reset als Kundensandboxnachweis getrennt von der bestandenen Referenzsimulation
