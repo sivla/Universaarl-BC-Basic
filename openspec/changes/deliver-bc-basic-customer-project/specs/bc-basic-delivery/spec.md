@@ -162,3 +162,11 @@ Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenha
 - **AND** jede Empfehlung besitzt BC-Standardabbildung, Fit/Gap, Entscheidung, Auswirkung und Owner
 - **AND** Migrationsobjekte besitzen Quelle, Volumen, Bereinigung, Mapping, Verantwortliche und Abstimmkriterium
 - **AND** die synthetische Gate-Entscheidung ist klar von realen Kunden-, Steuer- und Sandboxnachweisen getrennt
+
+### Scenario: Kunde startet das Standardprodukt ohne Sucharbeit
+
+- **WHEN** Vertrieb, Consultant und Kunde das BC-Basic-Paket starten
+- **THEN** gilt eindeutig das Standardangebot mit 80 Stunden und 9.600 EUR netto
+- **AND** Sponsor, Projektleitung, sieben Kundenentscheidungen, acht Datenlieferungen und drei Workshops sind mit Owner und Fälligkeit sichtbar
+- **AND** genau ein fachliches Gate entscheidet die Bereitschaft für Setup und UAT
+- **AND** Lernpfad und Betriebsübergabe trennen die abgeschlossene Referenzsimulation von der im Kundenprojekt nachzuweisenden Befähigung

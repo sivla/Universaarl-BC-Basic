@@ -12,6 +12,13 @@ simulation:
     finanzSteuerVerantwortung: Kunde
   note: Vollstaendige repositorybasierte Simulation ohne echte Freigabe, Zugangsdaten oder BC-Schreibvorgang.
 scope: Phase-2-Einrichtung-und-Schulung
+gateName: bereit-fuer-Setup-und-UAT
+customerEntryCriteria:
+  - { id: ENTRY-01, subject: Entscheidungen, pass: alle sieben Bereiche in UABC-BCBDISCOVERY entschieden oder mit akzeptiertem Owner und Termin versehen }
+  - { id: ENTRY-02, subject: Daten, pass: acht Vorlagenpaare sind qualitaetsgeprueft und Setup Stammdaten Eroeffnung sowie offene Posten abgestimmt }
+  - { id: ENTRY-03, subject: Rollen, pass: Sponsor Prozessowner Datenowner UAT-Abnehmer und SoD-Verantwortung sind benannt }
+  - { id: ENTRY-04, subject: Sandbox, pass: Zielgesellschaft Lizenz Schreibberechtigung Ruecksetzpunkt und Wiederanlauf sind vor Mutation nachgewiesen }
+entryDecisionRule: GO nur wenn ENTRY-01 bis ENTRY-04 bestanden sind und kein offener P1/P2 vorliegt; sonst NO_GO mit Owner Termin und Auswirkung.
 requiredEvidence:
   - { id: UABC-GATE-EV-001, name: Umfang-und-Rollen, source: project/bc-basic/project-plan.yaml, status: vorhanden-synthetisch }
   - { id: UABC-GATE-EV-002, name: Datenbereitschaft, source: project/bc-basic/data-readiness-check.yaml, status: synthetisch-geprueft }

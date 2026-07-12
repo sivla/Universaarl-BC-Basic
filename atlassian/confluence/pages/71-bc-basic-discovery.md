@@ -33,6 +33,24 @@ Die sechs Module werden in der Reihenfolge Finance, Einkauf, Verkauf/Forderungen
 
 **Fast-Track:** Der Kunde liefert vorab nur Organisationssteckbrief, Konten-/Steuervorgaben, je einen Beleg- und Partner-/Artikelbeispielsatz, Bank-/Zahlungsanforderungen, Anfangssalden sowie Rollenliste. Danach genuegen drei fokussierte Termine: (1) Scope und Finance/VAT, (2) P2P/O2C/Bank/Lager, (3) Datenabnahme, UAT und Cutover-GO. Zwingend zu entscheiden sind Konten/VAT, Dimensionen, Beleg- und Freigabelogik, Zahlungs-/Mahnverfahren, Lagerverfahren, Migrationssalden und Rollen/SoD. Der kuerzeste realistische Weg lautet: Vorbereitung → drei Workshops → Standardentscheidung → drei Datenwellen/Setup → UAT → Mock-Cutover → GO.
 
+| Workshop | Vorbereitung bis | Teilnehmerrollen | Verbindlicher Output | Done-Kriterium |
+|---|---|---|---|---|
+| 1 – Scope, Finance und VAT | Start + 2 Arbeitstage | `P-001`, `P-002`, `P-005` | Scope, Konten-/VAT-Grundsätze, Dimensionen und Perioden | Bereiche 1–2 der Entscheidungscheckliste entschieden oder mit Owner/Termin versehen |
+| 2 – P2P, O2C, Bank und Lager | Workshop 1 + 2 Arbeitstage | `P-002`, `P-005`, `P-011`, `P-019` | Standardprozesse, Belegfreigabe, Zahlung/Mahnung, Bank und Lager | Bereiche 3–5 entschieden; jede Abweichung ist Fit, Change oder Out-of-Scope |
+| 3 – Daten, Rollen, UAT und Cutover | Workshop 2 + 3 Arbeitstage | `P-001`, `P-002`, `P-005`, `P-016`, `P-019` | Datenwellen, SoD, UAT-Abnehmer, Sandbox- und Cutovervoraussetzungen | Bereiche 6–7 entschieden und Entry-Gate `UABC-GATE-BCB-PHASE2-001` geprüft |
+
+## Minimale Entscheidungscheckliste
+
+| Nr. | Kundenfrage | Standardempfehlung | Owner | Fälligkeit | Auswirkung und echter Bestätigungsbedarf |
+|---:|---|---|---|---|---|
+| 1 | Welche Konten, VAT-Kombinationen und Abschlussregeln gelten? | reduzierter SKR04-orientierter Plan, Inland/19 %, Monatsperioden | `P-005` | Workshop 1 | blockiert Finance-Setup; Konten und Steuerkennzeichen real steuerlich bestätigen |
+| 2 | Welche Auswertungsmerkmale sind Pflicht? | `KOSTENSTELLE` und `GESCHAEFTSBEREICH` auf GuV-Belegen | `P-005` | Workshop 1 | beeinflusst Stammdaten, Buchung und Reporting; reale Werte bestätigen |
+| 3 | Welche Beleg- und Freigabelogik gilt? | Standard Bestellung/Wareneingang/Rechnung und Auftrag/Lieferung/Rechnung; organisatorische Freigabe | `P-011` | Workshop 2 | beeinflusst P2P/O2C und SoD; Freigabegrenzen real bestätigen |
+| 4 | Wie werden Zahlung, Mahnung und Bank verarbeitet? | 14/30 Tage, Überweisung, eine Mahnstufe, manuelle Bankabstimmung | `P-005` | Workshop 2 | beeinflusst offene Posten und Cutover; Bankformat, Rechte und Mahntext real bestätigen |
+| 5 | Welches Lagerverfahren genügt? | `HAUPT`, `STK`, gleitender Durchschnitt, keine Plätze/Verfolgung | `P-019` | Workshop 2 | beeinflusst Artikel, Bestand und Inventur; reale Bestände bestätigen |
+| 6 | Welche Daten werden in welcher Welle übernommen? | Setup → Stammdaten → Eröffnung/offene Posten; kein Bewegungsdatenvollimport | `P-016` | Workshop 3 | blockiert Probeladung; Quellen, Mengen und Salden real bestätigen |
+| 7 | Wer darf einrichten, erfassen, buchen, zahlen, prüfen und abnehmen? | Trennung von Einrichtung, Erfassung, Mengenprüfung, Buchung, Zahlung und Kontrolle | `P-001` | Workshop 3 | blockiert UAT/Cutover; Benutzer, Lizenzen und Berechtigungssätze real bestätigen |
+
 | Modul / Rollen | Leitfragen | Synthetisches Ergebnis | Noch real zu bestätigen |
 |---|---|---|---|
 | Finance – `P-005`, `P-002` | Welche Konten, Buchungsgruppen, Dimensionen und Periodensperren werden benötigt? | SKR04-basierter reduzierter Kontenplan; Buchungsmatrix Inland/19 %, Kostenstelle und Geschäftsbereich; Monatsperioden | Kontennummern, Steuerkennzeichen und steuerliche Würdigung |

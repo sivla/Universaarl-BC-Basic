@@ -12,7 +12,7 @@ test('portable Projektion ist deterministisch und veraendert die native Story ni
   const before = sha(bytes); const first = buildPortableStory(native); const second = buildPortableStory(native);
   assert.deepEqual(first, second);
   assert.equal(sha(fs.readFileSync('evidence/simulation/project-story.json')), before);
-  assert.equal(sha(JSON.stringify(first)), '2ddcfe25883a1b8f3688f2a177f1eefba3052e52f7b76c15afb8dfbf20478cc3');
+  assert.equal(sha(JSON.stringify(first)), '2ea168eeb66f9e1eec5bf4e4176e5029232ec337ac9fbb1fe6957e678fbed035');
 });
 
 test('portable Projektion belegt alle verbindlichen Storymengen', () => {

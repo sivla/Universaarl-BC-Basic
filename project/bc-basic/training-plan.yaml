@@ -3,7 +3,17 @@ planId: UABC-TRAIN-BCB-001
 projectId: UABC-BC-BASIC-001
 status: planned
 simulation: true
+templateState: kundenbereit
+simulationState: simulated-complete
+simulationEvidenceRef: project/bc-basic/uat-training-run.yaml
+realCustomerState: vor-Go-live-durchzufuehren
+customerCompletionGate: Jede benannte Rolle hat ihre zugeordneten UAT-Faelle und Uebungen selbst ausgefuehrt offene Fragen sind geklaert und der Kompetenzcheck ist durch Trainer und Teilnehmerrolle bestaetigt.
 completionRule: Ausfuehrungstranskript, Anwesenheit, Uebungsergebnis, offene Fragen und Kompetenzpruefung sind je Termin erforderlich; Planungsnachweise ersetzen diese Angaben nicht. Schulung zur Erstellung oder Pflege von Konfigurationspaketen ist ausgeschlossen.
+learningPath:
+  - { sequence: 1, audience: alle Rollen, outcome: Navigation Zielgesellschaft Sicherheits- und Supportweg beherrschen }
+  - { sequence: 2, audience: Prozessrollen, outcome: eigene Standardbelege erfassen Fehler erkennen und Entries nachverfolgen }
+  - { sequence: 3, audience: Finance und Kontrolle, outcome: Zahlung Abstimmung Abschluss und VAT-Vorschau kontrollieren }
+  - { sequence: 4, audience: alle Abnehmer, outcome: zugeordnete UAT-Faelle ohne Anleitung wiederholen und Cutoverbereitschaft bestaetigen }
 sessions:
   - id: UABC-TRAIN-BCB-ADM
     title: Navigation, Rollencenter und Grundeinrichtung
