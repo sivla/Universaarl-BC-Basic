@@ -1,7 +1,7 @@
 ---
 id: UABC-BLUEPRINT
 storyPageId: PAGE-UABC-030
-title: 00 Consulting-Ueberblick
+title: 00 Durchfuehrungsueberblick
 parent: null
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
@@ -25,7 +25,7 @@ referenceIds:
 lastReviewed: 2026-07-12
 ---
 
-# 00 Consulting-Ueberblick
+# 00 Durchfuehrungsueberblick
 
 ## Einsatz des Handbuchs
 
@@ -78,4 +78,4 @@ Konfigurations- und Produktfragen gehen an Consultant oder Support. Unklare Buch
 - [Projektsteuerung, Training, Cutover, Hypercare und Abschluss](75-bc-basic-meetings-decisions.md)
 - [BC Basic Standardprodukt](70-bc-basic-project.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-030","title":"00 Consulting-Ueberblick","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-030","title":"00 Durchfuehrungsueberblick","parent":null,"version":5,"status":"published"} -->

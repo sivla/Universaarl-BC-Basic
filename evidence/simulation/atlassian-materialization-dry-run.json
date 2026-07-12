@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 1,
+  "matrixId": "UABC-ATLASSIAN-MATERIALIZATION-V1",
+  "projectId": "UABC-BC-BASIC-001",
+  "generatedFrom": [
+    "project/bc-basic/atlassian-materialization-v1.yaml",
+    "evidence/simulation/project-story.json",
+    "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+    "project/bc-basic/result-object-catalog.yaml",
+    "project/bc-basic/deliverables.yaml",
+    "project/bc-basic/project-plan.yaml",
+    "project/bc-basic/billing.yaml"
+  ],
+  "mode": "nur-trockenlauf",
+  "executable": false,
+  "blocker": "Atlassian-Ziel-IDs, Secret-Referenz und ausdrueckliche Live-Freigabe fehlen.",
+  "counts": {
+    "spaces": 3,
+    "pages": 28,
+    "tickets": 50,
+    "operations": 78,
+    "create": 78,
+    "update": 0,
+    "skip": 0,
+    "conflict": 0
+  },
+  "operations": [
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-000",
+      "sourcePath": "atlassian/confluence/pages/00-project.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "2b6c05c9bfef4099d4717cdd7785d760e1d4309c4665257c209f91c957368a04"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-010",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "dc65b754f7db804c7ccb683885661b0d57f65649837806a3073fcf956de7334a"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-130",
+      "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "0492cbcbdcf607ae55f6ebf6803158bbcd8248e134bc22dd561d5fa30d336738"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-150",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "2e717279d2ea3b6aa8bc51c01c54b2c30019f019cd1974e09a34492570900e9c"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-170",
+      "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "49eaf0bb148b83430014831837a8c53db3c7fc86d5b6e751fa3b753355c67381"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-190",
+      "sourcePath": "atlassian/confluence/pages/99-archive.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f1d5bc88bfdb29d193da8a11c2552defd66f839d83cbdf04cf2e01bc721ca594"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-050",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-130",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "04dd61c6bc5029eb562a1ebb9df290b6772fca76d7dde028724c724e395ba640"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-100",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-130",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "c86a9c077f6388d2997b095b200de0b27e62d5d6b000aff6583b4a7e9d481e00"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-110",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-130",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "5ee132b8d7245bdcf4adebd1c1e4f29dbc82784a9c3c1fa068e0cb18a5b61397"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-060",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-150",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "2ab3fc5f2985f60666e386256088e43a1e0e27d51832e2961e8fb697cf5573f1"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-080",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-150",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f61a4beb63d4c6077e475f40c43a1dab2ab96cc9030304822a531a09bd1ac134"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-160",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "targetContainerId": "UABC-SPACE-CUSTOMER",
+      "parentSourceId": "PAGE-UABC-150",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "d6bc58ab259b1c36098274c62819ac2c8335e40f0da00587bb763af0a5b9af6c"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-090",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "5068588fb2fd478d127fd59c1206677e3d1d13b6273d60c188cbadae7393329d"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-200",
+      "sourcePath": "atlassian/confluence/pages/76-product-audience.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "289f171aa329d45e8bcfb56929b201353e6e2953db46979ea7e6623211703ae3"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-040",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "a7fd72d97fe7da4479fc65031128519f0989424eec2104625484fa81555762a4"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-210",
+      "sourcePath": "atlassian/confluence/pages/77-product-approach.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "e59e28000d4f5626e505868b03ae15ec2d17267164416e3f7f485d393bc90865"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-180",
+      "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "fc1eab593b7354f51a9b0523dcde60af0ee3a93ec5fc5303225ca47ddcbb85c7"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-220",
+      "sourcePath": "atlassian/confluence/pages/78-product-offer.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "d3c55ef65f72a5ea33a8dc1877fb3b9cc1251567db19f9d776430f61bf0b7813"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-120",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "c1fe7a345c824fad32fa7674298b5f3eaaa4cec5a4a49bc14782c0c10e23a728"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-230",
+      "sourcePath": "atlassian/confluence/pages/79-product-sales-faq.md",
+      "targetContainerId": "UABC-SPACE-PRODUCT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "08ef7cc4854b2553b8bcf9df21e73e3212d9387a3c55b2af4bbd3455be95422b"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-030",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "b0a9c93276ce5df53bb409aef2488bb24e05f8fc40750a5d9bfdfb00fb494415"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-020",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "511fc3fadf86ec4202510dcda62df6929eb2b7c6ec5081dea530e01e75ad8bf9"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-240",
+      "sourcePath": "atlassian/confluence/pages/82-consulting-design.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "76f6491da83a9e6eab1b126909a238c0d58be0424a25718814fcc84024db3a5f"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-070",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "cb221f2ded0c5de1bb8d9e0ea616091f2ba1e06a21017ebc64e2e33a7ccb0b67"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-250",
+      "sourcePath": "atlassian/confluence/pages/83-consulting-tests.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "1cc0fe6b27b3756faae4bfc3250bc4ae7bb45b9c0c6ab7d72db2037787dc5b17"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-140",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "5ae0d96564fe788c1395d712d9b19fee94c1f847b93c25bb2063dd5a04e27104"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-260",
+      "sourcePath": "atlassian/confluence/pages/84-consulting-handover.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "1008e5c3e1622f6d114476fc7d37d8be27dc193b74f3b25c44926fa09ded2317"
+    },
+    {
+      "objectType": "confluence-page",
+      "sourceId": "PAGE-UABC-270",
+      "sourcePath": "atlassian/confluence/pages/85-consulting-checklists.md",
+      "targetContainerId": "UABC-SPACE-CONSULTANT",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f15046e6d24d6e8d1ed6910e28bc34893507cb5b8da6ea1d81ab65d55c1a104e"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-1",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "d6b7f022f2c89e398ecbcda0e64f071aa888ddcfce46f0c4bd7d4a60bb6339d2"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-2",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "4b47e5398c451b7b8e8630dadc0c5c7b9e61c941f5e6ad5421953104ad2f8005"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-3",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": null,
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f4a8cb15e88803360c89ee741a182dedcfd17fcaf5f097a627211dae1606fa4c"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-4",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-1",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "eb6866103b7351674723b84148c41b2e90ffa811be825608e3bc509f37d6ef0f"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-5",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-1",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "e805b1025669408e416201b14f83bd3dfd727052b378358c350170f26fbc5e0b"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-6",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-1",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "545618d73a143962acf7fb6ed15765ad8a1bc81464e5340a48266ff5dfe84331"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-7",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-2",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "fa327f5e9436227d93802940ff089f23df3016fa50fb0d66dfd7fa61fcccdc73"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-8",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-2",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "fe14c97691196c492516a735d39f615df79aeacebcbc2b6b930406b90dc42a9b"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-9",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-2",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "3697a2865788b53a20972d1edd5fb9595c9590b888c59362b72e21a571fec1e1"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-10",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-2",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "368638e91d63545b6d21adf3a7b735277b3a449315074d5cdd7e663520e1eca3"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-11",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-3",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "36e3e906cb1a226fb50117bf4a60be36864cc5b5284c2f6b82371eb33f7f58d5"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-12",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-3",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "30dd5d110d0d21d83dc6d00800d6dab905ac92de3c5ddb35d86ec01d9d472120"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-13",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-3",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "c115371d1480e4789c03668f61001694b70c5f10e939fc7e08ae2e44390b6a2a"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-14",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-4",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "e2043d6e79bde577d2d859de9b2a125673c88caa4b9994083f12987786bdd7b8"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-15",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-4",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "9489babf887ff1ba108c8ef87a16f7a8a967e3dc70a246745c638670cfa05086"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-16",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-5",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "54037a6c7ba0e6f4fa6eb0412daa2c69b12c9cbbf5e957f569c7e666c423e1cd"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-17",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-5",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "80f4664302dce70a4ca5fa63b50c16ddf0d88017d4fe55e81674fe59f49d24c9"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-18",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-5",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "2cd9730d1c5e508b490501d7ecd3303e2adcbc8f79b9236ca2dbc0f8fc3d9530"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-19",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-5",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "70c889344c3688e01f3c3bfb96c08769a25924fdfbaf38e15a72c2cee92a5946"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-20",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-6",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "6bfc518fd8c934da0c90d57e148bc958e13568580b7a2d4b65ab4055933f10f6"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-21",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-7",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "7e3ca2856607c2c649e160c0cd06280491a76c8e5a3e3fe29e025332bc79f855"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-22",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-7",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "4d9d51df82b00868cbf4a730252e4740cf0245f68d23d9775dd2fb89c11f7b2e"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-23",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-8",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "a2ea8007679420f8e8d7268e72559031691f10eed4a9b103c6953f64589166f6"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-24",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-9",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "1714c094f0fd13d2904e9c049bfd5b6978f1fbb440db944adae8517eacad48e0"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-25",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-9",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "6ff47895c23cdae94ea07b55271d062bc43d3e5a849603db1a376290c0a499e0"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-26",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-9",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "076619b9e574080037a88f584ea853b3b8ffcb99bcd115f7f356daf98aeed64b"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-27",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-10",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "2de390c0a2910de1a6a32eb9fe57ce0c10fe5215191b35af9a74621a226730a2"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-28",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-10",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "eade2cf0ab911bf6409fce70b11190ea3654b01e9d26b408f2925a7f3012512a"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-29",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-11",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "fa4bad435684f40e30274f9a1aa39946542f131b09b6f870edb751d114d38ca2"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-30",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-12",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "72183f043ed154fe85145e1e3c7193db13a468dd3d61f8fc033eeae439fa8d08"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-31",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-13",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "7641767c94505fb9e4828f51989e9dda003d6184e052265f91de5f67537f9ca3"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-32",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-14",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "8df37b031939d089a9aba0b6859df141bff5faf3b620ceedfbf759bbce23ea41"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-33",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-15",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "b7445a1a0442c995c0474f92324047f3ecf42fc79e53adf0fb40b16e3424c51e"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-34",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-16",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f1a8b9677b93d078428c740c6cae9d2fceb33ada3e69e57c8e8becc34dda436d"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-35",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-17",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f537d758be0eda34cd55527d8d7f093392dd6eb3c6aa3b010ad6da03f625a019"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-36",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-18",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "e011fdf81ab7d46b8ac015da359768a0ea984b5fc7630a1d9addb2433a4df7cd"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-37",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-19",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "9bb7e1f63a76ba331f5d793c062665e1c9aece22982c2a9ab615215c3c297f3f"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-38",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-20",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "5dea66c9292137b6eb15e0f200507431ec3bfe1f3871a0fbb50a0ad207371efc"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-39",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-21",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "f4fbaa5dc24a976cfeb4d28d0f75640f59507bc4607660bb8ac37c2ba9f8321a"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-40",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-22",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "80785ad66f32f9f7f40acbe617d0aee3cf5b25fe809e2569997816388c7aaa13"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-41",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-23",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "405e904610697471ccad8165a8a8a8d4887225fd8619ec18d4183e13fbb1ef93"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-42",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-24",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "9dd952298e8696654a69aab3194d712e2283f83d593925224704ebcc2f668557"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-43",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-25",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "89036166e3fdc7ed138a6677aacd05be0d5d458e3e2b5b2ca253ab976cccf6aa"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-44",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-26",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "8719ce28095aa2741f76f750850afb8783647bc0a5552b71fd6beb167c6bc5d2"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-45",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-27",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "0792814b8212cfde01b03504adeba7dda342d45d1d06cc5b62af8ff3437b6178"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-46",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-28",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "574a566cdbf404787fb0dffe4e6eff3f8ae325af249be006e276a16936e00e18"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-47",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-29",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "fe98cec7b6cd19901657d2539128eae71ccf6e4171c7b92f56df094e8c738247"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-48",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-30",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "88f4a1e7029a5c37a2b5eb62bd20f10a6551446faa32f0baa8623982571e4b06"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-49",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-30",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "9b42ed2f2f3061129fd8ddad0ccc2fcdf22367cdf6e101c1eb60707212c8e8b4"
+    },
+    {
+      "objectType": "jira-ticket",
+      "sourceId": "UABC-50",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "targetContainerId": "UABC",
+      "parentSourceId": "UABC-31",
+      "externalId": null,
+      "decision": "create",
+      "sourceDigest": "a3c849db8e1de14ac5f870ec0fde1541ddf67fcc82cf442efb67e50d1ee92bbb"
+    }
+  ],
+  "projectionDigest": "5281249935e94f97b5343077d6b62f1d74495b97f13e3594dcf993ba5df024f8",
+  "validationStatus": "validated"
+}

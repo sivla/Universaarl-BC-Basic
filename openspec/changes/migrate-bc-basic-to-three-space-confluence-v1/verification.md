@@ -2,27 +2,40 @@
 
 ## Status
 
-Die Drei-Space-Migration ist fachlich erzeugt, direkt reproduzierbar geprueft und commitgebunden abgeschlossen.
+Der fachliche Drei-Space-, Ergebnisobjekt- und Materialisierungsstand ist lokal erzeugt und fokussiert geprueft. Der commitgebundene Abschluss ist noch nicht behauptet, weil die aktuelle Laufzeit den Git-Index nicht beschreiben kann.
 
-## Nachweisumfang
+## Fachlicher Nachweis
 
-- exakt drei Spaces und 6/8/8 Rootseiten,
-- 19/19 Altseiten mit stabilem Nachfolger und Digest,
-- 28 strukturierte Seiten und vollstaendige Navigation,
-- null aktive Alt-Ticket-IDs,
-- keine Continia-, Live-Atlassian-, BC- oder Spectra-Ausfuehrungsbehauptung,
-- bytegleicher Doppelbuild sowie commitgebundener Snapshot und Katalog.
+- Drei source-driven Spaces mit 28 konkreten Seiten: 12 Kunden-, 8 Produkt- und 8 Consulting-Seiten.
+- Neun fruehere Meta-Rootseiten enthalten jetzt verkaufs-, entscheidungs-, durchfuehrungs- oder betriebsfaehige Inhalte.
+- 19/19 Altseiten bleiben mit stabiler ID, Quellpfad und Migrationsprovenienz erhalten.
+- Neun Kundendeliverables besitzen Version, Owner, Ticketbezug, lesbaren Ergebnispfad, Evidence und Abnahmekriterium.
+- Ergebnisobjekte sind in fuenf Klassen getrennt: Kundendeliverable, Projektdokument, Blanko, Evidence und technische Quelle.
+- Der Atlassian-Dry-run projiziert 28 Seiten und 50 Tickets als 78 `create`-Entscheidungen; er fuehrt null Live-Mutationen aus.
+- Ziel-IDs, Space-Keys und Secrets bleiben unbelegt. Live-Atlassian, Rovo und Business Central wurden nicht aufgerufen.
 
-## Direkter Nachweis vor Commit
+## Ausgefuehrte fokussierte Pruefungen
 
-- Drei-Space-Pruefung: 3 Spaces, 22 Roots (6/8/8), 6 Unterseiten, 19/19 verlustfreie Migrationen.
-- Project Story: Validator gruen, Negativmatrix 55/55.
-- Dokumentkatalog: 43 Dokumente, 28 strukturierte Seiten, Negativmatrix 32/32.
-- OpenSpec strict: 7/7.
-- Der einmalige Gesamtcheck lief bis zum absichtlich fail-closed blockierenden Sauberkeitsnachweis des noch nicht erstellten Quellcommits; dieser Nachweis wird unmittelbar commitgebunden abgeschlossen.
+- Drei-Space-Validator: bestanden.
+- Drei-Space-Negativmatrix: 13/13 bestanden.
+- Materialisierungsvalidator: bestanden.
+- Materialisierungs- und P0-Negativmatrix: 11/11 bestanden; Projektplan-/Billing-Regression zusammen 37/37 bestanden.
+- Project Story: Validator und 55/55 Tests bestanden.
+- Spectra-0.10-Konformitaet: Validator und 15/15 Tests bestanden.
+- Projekt- und Referenzvalidierung: bestanden.
+- Generatoren: Drei-Space und Materialisierungs-Dry-run reproduzierbar; Materialisierungsdigest `5281249935e94f97b5343077d6b62f1d74495b97f13e3594dcf993ba5df024f8`.
 
-## Commitgebundener Abschluss
+## P0-Konsistenz
 
-- Snapshotvertrag: `Spectra=BOUND`, stabiler Consumer-Producerbranch `codex/universaarl-projekt`, Lieferbranch `codex/bc-basic-three-space-v1`, Branchvertrag validiert.
-- Dokumentkatalog: 43 Dokumente, 28 strukturierte Seiten, 3 Spaces, 19 Migrationseintraege und 0 externe Origins.
-- Der Twin bleibt an `codex/universaarl-projekt` gebunden; der Lieferbranch wird erst nach kontrollierter Integration sichtbar.
+- Projektplan und Lieferobjekte verwenden dieselben Phase-Tickets `UABC-1`, `UABC-2` und `UABC-3` wie Jira.
+- April/Mai 2026 ist die fuehrende abgeschlossene Referenzsimulation; August/September ist nur ein illustratives, nicht aktuelles Kundenfenster.
+- Neun `UABC-DEL-BCB-*` sind echte Kundendeliverables; OpenSpec, Validatoren, Evidence und technische Quellen sind keine Kundendeliverables.
+- Forecast und Abrechnung stammen ausschliesslich aus 19 billable Task-Worklogs: 80 Stunden, 9.600 EUR, Phasen 22/40/18, Rest und ETC 0, EAC 80 Stunden beziehungsweise 9.600 EUR. Phase, Epic und Story erzeugen keine Rechnungszeile.
+
+## Noch ausstehender commitgebundener Abschluss
+
+Staging und damit Katalogerzeugung aus dem Git-Index, Gesamtcheck, lokaler Commit, commitgebundener Snapshot-/Katalognachweis sowie REVIEW-/Clean-Head-Abschluss sind offen. Der konkrete Laufzeitfehler lautet: `fatal: Unable to create '.git/index.lock': Permission denied`.
+
+## Wahrheits- und Sicherheitsgrenze
+
+Die spaetere dedizierte Playthrough-Sandbox ist nur vorbereitet. Vor jedem Write muessen Environment, Company, BC-Version, Lokalisierung, Benutzerrolle, Arbeitsdatum, Resetpunkt und erlaubter Scope fail-closed feststehen. Unknown oder Abweichung stoppt vor dem Write. Produktion sowie externe ELSTER-, Bank- und Mailuebermittlung bleiben verboten.

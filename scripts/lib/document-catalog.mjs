@@ -283,8 +283,8 @@ function validateSpaces(catalog, config, documents, errors) {
     const page = pageById.get(redirect.documentId);
     if (!page || redirect.storyPageId !== page.storyPageId || redirect.sourcePath !== page.sourcePath || redirect.targetTitle !== page.title || redirect.targetParentId !== page.parentId || redirect.migrationStatus !== 'migrated-in-place') add(errors, DOCUMENT_CATALOG_ERROR.redirect, `${redirect.documentId}: Migrationseintrag stimmt nicht mit der Zielseite ueberein`);
   }
-  const migratedPages = pages.filter((page) => page.readiness !== 'draft-template');
-  const newPages = pages.filter((page) => page.readiness === 'draft-template');
+  const migratedPages = pages.filter((page) => redirectIds.has(page.documentId));
+  const newPages = pages.filter((page) => !redirectIds.has(page.documentId));
   if (migratedPages.length !== 19 || newPages.length !== 9 || migratedPages.some((page) => !redirectIds.has(page.documentId)) || newPages.some((page) => redirectIds.has(page.documentId))) add(errors, DOCUMENT_CATALOG_ERROR.redirect, 'Migrationsmatrix muss exakt 19 Altseiten abdecken und neun neue Roots getrennt halten');
 }
 

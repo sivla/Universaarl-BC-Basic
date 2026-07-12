@@ -3,11 +3,32 @@ budgetId: UABC-BUDGET-BCB-001
 projectId: UABC-BC-BASIC-001
 status: simulated-complete
 currency: EUR
-netDailyRate: 1300
+netDailyRate: 960
 workdayHours: 8
-netHourlyRate: 162.5
-plannedBillableHours: 68
-plannedNetAmount: 11050
+netHourlyRate: 120
+plannedBillableHours: 80
+plannedNetAmount: 9600
+forecast:
+  source: evidence/simulation/project-story.json:tickets[type=task]
+  countingRule: billable-task-worklogs-only
+  plannedHours: 80
+  consumedHours: 80
+  committedHours: 80
+  remainingHours: 0
+  estimateToCompleteHours: 0
+  estimateAtCompletionHours: 80
+  varianceHours: 0
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  consumedNetAmount: 9600
+  estimateAtCompletionNetAmount: 9600
+  varianceNetAmount: 0
+  phaseHours:
+    UABC-1: 22
+    UABC-2: 40
+    UABC-3: 18
+  invoiceLineSource: task-worklogs-only
+  parentBillingLines: false
 simulationClose:
   status: simulated-complete
   offerVersion: 2.0
@@ -46,7 +67,7 @@ historicalPlanSource: atlassian/jira/issues/bc-basic-project.yaml
 historicalPlanLeafRange: UABC-22..UABC-38
 ticketTruthNote: Drei Phase-Tickets, zehn fachliche Epics und 18 Stories zeigen ausschließlich Schaetzung und Task-Rollup. Nur die 19 Tasks UABC-32..UABC-50 belegen das fakturierbare synthetische Ist; alte Identitaeten bestehen ausschließlich als nicht zaehlende Provenienz in der Migrationsmatrix.
 rollupRule:
-  scope: historical-plan-only
+  scope: current-task-rollup-only
   parentTickets: [UABC-1, UABC-2, UABC-3]
   treatment: nicht abrechenbare Plan- und Fortschrittssummen
   noDoubleBilling: Elternsummen und untergeordnete Arbeitsprotokolle duerfen niemals gemeinsam abgerechnet werden.

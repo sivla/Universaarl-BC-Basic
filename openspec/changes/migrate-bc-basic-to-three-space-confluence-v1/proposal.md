@@ -8,19 +8,19 @@
 
 ## Problem und Zweck
 
-Die bestehende Navigation verteilt 19 Seiten auf drei Spaces, bildet aber die verbindliche 6/8/8-Rootstruktur noch nicht ab. Kundenwahrheit, Produktbeschreibung und interne Durchfuehrungsanleitung muessen eindeutig getrennt sein, ohne Inhalte zu verlieren oder doppelte fuehrende Wahrheiten zu erzeugen.
+Die bestehende Navigation trennt drei Spaces, enthaelt aber mehrere reine Meta-Seiten und noch keine vollstaendige Objekt- und Materialisierungswahrheit. Kundenwahrheit, verkaufbares Produkt und interne Durchfuehrungsmethode muessen konkreten Nutzwert liefern, ohne Inhalte zu verlieren oder doppelte fuehrende Wahrheiten zu erzeugen.
 
 ## Ergebnisse
 
-Exakt drei Spaces besitzen 6, 8 und 8 Rootseiten. Die bisherigen 19 Seiten bleiben ueber stabile IDs, eine Alt-zu-Neu-Matrix, Redirects und Inhaltsdigests nachvollziehbar. Ehemalige Kundenroots 05 bis 10 werden Kinder von 02, 03 oder 04. Produkt- und Consulting-Inhalte bleiben Pilot-Arbeitsstand und koennen nur als `blueprint-candidate` an Spectra herangetragen werden.
+Exakt drei Spaces besitzen eine source-driven, nutzwertgefuehrte Navigation. Die vorhandenen 28 Seiten bleiben ueber stabile IDs, Matrix, Redirects und Inhaltsdigests nachvollziehbar; Zaehlsichten werden aus der Quelle abgeleitet und sind kein Produktziel. Produkt- und Consulting-Inhalte bleiben Pilot-Arbeitsstand und koennen nur als `blueprint-candidate` an Spectra herangetragen werden.
 
 ## Umfang
 
-Der Change aktualisiert lokale Confluence-Seiten, Dokumentkatalog, Branch-Index, Navigation, Redirects, Project Story, Referenzgraph, Twinexport, Meetings, Deliverables, Evidence, Snapshotvertrag, Generatoren und Validatoren.
+Der Change aktualisiert lokale Confluence-Seiten, Ergebnisobjektklassifikation, trockene Atlassian-Materialisierung, Dokumentkatalog, Branch-Index, Navigation, Redirects, Project Story, Referenzgraph, Twinexport, Deliverables, Evidence, Snapshotvertrag, Generatoren und Validatoren.
 
 ## Nicht-Ziele
 
-Keine Live-Atlassian-, Rovo-, Business-Central-, Continia-, Remote-, Push-, Merge-, Tag-, Release- oder Spectra-Uebernahme. Keine Secrets und keine erfundene Freigabe.
+Keine Live-Atlassian-, Rovo-, Business-Central-, Continia-, Remote-, Push-, Merge-, Tag-, Release- oder Spectra-Uebernahme. Keine Secrets und keine erfundene Freigabe. Die autorisierte spaetere Playthrough-Sandbox wird nur fail-closed vorbereitet und in diesem Change nicht aufgerufen.
 
 ## Risiken und Kontrollen
 

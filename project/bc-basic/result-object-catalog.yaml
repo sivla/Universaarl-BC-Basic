@@ -1,0 +1,171 @@
+schemaVersion: 1
+catalogId: UABC-RESULT-OBJECT-CATALOG-001
+projectId: UABC-BC-BASIC-001
+classificationPolicy:
+  customer-deliverable: Lesbares, versioniertes und abnehmbares Kundenergebnis.
+  project-document: Fuehrende Projektinformation fuer Entscheidung oder Durchfuehrung.
+  blank-template: Wiederverwendbare leere Eingabe- oder Arbeitsvorlage.
+  evidence: Unveraenderter Nachweis einer synthetischen oder spaeter realen Pruefung.
+  technical-source: Generator, Validator, Schema oder Exportvertrag; niemals Kundendeliverable.
+truthPolicy: Technische Quellen und Evidence duerfen ein Kundenergebnis belegen, ersetzen aber nicht dessen lesbare Ergebnisdatei.
+counts:
+  customerDeliverables: 9
+  projectDocuments: 4
+  blankTemplates: 3
+  evidenceObjects: 5
+  technicalSources: 4
+objects:
+  - objectId: UABC-DEL-BCB-001
+    classification: customer-deliverable
+    title: Projektauftrag und Abnahmeplan
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-32, UABC-33]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/70-bc-basic-project.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Scope, Rollen, Budget, Gates und Change-Regel sind lesbar und synthetisch abgenommen.
+  - objectId: UABC-DEL-BCB-002
+    classification: customer-deliverable
+    title: Fit-to-Standard-, Prozess- und Entscheidungspaket
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/71-bc-basic-discovery.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Kernprozesse, Optionen, Empfehlungen und sieben Entscheidungsbereiche sind nachvollziehbar.
+  - objectId: UABC-DEL-BCB-003
+    classification: customer-deliverable
+    title: Datenpaket und Datenbereitschaftsprotokoll
+    version: 1.0
+    ownerRef: P-016
+    ticketRefs: [UABC-38]
+    status: simulated-complete
+    resultPath: project/bc-basic/data-readiness-check.yaml
+    evidencePath: evidence/simulation/phase-2-p2p-o2c.yaml
+    acceptance: Drei Wellen, Owner, Qualitaetsregeln und Kontrollsummen sind differenzfrei belegt.
+  - objectId: UABC-DEL-BCB-004
+    classification: customer-deliverable
+    title: Gepruefte BC-Basic-Standardkonfiguration
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/72-bc-basic-implementation.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Setupfolge, Werte, Abhaengigkeiten und feldnahe Pruefungen sind vollstaendig.
+  - objectId: UABC-DEL-BCB-005
+    classification: customer-deliverable
+    title: Rollenbezogenes Schulungs- und Kompetenzpaket
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-45]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/80-bc-basic-training.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Vier Rollen koennen positiven Fall, Fehlerdiagnose, Retest und Eskalation erklaeren.
+  - objectId: UABC-DEL-BCB-006
+    classification: customer-deliverable
+    title: UAT- und Abnahmebericht
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-46]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/50-tests.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Sieben UAT-Faelle, Defects, Retests und synthetische Entscheidung sind belegt.
+  - objectId: UABC-DEL-BCB-007
+    classification: customer-deliverable
+    title: Cutover-, Restart- und Hypercareprotokoll
+    version: 1.0
+    ownerRef: P-005
+    ticketRefs: [UABC-47, UABC-48]
+    status: simulated-complete
+    resultPath: atlassian/confluence/pages/73-bc-basic-hypercare.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Generalprobe, Restart und drei Hypercaretage enden ohne offene P1/P2.
+  - objectId: UABC-DEL-BCB-008
+    classification: customer-deliverable
+    title: Monatsabschluss- und VAT-/UStVA-Vorschau
+    version: 1.0
+    ownerRef: P-005
+    ticketRefs: [UABC-49]
+    status: simulated-complete
+    resultPath: evidence/simulation/phase-3-cash-inventory-close.yaml
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Nebenbuecher, Bank, Lager und VAT sind abgestimmt; keine externe Uebermittlung wird behauptet.
+  - objectId: UABC-DEL-BCB-009
+    classification: customer-deliverable
+    title: Projektdokumentation und Betriebsuebergabe
+    version: 1.0
+    ownerRef: P-002
+    ticketRefs: [UABC-50]
+    status: simulated-complete
+    resultPath: docs/handover/bc-basic-handover.md
+    evidencePath: evidence/simulation/project-completion.yaml
+    acceptance: Navigation, Supportweg, Restpunkte, Lessons Learned und Verantwortungsuebergang sind lesbar.
+  - objectId: UABC-OBJ-PDOC-001
+    classification: project-document
+    title: Kanonische Projektstory
+    sourcePath: evidence/simulation/project-story.json
+  - objectId: UABC-OBJ-PDOC-002
+    classification: project-document
+    title: Ticketkatalog
+    sourcePath: atlassian/jira/issues/bc-basic-story-tickets.yaml
+  - objectId: UABC-OBJ-PDOC-003
+    classification: project-document
+    title: Drei-Space-Vertrag
+    sourcePath: project/bc-basic/confluence-three-space-v1.yaml
+  - objectId: UABC-OBJ-PDOC-004
+    classification: project-document
+    title: Materialisierungsmatrix
+    sourcePath: project/bc-basic/atlassian-materialization-v1.yaml
+  - objectId: UABC-OBJ-BLANK-001
+    classification: blank-template
+    title: Kunden-Datenvorlagen
+    sourcePath: project/bc-basic/customer-templates
+  - objectId: UABC-OBJ-BLANK-002
+    classification: blank-template
+    title: Confluence-Seitenvorlage
+    sourcePath: atlassian/confluence/templates/page.md
+  - objectId: UABC-OBJ-BLANK-003
+    classification: blank-template
+    title: Playwright-Szenariokatalog
+    sourcePath: playwright/scenarios/bc-basic-e2e.yaml
+  - objectId: UABC-OBJ-EVD-001
+    classification: evidence
+    title: Projektabschluss
+    sourcePath: evidence/simulation/project-completion.yaml
+  - objectId: UABC-OBJ-EVD-002
+    classification: evidence
+    title: UAT- und Trainingslauf
+    sourcePath: project/bc-basic/uat-training-run.yaml
+  - objectId: UABC-OBJ-EVD-003
+    classification: evidence
+    title: Billing-Abgleich
+    sourcePath: evidence/simulation/billing-reconciliation.yaml
+  - objectId: UABC-OBJ-EVD-004
+    classification: evidence
+    title: Demo-Readiness
+    sourcePath: evidence/simulation/demo-readiness.yaml
+  - objectId: UABC-OBJ-EVD-005
+    classification: evidence
+    title: Atlassian-Materialisierungs-Dry-run
+    sourcePath: evidence/simulation/atlassian-materialization-dry-run.json
+  - objectId: UABC-OBJ-TECH-001
+    classification: technical-source
+    title: Branch-Index
+    sourcePath: exports/project-data/v1/index.yaml
+  - objectId: UABC-OBJ-TECH-002
+    classification: technical-source
+    title: Dokumentkatalog
+    sourcePath: exports/project-data/v1/document-catalog.json
+  - objectId: UABC-OBJ-TECH-003
+    classification: technical-source
+    title: Referenzgraph
+    sourcePath: exports/project-data/v1/reference-graph-native.json
+  - objectId: UABC-OBJ-TECH-004
+    classification: technical-source
+    title: Materialisierungsvalidator
+    sourcePath: scripts/generate-atlassian-materialization.mjs

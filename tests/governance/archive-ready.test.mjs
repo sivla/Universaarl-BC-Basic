@@ -140,7 +140,12 @@ async function disposableRepository(t) {
   }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
-  register.verifications = register.verifications.filter((item) => !['establish-project-artifact-walkthrough-pilot', bcBasicChange, 'migrate-bc-basic-to-single-uabc-ticket-project'].includes(item.changeRef));
+  const removedFixtureChanges = new Set([
+    'establish-project-artifact-walkthrough-pilot',
+    bcBasicChange,
+    'migrate-bc-basic-to-three-space-confluence-v1'
+  ]);
+  register.verifications = register.verifications.filter((item) => !removedFixtureChanges.has(item.changeRef));
   await writeYaml(root, verificationPath, register);
   return root;
 }

@@ -5,7 +5,7 @@ parent: null
 owners:
   - P-002
 status: published
-version: 1
+version: 2
 spaceId: UABC-SPACE-PRODUCT
 spaceType: standard-product
 order: 5
@@ -21,22 +21,45 @@ jiraRefs:
   - UABC-50
 referenceIds:
   - UABC-REQ-BCB-010
-lastReviewed: 2026-07-12
+lastReviewed: 2026-07-13
 ---
 
 # 05 Angebot, Aufwand und Voraussetzungen
 
-## Zweck und Inhaltsgrenze
+## Kommerzielle Baseline
 
-Diese Seite beschreibt, was als BC-Basic-Pilotprodukt verkauft und geliefert wird. Der synthetische Referenzumfang betraegt 80 Stunden und 9.600 EUR. Reale Angebote und Voraussetzungen werden kundenspezifisch bestaetigt.
+Das synthetische Referenzangebot umfasst 80 Stunden zu 120 EUR und damit 9.600 EUR netto. Davon entfallen 22 Stunden auf Vorbereitung und Datenbereitschaft, 40 Stunden auf Einrichtung, Tests und Schulung sowie 18 Stunden auf Go-live, Hypercare und Abschluss.
 
-## Dauerhafter Inhalt
+Diese Linie ist Referenz. Fuer einen echten Kunden wird sie mit Namen, Terminen, Lizenzen und Steuerparametern neu angeboten.
 
-Die Seite ist Bestandteil der source-driven V1-Navigation. Kunden-, Produkt- und Consulting-Wahrheiten bleiben getrennt; Querverbindungen erfolgen als Referenz auf die jeweils fuehrende Seite. Wiederverwendbare Erkenntnisse bleiben `blueprint-candidate` und werden nicht automatisch Spectra zugerechnet.
+## Enthaltene Leistung
+
+- Projektstart, Scope und drei Entscheidungsworkshops;
+- Fit-to-Standard fuer Finance, Einkauf, Verkauf, Zahlung, Bank, Lager und Abschluss;
+- Standardkonfiguration und drei Migrationswellen;
+- Prozesspruefung, UAT, rollenbezogene Schulung und Kompetenznachweis;
+- Mock-Cutover, Restart, Go-live-Begleitung, Hypercare und Handover;
+- neun lesbare Lieferobjekte mit Ticket-, Evidence- und Abnahmebezug.
+
+## Voraussetzungen und Mitwirkung
+
+Der Kunde stellt Sponsor, Prozessowner, Datenowner und Key User. Er stellt ausserdem eine geeignete Lizenz- und Sandboxbasis sowie termingerecht bereinigte Daten bereit.
+
+Konten, VAT-/USt-Logik, Bankverfahren, Benutzerrollen und rechtliche Anforderungen werden durch die zustaendigen Kundenrollen bestaetigt. Fehlende Voraussetzungen verschieben das betroffene Gate, nicht stillschweigend den Scope.
+
+## Nicht enthalten
+
+Nicht enthalten sind individuelle Entwicklung, komplexe Integrationen, erweiterte Lagerlogistik, Produktion, Service, Projekte, Intercompany, historische Vollmigration, produktive Bank-/ELSTER-Uebermittlung sowie Rechts- oder Steuerberatung. Lizenzen, Tenantkosten und Drittanbieterprodukte werden separat ausgewiesen.
+
+## Abnahme und Change-Regel
+
+Jedes Lieferobjekt besitzt ein messbares Kriterium und einen Owner. Ein Wunsch ausserhalb der Baseline wird als Parametrisierung, Change oder Out-of-Scope klassifiziert.
+
+Ein Change benoetigt Beschreibung, Nutzen, Aufwand, Terminwirkung und Entscheidung vor Umsetzung. Die Referenzsimulation erzeugt keine Rechnung, Zahlung oder produktive Leistungsbehauptung.
 
 ## Referenzen
 
 - Drei-Space-Vertrag: `project/bc-basic/confluence-three-space-v1.yaml`
 - Projektstory: `evidence/simulation/project-story.json`
 
-<!-- story-metadata {"id":"PAGE-UABC-220","title":"05 Angebot, Aufwand und Voraussetzungen","parent":null,"version":1,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-220","title":"05 Angebot, Aufwand und Voraussetzungen","parent":null,"version":2,"status":"published"} -->

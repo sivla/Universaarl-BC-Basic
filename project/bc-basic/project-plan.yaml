@@ -19,7 +19,11 @@ company:
 schedule:
   scheduleSynthetic: true
   customerConfirmed: false
-  notice: Kalenderdaten sind eine technische Simulationsachse und keine Kundenzusage.
+  timelineAuthority: reference-simulation-april-may-2026
+  referenceSimulationStart: 2026-04-06
+  referenceSimulationEnd: 2026-05-29
+  customerTemplateStatus: illustrative-not-current
+  notice: Die April-/Mai-Achse der Project Story ist die fuehrende abgeschlossene Referenzsimulation. August/September ist ausschliesslich ein illustratives Kundenfenster und keine zweite aktuelle Wahrheit oder Kundenzusage.
   startDate: 2026-08-03
   implementationWeek: 2026-08-24/2026-08-28
   hypercareEndDate: 2026-09-04
@@ -29,13 +33,14 @@ schedule:
     phase3: eine Woche Hypercare mit hoechstens 10 Stunden bis zur Monatsabschlussprobe in der Sandbox
 budgetRef: UABC-BUDGET-BCB-001
 phases:
-  - id: UABC-PHASE-01
+  - id: UABC-1
     name: Vorbereitung, Anforderungen und Datenbereitschaft
     jiraRef: UABC-1
     startDate: 2026-08-03
     endDate: 2026-08-21
     plannedBillableHours: 22
     scheduleSynthetic: true
+    scheduleRole: illustrative-next-customer-window-not-current
     dependencies: []
     entryCriteria:
       - Sponsor, Finanzverantwortung, Datenverantwortung und Schluesselanwender sind benannt.
@@ -44,14 +49,15 @@ phases:
       - Umfang, Prozesse, Daten- und Konfigurationspaketvorlagen, Datenqualitaet und Abnahmeplan sind dokumentiert.
       - Zielgesellschaft, Lizenz und Finanz-/Steuerpruefpunkte sind entschieden oder sichtbar blockierend.
     deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
-  - id: UABC-PHASE-02
+  - id: UABC-2
     name: Einrichtung und Schulung in einer Woche
     jiraRef: UABC-2
     startDate: 2026-08-24
     endDate: 2026-08-28
     plannedBillableHours: 40
     scheduleSynthetic: true
-    dependencies: [UABC-PHASE-01]
+    dependencies: [UABC-1]
+    scheduleRole: illustrative-next-customer-window-not-current
     entryCriteria:
       - Der Datenbereitschaftspruefpunkt ist bestanden.
       - Die exakte playthru-Zielgesellschaft, erlaubte Schreibvorgaenge und der Ruecksetzplan sind menschlich freigegeben.
@@ -61,14 +67,15 @@ phases:
       - Stammdaten sind kontrolliert geladen, Ende-zu-Ende-Pruefung, fachlicher Abnahmetest und Schulungen sind dokumentiert.
       - Der simulierte Sandbox-Uebergang ist mit offenen Fehlern und Unterstuetzungsweg abgenommen oder gestoppt.
     deliverableIds: [UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006]
-  - id: UABC-PHASE-03
+  - id: UABC-3
     name: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
     jiraRef: UABC-3
     startDate: 2026-08-31
     endDate: 2026-09-04
     plannedBillableHours: 18
     scheduleSynthetic: true
-    dependencies: [UABC-PHASE-02]
+    dependencies: [UABC-2]
+    scheduleRole: illustrative-next-customer-window-not-current
     entryCriteria:
       - Einrichtung, Schulung und vorbereitete UAT-Faelle sind fachlich geprueft oder sichtbar blockiert.
       - Alle gebuchten Geschaeftsvorfaelle bleiben synthetisch.

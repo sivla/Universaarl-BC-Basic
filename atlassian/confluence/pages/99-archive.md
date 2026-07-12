@@ -5,7 +5,7 @@ parent: null
 owners:
   - P-002
 status: published
-version: 1
+version: 2
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 5
@@ -20,22 +20,36 @@ jiraRefs:
   - UABC-50
 referenceIds:
   - UABC-REQ-BCB-010
-lastReviewed: 2026-07-12
+lastReviewed: 2026-07-13
 ---
 
 # 99 Archiv
 
-## Zweck und Inhaltsgrenze
+## Archivregel
 
-Diese Seite fuehrt konkrete Universaarl-Projektwahrheit. Archivdatum und Archivgrund sind je Eintrag verpflichtend. Jeder Eintrag nennt eine aktive Nachfolgeseite; aktuell verweist der abgeschlossene Producerstand auf `UABC-BCBSTORY`.
+Diese Seite verzeichnet abgeloeste Kundenprojektinhalte. Ein Archiveintrag benoetigt Archivdatum, Grund, fruehere ID beziehungsweise Pfad und eine aktive Nachfolgeseite. Inhalte werden nicht geloescht, um Entscheidungen, Ticketbezug und Auditspur zu erhalten.
 
-## Dauerhafter Inhalt
+## Aktueller Bestand
 
-Die Seite ist Bestandteil der source-driven V1-Navigation. Kunden-, Produkt- und Consulting-Wahrheiten bleiben getrennt; Querverbindungen erfolgen als Referenz auf die jeweils fuehrende Seite. Wiederverwendbare Erkenntnisse bleiben `blueprint-candidate` und werden nicht automatisch Spectra zugerechnet.
+Der fruehere flache Projektseitenbaum wurde am 12. Juli 2026 in die Drei-Space-Navigation ueberfuehrt. Die 19 bestehenden Dokument-IDs und Quellpfade blieben erhalten. Titel und Parents werden durch die Migrationsmatrix im Drei-Space-Vertrag nachgewiesen.
+
+Neun ergaenzte Rootseiten schliessen Produkt- und Consulting-Luecken, ohne die Kundenstory zu ersetzen.
+
+Aktive Nachfolger:
+
+- Projektverlauf und Status: `UABC-BCBSTORY`;
+- kundenspezifische BC-Ausgestaltung: `UABC-BCBDELIVERABLES`;
+- Schulung und Bedienung: `UABC-HYPERCARE`;
+- Produktstandard: `UABC-BCBPROJECT`;
+- interne Durchfuehrungsmethode: `UABC-BLUEPRINT`.
+
+## Nicht im Archiv
+
+Aktuelle Evidence, offene Entscheidungen und Supportrestpunkte bleiben an ihrer fuehrenden Seite. Das Archiv ist weder zweite Projektstory noch Ablage fuer Secrets oder Live-Systemexporte.
 
 ## Referenzen
 
 - Drei-Space-Vertrag: `project/bc-basic/confluence-three-space-v1.yaml`
 - Projektstory: `evidence/simulation/project-story.json`
 
-<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":1,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":2,"status":"published"} -->

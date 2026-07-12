@@ -977,6 +977,46 @@
       "selector": null,
       "format": "yaml",
       "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-RESULT-OBJECTS-001",
+      "kindId": "result-object-catalog",
+      "path": "project/bc-basic/result-object-catalog.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-MATRIX-001",
+      "kindId": "atlassian-materialization-contract",
+      "path": "project/bc-basic/atlassian-materialization-v1.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-DRYRUN-001",
+      "kindId": "atlassian-materialization-dry-run",
+      "path": "evidence/simulation/atlassian-materialization-dry-run.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-GEN-001",
+      "kindId": "atlassian-materialization-generator",
+      "path": "scripts/generate-atlassian-materialization.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-TEST-001",
+      "kindId": "atlassian-materialization-tests",
+      "path": "tests/governance/atlassian-materialization.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
     }
   ]
 }

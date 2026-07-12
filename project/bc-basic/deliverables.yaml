@@ -1,114 +1,149 @@
 schemaVersion: 1
 registerId: UABC-DEL-BCB-REGISTER-001
 projectId: UABC-BC-BASIC-001
-status: planned
+status: simulated-complete
 templateState: kundenbereites-Lieferregister
 simulationState: neun-von-neun-simulated-complete
 productState: V1_STANDARDPRODUCT_READY
 customerInstanceState: je-Lieferobjekt-mit-realen-Parametern-neu-abzunehmen
 simulation: true
 claimPolicy: Ein vorhandener Plan oder eine Vorlage ist kein Ausfuehrungs-, Abnahme- oder Uebergabenachweis.
+classificationContract: project/bc-basic/result-object-catalog.yaml
 deliverables:
   - id: UABC-DEL-BCB-001
-    phaseRef: UABC-PHASE-01
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-1
     title: Projektauftrag und Abnahmeplan
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-32, UABC-33]
+    resultPath: atlassian/confluence/pages/70-bc-basic-project.md
+    acceptance: Scope, Rollen, Budget, Gates und Change-Regel sind lesbar und synthetisch abgenommen.
     requiredSourcePaths:
-      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md
-      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md
+      - docs/offers/bc-basic-offer.md
       - project/bc-basic/uat-catalog.yaml
       - atlassian/confluence/pages/70-bc-basic-project.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-002
-    phaseRef: UABC-PHASE-01
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-1
     title: Anforderungs-, Prozess- und Entscheidungsunterlagen
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
+    resultPath: atlassian/confluence/pages/71-bc-basic-discovery.md
+    acceptance: Kernprozesse, Optionen, Empfehlungen und sieben Entscheidungsbereiche sind nachvollziehbar.
     requiredSourcePaths:
-      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/design.md
       - project/bc-basic/decision-register.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-003
-    phaseRef: UABC-PHASE-01
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-1
     title: Daten-, Konfigurationspaket- und Datenbereitschaftsprotokoll
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-016
     jiraRefs: [UABC-38]
+    resultPath: project/bc-basic/data-readiness-check.yaml
+    acceptance: Drei Wellen, Owner, Qualitaetsregeln und Kontrollsummen sind differenzfrei belegt.
     requiredSourcePaths:
       - project/bc-basic/data-package.yaml
       - project/bc-basic/data-readiness-check.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
     completionEvidence: evidence/simulation/phase-2-p2p-o2c.yaml
   - id: UABC-DEL-BCB-004
-    phaseRef: UABC-PHASE-02
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-2
     title: Gepruefte Standardkonfiguration
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
+    resultPath: atlassian/confluence/pages/72-bc-basic-implementation.md
+    acceptance: Setupfolge, Werte, Abhaengigkeiten und feldnahe Pruefungen sind vollstaendig.
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
       - atlassian/confluence/pages/72-bc-basic-implementation.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-005
-    phaseRef: UABC-PHASE-02
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-2
     title: Schulungs- und Kompetenzpaket
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-45]
+    resultPath: atlassian/confluence/pages/80-bc-basic-training.md
+    acceptance: Vier Rollen koennen positiven Fall, Fehlerdiagnose, Retest und Eskalation erklaeren.
     requiredSourcePaths:
       - project/bc-basic/training-plan.yaml
       - docs/guides/beginner/business-central-basic.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-006
-    phaseRef: UABC-PHASE-02
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-2
     title: Fachlicher Abnahmetest und UAT-Begleitung
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-46]
+    resultPath: atlassian/confluence/pages/50-tests.md
+    acceptance: Sieben UAT-Faelle, Defects, Retests und synthetische Entscheidung sind belegt.
     requiredSourcePaths:
       - project/bc-basic/uat-catalog.yaml
       - playwright/scenarios/bc-basic-e2e.yaml
-      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md
+      - atlassian/confluence/pages/50-tests.md
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-007
-    phaseRef: UABC-PHASE-03
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-3
     title: Protokoll der einwoechigen Hypercare und Monatsabschlussprobe
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-005
     jiraRefs: [UABC-47, UABC-48]
+    resultPath: atlassian/confluence/pages/73-bc-basic-hypercare.md
+    acceptance: Generalprobe, Restart und drei Hypercaretage enden ohne offene P1/P2.
     requiredSourcePaths:
       - atlassian/confluence/pages/73-bc-basic-hypercare.md
       - playwright/scenarios/bc-basic-e2e.yaml
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-008
-    phaseRef: UABC-PHASE-03
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-3
     title: Fachlich gepruefte UStVA-Vorschau ohne Test-, Produktiv- oder ELSTER-Uebermittlung
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-005
     jiraRefs: [UABC-49]
+    resultPath: evidence/simulation/phase-3-cash-inventory-close.yaml
+    acceptance: Nebenbuecher, Bank, Lager und VAT sind abgestimmt; keine externe Uebermittlung wird behauptet.
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
-      - openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/verification.md
+      - evidence/simulation/phase-3-cash-inventory-close.yaml
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-009
-    phaseRef: UABC-PHASE-03
+    objectClass: customer-deliverable
+    version: 1.0
+    phaseRef: UABC-3
     title: Projektdokumentation und Schulungsunterlagen mit Uebergabeindex
     status: simulated-complete
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-50]
+    resultPath: docs/handover/bc-basic-handover.md
+    acceptance: Navigation, Supportweg, Restpunkte, Lessons Learned und Verantwortungsuebergang sind lesbar.
     requiredSourcePaths:
       - docs/guides/beginner/business-central-basic.md
       - docs/runbooks/business-central-basic.md

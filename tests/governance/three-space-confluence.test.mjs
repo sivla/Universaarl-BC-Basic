@@ -4,13 +4,14 @@ import { loadThreeSpace, validateThreeSpace } from '../../scripts/validate-three
 const base=loadThreeSpace();const mutate=(fn)=>{const data=structuredClone(base);fn(data);return validateThreeSpace({...data,readText:(path)=>path==='atlassian/confluence/pages/99-archive.md'?'Archivdatum Archivgrund Nachfolgeseite':('x'.repeat(600))});};const has=(errors,code)=>assert.ok(errors.some(e=>e.startsWith(`${code}:`)),code);
 test('kanonischer Drei-Space-Vertrag besteht',()=>assert.deepEqual(validateThreeSpace(base),[]));
 test('unbekannter Space wird abgelehnt',()=>has(mutate(d=>d.contract.spaces[0].spaceId='UABC-SPACE-UNKNOWN'),'SPACE-VERTRAG'));
-test('fehlender Root wird abgelehnt',()=>has(mutate(d=>d.contract.roots.pop()),'ROOT-VERTRAG'));
+test('unbelegte Rootzaehlung wird abgelehnt',()=>has(mutate(d=>d.contract.rootDistribution.product=99),'ROOT-VERTRAG'));
 test('fehlender Parent wird abgelehnt',()=>has(mutate(d=>d.contract.children[0].parentId='UABC-FEHLT'),'PARENT-FEHLT'));
 test('Cross-Space-Parent wird abgelehnt',()=>has(mutate(d=>d.contract.children[0].parentId='UABC-BCBPROJECT'),'CROSS-SPACE-PARENT'));
 test('doppelte ID wird abgelehnt',()=>has(mutate(d=>d.contract.roots[1].documentId=d.contract.roots[0].documentId),'DOPPELTE-SEITEN-ID'));
-test('doppelte fuehrende Wahrheit wird abgelehnt',()=>has(mutate(d=>d.contract.leadingContentOwnership.product='concrete-instance-facts'),'INHALTSGRENZE'));
+test('doppelte fuehrende Wahrheit wird abgelehnt',()=>has(mutate(d=>d.contract.leadingContentOwnership.product='konkrete-kundenauspraegung'),'INHALTSGRENZE'));
 test('fehlende Migrationsprovenienz wird abgelehnt',()=>has(mutate(d=>d.contract.migrations.pop()),'MIGRATIONS-PROVENIENZ'));
 test('falsche Inhaltsgrenze wird abgelehnt',()=>has(mutate(d=>d.contract.truthBoundaries.spectra='adopted'),'SPECTRA-WAHRHEIT'));
 test('aktive Alt-Ticket-ID wird abgelehnt',()=>has(mutate(d=>d.story.pages[0].references=['TKT-UABC-22']),'AKTIVE-ALT-ID'));
 test('Continia-Ausfuehrungswahrheit wird abgelehnt',()=>has(mutate(d=>d.contract.forbiddenClaims=d.contract.forbiddenClaims.filter(x=>x!=='continia-execution')),'WAHRHEITSGRENZE'));
 test('erfundene Freigabe- oder Spectra-Wahrheit wird abgelehnt',()=>has(mutate(d=>d.contract.forbiddenClaims=d.contract.forbiddenClaims.filter(x=>x!=='invented-approval')),'WAHRHEITSGRENZE'));
+test('reine Meta-Seite wird abgelehnt',()=>has(validateThreeSpace({...structuredClone(base),readText:()=> 'Die Seite ist Bestandteil der source-driven V1-Navigation'.padEnd(1200,'x')}),'SEITEN-NUTZWERT'));

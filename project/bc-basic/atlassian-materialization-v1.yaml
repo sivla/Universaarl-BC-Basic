@@ -1,0 +1,79 @@
+schemaVersion: 1
+matrixId: UABC-ATLASSIAN-MATERIALIZATION-V1
+projectId: UABC-BC-BASIC-001
+sourceMode: repository-quelle
+executionMode: nur-trockenlauf
+liveMutationAuthorized: false
+rovoAuthorized: false
+secretPolicy:
+  runtimeVariables:
+    - UABC_ATLASSIAN_SITE_URL
+    - UABC_ATLASSIAN_USER_EMAIL
+    - UABC_ATLASSIAN_API_TOKEN
+  repositoryValuesAllowed: false
+targets:
+  jira:
+    projectKey: UABC
+    projectId: null
+    sourcePath: atlassian/jira/issues/bc-basic-story-tickets.yaml
+    operationPolicy: create-update-skip-conflict
+  confluence:
+    sourcePath: evidence/simulation/project-story.json
+    operationPolicy: create-update-skip-conflict
+    spaces:
+      - spaceId: UABC-SPACE-CUSTOMER
+        title: Universaarl Kundenprojekt
+        spaceKey: null
+      - spaceId: UABC-SPACE-PRODUCT
+        title: BC Basic Produkt
+        spaceKey: null
+      - spaceId: UABC-SPACE-CONSULTANT
+        title: BC Basic Consulting-Handbuch
+        spaceKey: null
+identityPolicy:
+  ticketIdField: id
+  ticketParentField: parent
+  pageIdField: id
+  pageParentField: parent
+  duplicateDecision: conflict
+  missingParentDecision: conflict
+pilotExecutionPreparation:
+  projectId: UABC-BC-BASIC-PILOT-001
+  status: prepared-not-executed
+  authorizedTarget: dedicated-playthrough-sandbox-and-pilot-company
+  liveExecutionInThisChange: false
+  requiredPreflightFields:
+    - environment
+    - company
+    - bcVersion
+    - localization
+    - userRole
+    - workDate
+    - resetPoint
+    - allowedScope
+  allowedScenarioGroups:
+    - SETUP
+    - MASTER
+    - OPEN
+    - P2P
+    - O2C
+    - CASH_BANK
+    - INVENTORY
+    - CLOSE
+    - VAT_PREVIEW
+    - TRAINING_UAT
+    - CUTOVER_RESTART
+    - HYPERCARE
+  failClosedRule: Unknown oder Abweichung stoppt vor jedem Write.
+  forbiddenActions:
+    - production-write
+    - external-elster-submission
+    - external-bank-transmission
+    - external-email-transmission
+    - secret-or-authstate-persistence
+  truthRule: Entscheidungen und Ergebnisse werden nur explizit als Simulation oder belegte Sandbox-Ausfuehrung gekennzeichnet.
+  sourceRule: Microsoft-Learn-Quellen belegen Standardverhalten, niemals Ausfuehrung.
+  sourceRegisterRef: docs/research/sources.yaml
+  scenarioCatalogRef: playwright/scenarios/bc-basic-e2e.yaml
+  trainingContractRef: project/bc-basic/training-plan.yaml
+  resetEvidenceRef: evidence/simulation/project-completion.yaml

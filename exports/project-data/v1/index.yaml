@@ -109,7 +109,7 @@ documentCatalog:
     - nodeId: UABC-NAV-NODE-PROJECT
       moduleId: UABC-NAV-CUSTOMER
       nodeType: page
-      title: 00 Support
+      title: 00 Hilfe und Projektumgebung
       order: 0
       parentNodeId: UABC-NAV-NODE-CUSTOMER
       documentId: UABC-PROJECT
@@ -269,7 +269,7 @@ documentCatalog:
     - nodeId: UABC-NAV-NODE-BLUEPRINT
       moduleId: UABC-NAV-CONSULTANT
       nodeType: page
-      title: 00 Consulting-Ueberblick
+      title: 00 Durchfuehrungsueberblick
       order: 0
       parentNodeId: UABC-NAV-NODE-CONSULTANT
       documentId: UABC-BLUEPRINT
@@ -336,7 +336,7 @@ documentCatalog:
       sourcePath: atlassian/confluence/pages/00-project.md
       previousTitle: 00 Support – Projektumgebung
       previousParentId: null
-      targetTitle: 00 Support
+      targetTitle: 00 Hilfe und Projektumgebung
       targetParentId: null
       migrationStatus: migrated-in-place
     - documentId: UABC-COMPANY
@@ -360,7 +360,7 @@ documentCatalog:
       sourcePath: atlassian/confluence/pages/30-blueprint.md
       previousTitle: 00 Consultant-Handbuch und Fast-Track
       previousParentId: null
-      targetTitle: 00 Consulting-Ueberblick
+      targetTitle: 00 Durchfuehrungsueberblick
       targetParentId: null
       migrationStatus: migrated-in-place
     - documentId: UABC-PROCESSES
@@ -745,7 +745,7 @@ documentCatalog:
       spaceKey: null
     - artifactId: UABC-SRC-BCB-CONF-009
       documentId: UABC-PROJECT
-      title: 00 Support
+      title: 00 Hilfe und Projektumgebung
       documentType: confluence-page
       parentId: null
       phase: project-wide
@@ -919,9 +919,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1170,9 +1170,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1219,9 +1219,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1268,9 +1268,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1322,9 +1322,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1334,7 +1334,7 @@ documentCatalog:
       storyPageId: PAGE-UABC-230
     - artifactId: UABC-SRC-BCB-CONF-012
       documentId: UABC-BLUEPRINT
-      title: 00 Consulting-Ueberblick
+      title: 00 Durchfuehrungsueberblick
       documentType: confluence-page
       parentId: null
       phase: project-wide
@@ -1402,9 +1402,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1458,9 +1458,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1526,9 +1526,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -1550,9 +1550,9 @@ documentCatalog:
         - UABC-50
       referenceIds:
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
-      readiness: draft-template
+      readiness: v1-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -2360,6 +2360,31 @@ artifacts:
     kindId: confluence-three-space-contract
     path: project/bc-basic/confluence-three-space-v1.yaml
     format: yaml
+    required: true
+  - id: UABC-SRC-BCB-RESULT-OBJECTS-001
+    kindId: result-object-catalog
+    path: project/bc-basic/result-object-catalog.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-ATLASSIAN-MATRIX-001
+    kindId: atlassian-materialization-contract
+    path: project/bc-basic/atlassian-materialization-v1.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-ATLASSIAN-DRYRUN-001
+    kindId: atlassian-materialization-dry-run
+    path: evidence/simulation/atlassian-materialization-dry-run.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-ATLASSIAN-GEN-001
+    kindId: atlassian-materialization-generator
+    path: scripts/generate-atlassian-materialization.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-ATLASSIAN-TEST-001
+    kindId: atlassian-materialization-tests
+    path: tests/governance/atlassian-materialization.test.mjs
+    format: javascript
     required: true
 referenceDefinitions:
   jiraRefs:

@@ -5,7 +5,7 @@ parent: null
 owners:
   - P-002
 status: published
-version: 1
+version: 2
 spaceId: UABC-SPACE-CONSULTANT
 spaceType: consultant-internal
 order: 7
@@ -20,22 +20,58 @@ jiraRefs:
   - UABC-50
 referenceIds:
   - UABC-REQ-BCB-010
-lastReviewed: 2026-07-12
+lastReviewed: 2026-07-13
 ---
 
 # 07 Checklisten, Vorlagen und Fehlerbilder
 
-## Zweck und Inhaltsgrenze
+## Projektstart
 
-Diese Seite beschreibt, wie Consultants die Leistung reproduzierbar durchfuehren. Fuehrende Details werden verlinkt und nicht als zweite Wahrheit kopiert.
+- Scope, Nicht-Scope, Budget, Rollen und Entscheidungsweg bestaetigt;
+- drei Workshops terminiert und Vorbereitungsauftrag versendet;
+- Datenowner, Vorlagen, Liefertermine und Sandboxvoraussetzungen geklaert;
+- Risiken, Abhaengigkeiten und Change-Regel sichtbar.
 
-## Dauerhafter Inhalt
+## Setup und Daten
 
-Die Seite ist Bestandteil der source-driven V1-Navigation. Kunden-, Produkt- und Consulting-Wahrheiten bleiben getrennt; Querverbindungen erfolgen als Referenz auf die jeweils fuehrende Seite. Wiederverwendbare Erkenntnisse bleiben `blueprint-candidate` und werden nicht automatisch Spectra zugerechnet.
+- Finance- und VAT-Basis vor Stammdaten eingerichtet;
+- Buchungsgruppen, Dimensionen, Nummernserien und Perioden geprueft;
+- drei Datenwellen mit Pflichtfeldern, Referenzen und Kontrollsummen;
+- Fehlerliste korrigiert und Wiederholung differenzfrei;
+- Resetpunkt und Wiederanlauf vor Prozessbuchungen belegt.
+
+## Tests und Befaehigung
+
+- positiver End-to-End-Fall und negativer Retest je Kernprozess;
+- sieben UAT-Faelle mit fachlicher Evidence;
+- vier Rollenpfade mit Ohne-Hilfe-Nachweis;
+- keine offenen P1/P2 vor GO;
+- Supportticket enthaelt vollstaendiges Diagnosepaket.
+
+## Cutover und Hypercare
+
+- Freeze, finale Datenkontrolle, Rollen, Zeitplan und Fallback bestaetigt;
+- Mock-Cutover und Restart bestanden;
+- Tagesstatus, Incidenttriage, Fix und Retest gefuehrt;
+- Monatsabschluss-/VAT-Vorschau abgestimmt, keine externe Uebermittlung;
+- Supportuebergabe und Restpunkte angenommen.
+
+## Typische Antipatterns
+
+- Setup beginnen, obwohl Konten-, Steuer- oder Datenowner fehlen;
+- Sonderloesung zusagen, bevor der BC-Standard demonstriert wurde;
+- Test als bestanden markieren, obwohl nur das erwartete Ergebnis dokumentiert ist;
+- Eltern-Tickets oder interne Technik als Kundenleistung abrechnen;
+- Screenshots ohne Beleg-, Entry- und Kontrollsummenbezug sammeln;
+- produktive oder externe Aktion aus einer Simulation ableiten.
+
+## Eskalation
+
+Der Consultant stoppt bei unbekannter Zielumgebung, fehlender Ruecksetzbarkeit, ungeklärter steuerlicher Wirkung, unzulaessiger Rollenverbindung oder nicht abgestimmter Summe. Die Abweichung wird mit Owner und naechster Entscheidung dokumentiert; sie wird nicht durch Annahmen geschlossen.
 
 ## Referenzen
 
 - Drei-Space-Vertrag: `project/bc-basic/confluence-three-space-v1.yaml`
 - Projektstory: `evidence/simulation/project-story.json`
 
-<!-- story-metadata {"id":"PAGE-UABC-270","title":"07 Checklisten, Vorlagen und Fehlerbilder","parent":null,"version":1,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-270","title":"07 Checklisten, Vorlagen und Fehlerbilder","parent":null,"version":2,"status":"published"} -->

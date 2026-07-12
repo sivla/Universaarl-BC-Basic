@@ -119,7 +119,7 @@
       "nodeId": "UABC-NAV-NODE-PROJECT",
       "moduleId": "UABC-NAV-CUSTOMER",
       "nodeType": "page",
-      "title": "00 Support",
+      "title": "00 Hilfe und Projektumgebung",
       "order": 0,
       "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
       "documentId": "UABC-PROJECT",
@@ -319,7 +319,7 @@
       "nodeId": "UABC-NAV-NODE-BLUEPRINT",
       "moduleId": "UABC-NAV-CONSULTANT",
       "nodeType": "page",
-      "title": "00 Consulting-Ueberblick",
+      "title": "00 Durchfuehrungsueberblick",
       "order": 0,
       "parentNodeId": "UABC-NAV-NODE-CONSULTANT",
       "documentId": "UABC-BLUEPRINT",
@@ -403,7 +403,7 @@
       "sourcePath": "atlassian/confluence/pages/00-project.md",
       "previousTitle": "00 Support – Projektumgebung",
       "previousParentId": null,
-      "targetTitle": "00 Support",
+      "targetTitle": "00 Hilfe und Projektumgebung",
       "targetParentId": null,
       "migrationStatus": "migrated-in-place"
     },
@@ -433,7 +433,7 @@
       "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
       "previousTitle": "00 Consultant-Handbuch und Fast-Track",
       "previousParentId": null,
-      "targetTitle": "00 Consulting-Ueberblick",
+      "targetTitle": "00 Durchfuehrungsueberblick",
       "targetParentId": null,
       "migrationStatus": "migrated-in-place"
     },
@@ -657,7 +657,7 @@
     {
       "artifactId": "UABC-SRC-BCB-CONF-009",
       "documentId": "UABC-PROJECT",
-      "title": "00 Support",
+      "title": "00 Hilfe und Projektumgebung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/00-project.md",
       "parentId": null,
@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "9ab6b6eadb2390692f71148e32dfe60824b45c1aa803d7d2248998647f8143a2",
+      "contentSha256": "63f71f4c1708e783e0f0f4760fc0316996b972b5f2a4b139f50223712929525e",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -770,7 +770,7 @@
     {
       "artifactId": "UABC-SRC-BCB-CONF-012",
       "documentId": "UABC-BLUEPRINT",
-      "title": "00 Consulting-Ueberblick",
+      "title": "00 Durchfuehrungsueberblick",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
       "parentId": null,
@@ -793,7 +793,7 @@
         "UABC-REQ-CAP-001"
       ],
       "lastReviewed": "2026-07-12",
-      "contentSha256": "2b9e47ac266ba5694923baa8674524179c822636a9a541ee2f3da8dc8da4f4e6",
+      "contentSha256": "52cb23b5c57b3f24ac95f24f7d76b88df4f729823700ee49128d233f3efa900a",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1260,10 +1260,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "f3a69e11213944558ec3392a761bbb5af7fdb477de0835182b047fb2699f89c6",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "972bacdb82a6dc6e2a63f6fa111c568ce82402836cb795ec8e13e16ef9fab89c",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1291,10 +1291,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "f8cb3e373671fc835fdb5283720bcd4d8f02b3a0439e7d1aeeb6ebb2af1ff55b",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "e8f3bc38b89b8f71867f01022f306a393b3b140c23a3da286f3f0f316a0597bb",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1322,10 +1322,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "e2db6ebd3f1f2ec345f50f207e468d66369ad2d0f94e0082f9b1e69046716b09",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "213045a03bcf27a6cb9c49061b2a2d8bd69902c5d922efd06432f443be9b241d",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1353,10 +1353,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "fabfb13d4c580d62a020b113a4646de93319e1b89403449792dd6f45b81fdf0c",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "2e9a567e2daef4b69e55180c385baff31c9f2596fefe74230615359a411bae32",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1453,10 +1453,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "c810b6ef3fb0497078791c2ff213154c00d9c1f74bffe8c08f3f1ab0117e8a20",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "6010cbde26fc2d1f023a51c1b03242fbfb43ea4bfbf3403d0a94a1b856b5edf9",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1484,10 +1484,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "5db7e3fa55fe96631227404941bf2df1fb69c61abf17d4dbff29c563f9743903",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "df5c13160bcb8cd1ca2bc7db7f012b7e7a044a55986c8a269ce15b980a5ea466",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1515,10 +1515,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "2cf16e66d6ec1deb58df3075312972f9eb59aa8660582382fe7a55c3f49c0faf",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "015d7c4e2271ab0fb87b38de165925e008c59793fb98a53d34f43e7dd16f5152",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1546,10 +1546,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "fb8aa4648c4ec6fc8fad0e33fcd9e97fa4fa1b234f03fb559074a64a9763ac15",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "1b21ed92fcc1eb49a5116dcfa17aef46359ff9f1ff814254bee047f8d953dde8",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,
@@ -1577,10 +1577,10 @@
       "referenceIds": [
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "36bcbc1cfc01bcab42029d499af7c0fe13bdcb430752d357d91e670ef135df7b",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "f6ed645d2152d7e8b41d546d66088ba3a86cc59328333025855160bc24392777",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null,

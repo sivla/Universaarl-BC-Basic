@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 71cd669de196d4e79667968ec591a7a063fda1d7aee78d14f8b265e74225fb11
+  projectionDigest: 37c472aae8a1dce247ded803e6901a070aa4bf335b4a965cb83a68287792e917
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -25,10 +25,10 @@ reconciliation:
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: 66b92ab6ac5e829e1ab54512027b1df2da9fdba5ca58241dcb27db94998ce0c8
+  sourceHash: 8029d8850e781969d54600f643e921f74cf2b2b728923c431ca19c50518c20bb
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: fbd9f91ec3d24b9b710dbcedebe06a22477781e30e304fc44a42b982c83f8e11
+  projectionDigest: 181996cd53e6d5d0d19c1ca4b38efa012c29eaf113e0cc2ec82dfe5f269e5339
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:

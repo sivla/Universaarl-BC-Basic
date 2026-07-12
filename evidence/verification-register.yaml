@@ -247,9 +247,9 @@ verifications:
   - id: UABC-VER-BCB-THREE-SPACE-001
     changeRef: migrate-bc-basic-to-three-space-confluence-v1
     requiredForArchive: true
-    status: passed
+    status: pending
     type: automated-policy-gate
-    executedAt: 2026-07-12T23:48:22+02:00
-    environment: lokale commitgebundene Simulation
+    executedAt: null
+    environment: null
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
-    evidence: Drei-Space 3/22/6 und 19/19 verlustfrei; Story 55/55; Katalog 32/32 mit 43 Dokumenten und 28 Seiten; OpenSpec strict 7/7; Snapshotvertrag und Branchvertrag commitgebunden gruen. deliveryBranch=codex/bc-basic-three-space-v1, consumerProducerBranch=codex/universaarl-projekt; kein Push, Merge, Tag oder Live-Systemzugriff.
+    evidence: null

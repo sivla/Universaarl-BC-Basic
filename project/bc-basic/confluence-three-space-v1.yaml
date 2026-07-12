@@ -2,7 +2,7 @@ schemaVersion: 1
 contractId: UABC-CONFLUENCE-THREE-SPACE-V1
 projectId: UABC-BC-BASIC-001
 governingChange: migrate-bc-basic-to-three-space-confluence-v1
-sourceMode: repository-source-driven
+sourceMode: repository-quelle
 deliveryBranch: codex/bc-basic-three-space-v1
 consumerProducerBranch: codex/universaarl-projekt
 spaceCount: 3
@@ -14,14 +14,14 @@ pageCount: 28
 legacyPageCount: 19
 newRequiredRootCount: 9
 truthBoundaries:
-  customer: concrete-customer-source-of-truth
-  product: pilot-working-state-what-is-sold
-  consulting: pilot-working-state-how-it-is-delivered
+  customer: konkrete-kundenprojektwahrheit
+  product: pilotstand-verkaufs-und-lieferumfang
+  consulting: pilotstand-durchfuehrungsmethode
   spectra: blueprint-candidate-only-no-automatic-adoption
 leadingContentOwnership:
-  customer: concrete-instance-facts
-  product: sold-and-delivered-scope
-  consulting: delivery-method
+  customer: konkrete-kundenauspraegung
+  product: verkaufs-und-lieferumfang
+  consulting: durchfuehrungsmethode
 spaces:
   - spaceId: UABC-SPACE-CUSTOMER
     spaceType: customer-project
@@ -68,7 +68,7 @@ spaces:
 roots:
   - storyPageId: PAGE-UABC-000
     documentId: UABC-PROJECT
-    title: 00 Support
+    title: 00 Hilfe und Projektumgebung
     parentId: null
     spaceId: UABC-SPACE-CUSTOMER
     order: 0
@@ -166,7 +166,7 @@ roots:
     sourcePath: atlassian/confluence/pages/79-product-sales-faq.md
   - storyPageId: PAGE-UABC-030
     documentId: UABC-BLUEPRINT
-    title: 00 Consulting-Ueberblick
+    title: 00 Durchfuehrungsueberblick
     parentId: null
     spaceId: UABC-SPACE-CONSULTANT
     order: 0
@@ -269,7 +269,7 @@ migrations:
     sourcePath: atlassian/confluence/pages/00-project.md
     previousTitle: 00 Support – Projektumgebung
     previousParentId: null
-    targetTitle: 00 Support
+    targetTitle: 00 Hilfe und Projektumgebung
     targetParentId: null
     migrationStatus: migrated-in-place
     bodySha256Before: 3b05d93edbe7e8df067b5494ba783e4ec9855f46a8a2dbd652220abd3253c9f6
@@ -302,7 +302,7 @@ migrations:
     sourcePath: atlassian/confluence/pages/30-blueprint.md
     previousTitle: 00 Consultant-Handbuch und Fast-Track
     previousParentId: null
-    targetTitle: 00 Consulting-Ueberblick
+    targetTitle: 00 Durchfuehrungsueberblick
     targetParentId: null
     migrationStatus: migrated-in-place
     bodySha256Before: 783ee026f476a73529bf647b4a6dd9ef3b1141160ef6f7c81cc2bf2d4fd529f6
@@ -481,9 +481,9 @@ newRoots:
     previousParentId: null
     targetTitle: 99 Archiv
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: 36bcbc1cfc01bcab42029d499af7c0fe13bdcb430752d357d91e670ef135df7b
+    bodySha256After: 2d442a7b3ea22f18a204d5b92092da3721afc8fac2fdf74a156a7918c5ae635f
     lossless: true
   - documentId: UABC-PRODUCTAUDIENCE
     storyPageId: PAGE-UABC-200
@@ -492,9 +492,9 @@ newRoots:
     previousParentId: null
     targetTitle: 01 Zielgruppe und Einsatzfaelle
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: f3a69e11213944558ec3392a761bbb5af7fdb477de0835182b047fb2699f89c6
+    bodySha256After: 43473dd6a4ade76b3571fa051f68d5c0d9e3ad379360591da97de3333a8641b4
     lossless: true
   - documentId: UABC-PRODUCTAPPROACH
     storyPageId: PAGE-UABC-210
@@ -503,9 +503,9 @@ newRoots:
     previousParentId: null
     targetTitle: 03 Phasen und Vorgehensmodell
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: f8cb3e373671fc835fdb5283720bcd4d8f02b3a0439e7d1aeeb6ebb2af1ff55b
+    bodySha256After: 4126886c45b1c4c2d24bbdddd82dfd6d0a2ae5f5423812b49acc3663983ee84d
     lossless: true
   - documentId: UABC-PRODUCTOFFER
     storyPageId: PAGE-UABC-220
@@ -514,9 +514,9 @@ newRoots:
     previousParentId: null
     targetTitle: 05 Angebot, Aufwand und Voraussetzungen
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: e2db6ebd3f1f2ec345f50f207e468d66369ad2d0f94e0082f9b1e69046716b09
+    bodySha256After: 6e649eb514a58163dea11b1bcd06a352e615a3de862fd723215b12af408b2d06
     lossless: true
   - documentId: UABC-PRODUCTSALESFAQ
     storyPageId: PAGE-UABC-230
@@ -525,9 +525,9 @@ newRoots:
     previousParentId: null
     targetTitle: 07 Vertriebsleitfaden und FAQ
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: fabfb13d4c580d62a020b113a4646de93319e1b89403449792dd6f45b81fdf0c
+    bodySha256After: 57ff50690aacb44222564697bbb8d1034113e27d5da6eff3ce793c701759648d
     lossless: true
   - documentId: UABC-CONSULTINGDESIGN
     storyPageId: PAGE-UABC-240
@@ -536,9 +536,9 @@ newRoots:
     previousParentId: null
     targetTitle: 02 Loesungsdesign und Projektplanung
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: c810b6ef3fb0497078791c2ff213154c00d9c1f74bffe8c08f3f1ab0117e8a20
+    bodySha256After: 2104ea42ad8f08abaa3848d142ac309ccb28b982c43c0a7106a2d8ac3cd804d7
     lossless: true
   - documentId: UABC-CONSULTINGTESTS
     storyPageId: PAGE-UABC-250
@@ -547,9 +547,9 @@ newRoots:
     previousParentId: null
     targetTitle: 04 Tests, UAT und Evidence
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: 5db7e3fa55fe96631227404941bf2df1fb69c61abf17d4dbff29c563f9743903
+    bodySha256After: 0e5cf7e4b5ee371a9a7d0e7cb13c5932ba386286aea084c88ebd9615d07104e4
     lossless: true
   - documentId: UABC-CONSULTINGHANDOVER
     storyPageId: PAGE-UABC-260
@@ -558,9 +558,9 @@ newRoots:
     previousParentId: null
     targetTitle: 06 Dokumentation und Uebergabe
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: 2cf16e66d6ec1deb58df3075312972f9eb59aa8660582382fe7a55c3f49c0faf
+    bodySha256After: 015d7c4e2271ab0fb87b38de165925e008c59793fb98a53d34f43e7dd16f5152
     lossless: true
   - documentId: UABC-CONSULTINGCHECKLISTS
     storyPageId: PAGE-UABC-270
@@ -569,9 +569,9 @@ newRoots:
     previousParentId: null
     targetTitle: 07 Checklisten, Vorlagen und Fehlerbilder
     targetParentId: null
-    migrationStatus: new-required-root
+    migrationStatus: neue-erforderliche-wurzelseite
     bodySha256Before: null
-    bodySha256After: fb8aa4648c4ec6fc8fad0e33fcd9e97fa4fa1b234f03fb559074a64a9763ac15
+    bodySha256After: 1b21ed92fcc1eb49a5116dcfa17aef46359ff9f1ff814254bee047f8d953dde8
     lossless: true
 forbiddenClaims:
   - live-atlassian

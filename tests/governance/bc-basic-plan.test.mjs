@@ -58,9 +58,10 @@ const deliverableById = new Map(deliverables.map((deliverable) => [deliverable.i
 const meetings = meetingIndex.meetings ?? [];
 const meetingById = new Map(meetings.map((meeting) => [meeting.id, meeting]));
 const verificationById = new Map((verificationRegister.verifications ?? []).map((verification) => [verification.id, verification]));
-const taskPlanText = await fs.readFile(path.join(root, 'openspec', 'changes', 'migrate-bc-basic-to-single-uabc-ticket-project', 'tasks.md'), 'utf8');
+const archivedTicketChange = 'openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project';
+const taskPlanText = await fs.readFile(path.join(root, ...`${archivedTicketChange}/tasks.md`.split('/')), 'utf8');
 const [changeConfig, decisionRegister] = await Promise.all([
-  yaml('openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/.openspec.yaml'),
+  yaml(`${archivedTicketChange}/.openspec.yaml`),
   yaml('project/bc-basic/decision-register.yaml')
 ]);
 
@@ -109,13 +110,20 @@ test('Kanonischer Change bindet Projekt, Index und Dokumentkatalog', () => {
 test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erfundene Budgetlimits', () => {
   const story = JSON.parse(readFileSync(path.join(root, 'evidence/simulation/project-story.json'), 'utf8'));
   const taskWorklogCount = story.tickets.filter(({ type }) => type === 'task').flatMap(({ worklogs }) => worklogs).length;
-  assert.equal(billing.plannedBillableHours, 68);
+  assert.equal(billing.plannedBillableHours, 80);
   assert.equal(billing.contingencyHours, 0);
   assert.equal(billing.maximumBillableHours, null);
-  assert.equal(billing.netDailyRate, 1300);
+  assert.equal(billing.netDailyRate, 960);
   assert.equal(billing.workdayHours, 8);
-  assert.equal(billing.netHourlyRate, 162.5);
-  assert.equal(billing.plannedNetAmount, 11050);
+  assert.equal(billing.netHourlyRate, 120);
+  assert.equal(billing.plannedNetAmount, 9600);
+  assert.deepEqual(billing.forecast, {
+    source: 'evidence/simulation/project-story.json:tickets[type=task]', countingRule: 'billable-task-worklogs-only',
+    plannedHours: 80, consumedHours: 80, committedHours: 80, remainingHours: 0,
+    estimateToCompleteHours: 0, estimateAtCompletionHours: 80, varianceHours: 0, hourlyRate: 120,
+    plannedNetAmount: 9600, consumedNetAmount: 9600, estimateAtCompletionNetAmount: 9600, varianceNetAmount: 0,
+    phaseHours: { 'UABC-1': 22, 'UABC-2': 40, 'UABC-3': 18 }, invoiceLineSource: 'task-worklogs-only', parentBillingLines: false
+  });
   assert.deepEqual(billing.simulationClose, {
     status: 'simulated-complete', offerVersion: 2, plannedHours: 80, actualHours: 80, hourlyRate: 120,
     plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: taskWorklogCount, reconciliationResult: 'abgestimmt',
@@ -377,7 +385,7 @@ test('Projekt-Twin-Vertrag liest nur positivgelistete vorhandene Blueprint-Pfade
   ]);
   const requiredSelectors = new Map([
     ['atlassian/jira/people.yaml', 'people[id in P-001,P-002,P-003,P-004,P-005,P-011,P-015,P-016,P-019]'],
-    ['evidence/verification-register.yaml', 'verifications[changeRef=migrate-bc-basic-to-single-uabc-ticket-project]'],
+    ['evidence/verification-register.yaml', `verifications[changeRef=${projectIndex.governingChange}]`],
     ['docs/research/sources.yaml', 'sources[id in SRC-OPSX-001,SRC-BC-001,SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-BC-077,SRC-BC-078,SRC-BC-079,SRC-BC-080,SRC-BC-081,SRC-BC-082,SRC-BC-083,SRC-BC-084,SRC-LAW-001,SRC-ELSTER-001]']
   ]);
   assert.ok(projectIndex.artifacts.some((artifact) => artifact.path === 'evidence/simulation/phase-2-p2p-o2c.yaml'));
@@ -686,7 +694,7 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
   assert.throws(() => parseGitTreeEntry(`100644 blob ${'a'.repeat(40)} 3\tfile\n100644 blob ${'b'.repeat(40)} 2\tother`, 'file'), /nicht genau eine Zeile/);
 });
 
-test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', () => {
+test('Reale BC-Basic-Nachweise bleiben ausstehend und abgeschlossene Repositorymigration ist belegt', () => {
   const requiredIds = [
     'UABC-VER-BCB-LOCAL-001',
     'UABC-VER-BCB-READINESS-001',
@@ -694,8 +702,7 @@ test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', (
     'UABC-VER-BCB-TRAINING-001',
     'UABC-VER-BCB-CLOSE-001',
     'UABC-VER-BCB-VAT-001',
-    'UABC-VER-BCB-HANDOVER-001',
-    'UABC-VER-BCB-TICKET-MIGRATION-001'
+    'UABC-VER-BCB-HANDOVER-001'
   ];
   for (const id of requiredIds) {
     const verification = verificationById.get(id);
@@ -704,6 +711,9 @@ test('Alle BC-Basic-Nachweise bleiben vor der Ausfuehrung ehrlich ausstehend', (
     assert.equal(verification.executedAt, null);
     assert.equal(verification.evidence, null);
   }
+  const migration = verificationById.get('UABC-VER-BCB-TICKET-MIGRATION-001');
+  assert.equal(migration.status, 'passed');
+  assert.match(migration.evidence, /UABC-1\.\.50/);
 });
 
 test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', () => {
