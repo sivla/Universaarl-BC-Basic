@@ -179,3 +179,12 @@ Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenha
 - **AND** wählt sie genau einen der vier Ausgänge selbst korrigieren, Key User, Consultant/Support oder sofortiger Buchungsstopp
 - **AND** liefert sie für Support das reproduzierbare Diagnosepaket ohne Geheimnisse
 - **AND** bleiben reale Benutzer, Berechtigungen, Buchungen und Reset als Kundensandboxnachweis getrennt von der bestandenen Referenzsimulation
+
+### Scenario: Consultant konfiguriert die Standardlösung reproduzierbar
+
+- **WHEN** ein Consultant die BC-Basic-Einrichtung vorbereitet
+- **THEN** besitzt jeder notwendige Bereich BC-Seite, Parameter, synthetischen Standardwert, Owner, Abhängigkeit, Wirkung, Prüfschritt und UAT-Bezug
+- **AND** besitzt jeder Abschnitt Entry- und Exit-Kriterien in verbindlicher Reihenfolge
+- **AND** werden Berechtigungen über erlaubte und verweigerte Aktionen geprüft, ohne Permission-Set-Namen zu erfinden
+- **AND** trennt der DE-Check dokumentiertes Standardverhalten, Projektannahme, synthetischen Wert und offene Kunden-/Steuer-/Sandboxbestätigung
+- **AND** endet jede Abweichung als Standard übernehmen, kundenspezifisch parametrisieren, Change oder Out-of-Scope

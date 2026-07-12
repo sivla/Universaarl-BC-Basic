@@ -10,6 +10,14 @@ customerAcceptanceOwnerRef: P-005
 configurationPackageResponsibility: Konfigurationspakete sind ein Werkzeug des Dienstleisters und kein Schulungs- oder Pflegegegenstand fuer den Kunden.
 operatorAcceptanceRule: Ein Fall gilt fuer die Kundenbefaehigung nur als bestanden wenn die Rolle ihn ohne Anleitung ausfuehrt Kontrollen erklaert einen vorhandenen Fehler diagnostiziert den Retest besteht und einen der vier Eskalationsausgaenge korrekt waehlt.
 simulationBoundary: Referenzsimulation belegt Ablauf Werte Fehler und Retest; reale Benutzer Berechtigungen Seiten Buchungen und Reset werden spaeter in der Kundensandbox bestaetigt und blockieren GO_SIMULATION nicht.
+permissionProbes:
+  - { roleRef: P-004, allowed: Benutzerkontext und Zuweisung pruefen, denied: Einkaufsrechnung buchen, uatRef: UABC-UAT-BCB-001 }
+  - { roleRef: P-005, allowed: Journal Abstimmung Abschluss und VAT-Vorschau, denied: Permission Sets administrieren, uatRef: UABC-UAT-BCB-005 }
+  - { roleRef: P-011, allowed: P2P und O2C ausfuehren, denied: VAT Posting Setup aendern, uatRef: UABC-UAT-BCB-002 }
+  - { roleRef: P-019, allowed: Inventur und Lagerbewegung, denied: General Ledger Setup aendern, uatRef: UABC-UAT-BCB-004 }
+  - { roleRef: P-016, allowed: Datenqualitaet und kontrollierte Uebergabe, denied: unfreigegebenen Import ausfuehren, uatRef: UABC-UAT-BCB-001 }
+  - { roleRef: P-001, allowed: UAT-und-Cutoverstatus lesen, denied: operative Buchung, uatRef: UABC-UAT-BCB-001 }
+permissionProbeRule: Produktiv benannte Permission Sets werden nicht angenommen; positive und verweigerte Aktion muessen im echten Tenant mit Benutzer Firma Lizenz und Evidence bestaetigt werden.
 cases:
   - id: UABC-UAT-BCB-001
     title: Navigation und Look-and-Feel

@@ -26,6 +26,16 @@ solutionDesignDecision:
     inventory: Lagerort HAUPT, Basiseinheit STK, gleitender Durchschnitt; keine Lagerplaetze, Tracking oder Negativbestand als Sollprozess
     rolesAndSod: Einrichtung, Belegerfassung, Mengenbestaetigung, Buchung, Zahlung und Kontrolle werden getrennt; reale Berechtigungssaetze in Sandbox pruefen
     reporting: BC-Standardlisten und -abstimmungen; kundenspezifische Reports, BI, Dokumentlayouts und Integrationen nur per Change
+configurationBaseline:
+  sourcePage: atlassian/confluence/pages/72-bc-basic-implementation.md
+  status: simulated-approved
+  sequence: [Gesellschaft-und-Periode, Finance-und-VAT, steuernde-Stammdaten, Prozesse-Lager-Bank, Berechtigungen, Reporting-und-UAT]
+  deviationOutcomes: [Standard-uebernehmen, kundenspezifisch-parametrisieren, Change, ausserhalb-Paket]
+  truthClasses:
+    documentedStandard: Verhalten aus Microsoft-Learn-Quellen
+    projectAssumption: fuer BC Basic fachlich gewaehlte Standardauspraegung
+    syntheticValue: Wert des Universaarl-Referenzfalls
+    openConfirmation: Kunden- Steuer- Lizenz- oder Sandboxentscheidung
 openApprovalsScope: Die folgenden Punkte blockieren nicht die abgeschlossene repositorybasierte Simulation. Sie sind vor einer echten BC-Sandbox- oder Produktivausfuehrung kundenspezifisch zu entscheiden und nachzuweisen.
 openApprovals:
   - id: UABC-APP-BCB-001
