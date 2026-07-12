@@ -1,0 +1,23 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-SPECTRA-CONFORMANCE-001
+classification: synthetic-derived-read-only
+status: passed
+source:
+  commit: fe43e260026830e456565166ff51199994f2b52a
+  storyPath: evidence/simulation/project-story.json
+  storyBlob: 3fc2d9f501c0aa9ee3d075a966fc13ca4d9f51de
+  storySha256: 5bbec3ff5d9dbd5da7f8e09757ad076beeffdf30574261ba89457ef32d1e59d3
+  unchanged: true
+spectraRelease: spectra-v0.7.0-alpha.1
+adapter:
+  path: scripts/adapt-spectra-portable-story.mjs
+  mode: deterministisch-temporaer-read-only-zur-Quelle
+  outputCommitted: false
+  projectionDigest: 1a731316822f41108e4eee81e0e088499d08e556221db757b4384a0a405ec5ef
+conformance:
+  schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
+  localValidator: scripts/validate-spectra-0.7-conformance.mjs
+  officialFullConformance: passed
+  result: passed
+counts: { offerVersions: 3, pages: 19, tickets: 17, comments: 34, worklogs: 17, hours: 80, cost: 9600, timelineEvents: 15, hypercareDays: 3, nativeRelations: 252, portableEdges: 190 }
+truthBoundary: Die Projektion ist abgeleitet und keine zweite Kunden-Source-of-Truth; sie wird nicht nach Spectra geschrieben und nach der Pruefung verworfen.
