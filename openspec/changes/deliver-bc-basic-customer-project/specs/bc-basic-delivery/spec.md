@@ -151,3 +151,14 @@ Die Kundeninstanz MUST den veroeffentlichten Spectra-0.10-Vertrag fuer Baseline,
 - **GIVEN** der unveraenderte native Storygraph und seine portable Twin-Projektion
 - **WHEN** der Spectra-0.10-Generator und der Coverage-Validator ausgefuehrt werden
 - **THEN** sind alle nativen Relationen genau einer erklaerten Mappingregel zugeordnet, Quell-, Mapping- und Projektionsdatei ueber SHA-256 gebunden und Schreibzugriff sowie unzutreffende 1:1- oder Vollstaendigkeitsbehauptungen ausgeschlossen
+## Requirement: Kundenverwendbare Discovery und Fit-to-Standard
+
+Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenhaengendes Betriebsmodell, moderierbare Workshopmodule, einen E2E-Fit/Gap, konkrete Solution-Design-Entscheidungen und einen abgestimmten Migrationsplan enthalten. Das Ergebnis MUSS zwischen synthetisch entschiedener Projektwahrheit, vor Projektstart zu parametrisierenden Werten, in einer echten BC-Sandbox zu validierendem Verhalten und kunden-/steuer-/rechtsseitig zu bestaetigenden Punkten unterscheiden. Es DARF keine zusaetzlichen Stunden ausserhalb der bestaetigten 80-Stunden-/9.600-EUR-Projektstory erzeugen.
+
+### Scenario: Consultant bereitet Kundenworkshop und Blueprint vor
+
+- **WHEN** ein Consultant die Discovery-Seite, das Workshopprotokoll, das Entscheidungsregister und das Datenpaket liest
+- **THEN** kann er Finance, Einkauf, Verkauf/Forderungen, Zahlung/Bank, Lager und Monatsabschluss strukturiert moderieren
+- **AND** jede Empfehlung besitzt BC-Standardabbildung, Fit/Gap, Entscheidung, Auswirkung und Owner
+- **AND** Migrationsobjekte besitzen Quelle, Volumen, Bereinigung, Mapping, Verantwortliche und Abstimmkriterium
+- **AND** die synthetische Gate-Entscheidung ist klar von realen Kunden-, Steuer- und Sandboxnachweisen getrennt

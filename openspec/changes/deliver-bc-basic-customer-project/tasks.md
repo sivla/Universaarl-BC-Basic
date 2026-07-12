@@ -14,6 +14,7 @@
 - [x] 1.3 Einkauf-, Verkauf- und Lagerprozess standardnah entscheiden (`UABC-24`, 4 h). Evidence: `project/bc-basic/bc-playthrough-catalog.yaml`, `evidence/simulation/bc-playthrough-ledger.yaml`.
 - [x] 1.4 Acht getrennte Blanko-/Beispielpaare und den Datenbereitschaftscheck liefern; Konfigurationspakete als Dienstleisterwerkzeug planen (`UABC-25`, 5 h). Evidence: `project/bc-basic/customer-templates/`, `project/bc-basic/data-readiness-check.yaml`.
 - [x] 1.5 Loesungs-, Pruef- und Abnahmeplan mit genau sieben geplanten UAT-Pflichtfaellen freigeben lassen (`UABC-26`, 3 h). Evidence: `project/bc-basic/uat-catalog.yaml`, `project/bc-basic/uat-training-run.yaml`, `evidence/simulation/project-story.json`.
+- [x] 1.6 Kundenverwendbaren Discovery-/Fit-to-Standard-Block mit Betriebsmodell, sechs Workshopmodulen, E2E-Fit/Gap, verbindlichen Solution-Design-Entscheidungen, Migrationswellen und Wahrheitsgrenzen ausarbeiten; die Arbeit ist den bestehenden Stunden von `UABC-22` bis `UABC-26` zugeordnet und erzeugt keine Zusatzzeit. Evidence: `atlassian/confluence/pages/71-bc-basic-discovery.md`, `atlassian/confluence/meetings/UABC-MTG-001.md`, `project/bc-basic/decision-register.yaml`, `project/bc-basic/data-package.yaml`.
 
 ## 2. Phase 2 - Einrichtung und Schulung in einer Woche
 

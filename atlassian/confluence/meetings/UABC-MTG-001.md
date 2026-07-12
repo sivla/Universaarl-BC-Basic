@@ -1,40 +1,48 @@
 ---
 id: UABC-MTG-001
-title: Synthetische Planungsarbeitsrunde fuer BC Basic Einrichtung
-date: 2026-07-11
-status: simulated-planning-record
+title: Synthetischer Discovery- und Fit-to-Standard-Workshop
+date: 2026-08-21
+status: simulated-complete
 projectId: UABC-BC-BASIC-001
 participantRefs: [P-001, P-002, P-005, P-011, P-016, P-019]
+ticketRefs: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26]
 evidenceClaimed: false
 ---
 
-# Synthetische Planungsarbeitsrunde fuer BC Basic Einrichtung
+# Synthetischer Discovery- und Fit-to-Standard-Workshop
 
-> Dieses Dokument ist ein bewusst synthetisches, in der Projektablage erstelltes Planungsprotokoll. Die Besprechung hat nicht als Kundenbesprechung stattgefunden. Es belegt keine Arbeitszeit, BC-Ausfuehrung, Freigabe, Abnahme oder steuerliche Pruefung. Mehrere Jira-Tickets duerfen es nur als gemeinsamen Anforderungs- und Planungskontext referenzieren.
+> Repositorybasierte Simulation, keine reale Kundenbesprechung und keine reale BC-Ausführung. Die Rollen entscheiden innerhalb der konsistenten Projektwelt; steuerliche, rechtliche und reale Sandbox-Nachweise werden dadurch nicht ersetzt.
 
-## Simulierter Gespraechsverlauf
+## Ziel, Agenda und Rollen
 
-**Projektleitung (P-002):** Wir planen das eng begrenzte Standardprodukt BC Basic Einrichtung fuer genau eine synthetische deutsche Gesellschaft in `playthru` und genau einen Lagerort. Die Planung darf weder einen produktiven Start noch bereits erbrachte Leistung behaupten.
+Ziel ist ein entscheidungsfähiger BC-Basic-Blueprint. `P-002` moderiert und dokumentiert, `P-001` entscheidet Scope/Gates, `P-005` verantwortet Finance/VAT/Bank, `P-011` Einkauf/Verkauf, `P-016` Daten und `P-019` Lager. Agenda: Betriebsmodell (30 min), Finance/VAT (60 min), P2P/O2C (60 min), Cash/Bank/Lager (45 min), Migration/Qualität (45 min), Entscheidungen/UAT/Cutover (30 min). Diese Zeiten sind Moderationsblöcke innerhalb der bereits gebuchten Ticket-Worklogs und erzeugen keine Zusatzstunden.
 
-**Sponsorrolle (P-001):** Die Dienstleisterseite plant 68 Stunden. Der Tagessatz betraegt 1.300 EUR netto, ein Arbeitstag hat 8 Stunden und der rechnerische Stundensatz betraegt 162,50 EUR netto. Ein verbindliches Budgetlimit ist noch nicht entschieden. Elternsummen in Epic und Stories sind reine Uebersichten und duerfen nicht neben den Arbeitsprotokollen der untersten Ticketebene abgerechnet werden.
+## Fragen, Antworten und Entscheidungen
 
-**Finanzrolle (P-005):** Vor der Einrichtungswoche brauchen wir Entscheidungen zu SKR04, Konten, Buchungsgruppen, Dimensionen, Mehrwertsteuer und UStVA-Kennzeichen. Eine UStVA-Vorschau darf spaeter fachlich geprueft, aber niemals aus diesem Projekt an ELSTER oder eine andere Behoerde uebermittelt werden.
+1. **Welches Betriebsmodell muss BC abbilden?** Eine EUR-Handelsgesellschaft, ein Hauptsitz, ein Lager `HAUPT`, monatliche Standardbelege und keine Produktion/Projekte/Services. Entscheidung: Fit-to-Standard ohne Erweiterung.
+2. **Wie wird Finance strukturiert?** Reduzierter SKR04-orientierter Plan, Inland-/Handels-Buchungsmatrix, Dimensionen Kostenstelle/Geschäftsbereich und Monatsperioden. Entscheidung: synthetisch verbindlich; echte Konten/VAT-Matrix steuerlich bestätigen.
+3. **Wie laufen Einkauf und Verkauf?** Durchgängige Bestell-/Auftragsketten mit getrenntem Wareneingang/Lieferung und Rechnung. Preis-/Mengenabweichungen werden vor Rechnung geklärt. Entscheidung: Standardbelege, kein Workflow-Customizing.
+4. **Wie werden Forderungen, Zahlungen und Bank behandelt?** 14/30 Tage, Überweisung, belegbezogener Ausgleich, manuelle Kontoauszugsprobe und eine Mahnstufe. Entscheidung: kein Bankfeed, kein echter Zahlungsexport, keine Mahnzustellung.
+5. **Welches Lagerverfahren genügt?** Ein Lagerort, Stück, gleitender Durchschnitt, einfache Inventur. Entscheidung: keine Plätze, Charge/Serie oder Negativbestand als Sollprozess.
+6. **Was wird migriert?** Setup, Stammdaten und kontrollierte Eröffnung/offene Posten in drei Wellen. Entscheidung: kein historischer Bewegungsdatenvollimport.
+7. **Wann ist Discovery abgenommen?** Wenn Fit/Gap, Owner, Datenobjekte, Abgrenzungen und UAT-Bezug dokumentiert sind. Ergebnis: `GO_DISCOVERY_SIMULATION`.
 
-**Prozessrolle (P-011):** Einkauf und Verkauf sollen mit je einem synthetischen Geschaeftspartner und einem Artikel durchgespielt werden. Erweiterungen, Integrationen und besondere Branchenprozesse bleiben ausserhalb des Pakets.
+## Offene reale Bestätigungen
 
-**Datenrolle (P-016):** Jede Objektvorlage braucht Zweck, Pflichtfelder, Format, Kundendatenquelle, Dienstleisterverantwortung, Qualitaetsregeln, Freigabestatus und einen synthetischen Beispieldatensatz. Konfigurationspakete sind der bevorzugte Dienstleisterweg; Schulung zu ihrer Erstellung ist nicht enthalten. Reale Personen-, Bank-, Steuer- oder Zugangsdaten werden nicht verwendet.
+- Kundenspezifische Konten, VAT-/UStVA-Kennzeichen und steuerliche Würdigung.
+- Reale Belegvolumina, Bankformat, Zeichnungsrechte, Kreditlimit, Mahntexte und Freigabegrenzen.
+- Produktive Rollen/Lizenzen, reale Datenquellen sowie Sandbox-Setup und tatsächliches Standardverhalten.
 
-**Lagerrolle (P-019):** Ein Lagerort `HAUPT` ohne verpflichtende Lagerplaetze reicht. Mehrere Lagerorte, erweitertes Lager sowie Chargen- oder Seriennummern sind ausgeschlossen.
+Diese Bestätigungen sind vor einem echten Projekt zu parametrisieren oder nachzuweisen. Sie bleiben keine offenen Gates der vollständig abgeschlossenen Simulation.
 
-**Projektleitung (P-002):** Phase 1 bereitet Anforderungen, Daten und Konfigurationspakete vor. Phase 2 ist genau eine Einrichtungswoche. Phase 3 ist eine Woche Hypercare mit hoechstens 10 Stunden zur Probe des Monatsabschlussprozesses in der Sandbox, zur dokumentierten Abstimmung und zur fachlichen UStVA-Vorschau ohne Uebermittlung. Ein echter Monatsabschluss oder produktiver Start wird nicht behauptet.
+## Actions und Abnahme
 
-## Offene Punkte
+| Ticket | Ergebnis | Owner | Nachweis |
+|---|---|---|---|
+| `UABC-22` | Scope, Rollen und Rahmen erklärt | `P-002` | Discovery-Seite und Angebot |
+| `UABC-23` | Finance-/VAT-Design entschieden | `P-005` | Entscheidungsregister und Blueprint |
+| `UABC-24` | E2E-Fit/Gap entschieden | `P-011`, `P-019` | Prozesslandkarte und Playthrough |
+| `UABC-25` | Migrationswellen und Abstimmung festgelegt | `P-016` | Datenpaket |
+| `UABC-26` | UAT-/Cutover-Verwendung bestätigt | `P-001` | UAT-Katalog und Projektstory |
 
-- Menschliche Bestaetigung der exakten Schreibzielgesellschaft und des Ruecksetzplans.
-- Tatsaechliche Lizenzzuordnung und externe Kosten.
-- Fachliche Freigabe des Finanz- und Steuerdesigns.
-- Ausfuehrungsfreigabe fuer mutierende Playwright-Szenarien.
-- Spaetere echte Abnahme von Schulung, UAT-Ergebnissen, Abschlussprobe, UStVA-Vorschau, Hypercare-Abschluss und Uebergabe.
-- Optionales Budgetlimit, falls der reale Auftraggeber eines vorgeben moechte.
-
-Alle offenen Punkte bleiben offen. Dieses synthetische Protokoll schliesst keinen davon.
+Synthetische Gate-Entscheidung am 2026-08-21: **GO_DISCOVERY_SIMULATION**. Alle fünf Actions sind innerhalb der Simulation angenommen; keine reale Unterschrift oder externe Freigabe wird behauptet.

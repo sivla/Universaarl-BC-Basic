@@ -135,6 +135,7 @@ issues:
     referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-004]
     confluenceRefs: [UABC-BCBPROJECT, UABC-BCBMEETINGS]
     evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-001, comment: Scope Rollen Fast-Track und kaufmaennischer Rahmen sind erklaert und in der bestehenden Story abgeglichen, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY], additionalHours: 0 }
     historySynthetic: true
     history: []
     doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
@@ -161,6 +162,7 @@ issues:
     referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-009]
     confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
     evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-005, comment: Finance VAT Dimensionen Perioden und offene reale Steuerbestaetigung sind entscheidungsfaehig getrennt, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY, UABC-DEC-BCB-REGISTER-001], additionalHours: 0 }
     historySynthetic: true
     history: []
     doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
@@ -187,6 +189,7 @@ issues:
     referenceIds: [UABC-REQ-BCB-003]
     confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
     evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-011, comment: P2P O2C Cash Bank Lager und Abschluss sind standardnah entschieden und abgegrenzt, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY, UABC-DEC-BCB-REGISTER-001], additionalHours: 0 }
     historySynthetic: true
     history: []
     doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
@@ -213,6 +216,7 @@ issues:
     referenceIds: [UABC-REQ-BCB-006]
     confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBDELIVERABLES]
     evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-016, comment: Drei Datenwellen besitzen Objekte Quellen Volumina Bereinigung Mapping Owner und Abstimmung, evidenceRefs: [UABC-MTG-001, UABC-DATA-BCB-001], additionalHours: 0 }
     historySynthetic: true
     history: []
     doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
@@ -239,6 +243,7 @@ issues:
     referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-008]
     confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
     evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-001, comment: Solution Blueprint UAT und Cutover sind mit GO_DISCOVERY_SIMULATION freigegeben, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY], additionalHours: 0 }
     historySynthetic: true
     history: []
     doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }

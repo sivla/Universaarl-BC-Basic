@@ -11,6 +11,21 @@ decisions:
   - { id: UABC-DEC-BCB-008, status: decided, decidedAt: 2026-09-03, decidedByRef: real-repository-user, statement: "Fuer die abgeschlossene synthetische Projektstory gilt Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die historische 68-Stunden-Dienstleisterkalkulation bleibt nachvollziehbar, erzeugt aber keine reale Rechnung." }
   - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
   - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
+solutionDesignDecision:
+  status: simulated-approved
+  decidedAt: 2026-08-21
+  meetingRef: UABC-MTG-001
+  ticketRefs: [UABC-23, UABC-24, UABC-25, UABC-26]
+  owners: [P-001, P-005, P-011, P-019]
+  parameters:
+    financeAndVat: reduzierter SKR04-orientierter Kontenplan, Inland-/Handels-Buchungsgruppen und 19-Prozent-VAT-Kombination; Konten und Steuerkennzeichen real steuerlich bestaetigen
+    dimensions: KOSTENSTELLE und GESCHAEFTSBEREICH; beide auf GuV-relevanten Belegen verpflichtend
+    numberSeries: getrennte Reihen fuer Bestellung, Einkauf, Verkauf, Zahlung, Mahnung und Korrektur; manuell nur fuer kontrollierte Eroeffnung
+    paymentAndReminder: 14 und 30 Tage, Ueberweisung, eine Mahnstufe ohne Gebuehren, Zinsen oder externe Zustellung
+    bank: synthetischer Kontoauszug und manuelle Abstimmung; kein Bankfeed, Zahlungsdatei oder produktive Bankanbindung
+    inventory: Lagerort HAUPT, Basiseinheit STK, gleitender Durchschnitt; keine Lagerplaetze, Tracking oder Negativbestand als Sollprozess
+    rolesAndSod: Einrichtung, Belegerfassung, Mengenbestaetigung, Buchung, Zahlung und Kontrolle werden getrennt; reale Berechtigungssaetze in Sandbox pruefen
+    reporting: BC-Standardlisten und -abstimmungen; kundenspezifische Reports, BI, Dokumentlayouts und Integrationen nur per Change
 openApprovalsScope: Die folgenden Punkte blockieren nicht die abgeschlossene repositorybasierte Simulation. Sie sind vor einer echten BC-Sandbox- oder Produktivausfuehrung kundenspezifisch zu entscheiden und nachzuweisen.
 openApprovals:
   - id: UABC-APP-BCB-001

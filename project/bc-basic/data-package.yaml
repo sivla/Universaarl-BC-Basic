@@ -14,6 +14,25 @@ customerSourceRefs: [P-005, P-011, P-016, P-019]
 customerTemplateRoot: project/bc-basic/customer-templates
 readinessCheckPath: project/bc-basic/data-readiness-check.yaml
 uatCatalogPath: project/bc-basic/uat-catalog.yaml
+migrationDiscovery:
+  status: simulated-approved
+  decisionDate: 2026-08-21
+  waves:
+    - { id: WAVE-SETUP, sequence: 1, exitCriterion: Konten Buchungsgruppen VAT Dimensionen Nummernserien Zahlungsbedingungen und Lagerort sind referenziell konsistent }
+    - { id: WAVE-MASTER, sequence: 2, exitCriterion: Debitoren Kreditoren Artikel Preise Einheiten und Bankstamm sind eindeutig und verwenden freigegebene Setup-Codes }
+    - { id: WAVE-OPENING, sequence: 3, exitCriterion: Sachkonto offene Nebenbuchposten und Lagerbestand sind je Kontrollsumme abgestimmt }
+  objects:
+    - { id: MIG-COMPANY, wave: WAVE-SETUP, source: synthetischer Unternehmenssteckbrief, volume: 1 Gesellschaft, cleanup: Pflichtparameter und Wahrheitskennzeichnung pruefen, mapping: Unternehmenseinrichtung, ownerRef: P-005, reconciliation: Gesellschaft DE Basiswaehrung EUR und ein Lagerort HAUPT }
+    - { id: MIG-FINANCE-SETUP, wave: WAVE-SETUP, source: synthetischer SKR04-Ausschnitt und Entscheidungsregister, volume: 24 Sachkonten und 12 Buchungsmatrix-Kombinationen, cleanup: Dubletten unzulaessige Kontotypen und fehlende Gegenkonten entfernen, mapping: Sachkonten plus allgemeine und VAT-Buchungsgruppen, ownerRef: P-005, reconciliation: alle verwendeten Rollen loesen auf und jede Buchungsmatrix besitzt Soll-/Habenkonto }
+    - { id: MIG-DIMENSIONS, wave: WAVE-SETUP, source: dimensions.example.csv, volume: 2 Dimensionen und 5 Werte, cleanup: Codes normalisieren und gesperrte Werte ausschliessen, mapping: Dimension und Dimension Value, ownerRef: P-005, reconciliation: alle Belegdefaults referenzieren vorhandene Werte }
+    - { id: MIG-CUSTOMERS, wave: WAVE-MASTER, source: customers.example.csv, volume: 20 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Nummer Name Land Buchungsgruppen Zahlungsbedingung und Dublette pruefen, mapping: Customer Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; keine realen Kontakt- oder Bankdaten }
+    - { id: MIG-VENDORS, wave: WAVE-MASTER, source: vendors.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: externe Nummern und Dubletten pruefen, mapping: Vendor Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; Buchungsgruppen sind gueltig }
+    - { id: MIG-ITEMS, wave: WAVE-MASTER, source: items.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Einheit Kosten Preis und Lagergruppe pruefen, mapping: Item Card und Price List, ownerRef: P-019, reconciliation: Preis groesser Kosten und alle Artikel verwenden STK und HAUPT }
+    - { id: MIG-BANK, wave: WAVE-MASTER, source: synthetischer Bankstamm, volume: 1 EUR-Bankkonto, cleanup: reale IBAN BIC und Zugangsdaten verbieten, mapping: Bank Account Card, ownerRef: P-005, reconciliation: Anfangssaldo entspricht synthetischem Kontoauszug }
+    - { id: MIG-GL-OPEN, wave: WAVE-OPENING, source: gl-opening.example.csv, volume: 1 ausgeglichenes Journal, cleanup: Belegpraefix Datum Dimensionen und Gegenbuchung pruefen, mapping: General Journal, ownerRef: P-005, reconciliation: Sollsumme gleich Habensumme }
+    - { id: MIG-OPEN-ARAP, wave: WAVE-OPENING, source: open-customer-vendor-entries.example.csv, volume: 2 offene Posten, cleanup: Partner Faelligkeit Belegnummer und Waehrung pruefen, mapping: Customer und Vendor Ledger Opening, ownerRef: P-005, reconciliation: Nebenbuchsummen entsprechen Sammelkonten }
+    - { id: MIG-INVENTORY, wave: WAVE-OPENING, source: inventory-opening.example.csv, volume: 1 Artikelbestand am Lagerort HAUPT, cleanup: Menge Kosten Einheit und Artikelreferenz pruefen, mapping: Item Journal, ownerRef: P-019, reconciliation: Menge mal Einstandspreis entspricht Lagerwert und Sachkonto }
+  realProjectConfirmations: [reale Quellsysteme und Extraktionsverantwortung, vollstaendige Volumina, steuerlich freigegebene Konten und VAT-Codes, reale Anfangssalden und offene Posten, Sandbox-Importlauf und Systemposten]
 dataCategories:
   einrichtungsdaten: Konten, Buchungsgruppen, MwSt.-Einrichtung, Dimensionen, Zahlungsbedingungen, Nummernserien und Lagerortvorbereitung.
   stammdaten: Debitoren, Kreditoren, Artikel, Einheiten, Preise, einfache Rabatte und Bankkonten als Stammdaten.
