@@ -33,9 +33,9 @@ const bytes = canonicalCatalogBytes(generated);
 const current = fs.readFileSync(absolute(DOCUMENT_CATALOG_PATH));
 if (process.argv.includes('--write')) {
   fs.writeFileSync(absolute(DOCUMENT_CATALOG_PATH), bytes);
-  console.log(`Dokumentkatalog deterministisch erzeugt: ${generated.documentCount} Dokumente, ${generated.confluenceDocumentCount} strukturierte Seiten.`);
+  console.log(`Dokumentkatalog deterministisch erzeugt: ${generated.documentCount} Dokumente, ${generated.confluenceDocumentCount} strukturierte Seiten, ${generated.spaces.length} Spaces und ${generated.redirects.length} Migrationseintraege.`);
 } else if (!current.equals(bytes)) {
   throw new Error('Dokumentkatalog ist nicht deterministisch aktuell. Bitte npm run generate:document-catalog ausfuehren.');
 } else {
-  console.log(`Dokumentkatalog ist deterministisch aktuell: ${generated.documentCount} Dokumente.`);
+  console.log(`Dokumentkatalog ist deterministisch aktuell: ${generated.documentCount} Dokumente in ${generated.spaces.length} Spaces.`);
 }

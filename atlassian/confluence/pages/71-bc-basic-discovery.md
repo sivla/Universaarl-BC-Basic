@@ -1,101 +1,121 @@
 ---
 id: UABC-BCBDISCOVERY
-title: Discovery und Fit-to-Standard
-parent: UABC-BCBPROJECT
+title: 03 Prozesse und Fit-to-Standard
+parent: UABC-PROJECT
 owners: [P-002, P-005, P-011, P-016, P-019]
-status: Synthetisch abgenommen
-jiraRefs: [UABC-19, UABC-22, UABC-23, UABC-24, UABC-25, UABC-26]
+status: published
+spaceId: UABC-SPACE-CUSTOMER
+spaceType: customer-project
+order: 3
+storyPageId: PAGE-UABC-100
+purpose: Dokumentiert Anforderungen, Standardabbildung, Fit/Gap und die notwendigen Kundenentscheidungen.
+audience: [Projektleitung, Fachbereich, Solution Architect]
+jiraRefs: [UABC-23, UABC-24, UABC-25, UABC-26]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-009]
-lastReviewed: 2026-08-21
+lastReviewed: 2026-09-03
 ---
 
-# Discovery und Fit-to-Standard
+# 03 Prozesse und Fit-to-Standard
 
-Diese Seite ist das kundenverwendbare Ergebnis der repositorybasierten Discovery. Alle Aussagen beziehen sich auf die synthetische Gesellschaft `UABC-BASIC-DE`. Die Entscheidungen sind innerhalb der Simulation verbindlich und wurden in `UABC-MTG-001` synthetisch abgenommen. Vor einer echten Einführung werden Unternehmensparameter, Steuer-/Rechtsfragen und die Ausführung in einer realen BC-Sandbox erneut bestätigt.
+## Discovery-Ziel
 
-## Unternehmens- und Betriebsmodell
+Diese Seite verdichtet Discovery und Fit-to-Standard für `UABC-BASIC-DE`. Sie verbindet Geschäftsanforderungen mit dem BC-Standard und benennt bewusst, was ein echter Kunde noch fachlich, steuerlich oder in seiner Sandbox bestätigen muss.
 
-| Bereich | Synthetische Vorgabe | Planungsrelevanz |
-|---|---|---|
-| Gesellschaft | Eine deutsche Handelsgesellschaft, Basiswährung EUR, Geschäftsjahr Kalenderjahr | Keine Konsolidierung, Intercompany- oder Fremdwährungsbewertung |
-| Standorte | Verwaltung und Buchhaltung am Hauptsitz; ein Lagerort `HAUPT` ohne Lagerplätze | Einfacher Wareneingang, Versand und Inventur; kein erweitertes Lager |
-| Rollen | Sponsor `P-001`, Consultant/PM `P-002`, Finance `P-005`, Einkauf/Verkauf `P-011`, Daten `P-016`, Lager `P-019` | Funktionstrennung zwischen Einrichtung, Buchung, Zahlung und Kontrolle wird im Rollendesign berücksichtigt |
-| Volumen | monatlich ca. 35 Einkaufsrechnungen, 55 Verkaufsrechnungen, 40 Zahlungseingänge, 30 Zahlungsausgänge und 150 Lagerbewegungen; 12 aktive Artikel, 20 Debitoren, 12 Kreditoren | Standardbelege und manuelle Abstimmung sind ausreichend; keine Stapel-/EDI-Integration erforderlich |
-| Belege | Angebot, Verkaufsauftrag, Lieferung, Rechnung, Gutschrift; Einkaufsbestellung, Wareneingang, Rechnung, Gutschrift; Zahlungs- und Artikelbuchblätter | Durchgängige Belegketten und Navigate/Find Entries sind Abnahmekriterium |
-| Zahlung/Bank | SEPA-Überweisung als fachliches Zielbild, synthetisches Bankkonto, manuelle Kontoauszugsprobe, Zahlungsbedingungen 14/30 Tage | Kein echter Zahlungsdateiexport, Bankfeed oder Onlinebanking |
-| Mahnwesen | Eine Mahnstufe nach Fälligkeit plus interne Prüfung; keine Gebühren, Zinsen oder E-Mail-Zustellung in der Simulation | Mahnvorschlag wird fachlich geprüft, aber nicht extern versendet |
-| Lager | Einfache Handelsware, Basiseinheit Stück, FIFO, kein Tracking | Zugang, Abgang, Inventur und Wertabgleich müssen zusammenpassen |
-| Abschluss | Monatlicher Nebenbuch-/Sachbuchabgleich, Bank, Lager und UStVA-Vorschau | Keine ELSTER-Übermittlung und keine steuerliche Beratung |
+## Fit-to-Standard-Entscheidung
 
-## Workshopplan und Ergebnisse
+Die drei fokussierten Workshops und sieben Entscheidungsbereiche sind als `GO_DISCOVERY_SIMULATION` abgeschlossen. Die Kernprozesse passen in BC Basic; kein V1-blockierender kundenspezifischer Gap blieb in der Referenzsimulation offen.
 
-Die sechs Module werden in der Reihenfolge Finance, Einkauf, Verkauf/Forderungen, Zahlung/Bank, Lager und Monatsabschluss moderiert. Pro Modul werden Ist-Ablauf, Ausnahme, Kontrollpunkt, Datenbedarf, BC-Standard und Entscheidung protokolliert.
+## Workshop-Ergebnisse und Prozessdesign
 
-**Fast-Track:** Der Kunde liefert vorab nur Organisationssteckbrief, Konten-/Steuervorgaben, je einen Beleg- und Partner-/Artikelbeispielsatz, Bank-/Zahlungsanforderungen, Anfangssalden sowie Rollenliste. Danach genuegen drei fokussierte Termine: (1) Scope und Finance/VAT, (2) P2P/O2C/Bank/Lager, (3) Datenabnahme, UAT und Cutover-GO. Zwingend zu entscheiden sind Konten/VAT, Dimensionen, Beleg- und Freigabelogik, Zahlungs-/Mahnverfahren, Lagerverfahren, Migrationssalden und Rollen/SoD. Der kuerzeste realistische Weg lautet: Vorbereitung → drei Workshops → Standardentscheidung → drei Datenwellen/Setup → UAT → Mock-Cutover → GO.
+### Workshop 1 – Finance, VAT und Kontrollen
 
-| Workshop | Vorbereitung bis | Teilnehmerrollen | Verbindlicher Output | Done-Kriterium |
-|---|---|---|---|---|
-| 1 – Scope, Finance und VAT | Start + 2 Arbeitstage | `P-001`, `P-002`, `P-005` | Scope, Konten-/VAT-Grundsätze, Dimensionen und Perioden | Bereiche 1–2 der Entscheidungscheckliste entschieden oder mit Owner/Termin versehen |
-| 2 – P2P, O2C, Bank und Lager | Workshop 1 + 2 Arbeitstage | `P-002`, `P-005`, `P-011`, `P-019` | Standardprozesse, Belegfreigabe, Zahlung/Mahnung, Bank und Lager | Bereiche 3–5 entschieden; jede Abweichung ist Fit, Change oder Out-of-Scope |
-| 3 – Daten, Rollen, UAT und Cutover | Workshop 2 + 3 Arbeitstage | `P-001`, `P-002`, `P-005`, `P-016`, `P-019` | Datenwellen, SoD, UAT-Abnehmer, Sandbox- und Cutovervoraussetzungen | Bereiche 6–7 entschieden und Entry-Gate `UABC-GATE-BCB-PHASE2-001` geprüft |
+**Vorbereitung:** Kontenstruktur, Perioden, Steuerfälle, Zahlungsbedingungen, Dimensionen und Abschlussanforderungen bereitstellen.
 
-## Minimale Entscheidungscheckliste
+**Teilnehmerrollen:** Finance Key User, Sponsor, Consultant und Datenverantwortung.
 
-| Nr. | Kundenfrage | Standardempfehlung | Owner | Fälligkeit | Auswirkung und echter Bestätigungsbedarf |
-|---:|---|---|---|---|---|
-| 1 | Welche Konten, VAT-Kombinationen und Abschlussregeln gelten? | reduzierter SKR04-orientierter Plan, Inland/19 %, Monatsperioden | `P-005` | Workshop 1 | blockiert Finance-Setup; Konten und Steuerkennzeichen real steuerlich bestätigen |
-| 2 | Welche Auswertungsmerkmale sind Pflicht? | `KOSTENSTELLE` und `GESCHAEFT` auf GuV-Belegen | `P-005` | Workshop 1 | beeinflusst Stammdaten, Buchung und Reporting; reale Werte bestätigen |
-| 3 | Welche Beleg- und Freigabelogik gilt? | Standard Bestellung/Wareneingang/Rechnung und Auftrag/Lieferung/Rechnung; organisatorische Freigabe | `P-011` | Workshop 2 | beeinflusst P2P/O2C und SoD; Freigabegrenzen real bestätigen |
-| 4 | Wie werden Zahlung, Mahnung und Bank verarbeitet? | 14/30 Tage, Überweisung, eine Mahnstufe, manuelle Bankabstimmung | `P-005` | Workshop 2 | beeinflusst offene Posten und Cutover; Bankformat, Rechte und Mahntext real bestätigen |
-| 5 | Welches Lagerverfahren genügt? | `HAUPT`, `STK`, FIFO, keine Plätze/Verfolgung | `P-019` | Workshop 2 | beeinflusst Artikel, Bestand und Inventur; reale Bestände bestätigen |
-| 6 | Welche Daten werden in welcher Welle übernommen? | Setup → Stammdaten → Eröffnung/offene Posten; kein Bewegungsdatenvollimport | `P-016` | Workshop 3 | blockiert Probeladung; Quellen, Mengen und Salden real bestätigen |
-| 7 | Wer darf einrichten, erfassen, buchen, zahlen, prüfen und abnehmen? | Trennung von Einrichtung, Erfassung, Mengenprüfung, Buchung, Zahlung und Kontrolle | `P-001` | Workshop 3 | blockiert UAT/Cutover; Benutzer, Lizenzen und Berechtigungssätze real bestätigen |
+**Entscheidungsoutput:** SKR04-orientierte Kontenrollen, Buchungsgruppen `INLAND` und `HANDEL`, VAT-Gruppe `MWST19`, Dimensionen `KOSTENSTELLE` und `GESCHAEFT`, Kalenderjahr und Monatsabschlusskontrollen.
 
-| Modul / Rollen | Leitfragen | Synthetisches Ergebnis | Noch real zu bestätigen |
-|---|---|---|---|
-| Finance – `P-005`, `P-002` | Welche Konten, Buchungsgruppen, Dimensionen und Periodensperren werden benötigt? | SKR04-basierter reduzierter Kontenplan; Buchungsmatrix Inland/19 %, Kostenstelle und Geschäftsbereich; Monatsperioden | Kontennummern, Steuerkennzeichen und steuerliche Würdigung |
-| Einkauf – `P-011`, `P-005` | Bestellungspflicht, Wareneingang, Rechnungsprüfung, Abweichungen? | Bestellung → Wareneingang → Rechnung; externe Belegnummer eindeutig; Mengen-/Preisabweichung wird vor Buchung geklärt | Freigabegrenzen und Vertretungsregel |
-| Verkauf/Forderungen – `P-011`, `P-005` | Angebot/Auftrag, Lieferung, Preis, Kreditlimit, Mahnung? | Auftrag → Lieferung → Rechnung; Preis aus Preisliste; überfällige Posten in einer Mahnstufe | Kreditlimit und rechtliche Mahntexte |
-| Zahlung/Bank – `P-005` | Zahlungsweg, Anwendung, Kontoauszug, Differenzen? | Zahlungsbuchblätter und manuelle Bankabstimmung; Gebühren separat; kein automatischer Bankfeed | Bankformat, Zeichnungsrechte und produktive Bankanbindung |
-| Lager – `P-019`, `P-011` | Lagerorte, Einheiten, Negativbestand, Inventur? | Ein Lagerort `HAUPT`, Stück, Negativbestand nicht vorgesehen, periodische Inventur | Zählrhythmus und reale Anfangsbestände |
-| Monatsabschluss – `P-005`, `P-001` | Welche Abstimmungen und welcher Abschlusskalender? | Sachkonto, Debitor, Kreditor, Bank, Lager und VAT werden vor Periodensperre abgestimmt | Steuerliche Freigabe und realer Abschlusskalender |
+**Done:** Jede verwendete Buchungskombination löst auf; Konten-, VAT- und UStVA-Zuordnung bleiben für ein reales Projekt als fachlicher Bestätigungspunkt markiert.
 
-## Fit-to-Standard-Entscheidungen
+### Workshop 2 – Einkauf, Verkauf, Cash und Lager
 
-| Prozess | Ist-Anforderung | BC-Standardabbildung | Bewertung / Option | Empfehlung und simulierte Entscheidung | Auswirkung / Owner |
-|---|---|---|---|---|---|
-| Record-to-Report | Belegorientierte Finanzbuchhaltung mit Kostenstellenauswertung | Sachkonten, Buchungsgruppen, Dimensionen, Buchungszeiträume | **Fit**; kundeneigener Kontenplan wird parametrisiert | Standard verwenden, keine Erweiterung | Setup/UAT: `P-005` |
-| Purchase-to-Pay | Bestellung, Wareneingang, Rechnung, Zahlung und Ausgleich | Purchase Order/Invoice, Vendor Ledger, Payment Journal | **Fit**; Freigabeworkflow nicht im Basic-Scope | Manuelle organisatorische Freigabe vor Buchung | Prozess: `P-011`, Kontrolle: `P-005` |
-| Order-to-Cash | Angebot/Auftrag, Lieferung, Rechnung, Zahlung, Mahnung | Sales Quote/Order, Customer Ledger, Cash Receipt Journal, Reminders | **Fit mit Parameterisierung**; keine externe Zustellung | Eine Mahnstufe ohne Gebühren/Zinsen simulieren | Prozess: `P-011` |
-| Cash/Bank | Zahlungen anwenden und Kontoauszug abstimmen | Payment/Cash Receipt Journal, Bank Acc. Reconciliation | **Fit**; Bankfeed und Zahlungsdatei sind außerhalb Scope | Synthetischen Kontoauszug manuell abbilden | `P-005` |
-| Inventory | Ein Lager, Zu-/Abgang, Inventur, Bewertung | Location, Item Journal, Physical Inventory Journal, Item/Value Entries | **Fit**; kein erweitertes Lager/Tracking | `HAUPT`, Stück, einfache Inventur | `P-019` |
-| Period Close/VAT | Nebenbücher abstimmen, Periode schließen, UStVA-Vorschau | Trial Balance, Ledger Entries, Accounting Periods, VAT Entries/Statement | **Fit mit lokaler Prüfung** | Standardberichte nutzen; keine Übermittlung | `P-005`, steuerliche Prüfung extern |
+**Vorbereitung:** Belegarten, Mengen, Preise, Freigaben, Zahlung, Mahnung, Bankabstimmung, Lagerbewegungen und Ausnahmen beschreiben.
 
-Nicht in BC Basic aufgenommen werden Produktion, Service, Projekte, Anlagenbuchhaltung, Intercompany, Konsolidierung, E-Rechnung, kundenspezifische Erweiterungen und produktive Integrationen. Ein solcher Bedarf löst einen Change aus.
+**Teilnehmerrollen:** Handel Key User, Lager Key User, Finance und Consultant.
 
-## Solution Design
+**Entscheidungsoutput:** Standardbestellung und -auftrag, getrennte Wareneingangs-/Liefer- und Rechnungsbuchung, einfache Zahlungsanwendung, eine Mahnstufe ohne Gebühren sowie Lagerort `HAUPT` mit FIFO.
 
-- **Konten und Buchungsmatrix:** reduzierter SKR04-orientierter Kontenplan; Geschäftsgruppe `INLAND`, Produktgruppe `HANDEL` und VAT-Produktgruppe `MWST19`. Die 11 synthetischen Kontenrollen und sechs Matrizen stehen in `company-setup.example.yaml`; Kontonummern und VAT-Kombinationen bleiben vor realem Einsatz steuerlich zu bestätigen.
-- **Dimensionen:** globale Dimensionen `KOSTENSTELLE` und `GESCHAEFT`; Pflicht auf GuV-Belegen, Defaultwerte auf Partnern/Artikeln, Abweichung vor Buchung korrigieren.
-- **Nummernserien:** getrennte synthetische Präfixe für Bestellung, Einkaufsrechnung, Auftrag, Lieferung, Verkaufsrechnung, Zahlung, Mahnung und Korrektur. Manuelle Nummern nur für kontrollierte Eröffnung.
-- **Zahlung/Mahnung:** `14T` und `30T`, Zahlungsart Überweisung; offene Posten per Belegbezug anwenden; eine Mahnstufe ohne externe Zustellung.
-- **Bank:** ein synthetisches EUR-Bankkonto, manuelle Abstimmung; keine reale IBAN, kein Bankfeed, kein Zahlungsverkehr.
-- **Lager:** `HAUPT`, Basiseinheit `STK`, FIFO, kein Lagerplatz, keine Charge/Serie, kein Negativbestand als Sollprozess.
-- **Rollen/SoD:** `P-002` richtet ein, `P-011` erfasst Handelsbelege, `P-019` bestätigt Mengen, `P-005` bucht und stimmt ab, `P-001` entscheidet Gates. Zahlungsvorbereitung und Zahlungskontrolle werden getrennt.
-- **Reporting:** Standardlisten, Navigate/Find Entries, Trial Balance, Aging, Inventory Valuation und VAT-Vorschau. Kundenspezifische Berichte, BI und Schnittstellen sind nicht enthalten.
+**Done:** P2P, O2C, Cash/Bank und Lager besitzen je positiven Fall, Abweichung, Korrektur, Retest und Kontrollsumme.
 
-## Datenmigration und Abstimmung
+### Workshop 3 – Daten, UAT und Cutover
 
-Der verbindliche Objekt-, Quellen-, Mengen-, Bereinigungs- und Abstimmplan steht in `project/bc-basic/data-package.yaml` unter `migrationDiscovery`. Drei Wellen werden verwendet: Setup, Stammdaten, Eröffnung/offene Posten. Kein Objekt gelangt in die nächste Welle, bevor Pflichtfelder, Referenzen, Dubletten, Summen und synthetische Kennzeichnung bestanden sind.
+**Vorbereitung:** acht Vorlagenpaare, Quellen, Volumina, Owner, Qualitätsregeln, UAT-Rollen, Freeze und Rücksetzweg prüfen.
 
-## Akzeptanz und Ticketstory
+**Teilnehmerrollen:** Datenverantwortung, Finance, Handel, Lager, Sponsor und Consultant.
 
-- `UABC-22`: Scope, Rollen, Phasen und kaufmännischer Rahmen sind innerhalb der bestehenden 80-Stunden-/9.600-EUR-Story abgeglichen.
-- `UABC-23`: Finanz-/VAT-Design ist synthetisch entschieden; reale steuerliche Bestätigung ist als Wahrheitsgrenze benannt.
-- `UABC-24`: P2P, O2C, Cash/Bank, Lager und Abschluss sind standardnah entschieden und mit Ausnahmen abgegrenzt.
-- `UABC-25`: Migrationsobjekte, Wellen, Owner, Qualitäts- und Abstimmkriterien sind vollständig zugeordnet.
-- `UABC-26`: Lösungsdesign führt direkt zu UAT, Cutover und Abnahme; kein zusätzlicher Worklog entsteht.
+**Entscheidungsoutput:** drei Migrationswellen, zehn Objekte, sieben UAT-Fälle, vier Trainingspfade, Mock-Cutover, Restart und Hypercare-Exit.
 
-Abnahmeentscheidung: **GO_DISCOVERY_SIMULATION**. Der Consultant kann damit einen echten Kundenworkshop vorbereiten und die Entscheidungen führen. Vor realem Projektstart werden kundenspezifische Parameter, Steuer/Recht, Lizenz und Sandboxverhalten validiert; diese Punkte sind keine Blocker der abgeschlossenen Simulation.
+**Done:** Das Entry-Gate für Setup und UAT ist fachlich passierbar; reale Tenant-, Benutzer- und Kundendaten bleiben sichtbar zu bestätigen.
 
-<!-- story-metadata {"id":"PAGE-UABC-100","parent":"PAGE-UABC-000","version":2,"status":"published"} -->
+### Fit-to-Standard nach Prozess
+
+#### Finance und Monatsabschluss
+
+- **Anforderung:** schlanke Buchhaltung mit Haupt-/Nebenbuchabgleich, Periodenkontrolle und VAT-Vorschau.
+- **BC-Standard:** `General Ledger Setup`, `Accounting Periods`, `Posting Groups`, `VAT Entries` und Standardauswertungen.
+- **Entscheidung:** Fit. Standardkontenrollen und sechs Buchungsmatrizen reichen für die Referenzfälle.
+- **Grenze:** Kontonummern, Steuerkennzeichen und UStVA-Zuordnung benötigen Kunden- und Steuerreview. Owner: `P-005`.
+
+#### Purchase-to-Pay
+
+- **Anforderung:** Bestellung, Wareneingang, Rechnung, Fälligkeit, Zahlung und Ausgleich mit Abweichungsprüfung.
+- **BC-Standard:** Purchase Order, Posted Purchase Receipt, Posted Purchase Invoice und Payment Journal.
+- **Entscheidung:** Fit. Teilwareneingang, doppelte externe Belegnummer und Gutschrift bleiben Standardvarianten.
+- **Grenze:** Freigabegrenzen und Zahlungsdatei sind Kundenparameter. Owner: `P-011` und `P-005`.
+
+#### Order-to-Cash und Mahnung
+
+- **Anforderung:** Auftrag, Lieferung, Rechnung, Zahlung, Ausgleich sowie eine einfache Mahnstufe.
+- **BC-Standard:** Sales Order, Posted Sales Shipment, Posted Sales Invoice, Cash Receipt Journal und Reminders.
+- **Entscheidung:** Fit. Die Mahnprobe erzeugt weder Gebühren noch Zinsen noch externe E-Mail.
+- **Grenze:** Kreditlimit, Mahntext und Zustellweg sind Kundenparameter. Owner: `P-011`.
+
+#### Cash und Bank
+
+- **Anforderung:** Zahlungen anwenden, synthetischen Kontoauszug abstimmen und Differenzen erklären.
+- **BC-Standard:** Payment Journal, Cash Receipt Journal, Payment Reconciliation Journal und Bank Acc. Reconciliation.
+- **Entscheidung:** Fit für manuelle Zuordnung und Abstimmung; produktive Bankanbindung ist nicht enthalten.
+- **Grenze:** Bankformat, Berechtigung und Freigabeweg werden in der Kundensandbox bestätigt. Owner: `P-005`.
+
+#### Lager und Inventur
+
+- **Anforderung:** ein Lagerort, Zugänge, Abgänge, Inventur und Wertabgleich ohne Tracking.
+- **BC-Standard:** Item Journals, Item Ledger Entries, Value Entries und Physical Inventory.
+- **Entscheidung:** Fit mit `HAUPT`, Einheit `STK`, FIFO und verbotener negativer Sollmenge.
+- **Grenze:** weitere Lagerorte, Lagerplätze, Varianten, Serien oder Chargen sind Change oder Out-of-Scope. Owner: `P-019`.
+
+### Sieben notwendige Entscheidungsbereiche
+
+1. Gesellschaft, Scope und kommerzielle Baseline – Owner `P-001`.
+2. Konten, Buchungsgruppen, VAT und Perioden – Owner `P-005`.
+3. Dimensionen, Nummernserien und Standardreporting – Owner `P-005`.
+4. Einkaufs-, Verkaufs- und Lagervarianten – Owner `P-011` und `P-019`.
+5. Zahlung, Mahnung und Bankabstimmung – Owner `P-005`.
+6. Datenquellen, Migration und Abstimmwerte – Owner `P-016`.
+7. Rollen, UAT, Cutover, Restart und Supportstart – Owner `P-001` und `P-002`.
+
+## Kundenentscheidungen und Bestätigungspunkte
+
+- Die sieben Bereiche sind für die Referenzsimulation synthetisch entschieden und blockieren sie nicht.
+- Ein echter Kunde bestätigt Werte, Personen, Freigaben, steuerliche Behandlung, Bankverfahren und Tenantverhalten vor dem Setup.
+- Eine Abweichung wird als **Standard übernehmen**, **parametrisieren**, **Change** oder **Out-of-Scope** behandelt. Nicht belegte Wünsche werden nicht still in den Standard aufgenommen.
+
+## Referenzen
+
+- [Entscheidungsdetails und Owner](../../../project/bc-basic/decision-register.yaml)
+- [Workshopverlauf und Actions](../meetings/UABC-MTG-001.md)
+- [Use Cases und BC-Schritte](../../../project/bc-basic/bc-playthrough-catalog.yaml)
+- [Daten- und Migrationsumfang](../../../project/bc-basic/data-package.yaml)
+- [UAT- und Trainingsverknüpfung](../../../project/bc-basic/uat-training-run.yaml)
+
+<!-- story-metadata {"id":"PAGE-UABC-100","title":"03 Prozesse und Fit-to-Standard","parent":"PAGE-UABC-000","version":3,"status":"published"} -->

@@ -36,3 +36,11 @@ test('FEHLENDE_WORKLOG_KOSTEN werden abgelehnt', () => has(mutate((s) => { delet
 test('FEHLENDE_HYPERCARE_EVIDENCE wird abgelehnt', () => has(mutate((s) => { delete s.hypercare[0].evidence; }), 'HYPERCARE-RECORD'));
 test('GRAPH_WAISE erkennt eine unbekannte Domänenkante', () => has(mutate((s) => { s.relations.push({ type: 'references', from: 'PAGE-NOT-FOUND', to: 'TKT-UABC-22' }); }), 'RELATION-WAISE'));
 test('GRAPH_DUPLIKAT erkennt doppelte Kante', () => has(mutate((s) => { s.relations.push(structuredClone(s.relations[0])); }), 'RELATION-DOPPELT'));
+test('PAGE_SPACE erkennt fehlende Space-Zuordnung', () => has(mutate((s) => { delete s.pages[0].spaceId; }), 'SEITE-METADATEN-TYP'));
+test('PAGE_SPACE_PARENT erkennt Space-uebergreifenden Parent', () => has(mutate((s) => { s.pages.find((p) => p.id === 'PAGE-UABC-010').parent = 'PAGE-UABC-090'; }), 'SEITE-SPACE-PARENT'));
+test('PAGE_ORDER erkennt doppelte Reihenfolge im Space', () => has(mutate((s) => { s.pages.find((p) => p.id === 'PAGE-UABC-010').order = 0; }), 'SEITE-REIHENFOLGE'));
+test('PAGE_ROOT erkennt fehlende deklarierte Space-Wurzel', () => has(mutate((s) => { s.pages.find((p) => p.id === 'PAGE-UABC-090').parent = 'PAGE-UABC-000'; }), 'SEITE-WURZEL'));
+test('TICKET_TYPE_MISSING erkennt fehlenden kanonischen Typ', () => has(mutate((s) => { delete s.tickets[0].type; }), 'TICKET-TYP'));
+test('TICKET_TYPE_UNKNOWN erkennt unbekannten kanonischen Typ', () => has(mutate((s) => { s.tickets[0].type = 'ableitung-aus-titel'; }), 'TICKET-TYP'));
+test('TICKET_PARENT_TYPE erkennt inkonsistenten Parent-Typ', () => has(mutate((s) => { s.tickets.find((t) => t.id === 'TKT-UABC-23').parent = 'TKT-UABC-35'; }), 'TICKET-PARENT-TYP'));
+test('TICKET_PARENT_TYPE erkennt Parent an Epic', () => has(mutate((s) => { s.tickets[0].parent = 'TKT-UABC-38'; }), 'TICKET-PARENT-TYP'));

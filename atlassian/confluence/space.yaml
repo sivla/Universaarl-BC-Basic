@@ -1,5 +1,8 @@
-key: UABC
-name: Universaarl Business Central Programm
-homepage: UABC-PROJECT
-owner: P-002
-sourceOfTruth: openspec
+schemaVersion: 1
+sourceOfTruth: exports/project-data/v1/document-catalog.json
+sourceIndex: exports/project-data/v1/index.yaml
+spaceModel: catalog-defined-three-space-model
+externalUrl: null
+pageId: null
+spaceKey: null
+note: Interne Spaces, Seitenhierarchie und Migrationseintraege werden ausschliesslich im commitgebundenen Dokumentkatalog gefuehrt.

@@ -1,37 +1,76 @@
 ---
 id: UABC-BCBPROJECT
-title: BC Basic V1 Standardprodukt
-parent: UABC-PROJECT
-owners: [P-001, P-002]
-status: V1 kundenbereit
+storyPageId: PAGE-UABC-090
+title: 00 BC Basic Standardprodukt
+parent: null
+spaceId: UABC-SPACE-PRODUCT
+spaceType: standard-product
+order: 0
+purpose: Einstieg und Leistungsrahmen des wiederverwendbaren BC-Basic-Standardprodukts
+audience: Vertrieb, Projektleitung, Consultant und Solution Architecture
+owners: [P-002]
+version: 3
+status: published
 jiraRefs: [UABC-18, UABC-19, UABC-20, UABC-21]
 referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004]
 lastReviewed: 2026-09-03
 ---
 
-# BC Basic V1 Standardprodukt
+# 00 BC Basic Standardprodukt
 
-BC Basic V1 ist ein wiederverwendbares, standardnahes Einführungspaket für eine Gesellschaft und einen einfachen Lagerort. Die Universaarl-Referenzsimulation ist vollständig von Angebot bis Hypercare durchgespielt und mit `V1_STANDARDPRODUCT_READY` abgenommen. Sie ist keine reale Kundenlieferung oder BC-Ausführung.
+## Produktnutzen und Zielgruppe
 
-## Drei Wahrheiten
+Dieses Produktbuch beschreibt das wiederverwendbare BC-Basic-Paket unabhängig von einer einzelnen Kundeninstanz. Projektspezifische Entscheidungen, Stammdaten und Evidence verbleiben im jeweiligen Kundenprojekt-Space.
 
-- **Wiederverwendbare Vorlage:** Pläne, Datenvorlagen, UAT- und Trainingskataloge bleiben für jede neue Kundeninstanz zunächst `planned` und werden kundenspezifisch parametrisiert.
-- **Referenzsimulation:** 80 Stunden/9.600 EUR, Prozesse, Daten, Konfiguration, UAT, Training, Cutover, Restart, Hypercare und neun Deliverables sind synthetisch abgeschlossen.
-- **Reale Kundeninstanz:** Tenant, Benutzer, Lizenzen, Konten, Steuerwerte, reale Daten, Sandboxbuchungen und Freigaben werden über `UABC-GATE-BCB-PHASE2-001` neu bestätigt.
+## Leistungsversprechen und Reifegrad
 
-## Leistungsweg und Scope
+Das Standardprodukt folgt einem schlanken Einführungsweg: vorbereiten, drei fokussierte Workshops durchführen, Standard konfigurieren, Daten migrieren und UAT abschließen.
 
-**Angebot → Kundenvorbereitung → drei Workshops → Setup/Migration → UAT → Mock-Cutover → Go-live/Hypercare.** Enthalten sind Finance, P2P, O2C, Zahlung/Bank, Mahnung, einfacher Bestand, Monatsabschluss/VAT-Vorschau, Rollen/SoD, Training, Support und Handover. Erweiterungen, Integrationen, E-Rechnung, erweitertes Lager, Produktion, Projekte, Service, Anlagen, Intercompany, produktive Bank-/ELSTER-Übermittlung sowie Steuer-/Rechtsberatung sind ausgeschlossen oder Change.
+Cutover und Hypercare stabilisieren anschließend den Betrieb. Der Produktstandard ist veröffentlicht; reale Tenant-, Steuer- und Kundendaten werden je Projekt parametrisiert.
 
-## V1-Ergebnis
+## Leistungsumfang
 
-- Produktangebot: 80 Stunden zu 120 EUR = 9.600 EUR netto.
-- sieben Entscheidungsbereiche, acht Datenvorlagen, drei Migrationswellen;
-- reproduzierbare Konfiguration mit SoD- und Berechtigungsproben;
-- sieben UAT-Fälle, vier Operatorpfade, P1/P2 am Exit = 0;
-- Cutover, Restart, drei Hypercaretage und neun Lieferobjekte synthetisch bestanden;
-- Spectra 0.10 gebunden, Branchvertrag und Twin-Allowlist validiert.
+BC Basic befähigt eine Gesellschaft mit überschaubarem Finance-, Handels- und Lagerumfang zur sicheren Nutzung der BC-Standardprozesse. Im Kern enthalten sind:
 
-Der historische 68-Stunden-/11.050-EUR-Plan bleibt nachvollziehbare Baseline, ist aber kein aktuelles Angebot. Kundenspezifische Parameter sind keine V1-Produktlücke, sondern Eingangswerte der realen Kundeninstanz.
+- Finanzbuchhaltung, Debitoren, Kreditoren und Periodenabschluss;
+- Purchase-to-Pay und Order-to-Cash;
+- Zahlung, Ausgleich und Bankabstimmung;
+- einfacher Bestand mit einem oder wenigen Lagerorten;
+- Rollen- und Funktionstrennung, Datenmigration, UAT und Training;
+- Mock-Cutover, Go-live-Begleitung, Hypercare und Betriebsübergabe.
 
-<!-- story-metadata {"id":"PAGE-UABC-090","parent":"PAGE-UABC-000","version":2,"status":"published"} -->
+## Voraussetzungen
+
+Vor dem Setup müssen Sponsor und Prozessverantwortliche benannt, eine geeignete BC-Sandbox verfügbar und die minimalen Datenlieferungen terminiert sein.
+
+Konten, VAT-/USt-Logik, Bankverfahren, Benutzerrollen und rechtliche Anforderungen werden vom Kunden beziehungsweise dessen fachlich zuständigen Stellen bestätigt.
+
+## Standardvorgehen
+
+1. Angebot und Projektgrenzen bestätigen.
+2. Kundenvorbereitung und drei Entscheidungsworkshops durchführen.
+3. Standardkonfiguration und Datenwellen vorbereiten.
+4. Prozesse, Kontrollen und UAT in der Sandbox nachweisen.
+5. Rollen praktisch befähigen und den Mock-Cutover durchführen.
+6. Go-live und Hypercare nach vereinbarten Exit-Kriterien begleiten.
+
+## Erweiterungsgrenzen
+
+Erweiterte Lagerlogistik, Produktion, Service, Projekte, Intercompany, kundenspezifische Extensions und komplexe Integrationen gehören nicht automatisch zum Basispaket.
+
+Das gilt auch für produktive Bank- oder Steuerübermittlung sowie Rechts- und Steuerberatung. Abweichungen werden als Parametrisierung, Change oder Out-of-Scope eingeordnet.
+
+## Produktpflege und projektbezogene Parameter
+
+- Der Produktstandard folgt „Standard vor Sonderlösung“; Abweichungen benötigen einen belegten Geschäftsnutzen.
+- Preise, Zeitrahmen und konkrete Liefertermine werden im Kundenangebot versioniert und nicht aus einem Referenzprojekt übernommen.
+- Tenant-Berechtigungen, Lokalisierungsfunktionen und gesetzliche Einstellungen bleiben je Kundeninstanz zu bestätigen.
+
+## Referenzen
+
+- [Prozess- und Konfigurationsstandard](31-processes.md)
+- [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
+- [Cutover, Hypercare, Betrieb und Erweiterungsgrenzen](73-bc-basic-hypercare.md)
+- [Internes Consultant-Handbuch](30-blueprint.md)
+
+<!-- story-metadata {"id":"PAGE-UABC-090","parent":null,"version":3,"status":"published"} -->

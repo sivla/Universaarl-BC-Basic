@@ -10,6 +10,40 @@ commitResolution: allowed-branch-head-resolved-once
 documentCount: 32
 confluenceDocumentCount: 19
 otherDocumentCount: 13
+spaceCount: 3
+spaceDistribution:
+  UABC-SPACE-CUSTOMER: 11
+  UABC-SPACE-PRODUCT: 4
+  UABC-SPACE-CONSULTANT: 4
+migrationEntryCount: 19
+navigationEvidence:
+  moduleCount: 3
+  nodeCount: 22
+  groupNodeCount: 3
+  pageNodeCount: 19
+  maximumDepth: 2
+  initialStates: { expanded: 11, collapsed: 11 }
+  checks: [module-space-binding, unique-node-ids, known-node-types, parent-resolution, cycle-free, sibling-order, exact-document-coverage, explicit-initial-state]
+ticketTypeEvidence:
+  sourceContract: evidence/simulation/project-story.json
+  exportPath: atlassian/jira/issues/bc-basic-story-tickets.yaml
+  recordCount: 55
+  customerStoryCount: 17
+  internalTraceabilityCount: 38
+  countedWorklogHours: 80
+  historicalPlanningBaselineHours: 68
+  realizesPlanItemRelations: 17
+  historicalSourceCounts: { bc-basic-project: 21, blueprint-wave: 10, environment-baseline: 4, walkthrough-pilot: 3 }
+  canonicalTypes: [epic, story, task, subtask, bug, change]
+  typePresentationCount: 6
+  displayIconPolicy: local-allowlist-only
+  allowlistedLiveIconAssets: []
+  viewCount: 2
+  views:
+    - { viewId: UABC-TICKET-VIEW-BOARD-001, viewType: board, groupCount: 2, columnCount: 4, customerTicketCoverage: 17/17, initialState: expanded }
+    - { viewId: UABC-TICKET-VIEW-COMPACT-001, viewType: compact-list, groupCount: 3, columnCount: 0, customerTicketCoverage: 17/17, initialState: expanded }
+  inferredFromKeyOrTitle: false
+  checks: [typ-vorhanden, quelltyp-zugeordnet, parent-aufgeloest, parenttyp-konsistent, parent-zyklusfrei, planreferenz-explizit, einzelne-zaehlsurface, keine-worklog-doppelzaehlung, view-abdeckung-vollstaendig, boardspalten-explizit, gruppenzustand-explizit, typdarstellung-geschlossen, icon-policy-sicher]
 hashAlgorithm: SHA-256
 gitMode: '100644'
 allowedExternalOrigins: []
@@ -20,7 +54,15 @@ externalIdentities:
 positiveEvidence:
   expectedStatus: passed
   coverage: 32/32
-  checks: [schema, markdown-allowlist, regular-git-blob, content-hash, metadata, parent-tree, owner-reference, jira-reference, projektreferenz, external-origin]
+  checks: [schema, markdown-allowlist, regular-git-blob, content-hash, metadata, three-space-model, parent-tree, page-order, story-page-identity, migration-matrix, markdown-structure, owner-reference, jira-reference, projektreferenz, external-origin]
+renderCheck:
+  executedAt: 2026-07-12
+  method: lokales-Markdown-zu-HTML-und-Playwright-Chromium
+  viewport: 1440x900
+  repositoryArtifactCreated: false
+  inspectedPages: [verification, support-projektumgebung, unternehmen, prozesse-fit-to-standard, loesung-einrichtung, test-abnahme, cutover-go-live, hypercare-uebergabe, produktbuch-start, consultant-handbuch-start]
+  result: bestanden
+  findings: { horizontalOverflow: false, squeezedTables: false, brokenHeadings: false, encodingErrors: false, unresolvedInternalLinks: false }
 negativeEvidence:
   isolationRule: je Fall genau eine kontrollierte Mutation
   cases:
@@ -35,9 +77,28 @@ negativeEvidence:
     - { caseId: DOC-NEG-009, mutation: unsichere-externe-url, expectedCode: DOKUMENT-URL-UNSICHER }
     - { caseId: DOC-NEG-010, mutation: unbelegte-katalogmetadaten, expectedCode: DOKUMENT-METADATEN-ABWEICHUNG }
     - { caseId: DOC-NEG-011, mutation: unzulaessiger-gitmodus, expectedCode: DOKUMENT-GITMODUS-UNZULAESSIG }
+    - { caseId: DOC-NEG-012, mutation: fehlender-space, expectedCode: DOKUMENT-SPACE-VERTRAG-UNGUELTIG }
+    - { caseId: DOC-NEG-013, mutation: doppelte-space-reihenfolge, expectedCode: DOKUMENT-SPACE-VERTRAG-UNGUELTIG }
+    - { caseId: DOC-NEG-014, mutation: space-uebergreifender-parent, expectedCode: DOKUMENT-SPACE-VERTRAG-UNGUELTIG }
+    - { caseId: DOC-NEG-015, mutation: doppelte-seitenreihenfolge, expectedCode: DOKUMENT-SPACE-VERTRAG-UNGUELTIG }
+    - { caseId: DOC-NEG-016, mutation: doppelte-story-page-id, expectedCode: DOKUMENT-SPACE-VERTRAG-UNGUELTIG }
+    - { caseId: DOC-NEG-017, mutation: unvollstaendige-migrationsmatrix, expectedCode: DOKUMENT-MIGRATION-UNVOLLSTAENDIG }
+    - { caseId: DOC-NEG-018, mutation: abweichendes-migrationsziel, expectedCode: DOKUMENT-MIGRATION-UNVOLLSTAENDIG }
+    - { caseId: DOC-NEG-019, mutation: doppelter-h1-titel, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-020, mutation: fehlender-pflichtabschnitt, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-021, mutation: ungeschlossener-codeblock, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-022, mutation: roher-json-block, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-023, mutation: tabelle-mit-mehr-als-vier-spalten, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-024, mutation: ueberlange-inhaltszeile, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-025, mutation: verifikation-ohne-statusabschnitt, expectedCode: DOKUMENT-FORMAT-UNLESBAR }
+    - { caseId: DOC-NEG-026, mutation: doppelte-navigation-id, expectedCode: DOKUMENT-NAVIGATION-UNGUELTIG }
+    - { caseId: DOC-NEG-027, mutation: unbekannter-navigationstyp-oder-dokumentverweis, expectedCode: DOKUMENT-NAVIGATION-UNGUELTIG }
+    - { caseId: DOC-NEG-028, mutation: falscher-navigation-parent-oder-zyklus, expectedCode: DOKUMENT-NAVIGATION-UNGUELTIG }
+    - { caseId: DOC-NEG-029, mutation: doppelte-geschwisterreihenfolge, expectedCode: DOKUMENT-NAVIGATION-UNGUELTIG }
+    - { caseId: DOC-NEG-030, mutation: ungueltiger-navigation-initial-state, expectedCode: DOKUMENT-NAVIGATION-UNGUELTIG }
 commands:
   focused: npm run test:document-catalog
   commitBound: npm run validate:document-catalog
   integrated: npm run validate:snapshot-contract
 status: passed
-truthBoundary: Der Nachweis belegt ausschließlich Repository- und Git-Blob-Integritaet; er behauptet keine externe Confluence-Instanz, Page-ID, Space-Key oder URL.
+truthBoundary: Der Nachweis belegt ausschließlich Repository-, Space-, Markdown- und Git-Blob-Integrität; er behauptet keine externe Confluence-Instanz, Page-ID, Space-Key oder URL.

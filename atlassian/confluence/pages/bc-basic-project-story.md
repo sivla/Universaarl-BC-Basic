@@ -1,78 +1,113 @@
 ---
 id: UABC-BCBSTORY
-title: BC Basic Projektstory
+title: 10 Projektsteuerung
 parent: UABC-PROJECT
-owners: [P-002]
-status: Abgeschlossen
-jiraRefs: [UABC-18, UABC-21]
-referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002]
+owners: [P-001, P-002]
+status: published
+spaceId: UABC-SPACE-CUSTOMER
+spaceType: customer-project
+order: 10
+storyPageId: PAGE-UABC-150
+purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und Projektabschluss zusammen.
+audience: [Steering, Projektleitung, Kunde, Kontrollzentrum]
+jiraRefs: [UABC-22, UABC-26, UABC-34, UABC-35, UABC-38]
+referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
 lastReviewed: 2026-09-03
 ---
 
-# BC Basic Projektstory – Seitenbaum-Inhalte
+# 10 Projektsteuerung
 
-**Seitenkennung:** PAGE-UABC-000 · **Elternseite:** – · **Version:** 3 · **Status:** published · **Autorrolle:** P-002 · **Zeit:** 2026-08-20 bis 2026-09-03
+## Managementsicht
 
-Diese Seite ist die synthetische Projekt-Home. Von der Angebotsbaseline führt der Seitenbaum über Scope, Discovery, Setup, Datenmigration, P2P, O2C, Cash, Lager, Abschluss, UAT, Training und Cutover bis zu drei Hypercaretagen und Handover. Jede Station verweist auf Ticket, BC-Sitzung und Evidence im Storyvertrag.
+Diese Seite ist die Managementsicht auf die vollständige synthetische Projektstory. Sie verbindet Angebot, Phasen, Tickets, Entscheidungen, Risiken, Evidence, Hypercare und Handover, ohne die fachlichen Detailseiten zu duplizieren.
 
-Die neunzehn Unterseiten sind vollständig im Storyvertrag referenziert. Die Inhalte werden durch die bestehenden Discovery-, Einrichtungs-, Test- und Lieferseiten ergänzt; technische Seiten- und Ticketantworten sind synthetische Projektdaten.
+## Projektstatus und Abschlussaussage
 
-## Abschlusskontrolle mit Spectra 0.10
+Das Projekt ist als `V1_STANDARDPRODUCT_READY` und `GO_SIMULATION` abgeschlossen. Alle 13 Simulationsphasen, neun Lieferobjekte und internen Prozessgates sind bestanden; reale Produktivnutzung wird ausdrücklich nicht behauptet.
 
-Der Abschluss verbindet die Angebotsstände mit `evidence/simulation/project-reconciliation.json`: historische Baseline 68 Stunden/11.050 EUR, synthetisches Angebot und Ist jeweils 80 Stunden/9.600 EUR. Die Abweichung ist als Fortschreibung des vollständigen Playthrough-Scopes begründet; eine reale Rechnung oder produktive Leistung wird nicht behauptet.
+## Projektverlauf, Steuerung und Ticketwahrheit
 
-`evidence/simulation/adapter-provenance.json` bindet den einzigen Branch-Index read-only an `exports/project-data/v1/twin-export-map.json`. Source-Hash vor und nach der Projektion sind identisch, die Mappingversion ist fest, und weder Twin noch Adapter besitzen Schreib- oder Überschreibrecht. BC Basic bleibt die alleinige fachliche Source of Truth.
+### Projektkennzahlen
 
-Der 0.10-Lieferstand ergaenzt `evidence/simulation/reference-graph-coverage.json`. Die abgeleiteten Dateien `exports/project-data/v1/reference-graph-native.json`, `exports/project-data/v1/reference-graph-mapping.json` und `exports/project-data/v1/reference-graph-portable.json` erklaeren alle 252 nativen Relationen gegen 190 portable Kanten. Der Nachweis behauptet weder eine 1:1-Abbildung noch eine vollstaendige portable Repraesentation.
+| Kennzahl | Abgeschlossener Stand | Aussage |
+|---|---|---|
+| Angebot | drei Versionen | aktuell 80 Stunden und 9.600 EUR netto |
+| Tickets | 17 abgeschlossen | mit Historie, Worklog und Abschlusskommentar |
+| Worklogs | 17 Einträge, 80 Stunden | synthetischer Angebots-/Ist-Abgleich geschlossen |
+| Projektstory | 15 Ereignisse | vom Angebot bis Hypercare-Exit |
+| Hypercare | drei Tage | P1 = 0 und P2 = 0 am Exit |
+| Relationen | 252 native Kanten | Projektstory referenziell verbunden |
 
-## Projektsteuerung und Kundentermine
+### Zeitstrahl und Gates
 
-| Schritt | Ergebnis | Federfuehrung | Termin der Simulation | Entscheidung |
-| --- | --- | --- | --- | --- |
-| Auftrag und Discovery | Scope, Prozesse, Rollen, Datenowner | P-002 mit P-005/P-011/P-016/P-019 | 03.08.-21.08.2026 | Fit-to-Standard und Datenbereitschaft |
-| Loesungsdesign und Einrichtung | Setupentscheidungen und Probeladung | P-002/P-005 | 24.08.-26.08.2026 | Finanz-, Steuer- und Migrationsfreigabe der Simulation |
-| Fachbereichstest und Training | sieben UAT-Faelle und vier Rollen | P-005/P-011/P-019 | 27.08.2026 | synthetischer UAT-Sign-off |
-| Cutover-Probe | Datenfreeze, Kontrolle, Rueckfall und Wiederanlauf | P-002/P-016 | 28.08.2026 | `GO_SIMULATION` |
-| Go-live und Hypercare | Tagesstatus, Defects, Retests, Abschluss | P-002/P-005 | 31.08.-03.09.2026 | Hypercare-Exit und Handover |
+#### Angebot und Projektstart
 
-Die Termine und Rollen sind synthetisch. Ein echtes Projekt ersetzt sie durch benannte Personen, Kalendertermine, Eskalationsweg und unterschriftsfaehige Entscheidungen.
+Das Angebot wurde als 80-Stunden-Paket zu 9.600 EUR synthetisch beauftragt. Scope, Rollen, Mitwirkung, Change-Regel und Wahrheitsgrenze wurden im Projektstart festgehalten.
 
-## Fit-to-Standard, Loesungsarchitektur und Prozesslandkarte
+#### Discovery und Design
 
-Standard bleibt die Vorgabe. Erweiterungen und Integrationen werden nur nach einem belegten Gap und einer eigenen Scope-/Kostenentscheidung zugelassen. Der aktuelle Gap-Stand ist: keine Produktentwicklung erforderlich; kundenspezifisch zu parametrisieren sind Finanz-/Steuerdesign, Dokumente, Berechtigungen, Daten und Betriebsverfahren. Produktion, Service, Projekte, Anlagen, Intercompany und erweiterte Lagerlogistik sind bewusst ausserhalb des Pakets.
+Drei Workshops führten zu `GO_DISCOVERY_SIMULATION`. Sieben Entscheidungsbereiche decken Finance/VAT, Dimensionen, Prozesse, Cash/Bank, Daten, Rollen und Cutover ab.
 
-- **Finance und Abschluss:** Kontenplan, Buchungsgruppen, MwSt.-Matrix, Perioden, Dimensionen, Sach-/Nebenbuchabgleich und UStVA-Vorschau.
-- **Purchase-to-Pay:** Kreditor, Bestellung, Wareneingang, Rechnung, Zahlung, Ausgleich und Abweichungsbehandlung.
-- **Order-to-Cash:** Debitor, Auftrag, Lieferung, Rechnung, Mahnung ohne Gebuehr oder externen Versand, Zahlung, Ausgleich und Gutschrift.
-- **Zahlung und Abstimmung:** Zahlungsjournale, synthetischer Kontoauszug, automatisches/manuelles Matching, Bankgebuehr und Endsaldo.
-- **Inventory:** Artikel, Einheit, Lagerort, Zugang, Abgang, Inventur, Differenz und Wertabgleich.
-- **Monatsabschluss und VAT:** offene Belege, Nebenbuchkontrollen, Lagerwert, Steuerposten und Vorschau ohne Uebermittlung.
+#### Einrichtung und Migration
 
-Die Durchlaeufe stehen in `project/bc-basic/bc-playthrough-catalog.yaml`; Beleg-, Konten-, MwSt.-, Bank- und Lagerwirkung stehen in `evidence/simulation/bc-playthrough-ledger.yaml`. Defects, Korrekturen und Retests sind Teil derselben Kette.
+Die Basiskonfiguration wurde in Abhängigkeitsreihenfolge vorbereitet. Acht Vorlagenpaare und zehn Migrationsobjekte liefen in drei Wellen mit Fehlerkorrektur, Wiederholung und Abstimmung.
 
-## Daten, Einrichtung, Berechtigungen und Betrieb
+#### Prozesse, UAT und Training
 
-Die Migration erfolgt in vier Wellen: Grundeinrichtung und Dimensionen; Konten/Buchungsgruppen/MwSt.; Debitoren/Kreditoren/Artikel/Preise; Lagerbestand, offene Posten und Eroeffnungssalden. Jede Welle verlangt Pflichtfeld-, Dubletten-, Referenz-, Mengen- und Summenkontrolle sowie Ruecksetzung vor Wiederholung. Historische gebuchte Bewegungen werden nicht vollstaendig migriert.
+P2P, O2C, Cash/Bank, Lager, Monatsabschluss und VAT-Vorschau wurden mit konsistenten Belegen und Ledger Entries durchgespielt. Sieben UAT-Fälle und vier Operatorpfade wurden synthetisch bestanden.
 
-Einzurichten und im echten System nachzuweisen sind Kontenplan, allgemeine und steuerliche Buchungsmatrizen, Debitoren-/Kreditoren-/Lagerbuchungsgruppen, Nummernserien, zwei Dimensionen, Zahlungsbedingungen und -formen, Bankkonto, Mahnbedingungen, Lagerort, Artikel/Einheiten, Buchungsperioden und erlaubte Buchungsdaten. Die synthetischen Rollen trennen Administration, Finance, Handel, Daten und Lager. Kritische Kombinationen aus Einrichtung, Stammdatenpflege, Buchung, Zahlung und Freigabe sind vor dem Echtstart durch eine SoD-Pruefung zu begrenzen.
+#### Cutover und simulierter Go-live
 
-Direkte Integrationen sind nicht Teil des Pakets. Standardberichte, Saldenlisten, Debitoren-/Kreditorenposten, Bankabstimmung, Lagerbewertung und MwSt.-Vorschau sind enthalten. Kundenlayouts, E-Mail, Bankdateien, E-Rechnung, BI-Ausgaben oder Drittanbindungen erfordern eine eigene Anforderung und Entscheidung.
+Mock-Cutover, `GO_SIMULATION`, Rollback- und Restartweg wurden anhand definierter Entry-/Exit-Kriterien entschieden. Der simulierte Go-live war eine Repository-Generalprobe und kein Produktivstart.
 
-## Vier klare Reifestufen
+#### Hypercare und Abschluss
 
-1. **Kundengeeignetes wiederverwendbares Paket:** Scope, Prozessmuster, Datenvorlagen, Setupentscheidungen, UAT, Training, Cutover, Hypercare und Supportmodell sind vorhanden.
-2. **Vor Projektstart zu parametrisieren:** Personen, Termine, Lizenz, Konten, Steuerlogik, Nummernserien, Dimensionen, Zahlungs-/Mahnregeln, Bankformat, Dokumente, Daten und Berechtigungen.
-3. **Im echten BC-Sandboxsystem auszufuehren und nachzuweisen:** Einrichtung, Import, Vorschau/Buchung, Ledgerkontrolle, Berechtigungsprobe, UAT, Mock-Cutover, Ruecksetzung und Wiederanlauf.
-4. **Kunden-, steuer- oder rechtsseitig zu entscheiden:** Scopefreigabe, Datenverantwortung, Steuerkennzeichen, Aufbewahrung, Zahlungs-/Mahnpolitik, produktiver Cutover und externe Uebermittlungen.
+Drei Hypercaretage behandelten Zahlungsausgleich, Inventurdifferenz und VAT-Wahrheitsgrenze. Alle Defects wurden korrigiert und retestet; das Projekt ging mit null offenen P1/P2 in Handover und Supportstart.
 
-## Wichtigste fachliche Restluecken vor realer Nutzung
+### Kaufmännische Steuerung
 
-- reale Gesellschaft, Lizenz und benannte Prozessverantwortliche;
-- freigegebener Kontenplan, Buchungs-/MwSt.-Matrix und UStVA-Zuordnung;
-- reale Datenprofile, Datenqualitaet, Migrationsvolumen und Abstimmwerte;
-- Berechtigungsrollen, SoD-Konflikte und Benutzerzuordnung;
-- Bank-, Zahlungs-, Mahn-, Dokument- und Reportinganforderungen;
-- echte Sandboxausfuehrung mit Screenshots/Systemposten, Ruecksetzung und Fachbereichsabnahme;
-- produktiver Cutover-, Support-, Datenschutz-, Steuer- und Rechtsentscheid.
+Die historische Baseline von 68 Stunden zu 162,50 EUR ergab 11.050 EUR. Sie wurde durch das aktuelle Standardangebot mit 80 Stunden zu 120 EUR und 9.600 EUR ersetzt. Angebot und synthetisches Ist sind ohne Abweichung geschlossen.
 
-<!-- story-metadata {"id":"PAGE-UABC-150","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+Die 18/40/10-Stunden-Werte in `project-plan.yaml` bleiben deshalb ausdrücklich die historische Planvorlage. Die aktuelle 80-Stunden-Verteilung stammt aus den Angebotsversionen und den 17 Ticket-Worklogs; sie wird nicht mit der Vorlage zusammengerechnet.
+
+Die Werte sind eine Simulationsrechnung. Sie belegen keine reale Rechnung, Zahlung, Freigabe oder produktive Leistung.
+
+### Entscheidungen, Risiken und Maßnahmen
+
+Entscheidungen besitzen Owner, Alternativen, Auswirkung und Evidence.
+Risiken werden nicht durch einen grünen Simulationsstatus verborgen: Kundenparameter, Steuer-/Rechtsreview, Tenant, reale Daten, Rollen und Sandboxverhalten bleiben Entry-Punkte.
+
+Meetings führen zu Ticket oder Entscheidung. Ein Ticket ist nur abgeschlossen, wenn Akzeptanzkriterien, Evidence, Test beziehungsweise Retest und Abschlusskommentar vorliegen.
+
+### Ticketwahrheit und Zählregel
+
+Die 17 Records in `bc-basic-story-tickets.yaml` bilden den kanonischen kundenlesbaren Projektverlauf. Nur diese Menge zählt in Angebot, Worklogs, 80-Stunden-Ist, Timeline, Status und Abschlusskennzahlen.
+
+Weitere 38 ältere Issues aus Projekt-, Blueprint-, Umgebungs- und Walkthrough-Planung bleiben als interne historische Traceability erhalten. Sie erklären Vorbereitung und Herkunft einzelner Anforderungen, sind aber kein zweites Kundenbacklog und werden nicht zu den 17 Storytickets oder ihren Stunden addiert.
+
+Der Twin erhält für jedes sichtbare Ticket den expliziten kanonischen Typ, die Parent-Beziehung, die Sichtbarkeitsrolle und den Zählbereich. Typen werden weder aus Ticket-Key noch Titel oder Großschreibung erraten.
+
+### Spectra und Twin
+
+Spectra `0.10.0-alpha.1` ist unveränderlich gebunden. BC Basic bleibt fachliche Source of Truth; der Twin liest ausschließlich positivgelistete Artefakte aus einem validierten Commit und besitzt kein Schreibrecht.
+
+Die aktuelle Space-Struktur ordnet Kundendokumentation, Standardprodukt und internes Consultant-Handbuch getrennt. Externe Confluence-URLs, Page-IDs oder Space-Keys werden ohne belegte Quelle nicht erfunden.
+
+## Reale Entry-Parameter und verbleibende Grenzen
+
+- **Synthetisch abgeschlossen:** Scope, Budgetabgleich, Discovery, Setup, Migration, UAT, Training, Cutover, Go-live-Rehearsal, Hypercare, Restart und Handover.
+- **Entry-Gate einer realen Instanz:** Gesellschaft, Lizenz, Tenant, Konten/VAT, Daten, Benutzer/Rollen, Bank, Sandbox, Support und rechtlich/steuerliche Bestätigung.
+- Diese Parameter sind keine offenen Defects der Referenzsimulation. Sie werden im nächsten Kundenprojekt bewusst neu entschieden und belegt.
+
+## Referenzen
+
+- [Maschinenlesbare Story](../../../evidence/simulation/project-story.json)
+- [Narrative Chronik](../../../docs/reports/bc-basic-project-chronicle.md)
+- [Entscheidungsregister](../../../project/bc-basic/decision-register.yaml)
+- [Historische Planvorlage und Projektsteuerung](../../../project/bc-basic/project-plan.yaml)
+- [Jira-ähnliche Projektwelt](../../jira/issues/bc-basic-project.yaml)
+- [Abschlussstatus](../../../evidence/simulation/project-completion.yaml)
+- [Aktueller Angebots-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
+- [Twin-Allowlist](../../../exports/project-data/v1/index.yaml)
+
+<!-- story-metadata {"id":"PAGE-UABC-150","title":"10 Projektsteuerung","parent":"PAGE-UABC-000","version":4,"status":"published"} -->

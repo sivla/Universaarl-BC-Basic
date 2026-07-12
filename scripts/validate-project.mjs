@@ -686,25 +686,42 @@ async function validateAtlassian(stableIds, openSpecRefs, verificationMap) {
   }
   findCycle(issueMap.keys(), dependencyEdges, 'Jira-Abhaengigkeit');
 
+  const spacePointer = await yaml('atlassian/confluence/space.yaml');
+  const bcBasicChangeActive = await exists('openspec/changes/deliver-bc-basic-customer-project');
+  const sourceIndexAvailable = typeof spacePointer.sourceIndex === 'string' && await exists(spacePointer.sourceIndex);
   const pageFiles = await walk('atlassian/confluence/pages', (file) => file.endsWith('.md'));
   const pages = await Promise.all(pageFiles.map(async (file) => ({ file, meta: frontmatter(await read(file), file) })));
   const pageMap = new Map(pages.map((page) => [page.meta.id, page]));
   check(pageMap.size === pages.length, 'doppelte Confluence-Seiten-IDs');
   const pageEdges = new Map();
   for (const { file, meta } of pages) {
-    for (const field of ['id', 'title', 'parent', 'owners', 'status', 'jiraRefs', 'referenceIds', 'lastReviewed']) check(Object.hasOwn(meta, field), `${file}: ${field} fehlt`);
+    for (const field of ['id', 'title', 'parent', 'owners', 'status', 'jiraRefs', 'referenceIds', 'lastReviewed', 'spaceId', 'spaceType', 'order', 'storyPageId']) check(Object.hasOwn(meta, field), `${file}: ${field} fehlt`);
     check(/^UABC-[A-Z]+$/.test(meta.id ?? ''), `${file}: ungueltige Seiten-ID`);
-    check(meta.parent === null || pageMap.has(meta.parent), `${file}: unbekannter parent ${meta.parent}`);
-    pageEdges.set(meta.id, meta.parent ? [meta.parent] : []);
+    if (sourceIndexAvailable) check(meta.parent === null || pageMap.has(meta.parent), `${file}: unbekannter parent ${meta.parent}`);
+    pageEdges.set(meta.id, meta.parent && pageMap.has(meta.parent) ? [meta.parent] : []);
     check((meta.owners ?? []).length > 0 && meta.owners.every((owner) => people.has(owner)), `${file}: ungueltige owners`);
     check(dateValid(meta.lastReviewed), `${file}: ungueltiges lastReviewed`);
     const syntheticStoryPage = file.endsWith('bc-basic-project-story.md') || file.endsWith('bc-basic-hypercare.md') || file.endsWith('80-bc-basic-training.md') || file.endsWith('81-bc-basic-handover.md');
-    check((meta.jiraRefs ?? []).length > 0 && (syntheticStoryPage || meta.jiraRefs.every((key) => issueMap.has(key))), `${file}: ungueltige jiraRefs`);
-    check((meta.referenceIds ?? []).length > 0 && (syntheticStoryPage || meta.referenceIds.every((id) => stableIds.has(id) || openSpecRefs.has(id))), `${file}: ungeloeste referenceIds`);
+    if (sourceIndexAvailable) {
+      check((meta.jiraRefs ?? []).length > 0 && (syntheticStoryPage || meta.jiraRefs.every((key) => issueMap.has(key))), `${file}: ungueltige jiraRefs`);
+      check((meta.referenceIds ?? []).length > 0 && (syntheticStoryPage || meta.referenceIds.every((id) => stableIds.has(id) || openSpecRefs.has(id))), `${file}: ungeloeste referenceIds`);
+    }
   }
   findCycle(pageMap.keys(), pageEdges, 'Confluence-parent');
   for (const issue of issues) for (const reference of issue.confluenceRefs ?? []) check(pageMap.has(reference), `${issue.key}: Confluence-Referenz ${reference} fehlt`);
-  check(pageMap.has((await yaml('atlassian/confluence/space.yaml')).homepage), 'Confluence-Startseite existiert nicht');
+  check(spacePointer.sourceOfTruth === 'exports/project-data/v1/document-catalog.json' && spacePointer.sourceIndex === 'exports/project-data/v1/index.yaml' && spacePointer.spaceModel === 'catalog-defined-three-space-model', 'Confluence-Space-Pointer verweist nicht auf den kanonischen Dokumentkatalog');
+  check(spacePointer.externalUrl === null && spacePointer.pageId === null && spacePointer.spaceKey === null, 'Confluence-Space-Pointer darf keine unbelegte externe Identitaet behaupten');
+  check(sourceIndexAvailable || !bcBasicChangeActive, 'Aktiver BC-Basic-Change erfordert den kanonischen Dokumentindex');
+  if (sourceIndexAvailable) {
+    const projectDataIndex = await yaml(spacePointer.sourceIndex);
+    const confluenceDefinitions = (projectDataIndex.documentCatalog?.definitions ?? []).filter((definition) => definition.documentType === 'confluence-page');
+    check((projectDataIndex.documentCatalog?.spaces ?? []).length === 3 && confluenceDefinitions.length === 19, 'Confluence-Katalog muss drei Spaces und 19 Seiten enthalten');
+    const definitionById = new Map(confluenceDefinitions.map((definition) => [definition.documentId, definition]));
+    for (const { file, meta } of pages) {
+      const definition = definitionById.get(meta.id);
+      check(definition?.spaceId === meta.spaceId && definition?.spaceType === meta.spaceType && definition?.order === meta.order && definition?.storyPageId === meta.storyPageId, `${file}: interne Space-Metadaten weichen vom Dokumentkatalog ab`);
+    }
+  }
 }
 
 async function validateWalkthroughExports({ openSpec, openSpecRefs, verificationMap, people }) {

@@ -3,7 +3,7 @@
 ## Faktenbasis
 
 - Die kanonische Baseline weist `playthru` und die sichtbare Gesellschaft `Universaarl GmbH` nur lesend nach; sie erteilt keine Schreibfreigabe.
-- Die Projektablage besitzt OpenSpec-, Jira-, Confluence-, Playwright- und Nachweisstrukturen, aber noch keine ausgefuehrte BC-Basic-Einrichtung.
+- Die Projektablage besitzt eine vollstaendig durchgespielte repositorybasierte BC-Basic-Referenzsimulation mit OpenSpec-, Jira-, Confluence-, Playthrough- und Nachweisstrukturen. Eine reale BC-Einrichtung wurde weiterhin nicht behauptet.
 - **BC Basic Einrichtung** ist ein internes Standardprodukt. Die tatsaechliche Microsoft-Lizenz- und Tenantentscheidung bleibt menschlich freizugeben und kostenextern.
 - Microsoft beschreibt Standardpfade fuer Grundeinrichtung, Finanzwesen, Verkauf/Einkauf, einfaches Lager, Konfigurationspakete, Periodenabschluss und deutsche UStVA-Funktionalitaet. Die konkrete Verfuegbarkeit wird erst im Zielzustand geprueft; aus der Planung wird keine Feature-Verfuegbarkeit abgeleitet.
 
@@ -35,6 +35,24 @@ Der Project Twin liest spaeter ausschliesslich den neuesten vollstaendig validie
 `exports/project-data/v1/document-catalog.json` ist der einzige Producer-Vertrag fuer die Navigation ueber alle 32 als Markdown positivgelisteten Projektdokumente. Der Branch-Index bleibt die einzige Allowlist; der Katalog darf keinen zusaetzlichen Quellpfad freigeben. Die 19 Dateien unter `atlassian/confluence/pages/` verwenden ihre vorhandene Frontmatter-ID und Parenthierarchie. Fuer die 13 weiteren Dokumente gilt eine bereits vorhandene Dokument-, Meeting- oder Index-Artefakt-ID als stabiler Fallback. Phase und Prozess bleiben `null` oder `not_evidenced`, wenn die Projektquelle keine belastbare Zuordnung traegt.
 
 Der Twin loest `codex/universaarl-projekt` genau einmal auf und pinnt die Commit-SHA ausserhalb der Dateien dieses Commits. Index, Katalog und Dokumentblobs werden anschliessend nur ueber diesen Commit gelesen. `contentSha256` ist der SHA-256 der rohen Git-Blobbytes; jeder Pfad muss exakt ein regulaerer `100644`-Blob sein. Katalog und Schema enthalten keine Selbst-SHA. Externe URL, Confluence-Page-ID und Space-Key bleiben `null`, solange keine kanonische Quelle und keine sichere HTTPS-Origin belegt sind. Das historische `snapshot-manifest.json` bleibt unveraenderte Legacy-Evidence und bestimmt weder Kataloggueltigkeit noch Branch-Lesbarkeit.
+
+### Drei Confluence-Wissensraeume ohne zweite Wahrheit
+
+Der vorhandene Dokumentkatalog wird um die interne Space-Identitaet, den Space-Typ, die Reihenfolge und die stabile Story-Seiten-ID erweitert. Er bleibt gemeinsam mit dem Branch-Index die einzige maschinenlesbare Seitenbaumquelle. `atlassian/confluence/space.yaml` verweist nur auf diesen Vertrag; es fuehrt keinen parallelen Seitenbaum. Eine versionierte Redirect-Matrix beschreibt fuer jede der 19 stabilen Seiten die fachliche Umbenennung und Parent-Migration, ohne Pfad oder ID zu aendern.
+
+- `UABC-SPACE-CUSTOMER` enthaelt die konkrete Kundenprojektwahrheit von Support und Unternehmensmodell bis Projektsteuerung, Hypercare und Uebergabe.
+- `UABC-SPACE-PRODUCT` beschreibt das kundenunabhaengige BC-Basic-Standardprodukt, seine Voraussetzungen, Standards, Liefergrenzen und Betriebslogik.
+- `UABC-SPACE-CONSULTANT` ist die interne, wiederverwendbare Durchfuehrungshilfe fuer Discovery, Einrichtung, Migration, Test, Training, Cutover und Abschluss.
+
+Jeder Space besitzt genau eine Root-Seite. Parent-Beziehungen bleiben innerhalb desselben Space, `order` ist je Parent eindeutig und jede Seite besitzt genau einen sicheren, positivgelisteten Markdown-Blob. Externe Confluence-URL, Page-ID und Space-Key bleiben weiterhin unbelegt. Ein schlankes Lesemuster stellt Kurzkontext und Status vor Detailinhalt; technische IDs und Pruefausgaben erscheinen erst in den Referenzen. Formatpruefungen blockieren doppelte Haupttitel, ungeschlossene Codebloecke, uebersprungene Ueberschriftsebenen und unlesbare Tabellenstrukturen.
+
+Die 17 Tickets der Projektstory behalten ihre vorhandene Fachklassifikation und bilden den einzigen kundenlesbaren Projektverlauf. Nur sie zaehlen fuer Ticketmenge, Worklogs, 80 Stunden, 9.600 EUR, Timeline und Abschlussstatus. Die 38 aelteren Projekt-, Blueprint-, Umgebungs- und Walkthrough-Issues bleiben unveraenderte interne Planungs- und Traceability-Artefakte; sie werden nicht als zweites Kundenbacklog oder zusaetzliche Stunden gezaehlt.
+
+Der Export uebernimmt `type` explizit aus der jeweiligen kanonischen Ticketquelle, normalisiert ausschliesslich die belegte technische Schreibweise und dokumentiert Parent-Typ, Sichtbarkeitsrolle und Zaehlbereich. Weder Generator noch Twin duerfen Tickettypen aus Key, Titel, Parent oder Position erraten. Fehlende oder unbekannte Typen, doppelte IDs, falsche Zaehlung und eine nicht erlaubte Parent-Typ-Kombination blockieren die Uebergabe.
+
+Der Dokumentkatalog liefert drei flache Space-Module und die 19 stabilen Seiten als explizite Navigationsknoten. Jeder Knoten traegt Typ, Titel, Reihenfolge, Parent, optionales Dokumentziel und den semantischen Ausgangszustand `expanded` oder `collapsed`. Der Ticketkatalog liefert genau eine Board- und eine Kompaktlisten-View mit expliziten Spalten, Statuszuordnung, Gruppen, sichtbaren Feldern, Filtern und derselben Expand-Semantik. Die 38 historischen Traceability-Issues bleiben ausserhalb der kundenlesbaren Views.
+
+Jeder kanonische Tickettyp besitzt ein deutsches Label, einen sicheren `displayIconKey` und einen `displayColorToken` aus geschlossenen Positivlisten. Beliebige HTML-/SVG-Fragmente und externe Icon-URLs sind unzulaessig. Ein spaeteres Jira-Asset darf erst nach lokaler Speicherung, Positivlistung und Digestbindung verwendet werden; aktuell wird kein solches Asset behauptet.
 
 ### Liefermodell
 

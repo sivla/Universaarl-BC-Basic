@@ -9,6 +9,495 @@
   "readOnly": true,
   "validationStatus": "validated",
   "allowedExternalOrigins": [],
+  "spaces": [
+    {
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "title": "Universaarl Kundenprojekt",
+      "purpose": "Kundenbezogene Projektwahrheit von Projektumgebung bis Handover.",
+      "audience": [
+        "Kunde",
+        "Projektleitung",
+        "Key User",
+        "Consultant"
+      ],
+      "order": 0,
+      "homeDocumentId": "UABC-PROJECT",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "title": "BC Basic Standardprodukt",
+      "purpose": "Wiederverwendbares BC-Basic-Leistungs- und Vorgehensmodell.",
+      "audience": [
+        "Vertrieb",
+        "Projektleitung",
+        "Consultant",
+        "Solution Architect"
+      ],
+      "order": 1,
+      "homeDocumentId": "UABC-BCBPROJECT",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "title": "BC Basic Consultant-Handbuch",
+      "purpose": "Interne Durchführungshilfe für den leanen Fast-Track.",
+      "audience": [
+        "Consultant",
+        "Solution Architect",
+        "Support"
+      ],
+      "order": 2,
+      "homeDocumentId": "UABC-BLUEPRINT",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    }
+  ],
+  "navigationModules": [
+    {
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "title": "Universaarl Kundenprojekt",
+      "order": 0
+    },
+    {
+      "moduleId": "UABC-NAV-PRODUCT",
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "title": "BC Basic Standardprodukt",
+      "order": 1
+    },
+    {
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "title": "BC Basic Consultant-Handbuch",
+      "order": 2
+    }
+  ],
+  "navigationNodes": [
+    {
+      "nodeId": "UABC-NAV-NODE-CUSTOMER",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "group",
+      "title": "Universaarl Kundenprojekt",
+      "order": 0,
+      "parentNodeId": null,
+      "documentId": null,
+      "description": "Kundenbezogene Projektstory und freigegebene Evidence.",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-PROJECT",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "00 Support – Projektumgebung",
+      "order": 0,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-PROJECT",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-COMPANY",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "01 Unternehmen",
+      "order": 1,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-COMPANY",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBDELIVERABLES",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "02 Projektauftrag und Scope",
+      "order": 2,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-BCBDELIVERABLES",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBDISCOVERY",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "03 Prozesse und Fit-to-Standard",
+      "order": 3,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-BCBDISCOVERY",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBIMPLEMENTATION",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "04 Lösung und Einrichtung",
+      "order": 4,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-BCBIMPLEMENTATION",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-DECISIONS",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "05 Datenmigration",
+      "order": 5,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-DECISIONS",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-TESTS",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "06 Test und Abnahme",
+      "order": 6,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-TESTS",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-HYPERCARE",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "07 Schulung und Befähigung",
+      "order": 7,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-HYPERCARE",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-WALKTHROUGH",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "08 Cutover und Go-live",
+      "order": 8,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-WALKTHROUGH",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBHCSTORY",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "09 Hypercare und Übergabe",
+      "order": 9,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-BCBHCSTORY",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBSTORY",
+      "moduleId": "UABC-NAV-CUSTOMER",
+      "nodeType": "page",
+      "title": "10 Projektsteuerung",
+      "order": 10,
+      "parentNodeId": "UABC-NAV-NODE-CUSTOMER",
+      "documentId": "UABC-BCBSTORY",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-PRODUCT",
+      "moduleId": "UABC-NAV-PRODUCT",
+      "nodeType": "group",
+      "title": "BC Basic Standardprodukt",
+      "order": 0,
+      "parentNodeId": null,
+      "documentId": null,
+      "description": "Wiederverwendbares Produktbuch ohne Kunden-Evidence.",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBPROJECT",
+      "moduleId": "UABC-NAV-PRODUCT",
+      "nodeType": "page",
+      "title": "00 BC Basic Standardprodukt",
+      "order": 0,
+      "parentNodeId": "UABC-NAV-NODE-PRODUCT",
+      "documentId": "UABC-BCBPROJECT",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-PROCESSES",
+      "moduleId": "UABC-NAV-PRODUCT",
+      "nodeType": "page",
+      "title": "01 Prozess- und Konfigurationsstandard",
+      "order": 1,
+      "parentNodeId": "UABC-NAV-NODE-PRODUCT",
+      "documentId": "UABC-PROCESSES",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-TRAINING",
+      "moduleId": "UABC-NAV-PRODUCT",
+      "nodeType": "page",
+      "title": "02 Lieferpaket, Tests und Standardtraining",
+      "order": 2,
+      "parentNodeId": "UABC-NAV-NODE-PRODUCT",
+      "documentId": "UABC-TRAINING",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBHYPERCARE",
+      "moduleId": "UABC-NAV-PRODUCT",
+      "nodeType": "page",
+      "title": "03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen",
+      "order": 3,
+      "parentNodeId": "UABC-NAV-NODE-PRODUCT",
+      "documentId": "UABC-BCBHYPERCARE",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-CONSULTANT",
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "nodeType": "group",
+      "title": "BC Basic Consultant-Handbuch",
+      "order": 0,
+      "parentNodeId": null,
+      "documentId": null,
+      "description": "Interne Fast-Track-Durchführung ohne Kunden-Evidence.",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BLUEPRINT",
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "nodeType": "page",
+      "title": "00 Consultant-Handbuch und Fast-Track",
+      "order": 0,
+      "parentNodeId": "UABC-NAV-NODE-CONSULTANT",
+      "documentId": "UABC-BLUEPRINT",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-DISCOVERY",
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "nodeType": "page",
+      "title": "01 Discovery, Workshops und Fit-to-Standard",
+      "order": 1,
+      "parentNodeId": "UABC-NAV-NODE-CONSULTANT",
+      "documentId": "UABC-DISCOVERY",
+      "initialState": "expanded"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-ENVBASELINE",
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "nodeType": "page",
+      "title": "02 Umgebung, Einrichtung, Daten und Testdurchführung",
+      "order": 2,
+      "parentNodeId": "UABC-NAV-NODE-CONSULTANT",
+      "documentId": "UABC-ENVBASELINE",
+      "initialState": "collapsed"
+    },
+    {
+      "nodeId": "UABC-NAV-NODE-BCBMEETINGS",
+      "moduleId": "UABC-NAV-CONSULTANT",
+      "nodeType": "page",
+      "title": "03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss",
+      "order": 3,
+      "parentNodeId": "UABC-NAV-NODE-CONSULTANT",
+      "documentId": "UABC-BCBMEETINGS",
+      "initialState": "collapsed"
+    }
+  ],
+  "redirects": [
+    {
+      "documentId": "UABC-PROJECT",
+      "storyPageId": "PAGE-UABC-000",
+      "sourcePath": "atlassian/confluence/pages/00-project.md",
+      "previousTitle": "Projektfuehrung",
+      "previousParentId": null,
+      "targetTitle": "00 Support – Projektumgebung",
+      "targetParentId": null,
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-COMPANY",
+      "storyPageId": "PAGE-UABC-010",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+      "previousTitle": "Unternehmensprofil Universaarl",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "01 Unternehmen",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-DISCOVERY",
+      "storyPageId": "PAGE-UABC-020",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "previousTitle": "Discovery und Workshops",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "01 Discovery, Workshops und Fit-to-Standard",
+      "targetParentId": "UABC-BLUEPRINT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BLUEPRINT",
+      "storyPageId": "PAGE-UABC-030",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "previousTitle": "Unternehmens-Blueprint v0.1",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "00 Consultant-Handbuch und Fast-Track",
+      "targetParentId": null,
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-PROCESSES",
+      "storyPageId": "PAGE-UABC-040",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "previousTitle": "Prozesslandkarte",
+      "previousParentId": "UABC-BLUEPRINT",
+      "targetTitle": "01 Prozess- und Konfigurationsstandard",
+      "targetParentId": "UABC-BCBPROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-DECISIONS",
+      "storyPageId": "PAGE-UABC-050",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "previousTitle": "Entscheidungen und offene Punkte",
+      "previousParentId": "UABC-BLUEPRINT",
+      "targetTitle": "05 Datenmigration",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-TESTS",
+      "storyPageId": "PAGE-UABC-060",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "previousTitle": "Tests und Nachweise",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "06 Test und Abnahme",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-ENVBASELINE",
+      "storyPageId": "PAGE-UABC-070",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "previousTitle": "Playthru-Umgebungsbaseline",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "02 Umgebung, Einrichtung, Daten und Testdurchführung",
+      "targetParentId": "UABC-BLUEPRINT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-WALKTHROUGH",
+      "storyPageId": "PAGE-UABC-080",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "previousTitle": "Projektartefakt-Walkthrough-Pilot",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "08 Cutover und Go-live",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBPROJECT",
+      "storyPageId": "PAGE-UABC-090",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "previousTitle": "BC Basic V1 Standardprodukt",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "00 BC Basic Standardprodukt",
+      "targetParentId": null,
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBDISCOVERY",
+      "storyPageId": "PAGE-UABC-100",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "previousTitle": "Discovery und Fit-to-Standard",
+      "previousParentId": "UABC-BCBPROJECT",
+      "targetTitle": "03 Prozesse und Fit-to-Standard",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBIMPLEMENTATION",
+      "storyPageId": "PAGE-UABC-110",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "previousTitle": "Einrichtungswoche",
+      "previousParentId": "UABC-BCBPROJECT",
+      "targetTitle": "04 Lösung und Einrichtung",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBHYPERCARE",
+      "storyPageId": "PAGE-UABC-120",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "previousTitle": "Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau",
+      "previousParentId": "UABC-BCBPROJECT",
+      "targetTitle": "03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen",
+      "targetParentId": "UABC-BCBPROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBDELIVERABLES",
+      "storyPageId": "PAGE-UABC-130",
+      "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "previousTitle": "V1-Liefer- und Abnahmeübersicht",
+      "previousParentId": "UABC-BCBPROJECT",
+      "targetTitle": "02 Projektauftrag und Scope",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBMEETINGS",
+      "storyPageId": "PAGE-UABC-140",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "previousTitle": "Besprechungen und Entscheidungen",
+      "previousParentId": "UABC-BCBPROJECT",
+      "targetTitle": "03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss",
+      "targetParentId": "UABC-BLUEPRINT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBSTORY",
+      "storyPageId": "PAGE-UABC-150",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "previousTitle": "BC Basic Projektstory",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "10 Projektsteuerung",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-BCBHCSTORY",
+      "storyPageId": "PAGE-UABC-160",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "previousTitle": "Hypercare Tagesstatus",
+      "previousParentId": "UABC-BCBSTORY",
+      "targetTitle": "09 Hypercare und Übergabe",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-HYPERCARE",
+      "storyPageId": "PAGE-UABC-170",
+      "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "previousTitle": "Operatortraining und Hypercare",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "07 Schulung und Befähigung",
+      "targetParentId": "UABC-PROJECT",
+      "migrationStatus": "migrated-in-place"
+    },
+    {
+      "documentId": "UABC-TRAINING",
+      "storyPageId": "PAGE-UABC-180",
+      "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "previousTitle": "V1-Abschluss und Kundenstart",
+      "previousParentId": "UABC-PROJECT",
+      "targetTitle": "02 Lieferpaket, Tests und Standardtraining",
+      "targetParentId": "UABC-BCBPROJECT",
+      "migrationStatus": "migrated-in-place"
+    }
+  ],
   "documentCount": 32,
   "confluenceDocumentCount": 19,
   "documents": [
@@ -32,7 +521,7 @@
       ],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "5364b3aab6c744724af898a1d972b211a37a37173bab4a71e44cd5c8d54385cb",
+      "contentSha256": "d5a21db4d9594cfb497a0f785acdcc22000186ecbf7d6700fc3f12ae8baca4bf",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -42,79 +531,93 @@
     {
       "artifactId": "UABC-SRC-BCB-CONF-009",
       "documentId": "UABC-PROJECT",
-      "title": "Projektfuehrung",
+      "title": "00 Support – Projektumgebung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/00-project.md",
       "parentId": null,
       "phase": "project-wide",
-      "process": "projektsteuerung",
-      "status": "W0 Complete",
+      "process": "projektumgebung",
+      "status": "published",
       "ownerRefs": [
-        "P-001",
-        "P-002"
+        "P-002",
+        "P-005"
       ],
       "jiraRefs": [
-        "UABC-1",
-        "UABC-5",
-        "UABC-6",
-        "UABC-10"
+        "UABC-22",
+        "UABC-26",
+        "UABC-35",
+        "UABC-38"
       ],
       "referenceIds": [
-        "UABC-REQ-GOV-001",
-        "UABC-GOV-REFERENCE-001"
+        "UABC-REQ-BCB-001",
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-010",
+        "UABC-REQ-BCB-011"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "f33a529b07594d72737368cff3bf5792f2e0a45364de6dd056e5b29c8b0b04e7",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "b3e6bb31a0b8e1d1cfe79f99741324f376e9e5863eb150145aed9ac157dcf96e",
       "visibility": "twin-visible",
       "readiness": "historical-current",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 0,
+      "storyPageId": "PAGE-UABC-000"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-010",
       "documentId": "UABC-COMPANY",
-      "title": "Unternehmensprofil Universaarl",
+      "title": "01 Unternehmen",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
       "parentId": "UABC-PROJECT",
       "phase": "discovery",
       "process": "company-model",
-      "status": "Approved",
+      "status": "published",
       "ownerRefs": [
         "P-001",
-        "P-003"
+        "P-005",
+        "P-011",
+        "P-019"
       ],
       "jiraRefs": [
-        "UABC-2",
-        "UABC-4"
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-25"
       ],
       "referenceIds": [
-        "UABC-ARCH-ENTERPRISE-001",
-        "UABC-REQ-ENT-001",
-        "UABC-REQ-ENT-002"
+        "UABC-REQ-BCB-001",
+        "UABC-REQ-BCB-003",
+        "UABC-REQ-BCB-006",
+        "UABC-REQ-BCB-009"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "d26ad407f4a62f5c70d4fb033c0b17826c335e4b14a411a170f6d73bdb292b6f",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "bd9714fb1b263ee64bfea06d115d02bb00284731c3db866e4f4a0286e11072ee",
       "visibility": "twin-visible",
       "readiness": "historical-current",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 1,
+      "storyPageId": "PAGE-UABC-010"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-011",
       "documentId": "UABC-DISCOVERY",
-      "title": "Discovery und Workshops",
+      "title": "01 Discovery, Workshops und Fit-to-Standard",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/20-discovery.md",
-      "parentId": "UABC-PROJECT",
+      "parentId": "UABC-BLUEPRINT",
       "phase": "discovery",
       "process": "workshop-planning",
-      "status": "Planned",
+      "status": "published",
       "ownerRefs": [
-        "P-002",
-        "P-016"
+        "P-002"
       ],
       "jiraRefs": [
         "UABC-1",
@@ -124,27 +627,30 @@
         "UABC-ARCH-ENTERPRISE-001",
         "UABC-REQ-CAP-001"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "750e6e95d8e66f748754989efda2aa88fb5c938d5505fb5819f20a6f42205b9b",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "ee419fb31370af7b15bf6131f1060fa8afc5be2140fb419550e341eb1fb64d75",
       "visibility": "twin-visible",
-      "readiness": "draft-template",
+      "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 1,
+      "storyPageId": "PAGE-UABC-020"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-012",
       "documentId": "UABC-BLUEPRINT",
-      "title": "Unternehmens-Blueprint v0.1",
+      "title": "00 Consultant-Handbuch und Fast-Track",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
-      "parentId": "UABC-PROJECT",
-      "phase": "solution-design",
-      "process": "cross-process",
-      "status": "Approved",
+      "parentId": null,
+      "phase": "project-wide",
+      "process": "consultant-delivery",
+      "status": "published",
       "ownerRefs": [
-        "P-002",
-        "P-003"
+        "P-002"
       ],
       "jiraRefs": [
         "UABC-1",
@@ -158,24 +664,28 @@
         "UABC-CAP-CATALOG-001",
         "UABC-REQ-CAP-001"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "b7c0e3e8d2ba2a24f2dffd52e30c6b55de073dfbd9c8ed0c059f705c4e9470b2",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "cc255a1b6acc04558a0ef5a03137d8e09c02c0497565e5162ca0571905d9eb34",
       "visibility": "twin-visible",
-      "readiness": "historical-current",
+      "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 0,
+      "storyPageId": "PAGE-UABC-030"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-013",
       "documentId": "UABC-PROCESSES",
-      "title": "Prozesslandkarte",
+      "title": "01 Prozess- und Konfigurationsstandard",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/31-processes.md",
-      "parentId": "UABC-BLUEPRINT",
-      "phase": "discovery",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "solution-design",
       "process": "cross-process",
-      "status": "Approved",
+      "status": "published",
       "ownerRefs": [
         "P-002"
       ],
@@ -186,97 +696,106 @@
         "UABC-CAP-CATALOG-001",
         "UABC-REQ-CAP-002"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "3bc92fafe753d16d910f4ed6b8d60c3d9ffea9df233d2e8be49c662c50e9e2e2",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "d2e03274ec674d0388589d111185ba0375673c78b2a0df8a63087bcf624f799d",
       "visibility": "twin-visible",
-      "readiness": "historical-current",
+      "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 1,
+      "storyPageId": "PAGE-UABC-040"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-014",
       "documentId": "UABC-DECISIONS",
-      "title": "Entscheidungen und offene Punkte",
+      "title": "05 Datenmigration",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/32-decisions.md",
-      "parentId": "UABC-BLUEPRINT",
-      "phase": "solution-design",
-      "process": "decision-management",
-      "status": "Approved",
+      "parentId": "UABC-PROJECT",
+      "phase": "data-migration",
+      "process": "migration",
+      "status": "published",
       "ownerRefs": [
-        "P-001",
-        "P-002"
+        "P-002",
+        "P-005",
+        "P-016",
+        "P-019"
       ],
       "jiraRefs": [
-        "UABC-2",
-        "UABC-4",
-        "UABC-7",
-        "UABC-10"
+        "UABC-25",
+        "UABC-29"
       ],
       "referenceIds": [
-        "UABC-ARCH-ENTERPRISE-001",
-        "UABC-GOV-REFERENCE-001",
-        "UABC-DEC-001",
-        "UABC-DEC-007",
-        "UABC-DEC-008",
-        "SRC-OPSX-001",
-        "SRC-BC-001"
+        "UABC-REQ-BCB-006",
+        "UABC-REQ-BCB-008"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "1ea0b5793d0f6d60fda8648dc0e7c9d433e964c6c13f466c6bef0d84e3bfed28",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "649c504b1a69dade7c821f27c6979c122d9af0d5b24a3cfa0de023b1a7fa1df9",
       "visibility": "twin-visible",
-      "readiness": "historical-current",
+      "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 5,
+      "storyPageId": "PAGE-UABC-050"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-015",
       "documentId": "UABC-TESTS",
-      "title": "Tests und Nachweise",
+      "title": "06 Test und Abnahme",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/50-tests.md",
       "parentId": "UABC-PROJECT",
       "phase": "test-and-acceptance",
       "process": "cross-process",
-      "status": "W0 Passed",
+      "status": "published",
       "ownerRefs": [
         "P-002",
-        "P-004"
+        "P-005",
+        "P-011",
+        "P-019"
       ],
       "jiraRefs": [
-        "UABC-8",
-        "UABC-9",
-        "UABC-10"
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37"
       ],
       "referenceIds": [
-        "UABC-REQ-GOV-002",
-        "UABC-REQ-GOV-003",
-        "UABC-VER-LOCAL-001",
-        "UABC-VER-REFS-001"
+        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-008",
+        "UABC-REQ-BCB-009",
+        "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "1f7174a921dba5313d4681478d71d6adc0cdf4ee0551da6a7fe78e5b367e00c9",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "d37aacbd38ff493ff00dddeb8f42404178e1ab71ebc690b27e29e5423722a8aa",
       "visibility": "twin-visible",
-      "readiness": "historical-current",
+      "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 6,
+      "storyPageId": "PAGE-UABC-060"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-016",
       "documentId": "UABC-ENVBASELINE",
-      "title": "Playthru-Umgebungsbaseline",
+      "title": "02 Umgebung, Einrichtung, Daten und Testdurchführung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
-      "parentId": "UABC-PROJECT",
+      "parentId": "UABC-BLUEPRINT",
       "phase": "preparation",
       "process": "environment",
-      "status": "Done",
+      "status": "published",
       "ownerRefs": [
-        "P-002",
-        "P-004"
+        "P-002"
       ],
       "jiraRefs": [
         "UABC-11",
@@ -290,64 +809,69 @@
         "UABC-REQ-ENV-003",
         "UABC-REQ-ENV-004",
         "UABC-REQ-ENV-005",
-        "UABC-VER-ENV-RUN1-001",
-        "UABC-VER-ENV-RUN2-001",
-        "UABC-VER-ENV-GOV-SELFTEST-001",
         "UABC-VER-ENV-POLICY-GATE-001"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "948a78003437b38d6788662a30f2b91d103da6575cbee506bf2342f173b20202",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "01379de6455e965b669d6525d38172f04e0604acf6ba082fd34f6b189040c713",
       "visibility": "twin-visible",
       "readiness": "reference-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 2,
+      "storyPageId": "PAGE-UABC-070"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-017",
       "documentId": "UABC-WALKTHROUGH",
-      "title": "Projektartefakt-Walkthrough-Pilot",
+      "title": "08 Cutover und Go-live",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
       "parentId": "UABC-PROJECT",
-      "phase": "test-and-acceptance",
+      "phase": "cutover",
       "process": "demonstration",
-      "status": "Done",
+      "status": "published",
       "ownerRefs": [
+        "P-001",
         "P-002",
-        "P-015"
+        "P-005",
+        "P-016"
       ],
       "jiraRefs": [
-        "UABC-15",
-        "UABC-16",
-        "UABC-17"
+        "UABC-34",
+        "UABC-35",
+        "UABC-38"
       ],
       "referenceIds": [
-        "UABC-REQ-WT-001",
-        "UABC-REQ-WT-002",
-        "UABC-REQ-WT-003",
-        "UABC-VER-WT-BUILD-001"
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-008",
+        "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-10",
-      "contentSha256": "758c61fc2bda0c4517ba805b299e7cde95d62abce7e2c1c299d60c2971fed55d",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "748c7ef51fbd6bcfef1b0840cad2aa645ca0f5b3a5d26b2c3952fdde52157c12",
       "visibility": "twin-visible",
-      "readiness": "reference-complete",
+      "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 8,
+      "storyPageId": "PAGE-UABC-080"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-003",
       "documentId": "UABC-BCBPROJECT",
-      "title": "BC Basic V1 Standardprodukt",
+      "title": "00 BC Basic Standardprodukt",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
-      "parentId": "UABC-PROJECT",
+      "parentId": null,
       "phase": "project-wide",
-      "process": "projektsteuerung",
-      "status": "V1 kundenbereit",
+      "process": "standard-product",
+      "status": "published",
       "ownerRefs": [
-        "P-001",
         "P-002"
       ],
       "jiraRefs": [
@@ -362,23 +886,27 @@
         "UABC-REQ-BCB-004"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "54e6d5af6cb575bf7107c14af8363d06f9e3488e544d778450004229a5b61012",
+      "contentSha256": "e3355b54e4cebdea964f933ea09dc0d74bc4fcbe082271e71a4938c038834b69",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 0,
+      "storyPageId": "PAGE-UABC-090"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-004",
       "documentId": "UABC-BCBDISCOVERY",
-      "title": "Discovery und Fit-to-Standard",
+      "title": "03 Prozesse und Fit-to-Standard",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
-      "parentId": "UABC-BCBPROJECT",
+      "parentId": "UABC-PROJECT",
       "phase": "phase-1",
       "process": "fit-to-standard",
-      "status": "Synthetisch abgenommen",
+      "status": "published",
       "ownerRefs": [
         "P-002",
         "P-005",
@@ -387,8 +915,6 @@
         "P-019"
       ],
       "jiraRefs": [
-        "UABC-19",
-        "UABC-22",
         "UABC-23",
         "UABC-24",
         "UABC-25",
@@ -401,74 +927,75 @@
         "UABC-REQ-BCB-006",
         "UABC-REQ-BCB-009"
       ],
-      "lastReviewed": "2026-08-21",
-      "contentSha256": "31f4b31b785cbd887b8c6fcf0ba51bd4b7b8a76eba7954ea48648bb24c7484ed",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "36b3a695b71d5c0444cb46464e7eaf954737e5c1404b6f33ce528653af55f2d2",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 3,
+      "storyPageId": "PAGE-UABC-100"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-005",
       "documentId": "UABC-BCBIMPLEMENTATION",
-      "title": "Einrichtungswoche",
+      "title": "04 Lösung und Einrichtung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
-      "parentId": "UABC-BCBPROJECT",
+      "parentId": "UABC-PROJECT",
       "phase": "phase-2",
       "process": "setup-migration-uat",
-      "status": "Kundenbereites Standardmuster",
+      "status": "published",
       "ownerRefs": [
         "P-002",
         "P-004",
-        "P-005"
+        "P-005",
+        "P-011",
+        "P-019"
       ],
       "jiraRefs": [
-        "UABC-20",
         "UABC-27",
         "UABC-28",
         "UABC-29",
         "UABC-30",
         "UABC-31",
         "UABC-32",
-        "UABC-33",
         "UABC-34"
       ],
       "referenceIds": [
+        "UABC-REQ-BCB-001",
         "UABC-REQ-BCB-003",
-        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-006",
         "UABC-REQ-BCB-008",
-        "SRC-BC-077",
-        "SRC-BC-078",
-        "SRC-BC-079",
-        "SRC-BC-080",
-        "SRC-BC-081",
-        "SRC-BC-082",
-        "SRC-BC-083",
-        "SRC-BC-084"
+        "UABC-REQ-BCB-009"
       ],
-      "lastReviewed": "2026-07-11",
-      "contentSha256": "901063508e8236ba712fdbb1ea057521f5ae57fc9eabd6c86b30b3fdc90df826",
+      "lastReviewed": "2026-09-03",
+      "contentSha256": "ce76d8d37482f3c54d8967d875983320e10090c3d4780e1b6ab01d9cf7b99af6",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 4,
+      "storyPageId": "PAGE-UABC-110"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-006",
       "documentId": "UABC-BCBHYPERCARE",
-      "title": "Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau",
+      "title": "03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
       "parentId": "UABC-BCBPROJECT",
-      "phase": "phase-3",
-      "process": "month-end-vat-hypercare",
-      "status": "Synthetisch abgeschlossen",
+      "phase": "project-wide",
+      "process": "operations-standard",
+      "status": "published",
       "ownerRefs": [
-        "P-002",
-        "P-005"
+        "P-002"
       ],
       "jiraRefs": [
         "UABC-21",
@@ -482,63 +1009,68 @@
         "UABC-REQ-BCB-009",
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-11",
-      "contentSha256": "51ab25d366e36f00e2ee6e18f68a948976bb6a587b21cc183cf414cb03b8213f",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "c5f685ab665e61c04492f16d52ccf43c2b288e42ffeae6f380ed37f359cf7990",
       "visibility": "twin-visible",
-      "readiness": "simulation-complete",
+      "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 3,
+      "storyPageId": "PAGE-UABC-120"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-007",
       "documentId": "UABC-BCBDELIVERABLES",
-      "title": "V1-Liefer- und Abnahmeübersicht",
+      "title": "02 Projektauftrag und Scope",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
-      "parentId": "UABC-BCBPROJECT",
-      "phase": "close",
+      "parentId": "UABC-PROJECT",
+      "phase": "offer-and-scope",
       "process": "acceptance",
-      "status": "Synthetisch abgeschlossen",
+      "status": "published",
       "ownerRefs": [
+        "P-001",
         "P-002",
         "P-016"
       ],
       "jiraRefs": [
-        "UABC-25",
-        "UABC-29",
-        "UABC-33",
-        "UABC-34",
-        "UABC-36",
-        "UABC-37",
+        "UABC-22",
+        "UABC-26",
         "UABC-38"
       ],
       "referenceIds": [
-        "UABC-REQ-BCB-006",
-        "UABC-REQ-BCB-007",
+        "UABC-REQ-BCB-001",
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-004",
         "UABC-REQ-BCB-010",
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "3188aa7265b6664996397f208ebd5e245cf2668918efafa1395b2d6e1abd4287",
+      "contentSha256": "15e198ab422f71880c93b470f72d6943892b674172cc816e170b9f6c0c5e3776",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 2,
+      "storyPageId": "PAGE-UABC-130"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-008",
       "documentId": "UABC-BCBMEETINGS",
-      "title": "Besprechungen und Entscheidungen",
+      "title": "03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
-      "parentId": "UABC-BCBPROJECT",
+      "parentId": "UABC-BLUEPRINT",
       "phase": "project-wide",
-      "process": "decision-management",
-      "status": "Synthetisch abgeschlossen",
+      "process": "consultant-delivery",
+      "status": "published",
       "ownerRefs": [
-        "P-001",
         "P-002"
       ],
       "jiraRefs": [
@@ -565,24 +1097,28 @@
         "UABC-REQ-BCB-005",
         "UABC-REQ-BCB-010"
       ],
-      "lastReviewed": "2026-07-11",
-      "contentSha256": "e03a60c37b650d340acb43665e8157a921e2d51ebf89745551409e6804563352",
+      "lastReviewed": "2026-07-12",
+      "contentSha256": "1b181b5b0d844fa2e6bb6eb1a2f6f98219d0867f12ecde27bcfe210e29231b7b",
       "visibility": "twin-visible",
-      "readiness": "simulation-complete",
+      "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CONSULTANT",
+      "spaceType": "consultant-internal",
+      "order": 3,
+      "storyPageId": "PAGE-UABC-140"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-018",
       "documentId": "UABC-HYPERCARE",
-      "title": "Operatortraining und Hypercare",
+      "title": "07 Schulung und Befähigung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
       "parentId": "UABC-PROJECT",
       "phase": "schulung-und-hypercare",
       "process": "operator-training",
-      "status": "Synthetisch abgeschlossen",
+      "status": "published",
       "ownerRefs": [
         "P-002",
         "P-005",
@@ -592,32 +1128,35 @@
       "jiraRefs": [
         "UABC-33",
         "UABC-34",
-        "UABC-35"
+        "UABC-38"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-007",
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "4883e4b4127257310053f5c2099ba410108bc4d1ca07ecc29e42a4694fb0a887",
+      "contentSha256": "4e47c5cbd687927f05eafc10f99da00a3fba6cc4feacee240a1d4b79ac232f39",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 7,
+      "storyPageId": "PAGE-UABC-170"
     },
     {
       "artifactId": "UABC-SRC-BCB-CONF-019",
       "documentId": "UABC-TRAINING",
-      "title": "V1-Abschluss und Kundenstart",
+      "title": "02 Lieferpaket, Tests und Standardtraining",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
-      "parentId": "UABC-PROJECT",
-      "phase": "close",
-      "process": "handover",
-      "status": "V1 kundenbereit",
+      "parentId": "UABC-BCBPROJECT",
+      "phase": "project-wide",
+      "process": "delivery-standard",
+      "status": "published",
       "ownerRefs": [
-        "P-001",
         "P-002"
       ],
       "jiraRefs": [
@@ -628,71 +1167,94 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "fc5a3ec92d1572ef856afad4436296ed16d2420e587efdded78eb08b3c66cb99",
+      "contentSha256": "e05f208ac60b5f5b5fd5f1d60c0465f173d273782b2c3c4b1a9ba94d7777d1ba",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-PRODUCT",
+      "spaceType": "standard-product",
+      "order": 2,
+      "storyPageId": "PAGE-UABC-180"
     },
     {
       "artifactId": "UABC-SRC-BCB-STORY-HYPERCARE-001",
       "documentId": "UABC-BCBHCSTORY",
-      "title": "Hypercare Tagesstatus",
+      "title": "09 Hypercare und Übergabe",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
-      "parentId": "UABC-BCBSTORY",
+      "parentId": "UABC-PROJECT",
       "phase": "phase-3",
       "process": "support",
-      "status": "Abgeschlossen",
+      "status": "published",
       "ownerRefs": [
         "P-002",
         "P-005"
       ],
       "jiraRefs": [
-        "UABC-21",
-        "UABC-35"
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-002",
-        "UABC-REQ-BCB-009"
+        "UABC-REQ-BCB-009",
+        "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "5800e211e6cb3ec43ded170ee31e612727da210d99834c1baebfa0c32cfb822d",
+      "contentSha256": "894a84577ee46561d93b661f88f4da5f09618565323f0e3331a806c8cd3e18e6",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 9,
+      "storyPageId": "PAGE-UABC-160"
     },
     {
       "artifactId": "UABC-SRC-BCB-STORY-CONFLUENCE-001",
       "documentId": "UABC-BCBSTORY",
-      "title": "BC Basic Projektstory",
+      "title": "10 Projektsteuerung",
       "documentType": "confluence-page",
       "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
       "parentId": "UABC-PROJECT",
       "phase": "project-wide",
       "process": "project-story",
-      "status": "Abgeschlossen",
+      "status": "published",
       "ownerRefs": [
+        "P-001",
         "P-002"
       ],
       "jiraRefs": [
-        "UABC-18",
-        "UABC-21"
+        "UABC-22",
+        "UABC-26",
+        "UABC-34",
+        "UABC-35",
+        "UABC-38"
       ],
       "referenceIds": [
         "UABC-REQ-BCB-001",
-        "UABC-REQ-BCB-002"
+        "UABC-REQ-BCB-002",
+        "UABC-REQ-BCB-004",
+        "UABC-REQ-BCB-005",
+        "UABC-REQ-BCB-010",
+        "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "ac0c9f57e4873fa1f18c75df8bb56e0608c1ee81c73766fd5c2027202f898a3e",
+      "contentSha256": "cc606048a6bd8018e8709df7d5c68f0cac535639bc1421dc6567e0dbf55bf888",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
       "pageId": null,
-      "spaceKey": null
+      "spaceKey": null,
+      "spaceId": "UABC-SPACE-CUSTOMER",
+      "spaceType": "customer-project",
+      "order": 10,
+      "storyPageId": "PAGE-UABC-150"
     },
     {
       "artifactId": "UABC-SRC-BCB-CUST-001",
@@ -863,7 +1425,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "909a94e3a977a6ae6cb2082eaa3c84a5d79a24c8727f731e9ef7e4f7d50ff7ef",
+      "contentSha256": "59f0baf37c87848bb9b0e89d2c2ddfa151840302efc76b3a2b4799a57d28e43c",
       "visibility": "twin-visible",
       "readiness": "authoritative-with-history",
       "externalUrl": null,
@@ -884,7 +1446,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "57d8af62dad83dd9551b5bf64da43e904685e1d3bab2308e0c91025eb8bf3a07",
+      "contentSha256": "a1049635cd352417a28af3f34c9080628348f79d133801991d0a71c7fa1c4909",
       "visibility": "twin-visible",
       "readiness": "authoritative-current",
       "externalUrl": null,
@@ -905,7 +1467,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "0c8e20cdc2e7c665f072599e270dfd8d2bf5ed8aa238826618fc39316e1081c8",
+      "contentSha256": "9d647232cdf1e6809435c1d5a7ee57f3f2187326979855d0e5d2354f64a31308",
       "visibility": "twin-visible",
       "readiness": "authoritative-current",
       "externalUrl": null,
@@ -926,7 +1488,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "75eee9a0d9800546a042a89d535359295d7e938d3c62a69056e98184174572e7",
+      "contentSha256": "262538461a336ec56d852b04df12849fdf22c763b19e83738318b18cb2e65417",
       "visibility": "twin-visible",
       "readiness": "implementation-complete",
       "externalUrl": null,
@@ -947,7 +1509,7 @@
       "jiraRefs": [],
       "referenceIds": [],
       "lastReviewed": null,
-      "contentSha256": "f32e5c3edcdff2d41a5036fdf5ba8f4d674c967a1d1f9d8b2200936fdf9e6447",
+      "contentSha256": "e699c926335e54596f7348711f687bf6b854d1e09cd26934b1767f218588241e",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,

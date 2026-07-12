@@ -6,11 +6,11 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: d5e86184e9f6e149fa4815cefd56c7796d9f61b8976df7a4f10e98ed94d24566
+  projectionDigest: 690bea4891b882b18ef0cc705f8688daf23cf5b723296013842375e375f6f78c
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation: { path: evidence/simulation/project-reconciliation.json, baselineHours: 68, baselineAmount: 11050, offerHours: 80, offerAmount: 9600, actualHours: 80, actualAmount: 9600, invoiceClaim: false, productiveActivityClaim: false }
-adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 4f29cbe5a89653549d090fa98310b387f1431cf8cdff4da74f9641865e9a3130, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: db409fe75d26f81bf255397638b85b47ab57aa5a618f0f77dde6099d2f686872, sourceUnchanged: true, writesPerformed: false }
+adapterProvenance: { path: evidence/simulation/adapter-provenance.json, sourcePath: exports/project-data/v1/index.yaml, sourceHash: 975655b2533d2c20f5bbc599486eff3771bdbca520870726e32198ff5ba6ad4a, mappingVersion: 1.1.0, projectionPath: exports/project-data/v1/twin-export-map.json, projectionDigest: 914c59a9cc3282c68224386601130dfc34e71e43be40200c44ad23c852df42b5, sourceUnchanged: true, writesPerformed: false }
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations

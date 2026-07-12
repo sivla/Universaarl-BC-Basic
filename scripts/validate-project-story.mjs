@@ -1,18 +1,46 @@
 import { readFileSync, statSync, existsSync } from 'node:fs';
 import process from 'node:process';
+import YAML from 'yaml';
 
-const PAGE_FIELDS = new Set(['id','title','parent','version','status','author_role','time','sourcePath','references']);
+const PAGE_FIELDS = new Set(['id','title','parent','version','status','author_role','time','sourcePath','references','spaceId','spaceType','order']);
 const TICKET_FIELDS = new Set(['id','type','status','reporter','assignee','priority','parent','dependencies','labels','components','createdAt','startedAt','testedAt','closedAt','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs']);
 const COMMENT_FIELDS = new Set(['id','type','time','role','text','evidenceRef']);
 const WORKLOG_FIELDS = new Set(['date','role','hours','cost','activity','phase']);
 const TIMELINE_FIELDS = new Set(['id','time','phase','role','tickets','pages','sessions','evidence','decision','deliverable','action','result','nextStep']);
 const HYPERCARE_FIELDS = new Set(['day','dailyPage','ticket','comment','evidence','priority','diagnosis','fix','retest','status','decision']);
 const RELATION_FIELDS = new Set(['type','from','to']);
+const STORY_SPACES = Object.freeze({
+  'UABC-SPACE-CUSTOMER': { spaceType: 'customer-project', root: 'PAGE-UABC-000' },
+  'UABC-SPACE-PRODUCT': { spaceType: 'standard-product', root: 'PAGE-UABC-090' },
+  'UABC-SPACE-CONSULTANT': { spaceType: 'consultant-internal', root: 'PAGE-UABC-030' }
+});
+const TICKET_PARENT_TYPES = Object.freeze({
+  epic: [],
+  story: ['epic', 'story'],
+  task: ['epic', 'story', 'task'],
+  subtask: ['story', 'task', 'bug', 'change'],
+  bug: ['epic', 'story', 'task'],
+  change: ['epic', 'story', 'task']
+});
 export const readPageMetadata = (filePath) => {
   if (!existsSync(filePath)) return null;
-  const text = readFileSync(filePath, 'utf8'); const marker = text.match(/<!-- story-metadata (\{.*\}) -->/); if (marker) return JSON.parse(marker[1]); const block = text.match(/^---\s*\n([\s\S]*?)\n---/);
-  if (!block) return null; const value = (key) => { const m = block[1].match(new RegExp(`^${key}:\\s*(.*)$`, 'm')); return m ? m[1].trim() : undefined; };
-  const parent = value('parent'); return { id: value('id'), parent: parent === 'null' ? null : parent, version: Number(value('version')), status: value('status') };
+  const text = readFileSync(filePath, 'utf8');
+  const marker = text.match(/<!-- story-metadata (\{.*\}) -->/);
+  const story = marker ? JSON.parse(marker[1]) : {};
+  const block = text.match(/^---\s*\n([\s\S]*?)\n---/);
+  if (!block) return null;
+  const metadata = YAML.parse(block[1]);
+  return {
+    id: story.id ?? metadata.storyPageId,
+    title: story.title ?? metadata.title,
+    parent: story.parent ?? null,
+    version: Number(story.version ?? metadata.version),
+    status: story.status ?? metadata.status,
+    spaceId: metadata.spaceId,
+    spaceType: metadata.spaceType,
+    order: metadata.order,
+    storyPageId: metadata.storyPageId
+  };
 };
 const ownOnly = (obj, allowed, fail, detail) => { if (!obj || typeof obj !== 'object' || Array.isArray(obj)) { fail(detail, 'Objekt erwartet'); return; } for (const key of Object.keys(obj)) if (!allowed.has(key)) fail('UNERLAUBTE-EIGENSCHAFT', `${detail}.${key}`); };
 
@@ -26,26 +54,38 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
   if (!Array.isArray(story.offer?.versions) || story.offer.versions.length !== 3 || story.offer.versions.some((v) => typeof v.hours !== 'number' || typeof v.cost !== 'number' || v.hours !== 80 || v.cost !== 9600)) fail('ANGEBOT-VERSIONEN', 'drei konsistente Versionen erforderlich');
   const sources = new Set(story.readableSources ?? []); if (sources.size !== 6) fail('QUELLEN-ANZAHL', 'sechs lesbare Quellen erwartet');
   if (checkFiles) for (const source of sources) if (!existsSync(source) || statSync(source).size === 0) fail('QUELLE-FEHLT', source);
-  const pages = story.pages ?? []; const pageIds = new Set(); const pagePaths = new Set();
+  const pages = story.pages ?? []; const pageIds = new Set(); const pagePaths = new Set(); const pageOrders = new Set();
   if (pages.length !== 19) fail('SEITEN-ANZAHL', String(pages.length));
   for (const page of pages) {
     ownOnly(page, PAGE_FIELDS, fail, `page[${page.id ?? '?'}]`);
     if (pageIds.has(page.id)) fail('SEITE-DOPPELTE-ID', page.id); pageIds.add(page.id);
     if (pagePaths.has(page.sourcePath)) fail('SEITE-DOPPELTER-PFAD', page.sourcePath); pagePaths.add(page.sourcePath);
-    if (typeof page.id !== 'string' || typeof page.title !== 'string' || !Number.isInteger(page.version) || typeof page.status !== 'string' || typeof page.author_role !== 'string' || !date(page.time) || typeof page.sourcePath !== 'string' || !Array.isArray(page.references)) fail('SEITE-METADATEN-TYP', page.id);
-    if (page.parent !== null && !pageIds.has(page.parent) && page.parent !== 'PAGE-UABC-000') fail('SEITE-WAISE', page.id);
+    const expectedSpace = STORY_SPACES[page.spaceId];
+    if (typeof page.id !== 'string' || typeof page.title !== 'string' || !Number.isInteger(page.version) || typeof page.status !== 'string' || typeof page.author_role !== 'string' || !date(page.time) || typeof page.sourcePath !== 'string' || !Array.isArray(page.references) || !expectedSpace || page.spaceType !== expectedSpace.spaceType || !Number.isInteger(page.order) || page.order < 0) fail('SEITE-METADATEN-TYP', page.id);
+    const orderKey = `${page.spaceId}\0${page.order}`; if (pageOrders.has(orderKey)) fail('SEITE-REIHENFOLGE', orderKey); pageOrders.add(orderKey);
     if (checkFiles && (!existsSync(page.sourcePath) || statSync(page.sourcePath).size === 0)) fail('SEITE-QUELLE-FEHLT', page.sourcePath);
-    const meta = (metadataReader ?? readPageMetadata)(page.sourcePath); if (!meta || meta.id !== page.id || meta.parent !== page.parent || Number(meta.version) !== page.version || meta.status !== page.status) fail('SEITE-METADATEN-ABWEICHUNG', page.id);
+    const meta = (metadataReader ?? readPageMetadata)(page.sourcePath); if (!meta || meta.id !== page.id || meta.storyPageId !== page.id || meta.title !== page.title || meta.parent !== page.parent || Number(meta.version) !== page.version || meta.status !== page.status || meta.spaceId !== page.spaceId || meta.spaceType !== page.spaceType || meta.order !== page.order) fail('SEITE-METADATEN-ABWEICHUNG', page.id);
   }
-  const rootPages = pages.filter((p) => p.parent === null); if (rootPages.length !== 1) fail('SEITE-WURZEL', String(rootPages.length));
+  for (const page of pages) if (page.parent !== null && !pageIds.has(page.parent)) fail('SEITE-WAISE', page.id);
+  const rootPages = pages.filter((p) => p.parent === null); if (rootPages.length !== 3) fail('SEITE-WURZEL', String(rootPages.length));
+  for (const [spaceId, expected] of Object.entries(STORY_SPACES)) {
+    const roots = rootPages.filter((page) => page.spaceId === spaceId);
+    if (roots.length !== 1 || roots[0]?.id !== expected.root) fail('SEITE-WURZEL', spaceId);
+  }
+  for (const page of pages) if (page.parent !== null && pages.find((candidate) => candidate.id === page.parent)?.spaceId !== page.spaceId) fail('SEITE-SPACE-PARENT', page.id);
   for (const page of pages) { const seen = new Set([page.id]); let parent = page.parent; while (parent) { if (seen.has(parent)) { fail('SEITE-ZYKLUS', page.id); break; } seen.add(parent); parent = pages.find((p) => p.id === parent)?.parent ?? null; } }
   const tickets = story.tickets ?? []; const ticketIds = new Set(); const commentIds = new Set(); let totalHours = 0; let totalCost = 0;
+  const ticketById = new Map(tickets.map((ticket) => [ticket.id, ticket]));
   if (tickets.length !== 17) fail('TICKETS-ANZAHL', String(tickets.length));
   for (const ticket of tickets) {
     ownOnly(ticket, TICKET_FIELDS, fail, `ticket[${ticket.id ?? '?'}]`);
     if (ticketIds.has(ticket.id)) fail('TICKET-DOPPELTE-ID', ticket.id); ticketIds.add(ticket.id);
-    for (const field of ['id','type','status','reporter','assignee','priority','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','createdAt','startedAt','testedAt','closedAt']) if (ticket[field] === undefined) fail('TICKET-NESTED-FEHLT', ticket.id);
-    if (!['epic','story','task','bug'].includes(ticket.type)) fail('TICKET-TYP', ticket.id);
+    for (const field of ['id','type','status','reporter','assignee','priority','parent','statusHistory','acceptanceCriteria','evidenceRefs','comments','worklogs','createdAt','startedAt','testedAt','closedAt']) if (ticket[field] === undefined) fail('TICKET-NESTED-FEHLT', ticket.id);
+    if (!Object.hasOwn(TICKET_PARENT_TYPES, ticket.type)) fail('TICKET-TYP', ticket.id);
+    const parent = ticket.parent === null ? null : ticketById.get(ticket.parent);
+    if (ticket.type === 'epic') {
+      if (ticket.parent !== null) fail('TICKET-PARENT-TYP', `${ticket.id}: Epic darf keinen Parent besitzen`);
+    } else if (!parent || !TICKET_PARENT_TYPES[ticket.type]?.includes(parent.type)) fail('TICKET-PARENT-TYP', `${ticket.id}: ${ticket.type} unter ${parent?.type ?? 'fehlend'} ist unzulaessig`);
     if (![ticket.createdAt,ticket.startedAt,ticket.testedAt,ticket.closedAt].every(date) || !(ticket.createdAt <= ticket.startedAt && ticket.startedAt <= ticket.testedAt && ticket.testedAt <= ticket.closedAt)) fail('STATUS-ZEITREISE', ticket.id);
     const history = ticket.statusHistory ?? []; const records = history;
     if (!Array.isArray(history) || records.length < 3 || records.some((h) => !h || typeof h === 'string' || typeof h.status !== 'string' || !date(h.time)) || records.some((h,i) => i && h.time < records[i-1].time) || records[0]?.status !== 'created' || records.at(-1)?.status !== ticket.status || (records.some((h) => h.time < ticket.createdAt || h.time > ticket.closedAt))) fail('STATUSHISTORY-ABWEICHUNG', ticket.id);
@@ -56,6 +96,10 @@ export const validateStory = (story, { checkFiles = true, metadataReader = null 
     for (const comment of ticket.comments ?? []) { ownOnly(comment, COMMENT_FIELDS, fail, `comment[${comment.id ?? '?'}]`); if (!comment.id || !date(comment.time) || !comment.role || !comment.type || !comment.text || !comment.evidenceRef) fail('KOMMENTAR-NESTED-TYP', ticket.id); commentIds.add(comment.id); }
     if (!Array.isArray(ticket.worklogs) || ticket.worklogs.length === 0) fail('WORKLOG-FEHLT', ticket.id);
     for (const worklog of ticket.worklogs ?? []) { ownOnly(worklog, WORKLOG_FIELDS, fail, `worklog[${ticket.id}]`); if (!date(worklog.date) || typeof worklog.role !== 'string' || typeof worklog.activity !== 'string' || typeof worklog.phase !== 'string' || typeof worklog.hours !== 'number' || worklog.hours <= 0 || typeof worklog.cost !== 'number' || worklog.cost <= 0) fail('WORKLOG-NESTED-TYP', ticket.id); totalHours += worklog.hours; totalCost += worklog.cost; }
+  }
+  for (const ticket of tickets) {
+    const seen = new Set([ticket.id]); let parent = ticket.parent;
+    while (parent !== null) { if (seen.has(parent)) { fail('TICKET-PARENT-ZYKLUS', ticket.id); break; } seen.add(parent); parent = ticketById.get(parent)?.parent ?? null; }
   }
   if (totalHours !== 80 || totalCost !== 9600 || story.controls?.worklogHours !== 80 || story.controls?.worklogCost !== 9600) fail('WORKLOG-SUMME', `${totalHours}/${totalCost}`);
   const timeline = story.timeline ?? []; const evidenceRefs = new Set(story.catalogs?.evidenceRefs ?? []); const sessions = new Set(story.catalogs?.sessions ?? []); const decisions = new Set(story.catalogs?.decisions ?? []); const deliverables = new Set(story.catalogs?.deliverables ?? []);

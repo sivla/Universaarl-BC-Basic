@@ -3,22 +3,1532 @@ projectId: UABC-BC-BASIC-001
 classification: synthetic-only
 sourceContract: evidence/simulation/project-story.json
 generated: true
-derivedFrom: evidence/simulation/project-story.json
+derivedFrom:
+  - evidence/simulation/project-story.json
+  - atlassian/jira/issues/bc-basic-project.yaml
+  - atlassian/jira/issues/blueprint-wave.yaml
+  - atlassian/jira/issues/environment-baseline.yaml
+  - atlassian/jira/issues/walkthrough-pilot.yaml
+canonicalTypes:
+  - epic
+  - story
+  - task
+  - subtask
+  - bug
+  - change
+typePresentations:
+  epic:
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+  story:
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+  task:
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+  subtask:
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+  bug:
+    typeLabel: Fehler
+    displayIconKey: jira-bug
+    displayColorToken: red
+  change:
+    typeLabel: Aenderung
+    displayIconKey: jira-change
+    displayColorToken: orange
+liveIconPolicy:
+  sourceMode: local-allowlist-only
+  allowlistedAssets: []
+  allowedOrigins: []
+  digestAlgorithm: SHA-256
+  digestRequired: true
+views:
+  - id: UABC-TICKET-VIEW-BOARD-001
+    type: board
+    title: Projektboard
+    order: 1
+    initialState: expanded
+    allowedFilters:
+      - status
+      - type
+    visibleFields:
+      - id
+      - type
+      - summary
+      - status
+      - parent
+    columns:
+      - id: created
+        title: Angelegt
+        order: 1
+        statuses:
+          - created
+      - id: in-progress
+        title: In Bearbeitung
+        order: 2
+        statuses:
+          - in-progress
+      - id: tested
+        title: Getestet
+        order: 3
+        statuses:
+          - tested
+      - id: done-closed
+        title: Erledigt
+        order: 4
+        statuses:
+          - done
+          - closed
+    groups:
+      - id: UABC-TICKET-GROUP-EPIC-22
+        type: epic
+        title: Auftrag und Scope
+        order: 1
+        collapsible: true
+        initialState: expanded
+        ticketIds:
+          - TKT-UABC-22
+          - TKT-UABC-23
+          - TKT-UABC-24
+          - TKT-UABC-25
+          - TKT-UABC-26
+          - TKT-UABC-27
+          - TKT-UABC-28
+          - TKT-UABC-29
+          - TKT-UABC-30
+          - TKT-UABC-31
+          - TKT-UABC-32
+          - TKT-UABC-33
+          - TKT-UABC-34
+          - TKT-UABC-35
+          - TKT-UABC-36
+          - TKT-UABC-37
+      - id: UABC-TICKET-GROUP-EPIC-38
+        type: epic
+        title: Handover
+        order: 2
+        collapsible: true
+        initialState: expanded
+        ticketIds:
+          - TKT-UABC-38
+  - id: UABC-TICKET-VIEW-COMPACT-001
+    type: compact-list
+    title: Kompakte Phasenliste
+    order: 2
+    initialState: expanded
+    allowedFilters:
+      - status
+      - type
+    visibleFields:
+      - id
+      - type
+      - summary
+      - status
+      - parent
+    groups:
+      - id: UABC-TICKET-GROUP-PHASE-1
+        type: phase
+        title: Phase 1 - Vorbereitung und Datenbereitschaft
+        order: 1
+        collapsible: true
+        initialState: expanded
+        ticketIds:
+          - TKT-UABC-22
+          - TKT-UABC-23
+          - TKT-UABC-24
+          - TKT-UABC-25
+          - TKT-UABC-26
+      - id: UABC-TICKET-GROUP-PHASE-2
+        type: phase
+        title: Phase 2 - Einrichtung, Tests und Schulung
+        order: 2
+        collapsible: true
+        initialState: expanded
+        ticketIds:
+          - TKT-UABC-27
+          - TKT-UABC-28
+          - TKT-UABC-29
+          - TKT-UABC-30
+          - TKT-UABC-31
+          - TKT-UABC-32
+          - TKT-UABC-33
+          - TKT-UABC-34
+      - id: UABC-TICKET-GROUP-PHASE-3
+        type: phase
+        title: Phase 3 - Hypercare und Abschluss
+        order: 3
+        collapsible: true
+        initialState: expanded
+        ticketIds:
+          - TKT-UABC-35
+          - TKT-UABC-36
+          - TKT-UABC-37
+          - TKT-UABC-38
+recordCount: 55
+customerStoryCount: 17
+internalTraceabilityCount: 38
+countedWorklogHours: 80
+historicalPlanningBaselineHours: 68
 ticketRecords:
-  - { id: TKT-UABC-22, type: epic, status: done, summary: Auftrag-und-Scope, acceptance: [Scope-und-Rollen], history: [created, in-progress, done], worklogHours: 6, evidence: project/bc-basic/project-plan.yaml, comments: [Start-synthetischer-Kundenfall, "Abschluss: Scope erfüllt; Evidence verlinkt; Einschränkung: keine echte Beauftragung."] }
-  - { id: TKT-UABC-23, type: story, status: done, summary: Finance-und-Steuerdesign, acceptance: [Posting-und-VAT-Design], history: [created, in-progress, done], worklogHours: 4, evidence: BC-SIM-SETUP-001, comments: [Alternativen-bewertet, "Abschluss: synthetisch freigegeben; Einschränkung: keine Steuerberatung."] }
-  - { id: TKT-UABC-24, type: story, status: done, summary: P2P-O2C-Lager, acceptance: [Prozessvarianten], history: [created, in-progress, done], worklogHours: 4, evidence: BC-SIM-P2P-001, comments: [Prozessabstimmung, "Abschluss: Kernprozesse retestet; Einschränkung: keine Live-UI."] }
-  - { id: TKT-UABC-25, type: task, status: done, summary: Datenpaket, acceptance: [Acht-Datenbereiche], history: [created, in-progress, done], worklogHours: 5, evidence: project/bc-basic/data-readiness-check.yaml, comments: [Probeimport, "Abschluss: Summen grün; Einschränkung: synthetische Werte."] }
-  - { id: TKT-UABC-26, type: story, status: done, summary: UAT-Plan, acceptance: [Sieben-Faelle], history: [created, in-progress, done], worklogHours: 3, evidence: project/bc-basic/uat-training-run.yaml, comments: [Katalog-erstellt, "Abschluss: synthetischer Signoff; Einschränkung: keine reale Person."] }
-  - { id: TKT-UABC-27, type: task, status: done, summary: Gesellschaft-und-Rollen, acceptance: [Playthru-gebunden], history: [created, in-progress, done], worklogHours: 4, evidence: BC-SIM-SETUP-001, comments: [Ziel geprüft, "Abschluss: synthetisch bestanden; Einschränkung: keine BC-Verbindung."] }
-  - { id: TKT-UABC-28, type: task, status: done, summary: Finance-Setup, acceptance: [Posting-VAT-Matrix], history: [created, in-progress, done], worklogHours: 10, evidence: BC-SIM-SETUP-001, comments: [Buchungsfehler-retest, "Abschluss: Soll-Haben vorbereitet; Einschränkung: Lokalisierung offen."] }
-  - { id: TKT-UABC-29, type: task, status: done, summary: Import-und-Reimport, acceptance: [Probeimport], history: [created, in-progress, done], worklogHours: 4, evidence: BC-SIM-MASTER-001, comments: [Einheit-korrigiert, "Abschluss: Reimport bestanden; Einschränkung: synthetische Stammdaten."] }
-  - { id: TKT-UABC-30, type: story, status: done, summary: Purchase-to-Pay, acceptance: [Receive-Invoice-Pay], history: [created, in-progress, done], worklogHours: 5, evidence: BC-SIM-P2P-001, comments: [Teilwareneingang, "Abschluss: Entry-Kette retestet; Einschränkung: keine echte Buchung."] }
-  - { id: TKT-UABC-31, type: story, status: done, summary: Order-to-Cash, acceptance: [Ship-Invoice-Apply], history: [created, in-progress, done], worklogHours: 5, evidence: BC-SIM-O2C-001, comments: [Preis korrigiert, "Abschluss: Customer-Entries abgestimmt; Einschränkung: keine echte Buchung."] }
-  - { id: TKT-UABC-32, type: story, status: done, summary: Lager-und-Inventur, acceptance: [Zaehlung-und-Wert], history: [created, in-progress, done], worklogHours: 5, evidence: BC-SIM-INVENTORY-001, comments: [Lagerort-retest, "Abschluss: 99 STK und 4158 EUR; Einschränkung: keine physische Zählung."] }
-  - { id: TKT-UABC-33, type: task, status: done, summary: Training, acceptance: [Vier-Rollen], history: [created, in-progress, done], worklogHours: 4, evidence: project/bc-basic/training-plan.yaml, comments: [Uebungen, "Abschluss: synthetischer Lernerfolg; Einschränkung: keine echten Teilnehmer."] }
-  - { id: TKT-UABC-34, type: story, status: done, summary: SIT-und-UAT, acceptance: [Sieben-Retests], history: [created, in-progress, done], worklogHours: 3, evidence: project/bc-basic/uat-training-run.yaml, comments: [Triage, "Abschluss: GO_SIMULATION; Einschränkung: keine Live-Abnahme."] }
-  - { id: TKT-UABC-35, type: bug, status: closed, summary: Hypercare-Zahlung, acceptance: [P2-Retest], history: [created, in-progress, closed], worklogHours: 2, evidence: SIM-HC-001, comments: [Diagnose, "Abschluss: Fix und Retest bestanden; Einschränkung: synthetischer Fehler."] }
-  - { id: TKT-UABC-36, type: task, status: done, summary: Monatsabschluss, acceptance: [Kontrollsummen], history: [created, in-progress, done], worklogHours: 3, evidence: BC-SIM-CLOSE-001, comments: [Checkliste, "Abschluss: VAT und Bankdifferenz null; Einschränkung: Vorschau only."] }
-  - { id: TKT-UABC-37, type: task, status: done, summary: UStVA-Vorschau, acceptance: [Keine-Uebermittlung], history: [created, in-progress, done], worklogHours: 2, evidence: SYN-VAT-RETURN-001, comments: [VAT-Pruefung, "Abschluss: synthetisch bestanden; Einschränkung: keine ELSTER."] }
-  - { id: TKT-UABC-38, type: epic, status: done, summary: Handover, acceptance: [Supportuebergabe], history: [created, in-progress, done], worklogHours: 3, evidence: UABC-STORY-BCB-001, comments: ["Abschlussbesprechung: evidence/simulation/project-reconciliation.json und evidence/simulation/adapter-provenance.json geprüft.", "Abschluss: Hypercare beendet, exports/project-data/v1/twin-export-map.json nur lesend übergeben; keine Rechnung, Buchung, Zahlung oder Produktivübergabe."] }
+  - id: TKT-UABC-22
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-22
+    status: done
+    summary: Auftrag und Scope
+    acceptance:
+      - Scope
+    history:
+      - status: created
+        time: 2026-08-20
+      - status: in-progress
+        time: 2026-08-20
+      - status: tested
+        time: 2026-08-20
+      - status: done
+        time: 2026-08-20
+    worklogHours: 6
+    evidence:
+      - project/bc-basic/project-plan.yaml
+    comments:
+      - id: COM-22-W
+        type: work
+        time: 2026-08-20
+        text: Scope bearbeitet
+      - id: COM-22-C
+        type: closing
+        time: 2026-08-20
+        text: Ergebnis Scope erfüllt; Evidence Test Einschränkung und nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-23
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-22
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-23
+    status: done
+    summary: Finance- und Steuerdesign
+    acceptance:
+      - Finance
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 4
+    evidence:
+      - BC-SIM-SETUP-001
+    comments:
+      - id: COM-23-W
+        type: work
+        time: 2026-08-23
+        text: Finance bearbeitet
+      - id: COM-23-C
+        type: closing
+        time: 2026-08-23
+        text: Ergebnis Finance synthetisch freigegeben; Evidence Test Einschränkung
+          nächster Bezug dokumentiert.
+  - id: TKT-UABC-24
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-22
+    dependencyRefs:
+      - TKT-UABC-23
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-24
+    status: done
+    summary: P2P, O2C und Lager
+    acceptance:
+      - Prozesse
+    history:
+      - status: created
+        time: 2026-08-23
+      - status: in-progress
+        time: 2026-08-23
+      - status: tested
+        time: 2026-08-23
+      - status: done
+        time: 2026-08-23
+    worklogHours: 4
+    evidence:
+      - BC-SIM-P2P-001
+    comments:
+      - id: COM-24-W
+        type: work
+        time: 2026-08-23
+        text: Prozesse bearbeitet
+      - id: COM-24-C
+        type: closing
+        time: 2026-08-23
+        text: Ergebnis Prozesse retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-25
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-22
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-25
+    status: done
+    summary: Datenpaket
+    acceptance:
+      - Daten
+    history:
+      - status: created
+        time: 2026-08-25
+      - status: in-progress
+        time: 2026-08-25
+      - status: tested
+        time: 2026-08-25
+      - status: done
+        time: 2026-08-25
+    worklogHours: 5
+    evidence:
+      - project/bc-basic/data-readiness-check.yaml
+    comments:
+      - id: COM-25-W
+        type: work
+        time: 2026-08-25
+        text: Daten bearbeitet
+      - id: COM-25-C
+        type: closing
+        time: 2026-08-25
+        text: Ergebnis Daten grün; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-26
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-22
+    dependencyRefs:
+      - TKT-UABC-25
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-26
+    status: done
+    summary: UAT-Plan
+    acceptance:
+      - UAT
+    history:
+      - status: created
+        time: 2026-08-24
+      - status: in-progress
+        time: 2026-08-24
+      - status: tested
+        time: 2026-08-24
+      - status: done
+        time: 2026-08-24
+    worklogHours: 3
+    evidence:
+      - project/bc-basic/uat-training-run.yaml
+    comments:
+      - id: COM-26-W
+        type: work
+        time: 2026-08-24
+        text: UAT bearbeitet
+      - id: COM-26-C
+        type: closing
+        time: 2026-08-24
+        text: Ergebnis UAT abgedeckt; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-27
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-22
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-27
+    status: done
+    summary: Gesellschaft und Rollen
+    acceptance:
+      - Gesellschaft
+    history:
+      - status: created
+        time: 2026-08-25
+      - status: in-progress
+        time: 2026-08-25
+      - status: tested
+        time: 2026-08-25
+      - status: done
+        time: 2026-08-25
+    worklogHours: 4
+    evidence:
+      - BC-SIM-SETUP-001
+    comments:
+      - id: COM-27-W
+        type: work
+        time: 2026-08-25
+        text: Gesellschaft bearbeitet
+      - id: COM-27-C
+        type: closing
+        time: 2026-08-25
+        text: Ergebnis Gesellschaft geprüft; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-28
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-27
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-28
+    status: done
+    summary: Finance-Setup
+    acceptance:
+      - Posting
+    history:
+      - status: created
+        time: 2026-08-25
+      - status: in-progress
+        time: 2026-08-25
+      - status: tested
+        time: 2026-08-25
+      - status: done
+        time: 2026-08-25
+    worklogHours: 10
+    evidence:
+      - BC-SIM-SETUP-001
+    comments:
+      - id: COM-28-W
+        type: work
+        time: 2026-08-25
+        text: Posting bearbeitet
+      - id: COM-28-C
+        type: closing
+        time: 2026-08-25
+        text: Ergebnis Posting geprüft; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-29
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-27
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-29
+    status: done
+    summary: Import und Reimport
+    acceptance:
+      - Import
+    history:
+      - status: created
+        time: 2026-08-25
+      - status: in-progress
+        time: 2026-08-25
+      - status: tested
+        time: 2026-08-25
+      - status: done
+        time: 2026-08-25
+    worklogHours: 4
+    evidence:
+      - BC-SIM-MASTER-001
+    comments:
+      - id: COM-29-W
+        type: work
+        time: 2026-08-25
+        text: Import bearbeitet
+      - id: COM-29-C
+        type: closing
+        time: 2026-08-25
+        text: Ergebnis Import retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-30
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-24
+    dependencyRefs:
+      - TKT-UABC-29
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-30
+    status: done
+    summary: Purchase-to-Pay
+    acceptance:
+      - P2P
+    history:
+      - status: created
+        time: 2026-08-26
+      - status: in-progress
+        time: 2026-08-26
+      - status: tested
+        time: 2026-08-26
+      - status: done
+        time: 2026-08-26
+    worklogHours: 5
+    evidence:
+      - BC-SIM-P2P-001
+    comments:
+      - id: COM-30-W
+        type: work
+        time: 2026-08-26
+        text: P2P bearbeitet
+      - id: COM-30-C
+        type: closing
+        time: 2026-08-26
+        text: Ergebnis P2P retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-31
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-24
+    dependencyRefs:
+      - TKT-UABC-30
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-31
+    status: done
+    summary: Order-to-Cash
+    acceptance:
+      - O2C
+    history:
+      - status: created
+        time: 2026-08-26
+      - status: in-progress
+        time: 2026-08-26
+      - status: tested
+        time: 2026-08-26
+      - status: done
+        time: 2026-08-26
+    worklogHours: 5
+    evidence:
+      - BC-SIM-O2C-001
+    comments:
+      - id: COM-31-W
+        type: work
+        time: 2026-08-26
+        text: O2C bearbeitet
+      - id: COM-31-C
+        type: closing
+        time: 2026-08-26
+        text: Ergebnis O2C retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-32
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-24
+    dependencyRefs:
+      - TKT-UABC-30
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-32
+    status: done
+    summary: Lager und Inventur
+    acceptance:
+      - Inventur
+    history:
+      - status: created
+        time: 2026-08-28
+      - status: in-progress
+        time: 2026-08-28
+      - status: tested
+        time: 2026-08-28
+      - status: done
+        time: 2026-08-28
+    worklogHours: 5
+    evidence:
+      - BC-SIM-INVENTORY-001
+    comments:
+      - id: COM-32-W
+        type: work
+        time: 2026-08-28
+        text: Inventur bearbeitet
+      - id: COM-32-C
+        type: closing
+        time: 2026-08-28
+        text: Ergebnis Inventur retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-33
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-26
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-33
+    status: done
+    summary: Training
+    acceptance:
+      - Training
+    history:
+      - status: created
+        time: 2026-08-30
+      - status: in-progress
+        time: 2026-08-30
+      - status: tested
+        time: 2026-08-30
+      - status: done
+        time: 2026-08-30
+    worklogHours: 4
+    evidence:
+      - project/bc-basic/training-plan.yaml
+    comments:
+      - id: COM-33-W
+        type: work
+        time: 2026-08-30
+        text: Training bearbeitet
+      - id: COM-33-C
+        type: closing
+        time: 2026-08-30
+        text: Ergebnis Training bestanden; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-34
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: TKT-UABC-26
+    dependencyRefs:
+      - TKT-UABC-30
+      - TKT-UABC-31
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-34
+    status: done
+    summary: SIT und UAT
+    acceptance:
+      - SIT-UAT
+    history:
+      - status: created
+        time: 2026-08-29
+      - status: in-progress
+        time: 2026-08-29
+      - status: tested
+        time: 2026-08-29
+      - status: done
+        time: 2026-08-29
+    worklogHours: 3
+    evidence:
+      - project/bc-basic/uat-training-run.yaml
+    comments:
+      - id: COM-34-W
+        type: work
+        time: 2026-08-29
+        text: UAT bearbeitet
+      - id: COM-34-C
+        type: closing
+        time: 2026-08-29
+        text: Ergebnis GO_SIMULATION; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-35
+    type: bug
+    sourceType: bug
+    canonicalType: bug
+    typeLabel: Fehler
+    displayIconKey: jira-bug
+    displayColorToken: red
+    parent: TKT-UABC-34
+    dependencyRefs:
+      - TKT-UABC-31
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-35
+    status: closed
+    summary: Hypercare-Zahlung
+    acceptance:
+      - Retest
+    history:
+      - status: created
+        time: 2026-09-01
+      - status: in-progress
+        time: 2026-09-01
+      - status: tested
+        time: 2026-09-01
+      - status: closed
+        time: 2026-09-01
+    worklogHours: 2
+    evidence:
+      - SIM-HC-001
+    comments:
+      - id: COM-35-W
+        type: work
+        time: 2026-09-01
+        text: Hypercare bearbeitet
+      - id: COM-35-C
+        type: closing
+        time: 2026-09-01
+        text: Ergebnis Fix Retest Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-36
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-34
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-36
+    status: done
+    summary: Monatsabschluss
+    acceptance:
+      - Abschluss
+    history:
+      - status: created
+        time: 2026-08-29
+      - status: in-progress
+        time: 2026-08-29
+      - status: tested
+        time: 2026-08-29
+      - status: done
+        time: 2026-08-29
+    worklogHours: 3
+    evidence:
+      - BC-SIM-CLOSE-001
+    comments:
+      - id: COM-36-W
+        type: work
+        time: 2026-08-29
+        text: Abschluss bearbeitet
+      - id: COM-36-C
+        type: closing
+        time: 2026-08-29
+        text: Ergebnis Abschluss retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-37
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: TKT-UABC-34
+    dependencyRefs:
+      - TKT-UABC-36
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-37
+    status: done
+    summary: UStVA-Vorschau
+    acceptance:
+      - VAT Vorschau
+    history:
+      - status: created
+        time: 2026-08-29
+      - status: in-progress
+        time: 2026-08-29
+      - status: tested
+        time: 2026-08-29
+      - status: done
+        time: 2026-08-29
+    worklogHours: 2
+    evidence:
+      - SYN-VAT-RETURN-001
+    comments:
+      - id: COM-37-W
+        type: work
+        time: 2026-08-29
+        text: VAT bearbeitet
+      - id: COM-37-C
+        type: closing
+        time: 2026-08-29
+        text: Ergebnis VAT retestet; Evidence Test Einschränkung nächster Bezug
+          dokumentiert.
+  - id: TKT-UABC-38
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs:
+      - TKT-UABC-35
+      - TKT-UABC-36
+      - TKT-UABC-37
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: project-story
+    planningRef: UABC-38
+    status: done
+    summary: Handover
+    acceptance:
+      - Handover
+    history:
+      - status: created
+        time: 2026-09-03
+      - status: in-progress
+        time: 2026-09-03
+      - status: tested
+        time: 2026-09-03
+      - status: done
+        time: 2026-09-03
+    worklogHours: 11
+    evidence:
+      - UABC-STORY-BCB-001
+    comments:
+      - id: COM-38-W
+        type: work
+        time: 2026-09-03
+        text: Handover sowie Reconciliation und read-only Provenienz bearbeitet
+      - id: COM-38-C
+        type: closing
+        time: 2026-09-03
+        text: Ergebnis Handover abgeschlossen; Reconciliation und Provenienz validiert;
+          keine Rechnung, produktive Leistung oder Schreibberechtigung
+          behauptet.
+traceabilityRecords:
+  - id: UABC-18
+    type: epic
+    sourceType: Epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: BC Basic Einrichtung als wiederverwendbares Grundpaket planen
+  - id: UABC-19
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-18
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Phase 1 Vorbereitung, Anforderungen und Datenbereitschaft abschliessen
+  - id: UABC-20
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-18
+    dependencyRefs:
+      - UABC-19
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Phase 2 Standardumfang in genau einer Woche einrichten und schulen
+  - id: UABC-21
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-18
+    dependencyRefs:
+      - UABC-20
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Phase 3 Hypercare, Monatsabschlussprobe und UStVA-Vorschau abschliessen
+  - id: UABC-22
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-19
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Projektauftakt, Umfang, Rollen und Abrechnung vorbereiten
+  - id: UABC-23
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-19
+    dependencyRefs:
+      - UABC-22
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Finanz- und Steueranforderungen dokumentieren
+  - id: UABC-24
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-19
+    dependencyRefs:
+      - UABC-22
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Einkaufs-, Verkaufs- und Lagerprozesse standardnah entscheiden
+  - id: UABC-25
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-19
+    dependencyRefs:
+      - UABC-23
+      - UABC-24
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Synthetisches Datenpaket pruefbereit machen
+  - id: UABC-26
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-19
+    dependencyRefs:
+      - UABC-23
+      - UABC-24
+      - UABC-25
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Loesungs-, Pruef-, Uebergangs- und Abnahmeplan vorlegen
+  - id: UABC-27
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-26
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Zielgesellschaft, Grundeinrichtung und Rollen binden
+  - id: UABC-28
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-27
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Finanzwesen und Buchungsmatrix einrichten
+  - id: UABC-29
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-28
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Konfigurationspakete erstellen, Stammdaten laden und abstimmen
+  - id: UABC-30
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-29
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Einkaufsprozess vom Auftrag bis zur Zahlungsvorbereitung pruefen
+  - id: UABC-31
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-29
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Verkaufsprozess vom Auftrag bis zum Zahlungseingang pruefen
+  - id: UABC-32
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-29
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Einfachen Bestand an einem Lagerort pruefen
+  - id: UABC-33
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-30
+      - UABC-31
+      - UABC-32
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Rollenbezogene Schulungen durchfuehren und protokollieren
+  - id: UABC-34
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-20
+    dependencyRefs:
+      - UABC-28
+      - UABC-30
+      - UABC-31
+      - UABC-32
+      - UABC-33
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Ende-zu-Ende-Pflichtfaelle, Fachabnahme und UAT-Begleitung durchfuehren
+  - id: UABC-35
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-21
+    dependencyRefs:
+      - UABC-34
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: UAT- und Hypercare-Befunde priorisieren und begrenzt bearbeiten
+  - id: UABC-36
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-21
+    dependencyRefs:
+      - UABC-35
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Monatsabschlussprozess in der Sandbox proben und Basisberichte abstimmen
+  - id: UABC-37
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-21
+    dependencyRefs:
+      - UABC-36
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: UStVA-Vorschau fachlich pruefen, nicht uebermitteln
+  - id: UABC-38
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-21
+    dependencyRefs:
+      - UABC-35
+      - UABC-36
+      - UABC-37
+    sourcePath: atlassian/jira/issues/bc-basic-project.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Backlog
+    summary: Schulungsunterlagen, Projektdokumentation und Uebergabe abschliessen
+  - id: UABC-1
+    type: epic
+    sourceType: Epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Universaarl-Unternehmens-Blueprint v0.1 etablieren
+  - id: UABC-2
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-1
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Unternehmens- und BC-Unternehmensarchitektur definieren
+  - id: UABC-3
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-1
+    dependencyRefs:
+      - UABC-2
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Prozess- und Faehigkeitsportfolio definieren
+  - id: UABC-4
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-1
+    dependencyRefs:
+      - UABC-2
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Sicherheits-, Daten-, Berichts- und Trainingsgovernance definieren
+  - id: UABC-5
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-1
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: OpenSpec-Steuerung und projektlokalen Arbeitsablauf etablieren
+  - id: UABC-6
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-1
+    dependencyRefs:
+      - UABC-5
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Blueprint-Projekt in lokaler Jira- und Confluence-Simulation abbilden
+  - id: UABC-7
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-5
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Offizielle Quellen und Versionsbaseline erfassen
+  - id: UABC-8
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-5
+    dependencyRefs:
+      - UABC-7
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: OpenSpec-Schema und aktiven Change validieren
+  - id: UABC-9
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-6
+    dependencyRefs:
+      - UABC-7
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Jira- und Confluence-Referenzen validieren
+  - id: UABC-10
+    type: task
+    sourceType: Task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-1
+    dependencyRefs:
+      - UABC-2
+      - UABC-3
+      - UABC-4
+      - UABC-8
+      - UABC-9
+    sourcePath: atlassian/jira/issues/blueprint-wave.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Bereichsuebergreifende Blueprint-Pruefung durchfuehren
+  - id: UABC-11
+    type: epic
+    sourceType: Epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/environment-baseline.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Verifizierte playthru-Umgebungsbaseline etablieren
+  - id: UABC-12
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-11
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/environment-baseline.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: playthru-Umgebung und aktive Gesellschaft read-only nachweisen
+  - id: UABC-13
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-12
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/environment-baseline.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Abgesicherten Baseline-Test und Nachweisplan definieren
+  - id: UABC-14
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-12
+    dependencyRefs:
+      - UABC-13
+    sourcePath: atlassian/jira/issues/environment-baseline.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Wiederholbare Baseline ausfuehren und Nachweise kuratieren
+  - id: UABC-15
+    type: epic
+    sourceType: Epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: null
+    dependencyRefs:
+      - UABC-11
+    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Projektartefakt-Walkthrough-Pilot etablieren
+  - id: UABC-16
+    type: story
+    sourceType: Story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-15
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Baseline-Walkthrough-Paket aus verifizierten Nachweisen erzeugen
+  - id: UABC-17
+    type: subtask
+    sourceType: Sub-task
+    canonicalType: subtask
+    typeLabel: Unteraufgabe
+    displayIconKey: jira-subtask
+    displayColorToken: blue-muted
+    parent: UABC-16
+    dependencyRefs: []
+    sourcePath: atlassian/jira/issues/walkthrough-pilot.yaml
+    visibility: twin-visible
+    visibilityRole: internal-traceability
+    countingScope: excluded-from-story-counts
+    status: Done
+    summary: Deterministische Walkthrough-Ausgaben bauen und verifizieren
+traceabilityRelations:
+  - type: realizes-plan-item
+    from: TKT-UABC-22
+    to: UABC-22
+  - type: realizes-plan-item
+    from: TKT-UABC-23
+    to: UABC-23
+  - type: realizes-plan-item
+    from: TKT-UABC-24
+    to: UABC-24
+  - type: realizes-plan-item
+    from: TKT-UABC-25
+    to: UABC-25
+  - type: realizes-plan-item
+    from: TKT-UABC-26
+    to: UABC-26
+  - type: realizes-plan-item
+    from: TKT-UABC-27
+    to: UABC-27
+  - type: realizes-plan-item
+    from: TKT-UABC-28
+    to: UABC-28
+  - type: realizes-plan-item
+    from: TKT-UABC-29
+    to: UABC-29
+  - type: realizes-plan-item
+    from: TKT-UABC-30
+    to: UABC-30
+  - type: realizes-plan-item
+    from: TKT-UABC-31
+    to: UABC-31
+  - type: realizes-plan-item
+    from: TKT-UABC-32
+    to: UABC-32
+  - type: realizes-plan-item
+    from: TKT-UABC-33
+    to: UABC-33
+  - type: realizes-plan-item
+    from: TKT-UABC-34
+    to: UABC-34
+  - type: realizes-plan-item
+    from: TKT-UABC-35
+    to: UABC-35
+  - type: realizes-plan-item
+    from: TKT-UABC-36
+    to: UABC-36
+  - type: realizes-plan-item
+    from: TKT-UABC-37
+    to: UABC-37
+  - type: realizes-plan-item
+    from: TKT-UABC-38
+    to: UABC-38

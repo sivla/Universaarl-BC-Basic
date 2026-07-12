@@ -24,12 +24,33 @@ const repositoryReader = (relative) => {
 };
 const validate = (candidate, readEntry = repositoryReader) => validateDocumentCatalog({ catalog: candidate, schema, projectIndex: index, readEntry });
 const codes = (errors) => new Set(errors.map((error) => error.code));
+const validatePageMutation = (mutateText) => {
+  const target = catalog.documents.find((document) => document.documentType === 'confluence-page').sourcePath;
+  return validate(catalog, (relative) => {
+    const entry = repositoryReader(relative);
+    return relative === target ? { ...entry, bytes: Buffer.from(mutateText(entry.bytes.toString('utf8')), 'utf8') } : entry;
+  });
+};
 
 test('vollstaendiger BC-Basic-Katalog bindet 32 Dokumente und 19 strukturierte Seiten', () => {
   assert.equal(catalog.documents.length, 32);
   assert.equal(catalog.documents.filter((document) => document.documentType === 'confluence-page').length, 19);
   assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 32);
   assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 32);
+  assert.equal(catalog.spaces.length, 3);
+  assert.equal(catalog.spaces.every((space) => typeof space.purpose === 'string' && space.purpose.length > 0 && Array.isArray(space.audience) && space.audience.length > 0), true);
+  assert.equal(catalog.navigationModules.length, 3);
+  assert.equal(catalog.navigationNodes.length, 22);
+  assert.equal(catalog.navigationNodes.filter((node) => node.nodeType === 'group').length, 3);
+  assert.equal(catalog.navigationNodes.filter((node) => node.nodeType === 'page').length, 19);
+  assert.equal(catalog.redirects.length, 19);
+  const pages = catalog.documents.filter((document) => document.documentType === 'confluence-page');
+  assert.equal(new Set(pages.map((document) => document.storyPageId)).size, 19);
+  assert.deepEqual(Object.fromEntries(catalog.spaces.map((space) => [space.spaceId, pages.filter((page) => page.spaceId === space.spaceId).length])), {
+    'UABC-SPACE-CUSTOMER': 11,
+    'UABC-SPACE-PRODUCT': 4,
+    'UABC-SPACE-CONSULTANT': 4
+  });
   assert.deepEqual(validate(catalog), []);
 });
 
@@ -113,4 +134,97 @@ test('nicht regulaerer Gitmodus scheitert isoliert', () => {
     return relative === target ? { ...entry, gitMode: '100755' } : entry;
   });
   assert.equal(codes(errors).has(DOCUMENT_CATALOG_ERROR.gitMode), true);
+});
+
+test('fehlender interner Space scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.spaces.pop();
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.space), true);
+});
+
+test('doppelte interne Space-Reihenfolge scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.spaces[1].order = candidate.spaces[0].order;
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.space), true);
+});
+
+test('space-uebergreifender Parent scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.documents.find((document) => document.documentId === 'UABC-COMPANY').parentId = 'UABC-BCBPROJECT';
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.space), true);
+});
+
+test('doppelte Seitenreihenfolge im Space scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.documents.find((document) => document.documentId === 'UABC-COMPANY').order = 0;
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.space), true);
+});
+
+test('doppelte Story-Page-ID scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.documents.find((document) => document.documentId === 'UABC-COMPANY').storyPageId = 'PAGE-UABC-000';
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.space), true);
+});
+
+test('doppelte Navigationsmodul- oder Node-ID scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.navigationModules[1].moduleId = candidate.navigationModules[0].moduleId;
+  candidate.navigationNodes[1].nodeId = candidate.navigationNodes[0].nodeId;
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.navigation), true);
+});
+
+test('unbekannter Navigationstyp oder Dokumentverweis scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  const page = candidate.navigationNodes.find((node) => node.nodeType === 'page');
+  page.nodeType = 'extern';
+  page.documentId = 'UABC-DOKUMENT-FEHLT';
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.navigation), true);
+});
+
+test('Navigation mit falschem Parent oder Zyklus scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  const group = candidate.navigationNodes.find((node) => node.nodeType === 'group');
+  const page = candidate.navigationNodes.find((node) => node.moduleId === group.moduleId && node.nodeType === 'page');
+  group.parentNodeId = page.nodeId;
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.navigation), true);
+});
+
+test('doppelte Geschwisterreihenfolge in der Navigation scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  const pages = candidate.navigationNodes.filter((node) => node.nodeType === 'page' && node.moduleId === 'UABC-NAV-CUSTOMER');
+  pages[1].order = pages[0].order;
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.navigation), true);
+});
+
+test('ungueltiger initialState in der Navigation scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.navigationNodes[0].initialState = 'auto';
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.navigation), true);
+});
+
+test('unvollstaendige Migrationsmatrix scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.redirects.pop();
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.redirect), true);
+});
+
+test('abweichendes Migrationsziel scheitert isoliert', () => {
+  const candidate = clone(catalog);
+  candidate.redirects[0].targetTitle = 'Nicht die Zielseite';
+  assert.equal(codes(validate(candidate)).has(DOCUMENT_CATALOG_ERROR.redirect), true);
+});
+
+test('doppelter H1-Titel scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => `${text}\n# Doppelter Titel\n`)).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('fehlender Pflichtabschnitt scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => text.replace('## Referenzen', '### Referenzen'))).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('ungeschlossener Codeblock scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => `${text}\n\`\`\`text\nNicht geschlossen\n`)).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('roher JSON-Block scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => `${text}\n\`\`\`json\n{}\n\`\`\`\n`)).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('Tabelle mit mehr als vier Spalten scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => `${text}\n| A | B | C | D | E |\n|---|---|---|---|---|\n`)).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('ueberlange Inhaltszeile scheitert isoliert', () => assert.equal(codes(validatePageMutation((text) => `${text}\n${'x'.repeat(321)}\n`)).has(DOCUMENT_CATALOG_ERROR.format), true));
+test('Verifikation ohne fachlichen Statusabschnitt scheitert isoliert', () => {
+  const target = catalog.documents.find((document) => document.documentType === 'verification-plan').sourcePath;
+  const errors = validate(catalog, (relative) => {
+    const entry = repositoryReader(relative);
+    return relative === target ? { ...entry, bytes: Buffer.from(entry.bytes.toString('utf8').replace('## Status', '### Status'), 'utf8') } : entry;
+  });
+  assert.equal(codes(errors).has(DOCUMENT_CATALOG_ERROR.format), true);
 });

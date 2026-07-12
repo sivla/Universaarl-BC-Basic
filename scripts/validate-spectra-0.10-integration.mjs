@@ -7,7 +7,8 @@ import YAML from 'yaml';
 import { buildPortableStory } from './adapt-spectra-portable-story.mjs';
 import {
   COVERAGE_MAPPING_PATH, COVERAGE_PATH, COVERAGE_PROJECTION_PATH, COVERAGE_SOURCE_PATH, INDEX_PATH, MAP_PATH,
-  MAPPING_ID, MAPPING_VERSION, PROVENANCE_PATH, RECONCILIATION_PATH, buildTwinExportMap, jsonBytes, lfBytes, safeRelative, sha256
+  HISTORICAL_TICKET_SOURCES, MAPPING_ID, MAPPING_VERSION, PROVENANCE_PATH, RECONCILIATION_PATH, TICKET_EXPORT_PATH,
+  TICKET_TYPE_PRESENTATIONS, TICKET_VIEWS, buildTicketExport, buildTwinExportMap, jsonBytes, lfBytes, safeRelative, sha256, ticketExportErrors, ticketTopologyErrors
 } from './generate-spectra-0.10-integration.mjs';
 
 const RELEASE = {
@@ -16,7 +17,7 @@ const RELEASE = {
 };
 const RELEASE_EVIDENCE_PATH = 'evidence/spectra-release-0.10.0-alpha.1.yaml';
 const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
-const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH, RELEASE_EVIDENCE_PATH, CONFORMANCE_PATH];
+const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH, TICKET_EXPORT_PATH, RELEASE_EVIDENCE_PATH, CONFORMANCE_PATH];
 const LINK_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH];
 const hash = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
@@ -32,7 +33,8 @@ export function loadIntegration(root = process.cwd()) {
     coverage: json(COVERAGE_PATH), coverageSource: json(COVERAGE_SOURCE_PATH), coverageSourceBytes: bytes(COVERAGE_SOURCE_PATH),
     coverageMapping: json(COVERAGE_MAPPING_PATH), coverageMappingBytes: bytes(COVERAGE_MAPPING_PATH),
     coverageProjection: json(COVERAGE_PROJECTION_PATH), coverageProjectionBytes: bytes(COVERAGE_PROJECTION_PATH),
-    story: json('evidence/simulation/project-story.json'),
+    story: json('evidence/simulation/project-story.json'), ticketExport: yaml(TICKET_EXPORT_PATH),
+    historicalTicketSources: HISTORICAL_TICKET_SOURCES.map((sourcePath) => ({ sourcePath, issues: yaml(sourcePath).issues ?? [] })),
     reconciliationSchema: json('governance/schemas/spectra-project-reconciliation-0.9.schema.json'), reconciliationSchemaBytes: bytes('governance/schemas/spectra-project-reconciliation-0.9.schema.json'),
     provenanceSchema: json('governance/schemas/spectra-adapter-provenance-0.9.schema.json'), provenanceSchemaBytes: bytes('governance/schemas/spectra-adapter-provenance-0.9.schema.json'),
     coverageSchema: json('governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'), coverageSchemaBytes: bytes('governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'),
@@ -95,8 +97,22 @@ export function validateIntegration(data) {
   const ids = new Set(); const paths = new Set();
   for (const artifact of data.index.artifacts ?? []) { if (ids.has(artifact.id) || paths.has(artifact.path)) fail('INDEX_DUPLICATE', artifact.id); ids.add(artifact.id); paths.add(artifact.path); if (!safeRelative(artifact.path)) fail('PATH_UNSAFE', artifact.path); }
   for (const required of REQUIRED_INDEX_PATHS) if (!paths.has(required)) fail('INDEX_LINK_MISSING', required);
+  const currentTicketSurfaces = (data.index.artifacts ?? []).filter((artifact) => artifact.kindId === 'project-story-ticket-catalog');
+  if (currentTicketSurfaces.length !== 1 || currentTicketSurfaces[0]?.path !== TICKET_EXPORT_PATH || (data.index.artifacts ?? []).some((artifact) => artifact.kindId === 'jira-issues')) fail('TICKET_COUNTING_SURFACE', 'Nur der 55er Ticketkatalog darf aktuelle Ticketansicht und Zaehlsurface sein');
+  const ticketCatalog = data.index.ticketCatalog ?? {};
+  if (ticketCatalog.path !== TICKET_EXPORT_PATH || ticketCatalog.sourceContract !== 'evidence/simulation/project-story.json' || ticketCatalog.recordCount !== 55 || ticketCatalog.customerStoryCount !== 17 || ticketCatalog.internalTraceabilityCount !== 38 || !equal(ticketCatalog.historicalSources, HISTORICAL_TICKET_SOURCES) || !equal(ticketCatalog.canonicalTypes, ['epic', 'story', 'task', 'subtask', 'bug', 'change']) || ticketCatalog.typeField !== 'type' || ticketCatalog.canonicalTypeField !== 'canonicalType' || ticketCatalog.parentField !== 'parent' || ticketCatalog.visibilityRoleField !== 'visibilityRole' || ticketCatalog.countingScopeField !== 'countingScope' || ticketCatalog.typePresentationsField !== 'typePresentations' || ticketCatalog.typeLabelField !== 'typeLabel' || ticketCatalog.displayIconKeyField !== 'displayIconKey' || ticketCatalog.displayColorTokenField !== 'displayColorToken' || ticketCatalog.liveIconPolicyField !== 'liveIconPolicy' || ticketCatalog.viewsField !== 'views' || !equal(ticketCatalog.viewIds, TICKET_VIEWS.map((view) => view.id)) || !equal(ticketCatalog.viewTypes, TICKET_VIEWS.map((view) => view.type)) || !equal(ticketCatalog.presentationTypes, Object.keys(TICKET_TYPE_PRESENTATIONS)) || ticketCatalog.inferTypeFromKeyOrTitle !== false) fail('TICKET_EXPORT_VERTRAG', 'Branch-Index muss Tickettypen, Darstellungen, zwei Views und Zaehlscope explizit festlegen');
 
   const story = data.story;
+  for (const ticketError of ticketTopologyErrors(story)) fail(ticketError.includes('unknown-type') ? 'TICKET_TYP' : 'TICKET_PARENT_TYP', ticketError);
+  for (const ticketError of ticketExportErrors(data.ticketExport)) {
+    const code = ticketError.includes('unknown-type') ? 'TICKET_TYP'
+      : ticketError.includes('parent') ? 'TICKET_PARENT_TYP'
+        : ticketError.includes('ticket-view') ? 'TICKET_VIEW'
+          : (ticketError.includes('presentation') || ticketError.includes('icon-policy')) ? 'TICKET_PRAESENTATION'
+            : 'TICKET_ZAEHLSCOPE';
+    fail(code, ticketError);
+  }
+  if (!equal(data.ticketExport, buildTicketExport(story, data.historicalTicketSources))) fail('TICKET_EXPORT_ABWEICHUNG', 'Ticketexport muss deterministisch aus der nativen Story und den vier historischen Issue-Quellen entstehen');
   const comments = story.tickets?.flatMap((ticket) => ticket.comments ?? []) ?? [];
   const worklogs = story.tickets?.flatMap((ticket) => ticket.worklogs ?? []) ?? [];
   if (story.offer?.versions?.length !== 3 || story.pages?.length !== 19 || story.tickets?.length !== 17 || comments.length !== 34 || worklogs.length !== 17 || worklogs.reduce((sum, item) => sum + item.hours, 0) !== 80 || worklogs.reduce((sum, item) => sum + item.cost, 0) !== 9600 || story.timeline?.length !== 15 || story.hypercare?.length !== 3 || story.relations?.length !== 252) fail('STORY_COUNTS', '3/19/17/34/17/80/9600/15/3/252 erforderlich');

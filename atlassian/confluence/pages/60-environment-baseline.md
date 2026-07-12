@@ -1,40 +1,93 @@
 ---
 id: UABC-ENVBASELINE
-title: Playthru-Umgebungsbaseline
-parent: UABC-PROJECT
-owners: [P-002, P-004]
-status: Done
+storyPageId: PAGE-UABC-070
+title: 02 Umgebung, Einrichtung, Daten und Testdurchführung
+parent: UABC-BLUEPRINT
+spaceId: UABC-SPACE-CONSULTANT
+spaceType: consultant-internal
+order: 2
+purpose: Interne Schrittfolge für sichere Vorbereitung, Konfiguration, Migration und Prüfung
+audience: Consultant, Solution Architecture, Datenverantwortung und Testleitung
+owners: [P-002]
+version: 4
+status: published
 jiraRefs: [UABC-11, UABC-12, UABC-13, UABC-14]
-referenceIds: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005, UABC-VER-ENV-RUN1-001, UABC-VER-ENV-RUN2-001, UABC-VER-ENV-GOV-SELFTEST-001, UABC-VER-ENV-POLICY-GATE-001]
-lastReviewed: 2026-07-10
+referenceIds: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005, UABC-VER-ENV-POLICY-GATE-001]
+lastReviewed: 2026-07-12
 ---
 
-# Playthru-Umgebungsbaseline
+# 02 Umgebung, Einrichtung, Daten und Testdurchführung
 
-Diese Seite ist die kuratierte Pruefnavigation fuer den abgeschlossenen W1-Piloten. Normativ sind `openspec/specs/environment-baseline/spec.md` und `architecture/enterprise-blueprint.yaml#actualSandboxBaseline`; die Archiv-Historie liegt unter `openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/`.
+## Einsatzvoraussetzungen
 
-Der Pilot liest ausschliesslich sichtbare UI-Zustaende der Sandbox `playthru`. Er wechselt weder Umgebung noch Gesellschaft und fuehrt keine Anlage, Aenderung, Konfiguration, Buchung, Erweiterungsaktion oder Feature-Aktivierung aus.
+Diese interne Anleitung verbindet Umgebungskontrolle, BC-Konfiguration, Datenmigration und Testübergabe. Sie enthält keine Zugangsdaten und keine Behauptung über eine konkrete Kundenumgebung.
 
-## Pruefgegenstand
+## Sicherheits- und Qualitätsprinzip
 
-- Zwei unabhaengige Laeufe desselben Tests und Vergleich stabiler Fakten.
-- Visuell gepruefte, identitaetsmaskierte Screenshots mit Lauf-/Schritt-/Nachweis-ID.
-- Ehrliche `unknown`-Werte, wenn der BC-Client einen Fakt nicht eindeutig zeigt.
-- Einsteigerkapitel und Berater-Runbook ohne Rohlog- oder Releaseplanbehauptungen.
+Der Consultant arbeitet fail-closed: Umgebung und Gesellschaft identifizieren, Schreibumfang und Reset prüfen, abhängige Setup-Bereiche konfigurieren, Datenwellen abstimmen und erst nach bestandenen Kontrollen an UAT übergeben.
 
-## Pruefergebnis
+## Umgebung, Einrichtung, Daten und Testdurchführung
 
-- Zwei unabhaengige read-only Laeufe bestaetigen `playthru`, `CRONUS DE`, Sprache/Region `German (Germany)`, BC 28.2 sowie Plattform-/Anwendungsbuild.
-- Der normalisierte Vergleich enthaelt keine Abweichung.
-- 14 kuratierte Screenshots wurden durch Codex visuell geprueft; diese Agentenpruefung ist keine menschliche Freigabe.
-- Company Experience bleibt `unknown`; sechs screenshot-belegte Erweiterungskarten, 15 viewport-schneidende Feature-Zeilen und `DE` werden nicht zu einem Vollstaendigkeits-, Verfuegbarkeits- oder Lokalisierungsnachweis ueberdehnt.
-- Arbeitsdatum und Zeitzone sind bestaetigter Benutzer-/Laufkontext, keine Gesellschaftskonfiguration.
-- `UAM-DE`, `UAS-DE`, `UAD-DE`, `UAP-DE` und `UAC-CONS` wurden im zugaenglichen Playthru-Pane nicht beobachtet; daraus folgt keine Nichtexistenzaussage.
-- Kanonische Ziele sind nur Architektur-Baseline und Verifikationsregister. Der Faehigkeitenkatalog bleibt unveraendert unter W0-Steuerung.
-- `UABC-VER-ENV-POLICY-GATE-001` ist das ausdruecklich autorisierte automatisierte W1-Gate; die W0-Freigabe kann es nicht ersetzen.
-- Einsteigeranleitung: `docs/guides/beginner/playthru-environment-baseline.md`.
-- Berater-Runbook: `docs/runbooks/playthru-environment-baseline.md`.
+### 1. Umgebung vorbereiten
 
-Der fruehere Status `In Review` war keine menschliche Freigabe. Die kanonische Aktualisierung von `actualSandboxBaseline` erfolgte durch das autorisierte automatisierte Policy-Gate und die semantische Gleichheitspruefung; daraus folgt weiterhin keine BC-Schreibfreigabe.
+Vor jeder schreibenden Tätigkeit werden Tenant, Umgebung, Gesellschaft, Region, BC-Version, Lokalisierungsfunktionen und Benutzerrolle sichtbar geprüft.
 
-<!-- story-metadata {"id":"PAGE-UABC-070","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+Auch erlaubte Operation und Rücksetzbarkeit müssen feststehen. Abweichungen stoppen die Ausführung, bis der Owner sie geklärt hat.
+
+Secrets, Tokens und persönliche Zugangsdaten gehören weder in das Repository noch in Confluence oder Tickets. Beobachtete UI-Werte werden nur mit Zeitpunkt, Rolle und Wahrheitsgrenze dokumentiert.
+
+### 2. Standard konfigurieren
+
+Die Einrichtung folgt den Abhängigkeiten des Produktstandards:
+
+1. Company Information, General Ledger Setup und Accounting Periods.
+2. `G/L Accounts` und allgemeine `Posting Groups` samt `General Posting Setup`.
+3. `VAT Business/Product Posting Groups` und `VAT Posting Setup`.
+4. Customer-, Vendor- und Inventory Posting Groups.
+5. `No. Series`, `Dimensions`, `Payment Terms` und `Payment Methods`.
+6. Purchases, Sales, Bank, Locations, Units of Measure und Inventory Setup.
+7. Rollen, Funktionstrennung und Berechtigungsproben.
+
+Zu jedem Parameter dokumentiert der Consultant BC-Seite, Feld, freigegebenen Wert, Owner, Abhängigkeit, erwartete Wirkung und Prüfschritt. Nicht bestätigte Kunden- oder Steuerwerte bleiben als Parameter offen.
+
+### 3. Daten migrieren
+
+Die Datenarbeit wird in drei Wellen organisiert:
+
+- **Welle 1:** Konten, Dimensionen, Buchungsgruppen und weitere Konfigurationsgrundlagen.
+- **Welle 2:** Debitoren, Kreditoren, Artikel, Preise, Lagerorte und Einheiten.
+- **Welle 3:** Anfangssalden, offene Posten und Anfangsbestände.
+
+Jede Welle benötigt Quelle, Mapping, Transformation, Pflichtfeld- und Dublettenprüfung, Owner, Probeladung und fachliche Kontrollsumme.
+
+Fehlerliste, Korrektur und Wiederholung bleiben nachvollziehbar. Leere, unbekannte oder widersprüchliche Werte werden nicht stillschweigend ergänzt.
+
+### 4. Einrichtung und Daten prüfen
+
+Nach jedem Setup-Abschnitt führt der Consultant einen feldnahen Check und einen passenden Prozessfall aus. Die zentrale Exit-Prüfung umfasst:
+
+- vollständige und konsistente Posting-Matrizen;
+- gültige VAT-/USt-, Dimensions- und Nummernserienlogik;
+- abgestimmte Datenmengen, Salden, offene Posten und Bestände;
+- positive und verweigerte Berechtigungsprobe je operativer Rolle;
+- ausführbare P2P-, O2C-, Cash-, Bank-, Lager- und Abschlussfälle;
+- dokumentierten Reset- und Wiederanlaufweg.
+
+### 5. An UAT übergeben
+
+UAT beginnt erst, wenn Entscheidungen, Datenqualität, Rollen, Sandboxvoraussetzungen und P1-/P2-Status das Entry-Gate erfüllen. Übergabe umfasst Baseline, Testdaten, bekannte Einschränkungen, Evidencepfad, Defectweg und Retestregel.
+
+## Stopkriterien, Evidence und Übergabe
+
+- Reale Permission Sets werden im Tenant identifiziert und nicht aus generischen Namen abgeleitet.
+- VAT-/USt- und Lokalisierungsparameter benötigen Kunden- und gegebenenfalls Steuerberaterbestätigung.
+- Integrationen, E-Rechnung, externe Bankkanäle und individuelle Reports werden separat bewertet.
+
+## Referenzen
+
+- [Consultant-Handbuch und Fast-Track](30-blueprint.md)
+- [Discovery, Workshops und Fit-to-Standard](20-discovery.md)
+- [Produkt: Prozess- und Konfigurationsstandard](31-processes.md)
+- [Produkt: Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
+
+<!-- story-metadata {"id":"PAGE-UABC-070","parent":"PAGE-UABC-030","version":4,"status":"published"} -->

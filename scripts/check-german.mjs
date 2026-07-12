@@ -132,14 +132,14 @@ const FIELD_ENUMS = new Map([
   ['audiences', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['audience', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['kind', new Set(['official', 'microsoft-learn', 'microsoft-licensing', 'playwright-official', 'automated', 'manual'])],
-  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic'])],
+  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic', 'realizes-plan-item'])],
   ['issueType', new Set(['Task', 'Story', 'Epic'])],
   ['severity', new Set(['critical', 'high', 'medium', 'low'])],
   ['completeness', new Set(['visible-partial'])],
   ['visibilityBasis', new Set(['name-and-publisher-intersect-screenshot-viewport', 'row-intersects-screenshot-viewport'])]
 ]);
 
-const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn)$/;
+const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField)$/;
 const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls)$/;
 const FIXED_OPENSPEC_PATTERN = /\b(?:ADDED|MODIFIED|REMOVED|RENAMED) Requirements\b|\b(?:Requirement|Scenario):|\*\*(?:GIVEN|WHEN|THEN|AND)\*\*|\bMUST\b/g;
 
@@ -341,6 +341,7 @@ function addViolation(report, { file, line = null, location = null, kind = 'engl
 
 function checkText(report, file, text, { line = null, location = null, tokens = [] } = {}) {
   if (/^parent:\s*PAGE-UABC-[0-9]+$/.test(String(text).trim())) return;
+  if (/^spaceType:\s*(?:customer-project|standard-product|consultant-internal)$/.test(String(text).trim())) return;
   if (/^<!-- story-metadata .*PAGE-UABC-[0-9]+/.test(String(text).trim())) return;
   const bounded = stripBoundTechnicalFragments(report, file, text, { line, location, tokens });
   const normalized = bounded.replace(FIXED_OPENSPEC_PATTERN, ' ').replace(/`[^`]*`/g, ' ').trim();
@@ -413,6 +414,7 @@ function scanMarkdown(report, entry, sourceCatalog) {
       }
       return ` ${label} `;
     });
+    line = line.replace(/!?\[([^\]]*)\]\((?!https?:\/\/)[^)]+\)/g, ' $1 ');
     line = line.replace(/https?:\/\/\S+/g, ' ').replace(/^\s{0,3}(?:#{1,6}|[-*+] |\d+[.)] )/, '').replace(/[|>*_~]/g, ' ');
     checkText(report, entry.path, line, { line: index + 1, location: `Zeile ${index + 1}` });
   }

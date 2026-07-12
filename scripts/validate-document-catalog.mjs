@@ -42,7 +42,7 @@ try {
     for (const line of formatDocumentCatalogErrors(errors)) console.error(`- ${line}`);
     process.exit(1);
   }
-  console.log(`Dokumentkatalogpruefung bestanden: Commit=${commit}; Dokumente=${catalog.documentCount}; strukturierte Seiten=${catalog.confluenceDocumentCount}; externe Origins=${catalog.allowedExternalOrigins.length}.`);
+  console.log(`Dokumentkatalogpruefung bestanden: Commit=${commit}; Dokumente=${catalog.documentCount}; strukturierte Seiten=${catalog.confluenceDocumentCount}; Spaces=${catalog.spaces.length}; Migrationseintraege=${catalog.redirects.length}; externe Origins=${catalog.allowedExternalOrigins.length}.`);
 } catch (error) {
   console.error(`Dokumentkatalogpruefung fehlgeschlagen: ${error.message}`);
   process.exit(1);

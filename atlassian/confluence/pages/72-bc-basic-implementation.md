@@ -1,90 +1,109 @@
 ---
 id: UABC-BCBIMPLEMENTATION
-title: Einrichtungswoche
-parent: UABC-BCBPROJECT
-owners: [P-002, P-004, P-005]
-status: Kundenbereites Standardmuster
-jiraRefs: [UABC-20, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34]
-referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-007, UABC-REQ-BCB-008, SRC-BC-077, SRC-BC-078, SRC-BC-079, SRC-BC-080, SRC-BC-081, SRC-BC-082, SRC-BC-083, SRC-BC-084]
-lastReviewed: 2026-07-11
+title: 04 Lösung und Einrichtung
+parent: UABC-PROJECT
+owners: [P-002, P-004, P-005, P-011, P-019]
+status: published
+spaceId: UABC-SPACE-CUSTOMER
+spaceType: customer-project
+order: 4
+storyPageId: PAGE-UABC-110
+purpose: Erklärt die kundenspezifische Standardkonfiguration, Reihenfolge, Prüfungen und Rollenabgrenzung.
+audience: [Consultant, Solution Architect, Key User]
+jiraRefs: [UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-34]
+referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-003, UABC-REQ-BCB-006, UABC-REQ-BCB-008, UABC-REQ-BCB-009]
+lastReviewed: 2026-09-03
 ---
 
-# Einrichtungswoche
+# 04 Lösung und Einrichtung
 
-Phase 2 ist als wiederverwendbare Fünf-Tage-Vorlage geplant und in der Referenzsimulation synthetisch abgeschlossen. Eine reale Kundeninstanz startet sie erst nach bestandenem Entry-Gate; jeder Schreibvorgang benötigt Zielbindung, Freigabe und Rücksetzpunkt.
+## Lösungsziel
 
-## Reihenfolge
+Die Seite beschreibt die für `UABC-BASIC-DE` entschiedene BC-Basic-Konfiguration. Sie ist ein ausführbares Consultant-Muster, ersetzt aber weder die Prüfung der realen Sandbox noch steuerliche oder rechtliche Entscheidungen.
 
-1. `UABC-27`: Zielgesellschaft lesen und binden, Grundeinrichtung sowie minimale Rollen pruefen.
-2. `UABC-28`: Finanzwesen, SKR04, Buchungsmatrix, Mehrwertsteuer und Dimensionen einrichten.
-3. `UABC-29`: Konfigurationspakete erstellen, ausschliesslich freigegebene synthetische Stammdaten laden und abstimmen.
-4. `UABC-30` bis `UABC-32`: Einkauf, Verkauf und einfacher Bestand an Lagerort `HAUPT` mit den benannten Pflichtfaellen pruefen.
-5. `UABC-33`: rollenbezogene Schulungen protokollieren.
-6. `UABC-34`: Ende-zu-Ende-Pflichtfaelle, fachlichen Abnahmetest, UAT-Begleitung und offene Fehler dokumentieren.
+## Einrichtungsstatus und Wahrheitsgrenze
 
-## Lieferergebnisse
+Setupfolge, Feldwerte, Buchungsmatrizen und Rollenproben sind in der Referenzsimulation synthetisch geprüft. Vor jeder realen Konfiguration müssen Zielgesellschaft, Schreibfreigabe, Rücksetzpunkt und bestätigte Kundenparameter vorliegen.
 
-- `UABC-DEL-BCB-004`: gepruefte Standardkonfiguration.
-- `UABC-DEL-BCB-005`: Schulungs- und Kompetenzpaket.
-- `UABC-DEL-BCB-006`: fachlicher Abnahmetest und UAT-Begleitung.
+## Setupfolge, Konfiguration und Berechtigungen
 
-Alle drei Lieferergebnisse sind in der Referenzsimulation `simulated-complete`. Für eine reale Kundeninstanz bleiben die Vorlagen `planned`, bis echte Benutzer, Sandboxausführung und Freigaben belegt sind. Keine simulierte Evidence wird als reale BC-Ausführung ausgegeben.
+### Setup-Reihenfolge
 
-## Ausführbare Standardbaseline
+1. **Zielkontext binden:** Company Information, Sprache, Region, Basiswährung und `UABC-BASIC-DE` prüfen.
+2. **Finanzrahmen setzen:** General Ledger Setup, Accounting Periods und erlaubte Buchungszeiträume festlegen.
+3. **Konten und Buchungslogik:** Kontenrollen, `General Posting Setup`, `VAT Posting Setup` und Nebenbuchgruppen aufbauen.
+4. **Steuernde Stammdaten:** Dimensionen, Nummernserien, Zahlungsbedingungen, Zahlungsformen und Mahnlogik anlegen.
+5. **Prozesssetup:** Purchases & Payables, Sales & Receivables, Inventory, Bank und Lagerort `HAUPT` konfigurieren.
+6. **Daten laden:** Setup-, Stamm- und Eröffnungswelle in dieser Reihenfolge prüfen, laden, abstimmen und bei Fehlern kontrolliert wiederholen.
+7. **Berechtigungen und UAT:** Rollenproben durchführen, positive und verweigerte Aktionen dokumentieren und an UAT übergeben.
 
-Die Tabelle ist die feldnahe Consultant-Reihenfolge. „Standard“ beschreibt dokumentiertes BC-Verhalten, „synthetisch“ den Referenzwert, „bestätigen“ einen echten Kunden-/Sandboxpunkt. Keine Zeile behauptet eine reale Konfiguration.
+Jeder Abschnitt endet erst, wenn Pflichtfelder, Referenzen, erwartete Wirkung, Rücksetzbarkeit und zugeordneter UAT-Fall geprüft sind.
 
-| Abschnitt / BC-Seite über Suche | Feld oder Parameter | Synthetischer Standardwert | Owner | Abhängigkeit / erwartete Wirkung | Feldnahe Prüfung / Übergabe |
-|---|---|---|---|---|---|
-| 1 · **Company Information** | Name, Country/Region Code, Base Currency | `Universaarl-Simulation`, `DE`, `EUR` | `P-002`/`P-005` | freigegebene Zielgesellschaft; bindet Unternehmenskontext | Werte lesen, Gesellschaftskopf prüfen; `UABC-UAT-BCB-001` |
-| 1 · **Finanzbuchhaltung Einrichtung** | Buchung erlaubt ab/bis, Mandantenwährung, globale Dimensionen | August 2026, `EUR`, `KOSTENSTELLE`, `GESCHAEFT` | `P-005` | Unternehmensdaten und Dimensionen; steuert Buchungszeitraum/Auswertung | erlaubtes und gesperrtes Datum prüfen; `UABC-UAT-BCB-001/006` |
-| 1 · **Accounting Periods** | Starting Date, New Fiscal Year, Closed | Monatsperioden, Kalenderjahr | `P-005` | G/L Setup; steuert Abschluss und Sperre | Periode öffnen, Sperrwirkung nur als Sandboxprobe; `UABC-UAT-BCB-006` |
-| 2 · **Chart of Accounts** | No., Name, Account Type, Direct Posting | reduzierter SKR04-orientierter Satz | `P-005` | steuerlich bestätigte Kontenliste; Grundlage aller Buchungsmatrizen | Rollen-/Sammelkonten auflösen, Trial Balance prüfen; `UABC-UAT-BCB-005` |
-| 2 · **General Posting Setup** | Gen. Bus./Prod. Posting Group und Konten | `INLAND` × `HANDEL`/`DIENST` | `P-005` | Kontenplan und Gruppen; erzeugt Einkaufs-, Erlös-, Bestands-/Wareneinsatzwirkung | Preview Posting P2P/O2C ohne fehlendes Konto; `UABC-UAT-BCB-002/003` |
-| 2 · **MwSt.-Buchungseinrichtung** | MwSt.-Geschäfts-/Produktbuchungsgruppe, MwSt. %, Konten | `INLAND` × `MWST19` = 19 % | `P-005` | Konten/steuerliche Bestätigung; erzeugt MwSt.-Posten | 79,80 EUR Vorsteuer und 150,10 EUR Umsatzsteuer nachvollziehen; `UABC-UAT-BCB-005/007` |
-| 2 · **Customer/Vendor/Inventory Posting Groups** | Receivables, Payables, Inventory/Interim Accounts | `INLAND`, `HANDEL` | `P-005` | Kontenplan; bindet Nebenbücher und Lagerwert | Sammelkonten gegen Ledger Entries abstimmen; `UABC-UAT-BCB-002–005` |
-| 3 · **Dimensions / Default Dimensions** | Code, Value Code, Value Posting | zwei globale Dimensionen, auf GuV-Belegen Pflicht | `P-005` | G/L Setup und Werte; verhindert unklassifizierte Buchung | fehlenden Wert blockieren, Default/Combination prüfen; `UABC-UAT-BCB-002/003/005` |
-| 3 · **No. Series** | Code, Starting No., Manual Nos. | getrennte `SYN-`-Reihen je Belegart; manuell nur Eröffnung | `P-002` | Belegarten entschieden; sichert eindeutige Ketten | je Beleg genau nächste Nummer, Dublette ablehnen; `UABC-UAT-BCB-001–003` |
-| 3 · **Payment Terms / Payment Methods** | Due Date Calculation, Code, Bal. Account | `14T`, `30T`, Überweisung | `P-005` | Partnerstamm/Bank; steuert Fälligkeit/Zahlungsweg | Fälligkeitsdatum und Applies-to-Bezug prüfen; `UABC-UAT-BCB-002/003/005` |
-| 3 · **Reminder Terms** | Levels, Grace Period, Fees/Interest | eine Stufe, keine Gebühr/Zinsen/Übermittlung | `P-005`/`P-011` | Zahlungsbedingungen und rechtlicher Mahntext | Vorschlag erzeugen, keine externe Ausgabe/Buchung; O2C-UAT |
-| 4 · **Bank Account Card / Bank Acc. Reconciliation** | Currency, Posting Group, Statement No. | ein synthetisches EUR-Konto, manuelle Abstimmung | `P-005` | Kontenplan/Zahlungsmethoden; bildet Cash-Kontrolle | 5.000 + 940,10 − 499,80 = 5.440,30 und Differenz 0; `UABC-UAT-BCB-005` |
-| 4 · **Purchases & Payables / Sales & Receivables Setup** | Nummernserien, Pflichtreferenzen, Standardwerte | getrennte Bestell-/Rechnungs-/Auftrags-/Lieferreihen | `P-011` | Nummernserien/Partner/Artikel; steuert Belegfluss | Receive/Invoice und Ship/Invoice getrennt prüfen; `UABC-UAT-BCB-002/003` |
-| 4 · **Inventory Setup / Locations / Units of Measure** | Location, Base Unit, Costing Method, Prevent Negative Inventory | `HAUPT`, `STK`, FIFO, Negativbestand verhindern | `P-019` | Posting Groups/Artikel; steuert Menge und Wert | 100 STK/4.200 EUR, Inventurdifferenz und Entries prüfen; `UABC-UAT-BCB-004` |
-| 5 · **Users / Permission Sets / User Groups** | Benutzer, Firma, zugewiesene Rechte | Rollenbedarf gemäß SoD-Matrix; keine erfundenen Setnamen | `P-004`/`P-001` | echte Benutzer/Lizenzen/Tenant-Sets; begrenzt Ausführung | positive und verweigerte Aktion je Rolle; `UABC-UAT-BCB-001–007` |
-| 6 · **Trial Balance, Aged Accounts, Bank Reconciliation, Inventory Valuation, VAT Statement** | Filter, Periode, Dimensionen | Standardberichte ohne Anpassung | `P-005`/`P-019` | gebuchte Testkette; macht Kontrollen sichtbar | Summen, Filter und Drill-down gegen Ledger abstimmen; `UABC-UAT-BCB-004–007` |
+### Konfigurationsbaseline
 
-Quellenzuordnung: Unternehmensdaten `SRC-BC-077`; Buchungsgruppen `SRC-BC-078`; Dimensionen `SRC-BC-079`; granulare Berechtigungen `SRC-BC-080`; VAT `SRC-BC-081`; deutsche Lokalisierung `SRC-BC-082`; Benutzer/Rollen `SRC-BC-083`; Perioden `SRC-BC-084`. Synthetische Werte und konkrete Konten bleiben Projektannahmen, keine Microsoft-Vorgaben.
-
-### Entry und Exit je Abschnitt
-
-| Abschnitt | Entry | Exit |
+| Bereich | Synthetischer Standardwert | Erwartete Wirkung |
 |---|---|---|
-| 1 · Gesellschaft/Periode | Ziel, Lizenz, Rücksetzpunkt und Owner bestätigt | Gesellschaft, Währung, Datum und Periodenstatus geprüft |
-| 2 · Finance/VAT | Konten- und Steuerentwurf bestätigt | jede verwendete Buchungsgruppenkombination besitzt gültige Konten; Preview Posting ohne Lücke |
-| 3 · Steuernde Stammdaten | Dimensionen, Belegarten, Zahlungs-/Mahnpolitik entschieden | Pflichtdimension, Nummernfolge, Fälligkeit und Mahnvorschlag geprüft |
-| 4 · Prozesse/Lager/Bank | Partner, Artikel, Bank und Lagerdaten qualitätsgeprüft | P2P/O2C/Bank/Lagerkontrollen mit Differenz null oder erklärtem Befund |
-| 5 · Berechtigungen | echte Benutzer, Lizenz und Tenant-Berechtigungssätze sichtbar | je Rolle positive und verweigerte Aktion dokumentiert; kein unzulässiger SoD-Konflikt |
-| 6 · Reporting/UAT | repräsentative Testbuchungen und UAT-Rollen vorhanden | Standardberichte/Drill-downs abgestimmt und an UAT übergeben |
+| Gesellschaft | `UABC-BASIC-DE`, DE, EUR, Kalenderjahr | eindeutiger Buchungs- und Berichtsrahmen |
+| Konten | 11 SKR04-orientierte Kontenrollen | alle Referenzbuchungen lösen auf |
+| Allgemeine Gruppen | `INLAND` und `HANDEL` | Einkauf, Verkauf und Wareneinsatz werden kontiert |
+| VAT | `INLAND` und `MWST19`, 19 Prozent | Vor- und Umsatzsteuer werden getrennt geführt |
+| Dimensionen | `KOSTENSTELLE`, `GESCHAEFT` | GuV-relevante Belege sind auswertbar |
+| Lager | `HAUPT`, `STK`, FIFO | Menge, Wert und Sachkonto bleiben abstimmbar |
+| Bank | synthetische EUR-Bankgruppe | Zahlungen und Abstimmung ohne externe Anbindung |
 
-## Rollen- und SoD-Matrix
+Die Kontenrollen umfassen Bank, Debitoren- und Kreditorensammelkonto, Warenbestand, Eröffnungsclearing, Einkauf, Erlös, Vorsteuer, Umsatzsteuer, Wareneinsatz und Inventurdifferenz.
 
-Permission-Set-Namen werden nicht erfunden. Der Consultant ermittelt im echten Tenant die kleinste Standardberechtigungsfunktion und dokumentiert Abweichungen.
+### Buchungs- und Kontrolllogik
 
-| Rolle | Erlaubte Aufgabe | Zu prüfender Berechtigungsbedarf | Verbotene Kombination | Positive / verweigerte Probe |
-|---|---|---|---|---|
-| `P-004` Administration | Benutzer/Firma/Rolle zuweisen, Setup lesen | Benutzer-/Berechtigungsverwaltung für Zielgesellschaft | eigene Prozessbelege buchen oder fachlich freigeben | Benutzerkontext prüfen / Einkaufsrechnung buchen wird verweigert oder eskaliert |
-| `P-005` Finance | Journale, Zahlung, Abstimmung, Abschluss, VAT-Vorschau | Finance-Buchung und Standardberichte | eigene Zahlung allein vorbereiten und freigeben; Permission Sets administrieren | Journal/Abstimmung ausführen / Benutzerrechte ändern wird verweigert |
-| `P-011` Handel | Einkauf/Verkauf erfassen, empfangen/liefern, prozessbezogen buchen | Einkaufs-/Verkaufsbelege und Partner lesen | Konten, VAT, Buchungsmatrix oder Zahlung ändern | P2P/O2C ausführen / VAT Posting Setup ändern wird verweigert |
-| `P-019` Lager | Artikel/Lager lesen, Mengen buchen, Inventur | Artikel-/Lagerbuchungen und Lagerberichte | Bewertungskonten, VAT oder Zahlungsjournal ändern | Inventurdifferenz buchen / G/L Setup ändern wird verweigert |
-| `P-016` Daten | Vorlagen prüfen und Import an Consultant übergeben | Leserechte und kontrollierter Importbedarf nur falls freigegeben | Setup/Buchung/Freigabe in Personalunion | Datenfehler protokollieren / unfreigegebenen Import ausführen wird verweigert |
-| `P-001` Sponsor | Gates entscheiden und Evidence lesen | Leserechte auf Status/Reports nach Bedarf | operative Buchung oder Administration | UAT-/Cutoverstatus lesen / Buchung durchführen wird verweigert |
+- `INLAND` plus `HANDEL` führt Verkauf auf die Erlösrolle.
+- Der synthetische Artikelbezug aktiviert die Eingangsrechnung auf `BESTAND-HANDEL`; der spätere Abgang belastet `WARENEINSATZ-HANDEL`.
+- `EINKAUF-HANDEL` ist für nicht bestandsgeführte Beschaffung vorgesehen und wird im Referenzfall nicht bebucht.
+- Die tatsächliche BC-Verrechnung über Bestands-, Wareneinsatz- und Direct-Cost-Applied-Mechanik wird in der Kundensandbox per Posting Preview bestätigt.
+- `INLAND` plus `MWST19` führt Vorsteuer und Umsatzsteuer auf getrennte Rollen; der Prozentsatz beträgt in der Simulation 19 Prozent.
+- Debitoren- und Kreditorengruppe `INLAND` stimmen mit den jeweiligen Sammelkonten überein.
+- Lagergruppe `HANDEL` verbindet Artikelwert, Bestandskonto und Inventurdifferenz.
+- Bankgruppe `EUR-BANK` verbindet Zahlungsposten und Bankkonto mit der Kontenrolle `BANK`.
 
-## DE-Lokalisierungscheck
+### Feldnahe Prüfung
 
-Vor Setup werden BC-Version/Build aus **Help & Support**, Country/Region aus **Company Information**, Sprache/Region, installierte Extensions/Apps und verfügbare deutsche Funktionen nur lesend erfasst. `DE` allein beweist keine vollständige Lokalisierung. Danach werden VAT Posting Setup, VAT Entries/Statement, UStVA-Funktion, Konten und Kennzeichen gegen Kunden-/Steuerberaterentscheidung geprüft. Die Simulation berechnet nur die Vorschau; keine ELSTER-, Bank- oder sonstige externe Übermittlung ist zulässig.
+Der Consultant öffnet jeweils die relevante BC-Seite über die Suche, vergleicht den bestätigten Wert, prüft Abhängigkeiten und führt eine kleine kontrollierte Probe aus.
+Beispiele sind Posting Preview, Dimensionsvalidierung, Nummernserienvorschau, Rollenprobe und Navigate/Find Entries.
 
-## Abweichung und Consultant-Handlung
+Unbekannte Seiten, Felder, Permission Sets oder Lokalisierungsfunktionen werden nicht geraten. Sie werden als Sandboxbefund mit Owner, Auswirkung und Entscheidung dokumentiert.
 
-Jeder Befund erhält genau eine Behandlung: **Standard übernehmen** (dokumentiertes Verhalten passt), **kundenspezifisch parametrisieren** (Wert variiert ohne Produktänderung), **Change** (zusätzlicher Nutzen/Umfang/Test/Betrieb) oder **Out-of-Scope** (nicht Teil von BC Basic). Der Consultant arbeitet immer: **vorbereiten → konfigurieren → prüfen → dokumentieren → an UAT übergeben → Abweichung behandeln**. Unbekannte Seiten, Felder, Permission Sets oder Lokalisierungsfunktionen werden nicht geraten, sondern als Sandboxbefund mit Owner und Entscheidung geführt.
+### Rollen und Funktionstrennung
 
-<!-- story-metadata {"id":"PAGE-UABC-110","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+**Administration `P-004`:** bereitet Gesellschaft und Rollen vor. Die Probe erlaubt das Lesen des Setups, verweigert aber operative Buchung und eigene fachliche Freigabe.
+
+**Finance `P-005`:** bearbeitet Zahlung, Abstimmung und Abschluss. Die Probe erlaubt die Journalprüfung, verweigert aber Benutzeradministration und alleinige Steuerentscheidung.
+
+**Handel `P-011`:** bearbeitet Einkauf und Verkauf. Die Probe erlaubt die Belegerfassung, verweigert aber eine Änderung des Buchungssetups.
+
+**Lager `P-019`:** bearbeitet Bestand und Inventur. Die Probe erlaubt die Zählerfassung, verweigert aber eine Änderung der Bewertungsmethode.
+
+Die Datenrolle `P-016` prüft Vorlagen und übergibt sie kontrolliert. Sponsor `P-001` entscheidet Gates und liest Status, erhält aber kein künstliches Endanwendertraining.
+
+### DE-Lokalisierung
+
+Vor Setup werden BC-Version, Country/Region, Sprache, installierte Apps und verfügbare deutsche Funktionen read-only erfasst.
+Danach werden Konten, VAT Posting Setup, VAT Entries, VAT Statement beziehungsweise VAT Return und UStVA-Zuordnung fachlich geprüft.
+
+Die Referenzsimulation erstellt nur eine VAT-Vorschau. Sie behauptet keine ELSTER-Übermittlung, Steuerberatung oder rechtliche Freigabe.
+
+## Abweichungen und Bestätigungspunkte
+
+- **Synthetisch entschieden:** Konfigurationsbaseline, Setup-Reihenfolge, sechs Buchungsmatrizen, FIFO, zwei Dimensionen und SoD-Grundsatz.
+- **In einer realen Sandbox zu bestätigen:** konkrete Seiten und Felder, installierte Apps, Permission Sets, Nummernserien, Buchungszeiträume und Rücksetzung.
+- **Fachlich zu bestätigen:** Kontonummern, VAT-/UStVA-Kennzeichen, Bank- und Mahnverfahren, Freigabegrenzen und Standardreports.
+- Jede Abweichung wird als Standardübernahme, Parametrisierung, Change oder Out-of-Scope dokumentiert.
+
+## Referenzen
+
+- [Konfigurationswerte](../../../project/bc-basic/customer-templates/example/company-setup.example.yaml)
+- [Setup- und Datenfolge](../../../project/bc-basic/data-package.yaml)
+- [BC-Seiten, Aktionen und Retests](../../../project/bc-basic/bc-playthrough-catalog.yaml)
+- [Rollen- und Trainingsproben](../../../project/bc-basic/training-plan.yaml)
+- [Offizielles Quellenregister](../../../docs/research/source-register.md)
+- [Maschinenlesbare Quellenzuordnung](../../../docs/research/sources.yaml)
+
+<!-- story-metadata {"id":"PAGE-UABC-110","title":"04 Lösung und Einrichtung","parent":"PAGE-UABC-000","version":4,"status":"published"} -->

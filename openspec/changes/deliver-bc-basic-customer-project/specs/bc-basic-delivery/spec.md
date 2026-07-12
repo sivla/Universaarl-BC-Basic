@@ -166,6 +166,44 @@ Die Kundeninstanz MUST `exports/project-data/v1/document-catalog.json` als strik
 - **WHEN** Generator, Dokumentvalidator oder Snapshotvalidator den Branch-Commit pruefen
 - **THEN** wird der Katalog mit einem stabilen Fehlercode abgelehnt und kein Teilbestand als gueltig ausgegeben
 
+### Requirement: UABC-REQ-BCB-015 Drei getrennte Confluence-Wissensraeume
+Die Kundeninstanz MUST ihre 19 bestehenden Confluence-Seiten mit unveraenderten stabilen Seiten-, Story- und Pfadidentitaeten genau einem von drei internen Wissensraeumen zuordnen. Der Kundenprojekt-Space MUST die konkrete Projektwahrheit fuehren. Der Produkt-Space MUST den kundenunabhaengigen BC-Basic-Standard beschreiben. Das interne Consultant-Handbuch MUST die wiederverwendbare Durchfuehrungsmethode enthalten. Kunden-Evidence DARF weder in Produktbuch noch Consultant-Handbuch dupliziert werden. Der Dokumentkatalog MUST Space, Space-Typ, Story-Seiten-ID, Parent und Reihenfolge als einzigen maschinenlesbaren Seitenbaum tragen; externe Confluence-URL, Page-ID und Space-Key MUESSEN ohne kanonische Quelle leer bleiben.
+
+#### Scenario: UABC-SCN-BCB-024 Twin navigiert drei Spaces commitgebunden
+- **GIVEN** der erlaubte Branch wurde zu genau einem vollstaendigen Commit aufgeloest
+- **WHEN** der Twin den Dokumentkatalog und die 19 positivgelisteten Seiten liest
+- **THEN** besitzt jeder Space genau eine Root-Seite, jede weitere Seite einen Parent im selben Space und jede Geschwisterreihenfolge ist eindeutig
+- **AND** bleiben alle bisherigen Seiten-, Story- und Pfadidentitaeten erhalten und ueber die Redirect-Matrix nachvollziehbar
+
+#### Scenario: UABC-SCN-BCB-025 Unlesbare oder widerspruechliche Seite blockieren
+- **GIVEN** eine Seite ist keinem Space zugeordnet, besitzt einen fremden oder fehlenden Parent, doppelte Reihenfolge, widerspruechliche Metadaten, zwei Haupttitel, ungeschlossenen Codeblock, uebersprungene Ueberschriftsebenen oder eine unlesbare Tabellenstruktur
+- **WHEN** Katalog- oder Storyvalidator die commitgebundenen Markdown-Blobs pruefen
+- **THEN** wird die Informationsarchitektur fail-closed abgelehnt und kein unvollstaendiger Seitenbaum an den Twin freigegeben
+
+#### Scenario: UABC-SCN-BCB-026 Tickettyp wird explizit uebergeben
+- **GIVEN** die bestehende Projektstory enthaelt ein Jira-aehnliches Ticket
+- **WHEN** Storyvalidator und Twin-Export den Ticketrecord pruefen
+- **THEN** stammt der kanonische Typ ausschliesslich aus dem fachlichen `type`-Feld und die Parent-Typ-Beziehung entspricht der versionierten Hierarchie
+- **AND** fuehren fehlender oder unbekannter Typ und eine unzulaessige Parent-Typ-Kombination zum fail-closed Abbruch statt zu einer Ableitung aus Key oder Titel
+
+#### Scenario: UABC-SCN-BCB-027 Kundenverlauf und historische Planung werden nicht doppelt gezaehlt
+- **GIVEN** 17 vollstaendige Storytickets und 38 aeltere Planungs- beziehungsweise Traceability-Issues bestehen mit stabilen IDs fort
+- **WHEN** der Twin-Export die Ticketwelt projiziert
+- **THEN** sind nur die 17 Storytickets kundenlesbarer Projektverlauf und Grundlage fuer Worklogs, 80 Stunden, 9.600 EUR, Timeline und Abschlusszahlen
+- **AND** tragen die 38 aelteren Issues die Rolle `internal-traceability` und den Ausschluss aus Story- und Stundenzaehlung, ohne geloescht oder fachlich umklassifiziert zu werden
+
+#### Scenario: UABC-SCN-BCB-028 Twin rendert nur Producer-Module und Ticketviews
+- **GIVEN** der Dokument- und Ticketkatalog wurden aus demselben Branch-Commit gelesen
+- **WHEN** der Twin Confluence-Navigation, Jira-Board oder Kompaktliste darstellt
+- **THEN** stammen Module, Knoten, Reihenfolge, Parent, Startzustand, Boardspalten, Statuszuordnung, Gruppen, Filter und sichtbare Felder ausschliesslich aus dem Producervertrag
+- **AND** blockieren doppelte IDs oder Reihenfolgen, Zyklus, falscher Parent, unbekannte Referenz, ungueltiger Startzustand oder eine zweite Ticketzaehlung die Uebergabe
+
+#### Scenario: UABC-SCN-BCB-029 Tickettyp besitzt sichere Darstellungsmetadaten
+- **GIVEN** ein kanonischer sichtbarer Ticketrecord
+- **WHEN** Label, Icon und Farbe fuer die Darstellung gelesen werden
+- **THEN** stammen `typeLabel`, `displayIconKey` und `displayColorToken` aus der geschlossenen Typ-Praesentationsliste
+- **AND** sind HTML, SVG, externe Icon-URLs sowie fehlende oder unbekannte Keys unzulaessig; ein spaeteres lokales Icon-Asset benoetigt Positivlistung und Digestbindung
+
 ## Requirement: Kundenverwendbare Discovery und Fit-to-Standard
 
 Die Kundeninstanz MUSS fuer die synthetische BC-Basic-Einfuehrung ein zusammenhaengendes Betriebsmodell, moderierbare Workshopmodule, einen E2E-Fit/Gap, konkrete Solution-Design-Entscheidungen und einen abgestimmten Migrationsplan enthalten. Das Ergebnis MUSS zwischen synthetisch entschiedener Projektwahrheit, vor Projektstart zu parametrisierenden Werten, in einer echten BC-Sandbox zu validierendem Verhalten und kunden-/steuer-/rechtsseitig zu bestaetigenden Punkten unterscheiden. Es DARF keine zusaetzlichen Stunden ausserhalb der bestaetigten 80-Stunden-/9.600-EUR-Projektstory erzeugen.

@@ -1,32 +1,87 @@
 ---
 id: UABC-BCBHYPERCARE
-title: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
+storyPageId: PAGE-UABC-120
+title: 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
 parent: UABC-BCBPROJECT
-owners: [P-002, P-005]
-status: Synthetisch abgeschlossen
+spaceId: UABC-SPACE-PRODUCT
+spaceType: standard-product
+order: 3
+purpose: Wiederverwendbarer Übergang vom abgenommenen Projekt in einen stabilen Betrieb
+audience: Projektleitung, Consultant, Key User und Support
+owners: [P-002]
+version: 4
+status: published
 jiraRefs: [UABC-21, UABC-35, UABC-36, UABC-37, UABC-38]
 referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-009, UABC-REQ-BCB-010]
-lastReviewed: 2026-07-11
+lastReviewed: 2026-07-12
 ---
 
-# Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
+# 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
 
-Phase 3 bleibt eine wiederverwendbare Vorlage mit höchstens 10 Stunden innerhalb einer Kalenderwoche. Die Referenzsimulation hat Monatsabschluss, VAT-Vorschau, Restart und drei Hypercaretage abgeschlossen; ein echter Kunde wiederholt sie nach UAT in seiner Sandbox.
+## Betriebsmodell und Geltungsbereich
 
-## Begrenzte Hypercare
+Diese Seite beschreibt den wiederverwendbaren Betriebsübergang. Kundenbezogene Tagesstände, Incidents, Freigaben und Buchungsevidence bleiben im Kundenprojekt-Space und werden hier nicht dupliziert.
 
-`UABC-35` fuehrt UAT- und Hypercare-Befunde, Prioritaet, Verantwortliche und Tagesstatus. Relevante Befunde muessen bearbeitet sein oder den Abschluss blockieren. Synthetische Beispieldaten duerfen nicht als echte Unterstuetzungsfaelle erscheinen. Nach der einwoechigen Hypercare werden weitere Taetigkeiten als Support oder neues modulares Projekt behandelt.
+## Übergangs- und Supportstandard
 
-## Monatsabschlussprobe in der Sandbox
+Der Standard verbindet Mock-Cutover, Go-live-Entscheidung, Restartprobe, begrenzte Hypercare und Supportübergabe zu einer durchgängigen Kontrollstrecke.
 
-`UABC-36` probt den Monatsabschlussprozess in der Sandbox und dokumentiert die Abstimmung von Debitoren, Kreditoren, Bankersatz, Bestand, Steuer- und Sachkonten, Perioden sowie Basisberichten. Abweichungen bleiben bis zur Klaerung blockierend. Das ist kein echter Monatsabschluss. Das Lieferergebnis ist `UABC-DEL-BCB-007`.
+Ein Go-live erfolgt nur mit bestätigten Entry-Kriterien und einem ausführbaren Fallback.
 
-## UStVA-Vorschau
+## Cutover, Hypercare und Betriebsübergabe
 
-`UABC-37` prüft Periode, Beträge und Kennzeichen gegen die Abstimmung. Die Referenzvorschau ist synthetisch bestanden; beim Kunden werden Konten/Kennzeichen steuerlich bestätigt. Test-, Produktiv- oder ELSTER-Übermittlung bleiben ausgeschlossen.
+### Cutoverstandard
 
-## Uebergabe
+Der Cutoverplan enthält Reihenfolge, Owner, Zeitfenster, Abhängigkeiten und Abbruchkriterien. Pflichtbestandteile sind:
 
-`UABC-38` hat die Referenzdokumentation, Schulungsunterlagen und den Index synthetisch übergeben. In einer Kundeninstanz bestätigen echte Entscheider den Hypercare-Exit und Betriebsübergang erneut.
+- Datenfreeze und finaler Daten-/Saldenabgleich;
+- Konfigurations-, Rollen- und Periodenkontrolle;
+- offene Posten, Bank, Bestand und VAT-/USt-Abstimmung;
+- UAT-Exit und geschlossene P1-/P2-Defects;
+- Kommunikationspunkte, GO-/NO-GO-Entscheidung und Fallback.
 
-<!-- story-metadata {"id":"PAGE-UABC-120","parent":"PAGE-UABC-000","version":3,"status":"published"} -->
+Ein Mock-Cutover wiederholt den gesamten Ablauf einschließlich Zeitmessung, Korrektur und Restart, bevor ein realer Cutover freigegeben wird.
+
+### Hypercarestandard
+
+Die Hypercare ist zeitlich begrenzt und arbeitet mit einem täglichen Rhythmus:
+
+1. System-, Prozess- und Ticketstatus prüfen.
+2. P1, P2 und P3 anhand Wirkung und Dringlichkeit priorisieren.
+3. Diagnose über Belege, Posten, Berechtigungen und Kontrollen durchführen.
+4. Korrektur und Retest belegen.
+5. GO oder NO-GO für den Folgetag entscheiden.
+
+Am Exit sind P1 und P2 geschlossen. Verbleibende P3-Themen werden transparent als Support-Backlog übergeben.
+
+### Restart und Wiederanlauf
+
+Die Restartprobe beginnt an einem benannten Sicherungs- oder Referenzpunkt. Sie stellt Datenstand, Konfiguration und offene Arbeit reproduzierbar wieder her.
+
+Danach folgen Smoke-Test, Integritätskontrollen und die dokumentierte Wiederanlaufentscheidung.
+
+### Betriebs- und Supportmodell
+
+Anwender korrigieren sichere Bedienfehler selbst. Key User übernehmen Prozess- und Stammdatenfragen.
+
+Consultant oder Support bearbeitet Konfigurations-, Berechtigungs- und Produktfragen. Bei unklarer Integritäts-, Steuer-, Sicherheits- oder Buchungswirkung gilt sofortiger Buchungsstopp.
+
+### Erweiterungsgrenzen
+
+Nach dem vereinbarten Hypercarefenster werden neue Funktionen, zusätzliche Gesellschaften, Integrationen und tiefere Prozessvarianten neu bewertet.
+
+Sie werden als Supportbedarf, Change oder eigenständiges Projekt eingeordnet und verlängern den Basisscope nicht stillschweigend.
+
+## Erweiterungsgrenzen und Projektparameter
+
+- Cutoverfenster, Sicherungspunkt und Supportzeiten werden je Kundenprojekt bestätigt.
+- Produktive Bank-, Steuer- und externe Kommunikationswege benötigen separate fachliche und technische Freigaben.
+- Support-Backlog und Projektdefects werden am Hypercare-Exit eindeutig getrennt.
+
+## Referenzen
+
+- [BC Basic Standardprodukt](70-bc-basic-project.md)
+- [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
+- [Consultant: Projektsteuerung bis Abschluss](75-bc-basic-meetings-decisions.md)
+
+<!-- story-metadata {"id":"PAGE-UABC-120","parent":"PAGE-UABC-090","version":4,"status":"published"} -->

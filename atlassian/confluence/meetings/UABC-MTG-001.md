@@ -13,19 +13,60 @@ evidenceClaimed: false
 
 > Repositorybasierte Simulation, keine reale Kundenbesprechung und keine reale BC-Ausführung. Die Rollen entscheiden innerhalb der konsistenten Projektwelt; steuerliche, rechtliche und reale Sandbox-Nachweise werden dadurch nicht ersetzt.
 
-## Ziel, Agenda und Rollen
+## Ziel, Ablauf und Rollen
 
-Ziel ist ein entscheidungsfähiger BC-Basic-Blueprint. `P-002` moderiert und dokumentiert, `P-001` entscheidet Scope/Gates, `P-005` verantwortet Finance/VAT/Bank, `P-011` Einkauf/Verkauf, `P-016` Daten und `P-019` Lager. Agenda: Betriebsmodell (30 min), Finance/VAT (60 min), P2P/O2C (60 min), Cash/Bank/Lager (45 min), Migration/Qualität (45 min), Entscheidungen/UAT/Cutover (30 min). Diese Zeiten sind Moderationsblöcke innerhalb der bereits gebuchten Ticket-Worklogs und erzeugen keine Zusatzstunden.
+Das eine Meeting-Artefakt protokolliert drei fokussierte Workshopteile der synthetischen Discovery. Es erzeugt keine zusätzliche Sitzung, kein zusätzliches Ticket und keine weiteren Stunden.
 
-## Fragen, Antworten und Entscheidungen
+`P-002` moderiert und dokumentiert. `P-001` entscheidet Scope und Gates, `P-005` verantwortet Finance, VAT und Bank, `P-011` Einkauf und Verkauf, `P-016` Daten und `P-019` Lager.
 
-1. **Welches Betriebsmodell muss BC abbilden?** Eine EUR-Handelsgesellschaft, ein Hauptsitz, ein Lager `HAUPT`, monatliche Standardbelege und keine Produktion/Projekte/Services. Entscheidung: Fit-to-Standard ohne Erweiterung.
-2. **Wie wird Finance strukturiert?** Reduzierter SKR04-orientierter Plan, Inland-/Handels-Buchungsmatrix, Dimensionen Kostenstelle/Geschäftsbereich und Monatsperioden. Entscheidung: synthetisch verbindlich; echte Konten/VAT-Matrix steuerlich bestätigen.
-3. **Wie laufen Einkauf und Verkauf?** Durchgängige Bestell-/Auftragsketten mit getrenntem Wareneingang/Lieferung und Rechnung. Preis-/Mengenabweichungen werden vor Rechnung geklärt. Entscheidung: Standardbelege, kein Workflow-Customizing.
-4. **Wie werden Forderungen, Zahlungen und Bank behandelt?** 14/30 Tage, Überweisung, belegbezogener Ausgleich, manuelle Kontoauszugsprobe und eine Mahnstufe. Entscheidung: kein Bankfeed, kein echter Zahlungsexport, keine Mahnzustellung.
-5. **Welches Lagerverfahren genügt?** Ein Lagerort, Stück, gleitender Durchschnitt, einfache Inventur. Entscheidung: keine Plätze, Charge/Serie oder Negativbestand als Sollprozess.
-6. **Was wird migriert?** Setup, Stammdaten und kontrollierte Eröffnung/offene Posten in drei Wellen. Entscheidung: kein historischer Bewegungsdatenvollimport.
-7. **Wann ist Discovery abgenommen?** Wenn Fit/Gap, Owner, Datenobjekte, Abgrenzungen und UAT-Bezug dokumentiert sind. Ergebnis: `GO_DISCOVERY_SIMULATION`.
+## Workshop 1 – Unternehmen, Finance und VAT
+
+**Simulationsdatum:** 2026-08-17
+
+**Vorbereitung:** Betriebsmodell, Kontenstruktur, Perioden, Steuerfälle und Dimensionen.
+
+**Ergebnisse:**
+
+- eine EUR-Handelsgesellschaft mit Hauptsitz und Lagerort `HAUPT`;
+- reduzierter SKR04-orientierter Kontenplan;
+- Buchungsgruppen `INLAND`, `HANDEL` und `MWST19`;
+- Dimensionen `KOSTENSTELLE` und `GESCHAEFT`;
+- Fit-to-Standard ohne Produktion, Projekte oder Service.
+
+**Entscheidungsgrenze:** Die Simulation bindet Struktur und Kontrolllogik. Reale Konten, VAT-Matrix und UStVA-Kennzeichen benötigen im Kundenprojekt fachliche und steuerliche Bestätigung.
+
+## Workshop 2 – P2P, O2C, Cash und Lager
+
+**Simulationsdatum:** 2026-08-19
+
+**Vorbereitung:** Belegarten, Zahlungsbedingungen, Mahnweg, Bankabstimmung, Artikel und Lagerverfahren.
+
+**Ergebnisse:**
+
+- getrennte Bestellung, Wareneingang und Einkaufsrechnung;
+- getrennte Verkaufsbestellung, Lieferung und Rechnung;
+- 14/30-Tage-Zahlungslogik, belegbezogener Ausgleich und eine Mahnstufe;
+- manuelle synthetische Kontoauszugsprobe ohne Bankfeed oder Zahlungsexport;
+- ein Lagerort, Einheit `STK`, Bewertungsmethode FIFO und einfache Inventur;
+- keine Plätze, Chargen, Seriennummern oder Negativbestände als Sollprozess.
+
+**Entscheidungsgrenze:** Preis- und Mengenabweichungen werden vor Rechnung geklärt. Individuelle Workflows und externe Integrationen bleiben außerhalb des Standards.
+
+## Workshop 3 – Daten, UAT und Cutover
+
+**Simulationsdatum:** 2026-08-21
+
+**Vorbereitung:** Datenquellen, Zielvolumina, Migrationswellen, Rollen, sieben UAT-Fälle und Cutoverkriterien.
+
+**Ergebnisse:**
+
+- Setup, Stammdaten und Eröffnung/offene Posten werden in drei Wellen migriert;
+- historische Bewegungsdaten werden nicht voll importiert;
+- jeder UAT-Fall besitzt Rolle, Daten, Kontrolle, Fehler und Retest;
+- Discovery ist bei dokumentiertem Fit/Gap, Owner, Datenobjekt, Abgrenzung und UAT-Bezug abgeschlossen;
+- gemeinsame Entscheidung `GO_DISCOVERY_SIMULATION`.
+
+Die Workshopzeiten sind Moderationsblöcke innerhalb der bereits gebuchten Ticket-Worklogs und erzeugen keine Zusatzstunden.
 
 ## Offene reale Bestätigungen
 
