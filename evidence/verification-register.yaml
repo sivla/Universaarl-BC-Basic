@@ -280,3 +280,12 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-39, UABC-REQ-BCB-001, UABC-REQ-BCB-003]
     evidence: Historischer, durch den CRONUS-Pilot-Rebaseline abgeloester Country/Region- und Company-Information-Ausfuehrungsnachweis. Er bleibt Auditprovenienz, besitzt currentAuthority=false und darf keinen aktuellen Pilot-, Setup-, Schreib- oder Readbackstatus erfuellen.
+  - id: UABC-VER-BCB-SETUP-WAVE1-001
+    changeRef: prepare-uabc-basic-de-setup-wave-1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-39, UABC-40, UABC-REQ-BCB-001, UABC-REQ-BCB-003]
+    evidence: Repositorybasiertes Policy-Gate auf Commit 4a35e9521bb56006f05bc1a0a5702ae586de14b5. OpenSpec strict bestand mit 10 von 10 Items, der fokussierte Setup-, Story-, Plan- und Ticketblock mit 154 von 154 Tests, und 13 deterministische Ableitungen waren im Wiederholungslauf bytegleich; git diff --check und die gezielte Review waren ohne Befund. Geprueft ist ausschliesslich der vorbereitete und schreibgesperrte Setup-Wave-1-Vertrag; es gab keinen Live-Run, keine BC-Ausfuehrung und keine externe oder menschliche Freigabe. writesAuthorized, pilotConfigured und writesApplied bleiben false.

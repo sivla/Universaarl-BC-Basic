@@ -9,7 +9,7 @@ approvalPolicy:
   scope: Kontrollierter Setup-Wave-1-Vertrag ohne Live-BC-Write, Buchung oder Uebermittlung
   conditions: [CORE-Allowlist exakt, Quellen aufgeloest, Preflight und Readback vollstaendig, kein Live-Claim]
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     coreFinance: { status: prepared-for-controlled-live-run, packageId: UABC-01-CORE-FINANCE }
