@@ -12,7 +12,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 9
 storyPageId: PAGE-UABC-060
-purpose: Beschreibt die noch auszuführende Test-, UAT- und Abnahmestrecke des aktuellen Piloten.
+purpose: Beschreibt die noch auszuführende Test-, UAT- und Abnahmestrecke des
+  aktuellen Piloten.
 audience:
   - Key User
   - Projektleitung
@@ -28,7 +29,7 @@ referenceIds:
   - UABC-REQ-BCB-009
   - UABC-REQ-BCB-010
 lastReviewed: 2026-07-13
-version: 6
+version: 5
 ---
 
 # 03.1 Test und Abnahme
@@ -65,4 +66,4 @@ Der frühere, vollständig repositorybasierte Referenzlauf bleibt ausschließlic
 - [UAT-Katalog](../../../project/bc-basic/uat-catalog.yaml)
 - [Projektarchiv](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-060","title":"03.1 Test und Abnahme","parent":"PAGE-UABC-150","version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-060","title":"03.1 Test und Abnahme","parent":"PAGE-UABC-150","version":5,"status":"published"} -->

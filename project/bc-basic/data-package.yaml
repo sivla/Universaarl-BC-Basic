@@ -1,7 +1,7 @@
 schemaVersion: 1
 packageId: UABC-DATA-BCB-001
 projectId: UABC-BC-BASIC-001
-status: template
+status: prepared-for-controlled-live-run
 templateState: kundenbereit
 currentBaselineKind: standard-cronus-demo
 pilotConfigured: false
@@ -9,6 +9,18 @@ writesApplied: false
 simulationState: planned-not-executed
 customerInstanceState: standard-cronus-demo-wave-0-und-Importentscheidung-ausstehend
 classification: synthetic-only
+coreFinancePreparation:
+  status: prepared-for-controlled-live-run
+  payloadPath: project/bc-basic/core-finance-payload.yaml
+  manifestPath: project/bc-basic/core-finance-package-manifest.yaml
+  packageTables: 19
+  packageRecords: 51
+  manualTables: 7
+  manualValues: 18
+  applied: false
+  accepted: false
+  writesAuthorized: false
+  requiredGates: [W0-01-read-company-identity, Zielstrategie, Resetpunkt, separate Schreibfreigabe, Steuerbestätigung]
 companyRef: UABC-BASIC-DE
 prohibitedContent:
   - reale Personen-, Kunden-, Lieferanten-, Bank- oder Steuerdaten
@@ -21,7 +33,7 @@ customerTemplateRoot: project/bc-basic/customer-templates
 readinessCheckPath: project/bc-basic/data-readiness-check.yaml
 uatCatalogPath: project/bc-basic/uat-catalog.yaml
 migrationDiscovery:
-  status: simulated-approved
+  status: core-finance-prepared-other-waves-open
   decisionDate: 2026-08-21
   waves:
     - { id: UABC-01-CORE-FINANCE, sequence: 1, exitCriterion: PRESEED Country Region sowie Konten Buchungsgruppen VAT Dimensionen Nummernserien Zahlungsbedingungen und Bankbaseline sind referenziell konsistent }
@@ -49,6 +61,9 @@ configurationPackages:
     namePattern: UABC-01-CORE-FINANCE
     category: einrichtungsdaten
     purpose: minimale Grundeinrichtung reproduzierbar vorbereiten, soweit Business Central die Felder sinnvoll per Konfigurationspaket verarbeitet
+    payloadPath: project/bc-basic/core-finance-payload.yaml
+    manifestPath: project/bc-basic/core-finance-package-manifest.yaml
+    preparedStatus: prepared-for-controlled-live-run
     candidateTables:
       - { table: Sachkonto, rationale: SKR04-Konten nach fachlicher Freigabe }
       - { table: Allgemeine-Geschaeftsbuchungsgruppe, rationale: grundlegende Inland-Buchungslogik }
@@ -61,8 +76,8 @@ configurationPackages:
       - { table: "Location", rationale: genau ein Lagerort HAUPT }
     requiredFieldRule: Nummer, Code, Beschreibung, Buchungsgruppenbezug, gesperrt-Kennzeichen und synthetische Nachvollziehbarkeit muessen je Tabelle in der Feldliste bestaetigt werden.
     excludedFieldRule: Systemfelder, FlowFields, berechnete Salden, Benutzer-/Auditfelder, echte Bank-/Steuerkennungen und nicht verstandene Felder werden ausgeschlossen.
-    dependencies: [Finanz- und Steuerdesign freigegeben, Zielgesellschaft autorisiert]
-    importOrder: [Dimensionen, Dimensionswerte, Konten, Buchungsgruppen, MwSt.-Gruppen, Zahlungsbedingungen, Lagerort]
+    dependencies: [Wave 0 belegt, Zielgesellschaft entschieden, Resetpunkt belegt, separate Schreibfreigabe, Steuerbestätigung]
+    importOrder: [Dimensionen, Dimensionswerte, Konten, allgemeine Buchungsgruppen, MwSt.-Buchungsgruppen, Nebenbuchgruppen, Lagerbuchungsgruppe, Zahlungsbedingungen, Zahlungsart, Lagerort HAUPT, Nummernserien, Nummernserienlinien, allgemeine Buchungsmatrix, MwSt.-Buchungsmatrix, Bankbuchungsgruppe ohne Bankkonto, Lagerbuchungsmatrix, manuelle Singleton- und Periodenwerte]
   - id: UABC-02-TRADE-MASTER
     namePattern: UABC-02-TRADE-MASTER
     category: stammdaten

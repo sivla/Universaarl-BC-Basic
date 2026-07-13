@@ -12,8 +12,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 10
 storyPageId: PAGE-UABC-080
-purpose: Plant Mock-Cutover, Simulationsabnahme, Rollback und Wiederanlauf,
-  ohne ein erreichtes GO oder einen Produktivstart zu behaupten.
+purpose: Plant Mock-Cutover, Simulationsabnahme, Rollback und Wiederanlauf, ohne
+  ein erreichtes GO oder einen Produktivstart zu behaupten.
 audience:
   - Steering
   - Projektleitung
@@ -28,7 +28,7 @@ referenceIds:
   - UABC-REQ-BCB-008
   - UABC-REQ-BCB-010
 lastReviewed: 2026-07-13
-version: 5
+version: 4
 ---
 
 # 03.2 Cutover und Go-live
@@ -73,4 +73,4 @@ Aktuell gilt `NO_GO_SIMULATION`: `writesAuthorized=false`, RUN-06 bis RUN-22 ble
 - [Handover-Plan](../../../docs/handover/bc-basic-handover.md)
 - [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-080","title":"03.2 Cutover und Go-live","parent":"PAGE-UABC-150","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-080","title":"03.2 Cutover und Go-live","parent":"PAGE-UABC-150","version":4,"status":"published"} -->

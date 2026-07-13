@@ -28,7 +28,7 @@ referenceIds:
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
 lastReviewed: 2026-07-13
-version: 6
+version: 5
 ---
 
 # 02 Business Central
@@ -42,7 +42,7 @@ Diese Seite beschreibt das geplante BC-Basic-Paket. Das kanonische Lieferregiste
 | Sicht | Stand | Wahrheitsgrenze |
 |---|---|---|
 | Angebotsplan | 80 Stunden, 9.600 EUR netto | `planned-not-accepted`; keine Kundenannahme |
-| Aktuelles Ist | 0,25 Stunden, 30 EUR | ein aktiver Task-Worklog auf UABC-39; keine Rechnung oder Zahlung |
+| Aktuelles Ist | 2,25 Stunden, 270 EUR | W0-01-Versuch plus CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion, Rechnung oder Zahlung |
 | BC-Ausgangsbasis | CRONUS-Demo | `pilotConfigured=false`, `writesApplied=false`, Readback offen |
 | Setup-Pakete | 0 Tabellen / 0 Datensätze / 0 Fehler | keine Setup- oder Datenwirkung |
 
@@ -60,11 +60,11 @@ Nicht enthalten sind AL-Entwicklung, individuelle Reports oder Layouts, Integrat
 
 - **`UABC-DEL-BCB-001` – Projektauftrag:** Plan, Scope, Rollen, Phasen und Change-Regel werden nachvollziehbar verknüpft. Kundenannahme und reale Termine sind offen.
 - **`UABC-DEL-BCB-002` – Fit-to-Standard:** Finance, Einkauf, Verkauf, Lager und Abweichungen werden fachlich entschieden; offene Werte bleiben sichtbar.
-- **`UABC-DEL-BCB-003` – Datenpaket:** Quellen, Pflichtfelder, Owner, Referenzen und Kontrollsummen werden vorbereitet; kein Import ist ausgeführt.
+- **`UABC-DEL-BCB-003` – Datenpaket:** CORE-FINANCE ist mit 19 Paket-/51 Datensätzen und 7 manuellen Tabellen/18 Sollwerten vorbereitet; kein Import ist ausgeführt.
 
 ### Einrichtung, Befähigung und UAT
 
-- **`UABC-DEL-BCB-004` – Standardkonfiguration:** Wave-0, Setupfolge und Readbacks stehen aus; CRONUS-Standarddaten gelten nicht als eingerichteter Pilot.
+- **`UABC-DEL-BCB-004` – CORE-FINANCE-Standardkonfiguration:** Payload, Manifest, Setupfolge, Korrektur und Retest sind `prepared-for-controlled-live-run`; Wave 0, Write-Gate, Apply und Readbacks stehen aus.
 - **`UABC-DEL-BCB-005` – Training:** Rollenpfade und Fehlerfälle sind geplant; Teilnahme und Kompetenz sind nicht belegt.
 - **`UABC-DEL-BCB-006` – UAT:** Pflichtfälle, Evidence und Defect-/Retest-Regel sind geplant; kein Fall ist im aktuellen Pilot bestanden.
 
@@ -89,7 +89,8 @@ Eine Simulationsabnahme erfordert ausgeführte und differenzfreie Setup-, Daten-
 - [Aktiver Angebotsstand](../../../docs/offers/bc-basic-offer.md)
 - [Kanonische Projektstory](../../../evidence/simulation/project-story.json)
 - [Lieferregister](../../../project/bc-basic/deliverables.yaml)
+- [CORE-FINANCE-Payload](../../../project/bc-basic/core-finance-payload.yaml)
 - [Plan-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
 - [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Business Central","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Business Central","parent":null,"version":5,"status":"published"} -->

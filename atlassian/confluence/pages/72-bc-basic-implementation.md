@@ -34,7 +34,7 @@ referenceIds:
   - UABC-REQ-BCB-008
   - UABC-REQ-BCB-009
 lastReviewed: 2026-07-13
-version: 6
+version: 5
 ---
 
 # 02.3 Loesung und Einrichtung
@@ -48,7 +48,9 @@ DOM-/Feld-Readback unbekannt. `customerTargetRealized=false`,
 `originMechanismStatus=unbekannt-bis-wave0-readback`, `pilotConfigured=false`,
 `writesApplied=false` und der Readback steht aus.
 
-Technischer Firmenname, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz. Vor jedem Setup-Write muss Wave 0 interne Company-ID, Name, Display Name, Standard-CRONUS-Provenienz, Zielentscheidung und Resetpunkt nachweisen.
+Technischer Firmenname, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz.
+Vor jedem Setup-Schreibschritt muss Wave 0 interne `Company-ID`, `Name` und `Display Name`,
+Standard-CRONUS-Provenienz, Zielentscheidung und Resetpunkt nachweisen.
 
 Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche oder rechtliche Entscheidungen.
 
@@ -61,11 +63,22 @@ Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche od
 | Angewendete Differenz | `none-evidenced`; Readback ausstehend | nur spätere feldgenaue Vorher-/Nachher-Evidence darf diesen Stand ändern |
 | Zielstrategie | `blocked-pending-wave0-and-reset-evidence`; keine Option gewählt | Entscheidung erst nach vollständiger Baseline-Inventur und Reset-/Wiederanlaufnachweis |
 
-Der erste W0-01-Zugriffsversuch endete `blocked-before-dom-readback`: Ein angemeldeter Tab mit bereinigter Playthru-/Company-URL war sichtbar, der Sicherheitsblock trat aber vor DOM, BC-Feldern und Screenshot ein. URL und Titel sind kein Company-ID-, CRONUS- oder Konfigurationsnachweis.
+Der erste W0-01-Zugriffsversuch endete `blocked-before-dom-readback`.
+Ein angemeldeter Tab mit bereinigter Playthru-/Company-URL war sichtbar;
+der Sicherheitsblock trat aber vor DOM, BC-Feldern und Screenshot ein.
+URL und Titel sind kein Company-ID-, CRONUS- oder Konfigurationsnachweis.
 
-Der einzige nächste ausführbare BC-Schritt bleibt `W0-01-read-company-identity` in einem manuell freigegebenen Nur-Lese-Termin. Dort werden interne Company-ID, sichtbare Namen, Company Information, Country/Region, CRONUS-Indizien und Gesellschaftsliste mit bereinigten Screenshots erhoben.
+Der einzige nächste ausführbare BC-Schritt bleibt `W0-01-read-company-identity`
+in einem manuell freigegebenen Nur-Lese-Termin. Dort werden interne Company-ID,
+sichtbare Namen, Company Information, Country/Region, CRONUS-Indizien und
+Gesellschaftsliste mit bereinigten Screenshots erhoben.
 
-CORE-FINANCE ist planseitig vorbereitet, aber bis zum bestandenen Wave-0-, Zielstrategie-, Reset- und separaten Schreibfreigabegate nicht ausführbar. TRADE-MASTER und OPENING-DATA bleiben gesperrt.
+CORE-FINANCE ist mit deterministischem Payload und Manifest
+`prepared-for-controlled-live-run`. Bis zum bestandenen Wave-0-, Zielstrategie-,
+Reset-, Steuerbestätigungs- und separaten Schreibfreigabegate bleibt es gesperrt.
+Repositoryseitig geprüft sind 19 Pakettabellen/51 Datensätze sowie
+7 manuelle Tabellen/18 Sollwerte. In BC stehen alle drei Pakete weiter bei 0/0/0;
+`TRADE-MASTER` und `OPENING-DATA` bleiben gesperrt.
 
 ## Setupfolge, Konfiguration und Berechtigungen
 
@@ -88,12 +101,14 @@ Jeder Abschnitt endet erst, wenn Pflichtfelder, Referenzen, erwartete Wirkung, R
 | Gesellschaft | `UABC-BASIC-DE`, DE, EUR, Kalenderjahr | eindeutiger Buchungs- und Berichtsrahmen |
 | Konten | 11 SKR04-orientierte Kontenrollen | alle Referenzbuchungen lösen auf |
 | Allgemeine Gruppen | `INLAND` und `HANDEL` | Einkauf, Verkauf und Wareneinsatz werden kontiert |
-| VAT | `INLAND` und `MWST19`, 19 Prozent | Vor- und Umsatzsteuer werden getrennt geführt |
+| VAT | `DE` und `VAT19`, 19 Prozent mit offener Steuerbestätigung | Vor- und Umsatzsteuer werden getrennt geführt |
 | Dimensionen | `KOSTENSTELLE`, `GESCHAEFT` | GuV-relevante Belege sind auswertbar |
 | Lager | `HAUPT`, `STK`, FIFO | Menge, Wert und Sachkonto bleiben abstimmbar |
-| Bank | synthetische EUR-Bankgruppe | Zahlungen und Abstimmung ohne externe Anbindung |
+| Bank | `EUR-BANK` auf Verrechnungskonto `12000`, ohne Bankkonto | sichere Buchungsbaseline ohne IBAN, BIC oder externe Anbindung |
 
-Die Kontenrollen umfassen Bank, Debitoren- und Kreditorensammelkonto, Warenbestand, Eröffnungsclearing, Einkauf, Erlös, Vorsteuer, Umsatzsteuer, Wareneinsatz und Inventurdifferenz.
+Die Kontenrollen umfassen Bank, Debitoren- und Kreditorensammelkonto,
+Warenbestand, Eröffnungsclearing, Einkauf, Erlös, Vorsteuer, Umsatzsteuer,
+Wareneinsatz und Inventurdifferenz.
 
 ### Buchungs- und Kontrolllogik
 
@@ -101,10 +116,24 @@ Die Kontenrollen umfassen Bank, Debitoren- und Kreditorensammelkonto, Warenbesta
 - Der synthetische Artikelbezug aktiviert die Eingangsrechnung auf `BESTAND-HANDEL`; der spätere Abgang belastet `WARENEINSATZ-HANDEL`.
 - `EINKAUF-HANDEL` ist für nicht bestandsgeführte Beschaffung vorgesehen und wird im Referenzfall nicht bebucht.
 - Die tatsächliche BC-Verrechnung über Bestands-, Wareneinsatz- und Direct-Cost-Applied-Mechanik wird in der Kundensandbox per Posting Preview bestätigt.
-- `INLAND` plus `MWST19` führt Vorsteuer und Umsatzsteuer auf getrennte Rollen; der Prozentsatz beträgt in der Simulation 19 Prozent.
-- Debitoren- und Kreditorengruppe `INLAND` stimmen mit den jeweiligen Sammelkonten überein.
+- `DE` plus `VAT19` führt Vorsteuer und Umsatzsteuer auf getrennte Rollen; 19 Prozent bleibt bis zur Bestätigung eine synthetische Projektannahme.
+- Debitorengruppe `DEB` und Kreditorengruppe `KRED` stimmen mit den jeweiligen Sammelkonten überein.
 - Lagergruppe `HANDEL` verbindet Artikelwert, Bestandskonto und Inventurdifferenz.
-- Bankgruppe `EUR-BANK` verbindet Zahlungsposten und Bankkonto mit der Kontenrolle `BANK`.
+- Bankbuchungsgruppe `EUR-BANK` verbindet ausschließlich die spätere
+  Buchungslogik mit der Kontenrolle `BANK-CLEARING`; Tabelle 270, Bankkonto
+  und reale Kennungen bleiben ausgeschlossen.
+
+### Ausführbarer Consultant-Vertrag
+
+Der Payload `project/bc-basic/core-finance-payload.yaml` enthält natürliche
+Schlüssel, freigegebene Felder, erwartetes `create/update/no-op`-Verhalten,
+Fremdschlüssel, Kontrollwerte und Rollbackziele.
+
+Das Manifest `project/bc-basic/core-finance-package-manifest.yaml` bindet
+Payload-Digest, Reihenfolge und Kontrollsummen. Der Run-Plan benennt
+Konfigurationspaketkarte, Tabellen-/Feldaktionen, Excelimport, `Validate Package`,
+das noch gesperrte `Apply Package`, manuelle Seiten, erwartete Fehler,
+Korrektur, Retest und Nachkontrolle.
 
 ### Feldnahe Prüfung
 
@@ -142,10 +171,12 @@ Die Referenzsimulation erstellt nur eine VAT-Vorschau. Sie behauptet keine ELSTE
 ## Referenzen
 
 - [Konfigurationswerte](../../../project/bc-basic/customer-templates/example/company-setup.example.yaml)
+- [CORE-FINANCE-Payload](../../../project/bc-basic/core-finance-payload.yaml)
+- [CORE-FINANCE-Manifest](../../../project/bc-basic/core-finance-package-manifest.yaml)
 - [Setup- und Datenfolge](../../../project/bc-basic/data-package.yaml)
 - [BC-Seiten, Aktionen und Retests](../../../project/bc-basic/bc-playthrough-catalog.yaml)
 - [Rollen- und Trainingsproben](../../../project/bc-basic/training-plan.yaml)
 - [Offizielles Quellenregister](../../../docs/research/source-register.md)
 - [Maschinenlesbare Quellenzuordnung](../../../docs/research/sources.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-110","title":"02.3 Loesung und Einrichtung","parent":"PAGE-UABC-130","version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-110","title":"02.3 Loesung und Einrichtung","parent":"PAGE-UABC-130","version":5,"status":"published"} -->

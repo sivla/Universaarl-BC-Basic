@@ -26,3 +26,8 @@
 - [x] Standard-CRONUS-Inhalt als Nutzerfakt und Kopier-/Umbenennung als unbestätigte Herkunftshypothese strukturiert trennen; realisierten Kundenstand explizit verneinen.
 - [x] Baseline, Story, Run-Plan, Twin-Projektion, Schema und Kundenflächen mit Negativtests gegen vorzeitige Kundenstand-/Herkunfts-/Setup-Claims synchronisieren.
 - [x] Ableitungen deterministisch regenerieren, fokussiert und commitgebunden prüfen, reviewen und lokal committen; kein Push.
+- [x] Kanonischen CORE-FINANCE-Payload mit PRESEED, elf Kontenrollen, Finanz-/VAT-Matrizen, zwei Dimensionen mit fünf Werten, Nummernserien, Zahlungsbedingungen, Periodenannahmen, Lagerort und zulässiger Bank-Buchungsgruppenbaseline erstellen.
+- [x] Paketmanifest und feldgenauen Consultant-Lauf mit Importfolge, Schlüsseln, Abhängigkeiten, Kontrollwerten, Fehlerkorrektur, Retest, Rollback und Evidencezielen bereitstellen.
+- [x] CORE-Validator, Schema und isolierte Positiv-/Negativtests für Referenzen, Reihenfolge, verbotene Tabellen, Bank-/Steuer-/Secret-Claims und W0-/Write-Gates implementieren.
+- [x] Jira, Confluence, Deliverables, Datenbereitschaft, Story, Twin-Projektion, Index, Referenzgraphen, Katalog und Digests source-driven aktualisieren; Arbeitszeit als Task-Worklog ableiten.
+- [x] Ableitungen deterministisch regenerieren, fokussiert und genau einmal insgesamt prüfen, gezielt reviewen und als einen sauberen lokalen Commit ohne Push übergeben.

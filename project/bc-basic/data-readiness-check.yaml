@@ -3,7 +3,7 @@ checkId: UABC-DATA-READY-BCB-001
 projectId: UABC-BC-BASIC-001
 changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 dryRunPath: project/bc-basic/phase-2-dry-run.yaml
-status: planned
+status: prepared-for-controlled-live-run
 templateState: kundenbereit
 currentBaselineKind: standard-cronus-demo
 pilotConfigured: false
@@ -14,6 +14,17 @@ currentDecision: NO_GO_CURRENT_PILOT
 customerInstanceState: standard-cronus-demo-wave-0-und-Setup-ausstehend
 executed: false
 resultClaimed: false
+preparedScope:
+  packageId: UABC-01-CORE-FINANCE
+  payloadPath: project/bc-basic/core-finance-payload.yaml
+  manifestPath: project/bc-basic/core-finance-package-manifest.yaml
+  packageTables: 19
+  packageRecords: 51
+  manualTables: 7
+  manualValues: 18
+  taxConfirmationStatus: open
+  liveExecutionStatus: not-executed
+  gates: [W0-01 blocked, Zielstrategie offen, Resetpunkt offen, writesAuthorized false]
 referenceSimulation:
   classification: historical-reference-simulation
   currentAuthority: false

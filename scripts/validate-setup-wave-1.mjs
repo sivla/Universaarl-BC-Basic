@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import YAML from 'yaml';
+import { MANIFEST_PATH as CORE_MANIFEST_PATH, PAYLOAD_PATH as CORE_PAYLOAD_PATH } from './generate-core-finance-package.mjs';
+import { validateCoreFinance } from './validate-core-finance-package.mjs';
 
 export const MATRIX_PATH = 'project/bc-basic/setup-wave-1-matrix.yaml';
 export const RUN_PLAN_PATH = 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml';
@@ -13,7 +15,7 @@ export const PREFLIGHT_EVIDENCE_PATH = 'evidence/playthru-uabc-basic-de/setup-wa
 
 const CORE = 'UABC-01-CORE-FINANCE';
 const PACKAGE_STATES = new Map([[CORE, 'prepared-for-controlled-live-run'], ['UABC-02-TRADE-MASTER', 'prepared-not-executed'], ['UABC-03-OPENING-DATA', 'designed-not-executed']]);
-const CORE_ALLOWLIST = [[348, 'Dimension'], [349, 'Dimension Value'], [15, 'G/L Account'], [250, 'Gen. Business Posting Group'], [251, 'Gen. Product Posting Group'], [323, 'VAT Business Posting Group'], [324, 'VAT Product Posting Group'], [252, 'General Posting Setup'], [325, 'VAT Posting Setup'], [92, 'Customer Posting Group'], [93, 'Vendor Posting Group'], [94, 'Inventory Posting Group'], [308, 'No. Series'], [309, 'No. Series Line'], [3, 'Payment Terms'], [289, 'Payment Method'], [14, 'Location']];
+const CORE_ALLOWLIST = [[348, 'Dimension'], [349, 'Dimension Value'], [15, 'G/L Account'], [250, 'Gen. Business Posting Group'], [251, 'Gen. Product Posting Group'], [323, 'VAT Business Posting Group'], [324, 'VAT Product Posting Group'], [252, 'General Posting Setup'], [325, 'VAT Posting Setup'], [92, 'Customer Posting Group'], [93, 'Vendor Posting Group'], [94, 'Inventory Posting Group'], [308, 'No. Series'], [309, 'No. Series Line'], [3, 'Payment Terms'], [289, 'Payment Method'], [14, 'Location'], [277, 'Bank Account Posting Group'], [5813, 'Inventory Posting Setup']];
 const SINGLETON_ALLOWLIST = [[98, 'General Ledger Setup'], [311, 'Sales & Receivables Setup'], [312, 'Purchases & Payables Setup'], [313, 'Inventory Setup']];
 const WRITE_STEP_IDS = ['RUN-06', 'RUN-07', 'RUN-09', 'RUN-11', 'RUN-16', 'RUN-17', 'RUN-18', 'RUN-19', 'RUN-22'];
 const REQUIRED_SOURCE_IDS = ['UABC-SRC-BCB-CONFIG-PACKAGES-001', 'UABC-SRC-BCB-COMPANY-INFO-001', 'UABC-SRC-BCB-SETUP-OVERVIEW-001', 'UABC-SRC-BCB-NUMBER-SERIES-001', 'UABC-SRC-BCB-FINANCE-SETUP-001', 'UABC-SRC-BCB-DIMENSIONS-001', 'UABC-SRC-BCB-INVENTORY-SETUP-001', 'UABC-SRC-BCB-TRADE-SETUP-001'];
@@ -24,7 +26,7 @@ const SAFE_RELATIVE = /^(?![A-Za-z]:)(?!\/)(?!.*\\)(?!.*(?:^|\/)\.\.(?:\/|$))[A-
 const pairs = (items) => items.map(({ tableId, tableName }) => `${tableId}:${tableName}`).join('|');
 const expectedPairs = (items) => items.map(([id, name]) => `${id}:${name}`).join('|');
 
-export function validateSetupWave1({ matrix, runPlan, sources, sourceRegister, parameterBaseline, pilotSetupBaseline, coreSourceData, readOnlyPreflight }) {
+export function validateSetupWave1({ matrix, runPlan, sources, sourceRegister, parameterBaseline, pilotSetupBaseline, coreSourceData, readOnlyPreflight, coreFinanceErrors = [] }) {
   const errors = [];
   const fail = (code, detail) => errors.push(`${code}: ${detail}`);
   if (matrix?.schemaVersion !== 1 || matrix?.matrixId !== 'UABC-SETUP-WAVE1-MATRIX-001' || matrix?.status !== 'prepared-for-controlled-live-run') fail('MATRIX_ID', 'Matrixvertrag oder Status weicht ab');
@@ -50,11 +52,11 @@ export function validateSetupWave1({ matrix, runPlan, sources, sourceRegister, p
     earlierIds.add(row?.tableId);
   }
   const coreRows = rows.filter((row) => row.packageId === CORE && row.include === true);
-  if (pairs(coreRows) !== expectedPairs(CORE_ALLOWLIST) || coreRows.some((row) => /Bank Account/i.test(row.tableName))) fail('CORE_ALLOWLIST', 'CORE-Tabellenbindung oder Bankausschluss weicht ab');
+  if (pairs(coreRows) !== expectedPairs(CORE_ALLOWLIST) || coreRows.some((row) => row.tableId === 270 || row.tableName === 'Bank Account')) fail('CORE_ALLOWLIST', 'CORE-Tabellenbindung oder Bankkontoausschluss weicht ab');
   const payment = coreRows.find((row) => row.tableId === 289);
-  if (!payment || payment.dependsOn.length !== 0 || payment.optionalFields.includes('Bal. Account No.') || payment.optionalFields.includes('Bal. Account Type')) fail('PAYMENT_METHOD_DEPENDENCY', 'Payment Method darf keinen Bankbezug tragen');
+  if (!payment || payment.dependsOn.length !== 0 || !payment.requiredFields.includes('Bal. Account Type') || !payment.optionalFields.includes('Bal. Account No.') || !payment.excludedFields.includes('Pmt. Export Line Definition')) fail('PAYMENT_METHOD_DEPENDENCY', 'Payment Method muss ohne Bankkonto und Exportdefinition eigenständig bleiben');
   for (const row of coreRows) {
-    if (!CORE_SOURCE_PATHS.includes(row.source)) { fail('CORE_SOURCE_PATH', `${row.tableId}:${row.source}`); continue; }
+    if (!CORE_SOURCE_PATHS.includes(row.source)) { fail('CORE_QUELLPFAD', `${row.tableId}:${row.source}`); continue; }
     const sourceTable = coreSourceData?.[row.source]?.find((item) => item.tableId === row.tableId && item.tableName === row.tableName);
     if (!sourceTable || !Array.isArray(sourceTable.records) || !sourceTable.records.length) fail('CORE_SOURCE_CONTENT', `${row.tableId}:${row.tableName}`);
   }
@@ -67,11 +69,11 @@ export function validateSetupWave1({ matrix, runPlan, sources, sourceRegister, p
   for (const id of REQUIRED_SOURCE_IDS) { const source = catalog.get(id); if (!source || source.kind !== 'microsoft-learn' || !/^https:\/\/learn\.microsoft\.com\//.test(source.url ?? '') || source.retrievedAt !== '2026-07-13' || source.truthClass !== 'methodenquelle-kein-live-nachweis' || !sourceRegister?.includes(id) || !sourceRegister.includes(`(${source.url})`)) fail('SOURCE_RESOLUTION', id); }
   if ((matrix?.officialSourceRefs ?? []).join('|') !== REQUIRED_SOURCE_IDS.join('|')) fail('QUELLENBINDUNG', 'Matrixquellen weichen ab');
 
-  if (parameterBaseline?.baselineId !== 'UABC-SETUP-WAVE1-PARAMETERS-001' || parameterBaseline?.status !== 'designed-not-executed' || parameterBaseline?.truthBoundary?.liveWriteApproved !== false) fail('PARAMETER_BASELINE', 'Parameterbaseline fehlt oder behauptet Ausfuehrung');
+  if (parameterBaseline?.baselineId !== 'UABC-SETUP-WAVE1-PARAMETERS-001' || parameterBaseline?.status !== 'prepared-for-controlled-live-run' || parameterBaseline?.sourceContract !== CORE_PAYLOAD_PATH || parameterBaseline?.truthBoundary?.liveWriteApproved !== false) fail('PARAMETER_BASELINE', 'Parameterbaseline fehlt, ist nicht payloadgebunden oder behauptet Ausfuehrung');
   const parameterRows = parameterBaseline?.singletonValues ?? [];
   if (pairs(parameterRows) !== expectedPairs(SINGLETON_ALLOWLIST)) fail('PARAMETER_ALLOWLIST', 'Singleton-Allowlist weicht ab');
 
-  if (runPlan?.runPlanId !== 'UABC-RUN-SETUP-WAVE1-001' || runPlan?.status !== 'ready-for-control-center-not-executed' || runPlan?.execution?.performed !== false || runPlan?.parameterBaselinePath !== PARAMETER_BASELINE_PATH || runPlan?.pilotSetupBaselinePath !== PILOT_SETUP_BASELINE_PATH || runPlan?.observedReadOnlyPreflightEvidencePath !== PREFLIGHT_EVIDENCE_PATH) fail('RUN_PLAN_ID', 'Run-Plan oder Baselinebindung weicht ab');
+  if (runPlan?.runPlanId !== 'UABC-RUN-SETUP-WAVE1-001' || runPlan?.status !== 'ready-for-control-center-not-executed' || runPlan?.execution?.performed !== false || runPlan?.coreFinancePayloadPath !== CORE_PAYLOAD_PATH || runPlan?.coreFinanceManifestPath !== CORE_MANIFEST_PATH || runPlan?.parameterBaselinePath !== PARAMETER_BASELINE_PATH || runPlan?.pilotSetupBaselinePath !== PILOT_SETUP_BASELINE_PATH || runPlan?.observedReadOnlyPreflightEvidencePath !== PREFLIGHT_EVIDENCE_PATH) fail('RUN_PLAN_ID', 'Run-Plan oder Payload-/Baselinebindung weicht ab');
   const authorization = runPlan?.authorization;
   const expectedReadOnly = ['PRE-01', 'PRE-02', 'PRE-03', 'PRE-04', 'PRE-05', 'PRE-06', 'PRE-07', 'PRE-08', 'PRE-09', 'PRE-10', 'PRE-11', 'PRE-12', 'RUN-01', 'RUN-02', 'RUN-03', 'RUN-04', 'RUN-05'];
   const expectedNoGo = ['RUN-06', 'RUN-07', 'RUN-08', 'RUN-09', 'RUN-10', 'RUN-11', 'RUN-12', 'RUN-13', 'RUN-14', 'RUN-15', 'RUN-16', 'RUN-17', 'RUN-18', 'RUN-19', 'RUN-20', 'RUN-21', 'RUN-22'];
@@ -90,6 +92,8 @@ export function validateSetupWave1({ matrix, runPlan, sources, sourceRegister, p
   if (writeSteps.map((step) => step.id).join('|') !== WRITE_STEP_IDS.join('|') || writeSteps.some((step) => step.packageId !== CORE || !Array.isArray(step.readbackStepIds) || !step.readbackStepIds.length || step.performed === true || step.observedResult != null)) fail('WRITE_STEPS', 'Write-Schritte oder Readbacks weichen ab');
   for (const step of writeSteps.filter((step) => ['RUN-16', 'RUN-17', 'RUN-18', 'RUN-19'].includes(step.id))) { const baseline = parameterRows.find((item) => item.tableId === step.tableId); if (!baseline || JSON.stringify(step.expectedValues) !== JSON.stringify(baseline.values)) fail('SINGLETON_VALUES', step.id); }
   const correction = steps.find((step) => step.id === 'RUN-22'); if (correction?.correctionScope !== 'core-allowlist-only') fail('CORRECTION_SCOPE', 'RUN-22 darf nur CORE-Allowlistfelder korrigieren');
+  if (runPlan?.coreFinanceExecutionContract?.status !== 'prepared-for-controlled-live-run' || runPlan?.coreFinanceExecutionContract?.performed !== false || runPlan?.coreFinanceExecutionContract?.packageRecordTarget !== 51 || runPlan?.coreFinanceExecutionContract?.manualValueTarget !== 18 || runPlan?.coreFinanceExecutionContract?.manualPages?.length !== 7 || runPlan?.coreFinanceExecutionContract?.validationAndRetest?.length !== 4 || runPlan?.coreFinanceExecutionContract?.postControls?.length !== 5) fail('CORE_RUN_CONTRACT', 'CORE-Run-Vertrag ist nicht feldgenau oder behauptet Ausfuehrung');
+  for (const error of coreFinanceErrors) fail('CORE_PAYLOAD', error);
   if ((runPlan?.stopCodes ?? []).map((item) => item.code).join('|') !== ['UABC-STOP-01', 'UABC-STOP-02', 'UABC-STOP-03', 'UABC-STOP-04', 'UABC-STOP-05', 'UABC-STOP-06', 'UABC-STOP-07', 'UABC-STOP-08'].join('|')) fail('STOP_CODES', 'Stopcodes muessen exakt UABC-STOP-01 bis UABC-STOP-08 sein');
   return errors;
 }
@@ -108,11 +112,11 @@ export function loadSetupWave1(root = process.cwd()) {
     }
     return [...groups.values()];
   };
-  return { matrix: readYaml(MATRIX_PATH), runPlan: readYaml(RUN_PLAN_PATH), sources: readYaml(SOURCE_CATALOG_PATH), sourceRegister: fs.readFileSync(path.join(root, ...SOURCE_REGISTER_PATH.split('/')), 'utf8'), parameterBaseline: readYaml(PARAMETER_BASELINE_PATH), pilotSetupBaseline: readYaml(PILOT_SETUP_BASELINE_PATH), readOnlyPreflight: readYaml(PREFLIGHT_EVIDENCE_PATH), coreSourceData: Object.fromEntries(CORE_SOURCE_PATHS.map((relative) => [relative, tableData(relative)])) };
+  return { matrix: readYaml(MATRIX_PATH), runPlan: readYaml(RUN_PLAN_PATH), sources: readYaml(SOURCE_CATALOG_PATH), sourceRegister: fs.readFileSync(path.join(root, ...SOURCE_REGISTER_PATH.split('/')), 'utf8'), parameterBaseline: readYaml(PARAMETER_BASELINE_PATH), pilotSetupBaseline: readYaml(PILOT_SETUP_BASELINE_PATH), readOnlyPreflight: readYaml(PREFLIGHT_EVIDENCE_PATH), coreSourceData: Object.fromEntries(CORE_SOURCE_PATHS.map((relative) => [relative, tableData(relative)])), coreFinanceErrors: validateCoreFinance(root) };
 }
 
 if (process.argv[1]?.endsWith('validate-setup-wave-1.mjs')) {
   const errors = validateSetupWave1(loadSetupWave1());
-  if (errors.length) { console.error(`Setup-Wave-1-Pruefung fehlgeschlagen (${errors.length}):\n- ${errors.join('\n- ')}`); process.exitCode = 1; }
-  else console.log('Setup-Wave-1-Pruefung bestanden: unveränderte Standard-CRONUS-Demo-Baseline und Pilot-Soll getrennt, Wave-0 offen, exakte CORE-Allowlist und fail-closed Write-Schritte; kein Live-Run.');
+  if (errors.length) { console.error(`Setup-Wave-1-Prüfung fehlgeschlagen (${errors.length}):\n- ${errors.join('\n- ')}`); process.exitCode = 1; }
+  else console.log('Setup-Wave-1-Prüfung bestanden: Standard-CRONUS-Demo-Baseline und Pilot-Soll getrennt, Wave 0 offen, 19 CORE-Pakettabellen/51 Datensätze plus 7/18 manuelle Werte referenziell geschlossen; kein Live-Run.');
 }

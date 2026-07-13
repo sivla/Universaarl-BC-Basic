@@ -100,3 +100,21 @@ Das Kundenprojekt MUST `Standard CRONUS` als aktuellen Iststand, den BC-Basic-Pa
 - **WHEN** ein aktiver Generator oder Validator 50 Tickets, 19 Tasks, 80 Iststunden, 9.600 EUR Istkosten oder einen UABC-50-Abschluss festsetzt
 - **THEN** MUST das Anti-Fixcount-Gate den Einstiegspunkt ablehnen
 - **AND** historische Migrations-/Angebotsprovenienz DARF die aktive Story nicht ueberschreiben.
+
+### Requirement: UABC-REQ-BCB-CORE-FINANCE-PAYLOAD
+
+Die Kundeninstanz MUST einen deterministischen CORE-FINANCE-Payload und ein prüfbares Paketmanifest führen. Alle Datensätze MUST konkrete Tabellen, natürliche Schlüssel, Pflichtfelder, Fremdschlüssel, Importreihenfolge, erwartete Operation, Kontrollwerte, Rollback und Evidenceziele besitzen. PRESEED und manuelle Singleton-Schritte MUST von paketfähigen Datensätzen getrennt sein.
+
+#### Scenario: referenziell vollständiger CORE-Payload
+
+- **GIVEN** elf Kontenrollen, Buchungsgruppen, VAT, Dimensionen, Nummernserien, Zahlungsbedingungen, Periodenannahmen, Lagerort und Bank-Buchungsgruppenbaseline sind vorbereitet
+- **WHEN** der CORE-Validator den Payload und das Manifest prüft
+- **THEN** MUST jede Konten-, Gruppen-, VAT-, Dimensions- und Nummernserienreferenz eindeutig auflösen
+- **AND** MUST die Importreihenfolge jede Fremdschlüsselabhängigkeit einhalten
+- **AND** MUST VAT 19 Prozent als synthetische, steuerlich bestätigungspflichtige Projektannahme klassifiziert sein.
+
+#### Scenario: verbotene Ausführungs- oder Sicherheitswirkung
+
+- **WHEN** Payload oder Manifest eine Ledger-/Posted-Tabelle, Table 270 `Bank Account`, reale Bankkennung, Secret, ausgeführten Write, Apply, Kundenfreigabe oder umgangenes W0-Gate enthält
+- **THEN** MUST die Validierung fail-closed abbrechen
+- **AND** MUST `writesAuthorized=false`, `customerTargetRealized=false` und der reale Paketnullstand 0/0/0 unverändert bleiben.

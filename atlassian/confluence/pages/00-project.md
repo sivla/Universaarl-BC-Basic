@@ -26,7 +26,7 @@ referenceIds:
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
 lastReviewed: 2026-07-13
-version: 7
+version: 5
 ---
 
 # 00 Hilfe und Projektumgebung
@@ -41,7 +41,7 @@ unbekannt. `customerTargetRealized=false`, `pilotConfigured=false`,
 `writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false`
 sind der aktuelle Stand.
 
-Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 0,25 Stunden und 30 EUR; es umfasst ausschließlich den begonnenen W0-01-Zugriffsversuch und seine fail-closed Dokumentation.
+Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 2,25 Stunden und 270 EUR: 0,25 Stunden für den blockierten W0-01-Versuch und 2 Stunden für Payload, Manifest, Validatoren und Ausführungsdokumentation von CORE-FINANCE. Es gab keine BC-Aktion.
 
 Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen. Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
 
@@ -84,13 +84,17 @@ Nächster Schritt ist derselbe W0-01-Readback in einem manuell freigegebenen Nur
 
 Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiederanlaufprüfung. Erst auf vollständiger Evidence darf zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden. RUN-06 bis RUN-22 bleiben NO-GO.
 
+CORE-FINANCE ist repositoryseitig `prepared-for-controlled-live-run`: 19 Pakettabellen/51 Datensätze sowie 7 manuelle Tabellen/18 Sollwerte sind referenziell geschlossen. Dieser Reifegrad bedeutet vorbereitet, nicht angewendet, abgenommen oder kundenbereit.
+
 ## Referenzen
 
 - [Aktuelle Projektstory](../../../evidence/simulation/project-story.json)
 - [Nur-Lese-Vorprüfung](../../../evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml)
 - [Kontrollierter Run-Plan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
+- [CORE-FINANCE-Payload](../../../project/bc-basic/core-finance-payload.yaml)
+- [CORE-FINANCE-Manifest](../../../project/bc-basic/core-finance-package-manifest.yaml)
 - [Blockierter W0-01-Zugriffsversuch](../../../evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml)
 - [Projektstatus und Ticketwahrheit](bc-basic-project-story.md)
 - [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":7,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":5,"status":"published"} -->

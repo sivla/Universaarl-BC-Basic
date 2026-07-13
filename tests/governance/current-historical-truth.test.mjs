@@ -22,11 +22,11 @@ const historical = {
   index: yaml('exports/project-data/v1/index.yaml')
 };
 
-test('aktiver Pilot bleibt CRONUS-basiert offen und schreibt nur den abgeleiteten W0-01-Aufwand als Ist fort', () => {
+test('aktiver Pilot bleibt CRONUS-basiert offen und schreibt nur aktuelle Task-Worklogs als Ist fort', () => {
   assert.deepEqual(validateActiveSimulation(story, runPlan, projection), []);
   assert.deepEqual(validateActiveBcPlaythrough(story, runPlan, projection), []);
-  assert.equal(story.offer.actual_hours, 0.25);
-  assert.equal(story.offer.actual_cost, 30);
+  assert.equal(story.offer.actual_hours, 2.25);
+  assert.equal(story.offer.actual_cost, 270);
 });
 
 test('abweichende Istwerte außerhalb aktiver Task-Worklogs werden abgelehnt', () => {

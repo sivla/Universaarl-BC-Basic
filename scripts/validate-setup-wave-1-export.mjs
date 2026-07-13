@@ -5,6 +5,7 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import YAML from 'yaml';
 import { PROJECTION_PATH, SCHEMA_PATH, INDEX_PATH, MAP_PATH, PROVENANCE_PATH, CONFORMANCE_PATH, buildProjection } from './generate-setup-wave-1-export.mjs';
 import { buildTwinExportMap, lfBytes } from './generate-spectra-0.10-integration.mjs';
+import { validateCoreFinance } from './validate-core-finance-package.mjs';
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export function validateProjection(projection, schema) {
   const errors = [];
@@ -17,6 +18,8 @@ export function validateProjection(projection, schema) {
   if (gate.status !== 'blocked-pending-wave0-and-reset-evidence' || gate.selectedOption !== null || gate.allowedOptions?.join('|') !== 'controlled-reuse-of-dedicated-cronus-copy|clean-new-company-or-copy' || gate.requiredEvidence?.length !== 6 || gate.decisionEvidenceCount !== 0 || gate.decisionAuthority !== 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' || gate.nextExecutableStep !== 'W0-01-read-company-identity' || gate.writesAuthorized !== false || projection.writeGate?.nextAllowedStep !== gate.nextExecutableStep) errors.push('CRONUS-ZIELSTRATEGIE-GATE');
   const attempt = state.wave0ReadbackAttempt ?? {};
   if (attempt.status !== 'blocked-before-dom-readback' || attempt.evidencePath !== 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml' || attempt.bcReadbackAuthority !== false || attempt.bcFieldValuesRead !== false || attempt.screenshotCaptured !== false || attempt.writesPerformed !== false || attempt.visibleTabTarget?.title !== 'Dynamics 365 Business Central' || attempt.visibleTabTarget?.environmentParameter !== 'Playthru' || attempt.visibleTabTarget?.companyParameter !== 'UABC-BASIC-DE') errors.push('W0-01-VERSUCHSWAHRHEIT');
+  const core = projection.coreFinancePreparation ?? {};
+  if (core.packageId !== 'UABC-01-CORE-FINANCE' || core.status !== 'prepared-for-controlled-live-run' || core.packageTableCount !== 19 || core.packageRecordCount !== 51 || core.manualTableCount !== 7 || core.manualRecordCount !== 18 || core.accountRoleCount !== 11 || core.dimensionCount !== 2 || core.dimensionValueCount !== 5 || core.numberSeriesCount !== 9 || core.numberSeriesLineCount !== 9 || core.paymentTermsCount !== 2 || core.realBankIdentifierCount !== 0 || core.taxAssumption?.percent !== 19 || core.taxAssumption?.truthClass !== 'synthetic-project-assumption' || core.taxAssumption?.confirmationStatus !== 'open' || core.performed !== false || core.applied !== false || core.accepted !== false || core.requiredGatesClosed !== false) errors.push('CORE-FINANCE-VORBEREITUNGSWAHRHEIT');
   return errors;
 }
 export function validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance = null }) {
@@ -38,6 +41,7 @@ export function validateExport(root = process.cwd()) {
   const projection = JSON.parse(fs.readFileSync(path.join(root, PROJECTION_PATH), 'utf8'));
   const schema = JSON.parse(fs.readFileSync(path.join(root, SCHEMA_PATH), 'utf8'));
   const errors = validateProjection(projection, schema);
+  errors.push(...validateCoreFinance(root).map((error) => `CORE-FINANCE ${error}`));
   if (JSON.stringify(projection) !== JSON.stringify(buildProjection())) errors.push('PROJEKTION-QUELLBINDUNG');
   const indexBytes = lfBytes(fs.readFileSync(path.join(root, INDEX_PATH)));
   const index = YAML.parse(indexBytes.toString('utf8'));
@@ -48,7 +52,7 @@ export function validateExport(root = process.cwd()) {
   if (JSON.stringify(map) !== JSON.stringify(buildTwinExportMap(index))) errors.push('EXPORTMAP_INDEX_BINDUNG');
   errors.push(...validateCurrentAuthoritySurface(index, map));
   errors.push(...validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance }));
-  for (const file of [PROJECTION_PATH, SCHEMA_PATH, 'scripts/generate-setup-wave-1-export.mjs', 'scripts/validate-setup-wave-1-export.mjs', 'tests/governance/setup-wave-1-export.test.mjs', 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml']) { if (!index.artifacts.some((item) => item.path === file) || !map.artifacts.some((item) => item.path === file)) errors.push(`POSITIVLISTE ${file}`); }
+  for (const file of [PROJECTION_PATH, SCHEMA_PATH, 'scripts/generate-setup-wave-1-export.mjs', 'scripts/validate-setup-wave-1-export.mjs', 'tests/governance/setup-wave-1-export.test.mjs', 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml', 'project/bc-basic/core-finance-payload.yaml', 'project/bc-basic/core-finance-package-manifest.yaml', 'governance/schemas/core-finance-payload.schema.json', 'scripts/generate-core-finance-package.mjs', 'scripts/validate-core-finance-package.mjs', 'tests/governance/core-finance-package.test.mjs']) { if (!index.artifacts.some((item) => item.path === file) || !map.artifacts.some((item) => item.path === file)) errors.push(`POSITIVLISTE ${file}`); }
   return errors;
 }
 if (process.argv[1]?.endsWith('validate-setup-wave-1-export.mjs')) { const errors = validateExport(); if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; } else console.log('Setup-Wave-1-Export bestanden.'); }

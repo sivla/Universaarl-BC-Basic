@@ -195,9 +195,9 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
   assert.equal(deliverables.length, 9);
   assert.equal(deliverableById.size, 9);
   for (const deliverable of deliverables) {
-    assert.ok(['planned', 'simulated-complete'].includes(deliverable.status));
+    assert.ok(['planned', 'prepared-for-controlled-live-run', 'simulated-complete'].includes(deliverable.status));
     assert.equal(deliverable.resultClaimed, false);
-    if (deliverable.status === 'planned') assert.equal(deliverable.completionEvidence, null);
+    if (['planned', 'prepared-for-controlled-live-run'].includes(deliverable.status)) assert.equal(deliverable.completionEvidence, null);
     else assert.ok(['evidence/simulation/phase-2-p2p-o2c.yaml', 'evidence/simulation/project-completion.yaml'].includes(deliverable.completionEvidence));
     assert.ok(deliverable.requiredSourcePaths?.length > 0, `${deliverable.id} benoetigt Quellpfade`);
     for (const sourcePath of deliverable.requiredSourcePaths) {
@@ -207,7 +207,9 @@ test('Lieferregister verweist nur auf vorhandene geplante Quellartefakte', async
 });
 
 test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', async () => {
-  assert.equal(dataPackage.status, 'template');
+  assert.equal(dataPackage.status, 'prepared-for-controlled-live-run');
+  assert.equal(dataPackage.coreFinancePreparation.packageRecords, 51);
+  assert.equal(dataPackage.coreFinancePreparation.applied, false);
   assert.equal(dataPackage.classification, 'synthetic-only');
   assert.equal(dataPackage.providerOwnerRef, 'P-002');
   assert.equal(dataPackage.configurationPackages?.length, 3);
@@ -271,9 +273,10 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   const companyFieldNames = Array.isArray(companyBlank.fields) ? companyBlank.fields.map((field) => field.name) : Object.keys(companyBlank.fields ?? {});
   assert.deepEqual(Object.keys(company).sort(), companyFieldNames.sort(), 'Company-Beispielwerte muessen exakt durch Blanko-Felder definiert sein');
   assert.equal(company.chartOfAccountsTemplate, 'SKR04');
-  assert.equal(company.postingGroupsApprovalStatus, 'simulated-approved');
-  assert.equal(company.taxSetupApprovalStatus, 'simulated-approved');
-  assert.equal(company.approvalStatus, 'simulated-approved');
+  assert.equal(company.postingGroupsApprovalStatus, 'prepared-not-applied');
+  assert.equal(company.taxSetupApprovalStatus, 'confirmation-open');
+  assert.equal(company.approvalStatus, 'prepared-for-controlled-live-run');
+  assert.equal(company.syntheticConfigurationBaseline?.realConfirmationRequired, true);
   assert.equal(company.syntheticConfigurationBaseline.accountRoles.length, 11);
   assert.equal(company.syntheticConfigurationBaseline.postingMatrices.length, 6);
   assert.equal(company.syntheticConfigurationBaseline.costingMethod, 'FIFO');
@@ -308,8 +311,11 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   assert.ok(glOpening.every((entry) => entry.accountNoCandidate === configuredAccounts.get(entry.accountRole) && entry.approvalStatus === 'simulated-approved'), 'Eroeffnungszeilen muessen gegen die synthetische Kontenbaseline aufloesen');
 });
 
-test('Datenbereitschaft bleibt geplant und blockiert unvollstaendige oder ungepruefte Daten', () => {
-  assert.equal(dataReadiness.status, 'planned');
+test('Datenbereitschaft ist für CORE vorbereitet und blockiert unvollständige oder ungeprüfte Daten', () => {
+  assert.equal(dataReadiness.status, 'prepared-for-controlled-live-run');
+  assert.equal(dataReadiness.preparedScope.packageId, 'UABC-01-CORE-FINANCE');
+  assert.equal(dataReadiness.preparedScope.packageRecords, 51);
+  assert.equal(dataReadiness.preparedScope.liveExecutionStatus, 'not-executed');
   assert.equal(dataReadiness.executed, false);
   assert.equal(dataReadiness.resultClaimed, false);
   assert.equal(dataReadiness.templatePairs?.length, 8);

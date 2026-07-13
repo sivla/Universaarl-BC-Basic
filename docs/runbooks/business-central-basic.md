@@ -1,7 +1,7 @@
 ---
 documentId: UABC-HANDBOOK-BCB-CONSULTANT-001
 projectId: UABC-BC-BASIC-001
-version: 1.0
+version: 1.1
 status: Kundenbereites Standardmuster
 simulation: true
 deliverableRef: UABC-DEL-BCB-009
@@ -48,6 +48,18 @@ Der Katalog beschreibt einen historisch erprobten Referenzprozess. Im aktuellen 
 ## 4. Datenkontrolle
 
 `project/bc-basic/data-package.yaml` beschreibt die Datengrundlage des Zielprozesses. Vorlagen und Wellen sind im aktuellen Pilot nicht geladen. Freigegebene Quellen, Pflichtfelder, Eindeutigkeit, Referenzen und Summen werden vor jedem Import erneut geprüft.
+
+### CORE-FINANCE-Consultant-Checkliste
+
+Der kanonische Payload liegt in `project/bc-basic/core-finance-payload.yaml`, das gebundene Ausführungsmanifest in `project/bc-basic/core-finance-package-manifest.yaml`. Der Consultant prüft vor der Paketdefinition Wave 0, Zielgesellschaft, Resetpunkt und separate Schreibfreigabe. Anschließend werden 19 Pakettabellen mit 51 synthetischen Datensätzen in Manifestreihenfolge vorbereitet; 7 PRESEED-/Singleton-/Periodentabellen mit 18 Sollwerten folgen als manuelle, feldgenaue UI-Schritte.
+
+1. Paket `UABC-01-CORE-FINANCE` auf der Konfigurationspaketkarte öffnen und die Tabelle-/Namensbindung gegen das Manifest prüfen.
+2. Je Tabelle ausschließlich `requiredFields` und bewusst freigegebene `optionalFields` aktivieren; alle `excludedFields` bleiben draußen.
+3. Die von BC erzeugte Excelvorlage verwenden, die 51 Payloaddatensätze übertragen, `Import from Excel` und anschließend `Validate Package` ausführen.
+4. Bei Dublette, fehlendem Fremdschlüssel oder nicht editierbarem Feld stoppen, Istzeile beziehungsweise Feldvertrag korrigieren und erneut validieren. Ein Fehler wird niemals durch blindes `Apply Package` übergangen.
+5. `Apply Package` bleibt bis Wave 0, Resetpunkt, separater Write-Freigabe, Vier-Augen-Prüfung und Steuerbestätigung gesperrt. Danach werden alle 69 Paket-/manuellen Werte und unveränderte Postenbestände gelesen.
+
+Konfigurationspakete sind Consultant-Werkzeug. Kundinnen und Kunden werden nicht in Paketdefinition, Excelimport oder Paketbereinigung geschult.
 
 ## 5. Abrechnung
 

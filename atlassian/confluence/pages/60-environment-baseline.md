@@ -11,7 +11,7 @@ purpose: Interne Schrittfolge für sichere Vorbereitung, Konfiguration, Migratio
 audience: Consultant, Solution Architecture, Datenverantwortung und Testleitung
 owners:
   - P-002
-version: 6
+version: 5
 status: published
 jiraRefs:
   - UABC-11
@@ -143,4 +143,4 @@ Ein historischer Referenzlauf darf nur als abgelöste Methodenprovenienz verwend
 - [Produkt: Prozess- und Konfigurationsstandard](31-processes.md)
 - [Produkt: Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-070","title":"03 BC-Einrichtung und Konfigurationspakete","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-070","title":"03 BC-Einrichtung und Konfigurationspakete","parent":null,"version":5,"status":"published"} -->

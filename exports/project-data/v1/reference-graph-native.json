@@ -696,13 +696,13 @@
     {
       "id": "NATIVE-116",
       "class": "native-reference",
-      "from": "COM-UABC-40-CURRENT-PLAN",
-      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
+      "from": "COM-UABC-40-CORE-PREPARED-20260713",
+      "to": "project/bc-basic/core-finance-package-manifest.yaml"
     },
     {
       "id": "NATIVE-117",
       "class": "native-reference",
-      "from": "COM-UABC-40-CURRENT-PLAN",
+      "from": "COM-UABC-40-CORE-PREPARED-20260713",
       "to": "UABC-40"
     },
     {
@@ -1872,698 +1872,698 @@
     {
       "id": "NATIVE-312",
       "class": "native-reference",
-      "from": "project/bc-basic/data-package.yaml",
-      "to": "COM-UABC-38-CURRENT-PLAN"
+      "from": "project/bc-basic/core-finance-package-manifest.yaml",
+      "to": "COM-UABC-40-CORE-PREPARED-20260713"
     },
     {
       "id": "NATIVE-313",
       "class": "native-reference",
-      "from": "project/bc-basic/data-package.yaml",
-      "to": "COM-UABC-41-CURRENT-PLAN"
+      "from": "project/bc-basic/core-finance-package-manifest.yaml",
+      "to": "UABC-40"
     },
     {
       "id": "NATIVE-314",
       "class": "native-reference",
-      "from": "project/bc-basic/data-package.yaml",
-      "to": "UABC-38"
+      "from": "project/bc-basic/core-finance-payload.yaml",
+      "to": "UABC-40"
     },
     {
       "id": "NATIVE-315",
       "class": "native-reference",
       "from": "project/bc-basic/data-package.yaml",
-      "to": "UABC-41"
+      "to": "COM-UABC-38-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-316",
       "class": "native-reference",
-      "from": "project/bc-basic/data-readiness-check.yaml",
-      "to": "STORY-05"
+      "from": "project/bc-basic/data-package.yaml",
+      "to": "COM-UABC-41-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-317",
       "class": "native-reference",
-      "from": "project/bc-basic/data-readiness-check.yaml",
+      "from": "project/bc-basic/data-package.yaml",
       "to": "UABC-38"
     },
     {
       "id": "NATIVE-318",
       "class": "native-reference",
-      "from": "project/bc-basic/data-readiness-check.yaml",
+      "from": "project/bc-basic/data-package.yaml",
       "to": "UABC-41"
     },
     {
       "id": "NATIVE-319",
       "class": "native-reference",
-      "from": "project/bc-basic/decision-register.yaml",
-      "to": "COM-UABC-49-CURRENT-PLAN"
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "STORY-05"
     },
     {
       "id": "NATIVE-320",
       "class": "native-reference",
-      "from": "project/bc-basic/decision-register.yaml",
-      "to": "STORY-03"
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "UABC-38"
     },
     {
       "id": "NATIVE-321",
       "class": "native-reference",
-      "from": "project/bc-basic/decision-register.yaml",
-      "to": "UABC-33"
+      "from": "project/bc-basic/data-readiness-check.yaml",
+      "to": "UABC-41"
     },
     {
       "id": "NATIVE-322",
       "class": "native-reference",
       "from": "project/bc-basic/decision-register.yaml",
-      "to": "UABC-35"
+      "to": "COM-UABC-49-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-323",
       "class": "native-reference",
       "from": "project/bc-basic/decision-register.yaml",
-      "to": "UABC-36"
+      "to": "STORY-03"
     },
     {
       "id": "NATIVE-324",
       "class": "native-reference",
       "from": "project/bc-basic/decision-register.yaml",
-      "to": "UABC-37"
+      "to": "UABC-33"
     },
     {
       "id": "NATIVE-325",
       "class": "native-reference",
       "from": "project/bc-basic/decision-register.yaml",
-      "to": "UABC-49"
+      "to": "UABC-35"
     },
     {
       "id": "NATIVE-326",
       "class": "native-reference",
-      "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-1"
+      "from": "project/bc-basic/decision-register.yaml",
+      "to": "UABC-36"
     },
     {
       "id": "NATIVE-327",
       "class": "native-reference",
-      "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-2"
+      "from": "project/bc-basic/decision-register.yaml",
+      "to": "UABC-37"
     },
     {
       "id": "NATIVE-328",
       "class": "native-reference",
-      "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-3"
+      "from": "project/bc-basic/decision-register.yaml",
+      "to": "UABC-49"
     },
     {
       "id": "NATIVE-329",
       "class": "native-reference",
       "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-39"
+      "to": "UABC-1"
     },
     {
       "id": "NATIVE-330",
       "class": "native-reference",
       "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-40"
+      "to": "UABC-2"
     },
     {
       "id": "NATIVE-331",
       "class": "native-reference",
-      "from": "project/bc-basic/posting-setup-matrix.yaml",
-      "to": "COM-UABC-34-CURRENT-PLAN"
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-3"
     },
     {
       "id": "NATIVE-332",
       "class": "native-reference",
-      "from": "project/bc-basic/posting-setup-matrix.yaml",
-      "to": "UABC-34"
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-39"
     },
     {
       "id": "NATIVE-333",
       "class": "native-reference",
       "from": "project/bc-basic/posting-setup-matrix.yaml",
-      "to": "UABC-40"
+      "to": "COM-UABC-34-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-334",
       "class": "native-reference",
-      "from": "project/bc-basic/project-plan.yaml",
-      "to": "COM-UABC-33-CURRENT-PLAN"
+      "from": "project/bc-basic/posting-setup-matrix.yaml",
+      "to": "UABC-34"
     },
     {
       "id": "NATIVE-335",
       "class": "native-reference",
-      "from": "project/bc-basic/project-plan.yaml",
-      "to": "STORY-02"
+      "from": "project/bc-basic/posting-setup-matrix.yaml",
+      "to": "UABC-40"
     },
     {
       "id": "NATIVE-336",
       "class": "native-reference",
       "from": "project/bc-basic/project-plan.yaml",
-      "to": "UABC-32"
+      "to": "COM-UABC-33-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-337",
       "class": "native-reference",
       "from": "project/bc-basic/project-plan.yaml",
-      "to": "UABC-33"
+      "to": "STORY-02"
     },
     {
       "id": "NATIVE-338",
       "class": "native-reference",
-      "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-10"
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "UABC-32"
     },
     {
       "id": "NATIVE-339",
       "class": "native-reference",
-      "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-11"
+      "from": "project/bc-basic/project-plan.yaml",
+      "to": "UABC-33"
     },
     {
       "id": "NATIVE-340",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-12"
+      "to": "UABC-10"
     },
     {
       "id": "NATIVE-341",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-13"
+      "to": "UABC-11"
     },
     {
       "id": "NATIVE-342",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-14"
+      "to": "UABC-12"
     },
     {
       "id": "NATIVE-343",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-15"
+      "to": "UABC-13"
     },
     {
       "id": "NATIVE-344",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-16"
+      "to": "UABC-14"
     },
     {
       "id": "NATIVE-345",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-17"
+      "to": "UABC-15"
     },
     {
       "id": "NATIVE-346",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-18"
+      "to": "UABC-16"
     },
     {
       "id": "NATIVE-347",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-19"
+      "to": "UABC-17"
     },
     {
       "id": "NATIVE-348",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-20"
+      "to": "UABC-18"
     },
     {
       "id": "NATIVE-349",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-21"
+      "to": "UABC-19"
     },
     {
       "id": "NATIVE-350",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-22"
+      "to": "UABC-20"
     },
     {
       "id": "NATIVE-351",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-23"
+      "to": "UABC-21"
     },
     {
       "id": "NATIVE-352",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-24"
+      "to": "UABC-22"
     },
     {
       "id": "NATIVE-353",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-25"
+      "to": "UABC-23"
     },
     {
       "id": "NATIVE-354",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-26"
+      "to": "UABC-24"
     },
     {
       "id": "NATIVE-355",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-27"
+      "to": "UABC-25"
     },
     {
       "id": "NATIVE-356",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-28"
+      "to": "UABC-26"
     },
     {
       "id": "NATIVE-357",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-29"
+      "to": "UABC-27"
     },
     {
       "id": "NATIVE-358",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-30"
+      "to": "UABC-28"
     },
     {
       "id": "NATIVE-359",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-31"
+      "to": "UABC-29"
     },
     {
       "id": "NATIVE-360",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-39"
+      "to": "UABC-30"
     },
     {
       "id": "NATIVE-361",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-4"
+      "to": "UABC-31"
     },
     {
       "id": "NATIVE-362",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-5"
+      "to": "UABC-39"
     },
     {
       "id": "NATIVE-363",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-6"
+      "to": "UABC-4"
     },
     {
       "id": "NATIVE-364",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-7"
+      "to": "UABC-5"
     },
     {
       "id": "NATIVE-365",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-8"
+      "to": "UABC-6"
     },
     {
       "id": "NATIVE-366",
       "class": "native-reference",
       "from": "project/bc-basic/setup-parameter-baseline.yaml",
-      "to": "UABC-9"
+      "to": "UABC-7"
     },
     {
       "id": "NATIVE-367",
       "class": "native-reference",
-      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-10-CURRENT-PLAN"
+      "from": "project/bc-basic/setup-parameter-baseline.yaml",
+      "to": "UABC-8"
     },
     {
       "id": "NATIVE-368",
       "class": "native-reference",
-      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-11-CURRENT-PLAN"
+      "from": "project/bc-basic/setup-parameter-baseline.yaml",
+      "to": "UABC-9"
     },
     {
       "id": "NATIVE-369",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-12-CURRENT-PLAN"
+      "to": "COM-UABC-10-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-370",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-13-CURRENT-PLAN"
+      "to": "COM-UABC-11-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-371",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-14-CURRENT-PLAN"
+      "to": "COM-UABC-12-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-372",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-15-CURRENT-PLAN"
+      "to": "COM-UABC-13-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-373",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-16-CURRENT-PLAN"
+      "to": "COM-UABC-14-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-374",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-17-CURRENT-PLAN"
+      "to": "COM-UABC-15-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-375",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-18-CURRENT-PLAN"
+      "to": "COM-UABC-16-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-376",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-19-CURRENT-PLAN"
+      "to": "COM-UABC-17-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-377",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-20-CURRENT-PLAN"
+      "to": "COM-UABC-18-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-378",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-21-CURRENT-PLAN"
+      "to": "COM-UABC-19-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-379",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-22-CURRENT-PLAN"
+      "to": "COM-UABC-20-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-380",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-23-CURRENT-PLAN"
+      "to": "COM-UABC-21-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-381",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-24-CURRENT-PLAN"
+      "to": "COM-UABC-22-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-382",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-25-CURRENT-PLAN"
+      "to": "COM-UABC-23-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-383",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-26-CURRENT-PLAN"
+      "to": "COM-UABC-24-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-384",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-27-CURRENT-PLAN"
+      "to": "COM-UABC-25-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-385",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-28-CURRENT-PLAN"
+      "to": "COM-UABC-26-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-386",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-29-CURRENT-PLAN"
+      "to": "COM-UABC-27-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-387",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-30-CURRENT-PLAN"
+      "to": "COM-UABC-28-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-388",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-31-CURRENT-PLAN"
+      "to": "COM-UABC-29-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-389",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-4-CURRENT-PLAN"
+      "to": "COM-UABC-30-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-390",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-40-CURRENT-PLAN"
+      "to": "COM-UABC-31-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-391",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-5-CURRENT-PLAN"
+      "to": "COM-UABC-4-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-392",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-6-CURRENT-PLAN"
+      "to": "COM-UABC-5-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-393",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-7-CURRENT-PLAN"
+      "to": "COM-UABC-6-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-394",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-8-CURRENT-PLAN"
+      "to": "COM-UABC-7-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-395",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-9-CURRENT-PLAN"
+      "to": "COM-UABC-8-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-396",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-10"
+      "to": "COM-UABC-9-CURRENT-PLAN"
     },
     {
       "id": "NATIVE-397",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-11"
+      "to": "UABC-10"
     },
     {
       "id": "NATIVE-398",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-12"
+      "to": "UABC-11"
     },
     {
       "id": "NATIVE-399",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-13"
+      "to": "UABC-12"
     },
     {
       "id": "NATIVE-400",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-14"
+      "to": "UABC-13"
     },
     {
       "id": "NATIVE-401",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-15"
+      "to": "UABC-14"
     },
     {
       "id": "NATIVE-402",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-16"
+      "to": "UABC-15"
     },
     {
       "id": "NATIVE-403",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-17"
+      "to": "UABC-16"
     },
     {
       "id": "NATIVE-404",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-18"
+      "to": "UABC-17"
     },
     {
       "id": "NATIVE-405",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-19"
+      "to": "UABC-18"
     },
     {
       "id": "NATIVE-406",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-20"
+      "to": "UABC-19"
     },
     {
       "id": "NATIVE-407",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-21"
+      "to": "UABC-20"
     },
     {
       "id": "NATIVE-408",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-22"
+      "to": "UABC-21"
     },
     {
       "id": "NATIVE-409",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-23"
+      "to": "UABC-22"
     },
     {
       "id": "NATIVE-410",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-24"
+      "to": "UABC-23"
     },
     {
       "id": "NATIVE-411",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-25"
+      "to": "UABC-24"
     },
     {
       "id": "NATIVE-412",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-26"
+      "to": "UABC-25"
     },
     {
       "id": "NATIVE-413",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-27"
+      "to": "UABC-26"
     },
     {
       "id": "NATIVE-414",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-28"
+      "to": "UABC-27"
     },
     {
       "id": "NATIVE-415",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-29"
+      "to": "UABC-28"
     },
     {
       "id": "NATIVE-416",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-30"
+      "to": "UABC-29"
     },
     {
       "id": "NATIVE-417",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-31"
+      "to": "UABC-30"
     },
     {
       "id": "NATIVE-418",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-39"
+      "to": "UABC-31"
     },
     {
       "id": "NATIVE-419",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-4"
+      "to": "UABC-39"
     },
     {
       "id": "NATIVE-420",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-40"
+      "to": "UABC-4"
     },
     {
       "id": "NATIVE-421",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-5"
+      "to": "UABC-40"
     },
     {
       "id": "NATIVE-422",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-6"
+      "to": "UABC-5"
     },
     {
       "id": "NATIVE-423",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-7"
+      "to": "UABC-6"
     },
     {
       "id": "NATIVE-424",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-8"
+      "to": "UABC-7"
     },
     {
       "id": "NATIVE-425",
       "class": "native-reference",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "UABC-9"
+      "to": "UABC-8"
     },
     {
       "id": "NATIVE-426",
       "class": "native-reference",
-      "from": "project/bc-basic/solution-blueprint.yaml",
-      "to": "UABC-34"
+      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
+      "to": "UABC-9"
     },
     {
       "id": "NATIVE-427",
       "class": "native-reference",
       "from": "project/bc-basic/solution-blueprint.yaml",
-      "to": "UABC-40"
+      "to": "UABC-34"
     },
     {
       "id": "NATIVE-428",
@@ -4591,7 +4591,7 @@
       "id": "NATIVE-765",
       "class": "native-reference",
       "from": "UABC-40",
-      "to": "COM-UABC-40-CURRENT-PLAN"
+      "to": "COM-UABC-40-CORE-PREPARED-20260713"
     },
     {
       "id": "NATIVE-766",
@@ -4615,25 +4615,25 @@
       "id": "NATIVE-769",
       "class": "native-reference",
       "from": "UABC-40",
-      "to": "project/bc-basic/pilot-setup-baseline.yaml"
+      "to": "project/bc-basic/core-finance-package-manifest.yaml"
     },
     {
       "id": "NATIVE-770",
       "class": "native-reference",
       "from": "UABC-40",
-      "to": "project/bc-basic/posting-setup-matrix.yaml"
+      "to": "project/bc-basic/core-finance-payload.yaml"
     },
     {
       "id": "NATIVE-771",
       "class": "native-reference",
       "from": "UABC-40",
-      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
+      "to": "project/bc-basic/posting-setup-matrix.yaml"
     },
     {
       "id": "NATIVE-772",
       "class": "native-reference",
       "from": "UABC-40",
-      "to": "project/bc-basic/solution-blueprint.yaml"
+      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
     },
     {
       "id": "NATIVE-773",

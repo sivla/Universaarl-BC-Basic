@@ -10,7 +10,7 @@ purpose: Wiederverwendbare Prozess- und Einrichtungsvorgaben für BC Basic
 audience: Consultant, Solution Architecture und Key User
 owners:
   - P-002
-version: 7
+version: 6
 status: published
 jiraRefs:
   - UABC-3
@@ -81,6 +81,8 @@ Die Einrichtung folgt dieser Reihenfolge:
 
 Jeder Abschnitt benötigt ein Entry-Kriterium, eine feldnahe Kontrolle, einen positiven Prozessfall und einen verweigerten oder eskalierten Negativfall.
 
+Konfigurationspakete sind ausschließlich Consultant-Werkzeug. Kundenschulung umfasst die später freigegebenen Geschäftsprozesse und die Verwendung von Dimensionen, Zahlungsbedingungen und Lagerorten, nicht Paketdefinition, Excelimport, Validierung oder `Apply Package`.
+
 ### Reportingstandard
 
 Zum Basispaket gehören Standardauswertungen für Sachkonten, offene Posten, Bankabstimmung, Bestand und VAT/USt.
@@ -99,4 +101,4 @@ Individuelle BI-Modelle, gesetzlich nicht bestätigte Auswertungen oder kundensp
 - [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 - [Consultant: Umgebung, Einrichtung, Daten und Testdurchführung](60-environment-baseline.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-040","title":"02 Leistungsumfang und Abgrenzung","parent":null,"version":7,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-040","title":"02 Leistungsumfang und Abgrenzung","parent":null,"version":6,"status":"published"} -->

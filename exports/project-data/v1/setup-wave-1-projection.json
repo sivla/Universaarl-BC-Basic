@@ -99,6 +99,32 @@
       "errors": 0
     }
   ],
+  "coreFinancePreparation": {
+    "packageId": "UABC-01-CORE-FINANCE",
+    "status": "prepared-for-controlled-live-run",
+    "packageTableCount": 19,
+    "packageRecordCount": 51,
+    "manualTableCount": 7,
+    "manualRecordCount": 18,
+    "accountRoleCount": 11,
+    "dimensionCount": 2,
+    "dimensionValueCount": 5,
+    "numberSeriesCount": 9,
+    "numberSeriesLineCount": 9,
+    "paymentTermsCount": 2,
+    "realBankIdentifierCount": 0,
+    "payloadDigest": "9759d2f8db7ecb198d130d1ba9da7cfad7f18faa878b0dc66713723f4231c37a",
+    "financeReferenceDigest": "f70ba83983fec9dee92f7e25a816c5ca3babe3291f6f1f882d440ecf15064836",
+    "taxAssumption": {
+      "percent": 19,
+      "truthClass": "synthetic-project-assumption",
+      "confirmationStatus": "open"
+    },
+    "performed": false,
+    "applied": false,
+    "accepted": false,
+    "requiredGatesClosed": false
+  },
   "preflight": {
     "status": "beobachtet-nur-lesend",
     "wave0Status": "blocked-before-dom-readback",
@@ -159,7 +185,7 @@
     },
     {
       "path": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
-      "role": "Read-only-Vorpruefung"
+      "role": "Read-only-Vorprüfung"
     },
     {
       "path": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
@@ -168,6 +194,14 @@
     {
       "path": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
       "role": "Blockierter W0-01-Zugriffsversuch"
+    },
+    {
+      "path": "project/bc-basic/core-finance-payload.yaml",
+      "role": "Kanonischer CORE-FINANCE-Payload"
+    },
+    {
+      "path": "project/bc-basic/core-finance-package-manifest.yaml",
+      "role": "Digest- und Reihenfolgemanifest"
     }
   ]
 }

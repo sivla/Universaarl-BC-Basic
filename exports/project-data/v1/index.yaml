@@ -2436,6 +2436,36 @@ artifacts:
     path: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
     format: yaml
     required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-PAYLOAD-001
+    kindId: core-finance-payload
+    path: project/bc-basic/core-finance-payload.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-MANIFEST-001
+    kindId: core-finance-package-manifest
+    path: project/bc-basic/core-finance-package-manifest.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-SCHEMA-001
+    kindId: core-finance-payload-schema
+    path: governance/schemas/core-finance-payload.schema.json
+    format: json-schema
+    required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-GEN-001
+    kindId: core-finance-package-generator
+    path: scripts/generate-core-finance-package.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-VAL-001
+    kindId: core-finance-package-validator
+    path: scripts/validate-core-finance-package.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-CORE-FINANCE-TEST-001
+    kindId: core-finance-package-tests
+    path: tests/governance/core-finance-package.test.mjs
+    format: javascript
+    required: true
   - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
     kindId: meeting-transcript
     path: atlassian/confluence/meetings/UABC-MTG-001.md

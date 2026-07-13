@@ -4,7 +4,7 @@
   "title": "Setup-Wave-1-Projektion",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "exportId", "recordType", "readOnly", "writesAuthorized", "target", "configurationState", "packages", "preflight", "writeGate", "provenance"],
+  "required": ["schemaVersion", "exportId", "recordType", "readOnly", "writesAuthorized", "target", "configurationState", "packages", "coreFinancePreparation", "preflight", "writeGate", "provenance"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "exportId": { "const": "UABC-EXP-SETUP-WAVE1-001" },
@@ -121,6 +121,37 @@
         }
       }
     },
+    "coreFinancePreparation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageId", "status", "packageTableCount", "packageRecordCount", "manualTableCount", "manualRecordCount", "accountRoleCount", "dimensionCount", "dimensionValueCount", "numberSeriesCount", "numberSeriesLineCount", "paymentTermsCount", "realBankIdentifierCount", "payloadDigest", "financeReferenceDigest", "taxAssumption", "performed", "applied", "accepted", "requiredGatesClosed"],
+      "properties": {
+        "packageId": { "const": "UABC-01-CORE-FINANCE" },
+        "status": { "const": "prepared-for-controlled-live-run" },
+        "packageTableCount": { "const": 19 },
+        "packageRecordCount": { "const": 51 },
+        "manualTableCount": { "const": 7 },
+        "manualRecordCount": { "const": 18 },
+        "accountRoleCount": { "const": 11 },
+        "dimensionCount": { "const": 2 },
+        "dimensionValueCount": { "const": 5 },
+        "numberSeriesCount": { "const": 9 },
+        "numberSeriesLineCount": { "const": 9 },
+        "paymentTermsCount": { "const": 2 },
+        "realBankIdentifierCount": { "const": 0 },
+        "payloadDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "financeReferenceDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "taxAssumption": {
+          "type": "object", "additionalProperties": false,
+          "required": ["percent", "truthClass", "confirmationStatus"],
+          "properties": { "percent": { "const": 19 }, "truthClass": { "const": "synthetic-project-assumption" }, "confirmationStatus": { "const": "open" } }
+        },
+        "performed": { "const": false },
+        "applied": { "const": false },
+        "accepted": { "const": false },
+        "requiredGatesClosed": { "const": false }
+      }
+    },
     "preflight": {
       "type": "object",
       "additionalProperties": false,
@@ -162,7 +193,7 @@
     },
     "provenance": {
       "type": "array",
-      "minItems": 8,
+      "minItems": 10,
       "items": {
         "type": "object",
         "additionalProperties": false,

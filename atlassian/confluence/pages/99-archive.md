@@ -5,7 +5,7 @@ parent: null
 owners:
   - P-002
 status: published
-version: 3
+version: 2
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 5
@@ -62,4 +62,4 @@ Aktuelle Evidence, offene Entscheidungen und Supportrestpunkte bleiben an ihrer 
 - Drei-Space-Vertrag: `project/bc-basic/confluence-three-space-v1.yaml`
 - Projektstory: `evidence/simulation/project-story.json`
 
-<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":3,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":2,"status":"published"} -->

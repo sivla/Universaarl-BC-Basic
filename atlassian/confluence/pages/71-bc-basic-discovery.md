@@ -13,7 +13,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 7
 storyPageId: PAGE-UABC-100
-purpose: Plant Anforderungen, Standardabbildung, Fit/Gap und die noch offenen Kundenentscheidungen.
+purpose: Plant Anforderungen, Standardabbildung, Fit/Gap und die noch offenen
+  Kundenentscheidungen.
 audience:
   - Projektleitung
   - Fachbereich
@@ -32,7 +33,7 @@ referenceIds:
   - UABC-REQ-BCB-006
   - UABC-REQ-BCB-009
 lastReviewed: 2026-07-13
-version: 5
+version: 4
 ---
 
 # 02.2 Prozesse und Fit-to-Standard
@@ -74,4 +75,4 @@ Der frühere repositorybasierte Discovery-Lauf ist ausschließlich als `historic
 - [Setup-Wave-1-Laufplan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
 - [Archiv](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-100","title":"02.2 Prozesse und Fit-to-Standard","parent":"PAGE-UABC-130","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-100","title":"02.2 Prozesse und Fit-to-Standard","parent":"PAGE-UABC-130","version":4,"status":"published"} -->

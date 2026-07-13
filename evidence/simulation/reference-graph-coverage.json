@@ -42,7 +42,7 @@
   "provenance": {
     "source": {
       "path": "exports/project-data/v1/reference-graph-native.json",
-      "sha256": "e51db6a6bd0ce7dda89f6fece51b09691808c52b6cac1402e3e086d2effbf21c"
+      "sha256": "7f23459b3e68b12d9a62c8d5770bf3a76a4522cfd3ca225974215d7c9ef3ae2b"
     },
     "mapping": {
       "path": "exports/project-data/v1/reference-graph-mapping.json",
@@ -50,7 +50,7 @@
     },
     "projection": {
       "path": "exports/project-data/v1/reference-graph-portable.json",
-      "sha256": "23553be97f93d949c94f527dca99392f5f3e03a46f6c379695252e28c1291abe"
+      "sha256": "f9e35233b173c29910444441ce92de84126801252c1def5f15bbff74b5b45453"
     },
     "digest_algorithm": "SHA-256",
     "source_mode": "read-only",

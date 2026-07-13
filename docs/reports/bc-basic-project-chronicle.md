@@ -2,7 +2,7 @@
 
 ## Stand 13.07.2026
 
-Der Playthru-Pilot ist neu rebaselined. Laut Nutzerinformation ist der ausgewählte Mandant `UABC-BASIC-DE` inhaltlich eine Standard-CRONUS-Demo-Ausgangsbasis; der eigene W0-01-Browserversuch endete vor jedem DOM-, Feld- und Screenshot-Readback. Ein eingerichteter BC-Basic-Pilot ist nicht belegt. Die aktive Angebotsplanung umfasst 80 Stunden und 9.600 EUR, das aus dem Task-Worklog für den blockierten Versuch abgeleitete Ist beträgt 0,25 Stunden und 30 EUR.
+Der Playthru-Pilot ist neu rebaselined. Laut Nutzerinformation ist der ausgewählte Mandant `UABC-BASIC-DE` inhaltlich eine Standard-CRONUS-Demo-Ausgangsbasis; der eigene W0-01-Browserversuch endete vor jedem DOM-, Feld- und Screenshot-Readback. Ein eingerichteter BC-Basic-Pilot ist nicht belegt. Die aktive Angebotsplanung umfasst 80 Stunden und 9.600 EUR. Zwei Task-Worklogs belegen 2,25 Stunden und 270 EUR für den blockierten Versuch sowie die CORE-FINANCE-Repositoryvorbereitung; es gab keine BC-Aktion.
 
 Phase UABC-1 ist in Bearbeitung. UABC-2 und UABC-3 sind wegen ihrer fachlichen Vorgängerabhängigkeit blockiert; Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe bleiben angelegt. Die drei Setup-Pakete stehen bei 0 Tabellen, 0 Datensätzen und 0 Fehlern. `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO.
 

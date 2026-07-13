@@ -12,7 +12,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 4
 storyPageId: PAGE-UABC-170
-purpose: Plant die spätere Befähigung operativer Rollen für Alltag, Kontrolle, Fehlerdiagnose und Eskalation.
+purpose: Plant die spätere Befähigung operativer Rollen für Alltag, Kontrolle,
+  Fehlerdiagnose und Eskalation.
 audience:
   - Key User
   - Endanwender
@@ -26,7 +27,7 @@ referenceIds:
   - UABC-REQ-BCB-007
   - UABC-REQ-BCB-010
 lastReviewed: 2026-07-13
-version: 6
+version: 5
 ---
 
 # 04 Handbuecher
@@ -69,4 +70,4 @@ Die früheren synthetischen Rollenpfade sind ausschließlich als `historical-ref
 - [Aktuelle Test- und Abnahmestrecke](50-tests.md)
 - [Aktueller Handover-Plan](../../../docs/handover/bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-170","title":"04 Handbuecher","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-170","title":"04 Handbuecher","parent":null,"version":5,"status":"published"} -->

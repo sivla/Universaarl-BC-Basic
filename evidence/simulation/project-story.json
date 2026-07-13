@@ -17,8 +17,8 @@
     "currentVersion": "pilot-rebaseline-2026-07-13",
     "planned_hours": 80,
     "planned_cost": 9600,
-    "actual_hours": 0.25,
-    "actual_cost": 30,
+    "actual_hours": 2.25,
+    "actual_cost": 270,
     "status": "active-planning",
     "currentStatus": "active-planning"
   },
@@ -27,7 +27,7 @@
       "id": "PAGE-UABC-000",
       "title": "00 Hilfe und Projektumgebung",
       "parent": null,
-      "version": 7,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -46,7 +46,7 @@
       "id": "PAGE-UABC-010",
       "title": "01 Unternehmen",
       "parent": null,
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -67,7 +67,7 @@
       "id": "PAGE-UABC-130",
       "title": "02 Business Central",
       "parent": null,
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -85,7 +85,7 @@
       "id": "PAGE-UABC-150",
       "title": "03 Projekte",
       "parent": null,
-      "version": 7,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -105,7 +105,7 @@
       "id": "PAGE-UABC-170",
       "title": "04 Handbuecher",
       "parent": null,
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -123,7 +123,7 @@
       "id": "PAGE-UABC-190",
       "title": "99 Archiv",
       "parent": null,
-      "version": 3,
+      "version": 2,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -156,7 +156,7 @@
       "id": "PAGE-UABC-100",
       "title": "02.2 Prozesse und Fit-to-Standard",
       "parent": "PAGE-UABC-130",
-      "version": 5,
+      "version": 4,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -177,7 +177,7 @@
       "id": "PAGE-UABC-110",
       "title": "02.3 Loesung und Einrichtung",
       "parent": "PAGE-UABC-130",
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -199,7 +199,7 @@
       "id": "PAGE-UABC-060",
       "title": "03.1 Test und Abnahme",
       "parent": "PAGE-UABC-150",
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -218,7 +218,7 @@
       "id": "PAGE-UABC-080",
       "title": "03.2 Cutover und Go-live",
       "parent": "PAGE-UABC-150",
-      "version": 5,
+      "version": 4,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -236,7 +236,7 @@
       "id": "PAGE-UABC-160",
       "title": "03.3 Hypercare und Uebergabe",
       "parent": "PAGE-UABC-150",
-      "version": 5,
+      "version": 4,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -290,7 +290,7 @@
       "id": "PAGE-UABC-040",
       "title": "02 Leistungsumfang und Abgrenzung",
       "parent": null,
-      "version": 7,
+      "version": 6,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -443,7 +443,7 @@
       "id": "PAGE-UABC-070",
       "title": "03 BC-Einrichtung und Konfigurationspakete",
       "parent": null,
-      "version": 6,
+      "version": 5,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -662,9 +662,9 @@
       "end": null,
       "status": "blocked",
       "estimateHours": 40,
-      "actualHours": 0.25,
-      "remainingHours": 39.75,
-      "netAmount": 30,
+      "actualHours": 2.25,
+      "remainingHours": 37.75,
+      "netAmount": 270,
       "type": "phase",
       "summary": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
       "description": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
@@ -764,7 +764,7 @@
       "displayIconKey": "jira-phase",
       "displayColorToken": "teal",
       "classification": "current-pilot-planning",
-      "worklogHours": 0.25,
+      "worklogHours": 2.25,
       "meetingTranscriptRefs": []
     },
     {
@@ -1169,10 +1169,10 @@
       "billable": false,
       "billingSource": "task-rollup-only",
       "estimateHours": 14,
-      "actualHours": 0.25,
-      "remainingHours": 13.75,
+      "actualHours": 2.25,
+      "remainingHours": 11.75,
       "hourlyRate": null,
-      "netAmount": 30,
+      "netAmount": 270,
       "status": "created",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
@@ -1249,7 +1249,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0.25,
+      "worklogHours": 2.25,
       "meetingTranscriptRefs": []
     },
     {
@@ -2539,10 +2539,10 @@
       "billable": false,
       "billingSource": "task-rollup-only",
       "estimateHours": 9,
-      "actualHours": 0,
-      "remainingHours": 9,
+      "actualHours": 2,
+      "remainingHours": 7,
       "hourlyRate": null,
-      "netAmount": 0,
+      "netAmount": 240,
       "status": "created",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
@@ -2615,7 +2615,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0,
+      "worklogHours": 2,
       "meetingTranscriptRefs": [],
       "title": "CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen."
     },
@@ -4242,7 +4242,7 @@
     {
       "id": "UABC-40",
       "type": "task",
-      "status": "created",
+      "status": "in-progress",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
       "priority": "P1",
@@ -4255,12 +4255,19 @@
         "finance"
       ],
       "createdAt": "2026-07-13",
-      "startedAt": null,
+      "startedAt": "2026-07-13",
       "testedAt": null,
       "closedAt": null,
       "statusHistory": [
         {
           "status": "created",
+          "time": "2026-07-13",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect"
+        },
+        {
+          "status": "in-progress",
           "time": "2026-07-13",
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
@@ -4278,37 +4285,53 @@
         }
       ],
       "evidenceRefs": [
+        "project/bc-basic/core-finance-payload.yaml",
+        "project/bc-basic/core-finance-package-manifest.yaml",
         "project/bc-basic/setup-wave-1-matrix.yaml",
-        "project/bc-basic/pilot-setup-baseline.yaml",
         "project/bc-basic/posting-setup-matrix.yaml",
-        "project/bc-basic/solution-blueprint.yaml",
         "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
       ],
       "comments": [
         {
-          "id": "COM-UABC-40-CURRENT-PLAN",
+          "id": "COM-UABC-40-CORE-PREPARED-20260713",
           "type": "status",
           "time": "2026-07-13",
-          "role": "Projektleitung",
+          "role": "Lead BC Consultant",
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-40 – CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
-          "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
+          "text": "CORE-FINANCE ist source-driven als 19 Pakettabellen mit 51 Datensätzen sowie 7 manuellen Tabellen mit 18 Sollwerten vorbereitet und fail-closed validiert. Es wurde weder Business Central gelesen oder beschrieben noch eine Schreibfreigabe erteilt; W0-01, Zielstrategie, Resetpunkt und Steuerbestätigung bleiben vorgelagert.",
+          "evidenceRef": "project/bc-basic/core-finance-package-manifest.yaml"
         }
       ],
-      "worklogs": [],
+      "worklogs": [
+        {
+          "id": "WL-UABC-40-CORE-PREP-20260713",
+          "taskId": "UABC-40",
+          "date": "2026-07-13",
+          "role": "Lead BC Consultant",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect",
+          "hours": 2,
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 240,
+          "activity": "CORE-FINANCE-Payload, Manifest, Finanzreferenzen, Runbook, Validatoren und Projektionen vorbereitet; keine BC-Aktion."
+        }
+      ],
       "summary": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.",
-      "description": "Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe wird ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder Schreibschritt erhält feldgenauen Readback und Finance-Abnahme; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.",
+      "description": "Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51 Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach bestandenem Wave 0, Zielstrategie, Resetpunkt und separater Schreibfreigabe; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.",
       "deliverable": "CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme",
       "phase": "P2",
       "billable": true,
       "billingSource": "task-worklogs",
       "estimateHours": 9,
-      "actualHours": 0,
-      "remainingHours": 9,
+      "actualHours": 2,
+      "remainingHours": 7,
       "hourlyRate": 120,
-      "netAmount": 0,
+      "netAmount": 240,
       "phaseId": "UABC-2",
       "category": "fachliche BC-Basic-Leistung",
       "participants": [
@@ -4318,7 +4341,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-40 ist created; „CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-40 ist in-progress; „CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -4335,7 +4358,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0,
+      "worklogHours": 2,
       "title": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen."
     },
     {
@@ -6251,12 +6274,12 @@
     },
     {
       "type": "references",
-      "from": "COM-UABC-40-CURRENT-PLAN",
-      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
+      "from": "COM-UABC-40-CORE-PREPARED-20260713",
+      "to": "project/bc-basic/core-finance-package-manifest.yaml"
     },
     {
       "type": "references",
-      "from": "COM-UABC-40-CURRENT-PLAN",
+      "from": "COM-UABC-40-CORE-PREPARED-20260713",
       "to": "UABC-40"
     },
     {
@@ -7231,6 +7254,21 @@
     },
     {
       "type": "references",
+      "from": "project/bc-basic/core-finance-package-manifest.yaml",
+      "to": "COM-UABC-40-CORE-PREPARED-20260713"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/core-finance-package-manifest.yaml",
+      "to": "UABC-40"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/core-finance-payload.yaml",
+      "to": "UABC-40"
+    },
+    {
+      "type": "references",
       "from": "project/bc-basic/data-package.yaml",
       "to": "COM-UABC-38-CURRENT-PLAN"
     },
@@ -7318,11 +7356,6 @@
       "type": "references",
       "from": "project/bc-basic/pilot-setup-baseline.yaml",
       "to": "UABC-39"
-    },
-    {
-      "type": "references",
-      "from": "project/bc-basic/pilot-setup-baseline.yaml",
-      "to": "UABC-40"
     },
     {
       "type": "references",
@@ -7622,11 +7655,6 @@
     {
       "type": "references",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-40-CURRENT-PLAN"
-    },
-    {
-      "type": "references",
-      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
       "to": "COM-UABC-5-CURRENT-PLAN"
     },
     {
@@ -7803,11 +7831,6 @@
       "type": "references",
       "from": "project/bc-basic/solution-blueprint.yaml",
       "to": "UABC-34"
-    },
-    {
-      "type": "references",
-      "from": "project/bc-basic/solution-blueprint.yaml",
-      "to": "UABC-40"
     },
     {
       "type": "references",
@@ -9497,7 +9520,7 @@
     {
       "type": "references",
       "from": "UABC-40",
-      "to": "COM-UABC-40-CURRENT-PLAN"
+      "to": "COM-UABC-40-CORE-PREPARED-20260713"
     },
     {
       "type": "references",
@@ -9517,7 +9540,12 @@
     {
       "type": "references",
       "from": "UABC-40",
-      "to": "project/bc-basic/pilot-setup-baseline.yaml"
+      "to": "project/bc-basic/core-finance-package-manifest.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-40",
+      "to": "project/bc-basic/core-finance-payload.yaml"
     },
     {
       "type": "references",
@@ -9528,11 +9556,6 @@
       "type": "references",
       "from": "UABC-40",
       "to": "project/bc-basic/setup-wave-1-matrix.yaml"
-    },
-    {
-      "type": "references",
-      "from": "UABC-40",
-      "to": "project/bc-basic/solution-blueprint.yaml"
     },
     {
       "type": "references",
@@ -10878,18 +10901,18 @@
   "controls": {
     "openP1": 0,
     "openP2": 0,
-    "worklogHours": 0.25,
-    "worklogCost": 30,
+    "worklogHours": 2.25,
+    "worklogCost": 270,
     "worklogRate": 120,
     "realBcExecution": false,
     "activeTicketCount": 50,
     "activeTicketIdRange": "dynamisch-aus-kanonischer-Quelle",
     "internalTraceabilityCount": 0,
     "planHours": 80,
-    "actualHours": 0.25,
+    "actualHours": 2.25,
     "ticketSource": "evidence/simulation/project-story.json",
     "historicalTicketSource": "provenance-only",
-    "actualNetAmount": 30,
+    "actualNetAmount": 270,
     "plannedNetAmount": 9600,
     "plannedPhaseHours": {
       "P1": 22,
@@ -10902,7 +10925,13 @@
     "taskCount": 19,
     "billableTicketCount": 19,
     "confluencePageCount": 28,
-    "confluenceRootCount": 22
+    "confluenceRootCount": 22,
+    "confluenceRootDistribution": {
+      "customer": 6,
+      "product": 8,
+      "consultant": 8
+    },
+    "confluenceMigrationCount": 19
   },
   "catalogs": {
     "sessions": [],
@@ -10940,6 +10969,8 @@
       "project/bc-basic/data-package.yaml",
       "project/bc-basic/data-readiness-check.yaml",
       "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "project/bc-basic/core-finance-payload.yaml",
+      "project/bc-basic/core-finance-package-manifest.yaml",
       "atlassian/confluence/pages/31-processes.md",
       "project/bc-basic/training-plan.yaml",
       "atlassian/confluence/pages/80-bc-basic-training.md",
@@ -11787,8 +11818,8 @@
     "status": "planned-not-accepted",
     "plannedHours": 80,
     "plannedNetAmount": 9600,
-    "actualHours": 0.25,
-    "actualNetAmount": 30,
+    "actualHours": 2.25,
+    "actualNetAmount": 270,
     "customerAcceptanceClaimed": false
   },
   "businessCentralPilotState": {

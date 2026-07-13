@@ -128,7 +128,7 @@ const FIELD_ENUMS = new Map([
   ['from', new Set(['Backlog', 'Ready', 'In Progress', 'Blocked', 'In Review', 'Done'])],
   ['to', new Set(['Backlog', 'Ready', 'In Progress', 'Blocked', 'In Review', 'Done'])],
   ['purpose', new Set(['learning-and-display'])],
-  ['mode', new Set(['repository-root', 'manual', 'automated'])],
+  ['mode', new Set(['repository-root', 'manual', 'automated', 'configuration-package'])],
   ['audiences', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['audience', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['kind', new Set(['official', 'microsoft-learn', 'microsoft-licensing', 'playwright-official', 'automated', 'manual'])],
@@ -139,7 +139,7 @@ const FIELD_ENUMS = new Map([
   ['visibilityBasis', new Set(['name-and-publisher-intersect-screenshot-viewport', 'row-intersects-screenshot-viewport'])]
 ]);
 
-const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|fields|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
+const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|page|field|fields|expectedOperation|expectedOperations|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|requiredBeforePackageDefinition|requiredBeforeApply|requiredGates|gates|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
 const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls)$/;
 const FIXED_OPENSPEC_PATTERN = /\b(?:ADDED|MODIFIED|REMOVED|RENAMED) Requirements\b|\b(?:Requirement|Scenario):|\*\*(?:GIVEN|WHEN|THEN|AND)\*\*|\bMUST\b/g;
 

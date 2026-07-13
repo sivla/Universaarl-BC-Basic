@@ -10,8 +10,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 3
 storyPageId: PAGE-UABC-150
-purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und
-  offene Projektgates zusammen.
+purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und offene
+  Projektgates zusammen.
 audience:
   - Steering
   - Projektleitung
@@ -31,7 +31,7 @@ referenceIds:
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
 lastReviewed: 2026-07-13
-version: 7
+version: 5
 ---
 
 # 03 Projekte
@@ -55,7 +55,7 @@ Die Zielstrategie ist `blocked-pending-wave0-and-reset-evidence`; es ist noch ke
 | Kennzahl | Aktueller Stand | Aussage |
 |---|---|---|
 | Angebotsplan | 80 Stunden und 9.600 EUR netto | Planwert, nicht Ist oder Kundenabnahme |
-| Ist | 0,25 Stunden und 30 EUR | ausschließlich aus dem aktiven UABC-39-Task-Worklog abgeleitet |
+| Ist | 2,25 Stunden und 270 EUR | zwei aktive Task-Worklogs für W0-01 und CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion |
 | Tickets | dynamisch aus `project-story.json` | genau UABC-1/2/3 sind Phase-Roots; keine feste Gesamtzahl |
 | Setup | unveränderte Standard-CRONUS-Demo-Baseline | Pilotaufbau, Wave-0 und Resetentscheidung stehen aus |
 | BC-Schreibfreigabe | gesperrt | `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO |
@@ -89,7 +89,7 @@ Hypercare-Szenarien, Retro, Restpunkte, Handover und Supportstart sind zukünfti
 
 ### Kaufmännische Steuerung
 
-Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 0,25 Stunden und 30 EUR, dynamisch aus dem vorhandenen aktiven UABC-39-Task-Worklog für den blockierten W0-01-Versuch abgeleitet. Plan und Ist werden nicht gleichgesetzt.
+Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 2,25 Stunden und 270 EUR, dynamisch aus den aktiven UABC-39- und UABC-40-Task-Worklogs für W0-01 und die CORE-FINANCE-Repositoryvorbereitung abgeleitet. Plan und Ist werden nicht gleichgesetzt; die Vorbereitung ist keine BC-Ausführung.
 
 Die frühere Kalkulation und abgeschlossene Referenzsimulation bleiben historische Provenienz; sie belegen keine aktuelle Rechnung, Zahlung, Freigabe oder produktive Leistung.
 
@@ -141,4 +141,4 @@ Die aktuelle Space-Struktur ordnet Kundendokumentation, Standardprodukt und inte
 - [Referenzgraph-Mapping](../../../exports/project-data/v1/reference-graph-mapping.json)
 - [Portabler Referenzgraph](../../../exports/project-data/v1/reference-graph-portable.json)
 
-<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":7,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":5,"status":"published"} -->

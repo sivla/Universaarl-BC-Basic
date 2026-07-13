@@ -48,7 +48,7 @@ deliverables:
     version: 1.0
     phaseRef: UABC-1
     title: Daten-, Konfigurationspaket- und Datenbereitschaftsprotokoll
-    status: planned
+    status: prepared-for-controlled-live-run
     resultClaimed: false
     ownerRef: P-016
     jiraRefs: [UABC-38]
@@ -57,6 +57,8 @@ deliverables:
     requiredSourcePaths:
       - project/bc-basic/data-package.yaml
       - project/bc-basic/data-readiness-check.yaml
+      - project/bc-basic/core-finance-payload.yaml
+      - project/bc-basic/core-finance-package-manifest.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
     completionEvidence: null
     historicalEvidencePath: evidence/simulation/phase-2-p2p-o2c.yaml
@@ -64,19 +66,21 @@ deliverables:
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-2
-    title: Gepruefte Standardkonfiguration
-    status: planned
+    title: Vorbereitete CORE-FINANCE-Standardkonfiguration
+    status: prepared-for-controlled-live-run
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
     resultPath: atlassian/confluence/pages/72-bc-basic-implementation.md
-    acceptance: Setupfolge, Werte, Abhaengigkeiten und feldnahe Pruefungen sind vollstaendig.
+    acceptance: Payload, Setupfolge, Werte, Abhaengigkeiten, Kontrollsummen, Korrektur und Retest sind vollständig vorbereitet; Anwendung und Abnahme bleiben offen.
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
       - atlassian/confluence/pages/72-bc-basic-implementation.md
       - project/bc-basic/pilot-setup-baseline.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/core-finance-payload.yaml
+      - project/bc-basic/core-finance-package-manifest.yaml
     completionEvidence: null
     historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-005

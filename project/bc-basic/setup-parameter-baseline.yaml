@@ -1,7 +1,8 @@
 schemaVersion: 1
 baselineId: UABC-SETUP-WAVE1-PARAMETERS-001
 projectId: UABC-BC-PILOT-001
-status: designed-not-executed
+status: prepared-for-controlled-live-run
+sourceContract: project/bc-basic/core-finance-payload.yaml
 target:
   environment: Playthru
   companyId: UABC-BASIC-DE
@@ -13,7 +14,7 @@ truthBoundary:
 singletonValues:
   - tableId: 98
     tableName: General Ledger Setup
-    values: { Allow Posting From: "2026-01-01", Allow Posting To: "2026-12-31", Local Currency Symbol: "EUR", Local Currency Description: Euro, Global Dimension 1 Code: KOSTENSTELLE, Global Dimension 2 Code: PROJEKT }
+    values: { Allow Posting From: "2026-01-01", Allow Posting To: "2026-12-31", LCY Code: EUR, Local Currency Symbol: "€", Local Currency Description: Euro, Global Dimension 1 Code: KOSTENSTELLE, Global Dimension 2 Code: GESCHAEFT }
   - tableId: 311
     tableName: Sales & Receivables Setup
     values: { Customer Nos.: CUST, Order Nos.: S-ORD, Posted Invoice Nos.: S-INV, Credit Memo Nos.: S-CR }

@@ -10,8 +10,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 11
 storyPageId: PAGE-UABC-160
-purpose: Plant Hypercare, Defectbehandlung, Retest, Exit und Supportübergabe
-  für den laufenden Pilot.
+purpose: Plant Hypercare, Defectbehandlung, Retest, Exit und Supportübergabe für
+  den laufenden Pilot.
 audience:
   - Projektleitung
   - Key User
@@ -26,7 +26,7 @@ referenceIds:
   - UABC-REQ-BCB-009
   - UABC-REQ-BCB-010
 lastReviewed: 2026-07-13
-version: 5
+version: 4
 ---
 
 # 03.3 Hypercare und Uebergabe
@@ -66,4 +66,4 @@ Restart, Retro und Supportübergabe bleiben offen. Die spätere Übergabe umfass
 - [Operator-Smoke-Test](../../../project/bc-basic/training-plan.yaml)
 - [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-160","title":"03.3 Hypercare und Uebergabe","parent":"PAGE-UABC-150","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-160","title":"03.3 Hypercare und Uebergabe","parent":"PAGE-UABC-150","version":4,"status":"published"} -->

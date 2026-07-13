@@ -12,7 +12,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 1
 storyPageId: PAGE-UABC-010
-purpose: Trennt den aktuellen Standard-CRONUS-Demo-Inhalt vom geplanten synthetischen BC-Basic-Unternehmensmodell.
+purpose: Trennt den aktuellen Standard-CRONUS-Demo-Inhalt vom geplanten
+  synthetischen BC-Basic-Unternehmensmodell.
 audience:
   - Sponsor
   - Projektleitung
@@ -30,7 +31,7 @@ referenceIds:
   - UABC-REQ-BCB-006
   - UABC-REQ-BCB-009
 lastReviewed: 2026-07-13
-version: 6
+version: 5
 ---
 
 # 01 Unternehmen
@@ -112,4 +113,4 @@ Die Datenrolle liefert und bereinigt Vorlagen. Sponsor und Projektleitung entsch
 - [Beleg- und Postenketten](../../../evidence/simulation/bc-playthrough-ledger.yaml)
 - Der Prozessumfang ist mit den Tickets `UABC-34` und `UABC-35, UABC-36, UABC-37` verbunden.
 
-<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":null,"version":5,"status":"published"} -->

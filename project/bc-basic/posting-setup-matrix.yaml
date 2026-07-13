@@ -1,13 +1,16 @@
 schemaVersion: 1
 matrixId: UABC-CORE-POSTING-SETUP-001
-status: designed-not-executed
+status: prepared-for-controlled-live-run
+sourceContract: project/bc-basic/core-finance-payload.yaml
 tableData:
   - { tableId: 250, tableName: Gen. Business Posting Group, records: [{ Code: INLAND, Description: Inland }] }
   - { tableId: 251, tableName: Gen. Product Posting Group, records: [{ Code: HANDEL, Description: Handel }] }
-  - { tableId: 323, tableName: VAT Business Posting Group, records: [{ Code: INLAND, Description: Inland }] }
-  - { tableId: 324, tableName: VAT Product Posting Group, records: [{ Code: MWST19, Description: Synthetische 19 Prozent }] }
-  - { tableId: 252, tableName: General Posting Setup, records: [{ Gen. Bus. Posting Group: INLAND, Gen. Prod. Posting Group: HANDEL, Sales Account: "44000", Purch. Account: "50000", COGS Account: "50000", Inventory Adjmt. Account: "16000" }] }
-  - { tableId: 325, tableName: VAT Posting Setup, records: [{ VAT Bus. Posting Group: INLAND, VAT Prod. Posting Group: MWST19, VAT Calculation Type: Normal VAT, VAT %: 19, Sales VAT Account: "38000", Purchase VAT Account: "15760" }] }
+  - { tableId: 323, tableName: VAT Business Posting Group, records: [{ Code: DE, Description: Deutschland }] }
+  - { tableId: 324, tableName: VAT Product Posting Group, records: [{ Code: VAT19, Description: Synthetische 19 Prozent - Bestätigung offen }] }
+  - { tableId: 252, tableName: General Posting Setup, records: [{ Gen. Bus. Posting Group: INLAND, Gen. Prod. Posting Group: HANDEL, Sales Account: "44000", Purch. Account: "50000", COGS Account: "50100", Inventory Adjmt. Account: "69000" }] }
+  - { tableId: 325, tableName: VAT Posting Setup, records: [{ VAT Bus. Posting Group: DE, VAT Prod. Posting Group: VAT19, VAT Calculation Type: Normal VAT, VAT %: 19, Sales VAT Account: "38000", Purchase VAT Account: "15760" }] }
   - { tableId: 92, tableName: Customer Posting Group, records: [{ Code: DEB, Description: Debitoren, Receivables Account: "14000" }] }
   - { tableId: 93, tableName: Vendor Posting Group, records: [{ Code: KRED, Description: Kreditoren, Payables Account: "33000" }] }
   - { tableId: 94, tableName: Inventory Posting Group, records: [{ Code: HANDEL, Description: Handelsbestand }] }
+  - { tableId: 277, tableName: Bank Account Posting Group, records: [{ Code: EUR-BANK, G/L Account No.: "12000" }] }
+  - { tableId: 5813, tableName: Inventory Posting Setup, records: [{ Location Code: HAUPT, Invt. Posting Group Code: HANDEL, Inventory Account: "16000" }] }

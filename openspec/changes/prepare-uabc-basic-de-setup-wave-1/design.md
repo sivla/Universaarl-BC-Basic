@@ -34,3 +34,11 @@ Die Herkunft der technisch benannten Gesellschaft wird getrennt von ihrem fachli
 ## Rollback
 
 Vor dem ersten Apply wird ein eindeutiger Resetpunkt dokumentiert. Vorbereitete, noch nicht angewandte Paketzeilen koennen aus dem Paket entfernt werden. Nach einem Teil-Apply wird nicht massenhaft geloescht: Abbruch, Readback der betroffenen Setupcodes, kontrollierte Ruecknahme nur der im Lauf erzeugten synthetischen Codes oder Reset der eindeutig markierten Pilotgesellschaft. Altgesellschaften bleiben unveraendert.
+
+## CORE-FINANCE-Payload und Paketmanifest
+
+Ein kanonischer Payload führt alle vorbereiteten CORE-Datensätze. Paketfähige Tabellen und begründete manuelle UI-Schritte werden getrennt modelliert; Table 270 `Bank Account`, Ledger-, Posted-, Audit-, FlowField- und Systemfelder sind ausgeschlossen. Eine Bankbaseline darf ausschließlich Table 277 `Bank Account Posting Group` mit synthetischem Verrechnungskonto enthalten und niemals IBAN, BIC, Bankkonto oder Übertragungsformat.
+
+Das Paketmanifest bindet Payload-Digest, Importreihenfolge, natürliche Schlüssel, Pflichtfelder, Fremdschlüssel, erwartete Operation, Vorbedingungen, Kontrollsummen, Rollback, Fehlerkorrektur, Retest und Evidenceziel. Die Finanzreferenzen werden graphartig geprüft: jede Buchungsgruppe, VAT-Kombination, Dimensionsreferenz und Nummernserie muss auf einen vorhandenen Payload-Datensatz oder eine explizite manuelle Singleton-Baseline auflösen. Die 19-Prozent-VAT-Kombination bleibt `synthetic-project-assumption-tax-confirmation-required`.
+
+W0-01, Zielstrategie, Resetpunkt und separate Schreibfreigabe bleiben vor jeder Paketaktion zwingend. Der Payload ist ausführungsbereit, aber nicht ausgeführt; er ändert weder Paketnullstand noch `writesAuthorized=false`.

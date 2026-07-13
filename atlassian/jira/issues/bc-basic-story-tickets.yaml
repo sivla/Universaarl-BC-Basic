@@ -327,7 +327,7 @@ views:
 recordCount: 50
 customerStoryCount: 50
 internalTraceabilityCount: 0
-countedWorklogHours: 0.25
+countedWorklogHours: 2.25
 ticketRecords:
   - id: UABC-1
     type: phase
@@ -472,8 +472,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 40
-    actualHours: 0.25
-    remainingHours: 39.75
+    actualHours: 2.25
+    remainingHours: 37.75
     acceptance:
       - criterion: Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen
           Vorarbeiten zu „Phase 2 – Einrichtung, Tests und Schulung“
@@ -873,8 +873,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 14
-    actualHours: 0.25
-    remainingHours: 13.75
+    actualHours: 2.25
+    remainingHours: 11.75
     acceptance:
       - criterion: Wave 0, Gesellschaftsbasis und Setup-Reihenfolge sind vor Finance-
           oder VAT-Writes belegt.
@@ -2024,8 +2024,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 9
-    actualHours: 0
-    remainingHours: 9
+    actualHours: 2
+    remainingHours: 7
     acceptance:
       - criterion: CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte,
           Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.
@@ -3452,18 +3452,18 @@ ticketRecords:
     visibility: twin-visible
     visibilityRole: customer-project-story
     countingScope: active-project
-    status: created
-    statusReason: UABC-40 ist created; „CORE-FINANCE nach geschlossenem Gate
+    status: in-progress
+    statusReason: UABC-40 ist in-progress; „CORE-FINANCE nach geschlossenem Gate
       ausführen, read-back prüfen und abnehmen.“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
     summary: CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und
       abnehmen.
-    description: Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie,
-      dokumentiertem Resetpunkt und separater Schreibfreigabe wird
-      ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder
-      Schreibschritt erhält feldgenauen Readback und Finance-Abnahme;
-      TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und
-      Übermittlungswirkung bleiben ausgeschlossen.
+    description: Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51
+      Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als
+      Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach
+      bestandenem Wave 0, Zielstrategie, Resetpunkt und separater
+      Schreibfreigabe; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-,
+      Continia- und Übermittlungswirkung bleiben ausgeschlossen.
     deliverable: CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme
     deliverableRefs:
       - UABC-DEL-BCB-004
@@ -3485,8 +3485,8 @@ ticketRecords:
     billable: true
     billingSource: task-worklogs
     estimateHours: 9
-    actualHours: 0
-    remainingHours: 9
+    actualHours: 2
+    remainingHours: 7
     acceptance:
       - criterion: CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter
           Zielstrategie, dokumentiertem Resetpunkt und separater
@@ -3503,26 +3503,47 @@ ticketRecords:
         actorType: human
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
-    worklogs: []
-    worklogHours: 0
+      - status: in-progress
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs:
+      - id: WL-UABC-40-CORE-PREP-20260713
+        taskId: UABC-40
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 2
+        phase: P2
+        billable: true
+        activity: CORE-FINANCE-Payload, Manifest, Finanzreferenzen, Runbook, Validatoren
+          und Projektionen vorbereitet; keine BC-Aktion.
+    worklogHours: 2
     evidence:
+      - project/bc-basic/core-finance-payload.yaml
+      - project/bc-basic/core-finance-package-manifest.yaml
       - project/bc-basic/setup-wave-1-matrix.yaml
-      - project/bc-basic/pilot-setup-baseline.yaml
       - project/bc-basic/posting-setup-matrix.yaml
-      - project/bc-basic/solution-blueprint.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
     comments:
-      - id: COM-UABC-40-CURRENT-PLAN
+      - id: COM-UABC-40-CORE-PREPARED-20260713
         type: status
         time: 2026-07-13
         actorRef: P-PILOT-LEAD-001
         actorType: human
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
-        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-40 – CORE-FINANCE nach geschlossenem Gate ausführen, read-back
-          prüfen und abnehmen.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        evidenceRef: project/bc-basic/core-finance-package-manifest.yaml
+        text: CORE-FINANCE ist source-driven als 19 Pakettabellen mit 51 Datensätzen
+          sowie 7 manuellen Tabellen mit 18 Sollwerten vorbereitet und
+          fail-closed validiert. Es wurde weder Business Central gelesen oder
+          beschrieben noch eine Schreibfreigabe erteilt; W0-01, Zielstrategie,
+          Resetpunkt und Steuerbestätigung bleiben vorgelagert.
   - id: UABC-41
     type: task
     sourceType: task

@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "b4bd9b453dbb70b1bd5d7195596f448572fefd717bdfa9f5baab40a1bfb7d304",
+      "contentSha256": "b1ece12a1091ee6ba46bd57ce52a305355c1665eecba6a57fa1230e9e3f7d0aa",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -723,7 +723,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "fc619b4cb00c59f2618c14831ceb8ee031d75ea9aa79c9cdaf93f47742294a50",
+      "contentSha256": "45a2fbb5375f38dc352a4ac25ca0c678185aa304cbd416dbe013b6a44a9f626d",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -825,7 +825,7 @@
         "UABC-REQ-CAP-002"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "a12762bb4b443c4bed36c82d18683b52297251f63ac96813f912c8bf482378c5",
+      "contentSha256": "8b0e0b6a280d3d6b68af8bcb2edc0e56fa054c6f4019130aaa15b126665fcbdb",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -901,7 +901,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "e1675833269fdd4eb05569a1fce6528a8869ade2b4f12f366cc6a5e43a117511",
+      "contentSha256": "fbc5086630ae5c366206ba08a954250e3f1bddead4b7b916b0c37e3d17ecc63a",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -940,7 +940,7 @@
         "UABC-VER-ENV-POLICY-GATE-001"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "3a2574c70eb61ab9f53c339a0136e1da1c17c50e436e5768e7a64e3947ea9a57",
+      "contentSha256": "694fcc65c80c459bec140f8622d8c309cd38c69335fd1dcfb467e5fc9b02f464",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -978,7 +978,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "ec9937cd31da21f59b620c1232dfc404663078e4edfdc5b740412b66f05df364",
+      "contentSha256": "f9d6738cf03d0de2e75ec6be4f1aa6c207d762319dfb0f87d786a6d19fee4131",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1058,7 +1058,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "069735280729443bebb4a735109cff76c3640ab31482abb7638339780567d699",
+      "contentSha256": "4773a236a8cb7ef0924ca88a0dd1adfa98c9d537b7caff468ceca5bb19b19151",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1103,7 +1103,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "7ccd68c5d8f14b964ed5fa4fddf90d85977e52738c7d2a1dfc466c577d1348a7",
+      "contentSha256": "c0af11b807b919b14c007628b71d125610d7a0a312cebdd260cc6f18c092c025",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1179,7 +1179,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "0a4efc4e6c8757d55e31b60f0e34f650bad27cd5f4d14c0f93d570c58c34058a",
+      "contentSha256": "c2a0a80a34fb376f63c21291bd190b91eab840532d50082001a0556459b4ca40",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1391,7 +1391,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "ec30f2d02727280c37c6ffca9083f4053d3c1fa844182a36a7c8603986688d20",
+      "contentSha256": "0ca809bf797dec880db0601fec387ab18f8dfe22ce83541eb95a877ccb040e0b",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1578,7 +1578,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "3f71c77fccbbe7967bc0cdc61478ea2c14bd8c646264557bde0ce9889e03f96d",
+      "contentSha256": "b6ee4485abb880fb71d583cf6bda59eaedc3a1ae62fa5aac1be6b2fda9fb1a53",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
@@ -1615,7 +1615,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "7fd77f1df3e118bdcd3d37f94b387bcfd0a483b26376fda4669f6082ee5c6ade",
+      "contentSha256": "ad73acd9c3422fd176a15411c5452f850e99ca4ab6ca653094c2a317a3dd0d4c",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1656,7 +1656,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "04a2ea827af85464bc7f3fd6d7fc2f06150d94763863340dd35a4ac4dbd3f710",
+      "contentSha256": "a189eaad962c7df7ba68d92f482f63774db4f7c0b2258b26a5b81a25ebf143c3",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1683,7 +1683,7 @@
         "UABC-DEL-BCB-009"
       ],
       "lastReviewed": null,
-      "contentSha256": "4a2d8f2df61e90926f673ed4ad3509a99512017b9f23a8e7a74613fb6f688d11",
+      "contentSha256": "0bb1f26a7ddb09dd37eaf00b23c31ef834c3815ca3cd9b3034a1a2530d7b17e3",
       "visibility": "twin-visible",
       "readiness": "draft-template",
       "externalUrl": null,
@@ -1727,7 +1727,7 @@
         "OFR-UABC-BCB-001"
       ],
       "lastReviewed": null,
-      "contentSha256": "14573e2a3bf1fa73a8b302bdf66ab7a14ac95420abbfbd82f04663e90b1e2730",
+      "contentSha256": "d20191a3959daeedb7f776a549fc9c9f71e3940246079eba133b83e58eea6446",
       "visibility": "twin-visible",
       "readiness": "authoritative-current",
       "externalUrl": null,
@@ -1750,7 +1750,7 @@
         "UABC-STORY-BCB-001"
       ],
       "lastReviewed": null,
-      "contentSha256": "dc8b626713ea0d5a46afffea04818d4e33ee70121bdda9b57db838fa47b71c6c",
+      "contentSha256": "78025833cfa77d89ec57e25b679cb929d47541abdeabd4a53c23683868805cff",
       "visibility": "twin-visible",
       "readiness": "simulation-complete",
       "externalUrl": null,
@@ -1794,7 +1794,7 @@
         "UABC-DEL-BCB-009"
       ],
       "lastReviewed": null,
-      "contentSha256": "212e468b94e1f7060a38e7ae741eefee00845fb020cff5e8558f098afd2156e6",
+      "contentSha256": "ec7a54e689283a4a647fa274c295b7a5db6d616c84f8fc86286aeb949cad3f26",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
       "externalUrl": null,

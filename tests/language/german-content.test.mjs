@@ -191,6 +191,20 @@ test('maschinenlesbare Pilotstatus und Relationstypen bleiben eng gebundene tech
   assert.ok(prose.violations.length >= 2);
 });
 
+test('CORE-FINANCE-Feldnamen, BC-Seiten und Operationswerte bleiben technische Vertragswerte', () => {
+  const report = scanEntries([entry('project/bc-basic/core-finance-technik.yaml', [
+    'mode: configuration-package',
+    'page: Gen. Business Posting Groups',
+    'field: Customer Nos.',
+    'expectedOperation: create-or-update-after-readback',
+    'requiredBeforeApply:',
+    '  - package-validation-zero-errors',
+    'requiredGates:',
+    '  - W0-01-read-company-identity'
+  ].join('\n'))]);
+  assert.deepEqual(report.violations, []);
+});
+
 test('historische Roh-Nachweise sind nur mit exaktem Pfad und Git-Blob ausgenommen', () => {
   const [relative, expectedBlob] = Object.entries(RAW_EVIDENCE_BLOBS)[0];
   const bytes = fs.readFileSync(path.join(root, ...relative.split('/')));

@@ -1,15 +1,15 @@
 ---
 documentId: UABC-HANDBOOK-BCB-CUSTOMER-001
 projectId: UABC-BC-BASIC-001
-version: 1.0-reference
-status: Kundenbereit
+version: 1.1
+status: Kundenprozessunterlage-fuer-spaetere-Pilotnutzung
 simulation: true
 deliverableRef: UABC-DEL-BCB-009
 ---
 
 # Einsteigerunterlage: BC Basic Einrichtung
 
-Diese Unterlage erklaert das kundenbereite BC-Basic-Standardpaket. Der Universaarl-Referenzfall ist mit synthetischen Daten repositorybasiert vollstaendig durchgespielt und abgestimmt; er beweist weder eine reale BC-Ausfuehrung noch eine produktionsbereite Kundenloesung. Fuer einen neuen Kunden bleiben die gekennzeichneten Vorlagen und Sandboxnachweise neu auszufuellen beziehungsweise auszufuehren.
+Diese Unterlage erklaert die spaeteren Kundenprozesse des BC-Basic-Standardpakets. `UABC-BASIC-DE` enthaelt aktuell Standard-CRONUS-Demodaten und ist nicht als BC-Basic-Pilot eingerichtet. Der CORE-FINANCE-Payload ist nur fuer einen kontrollierten Consultant-Lauf vorbereitet; er wurde nicht in Business Central angewendet.
 
 ## 1. Projektgrenze
 
@@ -33,7 +33,9 @@ Quelle: `SRC-BC-052` fuer Sandbox-Grenzen und `SRC-BC-053` fuer die Unternehmens
 
 ## 4. Finanzwesen und Buchhaltung
 
-Der Standard umfasst Konten, Debitoren-, Kreditoren-, Bestands- und Mehrwertsteuerbuchungsgruppen, Zahlungsbedingungen, Bankkonten als Stammdaten, zwei Dimensionen, Journale und Basisberichte. Die Referenzbaseline verwendet 11 synthetische Kontenrollen, sechs Buchungsmatrizen, `INLAND`, `HANDEL`, `MWST19`, `KOSTENSTELLE`, `GESCHAEFT` und FIFO. `UABC-PW-BCB-003` ist synthetisch abgestimmt; reale Konten und Steuerkennzeichen werden vor Kundennutzung neu bestaetigt.
+Der vorbereitete Standard umfasst 11 synthetische Kontenrollen, allgemeine und VAT-Buchungsgruppen, Zahlungsbedingungen `14T` und `30T`, die Dimensionen `KOSTENSTELLE` und `GESCHAEFT`, Nummernserien sowie den Lagerort `HAUPT`. Die 19-Prozent-VAT ist eine synthetische Projektannahme und muss vor Anwendung fachlich beziehungsweise steuerlich bestaetigt werden. Ein reales Bankkonto, IBAN/BIC oder Zahlungsdatei-Export ist nicht Teil von CORE-FINANCE.
+
+Nach einer spaeter belegten Einrichtung arbeitet der Kunde nur mit den freigegebenen Prozessen: Dimensionen auf Belegen auswaehlen, Zahlungsbedingungen pruefen und den Lagerort `HAUPT` verwenden. Paketdefinition, Excelimport, Validierung, Fehlerbereinigung und `Apply Package` verbleiben beim Consultant.
 
 Quelle: `SRC-BC-016` fuer Buchungsgruppen, `SRC-BC-055` fuer Bankabstimmung und `SRC-BC-056` fuer Periodenabschlussprozesse.
 

@@ -66,7 +66,8 @@ export function validateHistoricalBcPlaythrough(catalog, ledger, company, phase2
     if (ledger.controls?.newCustomerInvoiceOpenAfterApply !== 0 || ledger.controls?.newVendorInvoiceOpenAfterApply !== 0 || ledger.controls?.customerOpenAfterApply !== 940.10 || ledger.controls?.vendorOpenAfterApply !== 499.80) errors.push('Historische Nebenbuchkontrollen sind inkonsistent.');
     const configuredRoles = new Set(company?.values?.syntheticConfigurationBaseline?.accountRoles?.map((entry) => entry.role) ?? []);
     if (configuredRoles.size !== 11 || company?.values?.syntheticConfigurationBaseline?.postingMatrices?.length !== 6) errors.push('Historische Konten-/Buchungsmatrix ist unvollständig.');
-    for (const entry of glEntries) if (!configuredRoles.has(entry.accountRole)) errors.push(`${entry.id}: historische Kontenrolle fehlt.`);
+    const historicalRoleAliases = new Map([['BANK', 'BANK-CLEARING']]);
+    for (const entry of glEntries) if (!configuredRoles.has(entry.accountRole) && !configuredRoles.has(historicalRoleAliases.get(entry.accountRole))) errors.push(`${entry.id}: historische Kontenrolle fehlt.`);
     if (phase2?.orderToCash?.controls?.net !== 790 || phase2?.orderToCash?.controls?.vat !== 150.10 || phase2?.orderToCash?.controls?.gross !== 940.10) errors.push('Historische Phase-2-O2C-Kontrollsumme weicht ab.');
     if (phase3?.monthClose?.closingTrialBalance?.debit !== 11080.20 || phase3?.monthClose?.closingTrialBalance?.credit !== 11080.20 || phase3?.monthClose?.closingTrialBalance?.difference !== 0) errors.push('Historische Phase-3-Schlussbilanz weicht ab.');
     if (ledger.controls?.allDefectsRetested !== true) errors.push('Historische Defects sind nicht vollständig retestet.');

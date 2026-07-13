@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 88334bbb56fe933add1e486bd8c67b84b05f844b85fc3c6d3bd543115a2c569d
+  projectionDigest: 473bb5d82ab48b404db665a48e5b1be057becdcce59ea728ce11e032da658aeb
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -18,17 +18,17 @@ reconciliation:
   baselineAmount: 11050
   offerHours: 80
   offerAmount: 9600
-  actualHours: 0.25
-  actualAmount: 30
+  actualHours: 2.25
+  actualAmount: 270
   invoiceClaim: false
   productiveActivityClaim: false
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: c2ca21a8faace5fbda0946a89aff25b6d045b9219183505080bc9d9da2598a2d
+  sourceHash: 1e28677ff179f45120eada12c449f33d8fa7043d1c4e15529071e392a38b25dc
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: 867f9132a18488a1389edb02f30a8171078e777c31123263d9addc3c4d78ab06
+  projectionDigest: b551deea8df9797ea26ce6a8b964ca03e9650cbea26d35abd96ada67f4894932
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:
@@ -40,9 +40,9 @@ referenceGraphCoverage:
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
-  sourceDigest: e51db6a6bd0ce7dda89f6fece51b09691808c52b6cac1402e3e086d2effbf21c
+  sourceDigest: 7f23459b3e68b12d9a62c8d5770bf3a76a4522cfd3ca225974215d7c9ef3ae2b
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: 23553be97f93d949c94f527dca99392f5f3e03a46f6c379695252e28c1291abe
+  projectionDigest: f9e35233b173c29910444441ce92de84126801252c1def5f15bbff74b5b45453
 counts:
   offerVersions: 3
   pages: 28
@@ -53,9 +53,9 @@ counts:
   bugs: 0
   tasks: 19
   comments: 51
-  worklogs: 1
-  actualHours: 0.25
-  actualNetAmount: 30
+  worklogs: 2
+  actualHours: 2.25
+  actualNetAmount: 270
   timelineEvents: 15
   projectPhases: 14
   hypercareRecords: 3

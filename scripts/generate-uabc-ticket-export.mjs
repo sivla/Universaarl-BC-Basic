@@ -11,6 +11,7 @@ const wave0AttemptPath = 'evidence/playthru-uabc-basic-de/wave-0-company-identit
 const wave0Attempt = YAML.parse(fs.readFileSync(wave0AttemptPath, 'utf8'));
 const pilotSetupBaseline = YAML.parse(fs.readFileSync('project/bc-basic/pilot-setup-baseline.yaml', 'utf8'));
 const readOnlyPreflight = YAML.parse(fs.readFileSync('evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'utf8'));
+const coreFinancePayload = YAML.parse(fs.readFileSync('project/bc-basic/core-finance-payload.yaml', 'utf8'));
 const companyState = pilotSetupBaseline.companyInformation.currentState;
 const companyTarget = pilotSetupBaseline.companyInformation.targetState;
 const companyStrategy = pilotSetupBaseline.companyInformation.companyStrategyDecision;
@@ -30,7 +31,7 @@ const taskEvidence = {
   'UABC-37': ['atlassian/confluence/pages/71-bc-basic-discovery.md', 'project/bc-basic/decision-register.yaml'],
   'UABC-38': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
   'UABC-39': [...evidence, wave0AttemptPath],
-  'UABC-40': ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
+  'UABC-40': ['project/bc-basic/core-finance-payload.yaml', 'project/bc-basic/core-finance-package-manifest.yaml', 'project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
   'UABC-41': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
   'UABC-42': ['atlassian/confluence/pages/31-processes.md', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
   'UABC-43': ['atlassian/confluence/pages/31-processes.md', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
@@ -126,6 +127,7 @@ const presentations = {
 function currentStatus(ticket) {
   if (ticket.id === 'UABC-1') return 'in-progress';
   if (ticket.id === 'UABC-2' || ticket.id === 'UABC-3' || ticket.id === 'UABC-39') return 'blocked';
+  if (ticket.id === 'UABC-40') return 'in-progress';
   return 'created';
 }
 
@@ -156,7 +158,7 @@ function rebaseline(ticket) {
   if (ticket.id === 'UABC-21') original = 'Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll, angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste zulässige Schritt eindeutig bleibt.';
   if (ticket.id === 'UABC-22') original = 'Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne Ledger- oder Bankkontowrite nachvollziehbar bleibt.';
   if (ticket.id === 'UABC-39') original = 'W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter; die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.';
-  if (ticket.id === 'UABC-40') original = 'Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe wird ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder Schreibschritt erhält feldgenauen Readback und Finance-Abnahme; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.';
+  if (ticket.id === 'UABC-40') original = 'Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51 Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach bestandenem Wave 0, Zielstrategie, Resetpunkt und separater Schreibfreigabe; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.';
   if (ticket.id === 'UABC-28') original = 'SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant. Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten Readbacks entschieden werden.';
   if (ticket.id === 'UABC-46') original = 'UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant; aktuell sind sie nicht ausgeführt.';
   if (ticket.id === 'UABC-47') original = 'Ein geplantes Hypercare-Szenario beschreibt die spätere Prüfung einer nicht automatisch zugeordneten Zahlung. Ein Defect entsteht erst nach Beobachtung im ausgeführten Lauf; aktuell werden Reproduktionsschritte und Abnahmekriterien vorbereitet.';
@@ -202,12 +204,15 @@ function rebaseline(ticket) {
   const statusHistory = [{ status: 'created', time: today, actorRef: lead, actorType: 'human', actionRole: leadRole }];
   if (status !== 'created') statusHistory.push({ status, time: today, actorRef: lead, actorType: 'human', actionRole: leadRole });
   const isWave0Attempt = ticket.id === 'UABC-39';
-  const worklogs = isWave0Attempt ? [structuredClone(wave0Attempt.worklog)] : [];
+  const isCorePreparation = ticket.id === 'UABC-40';
+  const worklogs = isWave0Attempt ? [structuredClone(wave0Attempt.worklog)] : isCorePreparation ? [structuredClone(coreFinancePayload.preparationWorklog)] : [];
   const actualHours = worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
   const netAmount = worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
   const comments = isWave0Attempt ? [
     { id: 'COM-UABC-39-W0-01-START', type: 'status', time: today, role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole, text: 'W0-01 wurde am 2026-07-13 im ausdrücklich freigegebenen Nur-Lese-Modus gestartet. Ziel war ausschließlich die sichtbare Gesellschaftsidentität; Schreib-, Speicher-, Kopier-, Umbenennungs- und Setup-Aktionen waren ausgeschlossen.', evidenceRef: wave0AttemptPath },
     { id: 'COM-UABC-39-W0-01-BLOCKED', type: 'status', time: today, role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole, text: 'Der vorhandene Tab zeigte nur den Titel Dynamics 365 Business Central sowie bereinigte Playthru- und Company-Parameter. Die Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und BC-Feldlektüre; es wurden keine Company-ID, Firmendaten, CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes ausgeführt. Die Zielstrategie bleibt offen.', evidenceRef: wave0AttemptPath }
+  ] : isCorePreparation ? [
+    { id: 'COM-UABC-40-CORE-PREPARED-20260713', type: 'status', time: today, role: 'Lead BC Consultant', actorRef: lead, actorType: 'human', actionRole: leadRole, text: 'CORE-FINANCE ist source-driven als 19 Pakettabellen mit 51 Datensätzen sowie 7 manuellen Tabellen mit 18 Sollwerten vorbereitet und fail-closed validiert. Es wurde weder Business Central gelesen oder beschrieben noch eine Schreibfreigabe erteilt; W0-01, Zielstrategie, Resetpunkt und Steuerbestätigung bleiben vorgelagert.', evidenceRef: 'project/bc-basic/core-finance-package-manifest.yaml' }
   ] : [{
     id: `COM-${ticket.id}-CURRENT-PLAN`, type: 'status', time: today,
     role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole,
