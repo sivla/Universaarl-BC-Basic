@@ -38,4 +38,4 @@
 - [x] Kanonischen CRONUS-zu-Ready-to-Prod-Folgeplan mit zehn geordneten Stufen, bestehenden Ticketreferenzen, Gates, Evidencezielen und Stop-/Rollbackregeln im Projektplan verankern.
 - [x] Kanonischen Projektplan und bestehende Twin-Projektion source-driven auf die noch nicht ausgeführte Bereitschaftsfolge aktualisieren; keine neue Ticket- oder Live-Wahrheit erzeugen.
 - [x] Fail-closed Validator und Positiv-/Negativtests gegen fehlende Reihenfolge, unbekannte Tickets, vorzeitige Writes, Completion oder Ready-to-Prod-Claims ergänzen.
-- [ ] Ableitungen deterministisch regenerieren, fokussiert und einmal insgesamt prüfen, gezielt reviewen und als sauberen lokalen Commit ohne Push übergeben.
+- [x] Ableitungen deterministisch regenerieren, fokussiert und einmal insgesamt prüfen, gezielt reviewen und als sauberen lokalen Commit ohne Push übergeben.
