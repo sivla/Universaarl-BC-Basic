@@ -23,6 +23,10 @@ companyInformation:
     baselineKind: standard-cronus-demo
     baselineProvenance: microsoft-standard-cronus-demo-data
     baselineTruthSource: user-provided-project-information
+    customerTargetRealized: false
+    originMechanismStatus: unbekannt-bis-wave0-readback
+    copyRenameHypothesis: nutzerhinweis-unbestaetigt
+    setupStatus: blockiert-bis-dom-readback-und-zielkonfiguration
     pilotConfigured: false
     writesApplied: false
     readbackStatus: pending

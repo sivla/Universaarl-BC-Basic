@@ -23,3 +23,6 @@
 - [x] UABC-39, Baseline, Entscheidung, Run-Plan, Kundenprojekt und Twin-Projektion source-driven auf den blockierten Versuch und das tatsächliche Task-Ist aktualisieren.
 - [x] Fail-closed prüfen, dass Titel oder URL keine Company-ID, CRONUS-Provenienz, Zielstrategie oder Schreibwirkung belegen.
 - [x] Ableitungen deterministisch regenerieren, fokussiert und insgesamt prüfen, reviewen und als einen lokalen Commit übergeben.
+- [x] Standard-CRONUS-Inhalt als Nutzerfakt und Kopier-/Umbenennung als unbestätigte Herkunftshypothese strukturiert trennen; realisierten Kundenstand explizit verneinen.
+- [x] Baseline, Story, Run-Plan, Twin-Projektion, Schema und Kundenflächen mit Negativtests gegen vorzeitige Kundenstand-/Herkunfts-/Setup-Claims synchronisieren.
+- [x] Ableitungen deterministisch regenerieren, fokussiert und commitgebunden prüfen, reviewen und lokal committen; kein Push.

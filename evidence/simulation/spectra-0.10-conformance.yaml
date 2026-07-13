@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: ca7c9c4f803f0209e040bb4e8bc40b117a7357bd75d9ea3cf02645f2f1f50320
+  projectionDigest: 88334bbb56fe933add1e486bd8c67b84b05f844b85fc3c6d3bd543115a2c569d
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -83,6 +83,10 @@ truthBoundary: Unveränderte Standard-CRONUS-Demo-Ausgangsbasis; der
 businessCentralPilotState:
   baselineKind: standard-cronus-demo
   baselineProvenance: microsoft-standard-cronus-demo-data
+  customerTargetRealized: false
+  originMechanismStatus: unbekannt-bis-wave0-readback
+  copyRenameHypothesis: nutzerhinweis-unbestaetigt
+  setupStatus: blockiert-bis-dom-readback-und-zielkonfiguration
   pilotConfigured: false
   writesApplied: false
   readbackStatus: pending

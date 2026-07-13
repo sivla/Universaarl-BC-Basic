@@ -23,6 +23,8 @@ CORE-FINANCE ist damit planseitig vorbereitet, aber nicht ausführbar. Der erste
 
 Ein vor der DOM-Lektüre blockierter W0-01-Versuch wird als `blocked-before-dom-readback` modelliert. Die Versuchsevidence enthält keine BC-Feldwerte und keine Screenshotreferenz, darf aber den bereits sichtbaren Tabtitel sowie eine tenantbereinigte URL mit Environment- und Company-Query dokumentieren. UABC-39 erhält dafür einen Arbeitskommentar, einen tatsächlichen Task-Worklog und Status `blocked`, jedoch keinen Abschlusskommentar. Der nächste Schritt bleibt W0-01 in einem manuell freigegebenen read-only Termin.
 
+Die Herkunft der technisch benannten Gesellschaft wird getrennt von ihrem fachlichen Datenstand modelliert. Der Nutzerbeleg setzt `contentBaseline=standard-cronus-demo` und `customerTargetRealized=false`; die Formulierung „offenbar kopiert/umbenannt“ wird ausschließlich als `nutzerhinweis-unbestaetigt` mit `originMechanismStatus=unbekannt-bis-wave0-readback` geführt. Weder Generator noch Twin dürfen daraus einen realisierten Kundenstand, einen ausgeführten Setup-Schritt oder eine Zielstrategie ableiten.
+
 ## Projektstory- und Twin-Vertrag
 
 `evidence/simulation/project-story.json` bleibt die einzige aktive Ticketquelle. Jira, Spectra-0.10, Index und Twin werden deterministisch daraus erzeugt. Die Ticketmenge ist dynamisch; nur `UABC-1`, `UABC-2` und `UABC-3` sind feste Phase-Roots. Plan 80 Stunden/9.600 EUR bleibt im Angebots-/Billingvertrag, aktuelles Ist wird ausschliesslich aus Task-Worklogs abgeleitet. Twin-Ticketlisten enthalten keine Geldfelder oder Geldbetraege.

@@ -23,6 +23,10 @@ conformance.classification = 'current-pilot-planning';
 conformance.businessCentralPilotState = {
   baselineKind: story.businessCentralPilotState.baselineKind,
   baselineProvenance: story.businessCentralPilotState.baselineProvenance,
+  customerTargetRealized: story.businessCentralPilotState.customerTargetRealized,
+  originMechanismStatus: story.businessCentralPilotState.originMechanismStatus,
+  copyRenameHypothesis: story.businessCentralPilotState.copyRenameHypothesis,
+  setupStatus: story.businessCentralPilotState.setupStatus,
   pilotConfigured: story.businessCentralPilotState.pilotConfigured,
   writesApplied: story.businessCentralPilotState.writesApplied,
   readbackStatus: story.businessCentralPilotState.readbackStatus,

@@ -42,6 +42,9 @@ userProvidedProjectInformation:
   truthClass: user-provided-project-information
   selectedTechnicalCompanyName: UABC-BASIC-DE
   contentBaseline: standard-cronus-demo
+  customerTargetRealized: false
+  originMechanismStatus: unbekannt-bis-wave0-readback
+  copyRenameHypothesis: nutzerhinweis-unbestaetigt
   pilotConfigured: false
   writesApplied: false
   browserReadbackConfirmed: false

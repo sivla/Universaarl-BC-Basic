@@ -33,6 +33,10 @@ export function buildProjection() {
     configurationState: {
       baselineKind: 'standard-cronus-demo',
       baselineProvenance: companyState.currentState.baselineProvenance,
+      customerTargetRealized: companyState.currentState.customerTargetRealized,
+      originMechanismStatus: companyState.currentState.originMechanismStatus,
+      copyRenameHypothesis: companyState.currentState.copyRenameHypothesis,
+      setupStatus: companyState.currentState.setupStatus,
       pilotConfigured: false,
       writesApplied: false,
       readbackStatus: 'pending',

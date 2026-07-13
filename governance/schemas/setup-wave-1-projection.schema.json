@@ -27,12 +27,16 @@
     "configurationState": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["baselineKind", "baselineProvenance", "pilotConfigured", "writesApplied", "readbackStatus", "technicalCompanyName", "internalCompanyId", "observedDisplayName", "targetDisplayName", "targetDecision", "resetDecision", "targetState", "appliedDifference", "wave0ReadbackAttempt", "companyStrategyGate"],
+      "required": ["baselineKind", "baselineProvenance", "pilotConfigured", "writesApplied", "customerTargetRealized", "originMechanismStatus", "copyRenameHypothesis", "setupStatus", "readbackStatus", "technicalCompanyName", "internalCompanyId", "observedDisplayName", "targetDisplayName", "targetDecision", "resetDecision", "targetState", "appliedDifference", "wave0ReadbackAttempt", "companyStrategyGate"],
       "properties": {
         "baselineKind": { "const": "standard-cronus-demo" },
         "baselineProvenance": { "const": "microsoft-standard-cronus-demo-data" },
         "pilotConfigured": { "const": false },
         "writesApplied": { "const": false },
+        "customerTargetRealized": { "const": false },
+        "originMechanismStatus": { "const": "unbekannt-bis-wave0-readback" },
+        "copyRenameHypothesis": { "const": "nutzerhinweis-unbestaetigt" },
+        "setupStatus": { "const": "blockiert-bis-dom-readback-und-zielkonfiguration" },
         "readbackStatus": { "const": "pending" },
         "technicalCompanyName": { "const": "UABC-BASIC-DE" },
         "internalCompanyId": { "type": "null" },

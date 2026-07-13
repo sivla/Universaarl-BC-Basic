@@ -41,7 +41,12 @@ version: 6
 
 ## Lösungsziel
 
-Die Seite beschreibt das Soll für `UABC-BASIC-DE`. Der aktuelle Istzustand ist eine unveränderte Microsoft-Standard-CRONUS-Demo-Baseline; `pilotConfigured=false`, `writesApplied=false` und der Readback steht aus.
+Die Seite beschreibt ausschließlich das Soll für `UABC-BASIC-DE`. Der aktuelle
+fachliche Datenstand ist laut Nutzerinformation Microsoft Standard CRONUS und
+kein realisierter Kundenstand; der Entstehungsweg der Gesellschaft ist bis zum
+DOM-/Feld-Readback unbekannt. `customerTargetRealized=false`,
+`originMechanismStatus=unbekannt-bis-wave0-readback`, `pilotConfigured=false`,
+`writesApplied=false` und der Readback steht aus.
 
 Technischer Firmenname, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz. Vor jedem Setup-Write muss Wave 0 interne Company-ID, Name, Display Name, Standard-CRONUS-Provenienz, Zielentscheidung und Resetpunkt nachweisen.
 

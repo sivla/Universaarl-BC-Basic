@@ -33,7 +33,13 @@ version: 7
 
 ## Aktueller Projektstatus
 
-Der Playthru-Pilot läuft auf `UABC-BASIC-DE`. Die Gesellschaft enthält eine Microsoft-CRONUS-Demo-Ausgangsbasis; ihr Anzeigename allein belegt keine eingerichtete BC-Basic-Kundeninstanz. `pilotConfigured=false`, `writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false` sind der aktuelle Stand.
+Der Playthru-Arbeitskontext adressiert `UABC-BASIC-DE`; ein realisierter
+BC-Basic-Kundenstand existiert dort noch nicht. Die Nutzerinformation bestätigt
+inhaltlich die Microsoft-Standard-CRONUS-Demo-Baseline. Ob die Gesellschaft
+kopiert, umbenannt oder anders erzeugt wurde, ist ohne DOM-/Feld-Readback
+unbekannt. `customerTargetRealized=false`, `pilotConfigured=false`,
+`writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false`
+sind der aktuelle Stand.
 
 Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 0,25 Stunden und 30 EUR; es umfasst ausschließlich den begonnenen W0-01-Zugriffsversuch und seine fail-closed Dokumentation.
 
@@ -44,7 +50,7 @@ Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Su
 | Bereich | Beobachteter Iststand | Noch zu belegender Pilotsollstand |
 |---|---|---|
 | Umgebung | Playthru-Sandbox | vor jedem Lauf erneut lesen |
-| Gesellschaft | `UABC-BASIC-DE`, unveränderte Standard-CRONUS-Demo-Baseline | interne Company-ID, technischer Name, Name und Display Name per Wave-0 belegen |
+| Gesellschaft | `UABC-BASIC-DE`, Standard-CRONUS-Demo-Inhalt laut Nutzerinformation | interne Company-ID, technischer Name, Name und Display Name per Wave-0 belegen |
 | Pilotname | beobachtet `Universaarl GmbH` | Ziel `Universaarl GmbH (BC Basic Pilot)` erst im autorisierten Lauf |
 | Daten | CRONUS-Standarddaten | freigegebene Pilotabweichungen mit Readback |
 | Setup-Pakete | je 0 Tabellen / 0 Datensätze / 0 Fehler | kontrollierte CORE-FINANCE-Ausführung erst nach Freigabe |

@@ -41,7 +41,12 @@ version: 6
 
 Die Gesellschaft `UABC-BASIC-DE` enthält aktuell Microsoft-Standard-CRONUS-Demodaten. Dieser Zustand ist `standard-cronus-demo`, nicht die unten beschriebene Universaarl-Ausprägung.
 
-Technischer Gesellschaftsname, URL oder sichtbarer Anzeigename sind kein Einrichtungsnachweis; `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` bleiben verbindlich.
+Technischer Gesellschaftsname, URL oder sichtbarer Anzeigename sind kein
+Einrichtungsnachweis. Die Standard-CRONUS-Inhaltsklassifikation ist eine
+Nutzerinformation; Kopie oder Umbenennung bleiben eine unbestätigte
+Herkunftshypothese. `customerTargetRealized=false`,
+`originMechanismStatus=unbekannt-bis-wave0-readback`, `pilotConfigured=false`,
+`writesApplied=false` und `readbackStatus=pending` bleiben verbindlich.
 
 Die interne Company-ID, die vollständige Baseline-Inventur und ein belastbarer Reset-/Wiederanlaufpunkt fehlen noch. Deshalb ist die Zielstrategie `blocked-pending-wave0-and-reset-evidence`; ausgewählt ist weder kontrollierte Weiterverwendung noch Neuanlage beziehungsweise Kopie.
 

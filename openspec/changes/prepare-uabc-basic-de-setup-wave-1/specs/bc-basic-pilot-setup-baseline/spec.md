@@ -71,6 +71,15 @@ Die Kundeninstanz MUST den aktiven Zustand strukturiert als `baselineKind=standa
 - **AND** DARF aus Titel oder URL weder interne Company-ID, CRONUS-Provenienz, Zielstrategie noch Pilotkonfiguration abgeleitet werden
 - **AND** MUST das zugeordnete Task-Ticket einen tatsächlichen Worklog und keinen Abschlusskommentar tragen.
 
+#### Scenario: Standard-CRONUS-Inhalt bei unbekannter Gesellschaftsherkunft
+
+- **GIVEN** der Nutzer bestätigt für `UABC-BASIC-DE` den inhaltlichen Standard-CRONUS-Datenstand
+- **AND** eine Kopie oder Umbenennung erscheint möglich, wurde aber nicht per DOM- oder Feld-Readback belegt
+- **WHEN** der aktuelle Kunden- und Setup-Status materialisiert wird
+- **THEN** MUST `customerTargetRealized=false`, `originMechanismStatus=unbekannt-bis-wave0-readback` und `copyRenameHypothesis=nutzerhinweis-unbestaetigt` gelten
+- **AND** MUST W0-01 `blocked-before-dom-readback` sowie der fachliche Setup-Status `blockiert-bis-dom-readback-und-zielkonfiguration` bleiben
+- **AND** DARF weder die Nutzerinformation noch der technische Gesellschaftsname als realisierter Kundenstand, ausgeführtes Setup oder bestätigte Gesellschaftsherkunft ausgegeben werden.
+
 ### Requirement: UABC-REQ-BCB-CRONUS-SPACE-TRUTH
 
 Das Kundenprojekt MUST `Standard CRONUS` als aktuellen Iststand, den BC-Basic-Parametersatz als Soll und die leere angewendete Differenz getrennt führen. Der Produkt-Space MUST nur Scope und Nicht-Scope beschreiben. Das Consulting-Handbuch MUST nur die wiederverwendbare Methode beschreiben und DARF keinen ausgeführten Country-, Company- oder Paket-Write für `UABC-BASIC-DE` behaupten.

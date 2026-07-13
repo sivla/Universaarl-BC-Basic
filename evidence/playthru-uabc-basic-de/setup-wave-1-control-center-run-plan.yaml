@@ -47,6 +47,10 @@ wave0Preflight:
   status: blocked-before-dom-readback
   currentBaseline: standard-cronus-demo-baseline
   configuredPilotClaimed: false
+  customerTargetRealized: false
+  originMechanismStatus: unbekannt-bis-wave0-readback
+  copyRenameHypothesis: nutzerhinweis-unbestaetigt
+  setupStatus: blockiert-bis-dom-readback-und-zielkonfiguration
   decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
   decisionGateStatus: blocked-pending-wave0-and-reset-evidence
   nextExecutableStep: W0-01-read-company-identity

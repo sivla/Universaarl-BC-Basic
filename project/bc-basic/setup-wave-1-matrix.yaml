@@ -28,6 +28,10 @@ target:
     pilotTarget: dedizierter BC-Basic-Pilot mit ausschliesslich kontrolliert angewendeten und gelesenen Sollabweichungen
     appliedDifferenceStatus: none-evidenced
     configuredPilotClaimed: false
+    customerTargetRealized: false
+    originMechanismStatus: unbekannt-bis-wave0-readback
+    copyRenameHypothesis: nutzerhinweis-unbestaetigt
+    setupStatus: blockiert-bis-dom-readback-und-zielkonfiguration
     decisionStatus: wave-0-read-only-preflight-required
     decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
     companyStrategyStatus: blocked-pending-wave0-and-reset-evidence

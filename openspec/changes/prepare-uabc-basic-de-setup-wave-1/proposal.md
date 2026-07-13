@@ -16,6 +16,7 @@ Die Wahl zwischen kontrollierter Weiterverwendung von `UABC-BASIC-DE` und einer 
 - Keine Tabellen wurden den drei Paketgeruesten hinzugefuegt; alle drei bleiben bei `0/0/0`.
 - Keine Paketanwendung, kein Import, keine Buchung und keine externe Uebermittlung.
 - `pilotConfigured=false`, `writesApplied=false`, `readbackStatus=pending`; der sichtbare Firmenname ist kein Einrichtungsnachweis.
+- `UABC-BASIC-DE` ist kein realisierter Kundenstand. Die Nutzerinformation belegt `standard-cronus-demo`; ob die Gesellschaft kopiert, umbenannt oder anders erzeugt wurde, bleibt bis zum DOM-/Feld-Readback eine unbestätigte Herkunftshypothese.
 - Der aktive Jira-/Twin-Stand ist eine dynamische Materialisierung der einzigen kanonischen Projektstory. Historische Simulation, Planbudget und aktuelles Task-Worklog-Ist bleiben getrennt.
 - Gebuchte Posten-, Ledger- und Posted-Document-Tabellen sowie Continia sind ausgeschlossen.
 - Fruehere Country-/Company-Evidence bleibt als historische Provenienz erhalten, ist aber keine aktuelle Readiness-Wahrheit.
@@ -29,3 +30,5 @@ Der aktive Jira-Boardvertrag bildet zusätzlich jeden tatsächlich verwendeten T
 Kundenprojekt, Produkt-Space und Consulting-Handbuch erklären denselben Stand ohne konkurrierende Wahrheit: Das Kundenprojekt führt Ist, Soll und Gate; das Produkt beschreibt Scope und Nicht-Scope; das Consulting-Handbuch ausschließlich die wiederverwendbare Methode.
 
 Der erste reale W0-01-Zugriffsversuch darf auch als fachlich relevanter Blockerstand zurückgegeben werden. Wenn die Browser-Sicherheitsrichtlinie vor jeder DOM- und Screenshot-Lektüre stoppt, werden nur der sichtbare Tabtitel, die bereinigten URL-Parameter, Zeitpunkt, Rolle und die fehlende Lesbarkeit dokumentiert. Daraus dürfen weder interne Company-ID noch CRONUS-Provenienz, Company Information, Gesellschaftsliste oder Zielstrategie abgeleitet werden.
+
+Auch die vom Nutzer bestätigte inhaltliche Standard-CRONUS-Baseline realisiert noch keinen BC-Basic-Kundenstand. `customerTargetRealized=false` und `originMechanismStatus=unbekannt-bis-wave0-readback` bleiben bis zum sichtbaren W0-01-Readback verbindlich; eine vermutete Kopie oder Umbenennung ist keine Ausführungsevidence.

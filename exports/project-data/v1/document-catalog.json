@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "2b7049f223cb35e6cce898058e321695007a10548771d9da8ddd2180460d40b2",
+      "contentSha256": "b4bd9b453dbb70b1bd5d7195596f448572fefd717bdfa9f5baab40a1bfb7d304",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -723,7 +723,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "3c83352edfb1022f46706e33d9ed37b58bcdeb4150139cc6336f0ce2a3e7cd0c",
+      "contentSha256": "fc619b4cb00c59f2618c14831ceb8ee031d75ea9aa79c9cdaf93f47742294a50",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1103,7 +1103,7 @@
         "UABC-REQ-BCB-009"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "e282ee6dfc51adfff1ee42f301bf5ed834ef7dfd39817e7a3d16e22861674666",
+      "contentSha256": "7ccd68c5d8f14b964ed5fa4fddf90d85977e52738c7d2a1dfc466c577d1348a7",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,

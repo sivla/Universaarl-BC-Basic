@@ -15,7 +15,7 @@ export function validateActiveBcPlaythrough(story, runPlan, projection) {
   const fail = (message) => errors.push(message);
   const state = story?.businessCentralPilotState ?? {};
   if (story?.classification !== 'current-pilot-planning' || story?.status !== 'in-progress') fail('Aktive Projektstory ist nicht der laufende Pilot.');
-  if (state.baselineKind !== 'standard-cronus-demo' || state.pilotConfigured !== false || state.writesApplied !== false || state.readbackStatus !== 'pending') fail('Aktiver BC-Zustand muss Standard-CRONUS-Demo-Baseline mit offenem Pilotaufbau sein.');
+  if (state.baselineKind !== 'standard-cronus-demo' || state.pilotConfigured !== false || state.writesApplied !== false || state.customerTargetRealized !== false || state.originMechanismStatus !== 'unbekannt-bis-wave0-readback' || state.copyRenameHypothesis !== 'nutzerhinweis-unbestaetigt' || state.setupStatus !== 'blockiert-bis-dom-readback-und-zielkonfiguration' || state.readbackStatus !== 'pending') fail('Aktiver BC-Zustand muss Standard-CRONUS-Demo-Baseline mit unbekannter Gesellschaftsherkunft und offenem Pilotaufbau sein.');
   const worklogs = (story?.tickets ?? []).filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
   const hours = worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
   const amount = worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
@@ -27,7 +27,7 @@ export function validateActiveBcPlaythrough(story, runPlan, projection) {
   if (runPlan?.execution?.performed !== false || runPlan?.authorization?.writesAuthorized !== false || runPlan?.wave0Preflight?.status !== 'blocked-before-dom-readback' || runPlan?.wave0Preflight?.selectedDecision !== null) fail('Run-Plan muss unausgeführt, schreibgesperrt und mit blockiertem W0-01-Readback offen bleiben.');
   const writeSteps = (runPlan?.steps ?? []).filter((step) => step.write === true);
   if (!writeSteps.length || writeSteps.some((step) => step.performed !== false || step.observedResult !== null)) fail('Kein Schreibschritt darf ausgeführt oder mit Ergebnis belegt sein.');
-  if (projection?.writesAuthorized !== false || projection?.writeGate?.writesAuthorized !== false || projection?.configurationState?.pilotConfigured !== false || projection?.configurationState?.writesApplied !== false) fail('Twin-Projektion muss den offenen, schreibgesperrten Pilot zeigen.');
+  if (projection?.writesAuthorized !== false || projection?.writeGate?.writesAuthorized !== false || projection?.configurationState?.pilotConfigured !== false || projection?.configurationState?.writesApplied !== false || projection?.configurationState?.customerTargetRealized !== false || projection?.configurationState?.originMechanismStatus !== 'unbekannt-bis-wave0-readback') fail('Twin-Projektion muss den nicht realisierten, schreibgesperrten Pilot mit offener Herkunft zeigen.');
   if ((projection?.packages ?? []).length !== 3 || projection.packages.some((entry) => entry.tables !== 0 || entry.records !== 0 || entry.errors !== 0)) fail('Alle drei Pakete müssen in der aktuellen Projektion 0/0/0 bleiben.');
   return errors;
 }
