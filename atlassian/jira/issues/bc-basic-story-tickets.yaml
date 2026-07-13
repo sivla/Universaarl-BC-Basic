@@ -209,6 +209,7 @@ views:
         order: 2
         statuses:
           - in-progress
+          - blocked
       - id: tested
         title: Getestet
         order: 3

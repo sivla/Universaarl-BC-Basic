@@ -21,6 +21,8 @@ Der Live-Lauf stoppt vor dem ersten Write bei fehlendem Wave-0-Readback, unbekan
 
 `evidence/simulation/project-story.json` bleibt die einzige aktive Ticketquelle. Jira, Spectra-0.10, Index und Twin werden deterministisch daraus erzeugt. Die Ticketmenge ist dynamisch; nur `UABC-1`, `UABC-2` und `UABC-3` sind feste Phase-Roots. Plan 80 Stunden/9.600 EUR bleibt im Angebots-/Billingvertrag, aktuelles Ist wird ausschliesslich aus Task-Worklogs abgeleitet. Twin-Ticketlisten enthalten keine Geldfelder oder Geldbetraege.
 
+`TICKET_VIEWS` im Spectra-0.10-Generator ist die einzige Board-/Spaltenquelle. `blocked` wird genau einmal der sichtbaren Spalte `In Bearbeitung` zugeordnet. Der Jira-Erzeuger übernimmt dieselbe Definition; Validatoren lehnen fehlende, doppelte und unbekannte Statuszuordnungen fail-closed ab.
+
 ## Rollback
 
 Vor dem ersten Apply wird ein eindeutiger Resetpunkt dokumentiert. Vorbereitete, noch nicht angewandte Paketzeilen koennen aus dem Paket entfernt werden. Nach einem Teil-Apply wird nicht massenhaft geloescht: Abbruch, Readback der betroffenen Setupcodes, kontrollierte Ruecknahme nur der im Lauf erzeugten synthetischen Codes oder Reset der eindeutig markierten Pilotgesellschaft. Altgesellschaften bleiben unveraendert.

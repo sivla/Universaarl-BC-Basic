@@ -111,7 +111,8 @@ export function validateIntegration(data) {
   for (const ticketError of ticketExportErrors(data.ticketExport)) {
     const code = ticketError.includes('unknown-type') ? 'TICKET_TYP'
       : ticketError.includes('parent') ? 'TICKET_PARENT_TYP'
-        : ticketError.includes('ticket-view') ? 'TICKET_VIEW'
+        : (ticketError.includes('board-status') || ticketError.includes('active-status')) ? 'TICKET_BOARD_STATUS'
+          : ticketError.includes('ticket-view') ? 'TICKET_VIEW'
           : (ticketError.includes('presentation') || ticketError.includes('icon-policy')) ? 'TICKET_PRAESENTATION'
             : 'TICKET_ZAEHLSCOPE';
     fail(code, ticketError);

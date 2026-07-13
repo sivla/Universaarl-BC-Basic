@@ -54,3 +54,14 @@ Der automatisierte Vergleich der produktiven Fehlerpfade ergab für `validate-pr
 - `REVIEW.md` war vor dem Amend in Arbeitskopie und HEAD leer. Nach dem abschließenden Amend werden Commit, Baum, Snapshot-/Katalogbindung, `REVIEW.md` und sauberer Status erneut nur lesend geprüft.
 
 Offen bleiben ausschließlich die fachlichen Live-Gates: Wave-0-, Reset- und Zielentscheidung, alle Setup-/Prozess-/UAT-/Cutover-/Hypercare-/Handover-Ausführungen sowie eine separate Schreibfreigabe. `writesAuthorized=false` und RUN-06 bis RUN-22 NO-GO bleiben unverändert.
+
+## Jira-Boardstatus-Folgeprüfung
+
+- Der Producer-Boardvertrag ordnet `created` der Spalte `Angelegt`, `in-progress` und `blocked` der Spalte `In Bearbeitung`, `tested` der Spalte `Getestet` sowie `done` und `closed` der Spalte `Erledigt` zu.
+- Im aktiven Materialisat sind 47 Tickets mit `created`, ein Ticket mit `in-progress` und zwei Tickets mit `blocked` jeweils genau einer sichtbaren Spalte zugeordnet. Ticketstatus und Projektstory wurden nicht geändert.
+- Fehlendes oder doppelt zugeordnetes `blocked` sowie ein unbekannter aktiver Status scheitern fail-closed mit `TICKET_BOARD_STATUS`.
+- Jira-Materialisat, Story, Index, Twin-Map, Adapter-Provenienz, Konformitätsevidence, Reconciliation und Referenzgraphen blieben in zwei Generatorläufen über elf Artefakte bytegleich.
+- Der fokussierte Spectra-0.10-Test bestand mit 23 von 23 Tests; OpenSpec-Schema und OpenSpec strict bestanden mit 10 von 10 Items. Projektstory, Jira-Realismus, aktiver Ticketvertrag, Referenzen und Deutschprüfung bestanden ebenfalls.
+- Genau ein vollständiger `npm test` lief 130,4 Sekunden und endete mit Exit 0. Die gezielte Diff-Review blieb ohne Befund; `REVIEW.md` war in Arbeitskopie und HEAD leer.
+- Der Indexdigest `4804f1b0fcac789ba396d206bb80caec9bf6d5c64c1da3faf8832f36d9ab640f`, der Twin-Map-Digest `cf71fc5c57773bfea08caa0c5f852cb1170a68b1201e8bddc6e2d3bd43ff6c19` und die Adapter-Provenienz blieben unverändert. Der aus der geänderten Boardprojektion abgeleitete Konformitätsdigest lautet `35cb1de6d7347d0729036f5d134290c05f0d4605b3d9c7b905b02bb23bef05b4`.
+- Es gab keine BC-, Browser-, Authentifizierungs- oder Push-Aktion.

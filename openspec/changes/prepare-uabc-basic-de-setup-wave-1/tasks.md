@@ -12,3 +12,6 @@
 - [x] `standard-cronus-demo`-Baseline, Pilot-Soll und angewendete Abweichung strukturiert in Quelle, Run-Plan, Projektion, Jira und Twin trennen; Wave-0 und Resetentscheidung offen halten.
 - [x] Bestehende Story-/Jira-Gatekategorien erhalten und um CRONUS-, Sprach-, Task-Abnahme-, Geldfreiheits- und Anti-Fixcount-Negativtests ergaenzen.
 - [x] REVIEW leeren, genau einen lokalen Commit erstellen und commitgebunden sauber nachpruefen.
+- [x] Kanonische Boardspalte `In Bearbeitung` um den aktiven Status `blocked` ergaenzen und alle Jira-Ableitungen aus derselben Producerquelle erzeugen.
+- [x] Exakte Boardstatus-Partition mit Positiv- und Negativtests fuer fehlende, doppelte und unbekannte Zuordnungen absichern.
+- [x] Ableitungen zweimal bytegleich erzeugen, fokussiert und insgesamt pruefen, reviewen und als sauberen lokalen Folgecommit uebergeben.

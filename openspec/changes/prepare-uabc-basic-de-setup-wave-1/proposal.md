@@ -21,3 +21,5 @@ Dieser Change bindet eine pruefbare Tabellen-/Feldmatrix, einen konkreten Wave-0
 ## Ergebnis
 
 Ein Consultant kann die erste Welle nach sicherer Runtime-Bindung ohne erneute Designrunde feldnah anlegen, validieren, stoppen oder zuruecksetzen. Der spaetere Live-Nachweis bleibt ein eigener Ausfuehrungsblock.
+
+Der aktive Jira-Boardvertrag bildet zusätzlich jeden tatsächlich verwendeten Ticketstatus genau einmal auf eine sichtbare Producer-Spalte ab. Blockierte Tickets bleiben dadurch ohne Twin-Sonderlogik sichtbar.

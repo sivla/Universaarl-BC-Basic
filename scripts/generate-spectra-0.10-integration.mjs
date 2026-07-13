@@ -21,6 +21,7 @@ export const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).diges
 export const jsonBytes = (value) => Buffer.from(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
 export const lfBytes = (bytes) => Buffer.from(Buffer.from(bytes).toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
 export const CANONICAL_TICKET_TYPES = Object.freeze(['phase', 'epic', 'story', 'task']);
+export const TICKET_STATUS_VALUES = Object.freeze(['created', 'ready', 'in-progress', 'blocked', 'tested', 'done', 'closed']);
 const TICKET_PARENT_TYPES = Object.freeze({ phase: [], epic: ['phase'], story: ['epic'], bug: ['epic'], task: ['story', 'bug'] });
 const LEGACY_PARENT_TYPES = Object.freeze({ epic: [], story: ['epic', 'story'], task: ['epic', 'story', 'task'], subtask: ['story', 'task', 'bug', 'change'], bug: ['epic', 'story', 'task'], change: ['epic', 'story', 'task'] });
 export const TICKET_TYPE_PRESENTATIONS = Object.freeze({
@@ -52,7 +53,7 @@ export const TICKET_VIEWS = Object.freeze([
     visibleFields: Object.freeze(['id', 'type', 'summary', 'status', 'parent']),
     columns: Object.freeze([
       Object.freeze({ id: 'created', title: 'Angelegt', order: 1, statuses: Object.freeze(['created']) }),
-      Object.freeze({ id: 'in-progress', title: 'In Bearbeitung', order: 2, statuses: Object.freeze(['in-progress']) }),
+      Object.freeze({ id: 'in-progress', title: 'In Bearbeitung', order: 2, statuses: Object.freeze(['in-progress', 'blocked']) }),
       Object.freeze({ id: 'tested', title: 'Getestet', order: 3, statuses: Object.freeze(['tested']) }),
       Object.freeze({ id: 'done-closed', title: 'Erledigt', order: 4, statuses: Object.freeze(['done', 'closed']) })
     ]),
@@ -229,7 +230,41 @@ export function ticketExportErrors(ticketExport) {
   if(ticketExport.countedWorklogHours!==records.reduce((s,r)=>s+r.worklogHours,0)) errors.push('double-count');
   if(JSON.stringify(ticketExport.typePresentations)!==JSON.stringify(TICKET_TYPE_PRESENTATIONS)) errors.push('type-presentation');
   for(const t of records){if(!CANONICAL_TICKET_TYPES.includes(t.type)||t.type!==t.canonicalType) errors.push(`${t.id}:unknown-type`); if(!byId.has(t.parent)&&t.parent!==null) errors.push(`${t.id}:parent`); if(t.type==='phase'&&t.parent!==null) errors.push(`${t.id}:phase-parent`); if(t.type==='task'&&t.billable!==true) errors.push(`${t.id}:billable`);}
+  errors.push(...ticketBoardStatusErrors(ticketExport));
   if(JSON.stringify(ticketExport.views)!==JSON.stringify(TICKET_VIEWS)) errors.push('ticket-view-contract');
+  return errors;
+}
+
+export function ticketBoardStatusErrors(ticketExport) {
+  const errors = [];
+  const boards = (ticketExport?.views ?? []).filter((view) => view?.type === 'board');
+  if (boards.length !== 1) return ['board-status-view-count'];
+  const columns = boards[0]?.columns;
+  if (!Array.isArray(columns)) return ['board-status-columns'];
+  const knownStatuses = new Set(TICKET_STATUS_VALUES);
+  const statusColumns = new Map();
+  for (const column of columns) {
+    if (!Array.isArray(column?.statuses)) {
+      errors.push(`board-status-list:${column?.id ?? 'unbekannt'}`);
+      continue;
+    }
+    for (const status of column.statuses) {
+      if (typeof status !== 'string' || !knownStatuses.has(status)) errors.push(`board-status-unknown:${String(status)}`);
+      const mappedColumns = statusColumns.get(status) ?? [];
+      mappedColumns.push(column.id);
+      statusColumns.set(status, mappedColumns);
+    }
+  }
+  for (const [status, columnsForStatus] of statusColumns) {
+    if (columnsForStatus.length > 1) errors.push(`board-status-duplicate:${status}`);
+  }
+  for (const status of new Set((ticketExport?.ticketRecords ?? []).map((ticket) => ticket?.status))) {
+    if (typeof status !== 'string' || !knownStatuses.has(status)) {
+      errors.push(`active-status-unknown:${String(status)}`);
+      continue;
+    }
+    if (!statusColumns.has(status)) errors.push(`board-status-missing:${status}`);
+  }
   return errors;
 }
 

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import YAML from 'yaml';
+import { TICKET_VIEWS } from './generate-spectra-0.10-integration.mjs';
 
 const sourcePath = 'evidence/simulation/project-story.json';
 const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
@@ -333,10 +334,7 @@ const doc = {
   canonicalTypes: ['phase', 'epic', 'story', 'task'],
   typePresentations: presentations,
   liveIconPolicy: { sourceMode: 'local-allowlist-only', allowlistedAssets: [], allowedOrigins: [], digestAlgorithm: 'SHA-256', digestRequired: true },
-  views: [
-    { id: 'UABC-TICKET-VIEW-BOARD-001', type: 'board', title: 'Projektboard', order: 1, initialState: 'expanded', groupBy: ['phase', 'epic'], columns: { Backlog: ['Backlog'], Ready: ['Ready'], Doing: ['In Progress', 'Blocked'], Pruefung: ['In Review'], Done: [] } },
-    { id: 'UABC-TICKET-VIEW-COMPACT-001', type: 'compact-list', title: 'Kompakte Aufgabenliste', order: 2, initialState: 'expanded', groupBy: ['phase', 'epic'], columns: null }
-  ],
+  views: structuredClone(TICKET_VIEWS),
   recordCount: records.length,
   customerStoryCount: records.length,
   internalTraceabilityCount: 0,
