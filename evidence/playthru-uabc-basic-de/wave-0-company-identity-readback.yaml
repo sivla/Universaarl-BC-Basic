@@ -6,6 +6,8 @@ authorityScope: browser-access-attempt-only
 currentAuthority: true
 bcReadbackAuthority: false
 status: blocked-before-dom-readback
+attemptCount: 2
+latestAttemptId: UABC-W0-01-ATTEMPT-002
 time:
   exactBrowserAttemptStartCaptured: false
   visibleTabLastOpenedAt: 2026-07-13T08:37:00.550Z
@@ -18,20 +20,54 @@ responsibility:
   operationRole: autorisierte Nur-Lese-Browserautomation
   accountableActorRef: P-PILOT-LEAD-001
   accountableRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
-worklog:
-  id: WL-UABC-39-W0-01-BLOCKED-20260713
-  taskId: UABC-39
-  date: 2026-07-13
-  role: Lead BC Consultant
-  actorRef: P-PILOT-LEAD-001
-  actorType: human
-  actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
-  hours: 0.25
-  activity: W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert; keine BC-Feldwerte gelesen und keine Writes ausgeführt.
-  phase: P2
-  billable: true
-  hourlyRate: 120
-  netAmount: 30
+attempts:
+  - attemptId: UABC-W0-01-ATTEMPT-001
+    recordedAt: 2026-07-13T11:55:38.3825802+02:00
+    tabLastOpenedAt: 2026-07-13T08:37:00.550Z
+    accessPolicy: enterprise-network-policy
+    status: blocked-before-dom-readback
+    domReadPerformed: false
+    screenshotPerformed: false
+    bcFieldValuesRead: false
+    authenticationStateRead: false
+    writesPerformed: false
+  - attemptId: UABC-W0-01-ATTEMPT-002
+    recordedAt: 2026-07-13T14:11:07.3935478+02:00
+    tabLastOpenedAt: 2026-07-13T08:37:00.550Z
+    accessPolicy: enterprise-network-policy
+    status: blocked-before-dom-readback
+    domReadPerformed: false
+    screenshotPerformed: false
+    bcFieldValuesRead: false
+    authenticationStateRead: false
+    writesPerformed: false
+worklogs:
+  - id: WL-UABC-39-W0-01-BLOCKED-20260713
+    taskId: UABC-39
+    date: 2026-07-13
+    role: Lead BC Consultant
+    actorRef: P-PILOT-LEAD-001
+    actorType: human
+    actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
+    hours: 0.25
+    activity: W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert; keine BC-Feldwerte gelesen und keine Writes ausgeführt.
+    phase: P2
+    billable: true
+    hourlyRate: 120
+    netAmount: 30
+  - id: WL-UABC-39-W0-01-RETRY-BLOCKED-20260713
+    taskId: UABC-39
+    date: 2026-07-13
+    role: Lead BC Consultant
+    actorRef: P-PILOT-LEAD-001
+    actorType: human
+    actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
+    hours: 0.25
+    activity: Zweiten ausdrücklich lesenden W0-01-Zugriffsversuch über die vorhandene angemeldete Registerkarte geprüft, denselben Sicherheitsblock vor DOM, Screenshot und BC-Feldwerten bestätigt und die Versuchshistorie aktualisiert; keine Authdaten gelesen und keine Writes ausgeführt.
+    phase: P2
+    billable: true
+    hourlyRate: 120
+    netAmount: 30
 visibleTabMetadata:
   title: Dynamics 365 Business Central
   sanitizedUrl: https://businesscentral.dynamics.com/<tenant>/Playthru?company=UABC-BASIC-DE

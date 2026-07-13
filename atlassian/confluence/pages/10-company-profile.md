@@ -51,7 +51,11 @@ Herkunftshypothese. `customerTargetRealized=false`,
 
 Die interne Company-ID, die vollständige Baseline-Inventur und ein belastbarer Reset-/Wiederanlaufpunkt fehlen noch. Deshalb ist die Zielstrategie `blocked-pending-wave0-and-reset-evidence`; ausgewählt ist weder kontrollierte Weiterverwendung noch Neuanlage beziehungsweise Kopie.
 
-Ein angemeldeter Tab mit Playthru- und Company-Parameter war sichtbar; die Browser-Sicherheitsrichtlinie blockierte jedoch vor jeder DOM-, Feld- und Screenshot-Lektüre. Deshalb sind daraus keine interne Company-ID, Firmendaten, CRONUS-Provenienz oder Zielstrategie abgeleitet worden.
+Bei zwei streng lesenden Versuchen war dieselbe angemeldete Registerkarte mit
+Playthru- und Company-Parameter sichtbar; die Unternehmensrichtlinie blockierte
+jedoch jeweils vor jeder DOM-, Feld- und Screenshot-Lektüre. Deshalb sind
+daraus keine interne Company-ID, Firmendaten, Country/Region,
+CRONUS-Provenienz, Gesellschaftsliste oder Zielstrategie abgeleitet worden.
 
 Der nächste zulässige BC-Schritt bleibt ausschließlich `W0-01-read-company-identity` in einem manuell freigegebenen Nur-Lese-Termin.
 

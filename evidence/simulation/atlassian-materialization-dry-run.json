@@ -323,7 +323,7 @@
       "parentSourceId": null,
       "externalId": null,
       "decision": "create",
-      "sourceDigest": "7952408f451ecdf3b2b3ef165085812afb2d6ee257cc8f12ef657da1254f7cc1"
+      "sourceDigest": "2b68dc1a9d42412929cb267ac87d91fcec5c1086bd5a22bfff55977001971ed7"
     },
     {
       "objectType": "jira-ticket",
@@ -373,7 +373,7 @@
       "parentSourceId": "UABC-2",
       "externalId": null,
       "decision": "create",
-      "sourceDigest": "ff44e4002d6adfa969c31019598f205c9ff12ac53d75f50863689a199d036d99"
+      "sourceDigest": "bda9aaebf0ff45718f0fba230388e03fbd990e5fcb1b17e83b311111e9dacf02"
     },
     {
       "objectType": "jira-ticket",
@@ -513,7 +513,7 @@
       "parentSourceId": "UABC-7",
       "externalId": null,
       "decision": "create",
-      "sourceDigest": "4c52cc1ba0013b2be6acecee11a91fc176a5fb662c42a70c3f03c0269b1e08aa"
+      "sourceDigest": "aaaab96785117c7f0ff3c65ee51e1ee1554ba36e5b29d10c6fd16e16e7b6f64b"
     },
     {
       "objectType": "jira-ticket",
@@ -693,7 +693,7 @@
       "parentSourceId": "UABC-21",
       "externalId": null,
       "decision": "create",
-      "sourceDigest": "910b94f208ce60e35718adc1ebf69c18de66443030966d680aa8f1df5f76c24c"
+      "sourceDigest": "f3b7ceee6e3ab1fa3def493d313100fc55385cbb16327b1d30d10b73ab0c01cf"
     },
     {
       "objectType": "jira-ticket",
@@ -806,6 +806,6 @@
       "sourceDigest": "47e0114350e5573672bbdaf56734053a7dd8b806e71a1acf54e9eb4ed9caa907"
     }
   ],
-  "projectionDigest": "5249dd98847ebd9f64bb8b15827acf1dc168bd6e160e5f71fe824ebf1d820e07",
+  "projectionDigest": "19d1336c872a1503a40b783e86c44c7fcacbcb8c2fdd36c2926839bbc12707b3",
   "validationStatus": "validated"
 }

@@ -13,10 +13,10 @@ historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company
 commercialBaseline:
   status: planned
   plannedHours: 80
-  actualHours: 2.25
+  actualHours: 2.5
   hourlyRateEur: 120
   plannedNetEur: 9600
-  actualNetEur: 270
+  actualNetEur: 300
   billingRule: Erst fachlich abgeschlossene Task-Worklogs sind fakturierbar; dieser Baseline-Commit erzeugt keine Rechnungszeile.
 companyInformation:
   currentState:
@@ -63,6 +63,9 @@ companyInformation:
   wave0ReadbackAttempt:
     stepId: W0-01-read-company-identity
     status: blocked-before-dom-readback
+    attemptCount: 2
+    latestAttemptId: UABC-W0-01-ATTEMPT-002
+    latestAttemptAt: 2026-07-13T14:11:07.3935478+02:00
     evidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
     bcFieldValuesRead: false
     screenshotCaptured: false

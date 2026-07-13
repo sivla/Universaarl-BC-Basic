@@ -31,5 +31,6 @@ test('Titel und URL duerfen keine interne Company-ID ableiten',()=>has(run(d=>{d
 test('Titel und URL duerfen keine Zielstrategie ableiten',()=>has(run(d=>d.wave0Attempt.decision.selectedOption='controlled-reuse-of-dedicated-cronus-copy'),'W0-01-URL-ABLEITUNG'));
 test('ausgefuehrter W0-01 ohne Seiten und Screenshots wird abgelehnt',()=>has(run(d=>d.wave0Attempt.status='completed-read-only'),'W0-01-EVIDENCE-UNVOLLSTAENDIG'));
 test('W0-01-Versuch darf keinen Write behaupten',()=>has(run(d=>d.wave0Attempt.effects.companyChanged=true),'W0-01-VERSUCHSWAHRHEIT'));
+test('zweiter W0-01-Versuch muss ohne DOM, Screenshot, Authzugriff und Write erhalten bleiben',()=>has(run(d=>{d.wave0Attempt.attempts[1].screenshotPerformed=true;d.wave0Attempt.attempts[1].authenticationStateRead=true;}),'W0-01-VERSUCHSWAHRHEIT'));
 test('blockiertes W0-01-Ticket darf keinen Abschlusskommentar tragen',()=>has(run(d=>d.story.tickets.find(ticket=>ticket.id==='UABC-39').comments.push({type:'closing'})),'W0-01-TICKETSTATUS'));
 test('Nutzerinformation darf nicht als Browser-Readback ausgegeben werden',()=>has(run(d=>d.wave0Attempt.userProvidedProjectInformation.browserReadbackConfirmed=true),'W0-01-VERSUCHSWAHRHEIT'));

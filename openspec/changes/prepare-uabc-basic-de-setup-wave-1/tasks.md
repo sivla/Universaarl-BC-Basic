@@ -31,3 +31,7 @@
 - [x] CORE-Validator, Schema und isolierte Positiv-/Negativtests für Referenzen, Reihenfolge, verbotene Tabellen, Bank-/Steuer-/Secret-Claims und W0-/Write-Gates implementieren.
 - [x] Jira, Confluence, Deliverables, Datenbereitschaft, Story, Twin-Projektion, Index, Referenzgraphen, Katalog und Digests source-driven aktualisieren; Arbeitszeit als Task-Worklog ableiten.
 - [x] Ableitungen deterministisch regenerieren, fokussiert und genau einmal insgesamt prüfen, gezielt reviewen und als einen sauberen lokalen Commit ohne Push übergeben.
+- [x] Zweiten streng lesenden W0-01-Zugriffsversuch als eigenständigen, vor DOM und Screenshot blockierten Versuch ohne BC-Feld- oder Auth-Claim erfassen.
+- [x] UABC-39, Worklogs, Baseline, Run-Plan und aktuelle Kundenflächen source-driven auf den wiederholten Sicherheitsblock aktualisieren; W0-01 und Zielstrategie offen halten.
+- [x] Projektion, Validatoren und Negativtests gegen fehlende Versuchshistorie, erfundene Feldwerte, Screenshots oder Writes erweitern und deterministisch regenerieren.
+- [x] Fokussierte Gates, genau einen Gesamtcheck und eine gezielte Review ausführen; anschließend einen sauberen lokalen Commit ohne Push übergeben.

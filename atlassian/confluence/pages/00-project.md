@@ -41,7 +41,11 @@ unbekannt. `customerTargetRealized=false`, `pilotConfigured=false`,
 `writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false`
 sind der aktuelle Stand.
 
-Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 2,25 Stunden und 270 EUR: 0,25 Stunden für den blockierten W0-01-Versuch und 2 Stunden für Payload, Manifest, Validatoren und Ausführungsdokumentation von CORE-FINANCE. Es gab keine BC-Aktion.
+Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven
+Task-Worklogs abgeleitete Ist beträgt 2,50 Stunden und 300 EUR: zusammen
+0,50 Stunden für zwei vor DOM und Feldlektüre blockierte W0-01-Versuche und
+2 Stunden für Payload, Manifest, Validatoren und Ausführungsdokumentation von
+CORE-FINANCE. Es gab keine BC-Aktion.
 
 Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen. Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
 
@@ -78,7 +82,11 @@ Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehler
 
 ## Nächster zulässiger Schritt
 
-`W0-01-read-company-identity` wurde read-only begonnen, aber von der Browser-Sicherheitsrichtlinie vor jeder DOM-, Feld- und Screenshot-Lektüre blockiert. Titel und bereinigte URL belegen nur das adressierte Ziel, nicht interne Company-ID, CRONUS-Provenienz oder Pilotkonfiguration.
+`W0-01-read-company-identity` wurde zweimal read-only versucht, aber beide
+Male von der Unternehmensrichtlinie vor jeder DOM-, Feld- und
+Screenshot-Lektüre blockiert. Titel und bereinigte URL belegen nur das
+adressierte Ziel, nicht interne Company-ID, CRONUS-Provenienz oder
+Pilotkonfiguration.
 
 Nächster Schritt ist derselbe W0-01-Readback in einem manuell freigegebenen Nur-Lese-Termin: interne Company-ID, technischen und sichtbaren Namen, Company Information, Country/Region, CRONUS-Indizien und Gesellschaftsliste lesen sowie fachlich zugeschnittene Screenshots ohne Authdaten zurückgeben.
 

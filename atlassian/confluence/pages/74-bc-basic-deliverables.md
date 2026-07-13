@@ -42,7 +42,7 @@ Diese Seite beschreibt das geplante BC-Basic-Paket. Das kanonische Lieferregiste
 | Sicht | Stand | Wahrheitsgrenze |
 |---|---|---|
 | Angebotsplan | 80 Stunden, 9.600 EUR netto | `planned-not-accepted`; keine Kundenannahme |
-| Aktuelles Ist | 2,25 Stunden, 270 EUR | W0-01-Versuch plus CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion, Rechnung oder Zahlung |
+| Aktuelles Ist | 2,50 Stunden, 300 EUR | zwei blockierte W0-01-Versuche plus CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion, Rechnung oder Zahlung |
 | BC-Ausgangsbasis | CRONUS-Demo | `pilotConfigured=false`, `writesApplied=false`, Readback offen |
 | Setup-Pakete | 0 Tabellen / 0 Datensätze / 0 Fehler | keine Setup- oder Datenwirkung |
 

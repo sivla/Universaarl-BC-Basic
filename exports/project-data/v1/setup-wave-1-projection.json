@@ -45,6 +45,9 @@
     "wave0ReadbackAttempt": {
       "status": "blocked-before-dom-readback",
       "evidencePath": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "attemptCount": 2,
+      "latestAttemptId": "UABC-W0-01-ATTEMPT-002",
+      "latestAttemptAt": "2026-07-13T14:11:07.3935478+02:00",
       "bcReadbackAuthority": false,
       "bcFieldValuesRead": false,
       "screenshotCaptured": false,

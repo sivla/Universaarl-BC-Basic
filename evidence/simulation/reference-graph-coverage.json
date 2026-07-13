@@ -9,7 +9,7 @@
   "native_relation_classes": [
     {
       "class_id": "native-reference",
-      "count": 1040
+      "count": 1044
     }
   ],
   "portable_relation_classes": [
@@ -25,24 +25,24 @@
       "portable_class": "portable-reference",
       "outcome": "transformed",
       "reason_code": "transformed-domain",
-      "native_count": 1040,
+      "native_count": 1044,
       "portable_edge_count": 362
     }
   ],
   "summary": {
-    "native_total": 1040,
+    "native_total": 1044,
     "portable_edge_total": 362,
-    "accounted_native_total": 1040,
-    "projected_native_total": 1040,
+    "accounted_native_total": 1044,
+    "projected_native_total": 1044,
     "excluded_native_total": 0,
-    "coverage_numerator": 1040,
-    "coverage_denominator": 1040,
+    "coverage_numerator": 1044,
+    "coverage_denominator": 1044,
     "coverage_ratio": 1
   },
   "provenance": {
     "source": {
       "path": "exports/project-data/v1/reference-graph-native.json",
-      "sha256": "7f23459b3e68b12d9a62c8d5770bf3a76a4522cfd3ca225974215d7c9ef3ae2b"
+      "sha256": "7cbda5135fb1533464c3522e2ab57c5804e9b7b3b9c5fc479aaf14dc6dd16172"
     },
     "mapping": {
       "path": "exports/project-data/v1/reference-graph-mapping.json",

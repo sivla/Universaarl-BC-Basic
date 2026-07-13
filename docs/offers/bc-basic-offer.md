@@ -2,7 +2,7 @@
 
 ## Aktueller Pilot-Rebaseline-Stand
 
-Der aktive Angebotsstand `pilot-rebaseline-2026-07-13` ist **geplant und nicht als Kundenauftrag angenommen**. Der Plan umfasst 80 Stunden zu 120 EUR, insgesamt 9.600 EUR netto. Das aktuelle Ist beträgt 2,25 Stunden und 270 EUR und wird ausschließlich aus zwei aktiven Task-Worklogs abgeleitet: blockierter W0-01-Versuch sowie CORE-FINANCE-Repositoryvorbereitung ohne BC-Aktion. Es gibt keinen geschlossenen Ist-Abgleich, keine Unterschrift, keine Rechnung, keine Zahlung und keine reale Kundenfreigabe.
+Der aktive Angebotsstand `pilot-rebaseline-2026-07-13` ist **geplant und nicht als Kundenauftrag angenommen**. Der Plan umfasst 80 Stunden zu 120 EUR, insgesamt 9.600 EUR netto. Das aktuelle Ist beträgt 2,50 Stunden und 300 EUR und wird ausschließlich aus drei aktiven Task-Worklogs abgeleitet: zwei vor DOM und Feldlektüre blockierte W0-01-Versuche sowie CORE-FINANCE-Repositoryvorbereitung ohne BC-Aktion. Es gibt keinen geschlossenen Ist-Abgleich, keine Unterschrift, keine Rechnung, keine Zahlung und keine reale Kundenfreigabe.
 
 `UABC-BASIC-DE` ist derzeit eine Microsoft-CRONUS-Demo-Ausgangsbasis. Pilotkonfiguration, Migration, Prozessläufe, Training, UAT, Cutover, Hypercare und Handover stehen aus. Vor jedem Schreibschritt müssen Wave-0, Zielentscheidung und Resetpunkt belegt sein; `writesAuthorized=false` bleibt unverändert.
 
@@ -52,11 +52,11 @@ Jeder Übergang benötigt die im Projektvertrag benannte Evidence. Ein offenes G
 | Hypercare und Handover | 12 | 1.440 EUR | Stabilisierung und Supportübergabe |
 | **Gesamtplan** | **80** | **9.600 EUR** | **vollständiges BC-Basic-Paket** |
 
-**Aktuelles Ist:** 2,25 Stunden, 270 EUR, zwei Task-Worklogs auf `UABC-39` und `UABC-40`; keine BC-Aktion, Rechnung oder Zahlung.
+**Aktuelles Ist:** 2,50 Stunden, 300 EUR, drei Task-Worklogs auf `UABC-39` und `UABC-40`; keine BC-Aktion, Rechnung oder Zahlung.
 
 ## Versionen und Nachweisgrenze
 
-- **Aktiver Pilot-Rebaseline-Stand, 13.07.2026:** `planned-not-accepted`; Plan 80 Stunden/9.600 EUR, Ist 2,25 Stunden/270 EUR aus zwei aktiven Task-Worklogs.
+- **Aktiver Pilot-Rebaseline-Stand, 13.07.2026:** `planned-not-accepted`; Plan 80 Stunden/9.600 EUR, Ist 2,50 Stunden/300 EUR aus drei aktiven Task-Worklogs.
 - **Historische Referenzsimulation, Version 3 vom 29.05.2026:** `synthetic-closed`, abgelöst und ausschließlich Historienprovenienz; sie speist keine aktuellen Ticket-, Worklog- oder Kostenrollups.
 - **Historische 68-Stunden-Kalkulation:** abgelöste Planungsbaseline, kein parallel wählbares Angebot.
 

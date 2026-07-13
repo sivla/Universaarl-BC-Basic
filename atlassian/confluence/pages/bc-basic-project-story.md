@@ -55,7 +55,7 @@ Die Zielstrategie ist `blocked-pending-wave0-and-reset-evidence`; es ist noch ke
 | Kennzahl | Aktueller Stand | Aussage |
 |---|---|---|
 | Angebotsplan | 80 Stunden und 9.600 EUR netto | Planwert, nicht Ist oder Kundenabnahme |
-| Ist | 2,25 Stunden und 270 EUR | zwei aktive Task-Worklogs für W0-01 und CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion |
+| Ist | 2,50 Stunden und 300 EUR | drei aktive Task-Worklogs für zwei blockierte W0-01-Versuche und CORE-FINANCE-Repositoryvorbereitung; keine BC-Aktion |
 | Tickets | dynamisch aus `project-story.json` | genau UABC-1/2/3 sind Phase-Roots; keine feste Gesamtzahl |
 | Setup | unveränderte Standard-CRONUS-Demo-Baseline | Pilotaufbau, Wave-0 und Resetentscheidung stehen aus |
 | BC-Schreibfreigabe | gesperrt | `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO |
@@ -89,7 +89,11 @@ Hypercare-Szenarien, Retro, Restpunkte, Handover und Supportstart sind zukünfti
 
 ### Kaufmännische Steuerung
 
-Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 2,25 Stunden und 270 EUR, dynamisch aus den aktiven UABC-39- und UABC-40-Task-Worklogs für W0-01 und die CORE-FINANCE-Repositoryvorbereitung abgeleitet. Plan und Ist werden nicht gleichgesetzt; die Vorbereitung ist keine BC-Ausführung.
+Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind
+2,50 Stunden und 300 EUR, dynamisch aus den drei aktiven UABC-39- und
+UABC-40-Task-Worklogs für zwei blockierte W0-01-Versuche und die
+CORE-FINANCE-Repositoryvorbereitung abgeleitet. Plan und Ist werden nicht
+gleichgesetzt; die Vorbereitung ist keine BC-Ausführung.
 
 Die frühere Kalkulation und abgeschlossene Referenzsimulation bleiben historische Provenienz; sie belegen keine aktuelle Rechnung, Zahlung, Freigabe oder produktive Leistung.
 

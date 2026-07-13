@@ -327,7 +327,7 @@ views:
 recordCount: 50
 customerStoryCount: 50
 internalTraceabilityCount: 0
-countedWorklogHours: 2.25
+countedWorklogHours: 2.5
 ticketRecords:
   - id: UABC-1
     type: phase
@@ -472,8 +472,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 40
-    actualHours: 2.25
-    remainingHours: 37.75
+    actualHours: 2.5
+    remainingHours: 37.5
     acceptance:
       - criterion: Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen
           Vorarbeiten zu „Phase 2 – Einrichtung, Tests und Schulung“
@@ -873,8 +873,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 14
-    actualHours: 2.25
-    remainingHours: 11.75
+    actualHours: 2.5
+    remainingHours: 11.5
     acceptance:
       - criterion: Wave 0, Gesellschaftsbasis und Setup-Reihenfolge sind vor Finance-
           oder VAT-Writes belegt.
@@ -1948,8 +1948,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 5
-    actualHours: 0.25
-    remainingHours: 4.75
+    actualHours: 0.5
+    remainingHours: 4.5
     acceptance:
       - criterion: Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert
           getrennt; der Gesellschaftsname allein kann keinen konfigurierten
@@ -3364,8 +3364,8 @@ ticketRecords:
     billable: true
     billingSource: task-worklogs
     estimateHours: 5
-    actualHours: 0.25
-    remainingHours: 4.75
+    actualHours: 0.5
+    remainingHours: 4.5
     acceptance:
       - criterion: Wave 0 liefert interne Company-ID, technische und sichtbare Namen,
           Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand
@@ -3403,7 +3403,23 @@ ticketRecords:
           keine BC-Feldwerte gelesen und keine Writes ausgeführt.
         phase: P2
         billable: true
-    worklogHours: 0.25
+      - id: WL-UABC-39-W0-01-RETRY-BLOCKED-20260713
+        taskId: UABC-39
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 0.25
+        activity: Zweiten ausdrücklich lesenden W0-01-Zugriffsversuch über die
+          vorhandene angemeldete Registerkarte geprüft, denselben
+          Sicherheitsblock vor DOM, Screenshot und BC-Feldwerten bestätigt und
+          die Versuchshistorie aktualisiert; keine Authdaten gelesen und keine
+          Writes ausgeführt.
+        phase: P2
+        billable: true
+    worklogHours: 0.5
     evidence:
       - project/bc-basic/setup-wave-1-matrix.yaml
       - project/bc-basic/setup-parameter-baseline.yaml
@@ -3438,6 +3454,19 @@ ticketRecords:
           BC-Feldlektüre; es wurden keine Company-ID, Firmendaten,
           CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes
           ausgeführt. Die Zielstrategie bleibt offen.
+      - id: COM-UABC-39-W0-01-RETRY-BLOCKED
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: Der zweite ausdrücklich lesende Zugriffsversuch über die vorhandene
+          angemeldete Registerkarte wurde erneut durch die
+          Unternehmensrichtlinie vor DOM, Screenshot und BC-Feldlektüre
+          blockiert. Es wurden weder Authdaten noch BC-Feldwerte gelesen und
+          keine Writes ausgeführt; W0-01 und die Zielstrategie bleiben offen.
   - id: UABC-40
     type: task
     sourceType: task

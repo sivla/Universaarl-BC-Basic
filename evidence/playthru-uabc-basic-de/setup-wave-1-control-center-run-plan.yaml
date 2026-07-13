@@ -15,8 +15,8 @@ execution:
   performed: false
   performedAt: null
   actorRef: null
-  observedResult: Angemeldeter Tab mit bereinigter Playthru-/Company-URL sichtbar; Browser-Sicherheitsrichtlinie blockierte vor DOM-, Feld- und Screenshot-Lektüre.
-  reason: Der blockierte Nur-Lese-Versuch ist keine Ausführung dieses Run-Plans und belegt weder BC-Feldwerte noch CRONUS-Provenienz oder Zielstrategie.
+  observedResult: Zwei streng lesende Zugriffsversuche fanden dieselbe angemeldete Registerkarte mit bereinigter Playthru-/Company-URL; die Unternehmensrichtlinie blockierte beide Male vor DOM-, Feld- und Screenshot-Lektüre.
+  reason: Die blockierten Nur-Lese-Versuche sind keine Ausführung dieses Run-Plans und belegen weder BC-Feldwerte noch CRONUS-Provenienz oder Zielstrategie.
 authorization:
   status: lesevorpruefung-freigegeben-schreibschritte-gesperrt
   writesAuthorized: false
@@ -47,6 +47,9 @@ automationResponsibility:
   role: autorisierte Bedienhandlung nach menschlich freigegebenem Run-Plan
 wave0Preflight:
   status: blocked-before-dom-readback
+  attemptCount: 2
+  latestAttemptId: UABC-W0-01-ATTEMPT-002
+  latestAttemptAt: 2026-07-13T14:11:07.3935478+02:00
   currentBaseline: standard-cronus-demo-baseline
   configuredPilotClaimed: false
   customerTargetRealized: false

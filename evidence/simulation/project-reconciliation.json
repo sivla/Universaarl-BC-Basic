@@ -23,17 +23,17 @@
   },
   "actual": {
     "version": 3,
-    "hours": 2.25,
+    "hours": 2.5,
     "rate": 120,
-    "amount": 270,
+    "amount": 300,
     "currency": "EUR"
   },
   "variance": {
-    "hours": -77.75,
+    "hours": -77.5,
     "rate": 0,
-    "amount": -9330,
+    "amount": -9300,
     "reason_code": "other-reviewed",
-    "reason": "Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant 80 Stunden und 9.600 EUR; 2.25 Iststunden und 270 EUR Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet."
+    "reason": "Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant 80 Stunden und 9.600 EUR; 2.5 Iststunden und 300 EUR Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet."
   },
   "truth_boundary": {
     "owner": "synthetic-fixture",

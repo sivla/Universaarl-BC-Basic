@@ -68,10 +68,13 @@
         "wave0ReadbackAttempt": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["status", "evidencePath", "bcReadbackAuthority", "bcFieldValuesRead", "screenshotCaptured", "writesPerformed", "visibleTabTarget"],
+          "required": ["status", "evidencePath", "attemptCount", "latestAttemptId", "latestAttemptAt", "bcReadbackAuthority", "bcFieldValuesRead", "screenshotCaptured", "writesPerformed", "visibleTabTarget"],
           "properties": {
             "status": { "const": "blocked-before-dom-readback" },
             "evidencePath": { "const": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml" },
+            "attemptCount": { "const": 2 },
+            "latestAttemptId": { "const": "UABC-W0-01-ATTEMPT-002" },
+            "latestAttemptAt": { "const": "2026-07-13T14:11:07.3935478+02:00" },
             "bcReadbackAuthority": { "const": false },
             "bcFieldValuesRead": { "const": false },
             "screenshotCaptured": { "const": false },

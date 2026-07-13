@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 473bb5d82ab48b404db665a48e5b1be057becdcce59ea728ce11e032da658aeb
+  projectionDigest: 70d3d6e31a5deffe7279c7d83ec8ae4ea0214cab5e72d3071d59b60f29fb1beb
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -18,8 +18,8 @@ reconciliation:
   baselineAmount: 11050
   offerHours: 80
   offerAmount: 9600
-  actualHours: 2.25
-  actualAmount: 270
+  actualHours: 2.5
+  actualAmount: 300
   invoiceClaim: false
   productiveActivityClaim: false
 adapterProvenance:
@@ -34,13 +34,13 @@ adapterProvenance:
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
-  nativeRelations: 1040
+  nativeRelations: 1044
   portableEdges: 362
-  accountedNativeRelations: 1040
+  accountedNativeRelations: 1044
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
-  sourceDigest: 7f23459b3e68b12d9a62c8d5770bf3a76a4522cfd3ca225974215d7c9ef3ae2b
+  sourceDigest: 7cbda5135fb1533464c3522e2ab57c5804e9b7b3b9c5fc479aaf14dc6dd16172
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
   projectionDigest: f9e35233b173c29910444441ce92de84126801252c1def5f15bbff74b5b45453
 counts:
@@ -52,14 +52,14 @@ counts:
   stories: 18
   bugs: 0
   tasks: 19
-  comments: 51
-  worklogs: 2
-  actualHours: 2.25
-  actualNetAmount: 270
+  comments: 52
+  worklogs: 3
+  actualHours: 2.5
+  actualNetAmount: 300
   timelineEvents: 15
   projectPhases: 14
   hypercareRecords: 3
-  nativeRelations: 1040
+  nativeRelations: 1044
   portableEdges: 362
 processCoverage:
   - Finance

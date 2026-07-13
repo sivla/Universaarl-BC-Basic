@@ -63,7 +63,11 @@ Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche od
 | Angewendete Differenz | `none-evidenced`; Readback ausstehend | nur spätere feldgenaue Vorher-/Nachher-Evidence darf diesen Stand ändern |
 | Zielstrategie | `blocked-pending-wave0-and-reset-evidence`; keine Option gewählt | Entscheidung erst nach vollständiger Baseline-Inventur und Reset-/Wiederanlaufnachweis |
 
-Der erste W0-01-Zugriffsversuch endete `blocked-before-dom-readback`.
+Zwei W0-01-Zugriffsversuche endeten `blocked-before-dom-readback`. Beide
+fanden die vorhandene angemeldete Registerkarte, wurden jedoch durch die
+Unternehmensrichtlinie vor DOM, Screenshot und BC-Feldlektüre blockiert. Daher
+existiert weiterhin kein eigener Company-ID-, Firmendaten-, Country/Region-,
+CRONUS- oder Gesellschaftslisten-Readback.
 Ein angemeldeter Tab mit bereinigter Playthru-/Company-URL war sichtbar;
 der Sicherheitsblock trat aber vor DOM, BC-Feldern und Screenshot ein.
 URL und Titel sind kein Company-ID-, CRONUS- oder Konfigurationsnachweis.
