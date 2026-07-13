@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "exportId": "UABC-EXP-SETUP-WAVE1-001",
+  "recordType": "setup-wave-1-projection",
+  "readOnly": true,
+  "writesAuthorized": false,
+  "target": {
+    "environment": "Playthru",
+    "companyId": "UABC-BASIC-DE",
+    "platform": "28.0.52286.0",
+    "application": "28.2.50931.52241",
+    "pilotName": "Universaarl GmbH (BC Basic Pilot)",
+    "legacyName": "Universaarl GmbH (Legacy)"
+  },
+  "packages": [
+    {
+      "packageId": "UABC-01-CORE-FINANCE",
+      "status": "prepared-for-controlled-live-run",
+      "tables": 0,
+      "records": 0,
+      "errors": 0
+    },
+    {
+      "packageId": "UABC-02-TRADE-MASTER",
+      "status": "prepared-not-executed",
+      "tables": 0,
+      "records": 0,
+      "errors": 0
+    },
+    {
+      "packageId": "UABC-03-OPENING-DATA",
+      "status": "designed-not-executed",
+      "tables": 0,
+      "records": 0,
+      "errors": 0
+    }
+  ],
+  "preflight": {
+    "status": "beobachtet-nur-lesend",
+    "workingDate": "2026-07-13",
+    "operator": {
+      "userId": "KAJETAN.KALICKI",
+      "permissionSet": "SUPER"
+    },
+    "locale": "German (Germany)",
+    "resetPoint": {
+      "status": "missing-blocker",
+      "requiredBeforeAnyWrite": true
+    }
+  },
+  "writeGate": {
+    "writesAuthorized": false,
+    "noGoSteps": [
+      "RUN-06",
+      "RUN-07",
+      "RUN-08",
+      "RUN-09",
+      "RUN-10",
+      "RUN-11",
+      "RUN-12",
+      "RUN-13",
+      "RUN-14",
+      "RUN-15",
+      "RUN-16",
+      "RUN-17",
+      "RUN-18",
+      "RUN-19",
+      "RUN-20",
+      "RUN-21",
+      "RUN-22"
+    ],
+    "nextAllowedStep": "Resetpunkt dokumentieren und separat freigeben"
+  },
+  "provenance": [
+    {
+      "path": "project/bc-basic/setup-wave-1-matrix.yaml",
+      "role": "Tabellen- und Paketvertrag"
+    },
+    {
+      "path": "project/bc-basic/setup-parameter-baseline.yaml",
+      "role": "Singleton-Parameterbaseline"
+    },
+    {
+      "path": "project/bc-basic/posting-setup-matrix.yaml",
+      "role": "Buchungsmatrix"
+    },
+    {
+      "path": "project/bc-basic/solution-blueprint.yaml",
+      "role": "Nummernserien und Lösungssollwerte"
+    },
+    {
+      "path": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
+      "role": "Read-only-Vorpruefung"
+    },
+    {
+      "path": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+      "role": "Run-Plan und Schreibsperre"
+    }
+  ]
+}

@@ -438,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=record-uabc-basic-de-country-company-information-execution]",
+      "selector": "verifications[changeRef=prepare-uabc-basic-de-setup-wave-1]",
       "format": "yaml",
       "required": true
     },
@@ -1086,6 +1086,46 @@
       "id": "UABC-SRC-BCB-ATLASSIAN-TEST-001",
       "kindId": "atlassian-materialization-tests",
       "path": "tests/governance/atlassian-materialization.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001",
+      "kindId": "setup-wave-1-projection",
+      "path": "exports/project-data/v1/setup-wave-1-projection.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-SCHEMA-001",
+      "kindId": "setup-wave-1-projection-schema",
+      "path": "governance/schemas/setup-wave-1-projection.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-GEN-001",
+      "kindId": "setup-wave-1-projection-generator",
+      "path": "scripts/generate-setup-wave-1-export.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-VAL-001",
+      "kindId": "setup-wave-1-projection-validator",
+      "path": "scripts/validate-setup-wave-1-export.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-TEST-001",
+      "kindId": "setup-wave-1-projection-tests",
+      "path": "tests/governance/setup-wave-1-export.test.mjs",
       "selector": null,
       "format": "javascript",
       "required": true

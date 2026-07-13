@@ -31,3 +31,14 @@ Ein spaeterer Live-Lauf MUST Environment, Gesellschaft, Version, Lokalisierung, 
 - **WHEN** das Kontrollzentrum den freigegebenen Plan ausfuehrt
 - **THEN** MUST es nur die positivgelisteten CORE-FINANCE-Setupfelder schreiben und anschliessend feldgenau read-back pruefen
 - **AND** MUSS es bei einer Abweichung stoppen, die Wirkung dokumentieren und den gezielten Retest verlangen.
+
+### Requirement: UABC-REQ-BCB-SETUP-WAVE1-TWIN-EXPORT
+
+Die Kundeninstanz MUST eine deterministische, positivgelistete und ausschliesslich lesende Projektion fuer den Project Twin aus den kanonischen Setup-Wave-1-Quellen bereitstellen. Die Projektion MUST `writesAuthorized: false`, den offenen Resetpunkt, die gesperrten RUN-06..22-Schritte und die Quellenprovenienz enthalten. Geheimnisse, Authentifizierungsdaten, absolute Pfade und erfundene Ausfuehrungswerte MUST fehlen.
+
+#### Scenario: schreibgeschuetzte Projektion
+
+- **GIVEN** die sechs Setup-Wave-1-Quellen sind versioniert und `UABC-01-CORE-FINANCE`, `UABC-02-TRADE-MASTER` und `UABC-03-OPENING-DATA` stehen bei 0/0/0
+- **WHEN** der Exportgenerator ausgefuehrt wird
+- **THEN** MUST er dieselben Projektionsbytes und dieselbe positivgelistete Artefaktmenge erzeugen
+- **AND** MUST eine manipulierte Schreibfreigabe fail-closed abgelehnt werden.

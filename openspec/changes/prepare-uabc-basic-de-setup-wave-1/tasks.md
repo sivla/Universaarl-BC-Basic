@@ -7,4 +7,5 @@
 - [x] Validator und gezielte Negativtests fuer Ledger/Posted, Continia, Zielbindung, Reihenfolge, Claims und Pflichtmetadaten implementieren.
 - [x] Projekt-, Entscheidungs-, Jira-, Deliverable-, Confluence- und Snapshotableitungen ohne Live-Claim aktualisieren.
 - [x] Fokussierte Gates, OpenSpec strict, Katalog, Referenzen, Deutsch und genau einen Gesamtcheck real ausfuehren.
+- [x] Deterministische, positivgelistete Setup-Wave-1-Projektion mit Schema, Generator, Validator und Negativtest fuer den lesenden Twin-Export bereitstellen.
 - [ ] REVIEW leeren, genau einen lokalen Commit erstellen und commitgebunden sauber nachpruefen.

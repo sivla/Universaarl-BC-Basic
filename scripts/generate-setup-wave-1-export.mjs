@@ -1,0 +1,39 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import YAML from 'yaml';
+import { buildProvenance, buildTwinExportMap, jsonBytes, lfBytes } from './generate-spectra-0.10-integration.mjs';
+
+export const PROJECTION_PATH = 'exports/project-data/v1/setup-wave-1-projection.json';
+export const SCHEMA_PATH = 'governance/schemas/setup-wave-1-projection.schema.json';
+export const INDEX_PATH = 'exports/project-data/v1/index.yaml';
+export const MAP_PATH = 'exports/project-data/v1/twin-export-map.json';
+export const PROVENANCE_PATH = 'evidence/simulation/adapter-provenance.json';
+export const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
+const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
+const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+const sources = ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/setup-parameter-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'];
+
+export function buildProjection() {
+  const matrix = readYaml(sources[0]);
+  const baseline = readYaml(sources[1]);
+  const preflight = readYaml(sources[4]);
+  const plan = readYaml(sources[5]);
+  return { schemaVersion: 1, exportId: 'UABC-EXP-SETUP-WAVE1-001', recordType: 'setup-wave-1-projection', readOnly: true, writesAuthorized: false, target: { environment: matrix.target.environment, companyId: matrix.target.companyId, platform: matrix.target.businessCentral.platform, application: matrix.target.businessCentral.application, pilotName: matrix.target.futureVisibleCompanyNames['UABC-BASIC-DE'], legacyName: matrix.target.futureVisibleCompanyNames['UNIVERSAARL-DE'] }, packages: matrix.packages.map(({ packageId, status, liveState }) => ({ packageId, status, tables: liveState.tables, records: liveState.records, errors: liveState.errors })), preflight: { status: preflight.status, workingDate: preflight.workingDate, operator: { userId: preflight.operator.userId, permissionSet: preflight.operator.permissionSet }, locale: preflight.locale, resetPoint: { status: preflight.resetPoint.status, requiredBeforeAnyWrite: preflight.resetPoint.requiredBeforeAnyWrite } }, writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: 'Resetpunkt dokumentieren und separat freigeben' }, provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorpruefung', 'Run-Plan und Schreibsperre'][index] })) };
+}
+
+export function updateAllowlist(root = process.cwd()) {
+  const index = readYaml(path.join(root, INDEX_PATH));
+  index.governingChange = 'prepare-uabc-basic-de-setup-wave-1';
+  const artifacts = [{ id: 'UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001', kindId: 'setup-wave-1-projection', path: PROJECTION_PATH, format: 'json', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-SCHEMA-001', kindId: 'setup-wave-1-projection-schema', path: SCHEMA_PATH, format: 'json-schema', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-GEN-001', kindId: 'setup-wave-1-projection-generator', path: 'scripts/generate-setup-wave-1-export.mjs', format: 'javascript', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-VAL-001', kindId: 'setup-wave-1-projection-validator', path: 'scripts/validate-setup-wave-1-export.mjs', format: 'javascript', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-TEST-001', kindId: 'setup-wave-1-projection-tests', path: 'tests/governance/setup-wave-1-export.test.mjs', format: 'javascript', required: true }];
+  for (const artifact of artifacts) if (!index.artifacts.some((item) => item.path === artifact.path)) index.artifacts.push(artifact);
+  const indexPath = path.join(root, INDEX_PATH);
+  fs.writeFileSync(indexPath, YAML.stringify(index), 'utf8');
+  const indexBytes = lfBytes(fs.readFileSync(indexPath));
+  const mapBytes = jsonBytes(buildTwinExportMap(index));
+  fs.writeFileSync(path.join(root, MAP_PATH), mapBytes);
+  writeJson(path.join(root, PROVENANCE_PATH), buildProvenance(indexBytes, mapBytes));
+  execFileSync(process.execPath, [path.join(root, 'scripts', 'update-uabc-conformance.mjs')], { cwd: root, stdio: 'ignore' });
+}
+
+if (process.argv[1]?.endsWith('generate-setup-wave-1-export.mjs')) { const root = process.cwd(); writeJson(path.join(root, PROJECTION_PATH), buildProjection()); updateAllowlist(root); console.log('Setup-Wave-1-Projektion erzeugt und positivgelistet.'); }
