@@ -12,7 +12,7 @@ export const PROVENANCE_PATH = 'evidence/simulation/adapter-provenance.json';
 export const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
 const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-const sources = ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/setup-parameter-baseline.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml', 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml', 'project/bc-basic/core-finance-payload.yaml', 'project/bc-basic/core-finance-package-manifest.yaml'];
+const sources = ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/setup-parameter-baseline.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml', 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml', 'project/bc-basic/core-finance-payload.yaml', 'project/bc-basic/core-finance-package-manifest.yaml', 'project/bc-basic/project-plan.yaml'];
 
 export function buildProjection() {
   const matrix = readYaml(sources[0]);
@@ -23,6 +23,8 @@ export function buildProjection() {
   const wave0Attempt = readYaml(sources[7]);
   const corePayload = readYaml(sources[8]);
   const coreManifest = readYaml(sources[9]);
+  const projectPlan = readYaml(sources[10]);
+  const readinessPath = projectPlan.readinessPath;
   const companyState = pilotBaseline.companyInformation;
   const strategy = companyState.companyStrategyDecision;
   return {
@@ -76,9 +78,23 @@ export function buildProjection() {
       accepted: false,
       requiredGatesClosed: false
     },
+    readinessPath: {
+      sourcePath: sources[10],
+      baselineKind: readinessPath.baselineKind,
+      targetGate: readinessPath.targetGate,
+      targetStatus: readinessPath.targetStatus,
+      readyToProdClaimed: readinessPath.readyToProdClaimed,
+      productionStartClaimed: readinessPath.productionStartClaimed,
+      customerAcceptanceClaimed: readinessPath.customerAcceptanceClaimed,
+      pilotConfigured: readinessPath.pilotConfigured,
+      writesApplied: readinessPath.writesApplied,
+      currentStageId: readinessPath.currentStageId,
+      nextExecutableStep: readinessPath.nextExecutableStep,
+      stages: readinessPath.stages.map((stage) => ({ stageId: stage.stageId, order: stage.order, name: stage.name, status: stage.status, dependencyStageIds: stage.dependencyStageIds, ticketRefs: stage.ticketRefs, bcWriteRequired: stage.bcWriteRequired, writeAuthorized: stage.writeAuthorized, completed: stage.completed, entryCriteriaCount: stage.entryCriteria.length, plannedActionCount: stage.plannedActions.length, exitCriteriaCount: stage.exitCriteria.length, evidenceTargetCount: stage.evidenceTargets.length, executionEvidenceCount: stage.executionEvidence.length, stopOrRollbackDefined: typeof stage.stopOrRollback === 'string' && stage.stopOrRollback.length >= 30 }))
+    },
     preflight: { status: preflight.status, wave0Status: plan.wave0Preflight.status, workingDate: preflight.workingDate, operator: { userId: preflight.operator.userId, permissionSet: preflight.operator.permissionSet }, locale: preflight.locale, resetPoint: { status: preflight.resetPoint.status, requiredBeforeAnyWrite: preflight.resetPoint.requiredBeforeAnyWrite } },
     writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: strategy.nextExecutableStep },
-    provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Kanonischer CRONUS-Zielstrategieentscheid', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorprüfung', 'Run-Plan und Schreibsperre', 'Blockierter W0-01-Zugriffsversuch', 'Kanonischer CORE-FINANCE-Payload', 'Digest- und Reihenfolgemanifest'][index] }))
+    provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Kanonischer CRONUS-Zielstrategieentscheid', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorprüfung', 'Run-Plan und Schreibsperre', 'Blockierter W0-01-Zugriffsversuch', 'Kanonischer CORE-FINANCE-Payload', 'Digest- und Reihenfolgemanifest', 'Kanonischer CRONUS-zu-Ready-to-Prod-Folgeplan'][index] }))
   };
 }
 

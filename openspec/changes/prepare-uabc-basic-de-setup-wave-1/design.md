@@ -25,6 +25,16 @@ Ein vor der DOM-Lektüre blockierter W0-01-Versuch wird als `blocked-before-dom-
 
 Die Herkunft der technisch benannten Gesellschaft wird getrennt von ihrem fachlichen Datenstand modelliert. Der Nutzerbeleg setzt `contentBaseline=standard-cronus-demo` und `customerTargetRealized=false`; die Formulierung „offenbar kopiert/umbenannt“ wird ausschließlich als `nutzerhinweis-unbestaetigt` mit `originMechanismStatus=unbekannt-bis-wave0-readback` geführt. Weder Generator noch Twin dürfen daraus einen realisierten Kundenstand, einen ausgeführten Setup-Schritt oder eine Zielstrategie ableiten.
 
+Der bestehende `project-plan.yaml` bleibt die einzige kanonische
+Bereitschaftsplanung. Zehn geordnete Stufen `R0` bis `R9` bilden
+Bestandsaufnahme, Demodatenentscheidung, Grundeinrichtung,
+Konfigurationspakete, Stammdaten, Prozesse, Tests/UAT, Schulung, Cutover und
+Hypercare/Ready-to-Prod-Gate ab. Jede Stufe nennt Vorgänger, bestehende
+Ticketreferenzen, Entry-/Exitkriterien, geplante Tätigkeit, Evidenceziel,
+Stop-/Rollbackregel und Write-Bedarf. Jede Stufe bleibt `completed=false` und
+`writeAuthorized=false`; die Twin-Projektion erhält nur die lesende
+Statuszusammenfassung, nicht eine zweite operative Wahrheit.
+
 ## Projektstory- und Twin-Vertrag
 
 `evidence/simulation/project-story.json` bleibt die einzige aktive Ticketquelle. Jira, Spectra-0.10, Index und Twin werden deterministisch daraus erzeugt. Die Ticketmenge ist dynamisch; nur `UABC-1`, `UABC-2` und `UABC-3` sind feste Phase-Roots. Plan 80 Stunden/9.600 EUR bleibt im Angebots-/Billingvertrag, aktuelles Ist wird ausschliesslich aus Task-Worklogs abgeleitet. Twin-Ticketlisten enthalten keine Geldfelder oder Geldbetraege.

@@ -76,6 +76,58 @@ const epicSummaryOverrides = {
   'UABC-12': 'Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als kontrollierbares Soll planen.',
   'UABC-13': 'Retro, Restpunkte, Supportweg und Handover für den noch offenen Pilotabschluss vorbereiten.'
 };
+const ticketSummaryOverrides = {
+  'UABC-1': 'Phase 1 – Vorbereitung und Lösungsdesign',
+  'UABC-2': 'Phase 2 – Einrichtung und Erprobung',
+  'UABC-3': 'Phase 3 – Stabilisierung und Übergabe',
+  'UABC-4': 'Projektinitiierung und Discovery',
+  'UABC-5': 'Fit-to-Standard und Lösungsdesign',
+  'UABC-6': 'Datenbereitschaft und Migrationsplanung',
+  'UABC-7': 'Grundeinrichtung und Finance',
+  'UABC-8': 'Stammdaten und Migration',
+  'UABC-9': 'Kernprozesse P2P, O2C und Lager',
+  'UABC-10': 'Test, UAT und Schulung',
+  'UABC-11': 'Hypercare und Stabilisierung',
+  'UABC-12': 'Monatsabschluss und Umsatzsteuer',
+  'UABC-13': 'Projektabschluss und Betriebsübergabe',
+  'UABC-14': 'Projektauftrag und Scope abstimmen',
+  'UABC-15': 'Setup-, UAT- und Cutover-Gates definieren',
+  'UABC-16': 'Finance-Design festlegen',
+  'UABC-17': 'Einkaufsprozess festlegen',
+  'UABC-18': 'Verkaufsprozess festlegen',
+  'UABC-19': 'Lagerprozess festlegen',
+  'UABC-20': 'Datenwellen freigeben',
+  'UABC-21': 'Pilotgesellschaft und Resetstrategie festlegen',
+  'UABC-22': 'CORE-FINANCE einrichten und prüfen',
+  'UABC-23': 'Migrationsdaten abstimmen',
+  'UABC-24': 'P2P-Prozess nachweisen',
+  'UABC-25': 'O2C-Prozess nachweisen',
+  'UABC-26': 'Lager und Inventur abstimmen',
+  'UABC-27': 'Rollenkompetenz nachweisen',
+  'UABC-28': 'SIT, UAT und Mock-Cutover vorbereiten',
+  'UABC-29': 'Hypercare-Fehlerszenario vorbereiten',
+  'UABC-30': 'Monatsabschluss und UStVA-Vorschau abstimmen',
+  'UABC-31': 'Projektabschluss und Supportübergabe',
+  'UABC-32': 'Projektauftrag und Scope ausarbeiten',
+  'UABC-33': 'Setup-, UAT- und Cutover-Gates dokumentieren',
+  'UABC-34': 'Finance-Baseline festlegen',
+  'UABC-35': 'P2P-Standard festlegen',
+  'UABC-36': 'O2C-Standard festlegen',
+  'UABC-37': 'Lagerstandard festlegen',
+  'UABC-38': 'Datenwellen prüfen und freigeben',
+  'UABC-39': 'Pilotgesellschaft und Resetpunkt prüfen',
+  'UABC-40': 'CORE-FINANCE ausführen und nachprüfen',
+  'UABC-41': 'Migrationsdaten laden und abstimmen',
+  'UABC-42': 'P2P-Kette durchführen und retesten',
+  'UABC-43': 'O2C-Kette durchführen und retesten',
+  'UABC-44': 'Inventur und Lagerbewertung abstimmen',
+  'UABC-45': 'Rollenkompetenz praktisch nachweisen',
+  'UABC-46': 'UAT und Mock-Cutover vorbereiten',
+  'UABC-47': 'Hypercare-Fehlerszenario ausarbeiten',
+  'UABC-48': 'Monatsabschluss abstimmen',
+  'UABC-49': 'UStVA-Vorschau vorbereiten',
+  'UABC-50': 'Retro und Supportübergabe vorbereiten'
+};
 const epicAcceptance = {
   'UABC-4': ['Projektauftrag nennt In-/Out-Scope, Rollen, Entscheidungsrechte und Change-Weg.', 'Discovery- und Gate-Eintritt besitzen Owner, Abhängigkeiten und prüfbare Nachweise.'],
   'UABC-5': ['Finance-, Einkaufs-, Verkaufs- und Lagerentscheidungen sind je Sollprozess dokumentiert.', 'Unbestätigte Kunden- oder Steuerfragen bleiben sichtbar offen und blockieren die betroffene Einrichtung.'],
@@ -180,6 +232,7 @@ function rebaseline(ticket) {
   if (ticket.id === 'UABC-50') summary = 'Retro, Restpunkte und Supportübergabe für den aktuellen Piloten vorbereiten.';
   if (epicSummaryOverrides[ticket.id]) summary = epicSummaryOverrides[ticket.id];
   if (ticket.id === 'UABC-29') summary = 'Hypercare-Diagnose und Retestregel für eine mögliche Zahlungsreferenzabweichung planen.';
+  if (ticketSummaryOverrides[ticket.id]) summary = ticketSummaryOverrides[ticket.id];
   const label = ticket.title ?? ticket.summary ?? ticket.id;
   const criteriaByType = {
     phase: [
@@ -237,7 +290,7 @@ function rebaseline(ticket) {
     deliverable: deliverableOverrides[ticket.id] ?? ticket.deliverable,
     description,
     summary,
-    title: ['UABC-21', 'UABC-22', 'UABC-39', 'UABC-40'].includes(ticket.id) ? summary : ticket.title,
+    title: summary,
     acceptanceCriteria: criteria,
     evidenceRefs: evidenceByType,
     worklogs,

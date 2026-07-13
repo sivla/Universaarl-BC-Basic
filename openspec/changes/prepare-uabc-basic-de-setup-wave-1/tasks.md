@@ -35,3 +35,7 @@
 - [x] UABC-39, Worklogs, Baseline, Run-Plan und aktuelle Kundenflächen source-driven auf den wiederholten Sicherheitsblock aktualisieren; W0-01 und Zielstrategie offen halten.
 - [x] Projektion, Validatoren und Negativtests gegen fehlende Versuchshistorie, erfundene Feldwerte, Screenshots oder Writes erweitern und deterministisch regenerieren.
 - [x] Fokussierte Gates, genau einen Gesamtcheck und eine gezielte Review ausführen; anschließend einen sauberen lokalen Commit ohne Push übergeben.
+- [x] Kanonischen CRONUS-zu-Ready-to-Prod-Folgeplan mit zehn geordneten Stufen, bestehenden Ticketreferenzen, Gates, Evidencezielen und Stop-/Rollbackregeln im Projektplan verankern.
+- [x] Kanonischen Projektplan und bestehende Twin-Projektion source-driven auf die noch nicht ausgeführte Bereitschaftsfolge aktualisieren; keine neue Ticket- oder Live-Wahrheit erzeugen.
+- [x] Fail-closed Validator und Positiv-/Negativtests gegen fehlende Reihenfolge, unbekannte Tickets, vorzeitige Writes, Completion oder Ready-to-Prod-Claims ergänzen.
+- [ ] Ableitungen deterministisch regenerieren, fokussiert und einmal insgesamt prüfen, gezielt reviewen und als sauberen lokalen Commit ohne Push übergeben.

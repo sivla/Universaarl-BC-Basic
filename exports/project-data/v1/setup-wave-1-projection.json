@@ -128,6 +128,236 @@
     "accepted": false,
     "requiredGatesClosed": false
   },
+  "readinessPath": {
+    "sourcePath": "project/bc-basic/project-plan.yaml",
+    "baselineKind": "standard-cronus-demo",
+    "targetGate": "BC-BASIC-READY-TO-PROD",
+    "targetStatus": "geplant-nicht-erreicht",
+    "readyToProdClaimed": false,
+    "productionStartClaimed": false,
+    "customerAcceptanceClaimed": false,
+    "pilotConfigured": false,
+    "writesApplied": false,
+    "currentStageId": "R0-BASELINE-INVENTORY",
+    "nextExecutableStep": "W0-01-read-company-identity",
+    "stages": [
+      {
+        "stageId": "R0-BASELINE-INVENTORY",
+        "order": 0,
+        "name": "Standard-CRONUS-Bestandsaufnahme und Zielgesellschaftsentscheidung",
+        "status": "blocked-before-dom-readback",
+        "dependencyStageIds": [],
+        "ticketRefs": [
+          "UABC-39"
+        ],
+        "bcWriteRequired": false,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R1-DEMO-DATA-DECISION",
+        "order": 1,
+        "name": "Demodateninventur und Bereinigungsentscheidung",
+        "status": "geplant-blockiert-durch-R0",
+        "dependencyStageIds": [
+          "R0-BASELINE-INVENTORY"
+        ],
+        "ticketRefs": [
+          "UABC-39"
+        ],
+        "bcWriteRequired": false,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R2-FOUNDATION-SETUP",
+        "order": 2,
+        "name": "Firmengrunddaten und CORE-FINANCE-Grundeinrichtung",
+        "status": "prepared-blocked-by-gates",
+        "dependencyStageIds": [
+          "R1-DEMO-DATA-DECISION"
+        ],
+        "ticketRefs": [
+          "UABC-40"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 3,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R3-CONFIGURATION-PACKAGES",
+        "order": 3,
+        "name": "Kontrollierte Konfigurationspakete",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R2-FOUNDATION-SETUP"
+        ],
+        "ticketRefs": [
+          "UABC-40"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R4-MASTER-AND-OPENING-DATA",
+        "order": 4,
+        "name": "Stammdaten und kontrollierte Eroeffnungsdaten",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R3-CONFIGURATION-PACKAGES"
+        ],
+        "ticketRefs": [
+          "UABC-41"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R5-PROCESS-PLAYTHROUGH",
+        "order": 5,
+        "name": "Finance Einkauf Verkauf und Lager durchspielen",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R4-MASTER-AND-OPENING-DATA"
+        ],
+        "ticketRefs": [
+          "UABC-42",
+          "UABC-43",
+          "UABC-44"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R6-TEST-AND-UAT",
+        "order": 6,
+        "name": "Technische Tests fachliche UAT und Retests",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R5-PROCESS-PLAYTHROUGH"
+        ],
+        "ticketRefs": [
+          "UABC-45",
+          "UABC-46"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R7-TRAINING",
+        "order": 7,
+        "name": "Rollenbezogene Schulung und Operator-Befaehigung",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R6-TEST-AND-UAT"
+        ],
+        "ticketRefs": [
+          "UABC-45",
+          "UABC-46"
+        ],
+        "bcWriteRequired": false,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R8-CUTOVER",
+        "order": 8,
+        "name": "Mock-Cutover Resetprobe und Simulationsentscheidung",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R7-TRAINING"
+        ],
+        "ticketRefs": [
+          "UABC-46"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      },
+      {
+        "stageId": "R9-HYPERCARE-READY-GATE",
+        "order": 9,
+        "name": "Hypercare Monatsabschlussprobe Retro und Ready-to-Prod-Gate",
+        "status": "planned",
+        "dependencyStageIds": [
+          "R8-CUTOVER"
+        ],
+        "ticketRefs": [
+          "UABC-47",
+          "UABC-48",
+          "UABC-49",
+          "UABC-50"
+        ],
+        "bcWriteRequired": true,
+        "writeAuthorized": false,
+        "completed": false,
+        "entryCriteriaCount": 2,
+        "plannedActionCount": 2,
+        "exitCriteriaCount": 2,
+        "evidenceTargetCount": 2,
+        "executionEvidenceCount": 0,
+        "stopOrRollbackDefined": true
+      }
+    ]
+  },
   "preflight": {
     "status": "beobachtet-nur-lesend",
     "wave0Status": "blocked-before-dom-readback",
@@ -205,6 +435,10 @@
     {
       "path": "project/bc-basic/core-finance-package-manifest.yaml",
       "role": "Digest- und Reihenfolgemanifest"
+    },
+    {
+      "path": "project/bc-basic/project-plan.yaml",
+      "role": "Kanonischer CRONUS-zu-Ready-to-Prod-Folgeplan"
     }
   ]
 }

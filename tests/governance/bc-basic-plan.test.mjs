@@ -87,6 +87,21 @@ test('BC-Basic bindet die CRONUS-Demo-Ausgangsbasis und hält den Pilotaufbau of
   assert.equal(scenarioCatalog.executed, false);
 });
 
+test('CRONUS-zu-Ready-to-Prod-Pfad nutzt zehn bestehende, lückenlos geordnete Planstufen ohne Erfüllungsclaim', () => {
+  const readiness = plan.readinessPath;
+  const stages = readiness.stages;
+  assert.equal(readiness.baselineKind, 'standard-cronus-demo');
+  assert.equal(readiness.targetStatus, 'geplant-nicht-erreicht');
+  assert.equal(readiness.readyToProdClaimed, false);
+  assert.equal(readiness.productionStartClaimed, false);
+  assert.equal(readiness.pilotConfigured, false);
+  assert.equal(readiness.writesApplied, false);
+  assert.equal(stages.length, 10);
+  assert.deepEqual(stages.map((stage) => stage.order), [0,1,2,3,4,5,6,7,8,9]);
+  assert.ok(stages.every((stage, index) => stage.completed === false && stage.writeAuthorized === false && stage.executionEvidence.length === 0 && (index === 0 ? stage.dependencyStageIds.length === 0 : stage.dependencyStageIds[0] === stages[index - 1].stageId)));
+  assert.deepEqual([...new Set(stages.flatMap((stage) => stage.ticketRefs))].sort((a,b) => Number(a.split('-')[1]) - Number(b.split('-')[1])), ['UABC-39','UABC-40','UABC-41','UABC-42','UABC-43','UABC-44','UABC-45','UABC-46','UABC-47','UABC-48','UABC-49','UABC-50']);
+});
+
 test('Drei Phasen bilden den synthetischen 80-Stunden-Plan mit Einrichtungswoche und Hypercare ab', () => {
   assert.equal(plan.phases?.length, 3);
   assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [22, 40, 18]);

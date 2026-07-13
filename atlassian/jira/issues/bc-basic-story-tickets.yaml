@@ -347,16 +347,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: in-progress
-    statusReason: UABC-1 ist in-progress; „Phase 1 schafft einen
-      entscheidungsfaehigen Projektauftrag, ein abgestimmtes Standarddesign und
-      ein pruefbares Datenpaket. Eintritt sind benannte Rollen und vorbereitete
-      Workshops; Austritt sind entschiedener Scope, Finance-/Prozessdesign und
-      Datenbereitschaft.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein
-      abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind
-      benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener
-      Scope, Finance-/Prozessdesign und Datenbereitschaft.
+    statusReason: UABC-1 ist in-progress; „Phase 1 – Vorbereitung und Lösungsdesign“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Phase 1 – Vorbereitung und Lösungsdesign
     description: Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein
       abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind
       benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener
@@ -383,12 +376,12 @@ ticketRecords:
     remainingHours: 22
     acceptance:
       - criterion: Eintritt für UABC-1 ist mit Rollen, Abhängigkeiten und freigegebenen
-          Vorarbeiten zu „Phase 1 – Vorbereitung und Datenbereitschaft“
+          Vorarbeiten zu „Phase 1 – Vorbereitung und Lösungsdesign“
           dokumentiert.
         fulfilled: false
       - criterion: Austritt für UABC-1 ist erst erreicht, wenn die untergeordneten Epics
-          von „Phase 1 – Vorbereitung und Datenbereitschaft“ fachlich abgenommen
-          und belegt sind.
+          von „Phase 1 – Vorbereitung und Lösungsdesign“ fachlich abgenommen und
+          belegt sind.
         fulfilled: false
     history:
       - status: created
@@ -418,12 +411,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
-        text: "UABC-1 – Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein
-          abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt
-          sind benannte Rollen und vorbereitete Workshops; Austritt sind
-          entschiedener Scope, Finance-/Prozessdesign und Datenbereitschaft.:
-          Pilotstand am 2026-07-13 ist in-progress. Nur vorbereitende Arbeit ist
-          belegt; Live-Schritte bleiben offen."
+        text: "UABC-1 – Phase 1 – Vorbereitung und Lösungsdesign: Pilotstand am
+          2026-07-13 ist in-progress. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
   - id: UABC-2
     type: phase
     sourceType: phase
@@ -446,10 +436,7 @@ ticketRecords:
     status: blocked
     statusReason: Abhängig von UABC-1; die vorherige Phase ist fachlich noch nicht
       abgeschlossen und keine Live-Ausführung ist freigegeben.
-    summary: Phase 2 setzt die entschiedene Baseline in nachvollziehbarer
-      Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und
-      Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und
-      Abnahmeprobe.
+    summary: Phase 2 – Einrichtung und Erprobung
     description: Phase 2 setzt die entschiedene Baseline in nachvollziehbarer
       Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und
       Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und
@@ -476,12 +463,11 @@ ticketRecords:
     remainingHours: 37.5
     acceptance:
       - criterion: Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen
-          Vorarbeiten zu „Phase 2 – Einrichtung, Tests und Schulung“
-          dokumentiert.
+          Vorarbeiten zu „Phase 2 – Einrichtung und Erprobung“ dokumentiert.
         fulfilled: false
       - criterion: Austritt für UABC-2 ist erst erreicht, wenn die untergeordneten Epics
-          von „Phase 2 – Einrichtung, Tests und Schulung“ fachlich abgenommen
-          und belegt sind.
+          von „Phase 2 – Einrichtung und Erprobung“ fachlich abgenommen und
+          belegt sind.
         fulfilled: false
     history:
       - status: created
@@ -511,11 +497,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
-        text: "UABC-2 – Phase 2 setzt die entschiedene Baseline in nachvollziehbarer
-          Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT
-          und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher
-          Prozess- und Abnahmeprobe.: Pilotstand am 2026-07-13 ist blocked. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-2 – Phase 2 – Einrichtung und Erprobung: Pilotstand am 2026-07-13
+          ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-3
     type: phase
     sourceType: phase
@@ -537,9 +521,7 @@ ticketRecords:
     status: blocked
     statusReason: Abhängig von UABC-2; die vorherige Phase ist fachlich noch nicht
       abgeschlossen und keine Live-Ausführung ist freigegeben.
-    summary: Phase 3 stabilisiert den simulierten Go-live, korrigiert den
-      Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und
-      uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.
+    summary: Phase 3 – Stabilisierung und Übergabe
     description: Phase 3 stabilisiert den simulierten Go-live, korrigiert den
       Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und
       uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.
@@ -565,11 +547,11 @@ ticketRecords:
     remainingHours: 18
     acceptance:
       - criterion: Eintritt für UABC-3 ist mit Rollen, Abhängigkeiten und freigegebenen
-          Vorarbeiten zu „Phase 3 – Hypercare und Abschluss“ dokumentiert.
+          Vorarbeiten zu „Phase 3 – Stabilisierung und Übergabe“ dokumentiert.
         fulfilled: false
       - criterion: Austritt für UABC-3 ist erst erreicht, wenn die untergeordneten Epics
-          von „Phase 3 – Hypercare und Abschluss“ fachlich abgenommen und belegt
-          sind.
+          von „Phase 3 – Stabilisierung und Übergabe“ fachlich abgenommen und
+          belegt sind.
         fulfilled: false
     history:
       - status: created
@@ -599,11 +581,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
-        text: "UABC-3 – Phase 3 stabilisiert den simulierten Go-live, korrigiert den
-          Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und
-          uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.:
-          Pilotstand am 2026-07-13 ist blocked. Nur vorbereitende Arbeit ist
-          belegt; Live-Schritte bleiben offen."
+        text: "UABC-3 – Phase 3 – Stabilisierung und Übergabe: Pilotstand am 2026-07-13
+          ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-4
     type: epic
     sourceType: epic
@@ -621,11 +601,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-4 ist created; „Projektauftrag, Scope, Rollen, Discovery und
-      Gate-Verantwortung für den Pilotstart abstimmen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für den
-      Pilotstart abstimmen.
+    statusReason: UABC-4 ist created; „Projektinitiierung und Discovery“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektinitiierung und Discovery
     description: Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für
       den Pilotstart abstimmen.
     deliverable: Projektinitiierung und Discovery
@@ -676,9 +654,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-4 – Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung
-          für den Pilotstart abstimmen.: Pilotstand am 2026-07-13 ist created.
-          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-4 – Projektinitiierung und Discovery: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-5
     type: epic
     sourceType: epic
@@ -698,11 +676,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-5 ist created; „Finance-, Einkaufs-, Verkaufs- und
-      Lagerstandard vor jeder Einrichtung fachlich entscheiden.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder Einrichtung
-      fachlich entscheiden.
+    statusReason: UABC-5 ist created; „Fit-to-Standard und Lösungsdesign“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Fit-to-Standard und Lösungsdesign
     description: Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder
       Einrichtung fachlich entscheiden.
     deliverable: Finance- und Lösungsdesign
@@ -753,8 +729,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-5 – Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder
-          Einrichtung fachlich entscheiden.: Pilotstand am 2026-07-13 ist
+        text: "UABC-5 – Fit-to-Standard und Lösungsdesign: Pilotstand am 2026-07-13 ist
           created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
           offen."
   - id: UABC-6
@@ -773,11 +748,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-6 ist created; „Migrationsobjekte, Datenwellen, Owner,
-      Qualitätsregeln und Kontrollsummen planbar machen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und
-      Kontrollsummen planbar machen.
+    statusReason: UABC-6 ist created; „Datenbereitschaft und Migrationsplanung“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenbereitschaft und Migrationsplanung
     description: Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und
       Kontrollsummen planbar machen.
     deliverable: Datenbereitschaft
@@ -828,9 +801,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-6 – Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und
-          Kontrollsummen planbar machen.: Pilotstand am 2026-07-13 ist created.
-          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-6 – Datenbereitschaft und Migrationsplanung: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
   - id: UABC-7
     type: epic
     sourceType: epic
@@ -848,11 +821,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-7 ist created; „Gesellschaftsbasis, Perioden, Nummernserien,
-      Finance, VAT und Funktionstrennung kontrolliert planen.“ darf nur mit
+    statusReason: UABC-7 ist created; „Grundeinrichtung und Finance“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und
-      Funktionstrennung kontrolliert planen.
+    summary: Grundeinrichtung und Finance
     description: Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und
       Funktionstrennung kontrolliert planen.
     deliverable: BC-Grundeinrichtung und Finance
@@ -903,8 +874,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-7 – Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und
-          Funktionstrennung kontrolliert planen.: Pilotstand am 2026-07-13 ist
+        text: "UABC-7 – Grundeinrichtung und Finance: Pilotstand am 2026-07-13 ist
           created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
           offen."
   - id: UABC-8
@@ -923,11 +893,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-8 ist created; „Stamm-, Eröffnungs- und Bestandsdaten mit
-      Fehlerkorrektur und Abstimmung für spätere Importe vorbereiten.“ darf nur
-      mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und
-      Abstimmung für spätere Importe vorbereiten.
+    statusReason: UABC-8 ist created; „Stammdaten und Migration“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Stammdaten und Migration
     description: Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und
       Abstimmung für spätere Importe vorbereiten.
     deliverable: Stammdaten und Migration
@@ -978,10 +946,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-8 – Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und
-          Abstimmung für spätere Importe vorbereiten.: Pilotstand am 2026-07-13
-          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
-          bleiben offen."
+        text: "UABC-8 – Stammdaten und Migration: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-9
     type: epic
     sourceType: epic
@@ -1000,11 +966,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-9 ist created; „Einkauf, Verkauf, Zahlung und Lager als
-      getrennte Ende-zu-Ende-Proben mit Readbacks planen.“ darf nur mit
+    statusReason: UABC-9 ist created; „Kernprozesse P2P, O2C und Lager“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Einkauf, Verkauf, Zahlung und Lager als getrennte Ende-zu-Ende-Proben
-      mit Readbacks planen.
+    summary: Kernprozesse P2P, O2C und Lager
     description: Einkauf, Verkauf, Zahlung und Lager als getrennte
       Ende-zu-Ende-Proben mit Readbacks planen.
     deliverable: Einkaufs-, Verkaufs- und Lagerprozesse
@@ -1055,10 +1019,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-9 – Einkauf, Verkauf, Zahlung und Lager als getrennte
-          Ende-zu-Ende-Proben mit Readbacks planen.: Pilotstand am 2026-07-13
-          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
-          bleiben offen."
+        text: "UABC-9 – Kernprozesse P2P, O2C und Lager: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-10
     type: epic
     sourceType: epic
@@ -1076,11 +1039,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-10 ist created; „Rollenbefähigung, SIT, UAT und Mock-Cutover
-      für eine spätere Simulationsentscheidung vorbereiten.“ darf nur mit
+    statusReason: UABC-10 ist created; „Test, UAT und Schulung“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere
-      Simulationsentscheidung vorbereiten.
+    summary: Test, UAT und Schulung
     description: Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere
       Simulationsentscheidung vorbereiten.
     deliverable: Schulung und Abnahme
@@ -1131,10 +1092,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-10 – Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere
-          Simulationsentscheidung vorbereiten.: Pilotstand am 2026-07-13 ist
-          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
-          offen."
+        text: "UABC-10 – Test, UAT und Schulung: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-11
     type: epic
     sourceType: epic
@@ -1151,11 +1110,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-11 ist created; „Hypercare-Triage und Retestregeln für
-      mögliche Zahlungsreferenzabweichungen vorbereiten.“ darf nur mit
+    statusReason: UABC-11 ist created; „Hypercare und Stabilisierung“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Hypercare-Triage und Retestregeln für mögliche
-      Zahlungsreferenzabweichungen vorbereiten.
+    summary: Hypercare und Stabilisierung
     description: Hypercare-Triage und Retestregeln für mögliche
       Zahlungsreferenzabweichungen vorbereiten.
     deliverable: Hypercare und Stabilisierung
@@ -1206,10 +1163,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-11 – Hypercare-Triage und Retestregeln für mögliche
-          Zahlungsreferenzabweichungen vorbereiten.: Pilotstand am 2026-07-13
-          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
-          bleiben offen."
+        text: "UABC-11 – Hypercare und Stabilisierung: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-12
     type: epic
     sourceType: epic
@@ -1226,11 +1182,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-12 ist created; „Monatsabschluss- und VAT-Abstimmungen ohne
-      externe Übermittlung als kontrollierbares Soll planen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als
-      kontrollierbares Soll planen.
+    statusReason: UABC-12 ist created; „Monatsabschluss und Umsatzsteuer“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss und Umsatzsteuer
     description: Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als
       kontrollierbares Soll planen.
     deliverable: Finance-Abschluss
@@ -1281,8 +1235,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-12 – Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung
-          als kontrollierbares Soll planen.: Pilotstand am 2026-07-13 ist
+        text: "UABC-12 – Monatsabschluss und Umsatzsteuer: Pilotstand am 2026-07-13 ist
           created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
           offen."
   - id: UABC-13
@@ -1301,11 +1254,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-13 ist created; „Retro, Restpunkte, Supportweg und Handover
-      für den noch offenen Pilotabschluss vorbereiten.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Retro, Restpunkte, Supportweg und Handover für den noch offenen
-      Pilotabschluss vorbereiten.
+    statusReason: UABC-13 ist created; „Projektabschluss und Betriebsübergabe“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektabschluss und Betriebsübergabe
     description: Retro, Restpunkte, Supportweg und Handover für den noch offenen
       Pilotabschluss vorbereiten.
     deliverable: Dokumentation und Betriebsübergabe
@@ -1356,9 +1307,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-13 – Retro, Restpunkte, Supportweg und Handover für den noch offenen
-          Pilotabschluss vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-13 – Projektabschluss und Betriebsübergabe: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-14
     type: story
     sourceType: story
@@ -1375,15 +1326,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-14 ist created; „Als Projektleitung moechte ich einen
-      abgestimmten Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen
-      und Change-Regel, damit Kunde und Consultant denselben Startpunkt und
-      dieselben Entscheidungsgrenzen verwenden.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Projektleitung moechte ich einen abgestimmten Projektauftrag mit
-      Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit Kunde
-      und Consultant denselben Startpunkt und dieselben Entscheidungsgrenzen
-      verwenden.
+    statusReason: UABC-14 ist created; „Projektauftrag und Scope abstimmen“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektauftrag und Scope abstimmen
     description: Als Projektleitung moechte ich einen abgestimmten Projektauftrag
       mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit
       Kunde und Consultant denselben Startpunkt und dieselben
@@ -1435,10 +1380,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-14 – Als Projektleitung moechte ich einen abgestimmten
-          Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen und
-          Change-Regel, damit Kunde und Consultant denselben Startpunkt und
-          dieselben Entscheidungsgrenzen verwenden.: Pilotstand am 2026-07-13
+        text: "UABC-14 – Projektauftrag und Scope abstimmen: Pilotstand am 2026-07-13
           ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
           bleiben offen."
   - id: UABC-15
@@ -1457,13 +1399,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-15 ist created; „Als Projektleitung moechte ich klare Entry-
-      und Exit-Kriterien fuer Setup, UAT und Mock-Cutover, damit offene Daten-,
-      Rollen- oder Steuerfragen nicht in spaetere Gates verschoben werden.“ darf
-      nur mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer
-      Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder
-      Steuerfragen nicht in spaetere Gates verschoben werden.
+    statusReason: UABC-15 ist created; „Setup-, UAT- und Cutover-Gates definieren“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Setup-, UAT- und Cutover-Gates definieren
     description: Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer
       Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder
       Steuerfragen nicht in spaetere Gates verschoben werden.
@@ -1514,9 +1452,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-15 – Als Projektleitung moechte ich klare Entry- und Exit-Kriterien
-          fuer Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder
-          Steuerfragen nicht in spaetere Gates verschoben werden.: Pilotstand am
+        text: "UABC-15 – Setup-, UAT- und Cutover-Gates definieren: Pilotstand am
           2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
           Live-Schritte bleiben offen."
   - id: UABC-16
@@ -1535,13 +1471,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-16 ist created; „Als Finance-Verantwortung moechte ich
-      Konten-, Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen
-      nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar
-      ist.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-, VAT-,
-      Dimensions- und Periodenentscheidungen nachvollziehen, damit die spaetere
-      Einrichtung konsistent und pruefbar ist.
+    statusReason: UABC-16 ist created; „Finance-Design festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Finance-Design festlegen
     description: Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-,
       VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die
       spaetere Einrichtung konsistent und pruefbar ist.
@@ -1592,11 +1524,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-16 – Als Finance-Verantwortung moechte ich Konten-,
-          Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen
-          nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar
-          ist.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit
-          ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-16 – Finance-Design festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-17
     type: story
     sourceType: story
@@ -1613,13 +1542,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-17 ist created; „Als Einkauf Key User moechte ich Bestellung,
-      Wareneingang, Rechnung und Zahlung im Standard festlegen, damit
-      Abweichungen vor der Einrichtung entschieden sind.“ darf nur mit
+    statusReason: UABC-17 ist created; „Einkaufsprozess festlegen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung und
-      Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung
-      entschieden sind.
+    summary: Einkaufsprozess festlegen
     description: Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung
       und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung
       entschieden sind.
@@ -1670,10 +1595,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-17 – Als Einkauf Key User moechte ich Bestellung, Wareneingang,
-          Rechnung und Zahlung im Standard festlegen, damit Abweichungen vor der
-          Einrichtung entschieden sind.: Pilotstand am 2026-07-13 ist created.
-          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-17 – Einkaufsprozess festlegen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-18
     type: story
     sourceType: story
@@ -1690,13 +1614,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-18 ist created; „Als Verkauf Key User moechte ich Auftrag,
-      Lieferung, Rechnung, Zahlungseingang und Korrektur im Standard festlegen,
-      damit Forderungs- und Umsatzwirkung eindeutig sind.“ darf nur mit
+    statusReason: UABC-18 ist created; „Verkaufsprozess festlegen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung,
-      Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und
-      Umsatzwirkung eindeutig sind.
+    summary: Verkaufsprozess festlegen
     description: Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung,
       Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und
       Umsatzwirkung eindeutig sind.
@@ -1747,9 +1667,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-18 – Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung,
-          Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs-
-          und Umsatzwirkung eindeutig sind.: Pilotstand am 2026-07-13 ist
+        text: "UABC-18 – Verkaufsprozess festlegen: Pilotstand am 2026-07-13 ist
           created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
           offen."
   - id: UABC-19
@@ -1768,13 +1686,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-19 ist created; „Als Lager Key User moechte ich Lagerort,
-      Einheit, Bewertungsmethode, Inventur und Negativbestandsregel entscheiden,
-      damit Mengen- und Wertfluesse abgestimmt werden koennen.“ darf nur mit
+    statusReason: UABC-19 ist created; „Lagerprozess festlegen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Lager Key User moechte ich Lagerort, Einheit, Bewertungsmethode,
-      Inventur und Negativbestandsregel entscheiden, damit Mengen- und
-      Wertfluesse abgestimmt werden koennen.
+    summary: Lagerprozess festlegen
     description: Als Lager Key User moechte ich Lagerort, Einheit,
       Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit
       Mengen- und Wertfluesse abgestimmt werden koennen.
@@ -1824,11 +1738,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-19 – Als Lager Key User moechte ich Lagerort, Einheit,
-          Bewertungsmethode, Inventur und Negativbestandsregel entscheiden,
-          damit Mengen- und Wertfluesse abgestimmt werden koennen.: Pilotstand
-          am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-19 – Lagerprozess festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-20
     type: story
     sourceType: story
@@ -1845,13 +1756,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-20 ist created; „Als Datenowner moechte ich vollstaendige,
-      bereinigte und abgestimmte Datenwellen bereitstellen, damit Setup und UAT
-      ohne verdeckte Datenfehler beginnen.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Als Datenowner moechte ich vollstaendige, bereinigte und abgestimmte
-      Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte Datenfehler
-      beginnen.
+    statusReason: UABC-20 ist created; „Datenwellen freigeben“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenwellen freigeben
     description: Als Datenowner moechte ich vollstaendige, bereinigte und
       abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte
       Datenfehler beginnen.
@@ -1902,9 +1809,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-20 – Als Datenowner moechte ich vollstaendige, bereinigte und
-          abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne
-          verdeckte Datenfehler beginnen.: Pilotstand am 2026-07-13 ist created.
+        text: "UABC-20 – Datenwellen freigeben: Pilotstand am 2026-07-13 ist created.
           Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-21
     type: story
@@ -1922,11 +1827,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-21 ist created; „CRONUS-Ist, BC-Basic-Soll und
-      Gesellschaftsstrategie nachvollziehbar entscheiden.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar
-      entscheiden.
+    statusReason: UABC-21 ist created; „Pilotgesellschaft und Resetstrategie
+      festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Pilotgesellschaft und Resetstrategie festlegen
     description: Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll,
       angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein
       Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste
@@ -1980,9 +1883,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-21 – CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie
-          nachvollziehbar entscheiden.: Pilotstand am 2026-07-13 ist created.
-          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-21 – Pilotgesellschaft und Resetstrategie festlegen: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
   - id: UABC-22
     type: story
     sourceType: story
@@ -1999,10 +1902,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-22 ist created; „CORE-FINANCE feldgenau einrichten, lesen und
-      fachlich abnehmen.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.
+    statusReason: UABC-22 ist created; „CORE-FINANCE einrichten und prüfen“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: CORE-FINANCE einrichten und prüfen
     description: Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach
       geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich
       abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne
@@ -2054,9 +1956,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-22 – CORE-FINANCE feldgenau einrichten, lesen und fachlich
-          abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-22 – CORE-FINANCE einrichten und prüfen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-23
     type: story
     sourceType: story
@@ -2073,14 +1975,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-23 ist created; „Als Datenowner moechte ich Stammdaten,
-      offene Posten, Bestand und Eroeffnungsbilanz nach Fehlerkorrektur
-      abgestimmt sehen, damit die Prozessprobe mit einer belastbaren
-      Ausgangslage startet.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und
-      Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die
-      Prozessprobe mit einer belastbaren Ausgangslage startet.
+    statusReason: UABC-23 ist created; „Migrationsdaten abstimmen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Migrationsdaten abstimmen
     description: Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und
       Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die
       Prozessprobe mit einer belastbaren Ausgangslage startet.
@@ -2131,11 +2028,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-23 – Als Datenowner moechte ich Stammdaten, offene Posten, Bestand
-          und Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die
-          Prozessprobe mit einer belastbaren Ausgangslage startet.: Pilotstand
-          am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-23 – Migrationsdaten abstimmen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-24
     type: story
     sourceType: story
@@ -2152,13 +2047,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-24 ist created; „Als Einkauf Key User moechte ich die
-      P2P-Kette inklusive Abweichung, Zahlung und Ausgleich nachweisen, damit
-      Bestellung, Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.“ darf
-      nur mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Einkauf Key User moechte ich die P2P-Kette inklusive Abweichung,
-      Zahlung und Ausgleich nachweisen, damit Bestellung, Verbindlichkeit, VAT
-      und Lagerwirkung kontrolliert sind.
+    statusReason: UABC-24 ist created; „P2P-Prozess nachweisen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Prozess nachweisen
     description: Als Einkauf Key User moechte ich die P2P-Kette inklusive
       Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung,
       Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.
@@ -2209,11 +2100,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-24 – Als Einkauf Key User moechte ich die P2P-Kette inklusive
-          Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung,
-          Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.: Pilotstand
-          am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-24 – P2P-Prozess nachweisen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-25
     type: story
     sourceType: story
@@ -2230,13 +2118,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-25 ist created; „Als Verkauf Key User moechte ich die
-      O2C-Kette inklusive Korrektur, Zahlungseingang und Ausgleich nachweisen,
-      damit Lieferung, Forderung, Umsatz, VAT und Bestand stimmen.“ darf nur mit
+    statusReason: UABC-25 ist created; „O2C-Prozess nachweisen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur,
-      Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung,
-      Umsatz, VAT und Bestand stimmen.
+    summary: O2C-Prozess nachweisen
     description: Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur,
       Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung,
       Umsatz, VAT und Bestand stimmen.
@@ -2287,11 +2171,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-25 – Als Verkauf Key User moechte ich die O2C-Kette inklusive
-          Korrektur, Zahlungseingang und Ausgleich nachweisen, damit Lieferung,
-          Forderung, Umsatz, VAT und Bestand stimmen.: Pilotstand am 2026-07-13
-          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
-          bleiben offen."
+        text: "UABC-25 – O2C-Prozess nachweisen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-26
     type: story
     sourceType: story
@@ -2308,13 +2189,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-26 ist created; „Als Lager Key User moechte ich Bewegungen,
-      Inventur, Differenz und Bewertung abstimmen, damit Artikel-, Wert- und
-      Sachkontoeintraege dieselbe Bestandswahrheit zeigen.“ darf nur mit
+    statusReason: UABC-26 ist created; „Lager und Inventur abstimmen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und
-      Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe
-      Bestandswahrheit zeigen.
+    summary: Lager und Inventur abstimmen
     description: Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und
       Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe
       Bestandswahrheit zeigen.
@@ -2365,9 +2242,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-26 – Als Lager Key User moechte ich Bewegungen, Inventur, Differenz
-          und Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege
-          dieselbe Bestandswahrheit zeigen.: Pilotstand am 2026-07-13 ist
+        text: "UABC-26 – Lager und Inventur abstimmen: Pilotstand am 2026-07-13 ist
           created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
           offen."
   - id: UABC-27
@@ -2386,13 +2261,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-27 ist created; „Als Key User moechte ich meinen positiven
-      Prozess, einen Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich
-      Alltag, Kontrolle und Eskalation sicher beherrsche.“ darf nur mit
+    statusReason: UABC-27 ist created; „Rollenkompetenz nachweisen“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall und
-      den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und
-      Eskalation sicher beherrsche.
+    summary: Rollenkompetenz nachweisen
     description: Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall
       und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und
       Eskalation sicher beherrsche.
@@ -2443,11 +2314,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-27 – Als Key User moechte ich meinen positiven Prozess, einen
-          Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich Alltag,
-          Kontrolle und Eskalation sicher beherrsche.: Pilotstand am 2026-07-13
-          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
-          bleiben offen."
+        text: "UABC-27 – Rollenkompetenz nachweisen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-28
     type: story
     sourceType: story
@@ -2464,10 +2333,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-28 ist created; „SIT, UAT und Mock-Cutover für eine spätere
-      Simulationsabnahme planen.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme planen.
+    statusReason: UABC-28 ist created; „SIT, UAT und Mock-Cutover vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: SIT, UAT und Mock-Cutover vorbereiten
     description: SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant.
       Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten
       Readbacks entschieden werden.
@@ -2518,9 +2386,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-28 – SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme
-          planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-28 – SIT, UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-29
     type: story
     sourceType: story
@@ -2537,11 +2405,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-29 ist created; „Hypercare-Diagnose und Retestregel für eine
-      mögliche Zahlungsreferenzabweichung planen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Hypercare-Diagnose und Retestregel für eine mögliche
-      Zahlungsreferenzabweichung planen.
+    statusReason: UABC-29 ist created; „Hypercare-Fehlerszenario vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Hypercare-Fehlerszenario vorbereiten
     description: Ein geplantes Hypercare-Szenario beschreibt eine mögliche
       Zahlungsreferenzabweichung mit Diagnosewerten, Korrekturregel und
       erwartetem Retest. Ein tatsächlicher Defect entsteht erst nach Beobachtung
@@ -2593,10 +2459,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-29 – Hypercare-Diagnose und Retestregel für eine mögliche
-          Zahlungsreferenzabweichung planen.: Pilotstand am 2026-07-13 ist
-          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
-          offen."
+        text: "UABC-29 – Hypercare-Fehlerszenario vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-30
     type: story
     sourceType: story
@@ -2614,14 +2479,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-30 ist created; „Als Finance Key User moechte ich
-      Monatsabschlusskontrollen und VAT-/UStVA-Vorschau differenzfrei abstimmen,
-      damit der simulierte Periodenabschluss fachlich für die spätere Abnahme
-      vorbereitet ist.“ darf nur mit ticket-spezifischer Evidence abgeschlossen
-      werden.
-    summary: Als Finance Key User moechte ich Monatsabschlusskontrollen und
-      VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte
-      Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.
+    statusReason: UABC-30 ist created; „Monatsabschluss und UStVA-Vorschau
+      abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss und UStVA-Vorschau abstimmen
     description: Als Finance Key User moechte ich Monatsabschlusskontrollen und
       VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte
       Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.
@@ -2672,11 +2532,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-30 – Als Finance Key User moechte ich Monatsabschlusskontrollen und
-          VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte
-          Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.:
-          Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist
-          belegt; Live-Schritte bleiben offen."
+        text: "UABC-30 – Monatsabschluss und UStVA-Vorschau abstimmen: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
   - id: UABC-31
     type: story
     sourceType: story
@@ -2693,13 +2551,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-31 ist created; „Als Projektleitung moechte ich Deliverables,
-      Restpunkte, Retro, Supportweg und Verantwortung uebergeben, damit das
-      Projekt nach Hypercare eindeutig endet.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Als Projektleitung moechte ich Deliverables, Restpunkte, Retro,
-      Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare
-      eindeutig endet.
+    statusReason: UABC-31 ist created; „Projektabschluss und Supportübergabe“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektabschluss und Supportübergabe
     description: Als Projektleitung moechte ich Deliverables, Restpunkte, Retro,
       Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare
       eindeutig endet.
@@ -2750,10 +2604,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-31 – Als Projektleitung moechte ich Deliverables, Restpunkte, Retro,
-          Supportweg und Verantwortung uebergeben, damit das Projekt nach
-          Hypercare eindeutig endet.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-31 – Projektabschluss und Supportübergabe: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-32
     type: task
     sourceType: task
@@ -2769,11 +2622,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-32 ist created; „Projektauftrag, Scope, Angebotsplanung,
-      Rollen, Phasen und Change-Regel abstimmen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und Change-Regel
-      abstimmen.
+    statusReason: UABC-32 ist created; „Projektauftrag und Scope ausarbeiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektauftrag und Scope ausarbeiten
     description: Projektauftrag, In- und Out-Scope, Angebotsplanung, Rollen, Phasen,
       Gate-Matrix und Change-Regel werden aus Angebot und Discovery
       zusammengeführt und gegen die vorgesehenen Lieferobjekte geprüft.
@@ -2829,9 +2680,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: docs/offers/bc-basic-offer.md
-        text: "UABC-32 – Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und
-          Change-Regel abstimmen.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-32 – Projektauftrag und Scope ausarbeiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-33
     type: task
     sourceType: task
@@ -2848,14 +2699,10 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-33 ist created; „Entry-Kriterien fuer Setup, UAT und
-      Mock-Cutover werden mit Datenqualitaet, Rollen, Steuerfragen, Resetpunkt
-      und Abbruchkriterien verbunden und als passierbare Simulationsgates
-      dokumentiert.“ darf nur mit ticket-spezifischer Evidence abgeschlossen
+    statusReason: UABC-33 ist created; „Setup-, UAT- und Cutover-Gates
+      dokumentieren“ darf nur mit ticket-spezifischer Evidence abgeschlossen
       werden.
-    summary: Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit
-      Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien
-      verbunden und als passierbare Simulationsgates dokumentiert.
+    summary: Setup-, UAT- und Cutover-Gates dokumentieren
     description: Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit
       Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien
       verbunden und als passierbare Simulationsgates dokumentiert.
@@ -2910,11 +2757,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/project-plan.yaml
-        text: "UABC-33 – Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit
-          Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien
-          verbunden und als passierbare Simulationsgates dokumentiert.:
-          Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist
-          belegt; Live-Schritte bleiben offen."
+        text: "UABC-33 – Setup-, UAT- und Cutover-Gates dokumentieren: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
   - id: UABC-34
     type: task
     sourceType: task
@@ -2930,13 +2775,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-34 ist created; „Kontenplan, Buchungsmatrizen, VAT-Annahmen,
-      Dimensionen, Nummernserien und Perioden werden als Standardbaseline
-      entschieden; reale Steuerkennzeichen bleiben explizit zu bestaetigen.“
-      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen, Nummernserien
-      und Perioden werden als Standardbaseline entschieden; reale
-      Steuerkennzeichen bleiben explizit zu bestaetigen.
+    statusReason: UABC-34 ist created; „Finance-Baseline festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Finance-Baseline festlegen
     description: Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen,
       Nummernserien und Perioden werden als Standardbaseline entschieden; reale
       Steuerkennzeichen bleiben explizit zu bestaetigen.
@@ -2991,11 +2832,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/posting-setup-matrix.yaml
-        text: "UABC-34 – Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen,
-          Nummernserien und Perioden werden als Standardbaseline entschieden;
-          reale Steuerkennzeichen bleiben explizit zu bestaetigen.: Pilotstand
-          am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-34 – Finance-Baseline festlegen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-35
     type: task
     sourceType: task
@@ -3012,12 +2851,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-35 ist created; „Bestellung, Wareneingang, Eingangsrechnung,
-      Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker
-      Einkaufsstandard entschieden.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: Bestellung, Wareneingang, Eingangsrechnung, Preis-/Mengenabweichung,
-      Zahlung und Ausgleich werden als schlanker Einkaufsstandard entschieden.
+    statusReason: UABC-35 ist created; „P2P-Standard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Standard festlegen
     description: Bestellung, Wareneingang, Eingangsrechnung,
       Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker
       Einkaufsstandard entschieden.
@@ -3072,9 +2908,7 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
-        text: "UABC-35 – Bestellung, Wareneingang, Eingangsrechnung,
-          Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker
-          Einkaufsstandard entschieden.: Pilotstand am 2026-07-13 ist created.
+        text: "UABC-35 – P2P-Standard festlegen: Pilotstand am 2026-07-13 ist created.
           Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-36
     type: task
@@ -3092,12 +2926,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-36 ist created; „Auftrag, Lieferung, Ausgangsrechnung,
-      Preisabweichung, Zahlungseingang, Ausgleich und Gutschrift werden als
-      Verkaufsstandard entschieden.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung, Zahlungseingang,
-      Ausgleich und Gutschrift werden als Verkaufsstandard entschieden.
+    statusReason: UABC-36 ist created; „O2C-Standard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: O2C-Standard festlegen
     description: Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung,
       Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard
       entschieden.
@@ -3152,10 +2983,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
-        text: "UABC-36 – Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung,
-          Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard
-          entschieden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-36 – O2C-Standard festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-37
     type: task
     sourceType: task
@@ -3172,12 +3001,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-37 ist created; „Lagerort HAUPT, Basiseinheit STK, FIFO,
-      Inventur und Verbot des Soll-Negativbestands werden als Lagerstandard
-      entschieden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen
-      werden.
-    summary: Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des
-      Soll-Negativbestands werden als Lagerstandard entschieden.
+    statusReason: UABC-37 ist created; „Lagerstandard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Lagerstandard festlegen
     description: Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des
       Soll-Negativbestands werden als Lagerstandard entschieden.
     deliverable: Lagerstandard und Ausnahmen sind entschieden
@@ -3231,10 +3057,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
-        text: "UABC-37 – Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des
-          Soll-Negativbestands werden als Lagerstandard entschieden.: Pilotstand
-          am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-37 – Lagerstandard festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-38
     type: task
     sourceType: task
@@ -3250,14 +3074,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-38 ist created; „Acht Vorlagenpaare und zehn
-      Migrationsobjekte werden drei Wellen zugeordnet, auf Pflichtfelder und
-      Referenzen geprueft und mit Mengen-, Salden- und Bestandskontrollen
-      freigegeben.“ darf nur mit ticket-spezifischer Evidence abgeschlossen
-      werden.
-    summary: Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen
-      zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-,
-      Salden- und Bestandskontrollen freigegeben.
+    statusReason: UABC-38 ist created; „Datenwellen prüfen und freigeben“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenwellen prüfen und freigeben
     description: Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen
       zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-,
       Salden- und Bestandskontrollen freigegeben.
@@ -3312,11 +3131,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/data-package.yaml
-        text: "UABC-38 – Acht Vorlagenpaare und zehn Migrationsobjekte werden drei
-          Wellen zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit
-          Mengen-, Salden- und Bestandskontrollen freigegeben.: Pilotstand am
-          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-38 – Datenwellen prüfen und freigeben: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-39
     type: task
     sourceType: task
@@ -3335,8 +3152,7 @@ ticketRecords:
     statusReason: W0-01 ist vor DOM-, Screenshot- und BC-Feldlektüre durch die
       Browser-Sicherheitsrichtlinie blockiert; die Zielstrategie bleibt ohne
       Company-ID-, CRONUS-, Fremdmandanten- und Reset-Evidence offen.
-    summary: CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie
-      entscheiden.
+    summary: Pilotgesellschaft und Resetpunkt prüfen
     description: W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter
       Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter;
       die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot
@@ -3482,11 +3298,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: in-progress
-    statusReason: UABC-40 ist in-progress; „CORE-FINANCE nach geschlossenem Gate
-      ausführen, read-back prüfen und abnehmen.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und
-      abnehmen.
+    statusReason: UABC-40 ist in-progress; „CORE-FINANCE ausführen und nachprüfen“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: CORE-FINANCE ausführen und nachprüfen
     description: Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51
       Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als
       Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach
@@ -3588,13 +3402,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-41 ist created; „Stammdaten, offene Posten, Bestand und
-      Eroeffnungsbilanz werden geladen, ein Referenzfehler korrigiert und Mengen
-      sowie Salden differenzfrei erneut abgestimmt.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden
-      geladen, ein Referenzfehler korrigiert und Mengen sowie Salden
-      differenzfrei erneut abgestimmt.
+    statusReason: UABC-41 ist created; „Migrationsdaten laden und abstimmen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Migrationsdaten laden und abstimmen
     description: Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden
       geladen, ein Referenzfehler korrigiert und Mengen sowie Salden
       differenzfrei erneut abgestimmt.
@@ -3649,11 +3459,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/data-package.yaml
-        text: "UABC-41 – Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden
-          geladen, ein Referenzfehler korrigiert und Mengen sowie Salden
-          differenzfrei erneut abgestimmt.: Pilotstand am 2026-07-13 ist
-          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
-          offen."
+        text: "UABC-41 – Migrationsdaten laden und abstimmen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-42
     type: task
     sourceType: task
@@ -3670,13 +3478,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-42 ist created; „Die P2P-Kette wird von Bestellung bis
-      Kreditorenzahlung mit Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit,
-      Abweichung und Retest durchgespielt.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit Belegfolge,
-      Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest
-      durchgespielt.
+    statusReason: UABC-42 ist created; „P2P-Kette durchführen und retesten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Kette durchführen und retesten
     description: Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit
       Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest
       für den Lauf geplant.
@@ -3731,10 +3535,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/31-processes.md
-        text: "UABC-42 – Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit
-          Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und
-          Retest durchgespielt.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-42 – P2P-Kette durchführen und retesten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-43
     type: task
     sourceType: task
@@ -3751,12 +3554,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-43 ist created; „Die O2C-Kette wird von Auftrag bis
-      Zahlungseingang mit Lieferung, Forderung, Umsatz, VAT, Lagerabgang,
-      Korrektur und Retest durchgespielt.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung,
-      Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest durchgespielt.
+    statusReason: UABC-43 ist created; „O2C-Kette durchführen und retesten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: O2C-Kette durchführen und retesten
     description: Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung,
       Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest für den Lauf
       geplant.
@@ -3811,10 +3611,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/31-processes.md
-        text: "UABC-43 – Die O2C-Kette wird von Auftrag bis Zahlungseingang mit
-          Lieferung, Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest
-          durchgespielt.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-43 – O2C-Kette durchführen und retesten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-44
     type: task
     sourceType: task
@@ -3831,12 +3630,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-44 ist created; „Lagerbewegung, Inventurzaehlung,
-      Differenzbuchung und Bewertung werden mit Artikel-, Wert- und
-      Sachkontoeintraegen abgestimmt.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung werden
-      mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.
+    statusReason: UABC-44 ist created; „Inventur und Lagerbewertung abstimmen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Inventur und Lagerbewertung abstimmen
     description: Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung
       werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.
     deliverable: Abgestimmte Lagerbewegungen, Inventur und Bewertung
@@ -3890,10 +3686,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/31-processes.md
-        text: "UABC-44 – Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung
-          werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.:
-          Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist
-          belegt; Live-Schritte bleiben offen."
+        text: "UABC-44 – Inventur und Lagerbewertung abstimmen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-45
     type: task
     sourceType: task
@@ -3909,13 +3704,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-45 ist created; „Finance, Handel und Lager absolvierten
-      historisch Rollenpfade mit positivem Fall, Fehlerdiagnose, Retest,
-      Kontrollpunkt und vierstufiger Eskalation.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Finance, Handel und Lager absolvierten historisch Rollenpfade mit
-      positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger
-      Eskalation.
+    statusReason: UABC-45 ist created; „Rollenkompetenz praktisch nachweisen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Rollenkompetenz praktisch nachweisen
     description: Finance, Handel und Lager absolvierten historisch Rollenpfade mit
       positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger
       Eskalation.
@@ -3970,10 +3761,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/training-plan.yaml
-        text: "UABC-45 – Finance, Handel und Lager absolvierten historisch Rollenpfade
-          mit positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und
-          vierstufiger Eskalation.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-45 – Rollenkompetenz praktisch nachweisen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-46
     type: task
     sourceType: task
@@ -3991,10 +3781,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-46 ist created; „UAT, Retests und Mock-Cutover mit aktueller
-      Evidence vorbereiten.“ darf nur mit ticket-spezifischer Evidence
-      abgeschlossen werden.
-    summary: UAT, Retests und Mock-Cutover mit aktueller Evidence vorbereiten.
+    statusReason: UABC-46 ist created; „UAT und Mock-Cutover vorbereiten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: UAT und Mock-Cutover vorbereiten
     description: UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und
       Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant;
       aktuell sind sie nicht ausgeführt.
@@ -4049,9 +3838,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/uat-catalog.yaml
-        text: "UABC-46 – UAT, Retests und Mock-Cutover mit aktueller Evidence
-          vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-46 – UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-47
     type: task
     sourceType: task
@@ -4068,11 +3857,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-47 ist created; „Geplantes Hypercare-Szenario für eine
-      mögliche nicht zugeordnete Zahlung vorbereiten.“ darf nur mit
-      ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Geplantes Hypercare-Szenario für eine mögliche nicht zugeordnete
-      Zahlung vorbereiten.
+    statusReason: UABC-47 ist created; „Hypercare-Fehlerszenario ausarbeiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Hypercare-Fehlerszenario ausarbeiten
     description: Ein geplantes Hypercare-Szenario beschreibt die spätere Prüfung
       einer nicht automatisch zugeordneten Zahlung. Ein Defect entsteht erst
       nach Beobachtung im ausgeführten Lauf; aktuell werden
@@ -4129,10 +3916,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/bc-basic-hypercare.md
-        text: "UABC-47 – Geplantes Hypercare-Szenario für eine mögliche nicht
-          zugeordnete Zahlung vorbereiten.: Pilotstand am 2026-07-13 ist
-          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
-          offen."
+        text: "UABC-47 – Hypercare-Fehlerszenario ausarbeiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
   - id: UABC-48
     type: task
     sourceType: task
@@ -4148,13 +3934,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-48 ist created; „Sachkonto, Debitoren, Kreditoren, Bank und
-      Lager werden fuer den Monatsabschluss abgestimmt; offene Belege und
-      Periodenstatus werden kontrolliert.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den
-      Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden
-      kontrolliert.
+    statusReason: UABC-48 ist created; „Monatsabschluss abstimmen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss abstimmen
     description: Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den
       Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden
       kontrolliert.
@@ -4209,10 +3991,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: atlassian/confluence/pages/bc-basic-hypercare.md
-        text: "UABC-48 – Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer
-          den Monatsabschluss abgestimmt; offene Belege und Periodenstatus
-          werden kontrolliert.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-48 – Monatsabschluss abstimmen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-49
     type: task
     sourceType: task
@@ -4229,10 +4010,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-49 ist created; „Geplante VAT- und UStVA-Abstimmung ohne
-      externe Übermittlung vorbereiten.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Geplante VAT- und UStVA-Abstimmung ohne externe Übermittlung vorbereiten.
+    statusReason: UABC-49 ist created; „UStVA-Vorschau vorbereiten“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: UStVA-Vorschau vorbereiten
     description: VAT-Entries, Bemessungsgrundlagen, Vorsteuer und Umsatzsteuer
       werden als Soll für die geplante UStVA-Vorschau vorbereitet. Eine externe
       ELSTER-Übermittlung bleibt verboten; Ausführung und Readback stehen noch
@@ -4288,9 +4068,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/decision-register.yaml
-        text: "UABC-49 – Geplante VAT- und UStVA-Abstimmung ohne externe Übermittlung
-          vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-49 – UStVA-Vorschau vorbereiten: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
   - id: UABC-50
     type: task
     sourceType: task
@@ -4309,11 +4089,9 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-50 ist created; „Retro, Restpunkte und Supportübergabe für
-      den aktuellen Piloten vorbereiten.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
-    summary: Retro, Restpunkte und Supportübergabe für den aktuellen Piloten
-      vorbereiten.
+    statusReason: UABC-50 ist created; „Retro und Supportübergabe vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Retro und Supportübergabe vorbereiten
     description: Retro, Restpunkte und Supportübergabe werden für den aktuellen
       Piloten vorbereitet. Die spätere Übergabe benötigt echte Cutover-,
       Hypercare- und belegte Simulationsabnahme-Evidence und ist noch nicht
@@ -4370,8 +4148,8 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: docs/handover/bc-basic-handover.md
-        text: "UABC-50 – Retro, Restpunkte und Supportübergabe für den aktuellen Piloten
-          vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
-          Arbeit ist belegt; Live-Schritte bleiben offen."
+        text: "UABC-50 – Retro und Supportübergabe vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
 traceabilityRecords: []
 traceabilityRelations: []

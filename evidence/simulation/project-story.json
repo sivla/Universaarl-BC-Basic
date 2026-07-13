@@ -546,7 +546,7 @@
     {
       "id": "UABC-1",
       "code": "P1",
-      "title": "Phase 1 – Vorbereitung und Datenbereitschaft",
+      "title": "Phase 1 – Vorbereitung und Lösungsdesign",
       "order": 1,
       "start": "2026-07-13",
       "end": null,
@@ -556,7 +556,7 @@
       "remainingHours": 22,
       "netAmount": 0,
       "type": "phase",
-      "summary": "Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener Scope, Finance-/Prozessdesign und Datenbereitschaft.",
+      "summary": "Phase 1 – Vorbereitung und Lösungsdesign",
       "description": "Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener Scope, Finance-/Prozessdesign und Datenbereitschaft.",
       "deliverable": "Phase 1 – Vorbereitung und Datenbereitschaft",
       "phaseId": "UABC-1",
@@ -601,11 +601,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-1 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 1 – Vorbereitung und Datenbereitschaft“ dokumentiert.",
+          "criterion": "Eintritt für UABC-1 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 1 – Vorbereitung und Lösungsdesign“ dokumentiert.",
           "fulfilled": false
         },
         {
-          "criterion": "Austritt für UABC-1 ist erst erreicht, wenn die untergeordneten Epics von „Phase 1 – Vorbereitung und Datenbereitschaft“ fachlich abgenommen und belegt sind.",
+          "criterion": "Austritt für UABC-1 ist erst erreicht, wenn die untergeordneten Epics von „Phase 1 – Vorbereitung und Lösungsdesign“ fachlich abgenommen und belegt sind.",
           "fulfilled": false
         }
       ],
@@ -623,7 +623,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-1 – Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener Scope, Finance-/Prozessdesign und Datenbereitschaft.: Pilotstand am 2026-07-13 ist in-progress. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-1 – Phase 1 – Vorbereitung und Lösungsdesign: Pilotstand am 2026-07-13 ist in-progress. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
         }
       ],
@@ -635,7 +635,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-1 ist in-progress; „Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener Scope, Finance-/Prozessdesign und Datenbereitschaft.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-1 ist in-progress; „Phase 1 – Vorbereitung und Lösungsdesign“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -656,7 +656,7 @@
     {
       "id": "UABC-2",
       "code": "P2",
-      "title": "Phase 2 – Einrichtung, Tests und Schulung",
+      "title": "Phase 2 – Einrichtung und Erprobung",
       "order": 2,
       "start": "2026-07-13",
       "end": null,
@@ -666,7 +666,7 @@
       "remainingHours": 37.5,
       "netAmount": 300,
       "type": "phase",
-      "summary": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
+      "summary": "Phase 2 – Einrichtung und Erprobung",
       "description": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
       "deliverable": "Phase 2 – Einrichtung, Tests und Schulung",
       "phaseId": "UABC-2",
@@ -713,11 +713,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 2 – Einrichtung, Tests und Schulung“ dokumentiert.",
+          "criterion": "Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 2 – Einrichtung und Erprobung“ dokumentiert.",
           "fulfilled": false
         },
         {
-          "criterion": "Austritt für UABC-2 ist erst erreicht, wenn die untergeordneten Epics von „Phase 2 – Einrichtung, Tests und Schulung“ fachlich abgenommen und belegt sind.",
+          "criterion": "Austritt für UABC-2 ist erst erreicht, wenn die untergeordneten Epics von „Phase 2 – Einrichtung und Erprobung“ fachlich abgenommen und belegt sind.",
           "fulfilled": false
         }
       ],
@@ -735,7 +735,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-2 – Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.: Pilotstand am 2026-07-13 ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-2 – Phase 2 – Einrichtung und Erprobung: Pilotstand am 2026-07-13 ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
         }
       ],
@@ -770,7 +770,7 @@
     {
       "id": "UABC-3",
       "code": "P3",
-      "title": "Phase 3 – Hypercare und Abschluss",
+      "title": "Phase 3 – Stabilisierung und Übergabe",
       "order": 3,
       "start": "2026-07-13",
       "end": null,
@@ -780,7 +780,7 @@
       "remainingHours": 18,
       "netAmount": 0,
       "type": "phase",
-      "summary": "Phase 3 stabilisiert den simulierten Go-live, korrigiert den Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.",
+      "summary": "Phase 3 – Stabilisierung und Übergabe",
       "description": "Phase 3 stabilisiert den simulierten Go-live, korrigiert den Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.",
       "deliverable": "Phase 3 – Hypercare und Abschluss",
       "phaseId": "UABC-3",
@@ -827,11 +827,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-3 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 3 – Hypercare und Abschluss“ dokumentiert.",
+          "criterion": "Eintritt für UABC-3 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 3 – Stabilisierung und Übergabe“ dokumentiert.",
           "fulfilled": false
         },
         {
-          "criterion": "Austritt für UABC-3 ist erst erreicht, wenn die untergeordneten Epics von „Phase 3 – Hypercare und Abschluss“ fachlich abgenommen und belegt sind.",
+          "criterion": "Austritt für UABC-3 ist erst erreicht, wenn die untergeordneten Epics von „Phase 3 – Stabilisierung und Übergabe“ fachlich abgenommen und belegt sind.",
           "fulfilled": false
         }
       ],
@@ -849,7 +849,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-3 – Phase 3 stabilisiert den simulierten Go-live, korrigiert den Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.: Pilotstand am 2026-07-13 ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-3 – Phase 3 – Stabilisierung und Übergabe: Pilotstand am 2026-07-13 ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
         }
       ],
@@ -882,7 +882,7 @@
     {
       "id": "UABC-4",
       "type": "epic",
-      "summary": "Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für den Pilotstart abstimmen.",
+      "summary": "Projektinitiierung und Discovery",
       "description": "Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für den Pilotstart abstimmen.",
       "deliverable": "Projektinitiierung und Discovery",
       "phaseId": "UABC-1",
@@ -942,7 +942,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-4 – Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für den Pilotstart abstimmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-4 – Projektinitiierung und Discovery: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -953,7 +953,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-4 ist created; „Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für den Pilotstart abstimmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-4 ist created; „Projektinitiierung und Discovery“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -970,12 +970,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Projektinitiierung und Discovery"
     },
     {
       "id": "UABC-5",
       "type": "epic",
-      "summary": "Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder Einrichtung fachlich entscheiden.",
+      "summary": "Fit-to-Standard und Lösungsdesign",
       "description": "Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder Einrichtung fachlich entscheiden.",
       "deliverable": "Finance- und Lösungsdesign",
       "phaseId": "UABC-1",
@@ -1035,7 +1036,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-5 – Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder Einrichtung fachlich entscheiden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-5 – Fit-to-Standard und Lösungsdesign: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1046,7 +1047,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-5 ist created; „Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder Einrichtung fachlich entscheiden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-5 ist created; „Fit-to-Standard und Lösungsdesign“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1065,12 +1066,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Fit-to-Standard und Lösungsdesign"
     },
     {
       "id": "UABC-6",
       "type": "epic",
-      "summary": "Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und Kontrollsummen planbar machen.",
+      "summary": "Datenbereitschaft und Migrationsplanung",
       "description": "Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und Kontrollsummen planbar machen.",
       "deliverable": "Datenbereitschaft",
       "phaseId": "UABC-1",
@@ -1130,7 +1132,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-6 – Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und Kontrollsummen planbar machen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-6 – Datenbereitschaft und Migrationsplanung: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1141,7 +1143,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-6 ist created; „Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und Kontrollsummen planbar machen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-6 ist created; „Datenbereitschaft und Migrationsplanung“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1157,12 +1159,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Datenbereitschaft und Migrationsplanung"
     },
     {
       "id": "UABC-7",
       "type": "epic",
-      "summary": "Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und Funktionstrennung kontrolliert planen.",
+      "summary": "Grundeinrichtung und Finance",
       "description": "Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und Funktionstrennung kontrolliert planen.",
       "deliverable": "BC-Grundeinrichtung und Finance",
       "phaseId": "UABC-2",
@@ -1222,7 +1225,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-7 – Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und Funktionstrennung kontrolliert planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-7 – Grundeinrichtung und Finance: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1233,7 +1236,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-7 ist created; „Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und Funktionstrennung kontrolliert planen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-7 ist created; „Grundeinrichtung und Finance“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1250,12 +1253,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 2.5,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Grundeinrichtung und Finance"
     },
     {
       "id": "UABC-8",
       "type": "epic",
-      "summary": "Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und Abstimmung für spätere Importe vorbereiten.",
+      "summary": "Stammdaten und Migration",
       "description": "Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und Abstimmung für spätere Importe vorbereiten.",
       "deliverable": "Stammdaten und Migration",
       "phaseId": "UABC-2",
@@ -1315,7 +1319,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-8 – Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und Abstimmung für spätere Importe vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-8 – Stammdaten und Migration: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1326,7 +1330,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-8 ist created; „Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und Abstimmung für spätere Importe vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-8 ist created; „Stammdaten und Migration“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1342,12 +1346,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Stammdaten und Migration"
     },
     {
       "id": "UABC-9",
       "type": "epic",
-      "summary": "Einkauf, Verkauf, Zahlung und Lager als getrennte Ende-zu-Ende-Proben mit Readbacks planen.",
+      "summary": "Kernprozesse P2P, O2C und Lager",
       "description": "Einkauf, Verkauf, Zahlung und Lager als getrennte Ende-zu-Ende-Proben mit Readbacks planen.",
       "deliverable": "Einkaufs-, Verkaufs- und Lagerprozesse",
       "phaseId": "UABC-2",
@@ -1407,7 +1412,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-9 – Einkauf, Verkauf, Zahlung und Lager als getrennte Ende-zu-Ende-Proben mit Readbacks planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-9 – Kernprozesse P2P, O2C und Lager: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1418,7 +1423,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-9 ist created; „Einkauf, Verkauf, Zahlung und Lager als getrennte Ende-zu-Ende-Proben mit Readbacks planen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-9 ist created; „Kernprozesse P2P, O2C und Lager“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1436,12 +1441,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Kernprozesse P2P, O2C und Lager"
     },
     {
       "id": "UABC-10",
       "type": "epic",
-      "summary": "Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere Simulationsentscheidung vorbereiten.",
+      "summary": "Test, UAT und Schulung",
       "description": "Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere Simulationsentscheidung vorbereiten.",
       "deliverable": "Schulung und Abnahme",
       "phaseId": "UABC-2",
@@ -1501,7 +1507,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-10 – Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere Simulationsentscheidung vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-10 – Test, UAT und Schulung: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1512,7 +1518,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-10 ist created; „Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere Simulationsentscheidung vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-10 ist created; „Test, UAT und Schulung“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1529,12 +1535,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Test, UAT und Schulung"
     },
     {
       "id": "UABC-11",
       "type": "epic",
-      "summary": "Hypercare-Triage und Retestregeln für mögliche Zahlungsreferenzabweichungen vorbereiten.",
+      "summary": "Hypercare und Stabilisierung",
       "description": "Hypercare-Triage und Retestregeln für mögliche Zahlungsreferenzabweichungen vorbereiten.",
       "deliverable": "Hypercare und Stabilisierung",
       "phaseId": "UABC-3",
@@ -1594,7 +1601,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-11 – Hypercare-Triage und Retestregeln für mögliche Zahlungsreferenzabweichungen vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-11 – Hypercare und Stabilisierung: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1605,7 +1612,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-11 ist created; „Hypercare-Triage und Retestregeln für mögliche Zahlungsreferenzabweichungen vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-11 ist created; „Hypercare und Stabilisierung“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1621,12 +1628,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Hypercare und Stabilisierung"
     },
     {
       "id": "UABC-12",
       "type": "epic",
-      "summary": "Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als kontrollierbares Soll planen.",
+      "summary": "Monatsabschluss und Umsatzsteuer",
       "description": "Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als kontrollierbares Soll planen.",
       "deliverable": "Finance-Abschluss",
       "phaseId": "UABC-3",
@@ -1686,7 +1694,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-12 – Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als kontrollierbares Soll planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-12 – Monatsabschluss und Umsatzsteuer: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1697,7 +1705,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-12 ist created; „Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als kontrollierbares Soll planen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-12 ist created; „Monatsabschluss und Umsatzsteuer“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1713,12 +1721,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Monatsabschluss und Umsatzsteuer"
     },
     {
       "id": "UABC-13",
       "type": "epic",
-      "summary": "Retro, Restpunkte, Supportweg und Handover für den noch offenen Pilotabschluss vorbereiten.",
+      "summary": "Projektabschluss und Betriebsübergabe",
       "description": "Retro, Restpunkte, Supportweg und Handover für den noch offenen Pilotabschluss vorbereiten.",
       "deliverable": "Dokumentation und Betriebsübergabe",
       "phaseId": "UABC-3",
@@ -1778,7 +1787,7 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-13 – Retro, Restpunkte, Supportweg und Handover für den noch offenen Pilotabschluss vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-13 – Projektabschluss und Betriebsübergabe: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
@@ -1789,7 +1798,7 @@
       ],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-13 ist created; „Retro, Restpunkte, Supportweg und Handover für den noch offenen Pilotabschluss vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-13 ist created; „Projektabschluss und Betriebsübergabe“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1805,12 +1814,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Projektabschluss und Betriebsübergabe"
     },
     {
       "id": "UABC-14",
       "type": "story",
-      "summary": "Als Projektleitung moechte ich einen abgestimmten Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit Kunde und Consultant denselben Startpunkt und dieselben Entscheidungsgrenzen verwenden.",
+      "summary": "Projektauftrag und Scope abstimmen",
       "description": "Als Projektleitung moechte ich einen abgestimmten Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit Kunde und Consultant denselben Startpunkt und dieselben Entscheidungsgrenzen verwenden.",
       "deliverable": "Projektauftrag und Scope sind startklar",
       "phaseId": "UABC-1",
@@ -1872,14 +1882,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-14 – Als Projektleitung moechte ich einen abgestimmten Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit Kunde und Consultant denselben Startpunkt und dieselben Entscheidungsgrenzen verwenden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-14 – Projektauftrag und Scope abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-14 ist created; „Als Projektleitung moechte ich einen abgestimmten Projektauftrag mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit Kunde und Consultant denselben Startpunkt und dieselben Entscheidungsgrenzen verwenden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-14 ist created; „Projektauftrag und Scope abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1895,12 +1905,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Projektauftrag und Scope abstimmen"
     },
     {
       "id": "UABC-15",
       "type": "story",
-      "summary": "Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder Steuerfragen nicht in spaetere Gates verschoben werden.",
+      "summary": "Setup-, UAT- und Cutover-Gates definieren",
       "description": "Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder Steuerfragen nicht in spaetere Gates verschoben werden.",
       "deliverable": "Abnahme- und Cutover-Eintritt ist vorbereitet",
       "phaseId": "UABC-1",
@@ -1962,14 +1973,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-15 – Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder Steuerfragen nicht in spaetere Gates verschoben werden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-15 – Setup-, UAT- und Cutover-Gates definieren: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-15 ist created; „Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder Steuerfragen nicht in spaetere Gates verschoben werden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-15 ist created; „Setup-, UAT- und Cutover-Gates definieren“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -1985,12 +1996,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Setup-, UAT- und Cutover-Gates definieren"
     },
     {
       "id": "UABC-16",
       "type": "story",
-      "summary": "Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar ist.",
+      "summary": "Finance-Design festlegen",
       "description": "Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar ist.",
       "deliverable": "Finance- und Steuerdesign ist entschieden",
       "phaseId": "UABC-1",
@@ -2052,14 +2064,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-16 – Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar ist.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-16 – Finance-Design festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-16 ist created; „Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-, VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die spaetere Einrichtung konsistent und pruefbar ist.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-16 ist created; „Finance-Design festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2075,12 +2087,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Finance-Design festlegen"
     },
     {
       "id": "UABC-17",
       "type": "story",
-      "summary": "Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung entschieden sind.",
+      "summary": "Einkaufsprozess festlegen",
       "description": "Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung entschieden sind.",
       "deliverable": "Einkaufsstandard ist entschieden",
       "phaseId": "UABC-1",
@@ -2142,14 +2155,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-17 – Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung entschieden sind.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-17 – Einkaufsprozess festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-17 ist created; „Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung entschieden sind.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-17 ist created; „Einkaufsprozess festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2165,12 +2178,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Einkaufsprozess festlegen"
     },
     {
       "id": "UABC-18",
       "type": "story",
-      "summary": "Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung, Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und Umsatzwirkung eindeutig sind.",
+      "summary": "Verkaufsprozess festlegen",
       "description": "Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung, Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und Umsatzwirkung eindeutig sind.",
       "deliverable": "Verkaufsstandard ist entschieden",
       "phaseId": "UABC-1",
@@ -2232,14 +2246,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-18 – Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung, Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und Umsatzwirkung eindeutig sind.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-18 – Verkaufsprozess festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-18 ist created; „Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung, Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und Umsatzwirkung eindeutig sind.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-18 ist created; „Verkaufsprozess festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2255,12 +2269,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Verkaufsprozess festlegen"
     },
     {
       "id": "UABC-19",
       "type": "story",
-      "summary": "Als Lager Key User moechte ich Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit Mengen- und Wertfluesse abgestimmt werden koennen.",
+      "summary": "Lagerprozess festlegen",
       "description": "Als Lager Key User moechte ich Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit Mengen- und Wertfluesse abgestimmt werden koennen.",
       "deliverable": "Lagerstandard ist entschieden",
       "phaseId": "UABC-1",
@@ -2322,14 +2337,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-19 – Als Lager Key User moechte ich Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit Mengen- und Wertfluesse abgestimmt werden koennen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-19 – Lagerprozess festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-19 ist created; „Als Lager Key User moechte ich Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit Mengen- und Wertfluesse abgestimmt werden koennen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-19 ist created; „Lagerprozess festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2345,12 +2360,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Lagerprozess festlegen"
     },
     {
       "id": "UABC-20",
       "type": "story",
-      "summary": "Als Datenowner moechte ich vollstaendige, bereinigte und abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte Datenfehler beginnen.",
+      "summary": "Datenwellen freigeben",
       "description": "Als Datenowner moechte ich vollstaendige, bereinigte und abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte Datenfehler beginnen.",
       "deliverable": "Datenpaket ist bereit",
       "phaseId": "UABC-1",
@@ -2412,14 +2428,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-20 – Als Datenowner moechte ich vollstaendige, bereinigte und abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte Datenfehler beginnen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-20 – Datenwellen freigeben: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-20 ist created; „Als Datenowner moechte ich vollstaendige, bereinigte und abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte Datenfehler beginnen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-20 ist created; „Datenwellen freigeben“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2435,12 +2451,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Datenwellen freigeben"
     },
     {
       "id": "UABC-21",
       "type": "story",
-      "summary": "CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.",
+      "summary": "Pilotgesellschaft und Resetstrategie festlegen",
       "description": "Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll, angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste zulässige Schritt eindeutig bleibt.",
       "deliverable": "Prüfbares Sollbild für Gesellschaft, Rollen und Basis",
       "phaseId": "UABC-2",
@@ -2502,14 +2519,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-21 – CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-21 – Pilotgesellschaft und Resetstrategie festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-21 ist created; „CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-21 ist created; „Pilotgesellschaft und Resetstrategie festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2526,12 +2543,12 @@
       "end": null,
       "worklogHours": 0.5,
       "meetingTranscriptRefs": [],
-      "title": "CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden."
+      "title": "Pilotgesellschaft und Resetstrategie festlegen"
     },
     {
       "id": "UABC-22",
       "type": "story",
-      "summary": "CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.",
+      "summary": "CORE-FINANCE einrichten und prüfen",
       "description": "Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne Ledger- oder Bankkontowrite nachvollziehbar bleibt.",
       "deliverable": "Prüfbares Finance-, VAT- und SoD-Sollbild",
       "phaseId": "UABC-2",
@@ -2593,14 +2610,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-22 – CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-22 – CORE-FINANCE einrichten und prüfen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-22 ist created; „CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-22 ist created; „CORE-FINANCE einrichten und prüfen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2617,12 +2634,12 @@
       "end": null,
       "worklogHours": 2,
       "meetingTranscriptRefs": [],
-      "title": "CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen."
+      "title": "CORE-FINANCE einrichten und prüfen"
     },
     {
       "id": "UABC-23",
       "type": "story",
-      "summary": "Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die Prozessprobe mit einer belastbaren Ausgangslage startet.",
+      "summary": "Migrationsdaten abstimmen",
       "description": "Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die Prozessprobe mit einer belastbaren Ausgangslage startet.",
       "deliverable": "Migration und Eröffnungswerte sind abgestimmt",
       "phaseId": "UABC-2",
@@ -2684,14 +2701,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-23 – Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die Prozessprobe mit einer belastbaren Ausgangslage startet.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-23 – Migrationsdaten abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-23 ist created; „Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die Prozessprobe mit einer belastbaren Ausgangslage startet.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-23 ist created; „Migrationsdaten abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2707,12 +2724,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Migrationsdaten abstimmen"
     },
     {
       "id": "UABC-24",
       "type": "story",
-      "summary": "Als Einkauf Key User moechte ich die P2P-Kette inklusive Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung, Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.",
+      "summary": "P2P-Prozess nachweisen",
       "description": "Als Einkauf Key User moechte ich die P2P-Kette inklusive Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung, Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.",
       "deliverable": "Purchase-to-Pay ist durchgespielt",
       "phaseId": "UABC-2",
@@ -2774,14 +2792,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-24 – Als Einkauf Key User moechte ich die P2P-Kette inklusive Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung, Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-24 – P2P-Prozess nachweisen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-24 ist created; „Als Einkauf Key User moechte ich die P2P-Kette inklusive Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung, Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-24 ist created; „P2P-Prozess nachweisen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2797,12 +2815,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "P2P-Prozess nachweisen"
     },
     {
       "id": "UABC-25",
       "type": "story",
-      "summary": "Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur, Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung, Umsatz, VAT und Bestand stimmen.",
+      "summary": "O2C-Prozess nachweisen",
       "description": "Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur, Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung, Umsatz, VAT und Bestand stimmen.",
       "deliverable": "Order-to-Cash ist durchgespielt",
       "phaseId": "UABC-2",
@@ -2864,14 +2883,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-25 – Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur, Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung, Umsatz, VAT und Bestand stimmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-25 – O2C-Prozess nachweisen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-25 ist created; „Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur, Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung, Umsatz, VAT und Bestand stimmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-25 ist created; „O2C-Prozess nachweisen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2887,12 +2906,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "O2C-Prozess nachweisen"
     },
     {
       "id": "UABC-26",
       "type": "story",
-      "summary": "Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe Bestandswahrheit zeigen.",
+      "summary": "Lager und Inventur abstimmen",
       "description": "Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe Bestandswahrheit zeigen.",
       "deliverable": "Lager und Inventur sind abgestimmt",
       "phaseId": "UABC-2",
@@ -2954,14 +2974,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-26 – Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe Bestandswahrheit zeigen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-26 – Lager und Inventur abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-26 ist created; „Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe Bestandswahrheit zeigen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-26 ist created; „Lager und Inventur abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2977,12 +2997,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Lager und Inventur abstimmen"
     },
     {
       "id": "UABC-27",
       "type": "story",
-      "summary": "Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und Eskalation sicher beherrsche.",
+      "summary": "Rollenkompetenz nachweisen",
       "description": "Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und Eskalation sicher beherrsche.",
       "deliverable": "Key User sind befähigt",
       "phaseId": "UABC-2",
@@ -3044,14 +3065,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-27 – Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und Eskalation sicher beherrsche.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-27 – Rollenkompetenz nachweisen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-27 ist created; „Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und Eskalation sicher beherrsche.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-27 ist created; „Rollenkompetenz nachweisen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3067,12 +3088,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Rollenkompetenz nachweisen"
     },
     {
       "id": "UABC-28",
       "type": "story",
-      "summary": "SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme planen.",
+      "summary": "SIT, UAT und Mock-Cutover vorbereiten",
       "description": "SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant. Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten Readbacks entschieden werden.",
       "deliverable": "SIT, UAT und Cutover-Probe sind bestanden",
       "phaseId": "UABC-2",
@@ -3134,14 +3156,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-28 – SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-28 – SIT, UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-28 ist created; „SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme planen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-28 ist created; „SIT, UAT und Mock-Cutover vorbereiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3157,12 +3179,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "SIT, UAT und Mock-Cutover vorbereiten"
     },
     {
       "id": "UABC-29",
       "type": "story",
-      "summary": "Hypercare-Diagnose und Retestregel für eine mögliche Zahlungsreferenzabweichung planen.",
+      "summary": "Hypercare-Fehlerszenario vorbereiten",
       "description": "Ein geplantes Hypercare-Szenario beschreibt eine mögliche Zahlungsreferenzabweichung mit Diagnosewerten, Korrekturregel und erwartetem Retest. Ein tatsächlicher Defect entsteht erst nach Beobachtung im ausgeführten Lauf.",
       "deliverable": "Zahlungsreferenz-Abweichung ist behoben",
       "phaseId": "UABC-3",
@@ -3224,14 +3247,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-29 – Hypercare-Diagnose und Retestregel für eine mögliche Zahlungsreferenzabweichung planen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-29 – Hypercare-Fehlerszenario vorbereiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-29 ist created; „Hypercare-Diagnose und Retestregel für eine mögliche Zahlungsreferenzabweichung planen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-29 ist created; „Hypercare-Fehlerszenario vorbereiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3247,12 +3270,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Hypercare-Fehlerszenario vorbereiten"
     },
     {
       "id": "UABC-30",
       "type": "story",
-      "summary": "Als Finance Key User moechte ich Monatsabschlusskontrollen und VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.",
+      "summary": "Monatsabschluss und UStVA-Vorschau abstimmen",
       "description": "Als Finance Key User moechte ich Monatsabschlusskontrollen und VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.",
       "deliverable": "Monatsabschluss und UStVA-Vorschau sind abgestimmt",
       "phaseId": "UABC-3",
@@ -3314,14 +3338,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-30 – Als Finance Key User moechte ich Monatsabschlusskontrollen und VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-30 – Monatsabschluss und UStVA-Vorschau abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-30 ist created; „Als Finance Key User moechte ich Monatsabschlusskontrollen und VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-30 ist created; „Monatsabschluss und UStVA-Vorschau abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3338,12 +3362,13 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Monatsabschluss und UStVA-Vorschau abstimmen"
     },
     {
       "id": "UABC-31",
       "type": "story",
-      "summary": "Als Projektleitung moechte ich Deliverables, Restpunkte, Retro, Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare eindeutig endet.",
+      "summary": "Projektabschluss und Supportübergabe",
       "description": "Als Projektleitung moechte ich Deliverables, Restpunkte, Retro, Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare eindeutig endet.",
       "deliverable": "Betrieb und Abschluss sind übergeben",
       "phaseId": "UABC-3",
@@ -3405,14 +3430,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-31 – Als Projektleitung moechte ich Deliverables, Restpunkte, Retro, Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare eindeutig endet.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-31 – Projektabschluss und Supportübergabe: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-31 ist created; „Als Projektleitung moechte ich Deliverables, Restpunkte, Retro, Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare eindeutig endet.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-31 ist created; „Projektabschluss und Supportübergabe“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3428,7 +3453,8 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "Projektabschluss und Supportübergabe"
     },
     {
       "id": "UABC-32",
@@ -3481,12 +3507,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-32 – Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und Change-Regel abstimmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-32 – Projektauftrag und Scope ausarbeiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "docs/offers/bc-basic-offer.md"
         }
       ],
       "worklogs": [],
-      "summary": "Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und Change-Regel abstimmen.",
+      "summary": "Projektauftrag und Scope ausarbeiten",
       "description": "Projektauftrag, In- und Out-Scope, Angebotsplanung, Rollen, Phasen, Gate-Matrix und Change-Regel werden aus Angebot und Discovery zusammengeführt und gegen die vorgesehenen Lieferobjekte geprüft.",
       "deliverable": "Abgestimmter Projektauftrag, Scope und Startbaseline",
       "phase": "P1",
@@ -3506,7 +3532,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-32 ist created; „Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und Change-Regel abstimmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-32 ist created; „Projektauftrag und Scope ausarbeiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003",
         "UABC-DEC-BCB-010"
@@ -3524,7 +3550,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Projektauftrag und Scope ausarbeiten"
     },
     {
       "id": "UABC-33",
@@ -3579,12 +3606,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-33 – Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien verbunden und als passierbare Simulationsgates dokumentiert.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-33 – Setup-, UAT- und Cutover-Gates dokumentieren: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/project-plan.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien verbunden und als passierbare Simulationsgates dokumentiert.",
+      "summary": "Setup-, UAT- und Cutover-Gates dokumentieren",
       "description": "Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien verbunden und als passierbare Simulationsgates dokumentiert.",
       "deliverable": "Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe",
       "phase": "P1",
@@ -3604,7 +3631,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-33 ist created; „Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien verbunden und als passierbare Simulationsgates dokumentiert.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-33 ist created; „Setup-, UAT- und Cutover-Gates dokumentieren“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -3621,7 +3648,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Setup-, UAT- und Cutover-Gates dokumentieren"
     },
     {
       "id": "UABC-34",
@@ -3674,12 +3702,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-34 – Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen, Nummernserien und Perioden werden als Standardbaseline entschieden; reale Steuerkennzeichen bleiben explizit zu bestaetigen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-34 – Finance-Baseline festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/posting-setup-matrix.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen, Nummernserien und Perioden werden als Standardbaseline entschieden; reale Steuerkennzeichen bleiben explizit zu bestaetigen.",
+      "summary": "Finance-Baseline festlegen",
       "description": "Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen, Nummernserien und Perioden werden als Standardbaseline entschieden; reale Steuerkennzeichen bleiben explizit zu bestaetigen.",
       "deliverable": "Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation",
       "phase": "P1",
@@ -3699,7 +3727,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-34 ist created; „Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen, Nummernserien und Perioden werden als Standardbaseline entschieden; reale Steuerkennzeichen bleiben explizit zu bestaetigen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-34 ist created; „Finance-Baseline festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -3716,7 +3744,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Finance-Baseline festlegen"
     },
     {
       "id": "UABC-35",
@@ -3771,12 +3800,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-35 – Bestellung, Wareneingang, Eingangsrechnung, Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker Einkaufsstandard entschieden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-35 – P2P-Standard festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/71-bc-basic-discovery.md"
         }
       ],
       "worklogs": [],
-      "summary": "Bestellung, Wareneingang, Eingangsrechnung, Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker Einkaufsstandard entschieden.",
+      "summary": "P2P-Standard festlegen",
       "description": "Bestellung, Wareneingang, Eingangsrechnung, Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker Einkaufsstandard entschieden.",
       "deliverable": "Einkaufsstandard und Ausnahmen sind entschieden",
       "phase": "P1",
@@ -3796,7 +3825,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-35 ist created; „Bestellung, Wareneingang, Eingangsrechnung, Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker Einkaufsstandard entschieden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-35 ist created; „P2P-Standard festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -3813,7 +3842,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "P2P-Standard festlegen"
     },
     {
       "id": "UABC-36",
@@ -3868,12 +3898,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-36 – Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung, Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard entschieden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-36 – O2C-Standard festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/71-bc-basic-discovery.md"
         }
       ],
       "worklogs": [],
-      "summary": "Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung, Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard entschieden.",
+      "summary": "O2C-Standard festlegen",
       "description": "Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung, Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard entschieden.",
       "deliverable": "Verkaufsstandard und Ausnahmen sind entschieden",
       "phase": "P1",
@@ -3893,7 +3923,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-36 ist created; „Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung, Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard entschieden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-36 ist created; „O2C-Standard festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -3910,7 +3940,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "O2C-Standard festlegen"
     },
     {
       "id": "UABC-37",
@@ -3965,12 +3996,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-37 – Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des Soll-Negativbestands werden als Lagerstandard entschieden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-37 – Lagerstandard festlegen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/71-bc-basic-discovery.md"
         }
       ],
       "worklogs": [],
-      "summary": "Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des Soll-Negativbestands werden als Lagerstandard entschieden.",
+      "summary": "Lagerstandard festlegen",
       "description": "Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des Soll-Negativbestands werden als Lagerstandard entschieden.",
       "deliverable": "Lagerstandard und Ausnahmen sind entschieden",
       "phase": "P1",
@@ -3990,7 +4021,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-37 ist created; „Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des Soll-Negativbestands werden als Lagerstandard entschieden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-37 ist created; „Lagerstandard festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -4007,7 +4038,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Lagerstandard festlegen"
     },
     {
       "id": "UABC-38",
@@ -4060,12 +4092,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-38 – Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-, Salden- und Bestandskontrollen freigegeben.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-38 – Datenwellen prüfen und freigeben: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/data-package.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-, Salden- und Bestandskontrollen freigegeben.",
+      "summary": "Datenwellen prüfen und freigeben",
       "description": "Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-, Salden- und Bestandskontrollen freigegeben.",
       "deliverable": "Geprueftes synthetisches Datenpaket mit Kontrollsummen",
       "phase": "P1",
@@ -4085,7 +4117,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-38 ist created; „Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-, Salden- und Bestandskontrollen freigegeben.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-38 ist created; „Datenwellen prüfen und freigeben“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -4102,7 +4134,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Datenwellen prüfen und freigeben"
     },
     {
       "id": "UABC-39",
@@ -4224,7 +4257,7 @@
           "netAmount": 30
         }
       ],
-      "summary": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.",
+      "summary": "Pilotgesellschaft und Resetpunkt prüfen",
       "description": "W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter; die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.",
       "deliverable": "Wave-0-Readback und begründete Pilot-Zielentscheidung",
       "phase": "P2",
@@ -4263,7 +4296,7 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0.5,
-      "title": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden."
+      "title": "Pilotgesellschaft und Resetpunkt prüfen"
     },
     {
       "id": "UABC-40",
@@ -4347,7 +4380,7 @@
           "activity": "CORE-FINANCE-Payload, Manifest, Finanzreferenzen, Runbook, Validatoren und Projektionen vorbereitet; keine BC-Aktion."
         }
       ],
-      "summary": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.",
+      "summary": "CORE-FINANCE ausführen und nachprüfen",
       "description": "Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51 Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach bestandenem Wave 0, Zielstrategie, Resetpunkt und separater Schreibfreigabe; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.",
       "deliverable": "CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme",
       "phase": "P2",
@@ -4367,7 +4400,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-40 ist in-progress; „CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-40 ist in-progress; „CORE-FINANCE ausführen und nachprüfen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -4385,7 +4418,7 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 2,
-      "title": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen."
+      "title": "CORE-FINANCE ausführen und nachprüfen"
     },
     {
       "id": "UABC-41",
@@ -4438,12 +4471,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-41 – Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden geladen, ein Referenzfehler korrigiert und Mengen sowie Salden differenzfrei erneut abgestimmt.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-41 – Migrationsdaten laden und abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/data-package.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden geladen, ein Referenzfehler korrigiert und Mengen sowie Salden differenzfrei erneut abgestimmt.",
+      "summary": "Migrationsdaten laden und abstimmen",
       "description": "Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden geladen, ein Referenzfehler korrigiert und Mengen sowie Salden differenzfrei erneut abgestimmt.",
       "deliverable": "Abgestimmte synthetische Migration mit Fehlerkorrektur",
       "phase": "P2",
@@ -4463,7 +4496,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-41 ist created; „Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden geladen, ein Referenzfehler korrigiert und Mengen sowie Salden differenzfrei erneut abgestimmt.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-41 ist created; „Migrationsdaten laden und abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4480,7 +4513,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Migrationsdaten laden und abstimmen"
     },
     {
       "id": "UABC-42",
@@ -4535,12 +4569,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-42 – Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest durchgespielt.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-42 – P2P-Kette durchführen und retesten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/31-processes.md"
         }
       ],
       "worklogs": [],
-      "summary": "Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest durchgespielt.",
+      "summary": "P2P-Kette durchführen und retesten",
       "description": "Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest für den Lauf geplant.",
       "deliverable": "Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette",
       "phase": "P2",
@@ -4560,7 +4594,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-42 ist created; „Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest durchgespielt.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-42 ist created; „P2P-Kette durchführen und retesten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4577,7 +4611,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "P2P-Kette durchführen und retesten"
     },
     {
       "id": "UABC-43",
@@ -4632,12 +4667,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-43 – Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung, Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest durchgespielt.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-43 – O2C-Kette durchführen und retesten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/31-processes.md"
         }
       ],
       "worklogs": [],
-      "summary": "Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung, Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest durchgespielt.",
+      "summary": "O2C-Kette durchführen und retesten",
       "description": "Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung, Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest für den Lauf geplant.",
       "deliverable": "Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette",
       "phase": "P2",
@@ -4657,7 +4692,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-43 ist created; „Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung, Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest durchgespielt.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-43 ist created; „O2C-Kette durchführen und retesten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4674,7 +4709,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "O2C-Kette durchführen und retesten"
     },
     {
       "id": "UABC-44",
@@ -4729,12 +4765,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-44 – Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-44 – Inventur und Lagerbewertung abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/31-processes.md"
         }
       ],
       "worklogs": [],
-      "summary": "Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.",
+      "summary": "Inventur und Lagerbewertung abstimmen",
       "description": "Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.",
       "deliverable": "Abgestimmte Lagerbewegungen, Inventur und Bewertung",
       "phase": "P2",
@@ -4754,7 +4790,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-44 ist created; „Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-44 ist created; „Inventur und Lagerbewertung abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4771,7 +4807,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Inventur und Lagerbewertung abstimmen"
     },
     {
       "id": "UABC-45",
@@ -4824,12 +4861,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-45 – Finance, Handel und Lager absolvierten historisch Rollenpfade mit positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger Eskalation.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-45 – Rollenkompetenz praktisch nachweisen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/training-plan.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Finance, Handel und Lager absolvierten historisch Rollenpfade mit positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger Eskalation.",
+      "summary": "Rollenkompetenz praktisch nachweisen",
       "description": "Finance, Handel und Lager absolvierten historisch Rollenpfade mit positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger Eskalation.",
       "deliverable": "Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager",
       "phase": "P2",
@@ -4849,7 +4886,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-45 ist created; „Finance, Handel und Lager absolvierten historisch Rollenpfade mit positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger Eskalation.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-45 ist created; „Rollenkompetenz praktisch nachweisen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4866,7 +4903,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Rollenkompetenz praktisch nachweisen"
     },
     {
       "id": "UABC-46",
@@ -4922,12 +4960,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-46 – UAT, Retests und Mock-Cutover mit aktueller Evidence vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-46 – UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/uat-catalog.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "UAT, Retests und Mock-Cutover mit aktueller Evidence vorbereiten.",
+      "summary": "UAT und Mock-Cutover vorbereiten",
       "description": "UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant; aktuell sind sie nicht ausgeführt.",
       "deliverable": "Geplante UAT-, Retest- und Mock-Cutover-Abnahme",
       "phase": "P2",
@@ -4947,7 +4985,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-46 ist created; „UAT, Retests und Mock-Cutover mit aktueller Evidence vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-46 ist created; „UAT und Mock-Cutover vorbereiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -4964,7 +5002,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "UAT und Mock-Cutover vorbereiten"
     },
     {
       "id": "UABC-47",
@@ -5019,12 +5058,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-47 – Geplantes Hypercare-Szenario für eine mögliche nicht zugeordnete Zahlung vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-47 – Hypercare-Fehlerszenario ausarbeiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/bc-basic-hypercare.md"
         }
       ],
       "worklogs": [],
-      "summary": "Geplantes Hypercare-Szenario für eine mögliche nicht zugeordnete Zahlung vorbereiten.",
+      "summary": "Hypercare-Fehlerszenario ausarbeiten",
       "description": "Ein geplantes Hypercare-Szenario beschreibt die spätere Prüfung einer nicht automatisch zugeordneten Zahlung. Ein Defect entsteht erst nach Beobachtung im ausgeführten Lauf; aktuell werden Reproduktionsschritte und Abnahmekriterien vorbereitet.",
       "deliverable": "Geplantes Hypercare-Fehlerszenario mit Retest-Regel",
       "phase": "P3",
@@ -5044,7 +5083,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-47 ist created; „Geplantes Hypercare-Szenario für eine mögliche nicht zugeordnete Zahlung vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-47 ist created; „Hypercare-Fehlerszenario ausarbeiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -5061,7 +5100,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Hypercare-Fehlerszenario ausarbeiten"
     },
     {
       "id": "UABC-48",
@@ -5114,12 +5154,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-48 – Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden kontrolliert.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-48 – Monatsabschluss abstimmen: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "atlassian/confluence/pages/bc-basic-hypercare.md"
         }
       ],
       "worklogs": [],
-      "summary": "Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden kontrolliert.",
+      "summary": "Monatsabschluss abstimmen",
       "description": "Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden kontrolliert.",
       "deliverable": "Abgestimmter synthetischer Monatsabschluss",
       "phase": "P3",
@@ -5139,7 +5179,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-48 ist created; „Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden kontrolliert.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-48 ist created; „Monatsabschluss abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -5156,7 +5196,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Monatsabschluss abstimmen"
     },
     {
       "id": "UABC-49",
@@ -5211,12 +5252,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-49 – Geplante VAT- und UStVA-Abstimmung ohne externe Übermittlung vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-49 – UStVA-Vorschau vorbereiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/decision-register.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Geplante VAT- und UStVA-Abstimmung ohne externe Übermittlung vorbereiten.",
+      "summary": "UStVA-Vorschau vorbereiten",
       "description": "VAT-Entries, Bemessungsgrundlagen, Vorsteuer und Umsatzsteuer werden als Soll für die geplante UStVA-Vorschau vorbereitet. Eine externe ELSTER-Übermittlung bleibt verboten; Ausführung und Readback stehen noch aus.",
       "deliverable": "Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung",
       "phase": "P3",
@@ -5236,7 +5277,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-49 ist created; „Geplante VAT- und UStVA-Abstimmung ohne externe Übermittlung vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-49 ist created; „UStVA-Vorschau vorbereiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-006"
       ],
@@ -5253,7 +5294,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "UStVA-Vorschau vorbereiten"
     },
     {
       "id": "UABC-50",
@@ -5310,12 +5352,12 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-50 – Retro, Restpunkte und Supportübergabe für den aktuellen Piloten vorbereiten.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-50 – Retro und Supportübergabe vorbereiten: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "docs/handover/bc-basic-handover.md"
         }
       ],
       "worklogs": [],
-      "summary": "Retro, Restpunkte und Supportübergabe für den aktuellen Piloten vorbereiten.",
+      "summary": "Retro und Supportübergabe vorbereiten",
       "description": "Retro, Restpunkte und Supportübergabe werden für den aktuellen Piloten vorbereitet. Die spätere Übergabe benötigt echte Cutover-, Hypercare- und belegte Simulationsabnahme-Evidence und ist noch nicht abgeschlossen.",
       "deliverable": "Plan für Abschluss, Supportstart und Handover-Paket",
       "phase": "P3",
@@ -5335,7 +5377,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-50 ist created; „Retro, Restpunkte und Supportübergabe für den aktuellen Piloten vorbereiten.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-50 ist created; „Retro und Supportübergabe vorbereiten“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-010"
       ],
@@ -5352,7 +5394,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "Retro und Supportübergabe vorbereiten"
     }
   ],
   "timeline": [
@@ -10971,13 +11014,7 @@
     "taskCount": 19,
     "billableTicketCount": 19,
     "confluencePageCount": 28,
-    "confluenceRootCount": 22,
-    "confluenceRootDistribution": {
-      "customer": 6,
-      "product": 8,
-      "consultant": 8
-    },
-    "confluenceMigrationCount": 19
+    "confluenceRootCount": 22
   },
   "catalogs": {
     "sessions": [],

@@ -118,3 +118,22 @@ Die Kundeninstanz MUST einen deterministischen CORE-FINANCE-Payload und ein prü
 - **WHEN** Payload oder Manifest eine Ledger-/Posted-Tabelle, Table 270 `Bank Account`, reale Bankkennung, Secret, ausgeführten Write, Apply, Kundenfreigabe oder umgangenes W0-Gate enthält
 - **THEN** MUST die Validierung fail-closed abbrechen
 - **AND** MUST `writesAuthorized=false`, `customerTargetRealized=false` und der reale Paketnullstand 0/0/0 unverändert bleiben.
+
+### Requirement: UABC-REQ-BCB-CRONUS-READY-SEQUENCE
+
+Die Kundeninstanz MUST im kanonischen Projektplan eine lückenlose Folge von
+der Standard-CRONUS-Bestandsaufnahme über Demodatenentscheidung,
+Grundeinrichtung, Konfigurationspakete, Stammdaten, Prozesse, Tests/UAT,
+Schulung und Cutover bis Hypercare und Ready-to-Prod-Gate führen. Jede Stufe
+MUST auf bestehende UABC-Tickets, ihren direkten Vorgänger, Entry-/Exitkriterien,
+Evidenceziele und Stop-/Rollbackregeln verweisen. Solange W0-01, Zielstrategie,
+Resetpunkt und separate Schreibfreigabe fehlen, MUST `readyToProdClaimed`,
+`writeAuthorized`, `completed`, `pilotConfigured` und `writesApplied` false
+bleiben.
+
+#### Scenario: Eine Planstufe umgeht das CRONUS- oder Write-Gate
+
+- **WHEN** eine Stufe erledigt ist, eine unbekannte Ticketreferenz besitzt,
+  ihren direkten Vorgänger überspringt oder ohne separate Freigabe einen
+  Write beziehungsweise Ready-to-Prod behauptet
+- **THEN** MUST der Validator fail-closed ablehnen.

@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 70d3d6e31a5deffe7279c7d83ec8ae4ea0214cab5e72d3071d59b60f29fb1beb
+  projectionDigest: 265527b36946840568ebcb99336b800af585c592b97ea5f8ce41afd11179bae8
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
