@@ -1,0 +1,19 @@
+schema: universaarl-delivery
+created: 2026-07-13
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-SETUP-WAVE1-001
+  authorizedBy: P-PILOT-LEAD-001
+  authorizedAt: 2026-07-13
+  scope: Kontrollierter Setup-Wave-1-Vertrag ohne Live-BC-Write, Buchung oder Uebermittlung
+  conditions: [CORE-Allowlist exakt, Quellen aufgeloest, Preflight und Readback vollstaendig, kein Live-Claim]
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    coreFinance: { status: prepared-for-controlled-live-run, packageId: UABC-01-CORE-FINANCE }
+    tradeMaster: { status: prepared-not-executed, packageId: UABC-02-TRADE-MASTER }
+    openingData: { status: designed-not-executed, packageId: UABC-03-OPENING-DATA }
+  unknowns: [authentisierte Kontrollzentrum-Runtime, tatsaechliche Tabellen- und Feldaufloesung, menschliche Live-Freigabe, Live-Rueckgabe-Evidence]
+  policyGateEvidenceId: UABC-VER-BCB-SETUP-WAVE1-001

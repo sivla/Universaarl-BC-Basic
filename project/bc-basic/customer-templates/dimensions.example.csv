@@ -1,0 +1,6 @@
+TableId,TableName,Dimension Code,Code,Name,Dimension Value Type,Blocked
+348,Dimension,,KOSTENSTELLE,Kostenstelle,,false
+348,Dimension,,PROJEKT,Projekt,,false
+349,Dimension Value,KOSTENSTELLE,VERWALTUNG,Verwaltung,Standard,false
+349,Dimension Value,KOSTENSTELLE,VERTRIEB,Vertrieb,Standard,false
+349,Dimension Value,PROJEKT,BCBASIC,BC Basic Pilot,Standard,false

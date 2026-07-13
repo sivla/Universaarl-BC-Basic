@@ -1,0 +1,9 @@
+TableId,TableName,No.,Name,Account Type,Income/Balance,Direct Posting
+15,G/L Account,12000,Synthetische Bankverrechnung,Posting,Balance Sheet,false
+15,G/L Account,14000,Forderungen aus Lieferungen und Leistungen,Posting,Balance Sheet,false
+15,G/L Account,16000,Vorratsbestand,Posting,Balance Sheet,false
+15,G/L Account,33000,Verbindlichkeiten aus Lieferungen und Leistungen,Posting,Balance Sheet,false
+15,G/L Account,44000,Umsatzerloese,Posting,Income Statement,false
+15,G/L Account,50000,Wareneinsatz,Posting,Income Statement,false
+15,G/L Account,38000,Umsatzsteuer,Posting,Balance Sheet,false
+15,G/L Account,15760,Vorsteuer,Posting,Balance Sheet,false

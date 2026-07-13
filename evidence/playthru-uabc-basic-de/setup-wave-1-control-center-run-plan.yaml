@@ -1,0 +1,119 @@
+schemaVersion: 1
+runPlanId: UABC-RUN-SETUP-WAVE1-001
+projectId: UABC-BC-PILOT-001
+status: ready-for-control-center-not-executed
+classification: autorisierter-sandbox-run-plan
+createdAt: 2026-07-13
+matrixPath: project/bc-basic/setup-wave-1-matrix.yaml
+parameterBaselinePath: project/bc-basic/setup-parameter-baseline.yaml
+observedReadOnlyPreflightEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+execution:
+  performed: false
+  performedAt: null
+  actorRef: null
+  observedResult: null
+  reason: Im Projektbrowser ist keine authentisierte Runtime vorhanden; das Kontrollzentrum kann diesen Plan in seiner getrennten angemeldeten Playthru-Sitzung ausfuehren und Evidence zurueckgeben.
+authorization:
+  status: lesevorpruefung-freigegeben-schreibschritte-gesperrt
+  writesAuthorized: false
+  goReadOnlySteps: [PRE-01, PRE-02, PRE-03, PRE-04, PRE-05, PRE-06, PRE-07, PRE-08, PRE-09, PRE-10, PRE-11, PRE-12, RUN-01, RUN-02, RUN-03, RUN-04, RUN-05]
+  noGoWriteSteps: [RUN-06, RUN-07, RUN-08, RUN-09, RUN-10, RUN-11, RUN-12, RUN-13, RUN-14, RUN-15, RUN-16, RUN-17, RUN-18, RUN-19, RUN-20, RUN-21, RUN-22]
+  rule: PRE-01 bis PRE-12 und RUN-01 bis RUN-05 sind ausschliesslich lesend freigegeben; RUN-06 bis RUN-22 bleiben bis zu einer ausdruecklichen separaten Freigabe gesperrt.
+target:
+  hostClass: Business Central SaaS
+  environment: Playthru
+  companyId: UABC-BASIC-DE
+  legalCompanyName: Universaarl GmbH
+  legacyCompanyId: UNIVERSAARL-DE
+  futureVisibleCompanyNames: { UABC-BASIC-DE: Universaarl GmbH (BC Basic Pilot), UNIVERSAARL-DE: Universaarl GmbH (Legacy) }
+  visibleNameChange: reine Anforderung; kein freigegebener Live-Write
+  countryVersion: DE
+  version: "28.2"
+  platform: 28.0.52286.0
+  application: 28.2.50931.52241
+  alRuntime: "17.0"
+humanResponsibility:
+  personRef: P-PILOT-LEAD-001
+  displayName: Kajetan Kalicki
+  roles: [Projektleitung, Lead Business Central Consultant, Solution Architect]
+automationResponsibility:
+  actorRef: ACTOR-CODEX-BROWSER-001
+  actorType: browser-automation
+  role: autorisierte Bedienhandlung nach menschlich freigegebenem Run-Plan
+preflight:
+  - { id: PRE-01, check: sichtbarer Host ist Business Central SaaS, expected: true, stopOnMismatch: true }
+  - { id: PRE-02, check: Environmentanzeige, expected: Playthru, stopOnMismatch: true }
+  - { id: PRE-03, check: technischer Mandant, expected: UABC-BASIC-DE, stopOnMismatch: true }
+  - { id: PRE-04, check: rechtlicher Firmenname auf Firmendaten, expected: Universaarl GmbH, stopOnMismatch: true }
+  - { id: PRE-05, check: Legacy-Mandant bleibt unberuehrt, expected: UNIVERSAARL-DE nicht ausgewaehlt, stopOnMismatch: true }
+  - { id: PRE-06, check: Anwendungsversion, expected: 28.2.50931.52241, stopOnMismatch: true }
+  - { id: PRE-07, check: Lokalisierung und Sprache, expected: DE und de-DE, stopOnMismatch: true }
+  - { id: PRE-08, check: Benutzerrolle und direkte Tabellenrechte, expected: Read Insert Modify fuer jede aufzunehmende Pakettabelle, stopOnMismatch: true }
+  - { id: PRE-09, check: Arbeitsdatum, expected: sichtbar protokolliert und im Pilotzeitraum, stopOnMismatch: true }
+  - { id: PRE-10, check: Resetpunkt, expected: noch nicht vorhanden; vor jeder Schreibfreigabe zwingend Mandantenkopie von UABC-BASIC-DE mit Name Erstellzeit und Wiederanlaufweg dokumentieren, stopOnMismatch: true }
+  - { id: PRE-11, check: Paketnullstand, expected: alle drei Pakete 0 Tabellen 0 Datensaetze 0 Fehler, stopOnMismatch: true }
+  - { id: PRE-12, check: Matrixvalidator, expected: npm run validate:setup-wave1 bestanden, stopOnMismatch: true }
+allowedWrites:
+  packageId: UABC-01-CORE-FINANCE
+  packageName: Kern und Finanzwesen
+  tableAllowlist: [{ tableId: 348, tableName: Dimension }, { tableId: 349, tableName: Dimension Value }, { tableId: 15, tableName: G/L Account }, { tableId: 250, tableName: Gen. Business Posting Group }, { tableId: 251, tableName: Gen. Product Posting Group }, { tableId: 323, tableName: VAT Business Posting Group }, { tableId: 324, tableName: VAT Product Posting Group }, { tableId: 252, tableName: General Posting Setup }, { tableId: 325, tableName: VAT Posting Setup }, { tableId: 92, tableName: Customer Posting Group }, { tableId: 93, tableName: Vendor Posting Group }, { tableId: 94, tableName: Inventory Posting Group }, { tableId: 308, tableName: No. Series }, { tableId: 309, tableName: No. Series Line }, { tableId: 3, tableName: Payment Terms }, { tableId: 289, tableName: Payment Method }, { tableId: 14, tableName: Location }]
+  singletonAllowlist: [{ tableId: 98, tableName: General Ledger Setup }, { tableId: 311, tableName: Sales & Receivables Setup }, { tableId: 312, tableName: Purchases & Payables Setup }, { tableId: 313, tableName: Inventory Setup }]
+  correctionScope: nur Tabellen und Felder aus dieser CORE-Allowlist; TRADE-MASTER und OPENING-DATA sind ausgeschlossen
+steps:
+  - { id: RUN-01, page: Mandanten, action: Zielbindung read-only pruefen, fields: [Environment, Name, Display Name, Evaluation Company], expected: UABC-BASIC-DE ist ausgewaehlt und UNIVERSAARL-DE bleibt Legacy, write: false, performed: false, observedResult: null }
+  - { id: RUN-02, page: Hilfe und Support, action: Versionsinformationen lesen, fields: [Country Version, Platform, Application, AL Runtime], expected: DE 28.2 / 28.0.52286.0 / 28.2.50931.52241 / 17.0, write: false, performed: false, observedResult: null }
+  - { id: RUN-03, page: Firmendaten, action: Country-/Company-Baseline read-only pruefen, fields: [Name, Address, Post Code, City, Country/Region Code, Contact, E-Mail, Home Page, Allow Empty Payment Information], expected: bestehende Country-/Company-Evidence unveraendert, write: false, performed: false, observedResult: null }
+  - { id: RUN-04, page: Konfigurationspakete, action: Paketnullstand lesen, fields: [Code, No. of Tables, No. of Package Records, No. of Package Errors], expected: alle drei Pakete 0/0/0, write: false, performed: false, observedResult: null }
+  - { id: RUN-05, page: Konfigurationspaketkarte, action: UABC-01-CORE-FINANCE oeffnen, fields: [Code, Package Name, Language ID, Product Version], expected: Code und Name stimmen; keine fremde Paketdefinition, write: false, performed: false, observedResult: null }
+  - { id: RUN-06, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: CORE-Allowlist einzeln als Tabellen aufnehmen, fields: [Table ID, Table Name], expected: jede ID loest auf exakt den CORE-Allowlistnamen auf, write: true, readbackStepIds: [RUN-08], performed: false, observedResult: null }
+  - { id: RUN-07, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketfelder, action: CORE-Feldumfang je Tabelle setzen, fields: [Field ID, Field Name, Include Field, Validate Field, Processing Order], expected: nur Pflicht- und Optionsfelder der CORE-Allowlist enthalten; Feldvalidierung aktiv; ausgeschlossene Felder fehlen, write: true, readbackStepIds: [RUN-08], performed: false, observedResult: null }
+  - { id: RUN-08, page: Konfigurationspaketkarte, action: Paket pruefen, fields: [No. of Tables, No. of Package Records, No. of Package Errors], expected: Tabellenzahl entspricht aufgenommenen include=true-Zeilen und Fehlerzahl 0, write: false, performed: false, observedResult: null }
+  - { id: RUN-09, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: freigegebene CORE-Setupzeilen erfassen oder kontrollierte Excelvorlage importieren, fields: [Package Records], expected: ausschliesslich synthetische Codes aus CORE-Matrixquellen; keine Ledger-/Posted-/Continia-Daten, write: true, readbackStepIds: [RUN-10], performed: false, observedResult: null }
+  - { id: RUN-10, page: Konfigurationspaketkarte, action: Paket erneut pruefen und Posting Preview als nicht anwendbar dokumentieren, fields: [No. of Package Records, No. of Package Errors], expected: Fehler 0 und keine Buchungsvorschau weil reine Setupdaten, write: false, performed: false, observedResult: null }
+  - { id: RUN-11, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: freigegebene CORE-Setupzeilen anwenden, fields: [Apply Package], expected: nur CORE-FINANCE-Setupcodes; keine Sach-, Debitoren-, Kreditoren-, MwSt.-, Bank-, Artikel- oder Wertposten, write: true, readbackStepIds: [RUN-12, RUN-13, RUN-14, RUN-15, RUN-20, RUN-21], performed: false, observedResult: null }
+  - { id: RUN-12, page: Dimensionen, action: Readback, fields: [Code, Name, Blocked], expected: freigegebene Dimensionen und Werte vorhanden, write: false, performed: false, observedResult: null }
+  - { id: RUN-13, page: Kontenplan und Buchungseinrichtung, action: Readback, fields: [G/L Account, General Posting Setup, VAT Posting Setup, Posting Groups], expected: jede Matrixreferenz loest auf; keine Posten erzeugt, write: false, performed: false, observedResult: null }
+  - { id: RUN-14, page: Nummernserien, action: Readback, fields: [Code, Default Nos., Manual Nos., Starting Date, Starting No.], expected: freigegebene Serien und Linien kollisionsfrei, write: false, performed: false, observedResult: null }
+  - { id: RUN-15, page: Zahlungsbedingungen und Zahlungsarten, action: Readback, fields: [Code, Due Date Calculation, Description], expected: freigegebene Codes ohne externen Zahlungsweg, write: false, performed: false, observedResult: null }
+  - { id: RUN-16, packageId: UABC-01-CORE-FINANCE, tableId: 98, page: General Ledger Setup, action: manuelle Singletonwerte setzen und Readback, fields: [Allow Posting From, Allow Posting To, Local Currency Symbol, Local Currency Description, Global Dimension 1 Code, Global Dimension 2 Code], expectedValues: { Allow Posting From: "2026-01-01", Allow Posting To: "2026-12-31", Local Currency Symbol: "EUR", Local Currency Description: Euro, Global Dimension 1 Code: KOSTENSTELLE, Global Dimension 2 Code: PROJEKT }, write: true, readbackStepIds: [RUN-16], performed: false, observedResult: null }
+  - { id: RUN-17, packageId: UABC-01-CORE-FINANCE, tableId: 311, page: Sales & Receivables Setup, action: Nummernserien referenzieren und Readback, fields: [Customer Nos., Order Nos., Posted Invoice Nos., Credit Memo Nos.], expectedValues: { Customer Nos.: CUST, Order Nos.: S-ORD, Posted Invoice Nos.: S-INV, Credit Memo Nos.: S-CR }, write: true, readbackStepIds: [RUN-17], performed: false, observedResult: null }
+  - { id: RUN-18, packageId: UABC-01-CORE-FINANCE, tableId: 312, page: Purchases & Payables Setup, action: Nummernserien referenzieren und Readback, fields: [Vendor Nos., Order Nos., Posted Invoice Nos., Credit Memo Nos.], expectedValues: { Vendor Nos.: VEND, Order Nos.: P-ORD, Posted Invoice Nos.: P-INV, Credit Memo Nos.: P-CR }, write: true, readbackStepIds: [RUN-18], performed: false, observedResult: null }
+  - { id: RUN-19, packageId: UABC-01-CORE-FINANCE, tableId: 313, page: Inventory Setup, action: Artikelnummern und Kostenoptionen setzen und Readback, fields: [Item Nos., Automatic Cost Posting, Expected Cost Posting to G/L, Location Mandatory], expectedValues: { Item Nos.: ITEM, Automatic Cost Posting: false, Expected Cost Posting to G/L: false, Location Mandatory: false }, write: true, readbackStepIds: [RUN-19], performed: false, observedResult: null }
+  - { id: RUN-20, page: Konfigurationspakete, action: Endkontrolle, fields: [UABC-01 counts, UABC-02 counts, UABC-03 counts], expected: CORE beobachtete Werte dokumentiert; TRADE und OPENING bleiben 0/0/0, write: false, performed: false, observedResult: null }
+  - { id: RUN-21, page: Sachposten Debitorenposten Kreditorenposten MwSt.-Posten Bankkontoposten Artikelposten Wertposten, action: Negativ-Readback, fields: [Entry No.], expected: keine durch diesen Lauf erzeugten Entries, write: false, performed: false, observedResult: null }
+  - { id: RUN-22, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: CORE-Allowlistkorrektur und Retest nur falls erforderlich, fields: [Table ID, Field Name, Package Error], expected: Ursache dokumentiert; nur CORE-Allowlistfelder korrigiert; Retest fehlerfrei, write: true, correctionScope: core-allowlist-only, readbackStepIds: [RUN-08, RUN-10, RUN-20, RUN-21], performed: false, observedResult: null }
+stopConditions:
+  - Ziel ist nicht exakt Playthru/UABC-BASIC-DE.
+  - Anwendung oder DE-Lokalisierung weicht vom Vertrag ab.
+  - Resetpunkt oder Wiederanlaufweg fehlt.
+  - Ein Paket besitzt vor dem Lauf nicht 0/0/0.
+  - Tabellen-ID loest auf einen anderen Namen auf oder ist nicht vorhanden.
+  - Direkte Tabellenberechtigung fehlt.
+  - Ledger-, Posted-, Register- oder Continia-Tabelle erscheint.
+  - Nicht freigegebenes Feld oder Extensionfeld wird automatisch aufgenommen.
+  - Das Anwenden wuerde UABC-02-TRADE-MASTER oder UABC-03-OPENING-DATA betreffen.
+  - Unerwarteter Dialog, Fehler oder nicht erklaerbare Datenwirkung erscheint.
+  - Eine Buchung, externe Uebermittlung oder produktive Integration wird angeboten.
+stopCodes:
+  - { code: UABC-STOP-01, condition: Zielbindung nicht exakt Playthru/UABC-BASIC-DE }
+  - { code: UABC-STOP-02, condition: CORE-Paket-ID, Name, Tabellen-ID oder Tabellenname weicht von der Allowlist ab }
+  - { code: UABC-STOP-03, condition: UABC-02-TRADE-MASTER oder UABC-03-OPENING-DATA erzeugt einen Schreibschritt }
+  - { code: UABC-STOP-04, condition: Abhaengigkeit oder Reihenfolge ist nicht aufgeloest }
+  - { code: UABC-STOP-05, condition: Quellenvertrag oder Parameterbaseline nicht aufloesbar }
+  - { code: UABC-STOP-06, condition: Feld ist nicht disjunkt oder nicht positivgelistet }
+  - { code: UABC-STOP-07, condition: Ledger Posted Continia Buchung oder Uebermittlung erscheint }
+  - { code: UABC-STOP-08, condition: Write ohne zugeordnetes Readback erscheint }
+rollback:
+  beforeApply: Neu aufgenommene Paketzeilen entfernen oder auf den dokumentierten Paketdefinitionsstand zuruecksetzen.
+  afterPartialApply: Sofort stoppen, erzeugte synthetische Setupcodes per Seite inventarisieren und nur diese gezielt ruecknehmen; bei unklarer Wirkung die eindeutig markierte Pilotgesellschaft auf den dokumentierten Resetpunkt zuruecksetzen.
+  forbidden: [UNIVERSAARL-DE veraendern, unbekannte Datensaetze loeschen, blind erneut anwenden]
+requiredReturnedEvidence:
+  - Run-ID, Zeit Europe/Berlin, menschliche Verantwortungsrolle und Automationsakteur
+  - sichtbare Ziel-, Versions-, Rollen-, Arbeitsdatum- und Resetpunktpruefung
+  - vorher/nachher Paketzaehler je Paket
+  - je aufgenommener Tabelle ID, aufgeloester Name und Feldliste
+  - Paketpruefung und Fehlerliste
+  - wenige bereinigte Screenshots von Zielbindung, Paketmatrix, Pruefergebnis und Readback
+  - Readback je Setupbereich und Negativnachweis ohne Ledger-/Postingwirkung
+  - Defect, Korrektur und Retest oder explizit kein Defect beobachtet
+  - keine Auth-, Session-, Telemetry- oder Browserprofildaten

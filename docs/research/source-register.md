@@ -91,6 +91,21 @@ Diese Quellen stuetzen die Consultant-Methode und das erwartete BC-Standardverha
 | SRC-BC-087 | [Set up Business Central](https://learn.microsoft.com/en-us/dynamics365/business-central/setup) | Einrichtung kombiniert Assistenten, manuelle Seiten und kontrollierte Setupfolgen. | Paketgerueste ersetzen weder Country-Seed noch fachliche Setupentscheidung oder UI-Pruefung. |
 | SRC-BC-088 | [Standard company configuration packages](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) | Konfigurationspakete koennen wiederholbare Setup- und Stammdaten vorbereiten. | Tabellen werden erst nach Abhaengigkeitsreview aufgenommen; gebuchte Ledger-Tabellen bleiben ausgeschlossen, offene Daten folgen spaeter ueber Journals/Buchungen. |
 
+## Setup Wave 1 Quellenvertrag 2026-07-13
+
+Alle Eintraege dieser Tabelle sind `methodenquelle-kein-live-nachweis`: Sie begruenden den kontrollierten Plan, beweisen aber keinen Tenantzustand, keine Berechtigung und keine Ausfuehrung.
+
+| ID | Offizielle Microsoft-Learn-Quelle | Einsatzgrenze |
+| --- | --- | --- |
+| UABC-SRC-BCB-CONFIG-PACKAGES-001 | [Set up standard company configuration packages](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) | CORE-Paket-Allowlist und Paketpruefung; keine Paketanwendung belegt. |
+| UABC-SRC-BCB-COMPANY-INFO-001 | [Company information overview](https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information) | Rechtlicher Firmenname und spaetere sichtbare Namen; keine Umbenennung freigegeben. |
+| UABC-SRC-BCB-SETUP-OVERVIEW-001 | [Set up Business Central](https://learn.microsoft.com/en-us/dynamics365/business-central/setup) | Preflight, Reihenfolge, Readback und Rollback. |
+| UABC-SRC-BCB-NUMBER-SERIES-001 | [Create number series](https://learn.microsoft.com/en-us/dynamics365/business-central/ui-create-number-series) | Nummernserien und Singletonreferenzen. |
+| UABC-SRC-BCB-FINANCE-SETUP-001 | [Posting group setup](https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups) | Buchungsgruppen ohne Buchungswirkung. |
+| UABC-SRC-BCB-DIMENSIONS-001 | [Work with dimensions](https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions) | Dimensionen und globale Dimensionsreferenzen. |
+| UABC-SRC-BCB-INVENTORY-SETUP-001 | [Set up inventory](https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-setup-inventory) | Inventory-Setup ohne Lagerbewegung. |
+| UABC-SRC-BCB-TRADE-SETUP-001 | [Register new customers](https://learn.microsoft.com/en-us/dynamics365/business-central/sales-how-register-new-customers) | Abgetrennte TRADE-MASTER-Planung; kein Wave-1-Write. |
+
 ## BC-Basic-Konfigurationsbaseline 2026-07-12
 
 Alle Seiten wurden am 2026-07-12 read-only mit HTTP 200 von Microsoft Learn abgerufen. Sie stützen erwartetes Standardverhalten, beweisen aber weder konkrete Tenantfelder noch installierte deutsche Funktionen oder Berechtigungen.

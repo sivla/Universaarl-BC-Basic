@@ -1,0 +1,25 @@
+schemaVersion: 1
+baselineId: UABC-SETUP-WAVE1-PARAMETERS-001
+projectId: UABC-BC-PILOT-001
+status: designed-not-executed
+target:
+  environment: Playthru
+  companyId: UABC-BASIC-DE
+  legalCompanyName: Universaarl GmbH
+truthBoundary:
+  liveWriteApproved: false
+  postingPerformed: false
+  externalTransmissionPerformed: false
+singletonValues:
+  - tableId: 98
+    tableName: General Ledger Setup
+    values: { Allow Posting From: "2026-01-01", Allow Posting To: "2026-12-31", Local Currency Symbol: "EUR", Local Currency Description: Euro, Global Dimension 1 Code: KOSTENSTELLE, Global Dimension 2 Code: PROJEKT }
+  - tableId: 311
+    tableName: Sales & Receivables Setup
+    values: { Customer Nos.: CUST, Order Nos.: S-ORD, Posted Invoice Nos.: S-INV, Credit Memo Nos.: S-CR }
+  - tableId: 312
+    tableName: Purchases & Payables Setup
+    values: { Vendor Nos.: VEND, Order Nos.: P-ORD, Posted Invoice Nos.: P-INV, Credit Memo Nos.: P-CR }
+  - tableId: 313
+    tableName: Inventory Setup
+    values: { Item Nos.: ITEM, Automatic Cost Posting: false, Expected Cost Posting to G/L: false, Location Mandatory: false }

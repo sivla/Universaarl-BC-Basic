@@ -1,0 +1,44 @@
+schemaVersion: 1
+evidenceId: UABC-VER-BCB-SETUP-WAVE1-PREFLIGHT-001
+status: beobachtet-nur-lesend
+observedAt: 2026-07-13
+scope: Kontrollzentrum-Vorpruefung ohne BC-Schreibaktion
+target:
+  hostClass: Business Central SaaS
+  environment: Playthru
+  companyId: UABC-BASIC-DE
+  legalCompanyName: Universaarl GmbH
+  countryVersion: DE Business Central 28.2
+  platform: 28.0.52286.0
+  application: 28.2.50931.52241
+  alRuntime: "17.0"
+  sandboxNoticeVisible: true
+operator:
+  userId: KAJETAN.KALICKI
+  active: true
+  securityGroupScope: global
+  permissionSet: SUPER
+workingDate: 2026-07-13
+locale: German (Germany)
+companyNames:
+  pilot: { companyId: UABC-BASIC-DE, observedDisplayName: Universaarl GmbH, plannedDisplayName: Universaarl GmbH (BC Basic Pilot), renameExecuted: false }
+  legacy: { companyId: UNIVERSAARL-DE, observedDisplayName: Universaarl GmbH (Legacy), plannedDisplayName: Universaarl GmbH (Legacy), changedInThisRun: false }
+companyInformationBaseline: beobachtet-nur-lesend
+packages:
+  - { packageId: UABC-01-CORE-FINANCE, tables: 0, records: 0, errors: 0 }
+  - { packageId: UABC-02-TRADE-MASTER, tables: 0, records: 0, errors: 0 }
+  - { packageId: UABC-03-OPENING-DATA, tables: 0, records: 0, errors: 0 }
+resetPoint:
+  status: missing-blocker
+  requiredBeforeAnyWrite: true
+  requiredDefinition: Eindeutiger Name, Mandantenkopie von UABC-BASIC-DE als Methode, Erstellzeit und Wiederanlaufweg
+  name: null
+  method: null
+  createdAt: null
+  restartPath: null
+truthBoundary:
+  writePerformed: false
+  companyRenamePerformed: false
+  packageApplyPerformed: false
+  postingPerformed: false
+  externalTransmissionPerformed: false
