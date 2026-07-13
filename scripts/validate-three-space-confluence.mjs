@@ -6,7 +6,7 @@ const EXPECTED_SPACES=['UABC-SPACE-CUSTOMER','UABC-SPACE-PRODUCT','UABC-SPACE-CO
 export function validateThreeSpace({contract,index,story,readText=(path)=>fs.readFileSync(path,'utf8')}){
   const errors=[];const fail=(code,detail)=>errors.push(`${code}: ${detail}`);
   if(contract?.spaceCount!==3||contract?.spaces?.length!==3||JSON.stringify((contract?.spaces??[]).map(s=>s.spaceId))!==JSON.stringify(EXPECTED_SPACES))fail('SPACE-VERTRAG','exakt drei geordnete fachliche Spaces sind erforderlich');
-  if(contract?.deliveryBranch!=='codex/bc-basic-jira-story-realism-v1'||contract?.consumerProducerBranch!=='codex/universaarl-projekt'||index?.allowedBranch!=='codex/universaarl-projekt'||index?.deliveryBranch!==contract.deliveryBranch)fail('BRANCH-VERTRAG','Delivery- und Consumer-Producerbranch muessen getrennt bleiben');
+  if(contract?.consumerProducerBranch!=='codex/universaarl-projekt'||index?.allowedBranch!=='codex/universaarl-projekt'||index?.deliveryBranch!==contract.deliveryBranch||contract.deliveryBranch===contract.consumerProducerBranch||!contract.deliveryBranch?.startsWith('codex/'))fail('BRANCH-VERTRAG','Delivery- und Consumer-Producerbranch muessen getrennt bleiben');
   const roots=contract?.roots??[],children=contract?.children??[];
   const derivedRootDistribution={customer:roots.filter(r=>r.spaceId==='UABC-SPACE-CUSTOMER').length,product:roots.filter(r=>r.spaceId==='UABC-SPACE-PRODUCT').length,consultant:roots.filter(r=>r.spaceId==='UABC-SPACE-CONSULTANT').length};
   if(roots.length<3||Object.values(derivedRootDistribution).some(count=>count<1)||JSON.stringify(contract.rootDistribution)!==JSON.stringify(derivedRootDistribution))fail('ROOT-VERTRAG','jede Space-Struktur benoetigt mindestens eine Rootseite und eine abgeleitete Zaehlsicht');

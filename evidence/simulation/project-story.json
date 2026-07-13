@@ -4929,7 +4929,8 @@
         }
       ],
       "evidenceRefs": [
-        "BC-SIM-SETUP-001"
+        "BC-SIM-SETUP-001",
+        "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
       ],
       "comments": [
         {
@@ -4964,6 +4965,17 @@
           "actionRole": "Projektleitung",
           "text": "Abschluss: Gepruefte Grundeinrichtung der synthetischen Gesellschaft. Nachweis BC-SIM-SETUP-001; Test beziehungsweise Retest bestanden. Reale Kunden- oder Systembestaetigung bleibt, wo erforderlich, als eigener spaeterer Schritt sichtbar. Naechster Bezug: UABC-DEL-BCB-004.",
           "evidenceRef": "BC-SIM-SETUP-001"
+        },
+        {
+          "id": "COM-UABC-39-PILOT-PROVENIENZ",
+          "type": "provenance",
+          "time": "2026-07-13",
+          "role": "Solution Architect",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "fachliche Pruefung",
+          "text": "Die Playthru-Pilotbaseline ist ein neuer separater Lauf des Projekts UABC-BC-PILOT-001. Sie aendert weder den synthetischen Abschluss noch den Worklog von UABC-39 und belegt noch keine Einrichtung: beobachtet sind nur der leere Mandant und drei Paketgerueste ohne Tabellen oder Datensaetze.",
+          "evidenceRef": "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
         }
       ],
       "worklogs": [
@@ -5007,7 +5019,8 @@
       "assigneeRole": "Lead BC Consultant",
       "statusReason": "Gepruefte Grundeinrichtung der synthetischen Gesellschaft ist mit erfuellten Akzeptanzkriterien und referenziertem Nachweis synthetisch abgeschlossen.",
       "decisionRefs": [
-        "UABC-DEC-BCB-002"
+        "UABC-DEC-BCB-002",
+        "UABC-DEC-BCB-009"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -7001,7 +7014,7 @@
         "BC-SIM-SETUP-001"
       ],
       "action": "Handover",
-      "result": "abgenommen; Reconciliation und Provenienz validiert Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft.",
+      "result": "abgenommen; Reconciliation und Provenienz validiert Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft.",
       "evidence": "docs/handover/bc-basic-handover.md",
       "decision": "closed",
       "nextStep": "Twin-Read-only-Darstellung",
@@ -7050,7 +7063,7 @@
       "comment": "COM-UABC-48-CLOSING",
       "priority": "P1",
       "diagnosis": "VAT-Vermerk",
-      "fix": "Entscheidung sowie Reconciliation und Provenienz dokumentiert Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen.",
+      "fix": "Entscheidung sowie Reconciliation und Provenienz dokumentiert Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen.",
       "retest": "passed",
       "status": "closed",
       "decision": "EXIT",
@@ -8386,7 +8399,8 @@
       "UABC-DEC-BCB-005",
       "UABC-DEC-BCB-006",
       "UABC-DEC-BCB-007",
-      "UABC-DEC-BCB-008"
+      "UABC-DEC-BCB-008",
+      "UABC-DEC-BCB-009"
     ],
     "deliverables": [
       "OFR-UABC-BCB-001",
@@ -8438,7 +8452,8 @@
       "evidence/simulation/project-completion.yaml",
       "evidence/simulation/project-reconciliation.json",
       "evidence/simulation/adapter-provenance.json",
-      "exports/project-data/v1/twin-export-map.json"
+      "exports/project-data/v1/twin-export-map.json",
+      "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
     ]
   },
   "ticketMigration": [

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import test from 'node:test';import YAML from 'yaml';import {validatePilotSetup} from '../../scripts/validate-pilot-setup-baseline.mjs';
+const read=path=>YAML.parse(fs.readFileSync(path,'utf8'));const base={evidence:read('evidence/playthru-uabc-basic-de/setup-baseline.yaml'),baseline:read('project/bc-basic/pilot-setup-baseline.yaml'),sources:read('docs/research/sources.yaml'),sourceRegister:fs.readFileSync('docs/research/source-register.md','utf8'),story:JSON.parse(fs.readFileSync('evidence/simulation/project-story.json','utf8'))};const run=fn=>{const data=structuredClone(base);fn(data);return validatePilotSetup({...data,exists:path=>path==='missing.yaml'?false:fs.existsSync(path)})};const has=(errors,code)=>assert.ok(errors.some(e=>e.startsWith(`${code}:`)),`${code}: ${errors.join(', ')}`);
+test('kanonische Playthru-Pilotbaseline besteht',()=>assert.deepEqual(validatePilotSetup(base),[]));
+test('alte Appversion wird abgelehnt',()=>has(run(d=>d.evidence.environment.applicationVersion='28.2.50931.52151'),'VERSION-ODER-UMGEBUNG'));
+test('leeres Paket darf keine Setupwirkung behaupten',()=>has(run(d=>d.evidence.configurationPackageSkeletons[0].setupEffectClaimed=true),'LEERES-PAKET-MIT-WIRKUNG'));
+test('DE ohne Country-Seed wird abgelehnt',()=>has(run(d=>d.baseline.companyInformation.observedValues.countryRegionCode='DE'),'DE-OHNE-COUNTRY-SEED'));
+test('unvalidierte Steuerkennung wird abgelehnt',()=>has(run(d=>d.baseline.companyInformation.targetValues.vatRegistrationNo='DE123'),'UNVALIDIERTE-STEUER-BANK-ID'));
+test('leere Zahlungsdaten ohne Erlaubnis werden abgelehnt',()=>has(run(d=>d.baseline.companyInformation.targetValues.allowEmptyPaymentInformation=false),'LEERE-ZAHLUNGSINFORMATION'));
+test('verletzte Paketreihenfolge wird abgelehnt',()=>has(run(d=>d.baseline.packageWaves.reverse()),'PAKETREIHENFOLGE'));
+test('Mensch darf nicht als Automationsakteur ausgegeben werden',()=>has(run(d=>{d.evidence.actorTruth.operationActorRef='P-PILOT-LEAD-001';d.evidence.actorTruth.operationActorType='human';d.evidence.actorTruth.humanAutomationClaimed=true;}),'AKTEURVERWECHSLUNG'));
+test('erneute Projektfreigabe statt autorisiertem Vorpruefungsgate wird abgelehnt',()=>has(run(d=>d.baseline.executionGate.state='blocked-until-explicit-project-approval'),'ABHAENGIGKEIT-ODER-LIVE-CLAIM'));
+test('rueckwirkend vermischte Pilotprovenienz wird abgelehnt',()=>has(run(d=>d.story.tickets.find(ticket=>ticket.id==='UABC-39').comments.find(comment=>comment.id==='COM-UABC-39-PILOT-PROVENIENZ').text='Pilot wurde im April eingerichtet.'),'PILOT-PROVENIENZ'));
+test('gebuchte Ledgertabelle im Paket wird abgelehnt',()=>has(run(d=>d.baseline.packageWaves[0].tablesIncluded=['G/L Entry']),'LEDGER-TABELLE-IM-PAKET'));
+test('fehlende offizielle Quelle wird abgelehnt',()=>has(run(d=>d.sources.sources=d.sources.sources.filter(s=>s.id!=='SRC-BC-085')),'QUELLE-FEHLT'));
+test('fehlende Evidence wird abgelehnt',()=>has(run(d=>d.baseline.evidencePath='missing.yaml'),'EVIDENCE-FEHLT'));

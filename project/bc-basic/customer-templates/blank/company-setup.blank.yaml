@@ -11,6 +11,18 @@ fields:
     description: Sichtbarer Name der synthetischen Gesellschaft
     required: true
     allowedValues: Ausschliesslich synthetischer Projektname
+  address:
+    description: Synthetische Strasse und Hausnummer
+    required: true
+    allowedValues: Keine reale Kunden- oder Privatadresse
+  postCode:
+    description: Synthetische Postleitzahl
+    required: true
+    allowedValues: Fuenf Ziffern
+  city:
+    description: Synthetischer Ort
+    required: true
+    allowedValues: Keine reale personenbezogene Adresse
   countryCode:
     description: Laendercode fuer die lokale Einrichtung
     required: true
@@ -27,6 +39,54 @@ fields:
     description: Sprache fuer den vorgesehenen Benutzerweg
     required: true
     allowedValues: de-DE
+  contact:
+    description: Synthetische funktionale Kontaktbezeichnung
+    required: true
+    allowedValues: Keine reale Person
+  email:
+    description: Nicht zustellbare synthetische E-Mail-Adresse
+    required: true
+    allowedValues: example.invalid
+  homePage:
+    description: Nicht aufloesbare synthetische Homepage
+    required: true
+    allowedValues: HTTPS unter example.invalid
+  phoneNo:
+    description: Telefonnummer bleibt ohne validierte synthetische Regel leer
+    required: false
+    allowedValues: leer
+  vatRegistrationNo:
+    description: USt-Identifikation bleibt ohne fachliche und steuerliche Pruefung leer
+    required: false
+    allowedValues: leer bis validiert
+  eori:
+    description: EORI bleibt ohne fachliche Pruefung leer
+    required: false
+    allowedValues: leer bis validiert
+  gln:
+    description: GLN bleibt ohne fachliche Pruefung leer
+    required: false
+    allowedValues: leer bis validiert
+  bankName:
+    description: Bankname bleibt bis eigener Bankbaseline leer
+    required: false
+    allowedValues: leer bis validiert
+  bankBranchNo:
+    description: Bankleitzahl bleibt bis eigener Bankbaseline leer
+    required: false
+    allowedValues: leer bis validiert
+  iban:
+    description: IBAN bleibt bis eigener Bankbaseline leer
+    required: false
+    allowedValues: leer bis validiert
+  swift:
+    description: SWIFT bleibt bis eigener Bankbaseline leer
+    required: false
+    allowedValues: leer bis validiert
+  allowEmptyPaymentInformation:
+    description: Erlaubt die leere vorlaeufige Zahlungsinformation ausdruecklich
+    required: true
+    allowedValues: true waehrend Pilotbaseline
   chartOfAccountsTemplate:
     description: Verbindliche Vorlage fuer den Kontenplan im P001-Umfang
     required: true

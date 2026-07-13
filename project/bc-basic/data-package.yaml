@@ -21,20 +21,20 @@ migrationDiscovery:
   status: simulated-approved
   decisionDate: 2026-08-21
   waves:
-    - { id: WAVE-SETUP, sequence: 1, exitCriterion: Konten Buchungsgruppen VAT Dimensionen Nummernserien Zahlungsbedingungen und Lagerort sind referenziell konsistent }
-    - { id: WAVE-MASTER, sequence: 2, exitCriterion: Debitoren Kreditoren Artikel Preise Einheiten und Bankstamm sind eindeutig und verwenden freigegebene Setup-Codes }
-    - { id: WAVE-OPENING, sequence: 3, exitCriterion: Sachkonto offene Nebenbuchposten und Lagerbestand sind je Kontrollsumme abgestimmt }
+    - { id: UABC-01-CORE-FINANCE, sequence: 1, exitCriterion: PRESEED Country Region sowie Konten Buchungsgruppen VAT Dimensionen Nummernserien Zahlungsbedingungen und Bankbaseline sind referenziell konsistent }
+    - { id: UABC-02-TRADE-MASTER, sequence: 2, exitCriterion: Debitoren Kreditoren Artikel Preise Einheiten und Lagerstamm sind eindeutig und verwenden freigegebene Setup-Codes }
+    - { id: UABC-03-OPENING-DATA, sequence: 3, exitCriterion: Eroeffnungsjournal offene Nebenbuchposten und Lagerbestand sind nach kontrollierter Buchung je Kontrollsumme abgestimmt }
   objects:
-    - { id: MIG-COMPANY, wave: WAVE-SETUP, source: synthetischer Unternehmenssteckbrief, volume: 1 Gesellschaft, cleanup: Pflichtparameter und Wahrheitskennzeichnung pruefen, mapping: Unternehmenseinrichtung, ownerRef: P-005, reconciliation: Gesellschaft DE Basiswaehrung EUR und ein Lagerort HAUPT }
-    - { id: MIG-FINANCE-SETUP, wave: WAVE-SETUP, source: company-setup.example.yaml und Entscheidungsregister, volume: 11 synthetische Kontenrollen und 6 Buchungsmatrizen, cleanup: Dubletten unzulaessige Kontotypen und fehlende Gegenkonten entfernen, mapping: Sachkonten plus allgemeine VAT Nebenbuch Lager und Bank-Buchungsgruppen, ownerRef: P-005, reconciliation: alle verwendeten Rollen loesen auf und jede Buchungsmatrix besitzt Soll-/Habenkonto; reale Kontonummern bleiben bestaetigungspflichtig }
-    - { id: MIG-DIMENSIONS, wave: WAVE-SETUP, source: dimensions.example.csv, volume: 2 Dimensionen und 5 Werte, cleanup: Codes normalisieren und gesperrte Werte ausschliessen, mapping: Dimension und Dimension Value, ownerRef: P-005, reconciliation: alle Belegdefaults referenzieren vorhandene Werte }
-    - { id: MIG-CUSTOMERS, wave: WAVE-MASTER, source: customers.example.csv, volume: 20 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Nummer Name Land Buchungsgruppen Zahlungsbedingung und Dublette pruefen, mapping: Customer Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; keine realen Kontakt- oder Bankdaten }
-    - { id: MIG-VENDORS, wave: WAVE-MASTER, source: vendors.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: externe Nummern und Dubletten pruefen, mapping: Vendor Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; Buchungsgruppen sind gueltig }
-    - { id: MIG-ITEMS, wave: WAVE-MASTER, source: items.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Einheit Kosten Preis und Lagergruppe pruefen, mapping: Item Card und Price List, ownerRef: P-019, reconciliation: Preis groesser Kosten und alle Artikel verwenden STK und HAUPT }
-    - { id: MIG-BANK, wave: WAVE-MASTER, source: synthetischer Bankstamm, volume: 1 EUR-Bankkonto, cleanup: reale IBAN BIC und Zugangsdaten verbieten, mapping: Bank Account Card, ownerRef: P-005, reconciliation: Anfangssaldo entspricht synthetischem Kontoauszug }
-    - { id: MIG-GL-OPEN, wave: WAVE-OPENING, source: gl-opening.example.csv, volume: 1 ausgeglichenes Journal, cleanup: Belegpraefix Datum Dimensionen und Gegenbuchung pruefen, mapping: General Journal, ownerRef: P-005, reconciliation: Sollsumme gleich Habensumme }
-    - { id: MIG-OPEN-ARAP, wave: WAVE-OPENING, source: open-customer-vendor-entries.example.csv, volume: 2 offene Posten, cleanup: Partner Faelligkeit Belegnummer und Waehrung pruefen, mapping: Customer und Vendor Ledger Opening, ownerRef: P-005, reconciliation: Nebenbuchsummen entsprechen Sammelkonten }
-    - { id: MIG-INVENTORY, wave: WAVE-OPENING, source: inventory-opening.example.csv, volume: 1 Artikelbestand am Lagerort HAUPT, cleanup: Menge Kosten Einheit und Artikelreferenz pruefen, mapping: Item Journal, ownerRef: P-019, reconciliation: Menge mal Einstandspreis entspricht Lagerwert und Sachkonto }
+    - { id: MIG-COMPANY, wave: UABC-01-CORE-FINANCE, source: synthetischer Unternehmenssteckbrief, volume: 1 Gesellschaft, cleanup: Pflichtparameter und Wahrheitskennzeichnung pruefen, mapping: Unternehmenseinrichtung, ownerRef: P-005, reconciliation: Gesellschaft DE Basiswaehrung EUR und ein Lagerort HAUPT }
+    - { id: MIG-FINANCE-SETUP, wave: UABC-01-CORE-FINANCE, source: company-setup.example.yaml und Entscheidungsregister, volume: 11 synthetische Kontenrollen und 6 Buchungsmatrizen, cleanup: Dubletten unzulaessige Kontotypen und fehlende Gegenkonten entfernen, mapping: Sachkonten plus allgemeine VAT Nebenbuch Lager und Bank-Buchungsgruppen, ownerRef: P-005, reconciliation: alle verwendeten Rollen loesen auf und jede Buchungsmatrix besitzt Soll-/Habenkonto; reale Kontonummern bleiben bestaetigungspflichtig }
+    - { id: MIG-DIMENSIONS, wave: UABC-01-CORE-FINANCE, source: dimensions.example.csv, volume: 2 Dimensionen und 5 Werte, cleanup: Codes normalisieren und gesperrte Werte ausschliessen, mapping: Dimension und Dimension Value, ownerRef: P-005, reconciliation: alle Belegdefaults referenzieren vorhandene Werte }
+    - { id: MIG-CUSTOMERS, wave: UABC-02-TRADE-MASTER, source: customers.example.csv, volume: 20 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Nummer Name Land Buchungsgruppen Zahlungsbedingung und Dublette pruefen, mapping: Customer Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; keine realen Kontakt- oder Bankdaten }
+    - { id: MIG-VENDORS, wave: UABC-02-TRADE-MASTER, source: vendors.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: externe Nummern und Dubletten pruefen, mapping: Vendor Card, ownerRef: P-011, reconciliation: Anzahl und Kontrollliste stimmen; Buchungsgruppen sind gueltig }
+    - { id: MIG-ITEMS, wave: UABC-02-TRADE-MASTER, source: items.example.csv, volume: 12 Zielsaetze davon 1 vollstaendig ausgefuehrter Beispielsatz, cleanup: Einheit Kosten Preis und Lagergruppe pruefen, mapping: Item Card und Price List, ownerRef: P-019, reconciliation: Preis groesser Kosten und alle Artikel verwenden STK und HAUPT }
+    - { id: MIG-BANK, wave: UABC-02-TRADE-MASTER, source: synthetischer Bankstamm, volume: 1 EUR-Bankkonto, cleanup: reale IBAN BIC und Zugangsdaten verbieten, mapping: Bank Account Card, ownerRef: P-005, reconciliation: Anfangssaldo entspricht synthetischem Kontoauszug }
+    - { id: MIG-GL-OPEN, wave: UABC-03-OPENING-DATA, source: gl-opening.example.csv, volume: 1 ausgeglichenes Journal, cleanup: Belegpraefix Datum Dimensionen und Gegenbuchung pruefen, mapping: General Journal, ownerRef: P-005, reconciliation: Sollsumme gleich Habensumme }
+    - { id: MIG-OPEN-ARAP, wave: UABC-03-OPENING-DATA, source: open-customer-vendor-entries.example.csv, volume: 2 offene Posten, cleanup: Partner Faelligkeit Belegnummer und Waehrung pruefen, mapping: Customer und Vendor Ledger Opening, ownerRef: P-005, reconciliation: Nebenbuchsummen entsprechen Sammelkonten }
+    - { id: MIG-INVENTORY, wave: UABC-03-OPENING-DATA, source: inventory-opening.example.csv, volume: 1 Artikelbestand am Lagerort HAUPT, cleanup: Menge Kosten Einheit und Artikelreferenz pruefen, mapping: Item Journal, ownerRef: P-019, reconciliation: Menge mal Einstandspreis entspricht Lagerwert und Sachkonto }
   realProjectConfirmations: [reale Quellsysteme und Extraktionsverantwortung, vollstaendige Volumina, steuerlich freigegebene Konten und VAT-Codes, reale Anfangssalden und offene Posten, Sandbox-Importlauf und Systemposten]
 dataCategories:
   einrichtungsdaten: Konten, Buchungsgruppen, MwSt.-Einrichtung, Dimensionen, Zahlungsbedingungen, Nummernserien und Lagerortvorbereitung.
@@ -42,8 +42,8 @@ dataCategories:
   offenePosten: kontrollierte offene Debitoren-/Kreditorenposten nur, wenn sie fuer Abstimmung und Sandbox-Test erforderlich sind.
   gebuchteDaten: kein historischer Vollimport gebuchter Bewegungsdaten; gebuchte Testdaten entstehen spaeter nur im autorisierten Pflichtszenario.
 configurationPackages:
-  - id: UABC-CONFIGPKG-BCB-SETUP-001
-    namePattern: BCB-SETUP-v001
+  - id: UABC-01-CORE-FINANCE
+    namePattern: UABC-01-CORE-FINANCE
     category: einrichtungsdaten
     purpose: minimale Grundeinrichtung reproduzierbar vorbereiten, soweit Business Central die Felder sinnvoll per Konfigurationspaket verarbeitet
     candidateTables:
@@ -60,8 +60,8 @@ configurationPackages:
     excludedFieldRule: Systemfelder, FlowFields, berechnete Salden, Benutzer-/Auditfelder, echte Bank-/Steuerkennungen und nicht verstandene Felder werden ausgeschlossen.
     dependencies: [Finanz- und Steuerdesign freigegeben, Zielgesellschaft autorisiert]
     importOrder: [Dimensionen, Dimensionswerte, Konten, Buchungsgruppen, MwSt.-Gruppen, Zahlungsbedingungen, Lagerort]
-  - id: UABC-CONFIGPKG-BCB-MASTER-001
-    namePattern: BCB-MASTER-v001
+  - id: UABC-02-TRADE-MASTER
+    namePattern: UABC-02-TRADE-MASTER
     category: stammdaten
     purpose: wenige realitaetsnahe Stammdaten fuer Pflichtprozesse laden
     candidateTables:
@@ -73,10 +73,10 @@ configurationPackages:
       - { table: Bankkonto, rationale: Bankkonto als Stammdatensatz ohne produktive Anbindung }
     requiredFieldRule: Nummer, Name/Beschreibung, Land, Buchungsgruppen, Zahlungsbedingungen, Einheit, Preis/Kosten und synthetische Kennzeichnung muessen gefuellt sein.
     excludedFieldRule: reale IBAN/BIC, personenbezogene Kontaktdaten, Kreditkartendaten, Serien-/Chargenfelder, Varianten-/Attributfelder ohne Pflichtgrund und Integrationsfelder werden ausgeschlossen.
-    dependencies: [UABC-CONFIGPKG-BCB-SETUP-001]
+    dependencies: [UABC-01-CORE-FINANCE]
     importOrder: [Bankkonto-Stammdaten, Debitoren, Kreditoren, Artikel, Einheiten, Preise und einfache Rabatte]
-  - id: UABC-CONFIGPKG-BCB-OPEN-001
-    namePattern: BCB-OPEN-v001
+  - id: UABC-03-OPENING-DATA
+    namePattern: UABC-03-OPENING-DATA
     category: offenePosten
     purpose: kontrollierte Anfangs- und offene Posten fuer Abstimmung vorbereiten, ohne historischen Vollimport zu behaupten
     candidateTables:
@@ -84,7 +84,7 @@ configurationPackages:
       - { table: Artikelbuchblattzeile, rationale: Anfangsbestand fuer Lagerort HAUPT, falls fachlich freigegeben }
     requiredFieldRule: Buchungsdatum, Belegnummer mit SYN-Praefix, Konto-/Artikelbezug, Betrag/Menge, Dimensionen und synthetische Kennzeichnung muessen gefuellt und abgestimmt sein.
     excludedFieldRule: bereits gebuchte historische Bewegungsdaten, echte Rechnungsnummern, Banktransaktionen, Steuererklaerungsdaten und produktive Zahlungsdateien werden ausgeschlossen.
-    dependencies: [UABC-CONFIGPKG-BCB-SETUP-001, UABC-CONFIGPKG-BCB-MASTER-001, fachliche Abstimmung]
+    dependencies: [UABC-01-CORE-FINANCE, UABC-02-TRADE-MASTER, fachliche Abstimmung]
     importOrder: [Eroeffnungsjournal pruefen, Bestandsjournal pruefen, offene Posten nur nach Abstimmung]
 configurationPackageCustomerRule: Konfigurationspakete bleiben ein Werkzeug des Dienstleisters; Kundinnen und Kunden liefern, pruefen und genehmigen ausschliesslich die kontrollierten Datenvorlagen und muessen Konfigurationspakete weder pflegen noch bedienen.
 validationAndRecovery:

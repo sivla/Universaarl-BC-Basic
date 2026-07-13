@@ -5,10 +5,25 @@ classification: synthetic-only
 values:
   companyId: UABC-BASIC-DE
   displayName: Universaarl GmbH
+  address: Simulationsstraße 1
+  postCode: "66123"
+  city: Saarbrücken
   countryCode: DE
   baseCurrency: EUR
   fiscalYearStart: 2026-01-01
   language: de-DE
+  contact: Projektteam BC Basic (synthetisch)
+  email: bc-basic@example.invalid
+  homePage: https://universaarl.example.invalid
+  phoneNo: ""
+  vatRegistrationNo: ""
+  eori: ""
+  gln: ""
+  bankName: ""
+  bankBranchNo: ""
+  iban: ""
+  swift: ""
+  allowEmptyPaymentInformation: true
   chartOfAccountsTemplate: SKR04
   locationCode: HAUPT
   locationName: Hauptlager

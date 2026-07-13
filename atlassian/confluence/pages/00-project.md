@@ -38,9 +38,11 @@ Sie führt zu Projektstatus, Supportweg und Betriebsinformationen, ohne Produktw
 
 ## Aktueller Betriebs- und Supportstatus
 
-Die Referenzsimulation ist als `V1_STANDARDPRODUCT_READY` und `GO_SIMULATION` abgeschlossen. Sie belegt einen vollständigen Dateiplaythrough, aber keinen Zugriff auf eine reale Business-Central-Instanz und keinen produktiven Betrieb.
+Die Referenzsimulation ist als `V1_STANDARDPRODUCT_READY` und `GO_SIMULATION` abgeschlossen.
+Sie belegt einen vollständigen Dateiplaythrough, aber keinen Zugriff auf eine reale Business-Central-Instanz und keinen produktiven Betrieb.
 
-Der Kundenprojekt-Space enthält ausschließlich synthetische Projekt- und Evidence-Daten. Zugangsdaten, reale Personen-, Bank- oder Steuerdaten und externe Freigaben sind nicht enthalten.
+Der Kundenprojekt-Space enthält ausschließlich synthetische Projekt- und Evidence-Daten.
+Zugangsdaten, reale Personen-, Bank- oder Steuerdaten und externe Freigaben sind nicht enthalten.
 
 ## Projektumgebung
 
@@ -70,7 +72,8 @@ Der Kundenprojekt-Space enthält ausschließlich synthetische Projekt- und Evide
 | Consultant/Support | Setup-, Rollen- oder reproduzierbarer Systembefund | Diagnosepaket übernehmen und Retest steuern |
 | sofortiger Buchungsstopp | falsche Gesellschaft oder unklare Finanz-, VAT-, Bestands- oder Datenschutzwirkung | nicht buchen, Zustand sichern, eskalieren |
 
-Ein Supportfall nennt mindestens Rolle, Umgebung, Zeitpunkt, Seite und Aktion, Belegnummer, Soll/Ist, Fehlertext, Kontrollwerte, letzten erfolgreichen Schritt, Reproduktionsweg und sichere Evidence.
+Ein Supportfall nennt mindestens Rolle, Umgebung, Zeitpunkt, Seite und Aktion, Belegnummer, Soll/Ist und Fehlertext.
+Hinzu kommen Kontrollwerte, letzter erfolgreicher Schritt, Reproduktionsweg und sichere Evidence.
 
 ## Supportstart und Übergabe
 
@@ -82,6 +85,20 @@ Servicezeiten, reale Kontakte und Tenantdaten werden im echten Projekt bestätig
 - **Synthetisch entschieden:** Rollenmodell, vierstufige Eskalation, Supportdiagnose und Trennung zwischen Simulation und produktiver Nutzung.
 - **Vor einem realen Projekt zu bestätigen:** benannte Personen, Servicezeiten, Lizenz, Tenant, Sandbox, Zugriff, Datenschutzweg und Wiederherstellungspunkt.
 - **Wahrheitsgrenze:** Die fehlende reale Instanz blockiert die abgeschlossene Simulation nicht; sie bleibt ein Entry-Kriterium für eine spätere Kundeninstanz.
+
+## Playthru-Pilot `UABC-BASIC-DE`
+
+Am 2026-07-13 wurde in der Sandbox **Playthru** die leere Pilotgesellschaft `UABC-BASIC-DE` mit Anzeigename **Universaarl GmbH** ueber **Neu erstellen - Keine Daten** angelegt.
+Status: `Completed`; zugeordnet ist ausschliesslich Kajetan Kalicki.
+`UNIVERSAARL-DE`, `My Company` und sonstige Altmandanten wurden weder kopiert, geloescht noch geaendert.
+
+Die drei Pakete `UABC-01-CORE-FINANCE`, `UABC-02-TRADE-MASTER` und `UABC-03-OPENING-DATA` existieren nur als leere Gerueste.
+Language ID ist `0`, Product Version ist leer; Tabellen, Datensaetze und Fehler stehen jeweils auf `0`.
+Sie beweisen noch keine Einrichtung oder Datenuebernahme.
+
+Offener Defect `UABC-DEF-PILOT-001`: Country/Region `DE` konnte in Company Information nicht gesetzt werden, weil `DE` im leeren Mandanten noch nicht existiert.
+Erst Country/Region seeden, retesten und danach Firmenwerte setzen.
+Steuer-/Bankkennungen bleiben leer; reale Zugangsdaten stehen weder hier noch im Repository.
 
 ## Referenzen
 

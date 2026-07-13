@@ -28,7 +28,8 @@ lastReviewed: 2026-07-13
 
 ## Kommerzielle Baseline
 
-Das synthetische Referenzangebot umfasst 80 Stunden zu 120 EUR und damit 9.600 EUR netto. Davon entfallen 22 Stunden auf Vorbereitung und Datenbereitschaft, 40 Stunden auf Einrichtung, Tests und Schulung sowie 18 Stunden auf Go-live, Hypercare und Abschluss.
+Das synthetische Referenzangebot umfasst 80 Stunden zu 120 EUR und damit 9.600 EUR netto.
+Davon entfallen 22 Stunden auf Vorbereitung und Datenbereitschaft, 40 Stunden auf Einrichtung, Tests und Schulung sowie 18 Stunden auf Go-live, Hypercare und Abschluss.
 
 Diese Linie ist Referenz. Fuer einen echten Kunden wird sie mit Namen, Terminen, Lizenzen und Steuerparametern neu angeboten.
 
@@ -45,17 +46,31 @@ Diese Linie ist Referenz. Fuer einen echten Kunden wird sie mit Namen, Terminen,
 
 Der Kunde stellt Sponsor, Prozessowner, Datenowner und Key User. Er stellt ausserdem eine geeignete Lizenz- und Sandboxbasis sowie termingerecht bereinigte Daten bereit.
 
-Konten, VAT-/USt-Logik, Bankverfahren, Benutzerrollen und rechtliche Anforderungen werden durch die zustaendigen Kundenrollen bestaetigt. Fehlende Voraussetzungen verschieben das betroffene Gate, nicht stillschweigend den Scope.
+Konten, VAT-/USt-Logik, Bankverfahren, Benutzerrollen und rechtliche Anforderungen werden durch die zustaendigen Kundenrollen bestaetigt.
+Fehlende Voraussetzungen verschieben das betroffene Gate, nicht stillschweigend den Scope.
 
 ## Nicht enthalten
 
-Nicht enthalten sind individuelle Entwicklung, komplexe Integrationen, erweiterte Lagerlogistik, Produktion, Service, Projekte, Intercompany, historische Vollmigration, produktive Bank-/ELSTER-Uebermittlung sowie Rechts- oder Steuerberatung. Lizenzen, Tenantkosten und Drittanbieterprodukte werden separat ausgewiesen.
+Nicht enthalten sind individuelle Entwicklung, komplexe Integrationen, erweiterte Lagerlogistik, Produktion, Service und Projekte.
+Ebenfalls ausgeschlossen sind Intercompany, historische Vollmigration, produktive Bank-/ELSTER-Uebermittlung sowie Rechts- oder Steuerberatung.
+Lizenzen, Tenantkosten und Drittanbieterprodukte werden separat ausgewiesen.
 
 ## Abnahme und Change-Regel
 
 Jedes Lieferobjekt besitzt ein messbares Kriterium und einen Owner. Ein Wunsch ausserhalb der Baseline wird als Parametrisierung, Change oder Out-of-Scope klassifiziert.
 
-Ein Change benoetigt Beschreibung, Nutzen, Aufwand, Terminwirkung und Entscheidung vor Umsetzung. Die Referenzsimulation erzeugt keine Rechnung, Zahlung oder produktive Leistungsbehauptung.
+Ein Change benoetigt Beschreibung, Nutzen, Aufwand, Terminwirkung und Entscheidung vor Umsetzung.
+Die Referenzsimulation erzeugt keine Rechnung, Zahlung oder produktive Leistungsbehauptung.
+
+## Standardgrenze fuer Mandantenanlage und Konfigurationspakete
+
+Das Produkt umfasst die kontrollierte Anlage genau einer leeren Sandboxgesellschaft und drei abhaengige Konfigurationspaketwellen.
+Die Uebergabe an Setup, Daten und UAT wird dokumentiert.
+Ein leeres Paketgeruest ist noch kein Lieferergebnis; Tabellen, Felder, Daten und Buchungswirkung entstehen erst nach fachlichem Review und bestandenem Ausfuehrungsgate.
+
+Firmenkopie, Produktivdaten, weitere Gesellschaften und gebuchte historische Ledger-Tabellen sind nicht Bestandteil der Standardbaseline.
+Das gilt ebenso fuer echte Steuer-/Bankkennungen und produktiven Betrieb.
+Eine Kopie ist kein Backup und wird nur als eigener Change mit Quelle, Ziel, Sperrfenster, Datenschutz, Nachpruefung und Rollback bewertet.
 
 ## Referenzen
 

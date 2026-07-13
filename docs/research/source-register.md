@@ -80,6 +80,17 @@ Abrufdatum: 2026-07-10. `planningReference = 2026 Release Wave 1`; die kanonisch
 | SRC-BC-065/066 | [Periodenabschluss](https://learn.microsoft.com/en-us/dynamics365/business-central/year-how-complete-period-end-processes), [Buchhaltungsperioden](https://learn.microsoft.com/de-de/dynamics365/business-central/finance-accounting-periods-and-fiscal-years) | Stuetzen die Monatsabschlussprobe und Periodenkontrolle. | Keine reale Periode wird geschlossen. |
 | SRC-BC-067 | [MwSt.-Berichte](https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat) | Stuetzt den erwarteten Berichtspfad der MwSt.-Vorschau. | Keine Test-, Produktiv- oder ELSTER-Uebermittlung; Steuerfrage bleibt offen. |
 
+## Playthru-Pilotbaseline 2026-07-13
+
+Diese Quellen stuetzen die Consultant-Methode und das erwartete BC-Standardverhalten. Die reale Beobachtung der Gesellschaft und der drei leeren Paketgerueste steht getrennt in `evidence/playthru-uabc-basic-de/setup-baseline.yaml`; eine Quelle beweist keine Ausfuehrung.
+
+| ID | Offizielle Microsoft-Quelle | Abgeleitete Aussage | Projektentscheidung oder offene Frage |
+|---|---|---|---|
+| SRC-BC-085 | [Create new companies](https://learn.microsoft.com/en-us/dynamics365/business-central/about-new-company) | Neue Gesellschaften koennen ohne Daten, mit Produktionssetupdaten oder als Evaluierung angelegt werden; Auswahl richtet sich nach Zweck und Datenherkunft. | `UABC-BASIC-DE` wurde als leerer Pilot mit **Neu erstellen - Keine Daten** angelegt; Kopie und Evaluierung waren nicht beauftragt. |
+| SRC-BC-086 | [Company information](https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information) | Company Information fuehrt Name, Adresse, Kontakt- und steuerbezogene Firmenfelder. | Alle Werte sind synthetisch; Country/Region DE bleibt offen, bis der Stammsatz kontrolliert geseedet und retestet ist. |
+| SRC-BC-087 | [Set up Business Central](https://learn.microsoft.com/en-us/dynamics365/business-central/setup) | Einrichtung kombiniert Assistenten, manuelle Seiten und kontrollierte Setupfolgen. | Paketgerueste ersetzen weder Country-Seed noch fachliche Setupentscheidung oder UI-Pruefung. |
+| SRC-BC-088 | [Standard company configuration packages](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) | Konfigurationspakete koennen wiederholbare Setup- und Stammdaten vorbereiten. | Tabellen werden erst nach Abhaengigkeitsreview aufgenommen; gebuchte Ledger-Tabellen bleiben ausgeschlossen, offene Daten folgen spaeter ueber Journals/Buchungen. |
+
 ## BC-Basic-Konfigurationsbaseline 2026-07-12
 
 Alle Seiten wurden am 2026-07-12 read-only mit HTTP 200 von Microsoft Learn abgerufen. Sie stützen erwartetes Standardverhalten, beweisen aber weder konkrete Tenantfelder noch installierte deutsche Funktionen oder Berechtigungen.

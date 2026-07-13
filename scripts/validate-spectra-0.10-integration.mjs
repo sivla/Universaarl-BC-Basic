@@ -116,7 +116,10 @@ export function validateIntegration(data) {
   if (!equal(data.ticketExport, buildTicketExport(story, []))) fail('TICKET_EXPORT_ABWEICHUNG', 'Ticketexport muss deterministisch aus der nativen Story entstehen');
   const comments = story.tickets?.flatMap((ticket) => ticket.comments ?? []) ?? [];
   const worklogs = story.tickets?.flatMap((ticket) => ticket.worklogs ?? []) ?? [];
-  const tasks=story.tickets?.filter((ticket)=>ticket.type==='task')??[];const parents=story.tickets?.filter((ticket)=>ticket.type!=='task')??[];const expectedComments=tasks.length*3+parents.length;
+  const tasks=story.tickets?.filter((ticket)=>ticket.type==='task')??[];const parents=story.tickets?.filter((ticket)=>ticket.type!=='task')??[];
+  const provenanceComments=comments.filter((comment)=>comment.type==='provenance');
+  const expectedComments=tasks.length*3+parents.length+provenanceComments.length;
+  if(provenanceComments.length!==1||provenanceComments[0].id!=='COM-UABC-39-PILOT-PROVENIENZ')fail('STORY_COUNTS','exakt ein gebundener Pilot-Provenienzkommentar erforderlich');
   if (story.offer?.versions?.length !== 3 || story.pages?.length !== 28 || story.tickets?.length !== 50 || tasks.length !== 19 || comments.length !== expectedComments || worklogs.length !== tasks.length || worklogs.reduce((sum, item) => sum + item.hours, 0) !== 80 || worklogs.reduce((sum, item) => sum + item.netAmount, 0) !== 9600 || story.timeline?.length !== 15 || story.hypercare?.length !== 3 || story.relations?.length !== 252) fail('STORY_COUNTS', 'Kanonische Storymengen, Kommentarvertrag, 80h/9.600 EUR und 252 Relationen erforderlich');
   const handover = story.tickets?.find((ticket) => ticket.id === 'UABC-50');
   if (!handover?.comments?.some((comment) => comment.type === 'closing' && /Reconciliation/.test(comment.text) && /Provenienz/.test(comment.text)) || !handover?.worklogs?.some((worklog) => /Reconciliation/.test(worklog.activity)) || !/Reconciliation/.test(story.timeline?.at(-1)?.result ?? '') || !/Provenienz/.test(story.hypercare?.at(-1)?.fix ?? '')) fail('STORY_LINK_INCOMPLETE', 'Bestehende Storyverknuepfung ist unvollstaendig');

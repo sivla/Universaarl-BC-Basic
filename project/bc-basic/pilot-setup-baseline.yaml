@@ -1,0 +1,100 @@
+schemaVersion: 1
+baselineId: UABC-PILOT-SETUP-BASELINE-001
+pilotProjectId: UABC-BC-PILOT-001
+customerProjectId: UABC-BC-BASIC-001
+status: mit-beobachtetem-mandanten-und-paketgeruesten-vorbereitet
+simulation: false
+environmentRef: Playthru
+companyRef: UABC-BASIC-DE
+evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+commercialBaseline:
+  status: planned
+  plannedHours: 80
+  actualHours: 0
+  hourlyRateEur: 120
+  plannedNetEur: 9600
+  actualNetEur: 0
+  billingRule: Erst fachlich abgeschlossene Task-Worklogs sind fakturierbar; dieser Baseline-Commit erzeugt keine Rechnungszeile.
+companyInformation:
+  targetValues:
+    name: Universaarl GmbH
+    address: Simulationsstraße 1
+    postCode: "66123"
+    city: Saarbrücken
+    countryRegionCode: DE
+    language: de-DE
+    localCurrencyCode: EUR
+    fiscalYearStart: 2026-01-01
+    contact: Projektteam BC Basic (synthetisch)
+    email: bc-basic@example.invalid
+    homePage: https://universaarl.example.invalid
+    phoneNo: ""
+    vatRegistrationNo: ""
+    eori: ""
+    gln: ""
+    bankName: ""
+    bankBranchNo: ""
+    iban: ""
+    swift: ""
+    allowEmptyPaymentInformation: true
+  observedValues:
+    name: Universaarl GmbH
+    countryRegionCode: null
+  countryRegionSeed:
+    code: DE
+    status: missing
+    requiredBeforeCompanyInformation: true
+  identifierPolicy:
+    validationStatus: pending
+    rule: Keine reale Steuer- oder Bankkennung erfinden; ein separates synthetisches Bankkonto mit Posting Group folgt erst nach CORE-FINANCE und eigener Pruefevidence.
+packageWaves:
+  - waveId: UABC-01-CORE-FINANCE
+    name: Kern und Finanzwesen
+    sequence: 1
+    state: skeleton-only
+    entry: Zielgesellschaft gebunden; Country/Region-Abhaengigkeit sichtbar; Schreibscope und Reset geklaert.
+    scope: Company Information nach Seed, General Ledger Setup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden, Dimensionen und Bankbaseline.
+    exit: Alle aufgenommenen Tabellen und Felder sind fachlich freigegeben, referenziell gueltig und feldnah geprueft.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Keine Tabelle vor freigegebener Abhaengigkeitsmatrix; aktuell 0 Tabellen und keine Setupwirkung.
+    defectRetestRef: UABC-DEF-PILOT-001
+  - waveId: UABC-02-TRADE-MASTER
+    name: Handel und Stammdaten
+    sequence: 2
+    state: skeleton-only
+    entry: CORE-FINANCE Exit bestanden; Buchungsgruppen, VAT, Zahlungslogik, Dimensionen und Lagerbaseline vorhanden.
+    scope: Debitoren, Kreditoren, Artikel, Einheiten, Lagerort, Preise und erlaubtes synthetisches Bankkonto.
+    exit: Pflichtfelder, Referenzen, Dubletten, Buchungsgruppen, Lager und Preise sind abgestimmt.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Aktuell 0 Tabellen, 0 Datensaetze und keine Stammdatenwirkung.
+    defectRetestRef: null
+  - waveId: UABC-03-OPENING-DATA
+    name: Eroeffnungs- und offene Daten
+    sequence: 3
+    state: skeleton-only
+    entry: TRADE-MASTER Exit bestanden; Stammdaten, Postingsgruppen, Lager und Preise referenziell gueltig.
+    scope: Eroeffnungsbilanz, offene Debitoren-/Kreditorenposten und Anfangsbestand nur ueber kontrollierte Journals und Buchungen.
+    exit: Soll/Haben, Nebenbuch/Sachbuch, Menge/Wert und offene Posten sind differenzfrei abgestimmt.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Gebuchte Ledger-Tabellen sind im Paket verboten; aktuell 0 Tabellen, 0 Datensaetze und keine Buchungswirkung.
+    defectRetestRef: null
+dependencyMatrix:
+  - { sequence: 1, prerequisite: PRESEED, result: Country/Region DE vorhanden, validation: Code DE aufloesbar, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 2, prerequisite: PRESEED, result: Company Information darf Zielwert DE erhalten, validation: Speichern und erneutes Lesen, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 3, prerequisite: CORE-FINANCE, result: Kernsetup Posting VAT Nummernserien Zahlungsbedingungen Zahlungsmethoden Dimensionen Bankbaseline, validation: Feld- und Matrixpruefung, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 4, prerequisite: UABC-02-TRADE-MASTER, result: Stammdaten Postingsgruppen Lager und Preise, validation: Referenz- und Dublettenpruefung, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 5, prerequisite: UABC-03-OPENING-DATA, result: Journals fuer Anfangssalden offene Posten und Bestand, validation: Buchungs- und Abstimmkontrollen, ownerRef: P-PILOT-LEAD-001 }
+prohibitedPackageTables:
+  - G/L Entry
+  - Customer Ledger Entry
+  - Vendor Ledger Entry
+  - VAT Entry
+  - Item Ledger Entry
+  - Value Entry
+  - Bank Account Ledger Entry
+executionGate:
+  state: authorized-scope-awaiting-table-review
+  requires: [Zielpreflight je Lauf, sichere Authentisierung, erlaubter Schreibscope, Resetpunkt, Tabellen- und Feldreview, bestandene Abhaengigkeiten]
+  liveTablesAdded: 0
+  liveSetupClaimed: false
+  liveBusinessDataClaimed: false

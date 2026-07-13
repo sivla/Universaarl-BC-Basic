@@ -4295,6 +4295,7 @@ ticketRecords:
       - PAGE-UABC-110
     decisionRefs:
       - UABC-DEC-BCB-002
+      - UABC-DEC-BCB-009
     meetingTranscriptRefs:
       - UABC-MTG-002
     phaseId: UABC-2
@@ -4362,6 +4363,7 @@ ticketRecords:
     worklogHours: 4
     evidence:
       - BC-SIM-SETUP-001
+      - evidence/playthru-uabc-basic-de/setup-baseline.yaml
     comments:
       - id: COM-UABC-39-ANALYSE
         type: analysis
@@ -4396,6 +4398,18 @@ ticketRecords:
           Reale Kunden- oder Systembestaetigung bleibt, wo erforderlich, als
           eigener spaeterer Schritt sichtbar. Naechster Bezug:
           UABC-DEL-BCB-004."
+      - id: COM-UABC-39-PILOT-PROVENIENZ
+        type: provenance
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: fachliche Pruefung
+        evidenceRef: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+        text: "Die Playthru-Pilotbaseline ist ein neuer separater Lauf des Projekts
+          UABC-BC-PILOT-001. Sie aendert weder den synthetischen Abschluss noch
+          den Worklog von UABC-39 und belegt noch keine Einrichtung: beobachtet
+          sind nur der leere Mandant und drei Paketgerueste ohne Tabellen oder
+          Datensaetze."
   - id: UABC-40
     type: task
     sourceType: task

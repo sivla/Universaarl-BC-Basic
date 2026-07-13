@@ -438,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=make-bc-basic-jira-story-human-readable-v1]",
+      "selector": "verifications[changeRef=document-uabc-basic-de-playthru-setup-baseline]",
       "format": "yaml",
       "required": true
     },
@@ -630,6 +630,38 @@
       "id": "UABC-SRC-BCB-JIRA-REALISM-TEST-001",
       "kindId": "jira-story-realism-tests",
       "path": "tests/story/jira-story-realism.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-BASELINE-001",
+      "kindId": "pilot-setup-baseline",
+      "path": "project/bc-basic/pilot-setup-baseline.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-EVIDENCE-001",
+      "kindId": "pilot-setup-evidence",
+      "path": "evidence/playthru-uabc-basic-de/setup-baseline.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-VAL-001",
+      "kindId": "pilot-setup-validator",
+      "path": "scripts/validate-pilot-setup-baseline.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-TEST-001",
+      "kindId": "pilot-setup-negative-tests",
+      "path": "tests/governance/pilot-setup-baseline.test.mjs",
       "selector": null,
       "format": "javascript",
       "required": true

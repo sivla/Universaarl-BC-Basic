@@ -262,3 +262,12 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
     evidence: Lokaler Gesamtcheck bestanden mit OpenSpec 8/8, Sprache 18/18, Governance 107/107, Walkthrough 10/10, Browser 2/2, Snapshotvertrag, Dokumentkatalog und Referenzen; Jira-Realismus 15/15, 50 Tickets, 11 Akteure, 19 Task-Worklogs, 80 Stunden und 9.600 EUR; keine Live- oder Publishing-Aktion.
+  - id: UABC-VER-BCB-PILOT-SETUP-001
+    changeRef: document-uabc-basic-de-playthru-setup-baseline
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Commitgebundene Pilotbaseline fuer Playthru/UABC-BASIC-DE mit BC 28.2, drei leeren Paketgeruesten, offenem Country/Region-Defect, 13/13 Pilotpruefungen, OpenSpec 9/9, Sprache 18/18, Dokumentkatalog, Snapshotvertrag und lokalem Gesamtcheck; keine weitere Live-BC-, Atlassian- oder Publishing-Aktion.

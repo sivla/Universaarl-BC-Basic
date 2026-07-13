@@ -1,0 +1,55 @@
+schemaVersion: 1
+evidenceId: UABC-EVD-PLAYTHRU-SETUP-001
+projectId: UABC-BC-BASIC-001
+pilotProjectId: UABC-BC-PILOT-001
+classification: real-playthru-pilot-observation
+observedAt: 2026-07-13
+environment:
+  name: Playthru
+  environmentType: Sandbox
+  clientVersion: "DE Business Central 28.2"
+  platformVersion: "28.0.52048.0"
+  applicationVersion: "28.2.50931.52241"
+  alRuntimeVersion: "17.0"
+companyCreation:
+  companyId: UABC-BASIC-DE
+  displayName: Universaarl GmbH
+  wizardAction: Neu erstellen - Keine Daten
+  status: Completed
+  assignedUsers: [Kajetan Kalicki]
+  assignedUserCount: 1
+  sourceCompany: null
+  copied: false
+  deletedCompanies: []
+  legacyCompaniesChanged: false
+  explicitlyUnchangedCompanies: [UNIVERSAARL-DE, My Company, sonstige Altmandanten]
+  writesPerformed: true
+  allowedWrite: mandant-neu-ohne-daten
+actorTruth:
+  operationActorRef: ACTOR-CODEX-SPECTRA
+  operationActorType: codex-spectra
+  operationRole: Codex-/Browserautomation
+  reviewedByActorRef: P-PILOT-LEAD-001
+  reviewedByRole: PM, Lead BC Consultant und Solution Architect
+  humanAutomationClaimed: false
+configurationPackageSkeletons:
+  - { code: UABC-01-CORE-FINANCE, name: Kern und Finanzwesen, sequence: 1, languageId: 0, productVersion: "", tables: 0, records: 0, errors: 0, status: skeleton-created, setupEffectClaimed: false, dataEffectClaimed: false }
+  - { code: UABC-02-TRADE-MASTER, name: Handel und Stammdaten, sequence: 2, languageId: 0, productVersion: "", tables: 0, records: 0, errors: 0, status: skeleton-created, setupEffectClaimed: false, dataEffectClaimed: false }
+  - { code: UABC-03-OPENING-DATA, name: Eroeffnungs- und offene Daten, sequence: 3, languageId: 0, productVersion: "", tables: 0, records: 0, errors: 0, status: skeleton-created, setupEffectClaimed: false, dataEffectClaimed: false }
+defects:
+  - defectId: UABC-DEF-PILOT-001
+    status: open
+    subject: Company Information Country/Region Code DE
+    symptom: Country/Region Code DE konnte in Company Information nicht gesetzt werden.
+    cause: Im leeren Mandanten existiert Country/Region DE noch nicht.
+    currentValue: null
+    targetValue: DE
+    fix: Country/Region-Stammsatz kontrolliert seeden, danach Company Information setzen.
+    retest: Country/Region DE aufloesen, Company Information speichern und erneut lesen.
+    setupClaimed: false
+truthBoundary:
+  noSecrets: true
+  noAuthData: true
+  noUrlOrSessionData: true
+  noTelemetry: true
+  noSetupOrBusinessDataEffectBeyondListedWrites: true

@@ -15,7 +15,7 @@
   "portable_relation_classes": [
     {
       "class_id": "portable-reference",
-      "count": 372
+      "count": 374
     }
   ],
   "mappings": [
@@ -26,12 +26,12 @@
       "outcome": "transformed",
       "reason_code": "transformed-domain",
       "native_count": 252,
-      "portable_edge_count": 372
+      "portable_edge_count": 374
     }
   ],
   "summary": {
     "native_total": 252,
-    "portable_edge_total": 372,
+    "portable_edge_total": 374,
     "accounted_native_total": 252,
     "projected_native_total": 252,
     "excluded_native_total": 0,
@@ -50,7 +50,7 @@
     },
     "projection": {
       "path": "exports/project-data/v1/reference-graph-portable.json",
-      "sha256": "2787150fbc8cbd5c6c731689bd20e5788228cac83533494fe67bbaa5fa45aeb6"
+      "sha256": "1ea9fe119022ff5291b4798378368789570680792c73fc90daa048b96353f175"
     },
     "digest_algorithm": "SHA-256",
     "source_mode": "read-only",

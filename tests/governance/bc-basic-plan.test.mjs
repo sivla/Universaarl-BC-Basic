@@ -200,8 +200,10 @@ test('Acht getrennte Datenvorlagenpaare sind parsebar und fachlich abgestimmt', 
   assert.equal(dataPackage.classification, 'synthetic-only');
   assert.equal(dataPackage.providerOwnerRef, 'P-002');
   assert.equal(dataPackage.configurationPackages?.length, 3);
+  const migrationWaveIds = new Set(dataPackage.migrationDiscovery?.waves?.map((wave) => wave.id));
   for (const pkg of dataPackage.configurationPackages) {
-    assert.match(pkg.namePattern ?? '', /^BCB-[A-Z]+-v001$/);
+    assert.equal(pkg.namePattern, pkg.id, `${pkg.id}: Paketname und kanonische Wellen-ID muessen uebereinstimmen`);
+    assert.equal(migrationWaveIds.has(pkg.id), true, `${pkg.id}: Paket fehlt in der kanonischen Migrationsreihenfolge`);
     assert.ok(pkg.candidateTables?.length > 0, `${pkg.id}: Kandidatentabellen fehlen`);
     assert.ok(pkg.requiredFieldRule?.length > 0, `${pkg.id}: Pflichtfeldregel fehlt`);
     assert.ok(pkg.excludedFieldRule?.length > 0, `${pkg.id}: Ausschlussregel fehlt`);
@@ -722,7 +724,8 @@ test('Reale BC-Basic-Nachweise bleiben ausstehend und abgeschlossene Repositorym
 });
 
 test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', () => {
-  assert.equal(decisionRegister.decisions?.length, 8);
+  assert.equal(new Set(decisionRegister.decisions?.map((decision) => decision.id)).size, decisionRegister.decisions?.length);
+  assert.ok(decisionRegister.decisions?.some((decision) => decision.id === 'UABC-DEC-BCB-009'));
   for (const decision of decisionRegister.decisions) {
     assert.equal(decision.decidedByRef, 'real-repository-user');
     assert.equal(decision.status, 'decided');

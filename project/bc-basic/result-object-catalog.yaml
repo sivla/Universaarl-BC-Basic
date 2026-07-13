@@ -12,7 +12,7 @@ counts:
   customerDeliverables: 9
   projectDocuments: 4
   blankTemplates: 3
-  evidenceObjects: 5
+  evidenceObjects: 6
   technicalSources: 4
 objects:
   - objectId: UABC-DEL-BCB-001
@@ -153,6 +153,10 @@ objects:
     classification: evidence
     title: Atlassian-Materialisierungs-Dry-run
     sourcePath: evidence/simulation/atlassian-materialization-dry-run.json
+  - objectId: UABC-OBJ-EVD-006
+    classification: evidence
+    title: Playthru-Pilot-Setup-Baseline
+    sourcePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
   - objectId: UABC-OBJ-TECH-001
     classification: technical-source
     title: Branch-Index

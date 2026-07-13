@@ -25,18 +25,20 @@ referenceIds:
   - UABC-REQ-ENV-004
   - UABC-REQ-ENV-005
   - UABC-VER-ENV-POLICY-GATE-001
-lastReviewed: 2026-07-12
+lastReviewed: 2026-07-13
 ---
 
 # 03 BC-Einrichtung und Konfigurationspakete
 
 ## Einsatzvoraussetzungen
 
-Diese interne Anleitung verbindet Umgebungskontrolle, BC-Konfiguration, Datenmigration und Testübergabe. Sie enthält keine Zugangsdaten und keine Behauptung über eine konkrete Kundenumgebung.
+Diese interne Anleitung verbindet Umgebungskontrolle, BC-Konfiguration, Datenmigration und Testübergabe.
+Sie enthält keine Zugangsdaten und keine Behauptung über eine konkrete Kundenumgebung.
 
 ## Sicherheits- und Qualitätsprinzip
 
-Der Consultant arbeitet fail-closed: Umgebung und Gesellschaft identifizieren, Schreibumfang und Reset prüfen, abhängige Setup-Bereiche konfigurieren, Datenwellen abstimmen und erst nach bestandenen Kontrollen an UAT übergeben.
+Der Consultant arbeitet fail-closed: Umgebung und Gesellschaft identifizieren, Schreibumfang und Reset prüfen.
+Danach werden abhängige Setup-Bereiche konfiguriert, Datenwellen abgestimmt und erst nach bestandenen Kontrollen an UAT übergeben.
 
 ## Umgebung, Einrichtung, Daten und Testdurchführung
 
@@ -46,7 +48,8 @@ Vor jeder schreibenden Tätigkeit werden Tenant, Umgebung, Gesellschaft, Region,
 
 Auch erlaubte Operation und Rücksetzbarkeit müssen feststehen. Abweichungen stoppen die Ausführung, bis der Owner sie geklärt hat.
 
-Secrets, Tokens und persönliche Zugangsdaten gehören weder in das Repository noch in Confluence oder Tickets. Beobachtete UI-Werte werden nur mit Zeitpunkt, Rolle und Wahrheitsgrenze dokumentiert.
+Secrets, Tokens und persönliche Zugangsdaten gehören weder in das Repository noch in Confluence oder Tickets.
+Beobachtete UI-Werte werden nur mit Zeitpunkt, Rolle und Wahrheitsgrenze dokumentiert.
 
 ### 2. Standard konfigurieren
 
@@ -60,7 +63,8 @@ Die Einrichtung folgt den Abhängigkeiten des Produktstandards:
 6. Purchases, Sales, Bank, Locations, Units of Measure und Inventory Setup.
 7. Rollen, Funktionstrennung und Berechtigungsproben.
 
-Zu jedem Parameter dokumentiert der Consultant BC-Seite, Feld, freigegebenen Wert, Owner, Abhängigkeit, erwartete Wirkung und Prüfschritt. Nicht bestätigte Kunden- oder Steuerwerte bleiben als Parameter offen.
+Zu jedem Parameter dokumentiert der Consultant BC-Seite, Feld, freigegebenen Wert, Owner, Abhängigkeit, erwartete Wirkung und Prüfschritt.
+Nicht bestätigte Kunden- oder Steuerwerte bleiben als Parameter offen.
 
 ### 3. Daten migrieren
 
@@ -87,7 +91,38 @@ Nach jedem Setup-Abschnitt führt der Consultant einen feldnahen Check und einen
 
 ### 5. An UAT übergeben
 
-UAT beginnt erst, wenn Entscheidungen, Datenqualität, Rollen, Sandboxvoraussetzungen und P1-/P2-Status das Entry-Gate erfüllen. Übergabe umfasst Baseline, Testdaten, bekannte Einschränkungen, Evidencepfad, Defectweg und Retestregel.
+UAT beginnt erst, wenn Entscheidungen, Datenqualität, Rollen, Sandboxvoraussetzungen und P1-/P2-Status das Entry-Gate erfüllen.
+Die Übergabe umfasst Baseline, Testdaten, bekannte Einschränkungen, Evidencepfad, Defectweg und Retestregel.
+
+### 6. Gesellschaft neu anlegen oder kopieren
+
+Voraussetzung laut Microsoft Learn ist eine fuer die Mandantenverwaltung geeignete Berechtigung.
+Im Zielsystem wird `SUPER` sichtbar bestaetigt und nicht aus einer Rollenanmutung abgeleitet.
+
+- **Neu erstellen - Keine Daten:** leerer Pilot oder kontrollierter Neuaufbau; verwendet fuer `UABC-BASIC-DE`.
+- **Neu erstellen - Nur Produktionssetupdaten:** nur wenn Standardsetupdaten fachlich geeignet und deren Herkunft geprueft sind.
+- **Evaluation:** ausschliesslich Evaluierungszweck, nie still als Kundenbaseline.
+- **Kopie:** nur bei ausdruecklicher Quelle-/Zielentscheidung, Datenschutzpruefung und Stillstandsfenster; keine Backupstrategie.
+
+Auf Seite 357 `Mandanten` beziehungsweise `Companies` wird **Neu** gewaehlt und der Wizard gestartet.
+Name, Erstelloption und Benutzerzuordnung werden geprueft; danach wird die Erstellung bestaetigt und Status `Completed` abgewartet.
+Anschliessend wird die Zielgesellschaft erneut gelesen.
+Bei Fehler wird keine zweite Gesellschaft blind angelegt; Status, Fehlermeldung und Rollbackentscheidung werden dokumentiert.
+
+Fuer eine Kopie werden Quelle und neuer Zielname vorab dokumentiert sowie aktive Sessions und Sperren geklaert.
+Personenbezogene oder produktive Daten sind ausgeschlossen.
+Nach dem Wizard werden Company Information, Nummernserien, Buchungsgruppen, Benutzer, Integrationen und Jobqueues geprueft.
+Loeschen ist eine separate freigabepflichtige Aktion. Eine Kopie ersetzt kein Backup.
+
+### 7. Paketabhaengigkeiten vor Tabellenaufnahme
+
+1. PRESEED: Country/Region `DE` bereitstellen und aufloesen.
+2. `UABC-01-CORE-FINANCE`: Kernsetup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden, Dimensionen und Bankbaseline.
+3. `UABC-02-TRADE-MASTER`: Debitoren, Kreditoren, Artikel, Lager, Einheiten und Preise.
+4. `UABC-03-OPENING-DATA`: Anfangssalden, offene Posten und Bestand ausschliesslich ueber kontrollierte Journals und Buchungen.
+
+Jeder Schritt besitzt Entry, Exit, Owner, Validierung und gegebenenfalls Defect/Retest.
+Gebuchte G/L-, Debitoren-, Kreditoren-, VAT-, Item-, Value- oder Bank-Ledger-Tabellen werden nie als Paketinhalt aufgenommen.
 
 ## Stopkriterien, Evidence und Übergabe
 

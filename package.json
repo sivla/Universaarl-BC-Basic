@@ -25,6 +25,8 @@
     "generate:jira-story-realism": "node scripts/enrich-jira-story-realism.mjs --write",
     "validate:jira-story-realism": "node scripts/validate-jira-story-realism.mjs",
     "test:jira-story-realism": "node --test tests/story/jira-story-realism.test.mjs",
+    "validate:pilot-setup": "node scripts/validate-pilot-setup-baseline.mjs",
+    "test:pilot-setup": "node --test tests/governance/pilot-setup-baseline.test.mjs",
     "validate:spectra-conformance": "node scripts/validate-spectra-0.7-conformance.mjs",
     "generate:spectra010": "node scripts/generate-spectra-0.10-integration.mjs --write",
     "validate:spectra010": "node scripts/validate-spectra-0.10-integration.mjs",

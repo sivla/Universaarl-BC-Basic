@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: make-bc-basic-jira-story-human-readable-v1
+governingChange: document-uabc-basic-de-playthru-setup-baseline
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -1434,7 +1434,7 @@ documentCatalog:
         - UABC-REQ-ENV-004
         - UABC-REQ-ENV-005
         - UABC-VER-ENV-POLICY-GATE-001
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -2021,7 +2021,7 @@ artifacts:
   - id: UABC-SRC-BCB-VER-001
     kindId: verification-register
     path: evidence/verification-register.yaml
-    selector: verifications[changeRef=make-bc-basic-jira-story-human-readable-v1]
+    selector: verifications[changeRef=document-uabc-basic-de-playthru-setup-baseline]
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001
@@ -2144,6 +2144,26 @@ artifacts:
   - id: UABC-SRC-BCB-JIRA-REALISM-TEST-001
     kindId: jira-story-realism-tests
     path: tests/story/jira-story-realism.test.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PILOT-SETUP-BASELINE-001
+    kindId: pilot-setup-baseline
+    path: project/bc-basic/pilot-setup-baseline.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-PILOT-SETUP-EVIDENCE-001
+    kindId: pilot-setup-evidence
+    path: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-PILOT-SETUP-VAL-001
+    kindId: pilot-setup-validator
+    path: scripts/validate-pilot-setup-baseline.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PILOT-SETUP-TEST-001
+    kindId: pilot-setup-negative-tests
+    path: tests/governance/pilot-setup-baseline.test.mjs
     format: javascript
     required: true
   - id: UABC-SRC-BCB-SPECTRA10-COVERAGE-SCHEMA-001

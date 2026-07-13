@@ -27,7 +27,8 @@ lastReviewed: 2026-07-13
 
 ## Arbeitsauftrag
 
-Der Consultant ueberfuehrt bestaetigte Discovery-Ergebnisse in ein umsetzbares Standarddesign. Kundenspezifische Werte werden im Kunden-Space entschieden; diese Seite beschreibt die Methode und kopiert keine Kundenwahrheit.
+Der Consultant ueberfuehrt bestaetigte Discovery-Ergebnisse in ein umsetzbares Standarddesign.
+Kundenspezifische Werte werden im Kunden-Space entschieden; diese Seite beschreibt die Methode und kopiert keine Kundenwahrheit.
 
 ## Designfolge
 
@@ -40,7 +41,8 @@ Der Consultant ueberfuehrt bestaetigte Discovery-Ergebnisse in ein umsetzbares S
 
 ## Entscheidungsregel
 
-Jede Anforderung wird als Standard uebernehmen, kundenspezifisch parametrisieren, Change oder Out-of-Scope entschieden. Eine Designentscheidung nennt Owner, Alternativen, Begruendung, Folgen fuer Daten, Setup und UAT sowie den echten Bestaetigungsbedarf.
+Jede Anforderung wird als Standard uebernehmen, kundenspezifisch parametrisieren, Change oder Out-of-Scope entschieden.
+Eine Designentscheidung nennt Owner, Alternativen, Begruendung, Folgen fuer Daten, Setup und UAT sowie den echten Bestaetigungsbedarf.
 
 Produktbehauptungen erhalten eine offizielle Microsoft-Learn-Quelle. Die Quelle belegt Standardverhalten, nicht die Ausfuehrung.
 
@@ -59,7 +61,19 @@ Das Exit-Kriterium lautet: notwendige Werte sind entschieden oder als bewusst bl
 
 ## Projektplanung
 
-Aufwand wird ausschliesslich auf abrechenbaren Tasks geplant und gebucht. Phase, Epic und Story zeigen Rollups, erzeugen aber keine Rechnungszeile. Abhaengigkeiten folgen der Reihenfolge Entscheidung, Daten, Setup, Prozesspruefung, UAT, Schulung und Cutover.
+Aufwand wird ausschliesslich auf abrechenbaren Tasks geplant und gebucht.
+Phase, Epic und Story zeigen Rollups, erzeugen aber keine Rechnungszeile.
+Abhaengigkeiten folgen der Reihenfolge Entscheidung, Daten, Setup, Prozesspruefung, UAT, Schulung und Cutover.
+
+## Pilot-Setup-Handlung
+
+Der Consultant bereitet Zielgesellschaft, drei Paketgerueste und Abhaengigkeiten vor.
+Er konfiguriert erst nach bestandenem Vorpruefungsgate, prueft jeden Abschnitt feldnah, dokumentiert Defects und Retests und uebergibt nur einen differenzfreien Stand an UAT.
+Kajetan Kalicki verantwortet PM, fachliches Review und Architekturentscheidung.
+Codex-/Browserautomation bleibt ein eigener technischer Bedienakteur.
+
+Aktuell gilt: `UABC-BASIC-DE` ist leer erstellt, drei Paketgerueste besitzen `0` Tabellen und der Country/Region-Defect ist offen.
+Damit ist die Baseline vorbereitet, nicht eingerichtet.
 
 ## Referenzen
 

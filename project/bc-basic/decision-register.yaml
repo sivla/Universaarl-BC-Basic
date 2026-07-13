@@ -11,6 +11,7 @@ decisions:
   - { id: UABC-DEC-BCB-008, status: decided, decidedAt: 2026-05-29, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: "Fuer die abgeschlossene synthetische Projektstory gilt Angebotsversion 2.0 mit 80 Stunden zu 120 EUR und 9.600 EUR netto; die historische 68-Stunden-Dienstleisterkalkulation bleibt nachvollziehbar, erzeugt aber keine reale Rechnung." }
   - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
   - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
+  - { id: UABC-DEC-BCB-009, status: decided, decidedAt: 2026-07-13, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: PM und Solution Architect, statement: UABC-BASIC-DE ist der leere Playthru-Pilotmandant; PRESEED und CORE-FINANCE gehen TRADE-MASTER und OPENING-DATA voraus, Paketgerueste mit 0 Tabellen besitzen keine Setup- oder Datenwirkung. }
 solutionDesignDecision:
   status: simulated-approved
   decidedAt: 2026-04-24
@@ -33,6 +34,13 @@ configurationBaseline:
   status: simulated-approved
   sequence: [Gesellschaft-und-Periode, Finance-und-VAT, steuernde-Stammdaten, Prozesse-Lager-Bank, Berechtigungen, Reporting-und-UAT]
   deviationOutcomes: [Standard-uebernehmen, kundenspezifisch-parametrisieren, Change, ausserhalb-Paket]
+pilotSetupDecision:
+  decisionRef: UABC-DEC-BCB-009
+  baselinePath: project/bc-basic/pilot-setup-baseline.yaml
+  evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+  countryRegionDefectRef: UABC-DEF-PILOT-001
+  status: nur-mandant-und-paketgerueste-beobachtet
+  nextGate: Country Region DE seeden und retesten, danach Tabellenreview je Paket; keine weitere Live-Wirkung in diesem Commit.
   truthClasses:
     documentedStandard: Verhalten aus Microsoft-Learn-Quellen
     projectAssumption: fuer BC Basic fachlich gewaehlte Standardauspraegung

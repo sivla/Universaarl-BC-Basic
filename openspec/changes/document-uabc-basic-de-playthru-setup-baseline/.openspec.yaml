@@ -1,0 +1,19 @@
+schema: universaarl-delivery
+created: 2026-07-13
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-PILOT-SETUP-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-13
+  scope: Playthru-Pilotbaseline dokumentieren und validieren; keine weitere Live-BC-, Atlassian- oder Publishing-Aktion
+  conditions: [Pilotbeobachtung ohne Secrets, drei leere Paketgerueste, Defect ehrlich offen, Gesamtcheck gruen]
+proposedCanonicalUpdate:
+  status: applied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    pilotProject: { status: confirmed, value: UABC-BC-PILOT-001 }
+    environment: { status: confirmed, value: Playthru }
+    company: { status: confirmed, value: UABC-BASIC-DE }
+  unknowns: [Country/Region-Seed und daraus abhaengige Company-Information-Felder, reale Steuer- und Bankkennungen, Tabellenaufnahme je Paket]
+  policyGateEvidenceId: UABC-VER-BCB-PILOT-SETUP-001

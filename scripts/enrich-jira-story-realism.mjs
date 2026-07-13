@@ -123,6 +123,16 @@ function enrich(){
  const actual=(id)=>story.tickets.filter(t=>t.parent===id).reduce((s,t)=>s+t.actualHours,0); const estimate=(id)=>story.tickets.filter(t=>t.parent===id).reduce((s,t)=>s+t.estimateHours,0);
  for(const ticket of story.tickets.filter(t=>t.type!=='task')){ticket.actualHours=actual(ticket.id);ticket.estimateHours=estimate(ticket.id);ticket.netAmount=ticket.actualHours*120;}
  story.catalogs.decisions=[...new Set([...story.catalogs.decisions,...Array.from({length:8},(_,i)=>`UABC-DEC-BCB-00${i+1}`)])];
+ story.catalogs.decisions=[...new Set([...story.catalogs.decisions,'UABC-DEC-BCB-009'])];
+ story.catalogs.evidenceRefs=[...new Set([...story.catalogs.evidenceRefs,'evidence/playthru-uabc-basic-de/setup-baseline.yaml'])];
+ const pilotSetupTask=story.tickets.find(ticket=>ticket.id==='UABC-39');
+ pilotSetupTask.evidenceRefs=[...new Set([...pilotSetupTask.evidenceRefs,'evidence/playthru-uabc-basic-de/setup-baseline.yaml'])];
+ pilotSetupTask.decisionRefs=[...new Set([...pilotSetupTask.decisionRefs,'UABC-DEC-BCB-009'])];
+ pilotSetupTask.comments=[...pilotSetupTask.comments.filter(comment=>comment.id!=='COM-UABC-39-PILOT-PROVENIENZ'),{
+  id:'COM-UABC-39-PILOT-PROVENIENZ',type:'provenance',time:'2026-07-13',role:'Solution Architect',actorRef:'P-PILOT-LEAD-001',actorType:'human',actionRole:'fachliche Pruefung',
+  text:'Die Playthru-Pilotbaseline ist ein neuer separater Lauf des Projekts UABC-BC-PILOT-001. Sie aendert weder den synthetischen Abschluss noch den Worklog von UABC-39 und belegt noch keine Einrichtung: beobachtet sind nur der leere Mandant und drei Paketgerueste ohne Tabellen oder Datensaetze.',
+  evidenceRef:'evidence/playthru-uabc-basic-de/setup-baseline.yaml'
+ }];
  const timelineDates=['2026-04-03','2026-04-06','2026-04-08','2026-04-14','2026-04-24','2026-04-28','2026-05-08','2026-05-12','2026-05-14','2026-05-15','2026-05-20','2026-05-22','2026-05-25','2026-05-27','2026-05-29'];
  story.timeline.forEach((event,index)=>{event.time=`${timelineDates[index]}T${index===0?'10:00':'16:00'}:00+02:00`;event.role='Projektleitung';event.actorRef=LEAD;event.actorType='human';event.actionRole='Projektleitung';});
  story.timeline.at(-1).result=`${story.timeline.at(-1).result} Reconciliation und Provenienz sind im Abschluss verknuepft.`;
