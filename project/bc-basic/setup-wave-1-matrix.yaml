@@ -21,6 +21,13 @@ target:
     application: 28.2.50931.52241
     alRuntime: "17.0"
   bindingState: runtime-session-not-authenticated
+  configurationState:
+    baselineClass: standard-cronus-demo-baseline
+    baselineTruth: UABC-BASIC-DE enthaelt nach direkter Benutzerbestaetigung unveraenderte Microsoft-Standard-CRONUS-Demodaten; technischer Name, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz.
+    pilotTarget: dedizierter BC-Basic-Pilot mit ausschliesslich kontrolliert angewendeten und gelesenen Sollabweichungen
+    appliedDifferenceStatus: none-evidenced
+    configuredPilotClaimed: false
+    decisionStatus: wave-0-read-only-preflight-required
 truthBoundary:
   liveTablesAdded: 0
   liveRecordsApplied: 0
@@ -110,7 +117,8 @@ matrix:
   - { packageId: UABC-03-OPENING-DATA, order: 410, tableId: 81, tableName: Gen. Journal Line, mode: designed-only, include: false, purpose: spaetere Eroeffnungsbilanz ueber kontrolliertes Journal vorbereiten, requiredFields: [Journal Template Name, Journal Batch Name, Line No., Posting Date, Document No., Account Type, Account No., Amount, Bal. Account Type, Bal. Account No.], optionalFields: [Shortcut Dimension 1 Code, Shortcut Dimension 2 Code], excludedFields: [Systemfelder, bereits gebuchte Entry No.], dependsOn: [UABC-01-CORE-FINANCE, UABC-02-TRADE-MASTER], source: project/bc-basic/customer-templates/gl-opening.example.csv, validation: Soll gleich Haben vor separatem Posting-Gate, expectedEffect: in Wave 1 keine Journalzeile und keine Buchung, exclusionReason: OPENING-DATA darf in diesem Block nicht angewendet werden, ownerRef: P-PILOT-LEAD-001, evidenceRef: UABC-VER-BCB-SETUP-WAVE1-001 }
   - { packageId: UABC-03-OPENING-DATA, order: 420, tableId: 83, tableName: Item Journal Line, mode: designed-only, include: false, purpose: spaeteren Anfangsbestand ueber kontrolliertes Artikeljournal vorbereiten, requiredFields: [Journal Template Name, Journal Batch Name, Line No., Posting Date, Document No., Entry Type, Item No., Location Code, Quantity, Unit Amount], optionalFields: [Shortcut Dimension 1 Code, Shortcut Dimension 2 Code], excludedFields: [Systemfelder, Entry No., bereits gebuchte Item Ledger Entry], dependsOn: [UABC-01-CORE-FINANCE, UABC-02-TRADE-MASTER], source: project/bc-basic/customer-templates/inventory-opening.example.csv, validation: Menge mal Kosten entspricht Lagerkontrollsumme vor separatem Posting-Gate, expectedEffect: in Wave 1 keine Journalzeile und keine Buchung, exclusionReason: OPENING-DATA darf in diesem Block nicht angewendet werden, ownerRef: P-PILOT-LEAD-001, evidenceRef: UABC-VER-BCB-SETUP-WAVE1-001 }
 preflight:
-  required: [Host sichtbar Business Central SaaS, Environment exakt Playthru, Company exakt UABC-BASIC-DE, rechtlicher Name Universaarl GmbH, DE BC 28.2 und Anwendung 28.2.50931.52241, Rolle mit direkten Tabellenrechten, Arbeitsdatum dokumentiert, Resetpunkt dokumentiert, alle Pakete vor Lauf 0/0/0, keine fremde aktive Sitzung im Ziel, Matrixvalidator gruen]
+  wave0State: required-not-executed
+  required: [Host sichtbar Business Central SaaS, Environment exakt Playthru, interne Company-ID und technischer Name von UABC-BASIC-DE gelesen, Name und Display Name gelesen, CRONUS-Ausgangsdaten und Provenienz belegt, dedizierte Pilot-Zielentscheidung evidenzbasiert dokumentiert, Abgrenzung zu unveraenderten CRONUS-Referenzgesellschaften belegt, rechtlicher Name Universaarl GmbH nur als Soll und nicht als Einrichtungsbeweis behandelt, DE BC 28.2 und Anwendung 28.2.50931.52241, Rolle mit direkten Tabellenrechten, Arbeitsdatum dokumentiert, Resetpunkt und Wiederanlaufweg dokumentiert, alle Pakete vor Lauf 0/0/0, keine fremde aktive Sitzung im Ziel, Matrixvalidator gruen]
   stopConditions: [Environment oder Company unbekannt/falsch, Versions- oder Schemaabweichung, Paket nicht 0/0/0, Tabellen-ID loest auf anderen Namen auf, fehlende direkte Berechtigung, nicht freigegebenes Feld, Ledger-/Posted-/Continia-Treffer, fehlender Resetpunkt, unerwarteter Dialog oder Fehler]
 rollback:
   beforeApply: Paketdefinition exportieren oder Paketzeilenliste mit Screenshot sichern; noch nicht angewandte Zeilen entfernen.

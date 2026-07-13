@@ -1,10 +1,13 @@
 schemaVersion: 1
 migrationId: UABC-TICKET-MIGRATION-2026-07-12
+classification: historical-migration-provenance
 sourceCount: 86
-activeTargetRange: UABC-1..UABC-50
-activeTargetCount: 50
-policy: alte IDs nur in dieser Provenienzmatrix; keine parallele
-  Ticket-/Billingwahrheit
+historicalTargetRangeAtMigration: UABC-1..UABC-50
+historicalTargetCountAtMigration: 50
+activeContractSource: evidence/simulation/project-story.json
+policy: Historische Zielmenge nur als Provenienz des damaligen Migrationslaufs;
+  aktive Ticketmenge und Istwerte werden ausschliesslich dynamisch aus der
+  kanonischen Projektstory abgeleitet.
 records:
   - sourceId: UABC-PHASE-1
     sourceKind: previous-active-ticket

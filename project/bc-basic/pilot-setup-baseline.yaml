@@ -2,12 +2,13 @@ schemaVersion: 1
 baselineId: UABC-PILOT-SETUP-BASELINE-001
 pilotProjectId: UABC-BC-PILOT-001
 customerProjectId: UABC-BC-BASIC-001
-status: country-region-und-firmendaten-ausgefuehrt
+status: standard-cronus-demo-baseline-pilot-build-pending
 simulation: false
 environmentRef: Playthru
 companyRef: UABC-BASIC-DE
 evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
-latestExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
 commercialBaseline:
   status: planned
   plannedHours: 80
@@ -17,6 +18,17 @@ commercialBaseline:
   actualNetEur: 0
   billingRule: Erst fachlich abgeschlossene Task-Worklogs sind fakturierbar; dieser Baseline-Commit erzeugt keine Rechnungszeile.
 companyInformation:
+  currentState:
+    baselineKind: standard-cronus-demo
+    pilotConfigured: false
+    writesApplied: false
+    readbackStatus: pending
+    internalCompanyId: null
+    technicalCompanyName: UABC-BASIC-DE
+    observedDisplayName: Universaarl GmbH
+    targetDisplayName: Universaarl GmbH (BC Basic Pilot)
+    targetDecision: pending-wave-0-evidence
+    resetDecision: pending-resetpoint-evidence
   targetValues:
     name: Universaarl GmbH
     address: Simulationsstraße 1
@@ -38,7 +50,7 @@ companyInformation:
     iban: ""
     swift: ""
     allowEmptyPaymentInformation: true
-  observedValues:
+  historicalObservedValues:
     name: Universaarl GmbH
     address: Simulationsstraße 1
     postCode: "66123"
@@ -105,9 +117,10 @@ prohibitedPackageTables:
   - Value Entry
   - Bank Account Ledger Entry
 executionGate:
-  state: authorized-scope-awaiting-table-review
+  state: blocked-wave-0-preflight-and-resetpoint
   requires: [Zielpreflight je Lauf, sichere Authentisierung, erlaubter Schreibscope, Resetpunkt, Tabellen- und Feldreview, bestandene Abhaengigkeiten]
   liveTablesAdded: 0
-  liveCompanyInformationApplied: true
+  liveCompanyInformationApplied: false
+  configuredPilotClaimed: false
   livePackageSetupClaimed: false
   liveBusinessDataClaimed: false

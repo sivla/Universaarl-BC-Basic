@@ -1,9 +1,13 @@
 schemaVersion: 1
 evidenceId: UABC-EV-SIM-AUDIT-001
 projectId: UABC-BC-BASIC-001
-classification: synthetic-only
-status: synthetisch-vollstaendig-geprueft
-purpose: Abgleich des Gesamtziels mit konkreten Dateien und der zulässigen Wahrheitsgrenze.
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
+currentRollupContribution: false
+purpose: Historischer Abgleich des abgelösten repositorybasierten Referenzlaufs; keine aktuelle Pilot-, Readiness- oder Ausführungswahrheit.
 objectiveChecks:
   - { id: OBJ-01, objective: synthetisches-Unternehmen-und-Daten, evidence: [project/bc-basic/data-package.yaml, project/bc-basic/customer-templates/example], result: bestanden-synthetisch }
   - { id: OBJ-02, objective: Finance-P2P-O2C-Cash-Lager-Abschluss, evidence: [evidence/simulation/phase-2-p2p-o2c.yaml, evidence/simulation/phase-3-cash-inventory-close.yaml], result: bestanden-synthetisch }

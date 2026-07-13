@@ -3,6 +3,11 @@ id: UABC-MTG-001
 title: Synthetischer Discovery- und Fit-to-Standard-Workshop
 date: 2026-08-21
 status: simulated-complete
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+currentRollupContribution: false
 projectId: UABC-BC-BASIC-001
 participantRefs: [P-001, P-002, P-005, P-011, P-016, P-019]
 ticketRefs: [UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]

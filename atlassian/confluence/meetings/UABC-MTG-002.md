@@ -3,6 +3,11 @@ meetingId: UABC-MTG-002
 title: Setup, Migration, Prozesse, SIT, UAT und Schulung
 date: 2026-05-04
 status: simulated-complete
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+currentRollupContribution: false
 ---
 
 # Setup, Migration, Prozesse, SIT, UAT und Schulung

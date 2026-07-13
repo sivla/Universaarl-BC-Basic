@@ -42,3 +42,24 @@ Die Kundeninstanz MUST eine deterministische, positivgelistete und ausschliessli
 - **WHEN** der Exportgenerator ausgefuehrt wird
 - **THEN** MUST er dieselben Projektionsbytes und dieselbe positivgelistete Artefaktmenge erzeugen
 - **AND** MUST eine manipulierte Schreibfreigabe fail-closed abgelehnt werden.
+
+### Requirement: UABC-REQ-BCB-WAVE0-CRONUS-BASELINE
+
+Die Kundeninstanz MUST den aktiven Zustand strukturiert als `baselineKind=standard-cronus-demo`, `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` ausweisen. Vor dem ersten Write MUST Wave 0 interne Company-ID, technischen Namen, Name, Display Name, Standard-CRONUS-Provenienz, Zielentscheidung, Resetpunkt und Abgrenzung zu unveraenderten Referenzgesellschaften belegen. Ein technischer Firmenname, eine URL oder ein sichtbarer Pilotname allein DARF NICHT als eingerichteter Pilot gelten.
+
+#### Scenario: Umbenannte CRONUS-Gesellschaft
+
+- **GIVEN** eine CRONUS-Demo-Gesellschaft traegt den geplanten Pilot-Anzeigenamen
+- **WHEN** kein feldgenauer Readback der angewendeten Pilotabweichungen vorliegt
+- **THEN** MUST `pilotConfigured` false und `writesApplied` false bleiben
+- **AND** MUST der Validator eine Einrichtungsbehauptung fail-closed ablehnen.
+
+### Requirement: UABC-REQ-BCB-CURRENT-PILOT-STORY
+
+`evidence/simulation/project-story.json` MUST die einzige aktive kanonische Ticketquelle sein. Genau `UABC-1`, `UABC-2` und `UABC-3` MUST Phase-Roots sein; Gesamt- und Typmengen MUST dynamisch aus dem fachlichen Bestand folgen. Nur Tasks MAY billable sein oder Worklogs tragen. Planwerte MAY 80 Stunden und 9.600 EUR betragen; Istwerte MUST aus aktiven Task-Worklogs abgeleitet werden. Twin-Ticketlisten MUST ohne Geldfelder und Geldbetraege bleiben.
+
+#### Scenario: Historische oder feste aktive Wahrheit
+
+- **WHEN** ein aktiver Generator oder Validator 50 Tickets, 19 Tasks, 80 Iststunden, 9.600 EUR Istkosten oder einen UABC-50-Abschluss festsetzt
+- **THEN** MUST das Anti-Fixcount-Gate den Einstiegspunkt ablehnen
+- **AND** historische Migrations-/Angebotsprovenienz DARF die aktive Story nicht ueberschreiben.

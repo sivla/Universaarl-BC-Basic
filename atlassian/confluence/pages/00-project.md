@@ -25,43 +25,39 @@ referenceIds:
   - UABC-REQ-BCB-002
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 00 Hilfe und Projektumgebung
 
-## Zweck und Schnellzugriff
+## Aktueller Projektstatus
 
-Diese Seite ist der Einstieg in die kundenbezogene Projektwahrheit für die synthetische Gesellschaft `UABC-BASIC-DE`.
-Sie führt zu Projektstatus, Supportweg und Betriebsinformationen, ohne Produktwissen oder interne Consultant-Anweisungen zu duplizieren.
+Der Playthru-Pilot läuft auf `UABC-BASIC-DE`. Die Gesellschaft enthält eine Microsoft-CRONUS-Demo-Ausgangsbasis; ihr Anzeigename allein belegt keine eingerichtete BC-Basic-Kundeninstanz. `pilotConfigured=false`, `writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false` sind der aktuelle Stand.
 
-## Aktueller Betriebs- und Supportstatus
+Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 0 Stunden und 0 EUR.
 
-Die Referenzsimulation ist als `V1_STANDARDPRODUCT_READY` und `GO_SIMULATION` abgeschlossen.
-Sie belegt einen vollständigen Dateiplaythrough, aber keinen Zugriff auf eine reale Business-Central-Instanz und keinen produktiven Betrieb.
-
-Der Kundenprojekt-Space enthält ausschließlich synthetische Projekt- und Evidence-Daten.
-Zugangsdaten, reale Personen-, Bank- oder Steuerdaten und externe Freigaben sind nicht enthalten.
+Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen. Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
 
 ## Projektumgebung
 
-| Bereich | Referenzsimulation | Reale Kundeninstanz |
+| Bereich | Beobachteter Iststand | Noch zu belegender Pilotsollstand |
 |---|---|---|
-| Gesellschaft | technischer Pilotmandant `UABC-BASIC-DE`; rechtlicher Firmenname Universaarl GmbH | vor Projektstart eindeutig benennen |
-| Umgebung | repositorybasierter Playthrough | rücksetzbare BC-Sandbox bestätigen |
-| Lager | `HAUPT`, keine Lagerplätze | Code und Betriebsmodell bestätigen |
-| Daten | ausschließlich synthetisch | freigegebene Kundenvorlagen verwenden |
-| Externe Dienste | keine Bank-, E-Mail- oder ELSTER-Übermittlung | separat entscheiden und testen |
+| Umgebung | Playthru-Sandbox | vor jedem Lauf erneut lesen |
+| Gesellschaft | `UABC-BASIC-DE`, unveränderte Standard-CRONUS-Demo-Baseline | interne Company-ID, technischer Name, Name und Display Name per Wave-0 belegen |
+| Pilotname | beobachtet `Universaarl GmbH` | Ziel `Universaarl GmbH (BC Basic Pilot)` erst im autorisierten Lauf |
+| Daten | CRONUS-Standarddaten | freigegebene Pilotabweichungen mit Readback |
+| Setup-Pakete | je 0 Tabellen / 0 Datensätze / 0 Fehler | kontrollierte CORE-FINANCE-Ausführung erst nach Freigabe |
+| Reset | Entscheidung offen | konkreter Resetpunkt, Erstellzeit und Wiederanlaufweg belegen |
+| Externe Dienste | nicht autorisiert | Bank-, E-Mail- und Steuerübermittlung bleiben ausgeschlossen |
+
+Wave-0 entscheidet anhand der Evidence zwischen kontrollierter Weiterverwendung der dedizierten CRONUS-Kopie und Neuanlage beziehungsweise Kopie. Eine bloße Umbenennung macht aus der Baseline keinen eingerichteten Pilot.
 
 ## Rollen und Verantwortung
 
-- **Sponsor (`P-001`)** entscheidet Scope-, UAT-, Cutover- und Abschlussgates; die Rolle bucht nicht operativ.
-- **Projektleitung und Consultant (`P-002`)** steuern Termine, Entscheidungen, Evidence und Eskalationen.
-- **Finance Key User (`P-005`)** verantwortet Finanzkontrollen, Bankabstimmung, Abschluss und VAT-Vorschau.
-- **Handel Key User (`P-011`)** verantwortet Einkauf, Verkauf, offene Posten und Prozessabnahme.
-- **Datenverantwortung (`P-016`)** prüft Vorlagen, Mapping, Qualität und Abstimmwerte.
-- **Lager Key User (`P-019`)** verantwortet Bestand, Inventur und Lagerkontrollen.
+- **Vendor-Projektleitung (`P-PILOT-LEAD-001`)** steuert Scope, Evidence, Gate-Entscheidungen und Eskalation.
+- **Sponsorrolle (`P-001`)** ist eine typisierte Kundenrolle; eine reale Person oder Kundenfreigabe wird nicht erfunden.
+- **Finance (`P-005`)**, **Handel (`P-011`)**, **Daten (`P-016`)** und **Lager (`P-019`)** bleiben typisierte Kundenrollen für spätere fachliche Prüfungen.
 
 ## Support- und Eskalationsweg
 
@@ -70,43 +66,20 @@ Zugangsdaten, reale Personen-, Bank- oder Steuerdaten und externe Freigaben sind
 | selbst korrigieren | reversibler Eingabefehler ohne Buchungswirkung | Wert korrigieren und Kontrolle wiederholen |
 | Key User | Prozess- oder Stammdatenfrage | fachlich prüfen und dokumentieren |
 | Consultant/Support | Setup-, Rollen- oder reproduzierbarer Systembefund | Diagnosepaket übernehmen und Retest steuern |
-| sofortiger Buchungsstopp | falsche Gesellschaft oder unklare Finanz-, VAT-, Bestands- oder Datenschutzwirkung | nicht buchen, Zustand sichern, eskalieren |
+| sofortiger Stopp | falsche Gesellschaft, fehlender Resetpunkt oder unklare Finanz-/VAT-/Bestandswirkung | nichts schreiben, Zustand sichern, eskalieren |
 
-Ein Supportfall nennt mindestens Rolle, Umgebung, Zeitpunkt, Seite und Aktion, Belegnummer, Soll/Ist und Fehlertext.
-Hinzu kommen Kontrollwerte, letzter erfolgreicher Schritt, Reproduktionsweg und sichere Evidence.
+Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehlertext, letzten erfolgreichen Schritt, Reproduktionsweg und bereinigte Evidence. Zugangsdaten, Cookies, Tokens, Browserprofile sowie reale Bank- oder Personengeheimnisse gehören nicht in Projektartefakte.
 
-## Supportstart und Übergabe
+## Nächster zulässiger Schritt
 
-Der Supportstart setzt das abgeschlossene Handover, benannte Ansprechpartner, einen getesteten Eskalationsweg und den Operator-Smoke-Test voraus.
-Servicezeiten, reale Kontakte und Tenantdaten werden im echten Projekt bestätigt und nicht aus der Simulation abgeleitet.
-
-## Bekannte Einschränkungen und erste Diagnosefragen
-
-- **Synthetisch entschieden:** Rollenmodell, vierstufige Eskalation, Supportdiagnose und Trennung zwischen Simulation und produktiver Nutzung.
-- **Vor einem realen Projekt zu bestätigen:** benannte Personen, Servicezeiten, Lizenz, Tenant, Sandbox, Zugriff, Datenschutzweg und Wiederherstellungspunkt.
-- **Wahrheitsgrenze:** Die fehlende reale Instanz blockiert die abgeschlossene Simulation nicht; sie bleibt ein Entry-Kriterium für eine spätere Kundeninstanz.
-
-## Playthru-Pilot `UABC-BASIC-DE`
-
-Am 2026-07-13 wurde in der Sandbox **Playthru** die leere Pilotgesellschaft `UABC-BASIC-DE` mit Anzeigename **Universaarl GmbH** ueber **Neu erstellen - Keine Daten** angelegt.
-Status: `Completed`; zugeordnet ist ausschliesslich Kajetan Kalicki.
-`UNIVERSAARL-DE`, `My Company` und sonstige Altmandanten wurden weder kopiert, geloescht noch geaendert.
-
-Die drei Pakete `UABC-01-CORE-FINANCE`, `UABC-02-TRADE-MASTER` und `UABC-03-OPENING-DATA` existieren nur als leere Gerueste.
-Language ID ist `0`, Product Version ist leer; Tabellen, Datensaetze und Fehler stehen jeweils auf `0`.
-Sie beweisen noch keine Einrichtung oder Datenuebernahme.
-
-Defect `UABC-DEF-PILOT-001` ist retest-gruen: Country/Region `DE` wurde mit ISO `DE`, numerischem ISO-Code `276` und Adressformat PLZ+Ort angelegt. Danach wurden Name, synthetische Adresse, Ort, Kontakt, Funktions-E-Mail und Homepage gespeichert und erneut gelesen.
-
-`UABC-BASIC-DE` ist der technische **BC-Basic-Pilotmandant**. `UNIVERSAARL-DE` bleibt der unveraenderte **Legacy-Mandant**. Der rechtliche Firmenname in den Firmendaten lautet bei `UABC-BASIC-DE` **Universaarl GmbH**; dieser Lauf behauptet keine Aenderung des Anzeigenamens.
-
-Telefon, USt-IdNr., EORI, GLN und saemtliche Bankfelder bleiben bewusst leer. **Leere Zahlungsinformationen erlauben** ist bestaetigt. Reale Zugangsdaten stehen weder hier noch im Repository.
+Die nur lesende Wave-0-Vorprüfung vervollständigen: interne Company-ID, Namen, CRONUS-Provenienz, Resetpunkt und Zielentscheidung belegen. Erst danach darf das Kontrollzentrum eine gesonderte Schreibfreigabe prüfen. RUN-06 bis RUN-22 bleiben NO-GO.
 
 ## Referenzen
 
-- [Projekt- und Phasenmodell](../../../project/bc-basic/project-plan.yaml)
-- [Rollen, Training und Operator-Smoke-Test](../../../project/bc-basic/training-plan.yaml)
-- [Hypercare-Exit und Handover](../../../evidence/simulation/project-completion.yaml)
-- [Lesender Twin-Vertrag](../../../exports/project-data/v1/index.yaml)
+- [Aktuelle Projektstory](../../../evidence/simulation/project-story.json)
+- [Nur-Lese-Vorprüfung](../../../evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml)
+- [Kontrollierter Run-Plan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
+- [Projektstatus und Ticketwahrheit](bc-basic-project-story.md)
+- [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":6,"status":"published"} -->

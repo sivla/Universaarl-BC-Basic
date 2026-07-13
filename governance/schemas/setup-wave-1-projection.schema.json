@@ -4,17 +4,110 @@
   "title": "Setup-Wave-1-Projektion",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "exportId", "recordType", "readOnly", "writesAuthorized", "target", "packages", "preflight", "writeGate", "provenance"],
+  "required": ["schemaVersion", "exportId", "recordType", "readOnly", "writesAuthorized", "target", "configurationState", "packages", "preflight", "writeGate", "provenance"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "exportId": { "const": "UABC-EXP-SETUP-WAVE1-001" },
     "recordType": { "const": "setup-wave-1-projection" },
     "readOnly": { "const": true },
     "writesAuthorized": { "const": false },
-    "target": { "type": "object", "additionalProperties": false, "required": ["environment", "companyId", "platform", "application", "pilotName", "legacyName"], "properties": { "environment": { "const": "Playthru" }, "companyId": { "const": "UABC-BASIC-DE" }, "platform": { "const": "28.0.52286.0" }, "application": { "const": "28.2.50931.52241" }, "pilotName": { "const": "Universaarl GmbH (BC Basic Pilot)" }, "legacyName": { "const": "Universaarl GmbH (Legacy)" } } },
-    "packages": { "type": "array", "minItems": 3, "items": { "type": "object", "additionalProperties": false, "required": ["packageId", "status", "tables", "records", "errors"], "properties": { "packageId": { "type": "string" }, "status": { "type": "string" }, "tables": { "const": 0 }, "records": { "const": 0 }, "errors": { "const": 0 } } } },
-    "preflight": { "type": "object", "additionalProperties": false, "required": ["status", "workingDate", "operator", "locale", "resetPoint"], "properties": { "status": { "const": "beobachtet-nur-lesend" }, "workingDate": { "const": "2026-07-13" }, "operator": { "type": "object", "additionalProperties": false, "required": ["userId", "permissionSet"], "properties": { "userId": { "const": "KAJETAN.KALICKI" }, "permissionSet": { "const": "SUPER" } } }, "locale": { "const": "German (Germany)" }, "resetPoint": { "type": "object", "additionalProperties": false, "required": ["status", "requiredBeforeAnyWrite"], "properties": { "status": { "const": "missing-blocker" }, "requiredBeforeAnyWrite": { "const": true } } } } },
-    "writeGate": { "type": "object", "additionalProperties": false, "required": ["writesAuthorized", "noGoSteps", "nextAllowedStep"], "properties": { "writesAuthorized": { "const": false }, "noGoSteps": { "const": ["RUN-06", "RUN-07", "RUN-08", "RUN-09", "RUN-10", "RUN-11", "RUN-12", "RUN-13", "RUN-14", "RUN-15", "RUN-16", "RUN-17", "RUN-18", "RUN-19", "RUN-20", "RUN-21", "RUN-22"] }, "nextAllowedStep": { "const": "Resetpunkt dokumentieren und separat freigeben" } } },
-    "provenance": { "type": "array", "minItems": 6, "items": { "type": "object", "additionalProperties": false, "required": ["path", "role"], "properties": { "path": { "type": "string", "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$" }, "role": { "type": "string" } } } }
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment", "companyId", "platform", "application", "pilotName", "legacyName"],
+      "properties": {
+        "environment": { "const": "Playthru" },
+        "companyId": { "const": "UABC-BASIC-DE" },
+        "platform": { "const": "28.0.52286.0" },
+        "application": { "const": "28.2.50931.52241" },
+        "pilotName": { "const": "Universaarl GmbH (BC Basic Pilot)" },
+        "legacyName": { "const": "Universaarl GmbH (Legacy)" }
+      }
+    },
+    "configurationState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baselineKind", "pilotConfigured", "writesApplied", "readbackStatus", "technicalCompanyName", "internalCompanyId", "observedDisplayName", "targetDisplayName", "targetDecision", "resetDecision"],
+      "properties": {
+        "baselineKind": { "const": "standard-cronus-demo" },
+        "pilotConfigured": { "const": false },
+        "writesApplied": { "const": false },
+        "readbackStatus": { "const": "pending" },
+        "technicalCompanyName": { "const": "UABC-BASIC-DE" },
+        "internalCompanyId": { "type": "null" },
+        "observedDisplayName": { "const": "Universaarl GmbH" },
+        "targetDisplayName": { "const": "Universaarl GmbH (BC Basic Pilot)" },
+        "targetDecision": { "const": "pending-wave-0-evidence" },
+        "resetDecision": { "const": "pending-resetpoint-evidence" }
+      }
+    },
+    "packages": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["packageId", "status", "tables", "records", "errors"],
+        "properties": {
+          "packageId": { "type": "string" },
+          "status": { "type": "string" },
+          "tables": { "const": 0 },
+          "records": { "const": 0 },
+          "errors": { "const": 0 }
+        }
+      }
+    },
+    "preflight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "wave0Status", "workingDate", "operator", "locale", "resetPoint"],
+      "properties": {
+        "status": { "const": "beobachtet-nur-lesend" },
+        "wave0Status": { "const": "required-not-executed" },
+        "workingDate": { "const": "2026-07-13" },
+        "operator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["userId", "permissionSet"],
+          "properties": {
+            "userId": { "const": "KAJETAN.KALICKI" },
+            "permissionSet": { "const": "SUPER" }
+          }
+        },
+        "locale": { "const": "German (Germany)" },
+        "resetPoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "requiredBeforeAnyWrite"],
+          "properties": {
+            "status": { "const": "missing-blocker" },
+            "requiredBeforeAnyWrite": { "const": true }
+          }
+        }
+      }
+    },
+    "writeGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["writesAuthorized", "noGoSteps", "nextAllowedStep"],
+      "properties": {
+        "writesAuthorized": { "const": false },
+        "noGoSteps": { "const": ["RUN-06", "RUN-07", "RUN-08", "RUN-09", "RUN-10", "RUN-11", "RUN-12", "RUN-13", "RUN-14", "RUN-15", "RUN-16", "RUN-17", "RUN-18", "RUN-19", "RUN-20", "RUN-21", "RUN-22"] },
+        "nextAllowedStep": { "const": "Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen" }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "role"],
+        "properties": {
+          "path": { "type": "string", "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$" },
+          "role": { "type": "string" }
+        }
+      }
+    }
   }
 }

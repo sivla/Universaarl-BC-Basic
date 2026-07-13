@@ -19,7 +19,30 @@ export function buildProjection() {
   const baseline = readYaml(sources[1]);
   const preflight = readYaml(sources[4]);
   const plan = readYaml(sources[5]);
-  return { schemaVersion: 1, exportId: 'UABC-EXP-SETUP-WAVE1-001', recordType: 'setup-wave-1-projection', readOnly: true, writesAuthorized: false, target: { environment: matrix.target.environment, companyId: matrix.target.companyId, platform: matrix.target.businessCentral.platform, application: matrix.target.businessCentral.application, pilotName: matrix.target.futureVisibleCompanyNames['UABC-BASIC-DE'], legacyName: matrix.target.futureVisibleCompanyNames['UNIVERSAARL-DE'] }, packages: matrix.packages.map(({ packageId, status, liveState }) => ({ packageId, status, tables: liveState.tables, records: liveState.records, errors: liveState.errors })), preflight: { status: preflight.status, workingDate: preflight.workingDate, operator: { userId: preflight.operator.userId, permissionSet: preflight.operator.permissionSet }, locale: preflight.locale, resetPoint: { status: preflight.resetPoint.status, requiredBeforeAnyWrite: preflight.resetPoint.requiredBeforeAnyWrite } }, writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: 'Resetpunkt dokumentieren und separat freigeben' }, provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorpruefung', 'Run-Plan und Schreibsperre'][index] })) };
+  return {
+    schemaVersion: 1,
+    exportId: 'UABC-EXP-SETUP-WAVE1-001',
+    recordType: 'setup-wave-1-projection',
+    readOnly: true,
+    writesAuthorized: false,
+    target: { environment: matrix.target.environment, companyId: matrix.target.companyId, platform: matrix.target.businessCentral.platform, application: matrix.target.businessCentral.application, pilotName: matrix.target.futureVisibleCompanyNames['UABC-BASIC-DE'], legacyName: matrix.target.futureVisibleCompanyNames['UNIVERSAARL-DE'] },
+    configurationState: {
+      baselineKind: 'standard-cronus-demo',
+      pilotConfigured: false,
+      writesApplied: false,
+      readbackStatus: 'pending',
+      technicalCompanyName: preflight.configurationState.baseline.technicalCompanyName,
+      internalCompanyId: null,
+      observedDisplayName: preflight.configurationState.baseline.observedDisplayName,
+      targetDisplayName: preflight.configurationState.pilotTarget.displayName,
+      targetDecision: preflight.configurationState.pilotTarget.targetDecision,
+      resetDecision: 'pending-resetpoint-evidence'
+    },
+    packages: matrix.packages.map(({ packageId, status, liveState }) => ({ packageId, status, tables: liveState.tables, records: liveState.records, errors: liveState.errors })),
+    preflight: { status: preflight.status, wave0Status: plan.wave0Preflight.status, workingDate: preflight.workingDate, operator: { userId: preflight.operator.userId, permissionSet: preflight.operator.permissionSet }, locale: preflight.locale, resetPoint: { status: preflight.resetPoint.status, requiredBeforeAnyWrite: preflight.resetPoint.requiredBeforeAnyWrite } },
+    writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: 'Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen' },
+    provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorpruefung', 'Run-Plan und Schreibsperre'][index] }))
+  };
 }
 
 export function updateAllowlist(root = process.cwd()) {

@@ -13,9 +13,9 @@ const has = (errors, code) => assert.ok(errors.some((error) => error.startsWith(
 test('vollstaendige Repositoryquelle erzeugt einen reinen Dry-run', () => {
   const { errors, output } = buildMaterialization(base);
   assert.deepEqual(errors, []);
-  assert.equal(output.counts.pages, 28);
-  assert.equal(output.counts.tickets, 50);
-  assert.equal(output.counts.operations, 78);
+  assert.equal(output.counts.pages, base.story.pages.length);
+  assert.equal(output.counts.tickets, base.ticketCatalog.records?.length ?? base.ticketCatalog.ticketRecords.length);
+  assert.equal(output.counts.operations, output.counts.pages + output.counts.tickets);
   assert.equal(output.executable, false);
 });
 test('Live-Mutation wird abgelehnt', () => has(run((data) => { data.config.liveMutationAuthorized = true; }).errors, 'MATERIALISIERUNG-LIVE-VERBOT'));

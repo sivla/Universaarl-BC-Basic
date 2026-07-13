@@ -29,10 +29,10 @@ export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFil
   });
   const pages = nativeStory.pages.map((page) => ({ id: page.id, parent: page.parent, version: page.version, status: page.status, sourcePath: `pages/${page.id}.md` }));
   const tickets = nativeStory.tickets.map((ticket) => ({
-    id: ticket.id, type: ticket.type, summary: ticket.acceptanceCriteria[0]?.text ?? ticket.id, reporter: ticket.reporter, assignee: ticket.assignee,
+    id: ticket.id, type: ticket.type, summary: ticket.summary ?? ticket.acceptanceCriteria[0]?.criterion ?? ticket.id, reporter: ticket.reporter, assignee: ticket.assignee,
     status: ticket.status, priority: ticket.priority, created: ticket.createdAt,
-    status_history: ticket.statusHistory.map((entry, index) => ({ status: index === 0 ? 'open' : entry.status, time: entry.time })),
-    acceptance: ticket.acceptanceCriteria.map((criterion) => criterion.text), evidence: ticket.evidenceRefs.map((id) => evidenceId.get(id)),
+    status_history: ticket.statusHistory.map((entry) => ({ status: entry.status, time: entry.time })),
+    acceptance: ticket.acceptanceCriteria.map((criterion) => criterion.criterion ?? criterion.text), evidence: ticket.evidenceRefs.map((id) => evidenceId.get(id)),
     comments: ticket.comments.map((comment) => ({ id: comment.id, type: comment.type, time: comment.time, author_role: comment.role, text: comment.text, evidence: evidenceId.get(comment.evidenceRef) })),
     worklogs: ticket.worklogs.map((worklog) => ({ date: worklog.date, author_role: worklog.role, hours: worklog.hours, cost: worklog.netAmount, activity: worklog.activity, phase: worklog.phase }))
   }));
@@ -43,7 +43,7 @@ export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFil
   }));
   const hypercare = nativeStory.hypercare.map((day) => ({
     day: day.day, status: day.status, daily_page: day.dailyPage, tickets: [day.ticket], diagnosis: day.diagnosis, fix: day.fix,
-    retest: day.retest, go_no_go: 'GO', comment: day.comment, evidence: [evidenceId.get(day.evidence)]
+    retest: day.retest, go_no_go: day.status === 'planned' ? 'NO-GO' : 'GO', comment: day.comment, evidence: [evidenceId.get(day.evidence)]
   }));
   const graph = []; const keys = new Set();
   const pair = (from, to, type, inverse) => { for (const edge of [{ from, to, type }, { from: to, to: from, type: inverse }]) { const key = `${edge.from}|${edge.to}|${edge.type}`; if (!keys.has(key)) { keys.add(key); graph.push(edge); } } };
@@ -55,11 +55,11 @@ export function buildPortableStory(nativeStory, readBytes = (path) => fs.readFil
   }
   for (const ticket of nativeStory.tickets) {
     for (const id of ticket.evidenceRefs) pair(ticket.id, evidenceId.get(id), 'ticket-evidence', 'evidence-ticket');
-    pair(ticket.id, deliverableId.get(deliverableSourceIds[0]), 'ticket-deliverable', 'deliverable-ticket');
+    for (const id of ticket.deliverableRefs ?? []) if (deliverableId.has(id)) pair(ticket.id, deliverableId.get(id), 'ticket-deliverable', 'deliverable-ticket');
   }
   return {
-    project_id: `PROJECT-${nativeStory.projectId}`, story_id: `STORY-${nativeStory.storyId}`, classification: 'synthetic', status: 'hypercare',
-    offer: { id: nativeStory.offer.id, versions: nativeStory.offer.versions, start_time: nativeStory.timeline[0].time, end_time: nativeStory.timeline.at(-1).time, planned_hours: nativeStory.offer.planned_hours, planned_cost: nativeStory.offer.planned_cost, actual_hours: nativeStory.offer.actual_hours, actual_cost: nativeStory.offer.actual_cost },
+    project_id: `PROJECT-${nativeStory.projectId}`, story_id: `STORY-${nativeStory.storyId}`, classification: nativeStory.classification, status: nativeStory.status,
+    offer: { id: nativeStory.offer.id, versions: nativeStory.historicalOfferVersions, active_version: nativeStory.offer.currentVersion, active_status: nativeStory.offer.currentStatus, start_time: nativeStory.timeline[0]?.time ?? nativeStory.generatedAt, end_time: nativeStory.timeline.at(-1)?.time ?? null, planned_hours: nativeStory.offer.planned_hours, planned_cost: nativeStory.offer.planned_cost, actual_hours: nativeStory.offer.actual_hours, actual_cost: nativeStory.offer.actual_cost },
     pages, tickets, timeline, hypercare, evidence,
     sessions: sessionSourceIds.map((id) => ({ id: sessionId.get(id) })), decisions: decisionSourceIds.map((id) => ({ id: decisionId.get(id) })),
     deliverables: deliverableSourceIds.map((id) => ({ id: deliverableId.get(id) })), graph

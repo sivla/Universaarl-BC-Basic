@@ -12,8 +12,7 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 9
 storyPageId: PAGE-UABC-060
-purpose: Fasst Teststrategie, sieben UAT-Fälle, Defectweg, Kontrollen und
-  Abnahme zusammen.
+purpose: Beschreibt die noch auszuführende Test-, UAT- und Abnahmestrecke des aktuellen Piloten.
 audience:
   - Key User
   - Projektleitung
@@ -28,68 +27,42 @@ referenceIds:
   - UABC-REQ-BCB-008
   - UABC-REQ-BCB-009
   - UABC-REQ-BCB-010
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 03.1 Test und Abnahme
 
-## Prüfzweck und Umfang
+## Aktueller Stand
 
-Die Teststrecke verbindet Setupprüfung, End-to-End-Playthrough, Defects, Retests und fachliche UAT. Jeder Fall nennt Rolle, Vorbedingung, Testdaten, erwartete Belege und Posten, Kontrollwerte, Evidence und Abbruchkriterium.
+Der aktuelle Playthru-Pilot beginnt auf einer unveränderten Standard-CRONUS-Demo-Baseline. `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending`. Wave 0, Setup, Prozessproben, UAT, Cutover und Hypercare sind noch nicht ausgeführt. `GO_SIMULATION` ist für den aktuellen Pilot nicht erreicht.
 
-## Ergebnis und Gate-Entscheidung
+Planwerte und Referenzdaten sind keine Ausführungsevidence. Eine technische Firmenbezeichnung oder URL belegt weder die BC-Basic-Einrichtung noch einen bestandenen Test.
 
-Sieben UAT-Pflichtfälle sind in der Referenzsimulation synthetisch ausgeführt und abgenommen. Alle eingebrachten P1/P2-Befunde wurden korrigiert und retestet; am Simulations-GO sind P1 = 0 und P2 = 0 offen.
+## Noch auszuführende Teststrecke
 
-## Fälle, Kriterien, Abweichungen und Retests
+1. **Wave-0-Preflight:** interne Company-ID, technischer Name, Name, Display Name, Standard-CRONUS-Provenienz, Zielentscheidung und Reset-/Neuaufsetzentscheidung lesen und belegen.
+2. **Setup-Readback:** ausschließlich separat autorisierte Änderungen je Feld gegen den Sollvertrag lesen; bei Abweichung gilt der zugeordnete Stopcode.
+3. **Prozessprobe:** Einkauf, Verkauf, Lager und Finance erst nach abgeschlossenem Setup-Gate mit kontrollierten Testdaten ausführen.
+4. **UAT:** Die zugeordnete Fachrolle führt den Fall selbst aus und erklärt Ergebnis, Kontrollwerte und Eskalationsgrenze.
+5. **Cutover-Gate:** kein offener P1/P2, vollständige aktuelle Evidence, belastbarer Resetpunkt und ausdrückliche Simulationsentscheidung.
 
-### Teststufen
+## Abnahmeregeln
 
-1. **Preflight:** Zielkontext, Datenqualität, Rollen, Setup und Rücksetzbarkeit.
-2. **Prozessprüfung:** positive Belegkette plus Fehlerfall und Retest.
-3. **Abstimmung:** Hauptbuch, Nebenbücher, Bank, VAT, Menge und Lagerwert.
-4. **UAT:** Fachrolle führt ohne Hilfe aus und erklärt Ergebnis sowie Eskalationsgrenze.
-5. **Cutover-Gate:** keine offenen P1/P2, Evidence vollständig, Restart geprüft.
+- Ein Fall bleibt `planned`, bis Startzustand, Schritte, Sollwerte, Readback, Fehlerweg, Resetreferenz und Rollenabnahme aus dem aktuellen Lauf belegt sind.
+- P1 oder P2 stoppt das Gate; ein Retest zählt erst nach dokumentierter Korrektur und neuer Evidence.
+- Steuer-, Bank- oder Produktivübermittlungen sind ausgeschlossen.
+- Es wird keine reale Kundenfreigabe behauptet. Eine spätere Abnahme ist als belegte Simulationsabnahme zu kennzeichnen.
 
-### Sieben UAT-Pflichtfälle
+## Historische Referenz
 
-- **`UABC-UAT-BCB-001` – Grundeinrichtung:** Zielgesellschaft, Periode, Nummernserie, Rolle und Buchungsgruppen sind konsistent.
-- **`UABC-UAT-BCB-002` – P2P:** Bestellung über zehn Stück, Wareneingang und Rechnung 499,80 EUR werden als eine nachvollziehbare Beleg- und Buchungskette abgestimmt.
-- **`UABC-UAT-BCB-003` – O2C:** Auftrag über zehn Stück, Lieferung und Rechnung 940,10 EUR werden mit Bestand, Forderung, Umsatz und Wareneinsatz abgestimmt.
-- **`UABC-UAT-BCB-004` – Lager:** Ausgangsbestand von 100 Stück zu 4.200,00 EUR wird am Lagerort `HAUPT` gegen die freigegebene Datenvorlage geprüft.
-- **`UABC-UAT-BCB-005` – Finance und Abstimmung:** Eröffnungsjournal sowie offene Debitoren- und Kreditorenposten werden gegen die Sammelkontenrollen abgestimmt.
-- **`UABC-UAT-BCB-006` – Monatsabschluss:** Haupt- und Nebenbücher, Bank und Lager sind abgestimmt; Soll und Haben betragen je 11.080,20 EUR.
-- **`UABC-UAT-BCB-007` – VAT-Vorschau:** 150,10 EUR Umsatzsteuer minus 79,80 EUR Vorsteuer ergibt 70,30 EUR Zahllast; keine Übermittlung erfolgt.
-
-### Defect- und Retestweg
-
-Ein Befund enthält Priorität, Auswirkung, Reproduktionsschritte, sichere Evidence, Ursache, Korrektur, Owner und Retest.
-P1 stoppt das Gate sofort; P2 muss vor GO geschlossen sein. P3 kann nur mit dokumentierter Auswirkung in den Support-Backlog übergehen.
-
-Die Simulation enthielt unter anderem eine fehlende VAT-Gruppe, einen Zahlungseingang ohne Ausgleichsreferenz und eine Lagerortabweichung. Jeder Fehler wurde korrigiert und mit denselben Kontrollwerten erneut geprüft.
-
-Zahlung, Mahnprobe, Inventurdifferenz und Bankschlusssaldo sind ergänzende End-to-End- beziehungsweise Hypercare-Evidence. Sie erweitern nicht nachträglich die Akzeptanzschritte der sieben kanonischen UAT-Fälle.
-
-### Fachliche Abnahme
-
-Bestanden ist ein Fall nur, wenn die Fachrolle den positiven Ablauf ohne Hilfe ausführt, einen Fehler diagnostiziert, den Retest nachvollzieht und Belegstatus, Betrag, VAT, offene Posten oder Lagerwirkung erklären kann.
-
-Der synthetische Sign-off ist ein vollständiges Prozessgate innerhalb der Simulation. Er ist keine reale Kundenabnahme und keine Evidence einer tatsächlichen BC-Buchung.
-
-## Reale UAT-Wiederholung und Grenzen
-
-- **Synthetisch bestanden:** sieben UAT-Fälle, Defect-Triage, Retests, Kontrollsummen und `GO_SIMULATION`.
-- **Im echten Projekt zu wiederholen:** Benutzerrechte, Seitenverfügbarkeit, Posting Preview, tatsächliche Systemposten, Screenshots, Reset und Key-User-Sign-off.
-- Reale Steuer-, Bank- oder Produktivübermittlung bleibt auch im echten UAT außerhalb des Testumfangs.
+Der frühere, vollständig repositorybasierte Referenzlauf bleibt ausschließlich als `historical-reference-simulation` mit `currentAuthority=false` im [Archiv](99-archive.md) nachvollziehbar. Dessen internes `GO_SIMULATION` trägt weder Ticketstatus noch Iststunden, Readiness oder Abnahme des aktuellen Piloten.
 
 ## Referenzen
 
-- [UAT-Katalog und Abbruchkriterien](../../../project/bc-basic/uat-catalog.yaml)
-- [Ausführungs- und Trainingslauf](../../../project/bc-basic/uat-training-run.yaml)
-- [Beleg- und Postenkontrollen](../../../evidence/simulation/bc-playthrough-ledger.yaml)
-- [P2P-/O2C-Defects und Retests](../../../evidence/simulation/phase-2-p2p-o2c.yaml)
-- [Cash-, Lager- und Abschluss-Retests](../../../evidence/simulation/phase-3-cash-inventory-close.yaml)
-- [Gesamtstatus](../../../evidence/simulation/project-completion.yaml)
+- [Aktive Projektstory](bc-basic-project-story.md)
+- [Setup-Wave-1-Laufplan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
+- [UAT-Katalog](../../../project/bc-basic/uat-catalog.yaml)
+- [Projektarchiv](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-060","title":"03.1 Test und Abnahme","parent":"PAGE-UABC-150","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-060","title":"03.1 Test und Abnahme","parent":"PAGE-UABC-150","version":6,"status":"published"} -->

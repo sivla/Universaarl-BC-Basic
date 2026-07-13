@@ -171,7 +171,7 @@ verifications:
     executedAt: 2026-07-13
     environment: null
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-004, UABC-REQ-BCB-011]
-    evidence: Commitgebundener Country/Region-DE- und Company-Information-Nachweis mit geschlossenem Defect-Retest, bewussten Leerwerten, Actortrennung und Paketnullwirkung; Pilotpruefungen 18/18, OpenSpec 10/10, Sprache 18/18, Governance 125/125, Walkthrough 10/10, Browser 2/2, Dokumentkatalog 43/28/3, Snapshotvertrag, Referenzen und npm test Exit 0; keine Paket-, Buchungs-, Produktiv- oder externe Uebermittlungsbehauptung.
+    evidence: Historischer, durch den CRONUS-Pilot-Rebaseline abgeloester Repository- und Browsernachweis. Er bleibt Provenienz fuer die damalige Country/Region- und Company-Information-Beobachtung, erfuellt aber kein aktuelles Setup-, Wave-0-, Worklog-, Kundenfreigabe- oder Live-Gate.
   - id: UABC-VER-BCB-READINESS-001
     changeRef: migrate-bc-basic-to-single-uabc-ticket-project
     requiredForArchive: false
@@ -261,7 +261,7 @@ verifications:
     executedAt: 2026-07-13
     environment: local-repository
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
-    evidence: Lokaler Gesamtcheck bestanden mit OpenSpec 8/8, Sprache 18/18, Governance 107/107, Walkthrough 10/10, Browser 2/2, Snapshotvertrag, Dokumentkatalog und Referenzen; Jira-Realismus 15/15, 50 Tickets, 11 Akteure, 19 Task-Worklogs, 80 Stunden und 9.600 EUR; keine Live- oder Publishing-Aktion.
+    evidence: Historischer, am 13.07.2026 durch die aktive Pilot-Rebaseline abgeloester Jira-Realismus-Nachweis. Seine damaligen Abschluss-, Ticket- und Worklogwerte bleiben ausschliesslich Auditprovenienz und fliessen nicht in aktuelle Counts, Istsummen, Materialisierung oder Gate-Erfuellung ein.
   - id: UABC-VER-BCB-PILOT-SETUP-001
     changeRef: document-uabc-basic-de-playthru-setup-baseline
     requiredForArchive: true
@@ -270,7 +270,7 @@ verifications:
     executedAt: 2026-07-13
     environment: local-repository
     subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
-    evidence: Commitgebundene Pilotbaseline fuer Playthru/UABC-BASIC-DE mit BC 28.2, drei leeren Paketgeruesten, offenem Country/Region-Defect, 13/13 Pilotpruefungen, OpenSpec 9/9, Sprache 18/18, Dokumentkatalog, Snapshotvertrag und lokalem Gesamtcheck; keine weitere Live-BC-, Atlassian- oder Publishing-Aktion.
+    evidence: Historischer read-only Ausgangsnachweis fuer Playthru/UABC-BASIC-DE mit BC 28.2 und drei Paketgeruesten ohne Wirkung. Die aktive Rebaseline klassifiziert den Gesellschaftsinhalt als CRONUS-Demo-Baseline; Pilotkonfiguration, Wave-0 und Resetentscheidung bleiben offen.
   - id: UABC-VER-BCB-COMPANY-EXEC-001
     changeRef: record-uabc-basic-de-country-company-information-execution
     requiredForArchive: true
@@ -279,4 +279,4 @@ verifications:
     executedAt: 2026-07-13
     environment: local-repository
     subjectRefs: [UABC-39, UABC-REQ-BCB-001, UABC-REQ-BCB-003]
-    evidence: Commitgebundener Country/Region-DE- und Company-Information-Nachweis mit geschlossenem Defect-Retest, bewussten Leerwerten, Actortrennung und Paketnullwirkung; Pilotpruefungen 18/18, OpenSpec 10/10, Sprache 18/18, Governance 125/125, Walkthrough 10/10, Browser 2/2, Dokumentkatalog 43/28/3, Snapshotvertrag, Referenzen und npm test Exit 0; keine Paket-, Buchungs-, Produktiv- oder externe Uebermittlungsbehauptung.
+    evidence: Historischer, durch den CRONUS-Pilot-Rebaseline abgeloester Country/Region- und Company-Information-Ausfuehrungsnachweis. Er bleibt Auditprovenienz, besitzt currentAuthority=false und darf keinen aktuellen Pilot-, Setup-, Schreib- oder Readbackstatus erfuellen.

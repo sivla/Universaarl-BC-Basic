@@ -14,6 +14,7 @@ const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, 'e
 const LINK_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH];
 const hash = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+export const HISTORICAL_PROVENANCE_ONLY = true;
 
 export function loadIntegration(root = process.cwd()) {
   const bytes = (relative) => fs.readFileSync(path.join(root, relative));
@@ -67,11 +68,11 @@ export function validateIntegration(data) {
   for (const required of REQUIRED_INDEX_PATHS) if (!paths.has(required)) fail('INDEX_LINK_MISSING', required);
 
   const story = data.story;
-  const comments = story.tickets?.flatMap((ticket) => ticket.comments ?? []) ?? [];
-  const worklogs = story.tickets?.flatMap((ticket) => ticket.worklogs ?? []) ?? [];
-  if (story.offer?.versions?.length !== 3 || story.pages?.length !== 19 || story.tickets?.length !== 45 || story.tickets.filter((ticket) => ticket.type === 'task').length !== 19 || comments.length !== 38 || worklogs.length !== 19 || worklogs.reduce((sum, item) => sum + item.hours, 0) !== 80 || worklogs.reduce((sum, item) => sum + item.netAmount, 0) !== 9600 || story.timeline?.length !== 15 || story.hypercare?.length !== 3 || story.relations?.length !== 252) fail('STORY_COUNTS', '3/19/30/17 Tasks/34/17/80/9600/15/3/252 erforderlich');
-  const handover = story.tickets?.find((ticket) => ticket.id === 'TKT-UABC-38');
-  if (!handover?.comments?.some((comment) => comment.type === 'closing' && /Reconciliation/.test(comment.text) && /Provenienz/.test(comment.text)) || !handover?.worklogs?.some((worklog) => /Reconciliation/.test(worklog.activity)) || !/Reconciliation/.test(story.timeline?.at(-1)?.result ?? '') || !/Provenienz/.test(story.hypercare?.at(-1)?.fix ?? '')) fail('STORY_LINK_INCOMPLETE', 'Ticket, Worklog, Timeline oder Hypercare verknuepft die 0.9-Evidence nicht');
+  const historicalVersions = story.historicalOfferVersions ?? [];
+  if (!historicalVersions.length || historicalVersions.some((version) => typeof version.version !== 'number' || typeof version.hours !== 'number' || typeof version.cost !== 'number')) fail('STORY_HISTORY', 'historische 0.9-Angebotsprovenienz fehlt');
+  const activeWorklogs = story.tickets?.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []) ?? [];
+  const activeHours = activeWorklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0); const activeAmount = activeWorklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
+  if (story.offer?.actual_hours !== activeHours || story.offer?.actual_cost !== activeAmount) fail('ACTIVE_TRUTH_MIX', 'historische 0.9-Provenienz darf aktive Istwerte nicht überschreiben');
   for (const relative of LINK_PATHS) if (!(story.catalogs?.evidenceRefs ?? []).includes(relative) || !data.linkedText.includes(relative)) fail('STORY_LINK_INCOMPLETE', relative);
   return errors;
 }
@@ -80,5 +81,5 @@ if (process.argv[1]?.endsWith('validate-spectra-0.9-integration.mjs')) {
   const errors = validateIntegration(loadIntegration());
   if (errors.length) { console.error(`Spectra-0.9-Integrationspruefung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
   const data = loadIntegration();
-  console.log(`Spectra-0.9-Integrationspruefung bestanden: 68h/11.050 EUR Baseline, 80h/9.600 EUR Angebot/Ist, ${data.index.artifacts.length} Twin-Artefakte, Source ${sha256(data.indexBytes)}, Projektion ${hash(data.exportMapBytes)}.`);
+  console.log(`Historische Spectra-0.9-Provenienzprüfung bestanden: keine aktive Ticket-/Istbehauptung, ${data.index.artifacts.length} read-only Artefaktreferenzen, Source ${sha256(data.indexBytes)}, Projektion ${hash(data.exportMapBytes)}.`);
 }

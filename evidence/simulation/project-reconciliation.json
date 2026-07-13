@@ -23,17 +23,17 @@
   },
   "actual": {
     "version": 3,
-    "hours": 80,
+    "hours": 0,
     "rate": 120,
-    "amount": 9600,
+    "amount": 0,
     "currency": "EUR"
   },
   "variance": {
-    "hours": 0,
+    "hours": -80,
     "rate": 0,
-    "amount": 0,
-    "reason_code": "scope-change",
-    "reason": "Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Spectra 0.10 ergaenzt den read-only Coverage-Nachweis ohne neue Leistung, und Angebot sowie Ist bleiben bei 80 Stunden und 9.600 EUR."
+    "amount": -9600,
+    "reason_code": "other-reviewed",
+    "reason": "Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant 80 Stunden und 9.600 EUR; Iststunden und Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet und stehen vor Ausführung bei null."
   },
   "truth_boundary": {
     "owner": "synthetic-fixture",

@@ -3,18 +3,23 @@ projectId: UABC-BC-BASIC-001
 displayName: BC Basic Einrichtung
 servicePackage: BC Basic Einrichtung
 servicePackageNotice: Universaarl-Standardleistung; kein Microsoft-Lizenzname
-status: planned
+status: in-progress
 templateState: kundenbereite-wiederverwendbare-Vorlage
-simulationState: simulated-complete
-productState: V1_STANDARDPRODUCT_READY
-customerInstanceState: nach-Entry-Gate-auszufuehren
+simulationState: standard-cronus-demo-baseline-pilot-build-pending
+productState: PILOT_NOT_READY
+customerInstanceState: wave-0-reset-und-setup-offen
 simulation: true
 environment: playthru
 company:
   count: 1
   id: UABC-BASIC-DE
   displayName: Universaarl GmbH
-  dataClassification: synthetic-only
+  targetDisplayName: Universaarl GmbH (BC Basic Pilot)
+  baselineKind: standard-cronus-demo
+  pilotConfigured: false
+  writesApplied: false
+  readbackStatus: pending
+  dataClassification: standard-cronus-demo-baseline
   writeAuthorization: required
 schedule:
   scheduleSynthetic: true

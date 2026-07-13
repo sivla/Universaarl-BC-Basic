@@ -525,7 +525,7 @@
     {
       "id": "UABC-SRC-BCB-SPECTRA-VALIDATOR-001",
       "kindId": "spectra-portable-project-story-validator",
-      "path": "scripts/validate-spectra-0.7-conformance.mjs",
+      "path": "scripts/validate-spectra-0.7-historical-provenance.mjs",
       "selector": null,
       "format": "javascript",
       "required": true
@@ -947,30 +947,6 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
       "id": "UABC-SRC-BCB-CONF-025",
       "kindId": "confluence-page",
       "path": "atlassian/confluence/pages/99-archive.md",
@@ -1128,6 +1104,30 @@
       "path": "tests/governance/setup-wave-1-export.test.mjs",
       "selector": null,
       "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "selector": null,
+      "format": "markdown",
       "required": true
     }
   ]

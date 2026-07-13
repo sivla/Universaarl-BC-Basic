@@ -1,11 +1,11 @@
 schemaVersion: 1
 registerId: UABC-DEL-BCB-REGISTER-001
 projectId: UABC-BC-BASIC-001
-status: simulated-complete
+status: active-planning
 templateState: kundenbereites-Lieferregister
-simulationState: neun-von-neun-simulated-complete
-productState: V1_STANDARDPRODUCT_READY
-customerInstanceState: je-Lieferobjekt-mit-realen-Parametern-neu-abzunehmen
+simulationState: historische-referenz-abgeloest
+productState: PILOT_NOT_READY
+customerInstanceState: neun-von-neun-offen
 simulation: true
 claimPolicy: Ein vorhandener Plan oder eine Vorlage ist kein Ausfuehrungs-, Abnahme- oder Uebergabenachweis.
 classificationContract: project/bc-basic/result-object-catalog.yaml
@@ -15,7 +15,7 @@ deliverables:
     version: 1.0
     phaseRef: UABC-1
     title: Projektauftrag und Abnahmeplan
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-32, UABC-33]
@@ -25,13 +25,14 @@ deliverables:
       - docs/offers/bc-basic-offer.md
       - project/bc-basic/uat-catalog.yaml
       - atlassian/confluence/pages/70-bc-basic-project.md
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-002
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-1
     title: Anforderungs-, Prozess- und Entscheidungsunterlagen
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
@@ -40,13 +41,14 @@ deliverables:
     requiredSourcePaths:
       - project/bc-basic/decision-register.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-003
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-1
     title: Daten-, Konfigurationspaket- und Datenbereitschaftsprotokoll
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-016
     jiraRefs: [UABC-38]
@@ -56,13 +58,14 @@ deliverables:
       - project/bc-basic/data-package.yaml
       - project/bc-basic/data-readiness-check.yaml
       - atlassian/confluence/pages/71-bc-basic-discovery.md
-    completionEvidence: evidence/simulation/phase-2-p2p-o2c.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/phase-2-p2p-o2c.yaml
   - id: UABC-DEL-BCB-004
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-2
     title: Gepruefte Standardkonfiguration
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
@@ -74,13 +77,14 @@ deliverables:
       - project/bc-basic/pilot-setup-baseline.yaml
       - evidence/playthru-uabc-basic-de/setup-baseline.yaml
       - evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-005
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-2
     title: Schulungs- und Kompetenzpaket
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-45]
@@ -89,13 +93,14 @@ deliverables:
     requiredSourcePaths:
       - project/bc-basic/training-plan.yaml
       - docs/guides/beginner/business-central-basic.md
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-006
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-2
     title: Fachlicher Abnahmetest und UAT-Begleitung
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-46]
@@ -105,13 +110,14 @@ deliverables:
       - project/bc-basic/uat-catalog.yaml
       - playwright/scenarios/bc-basic-e2e.yaml
       - atlassian/confluence/pages/50-tests.md
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-007
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-3
     title: Protokoll der einwoechigen Hypercare und Monatsabschlussprobe
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-005
     jiraRefs: [UABC-47, UABC-48]
@@ -120,13 +126,14 @@ deliverables:
     requiredSourcePaths:
       - atlassian/confluence/pages/73-bc-basic-hypercare.md
       - playwright/scenarios/bc-basic-e2e.yaml
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-008
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-3
     title: Fachlich gepruefte UStVA-Vorschau ohne Test-, Produktiv- oder ELSTER-Uebermittlung
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-005
     jiraRefs: [UABC-49]
@@ -135,13 +142,14 @@ deliverables:
     requiredSourcePaths:
       - playwright/scenarios/bc-basic-e2e.yaml
       - evidence/simulation/phase-3-cash-inventory-close.yaml
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-009
     objectClass: customer-deliverable
     version: 1.0
     phaseRef: UABC-3
     title: Projektdokumentation und Schulungsunterlagen mit Uebergabeindex
-    status: simulated-complete
+    status: planned
     resultClaimed: false
     ownerRef: P-002
     jiraRefs: [UABC-50]
@@ -152,4 +160,5 @@ deliverables:
       - docs/runbooks/business-central-basic.md
       - atlassian/confluence/pages/74-bc-basic-deliverables.md
       - exports/project-data/v1/index.yaml
-    completionEvidence: evidence/simulation/project-completion.yaml
+    completionEvidence: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml

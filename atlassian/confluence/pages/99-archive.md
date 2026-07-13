@@ -5,7 +5,7 @@ parent: null
 owners:
   - P-002
 status: published
-version: 2
+version: 3
 spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 5
@@ -35,6 +35,16 @@ Der fruehere flache Projektseitenbaum wurde am 12. Juli 2026 in die Drei-Space-N
 
 Neun ergaenzte Rootseiten schliessen Produkt- und Consulting-Luecken, ohne die Kundenstory zu ersetzen.
 
+### UABC-HIST-REFSIM-001 – abgelöste Repository-Referenzsimulation
+
+- **Klassifikation:** `historical-reference-simulation`, `currentAuthority=false`.
+- **Historische Version:** Angebotsversion 3 vom 29.05.2026, Status `synthetic-closed`.
+- **Archivdatum:** 13.07.2026.
+- **Archivgrund:** Der tatsächliche Playthru-Pilot wurde auf die CRONUS-Demo-Ausgangsbasis rebaselined. Alte Abschluss-, Worklog-, Cutover-, Hypercare- und Handoverwerte dürfen keine aktuelle Erfüllung bilden.
+- **Historische Provenienz:** `evidence/simulation/project-completion.yaml`, `evidence/simulation/billing-reconciliation.yaml`, `UABC-DEC-BCB-008` und Git-Historie vor dem Pilot-Rebaseline.
+- **Ausschluss:** Historische Ticket-, Stunden-, Kosten-, Defect- und Statuswerte speisen weder aktives Jira-Materialisat noch Rollups, Snapshotstatus oder Twin-Ticketlisten.
+- **Aktive Nachfolger:** `UABC-BCBSTORY`, `UABC-BCBDELIVERABLES`, `UABC-WALKTHROUGH` und `UABC-BCBHCSTORY`.
+
 Aktive Nachfolger:
 
 - Projektverlauf und Status: `UABC-BCBSTORY`;
@@ -52,4 +62,4 @@ Aktuelle Evidence, offene Entscheidungen und Supportrestpunkte bleiben an ihrer 
 - Drei-Space-Vertrag: `project/bc-basic/confluence-three-space-v1.yaml`
 - Projektstory: `evidence/simulation/project-story.json`
 
-<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":2,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-190","title":"99 Archiv","parent":null,"version":3,"status":"published"} -->

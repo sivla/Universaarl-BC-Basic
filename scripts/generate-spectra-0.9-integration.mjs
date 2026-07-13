@@ -10,6 +10,7 @@ export const RECONCILIATION_PATH = 'evidence/simulation/project-reconciliation.j
 export const PROVENANCE_PATH = 'evidence/simulation/adapter-provenance.json';
 export const MAPPING_ID = 'MAP-UABC-BCB-TWIN-001';
 export const MAPPING_VERSION = '1.0.0';
+export const HISTORICAL_PROVENANCE_ONLY = true;
 export const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export const jsonBytes = (value) => Buffer.from(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
 export const lfBytes = (bytes) => Buffer.from(Buffer.from(bytes).toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
@@ -20,9 +21,11 @@ export function safeRelative(value) {
 
 export function buildReconciliation(story, billing) {
   const baseline = billing.historicalBaseline;
-  const offered = story.offer.versions.find((version) => version.version === 2);
-  const actual = story.offer.versions.find((version) => version.version === 3);
-  const state = (version, hours, cost) => ({ version, hours, rate: cost / hours, amount: cost, currency: 'EUR' });
+  const offered = story.historicalOfferVersions.find((version) => version.version === 2);
+  const worklogs = (story.tickets ?? []).filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
+  const actual = { hours: worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0), cost: worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0) };
+  const actualRate = actual.hours === 0 ? 120 : actual.cost / actual.hours;
+  const state = (version, hours, cost) => ({ version, hours, rate: hours === 0 ? 120 : cost / hours, amount: cost, currency: 'EUR' });
   return {
     schema_version: 1,
     contract_version: '0.9',
@@ -37,10 +40,10 @@ export function buildReconciliation(story, billing) {
     actual: state(3, actual.hours, actual.cost),
     variance: {
       hours: actual.hours - offered.hours,
-      rate: (actual.cost / actual.hours) - (offered.cost / offered.hours),
+      rate: actualRate - (offered.cost / offered.hours),
       amount: actual.cost - offered.cost,
       reason_code: 'scope-change',
-      reason: 'Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Angebot und Ist stimmen mit 80 Stunden und 9.600 EUR ueberein.'
+      reason: 'Die historische 68-Stunden-Kalkulation und die 80-Stunden-Angebotsplanung bleiben getrennte Provenienz. Das aktuelle Ist wird ausschliesslich aus aktiven Task-Worklogs abgeleitet und betraegt im neu gestarteten Piloten derzeit 0 Stunden und 0 EUR.'
     },
     truth_boundary: { owner: 'synthetic-fixture', source_of_truth: 'synthetic-fixture', invoice_claim: false, productive_activity_claim: false, billing_status: 'not-applicable' }
   };
@@ -97,15 +100,11 @@ export function generateIntegration(root = process.cwd()) {
 }
 
 export function writeIntegration(root = process.cwd()) {
-  const generated = generateIntegration(root);
-  for (const [relative, value] of [[RECONCILIATION_PATH, generated.reconciliation], [MAP_PATH, generated.exportMap], [PROVENANCE_PATH, generated.provenance]]) {
-    const target = path.join(root, relative); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, jsonBytes(value));
-  }
-  return generated;
+  void root;
+  throw new Error('Spectra 0.9 ist ausschließlich historische Provenienz. Der Generator darf keine aktiven 0.10-Artefakte überschreiben.');
 }
 
 if (process.argv[1]?.endsWith('generate-spectra-0.9-integration.mjs')) {
-  if (!process.argv.includes('--write')) throw new Error('Die Erzeugung benoetigt --write; ohne Schalter bleibt der Arbeitsbaum unveraendert.');
-  const generated = writeIntegration();
-  console.log(`Spectra-0.9-Integration erzeugt: Reconciliation 68h/11.050 EUR -> 80h/9.600 EUR, Twin-Artefakte ${generated.exportMap.artifacts.length}, Projektion ${sha256(generated.exportMapBytes)}.`);
+  if (process.argv.includes('--write')) writeIntegration();
+  console.log('Spectra 0.9 ist historische Provenienz; es wurden keine aktiven Artefakte geschrieben.');
 }

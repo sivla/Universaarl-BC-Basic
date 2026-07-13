@@ -8,4 +8,7 @@
 - [x] Projekt-, Entscheidungs-, Jira-, Deliverable-, Confluence- und Snapshotableitungen ohne Live-Claim aktualisieren.
 - [x] Fokussierte Gates, OpenSpec strict, Katalog, Referenzen, Deutsch und genau einen Gesamtcheck real ausfuehren.
 - [x] Deterministische, positivgelistete Setup-Wave-1-Projektion mit Schema, Generator, Validator und Negativtest fuer den lesenden Twin-Export bereitstellen.
-- [ ] REVIEW leeren, genau einen lokalen Commit erstellen und commitgebunden sauber nachpruefen.
+- [x] Kanonische Projektstory in-place auf den aktuellen Pilot rebaselinen; Plan und Ist trennen, Ticketumfang dynamisieren und historische Simulation aus der aktiven Materialisierung entfernen.
+- [x] `standard-cronus-demo`-Baseline, Pilot-Soll und angewendete Abweichung strukturiert in Quelle, Run-Plan, Projektion, Jira und Twin trennen; Wave-0 und Resetentscheidung offen halten.
+- [x] Bestehende Story-/Jira-Gatekategorien erhalten und um CRONUS-, Sprach-, Task-Abnahme-, Geldfreiheits- und Anti-Fixcount-Negativtests ergaenzen.
+- [x] REVIEW leeren, genau einen lokalen Commit erstellen und commitgebunden sauber nachpruefen.

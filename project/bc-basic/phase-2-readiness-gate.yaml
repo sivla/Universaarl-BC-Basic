@@ -1,7 +1,11 @@
 schemaVersion: 1
 gateId: UABC-GATE-BCB-PHASE2-001
 projectId: UABC-BC-BASIC-001
-status: synthetisch-abgeschlossen
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+status: synthetic-closed-superseded
 decision: GO_SIMULATION
 simulation:
   decision: GO_SIMULATION

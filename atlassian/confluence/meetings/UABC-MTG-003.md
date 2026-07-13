@@ -3,6 +3,11 @@ meetingId: UABC-MTG-003
 title: Go-live, Hypercare, Finance-Abschluss und Handover
 date: 2026-05-25
 status: simulated-complete
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+currentRollupContribution: false
 ---
 
 # Go-live, Hypercare, Finance-Abschluss und Handover

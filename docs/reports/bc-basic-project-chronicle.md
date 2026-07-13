@@ -1,7 +1,15 @@
-# Projektchronik UABC-BCB-001
+# Projektchronik UABC-BCB-001 – aktueller Pilot
 
-Am 20.08.2026 wurde das synthetische Angebot mit 80 Stunden und 9.600 EUR gestartet. Nach Scope- und Rollenklärung folgten Discovery und Datenbereitschaft. Am 25.08. wurden Setup und Probeimport durchgeführt; fehlende Buchungsgruppen und Einheiten wurden korrigiert. Am 26.08. liefen P2P und O2C mit den Belegen `SYN-PO-001`, `SYN-AP-002`, `SYN-SO-001` und `SYN-AR-002`. Zahlungen, Bankabstimmung und Inventur folgten am 27./28.08.; die Kontrollsummen wurden auf Null-Differenz gebracht.
+## Stand 13.07.2026
 
-Am 29.08. wurden UAT, Training und die synthetische UStVA-Vorschau abgeschlossen. Die Cutover-Generalprobe am 30.08. endete mit `GO_SIMULATION`, gefolgt vom nichtproduktiven simulierten Go-live. In der Hypercare am 01.–03.09. wurden drei Defects diagnostiziert, korrigiert und retestet. Das Abschlussmeeting übergab den Support-Backlog und die Lessons Learned. Kein Ereignis behauptet eine reale BC-, Kunden-, Bank- oder Steueraktivität.
+Der Playthru-Pilot ist neu rebaselined. `UABC-BASIC-DE` wurde read-only als CRONUS-Demo-Ausgangsbasis beobachtet; ein eingerichteter BC-Basic-Pilot ist nicht belegt. Die aktive Angebotsplanung umfasst 80 Stunden und 9.600 EUR, das aus Task-Worklogs abgeleitete Ist beträgt 0 Stunden und 0 EUR.
 
-Zum Storyabschluss wurde die historische Baseline von 68 Stunden/11.050 EUR mit dem synthetischen Angebot und Ist von jeweils 80 Stunden/9.600 EUR in `evidence/simulation/project-reconciliation.json` abgeglichen. `evidence/simulation/adapter-provenance.json` und `exports/project-data/v1/twin-export-map.json` belegen die deterministische read-only Projektion des Branch-Index. Die Kundeninstanz blieb unverändert Source of Truth; es entstand keine Rechnung, Buchung, Zahlung oder produktive Leistung.
+Phase UABC-1 ist in Bearbeitung. UABC-2 und UABC-3 sind wegen ihrer fachlichen Vorgängerabhängigkeit blockiert; Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe bleiben angelegt. Die drei Setup-Pakete stehen bei 0 Tabellen, 0 Datensätzen und 0 Fehlern. `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO.
+
+Vor dem ersten Schreib-Lauf muss Wave-0 interne Company-ID, technischen Namen, Name, Display Name und CRONUS-Provenienz belegen. Zusätzlich sind ein konkreter Resetpunkt und die evidenzbasierte Entscheidung zwischen kontrollierter Weiterverwendung und Neuanlage beziehungsweise Kopie erforderlich. Erst spätere Readbacks dürfen angewendete Pilotabweichungen bestätigen.
+
+## Historische Referenz
+
+Die frühere vollständig abgeschlossene Repository-Referenzsimulation ist seit dem 13.07.2026 abgelöst. Ihr Status `synthetic-closed`, die historische Angebotsversion 3 vom 29.05.2026 und ihre Simulations-Worklogs bleiben ausschließlich als Historienprovenienz erhalten. Sie zählen nicht zum aktuellen Backlog, Ist, Statusrollup oder Jira-Materialisierungsset. Der Archiveintrag `UABC-HIST-REFSIM-001` in `atlassian/confluence/pages/99-archive.md` verweist auf die historischen Nachweise und die aktuelle Nachfolgeseite.
+
+Die deterministische read-only Projektion wird weiterhin über `evidence/simulation/adapter-provenance.json` und `exports/project-data/v1/twin-export-map.json` belegt. Sie transportiert den aktuellen Pilotstand und erzeugt keine BC-Schreibaktion, Rechnung, Zahlung oder Kundenfreigabe.

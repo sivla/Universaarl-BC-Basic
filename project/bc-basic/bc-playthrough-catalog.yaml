@@ -1,10 +1,13 @@
 schemaVersion: 1
 catalogId: UABC-BC-PLAYTHRU-001
 projectId: UABC-BC-BASIC-001
-classification: synthetic-only
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
 environment: playthru-simulation
 company: UABC-BASIC-DE
-status: synthetisch-abgeschlossen
+status: synthetic-closed-superseded
 truthRule: Keine Sitzung behauptet eine reale BC-UI-Antwort oder eine produktive Buchung.
 sessions:
   - id: BC-SIM-SETUP-001

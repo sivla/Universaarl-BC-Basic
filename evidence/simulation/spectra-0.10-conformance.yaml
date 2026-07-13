@@ -1,6 +1,6 @@
 schemaVersion: 1
 status: passed
-classification: synthetische-sandbox-simulation
+classification: current-pilot-planning
 source:
   path: evidence/simulation/project-story.json
   commitBinding: branch-head-git-blob
@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: e192e9b6718c16235829c3d17b82a7d8a731af2f75cb2c3127c8df7681effcf4
+  projectionDigest: ad067a4d6575a42ba313e4143b9021230c012a5173d41c780b9b8814f2ef5e3e
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -18,49 +18,49 @@ reconciliation:
   baselineAmount: 11050
   offerHours: 80
   offerAmount: 9600
-  actualHours: 80
-  actualAmount: 9600
+  actualHours: 0
+  actualAmount: 0
   invoiceClaim: false
   productiveActivityClaim: false
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: 19cb00ae7c17dda0e54298d3e41f67e6a6367848c0a42232ac0d727e1d9f3903
+  sourceHash: 4804f1b0fcac789ba396d206bb80caec9bf6d5c64c1da3faf8832f36d9ab640f
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: 2927797fc64d0c94bf02afac0fb7a51d6bbc6af34fb0a9e776552f32552554c2
+  projectionDigest: cf71fc5c57773bfea08caa0c5f852cb1170a68b1201e8bddc6e2d3bd43ff6c19
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
-  nativeRelations: 252
-  portableEdges: 376
-  accountedNativeRelations: 252
+  nativeRelations: 1020
+  portableEdges: 346
+  accountedNativeRelations: 1020
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
-  sourceDigest: 1d24e48bb02d1b0f656667a4039e2df4a7822ffb6b26672ae9778d1dbf115482
+  sourceDigest: 5a6f9997cfdfb5064a18b75ef7116cfc618cca55947c890d18ededff19adc28c
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: 70e4942ba845de6a571a3546733da561cfa1e695bbaaeb486228d64469d828c2
+  projectionDigest: ae53dc5df16e7bc646c150cf3314be2a37ced0a91945ee733bcc9a0ab664c804
 counts:
   offerVersions: 3
-  pages: 19
+  pages: 28
   phaseTickets: 3
   tickets: 50
   epics: 10
   stories: 18
   bugs: 0
   tasks: 19
-  comments: 90
-  worklogs: 19
-  hours: 80
-  cost: 9600
+  comments: 50
+  worklogs: 0
+  actualHours: 0
+  actualNetAmount: 0
   timelineEvents: 15
-  projectPhases: 13
-  hypercareDays: 3
-  nativeRelations: 252
-  portableEdges: 376
+  projectPhases: 14
+  hypercareRecords: 3
+  nativeRelations: 1020
+  portableEdges: 346
 processCoverage:
   - Finance
   - P2P
@@ -75,7 +75,15 @@ processCoverage:
   - Cutover
   - GO_SIMULATION
   - Hypercare
-truthBoundary: Vollstaendige repositorybasierte Sandbox-Simulation ohne echten
-  BC-Zugriff, Rechnung, Zahlung, produktive Leistung oder externe
-  Kundenfreigabe. Simulierte Gates sind abgeschlossen und keine externen
-  Blocker.
+truthBoundary: Unveränderte Standard-CRONUS-Demo-Ausgangsbasis; der
+  BC-Basic-Pilotaufbau steht aus. Technischer Firmenname und URL beweisen keine
+  Einrichtung. Keine BC-Schreibfreigabe, keine produktive Leistung, keine
+  Rechnung und keine erfundene Kundenabnahme. Istwerte stammen ausschliesslich
+  aus aktiven Task-Worklogs.
+businessCentralPilotState:
+  baselineKind: standard-cronus-demo
+  pilotConfigured: false
+  writesApplied: false
+  readbackStatus: pending
+  targetDecision: pending-wave-0-evidence
+  resetDecision: pending-resetpoint-evidence

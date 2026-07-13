@@ -2,7 +2,9 @@ schemaVersion: 1
 evidenceId: UABC-EVD-PLAYTHRU-SETUP-001
 projectId: UABC-BC-BASIC-001
 pilotProjectId: UABC-BC-PILOT-001
-classification: real-playthru-pilot-observation
+classification: historical-playthru-observation-superseded-for-active-readiness
+currentAuthority: false
+supersededForActiveReadinessBy: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
 observedAt: 2026-07-13
 environment:
   name: Playthru
@@ -53,3 +55,5 @@ truthBoundary:
   noUrlOrSessionData: true
   noTelemetry: true
   noSetupOrBusinessDataEffectBeyondListedWrites: true
+  configuredPilotClaimed: false
+  note: Dieser historische Bediennachweis belegt nicht den aktuellen Inhalt der Gesellschaft; die aktuelle Ausgangswahrheit ist eine unveränderte Standard-CRONUS-Demo-Baseline.

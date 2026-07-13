@@ -11,6 +11,8 @@ export function validateProjection(projection, schema) {
   const valid = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
   if (!valid(projection)) errors.push(...(valid.errors ?? []).map((error) => `${error.instancePath} ${error.message}`));
   if (projection.writesAuthorized !== false || projection.writeGate?.noGoSteps?.length !== 17) errors.push('SCHREIBSPERRE');
+  const state = projection.configurationState ?? {};
+  if (state.baselineKind !== 'standard-cronus-demo' || state.pilotConfigured !== false || state.writesApplied !== false || state.readbackStatus !== 'pending' || state.internalCompanyId !== null || state.targetDecision !== 'pending-wave-0-evidence' || state.resetDecision !== 'pending-resetpoint-evidence' || state.observedDisplayName === state.targetDisplayName) errors.push('CRONUS-PILOT-TRENNUNG');
   return errors;
 }
 export function validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance = null }) {

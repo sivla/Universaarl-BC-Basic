@@ -161,6 +161,27 @@ test('deutsche Texte und eng gebundene technische Marker bleiben zulaessig', () 
   assert.ok(report.checkedValueCount > 0);
 });
 
+test('maschinenlesbare Pilotstatus und Relationstypen bleiben eng gebundene technische Werte', () => {
+  const entries = [
+    entry('evidence/pilotstatus.yaml', [
+      'status: required-not-executed',
+      'recordScope: historical-reference-only',
+      'targetDecision: pending-wave-0-evidence',
+      'resetDecision: pending-resetpoint-evidence',
+      'allowedDecisions:',
+      '  - clean-new-company-or-copy',
+      'classification: current-read-only-evidence'
+    ].join('\n')),
+    entry('evidence/relationen.json', JSON.stringify({
+      activeOffer: { status: 'planned-not-accepted' },
+      relations: [{ type: 'required-by' }],
+      simulationState: 'planned-not-executed'
+    }))
+  ];
+  assert.deepEqual(scanEntries(entries).violations, []);
+  assert.equal(violations('docs/sichtbar.md', '# Status\nThe customer workflow requires careful approval.').length, 1);
+});
+
 test('historische Roh-Nachweise sind nur mit exaktem Pfad und Git-Blob ausgenommen', () => {
   const [relative, expectedBlob] = Object.entries(RAW_EVIDENCE_BLOBS)[0];
   const bytes = fs.readFileSync(path.join(root, ...relative.split('/')));

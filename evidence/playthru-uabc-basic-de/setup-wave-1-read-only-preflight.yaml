@@ -24,6 +24,24 @@ companyNames:
   pilot: { companyId: UABC-BASIC-DE, observedDisplayName: Universaarl GmbH, plannedDisplayName: Universaarl GmbH (BC Basic Pilot), renameExecuted: false }
   legacy: { companyId: UNIVERSAARL-DE, observedDisplayName: Universaarl GmbH (Legacy), plannedDisplayName: Universaarl GmbH (Legacy), changedInThisRun: false }
 companyInformationBaseline: beobachtet-nur-lesend
+configurationState:
+  baseline:
+    classification: standard-cronus-demo-baseline
+    truthClass: user-confirmed-current-state
+    technicalCompanyName: UABC-BASIC-DE
+    internalCompanyId: unknown-required-before-write
+    observedDisplayName: Universaarl GmbH
+    contentOrigin: Microsoft-Standard-CRONUS-Demodaten
+    configuredPilotClaimed: false
+  pilotTarget:
+    companyId: UABC-BASIC-DE
+    displayName: Universaarl GmbH (BC Basic Pilot)
+    status: pilot-build-pending
+    targetDecision: pending-wave-0-evidence
+  appliedDifference:
+    status: none-evidenced
+    readbackEvidence: []
+  rule: Nur spaeter autorisierte und je Feld gelesene Abweichungen duerfen als Pilotkonfiguration gelten.
 packages:
   - { packageId: UABC-01-CORE-FINANCE, tables: 0, records: 0, errors: 0 }
   - { packageId: UABC-02-TRADE-MASTER, tables: 0, records: 0, errors: 0 }
@@ -42,3 +60,5 @@ truthBoundary:
   packageApplyPerformed: false
   postingPerformed: false
   externalTransmissionPerformed: false
+  readyToProdClaimed: false
+  configuredCustomerInstanceClaimed: false

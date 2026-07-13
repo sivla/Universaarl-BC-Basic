@@ -2,8 +2,8 @@
 
 ## Reihenfolge
 
-1. Zielbindung und Resetpunkt pruefen.
-2. Bereits ausgefuehrte Country-/Company-Baseline read-only bestaetigen.
+1. Wave 0 liest interne Company-ID, technischen Namen, Name, Display Name, unveränderte Standard-CRONUS-Demodaten und Abgrenzung zu Referenzgesellschaften.
+2. Auf dieser Evidence wird zwischen kontrollierter Weiterverwendung der aktuellen Standard-CRONUS-Demo-Ausgangsbasis und sauberer Neuanlage oder Kopie entschieden; zugleich wird ein eindeutiger Resetpunkt dokumentiert. Technischer Firmenname und URL sind kein Einrichtungsnachweis.
 3. CORE-FINANCE-Tabellen in der Matrixreihenfolge aufnehmen; Feldliste vor jedem Tabellen-Add pruefen.
 4. Paket pruefen, ohne es anzuwenden.
 5. Erst nach separater authentisierter Laufentscheidung freigegebene Setupzeilen anwenden und jede Wirkung read-back pruefen.
@@ -15,7 +15,11 @@ Jeder Eintrag nennt Paket, Tabelle, belastbare Tabellen-ID oder `sandbox-confirm
 
 ## Sicherheitsvertrag
 
-Der Live-Lauf stoppt vor dem ersten Write bei falschem Environment, falscher Gesellschaft, abweichender BC-Version/Lokalisierung/Rolle, fehlendem Resetpunkt, nicht leerem Paketgeruest, unbekannter Tabellen-ID, Schemaabweichung oder fehlender direkter Berechtigung. Teilanwendungen werden nicht blind wiederholt. Die Ausgangs- und Nachkontrolle erfolgt ueber BC-Seiten sowie Paketfehler/Datensatzzaehler, nicht ueber importierte Ledger-Tabellen.
+Der Live-Lauf stoppt vor dem ersten Write bei fehlendem Wave-0-Readback, unbekannter Standard-CRONUS-Provenienz, fehlender Zielentscheidung, falschem Environment, falscher Gesellschaft, abweichender BC-Version/Lokalisierung/Rolle, fehlendem Resetpunkt, nicht leerem Paketgeruest, unbekannter Tabellen-ID, Schemaabweichung oder fehlender direkter Berechtigung. Eine blosse Umbenennung darf nie `pilotConfigured=true` setzen. Teilanwendungen werden nicht blind wiederholt. Die Ausgangs- und Nachkontrolle erfolgt ueber BC-Seiten sowie Paketfehler/Datensatzzaehler, nicht ueber importierte Ledger-Tabellen.
+
+## Projektstory- und Twin-Vertrag
+
+`evidence/simulation/project-story.json` bleibt die einzige aktive Ticketquelle. Jira, Spectra-0.10, Index und Twin werden deterministisch daraus erzeugt. Die Ticketmenge ist dynamisch; nur `UABC-1`, `UABC-2` und `UABC-3` sind feste Phase-Roots. Plan 80 Stunden/9.600 EUR bleibt im Angebots-/Billingvertrag, aktuelles Ist wird ausschliesslich aus Task-Worklogs abgeleitet. Twin-Ticketlisten enthalten keine Geldfelder oder Geldbetraege.
 
 ## Rollback
 

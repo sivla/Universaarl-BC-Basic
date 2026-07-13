@@ -2,7 +2,11 @@ schemaVersion: 1
 evidenceId: UABC-EV-SIM-PHASE3-001
 projectId: UABC-BC-BASIC-001
 changeRef: migrate-bc-basic-to-single-uabc-ticket-project
-classification: synthetic-only
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
 simulationStatus: synthetisch-abgenommen
 realExecution: false
 researchSources: [SRC-BC-063, SRC-BC-064, SRC-BC-065, SRC-BC-066, SRC-BC-067]

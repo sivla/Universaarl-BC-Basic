@@ -1,8 +1,11 @@
 schemaVersion: 1
 evidenceId: UABC-EV-SIM-PHASE-GATES-001
 projectId: UABC-BC-BASIC-001
-classification: synthetic-only
-status: synthetisch-vollstaendig-abgenommen
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
 truthRule: Jeder Status und jede Abnahme gilt ausschließlich für die repositorybasierte Simulation.
 phases:
   - { phase: 0, title: Auftrag-und-Scope, role: P-002, source: [project/bc-basic/project-plan.yaml, project/bc-basic/decision-register.yaml], input: synthetischer-kundenfall, result: simulated-complete, gate: GO_SIMULATION }

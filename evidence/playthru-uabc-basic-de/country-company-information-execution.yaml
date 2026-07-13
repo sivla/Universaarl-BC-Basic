@@ -2,7 +2,9 @@ schemaVersion: 1
 evidenceId: UABC-EVD-PLAYTHRU-COMPANY-001
 projectId: UABC-BC-BASIC-001
 pilotProjectId: UABC-BC-PILOT-001
-classification: real-playthru-execution-observation
+classification: historical-playthru-execution-superseded-for-active-readiness
+currentAuthority: false
+supersededForActiveReadinessBy: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
 observedAt: 2026-07-13
 timePrecision: date-only-user-provided
 environment:
@@ -88,3 +90,5 @@ truthBoundary:
   noUrlOrSessionData: true
   noTelemetry: true
   noExternalTransmission: true
+  configuredPilotClaimed: false
+  note: Historische Ausfuehrungsprovenienz; kein aktueller Nachweis einer eingerichteten BC-Basic-Kundeninstanz.

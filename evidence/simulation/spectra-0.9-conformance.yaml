@@ -18,7 +18,7 @@ adapter:
 conformance:
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaBlob: 8d7ed3bc6bebdf5fc1c2cffbfbfa162e2587a823
-  localValidator: scripts/validate-spectra-0.7-conformance.mjs
+  localValidator: scripts/validate-spectra-0.7-historical-provenance.mjs
   officialFullConformance: passed
   spectra09Integration: passed
   result: passed

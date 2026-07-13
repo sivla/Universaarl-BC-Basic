@@ -1,8 +1,11 @@
 schemaVersion: 1
 runPlanId: UABC-UAT-RUN-BCB-001
 projectId: UABC-BC-BASIC-001
-classification: synthetic-only
-status: synthetisch-uat-abgenommen
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
 realExecution: false
 goNoGo:
   decision: GO_SIMULATION

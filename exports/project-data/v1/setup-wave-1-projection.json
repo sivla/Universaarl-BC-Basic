@@ -12,6 +12,18 @@
     "pilotName": "Universaarl GmbH (BC Basic Pilot)",
     "legacyName": "Universaarl GmbH (Legacy)"
   },
+  "configurationState": {
+    "baselineKind": "standard-cronus-demo",
+    "pilotConfigured": false,
+    "writesApplied": false,
+    "readbackStatus": "pending",
+    "technicalCompanyName": "UABC-BASIC-DE",
+    "internalCompanyId": null,
+    "observedDisplayName": "Universaarl GmbH",
+    "targetDisplayName": "Universaarl GmbH (BC Basic Pilot)",
+    "targetDecision": "pending-wave-0-evidence",
+    "resetDecision": "pending-resetpoint-evidence"
+  },
   "packages": [
     {
       "packageId": "UABC-01-CORE-FINANCE",
@@ -37,6 +49,7 @@
   ],
   "preflight": {
     "status": "beobachtet-nur-lesend",
+    "wave0Status": "required-not-executed",
     "workingDate": "2026-07-13",
     "operator": {
       "userId": "KAJETAN.KALICKI",
@@ -69,7 +82,7 @@
       "RUN-21",
       "RUN-22"
     ],
-    "nextAllowedStep": "Resetpunkt dokumentieren und separat freigeben"
+    "nextAllowedStep": "Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen"
   },
   "provenance": [
     {

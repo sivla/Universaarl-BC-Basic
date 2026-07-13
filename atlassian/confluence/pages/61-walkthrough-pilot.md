@@ -12,8 +12,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 10
 storyPageId: PAGE-UABC-080
-purpose: Beschreibt Mock-Cutover, GO_SIMULATION, simulierten Go-live, Rollback
-  und Wiederanlauf.
+purpose: Plant Mock-Cutover, Simulationsabnahme, Rollback und Wiederanlauf,
+  ohne ein erreichtes GO oder einen Produktivstart zu behaupten.
 audience:
   - Steering
   - Projektleitung
@@ -27,65 +27,50 @@ referenceIds:
   - UABC-REQ-BCB-002
   - UABC-REQ-BCB-008
   - UABC-REQ-BCB-010
-lastReviewed: 2026-09-03
-version: 4
+lastReviewed: 2026-07-13
+version: 5
 ---
 
 # 03.2 Cutover und Go-live
 
-## Ziel und Eingangskriterien
+## Aktueller Status
 
-Der Cutover ist als repositorybasierte Generalprobe vom Datenfreeze bis zum Supportstart durchgespielt.
-Er verwendet ausschließlich synthetische Daten und Belege und wird deshalb als simulierter Go-live, niemals als Produktivstart, bezeichnet.
-
-## Cutover- und GO-Entscheidung
-
-Mock-Cutover, `GO_SIMULATION`, simulierter Go-live und Wiederanlauf sind synthetisch bestanden. P1/P2 waren am Gate geschlossen, Kontrollen differenzfrei und der Rollbackweg nachvollziehbar.
+Cutover und Simulationsabnahme sind **nicht erreicht**. `UABC-BASIC-DE` ist eine CRONUS-Demo-Ausgangsbasis; Setup, Daten, Prozesse, UAT und Training stehen aus. Ein Produktivstart ist nicht Bestandteil dieses Piloten.
 
 ## Eintrittskriterien
 
-- Scope und sieben Kundenentscheidungsbereiche sind synthetisch bestätigt.
-- Setup-, Stamm- und Eröffnungswelle sind vollständig und abgestimmt.
-- Sieben UAT-Fälle und vier Rollenpfade sind bestanden.
-- P1 = 0 und P2 = 0; Evidence, Owner, Zeitplan und Kommunikationsweg sind vorhanden.
-- Freeze, Rücksetzpunkt, Abbruchkriterien und Supportweg sind erklärt.
+- Wave-0 belegt interne Company-ID, Namen, CRONUS-Provenienz, Zielentscheidung und Resetpunkt.
+- Setup-, Stamm- und Eröffnungswelle sind autorisiert, ausgeführt und abgestimmt.
+- UAT-Fälle und Rollenpfade sind mit aktueller Evidence bestanden.
+- P1 = 0 und P2 = 0; Owner, Zeitplan, Freeze und Supportweg sind belegt.
+- Rollback und Wiederanlauf besitzen einen konkret geprüften Ausgangspunkt.
 
-## Operative Generalprobe
+Keines dieser Gates wird durch die abgelöste Referenzsimulation automatisch erfüllt.
 
-1. **Freeze erklären:** ab dem vereinbarten Zeitpunkt keine unkontrollierten Daten- oder Setupänderungen.
-2. **Zielkontext prüfen:** Gesellschaft, Umgebung, Rolle, Sprache, Datum und erlaubte Operation bestätigen.
-3. **Datenstand sichern:** freigegebene Vorlagen, Kontrollsummen und reproduzierbaren Ausgangspunkt festhalten.
-4. **Finale Wellen prüfen:** Setup, Stammdaten, Eröffnungswerte und offene Posten in Reihenfolge abstimmen.
-5. **Smoke-Test ausführen:** P2P, O2C, Cash/Bank, Lager, Monatsabschluss und VAT-Vorschau mit Referenzbelegen prüfen.
-6. **Gate entscheiden:** Steering bewertet Kontrollen, offene Defects, Rollen, Restart und Supportstart.
-7. **Go-live-Rehearsal durchführen:** Tagesstart, operative Fälle, Tageskontrolle und Übergabe an Hypercare simulieren.
-8. **Evidence sichern:** Ergebnis, Abweichungen, Entscheidung und nächster Schritt versioniert referenzieren.
+## Geplante Generalprobe
 
-## Abbruch und Rollback
+1. Freeze und zulässige Änderungen bestätigen.
+2. Umgebung, Company-ID, technischen Namen, Rolle, Sprache und Arbeitsdatum lesen.
+3. Resetpunkt und freigegebene Kontrollsummen prüfen.
+4. Setup-, Stamm- und Eröffnungswelle abstimmen.
+5. P2P, O2C, Lager, Monatsabschluss und VAT-Vorschau mit Soll-/Ist-Readback prüfen.
+6. Offene Defects, Rollen, Restart und Supportfähigkeit bewerten.
+7. Eine belegte Simulationsabnahme entscheiden; ohne Evidence bleibt das Gate NO-GO.
+8. Ergebnis, Abweichungen und nächsten Schritt versioniert sichern.
 
-Abbruch gilt bei falscher Gesellschaft, fehlender Rücksetzbarkeit, unklarer Finanz-/VAT-/Bestandswirkung, unstimmigen Kontrollsummen oder offenem P1/P2. Der Zustand wird gesichert; es erfolgt keine weitere Buchungssimulation.
+## Abbruch, Rollback und Wiederanlauf
 
-Der Rollback stellt den dokumentierten synthetischen Ausgangsstand wieder her, prüft IDs, Mengen, Salden und Referenzen und wiederholt den betroffenen Smoke-Test.
-Eine reale BC-Sicherung oder Wiederherstellung wird nicht behauptet.
+Abbruch gilt bei falscher Gesellschaft, fehlender Rücksetzbarkeit, unklarer Finanz-/VAT-/Bestandswirkung, unstimmigen Kontrollsummen oder offenem P1/P2. Es erfolgt keine weitere Aktion. Rollback und Wiederanlauf dürfen erst nach konkret belegtem Resetpunkt ausgeführt werden.
 
-## Gate-Ergebnis und Wiederanlauf
+## Gate-Ergebnis
 
-Die synthetische Steering-Rolle entschied `GO_SIMULATION`. Maßgeblich waren differenzfreie Hauptbuchsummen, abgestimmte Nebenbücher, Bank und Lager, VAT-Zahllast 70,30 EUR, vollständige Evidence und null offene P1/P2.
-
-Der simulierte Go-live erzeugte Tages- und Hypercare-Evidence, aber weder Produktivbuchungen noch externe Kommunikation, Bankdateien, E-Mails oder Steuerübermittlung.
-
-## Reale Cutover-Parameter und Grenzen
-
-- **Synthetisch entschieden:** Reihenfolge, Rollen, Entry/Exit, Abbruch, Rollback, Restart und `GO_SIMULATION`.
-- **Im echten Projekt zu bestätigen:** Freezezeit, Produktionsgesellschaft, reale Migration, Restorepunkt, Benutzerrechte, Verantwortliche, Kommunikationskanäle und Supportzeiten.
-- Ein reales Go-live ist außerhalb der Referenzsimulation und wird nicht aus ihrem grünen Status abgeleitet.
+Aktuell gilt `NO_GO_SIMULATION`: `writesAuthorized=false`, RUN-06 bis RUN-22 bleiben gesperrt und die drei Setup-Pakete stehen bei 0/0/0. Es existiert weder eine Steering-Freigabe noch eine Kundenabnahme.
 
 ## Referenzen
 
-- [Cutover- und Abschlussstatus](../../../evidence/simulation/project-completion.yaml)
-- [UAT- und Trainingsgate](../../../project/bc-basic/uat-training-run.yaml)
-- [Operativer Smoke-Test](../../../project/bc-basic/training-plan.yaml)
-- [Wiederanlauf und Handover](../../../docs/handover/bc-basic-handover.md)
-- [Chronologische Story](../../../docs/reports/bc-basic-project-chronicle.md)
+- [Aktuelle Projektstory](../../../evidence/simulation/project-story.json)
+- [Setup-Wave-Run-Plan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
+- [Handover-Plan](../../../docs/handover/bc-basic-handover.md)
+- [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-080","title":"03.2 Cutover und Go-live","parent":"PAGE-UABC-150","version":4,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-080","title":"03.2 Cutover und Go-live","parent":"PAGE-UABC-150","version":5,"status":"published"} -->

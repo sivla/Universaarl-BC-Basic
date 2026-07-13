@@ -1,3 +1,8 @@
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+recordScope: historical-reference-only
 issues:
   - key: UABC-18
     type: Epic
@@ -11,11 +16,11 @@ issues:
     dueDate: 2026-09-04
     effort: 68h Planwert
     plannedBillableHours: 68
-    finalSimulation: { offerVersion: 2.0, actualHours: 80, actualNetAmount: 9600, worklogCount: 19, evidence: evidence/simulation/billing-reconciliation.yaml, status: simulated-complete }
+    historicalReferenceSimulation: { offerVersion: 2.0, actualHours: 80, actualNetAmount: 9600, worklogCount: 19, evidence: evidence/simulation/billing-reconciliation.yaml, status: synthetic-closed-superseded, currentRollupContribution: false }
     billable: false
     worklogEligible: false
     dependencies: []
-    dataRequirements: [synthetischer Produktauftrag, Drei-Phasen-Plan, Tagessatz, offene menschliche Freigaben]
+    dataRequirements: [historischer synthetischer Produktauftrag, Drei-Phasen-Plan, Tagessatz, offene belegte Simulationsfreigaben]
     acceptanceCriteria:
       - Genau eine synthetische Gesellschaft in playthru ist geplant und jeder Schreibvorgang bleibt gesperrt.
       - Die 17 untergeordneten Arbeitspakete ergeben 68 Dienstleisterstunden; Elternsummen und Kundenaufwaende sind nicht abrechenbar.
@@ -103,7 +108,7 @@ issues:
     dataRequirements: [synthetische Buchungen, Abstimmcheckliste, UStVA-Kennzeichen, UAT- und Hypercare-Befunde, Uebergabeunterlagen]
     acceptanceCriteria:
       - Monatsabschlussprozess ist in der Sandbox geprobt und abgestimmt; UStVA-Vorschau ist fachlich geprueft, ohne Test-, Produktiv- oder ELSTER-Uebermittlung.
-      - Abschluss der Hypercare und Uebergabe werden nur mit echten, dokumentierten Freigaben abgeschlossen.
+      - Abschluss der Hypercare und Uebergabe wurden im historischen Referenzlauf nur mit belegten Simulationsfreigaben markiert; dieser Nachweis erfuellt kein aktuelles Pilotgate.
     deliverableIds: [UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
     transcriptRefs: [UABC-MTG-001]
     referenceIds: [UABC-REQ-BCB-009, UABC-REQ-BCB-010]

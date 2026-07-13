@@ -5,11 +5,20 @@ changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 dryRunPath: project/bc-basic/phase-2-dry-run.yaml
 status: planned
 templateState: kundenbereit
-simulationState: synthetisch-geprueft
-customerInstanceState: vor-Setup-mit-realen-Quellen-neu-zu-pruefen
+currentBaselineKind: standard-cronus-demo
+pilotConfigured: false
+writesApplied: false
+readbackStatus: pending
+simulationState: planned-not-executed
+currentDecision: NO_GO_CURRENT_PILOT
+customerInstanceState: standard-cronus-demo-wave-0-und-Setup-ausstehend
 executed: false
 resultClaimed: false
 referenceSimulation:
+  classification: historical-reference-simulation
+  currentAuthority: false
+  archivedAt: 2026-07-13
+  supersededBy: evidence/simulation/project-story.json
   status: synthetisch-geprueft
   decision: GO_SIMULATION
   checkedAt: 2026-08-25

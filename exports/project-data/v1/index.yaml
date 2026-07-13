@@ -504,18 +504,18 @@ documentCatalog:
       spaceKey: null
     - artifactId: UABC-SRC-BCB-STORY-HANDOVER-001
       documentId: UABC-SRC-BCB-STORY-HANDOVER-001
-      title: Handover und Abschluss UABC-BCB-001
+      title: Handover-Plan UABC-BCB-001
       documentType: project-handover
       parentId: null
       phase: close
       process: support-und-uebergabe
-      status: V1_STANDARDPRODUCT_READY
+      status: PILOT_NOT_READY
       ownerRefs: []
       jiraRefs: []
       referenceIds: []
       lastReviewed: null
       visibility: twin-visible
-      readiness: v1-ready
+      readiness: not-ready
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -526,20 +526,20 @@ documentCatalog:
       parentId: null
       phase: offer-and-scope
       process: commercial
-      status: Standardangebot 2.0
+      status: Pilot-Rebaseline geplant, nicht angenommen
       ownerRefs: []
       jiraRefs: []
       referenceIds:
         - OFR-UABC-BCB-001
       lastReviewed: null
       visibility: twin-visible
-      readiness: v1-ready
+      readiness: authoritative-current
       externalUrl: null
       pageId: null
       spaceKey: null
     - artifactId: UABC-SRC-BCB-STORY-CHRONICLE-001
       documentId: UABC-SRC-BCB-STORY-CHRONICLE-001
-      title: Projektchronik UABC-BCB-001
+      title: Projektchronik UABC-BCB-001 – aktueller Pilot
       documentType: project-chronicle
       parentId: null
       phase: project-wide
@@ -557,18 +557,18 @@ documentCatalog:
       spaceKey: null
     - artifactId: UABC-SRC-BCB-DEMO-001
       documentId: UABC-SRC-BCB-DEMO-001
-      title: "Demo- und Abnahmeleitfaden: synthetischer BC-Basic-Projektstand"
+      title: Historischer Demo- und Abnahmeleitfaden der abgelösten Referenzsimulation
       documentType: synthetic-demo-guide
       parentId: null
       phase: test-and-acceptance
       process: demonstration
-      status: not_evidenced
+      status: historical-reference-simulation
       ownerRefs: []
       jiraRefs: []
       referenceIds: []
       lastReviewed: null
       visibility: twin-visible
-      readiness: not-ready
+      readiness: verified-with-history
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -692,57 +692,6 @@ documentCatalog:
       externalUrl: null
       pageId: null
       spaceKey: null
-    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-001
-      documentId: UABC-MTG-001
-      title: Synthetischer Discovery- und Fit-to-Standard-Workshop
-      documentType: meeting-transcript
-      parentId: null
-      phase: discovery
-      process: project-delivery
-      status: simulated-complete
-      ownerRefs: []
-      jiraRefs: []
-      referenceIds: []
-      lastReviewed: null
-      visibility: twin-visible
-      readiness: verified-with-history
-      externalUrl: null
-      pageId: null
-      spaceKey: null
-    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-002
-      documentId: UABC-MTG-002
-      title: Setup, Migration, Prozesse, SIT, UAT und Schulung
-      documentType: meeting-transcript
-      parentId: null
-      phase: setup-and-migration
-      process: project-delivery
-      status: simulated-complete
-      ownerRefs: []
-      jiraRefs: []
-      referenceIds: []
-      lastReviewed: null
-      visibility: twin-visible
-      readiness: verified-with-history
-      externalUrl: null
-      pageId: null
-      spaceKey: null
-    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-003
-      documentId: UABC-MTG-003
-      title: Go-live, Hypercare, Finance-Abschluss und Handover
-      documentType: meeting-transcript
-      parentId: null
-      phase: transition
-      process: project-delivery
-      status: simulated-complete
-      ownerRefs: []
-      jiraRefs: []
-      referenceIds: []
-      lastReviewed: null
-      visibility: twin-visible
-      readiness: verified-with-history
-      externalUrl: null
-      pageId: null
-      spaceKey: null
     - artifactId: UABC-SRC-BCB-CONF-009
       documentId: UABC-PROJECT
       title: 00 Hilfe und Projektumgebung
@@ -764,7 +713,7 @@ documentCatalog:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-010
         - UABC-REQ-BCB-011
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -831,7 +780,7 @@ documentCatalog:
         - UABC-REQ-BCB-004
         - UABC-REQ-BCB-010
         - UABC-REQ-BCB-011
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -865,7 +814,7 @@ documentCatalog:
         - UABC-REQ-BCB-005
         - UABC-REQ-BCB-010
         - UABC-REQ-BCB-011
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -895,7 +844,7 @@ documentCatalog:
       referenceIds:
         - UABC-REQ-BCB-007
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -985,7 +934,7 @@ documentCatalog:
         - UABC-REQ-BCB-005
         - UABC-REQ-BCB-006
         - UABC-REQ-BCB-009
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -1056,7 +1005,7 @@ documentCatalog:
         - UABC-REQ-BCB-008
         - UABC-REQ-BCB-009
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -1087,7 +1036,7 @@ documentCatalog:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-008
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -1117,7 +1066,7 @@ documentCatalog:
         - UABC-REQ-BCB-002
         - UABC-REQ-BCB-009
         - UABC-REQ-BCB-010
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -1560,6 +1509,57 @@ documentCatalog:
       spaceType: consultant-internal
       order: 7
       storyPageId: PAGE-UABC-270
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-001
+      documentId: UABC-MTG-001
+      title: Synthetischer Discovery- und Fit-to-Standard-Workshop
+      documentType: meeting-transcript
+      parentId: null
+      phase: discovery
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-002
+      documentId: UABC-MTG-002
+      title: Setup, Migration, Prozesse, SIT, UAT und Schulung
+      documentType: meeting-transcript
+      parentId: null
+      phase: setup-and-migration
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-003
+      documentId: UABC-MTG-003
+      title: Go-live, Hypercare, Finance-Abschluss und Handover
+      documentType: meeting-transcript
+      parentId: null
+      phase: transition
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
   referenceDefinitions:
     ownerRefs:
       - P-001
@@ -1734,9 +1734,9 @@ consumerRules:
   - Die 19 Migrationseintraege erhalten Dokument-ID, Story-Page-ID und
     Quellpfad; Umbenennung und Neuordnung erzeugen weder neue Seitenidentitaeten
     noch eine zweite fachliche Wahrheit.
-  - "Ausschliesslich ticketCatalog.path ist die aktuelle Ticketansicht und
-    Zaehlsurface: drei Phase-Tickets, zehn fachliche Epics, 18 Stories und 19
-    abrechenbare Tasks; nur Task-Worklogs zaehlen 80 Stunden und 9.600 EUR."
+  - Ausschliesslich ticketCatalog.path ist die aktuelle Ticketansicht und
+    Zaehlsurface; Umfang und Ticketanzahl werden aus der kanonischen Quelle
+    dynamisch gelesen.
   - Jeder Ticketrecord liefert Source, kanonischen Lowercase-Typ, Rohquelltyp,
     Parent, Sichtbarkeitsrolle und Zaehlscope explizit; der Consumer darf Typen
     oder Zaehlscope niemals aus Key, Titel, Parent oder Position ableiten.
@@ -2078,7 +2078,7 @@ artifacts:
     required: true
   - id: UABC-SRC-BCB-SPECTRA-VALIDATOR-001
     kindId: spectra-portable-project-story-validator
-    path: scripts/validate-spectra-0.7-conformance.mjs
+    path: scripts/validate-spectra-0.7-historical-provenance.mjs
     format: javascript
     required: true
   - id: UABC-SRC-BCB-SPECTRA-TESTS-001
@@ -2341,21 +2341,6 @@ artifacts:
     path: project/bc-basic/ticket-migration.yaml
     format: yaml
     required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-001.md
-    format: markdown
-    required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-002
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-002.md
-    format: markdown
-    required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-003
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-003.md
-    format: markdown
-    required: true
   - id: UABC-SRC-BCB-CONF-025
     kindId: confluence-page
     path: atlassian/confluence/pages/99-archive.md
@@ -2455,6 +2440,21 @@ artifacts:
     kindId: setup-wave-1-projection-tests
     path: tests/governance/setup-wave-1-export.test.mjs
     format: javascript
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-001.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-002
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-002.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-003
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-003.md
+    format: markdown
     required: true
 referenceDefinitions:
   jiraRefs:

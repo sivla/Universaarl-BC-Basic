@@ -123,7 +123,7 @@ const TECHNICAL_PHRASES = Object.freeze([
 ]);
 
 const FIELD_ENUMS = new Map([
-  ['status', new Set(['proposed', 'approved', 'historical', 'superseded', 'retired', 'pending', 'in-review', 'passed', 'failed', 'planned', 'deferred', 'draft', 'blocked', 'confirmed', 'candidate', 'unknown', 'ready', 'active', 'archived', 'unapplied'])],
+  ['status', new Set(['proposed', 'approved', 'historical', 'superseded', 'retired', 'pending', 'in-review', 'passed', 'failed', 'planned', 'deferred', 'draft', 'blocked', 'confirmed', 'candidate', 'unknown', 'ready', 'active', 'archived', 'unapplied', 'required-not-executed', 'pilot-build-pending', 'planned-not-accepted', 'planned-not-executed', 'planned-not-confirmed', 'planned-not-applied'])],
   ['statuses', new Set(['Backlog', 'Ready', 'In Progress', 'Blocked', 'In Review', 'Done'])],
   ['from', new Set(['Backlog', 'Ready', 'In Progress', 'Blocked', 'In Review', 'Done'])],
   ['to', new Set(['Backlog', 'Ready', 'In Progress', 'Blocked', 'In Review', 'Done'])],
@@ -132,14 +132,14 @@ const FIELD_ENUMS = new Map([
   ['audiences', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['audience', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['kind', new Set(['official', 'microsoft-learn', 'microsoft-licensing', 'playwright-official', 'automated', 'manual'])],
-  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic', 'realizes-plan-item'])],
+  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic', 'realizes-plan-item', 'references', 'depends-on', 'required-by', 'blocks', 'blocked-by'])],
   ['issueType', new Set(['Task', 'Story', 'Epic'])],
   ['severity', new Set(['critical', 'high', 'medium', 'low'])],
   ['completeness', new Set(['visible-partial'])],
   ['visibilityBasis', new Set(['name-and-publisher-intersect-screenshot-viewport', 'row-intersects-screenshot-viewport'])]
 ]);
 
-const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|fields|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions)$/;
+const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|fields|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|allowedDecisions|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
 const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls)$/;
 const FIXED_OPENSPEC_PATTERN = /\b(?:ADDED|MODIFIED|REMOVED|RENAMED) Requirements\b|\b(?:Requirement|Scenario):|\*\*(?:GIVEN|WHEN|THEN|AND)\*\*|\bMUST\b/g;
 

@@ -9,7 +9,7 @@ deliverableRef: UABC-DEL-BCB-009
 
 # Beratungshandbuch: BC Basic Einrichtung
 
-Diese Betriebsanleitung führt den Consultant durch das kundenbereite BC-Basic-V1-Muster. Die Referenzsimulation ist vollständig abgeschlossen. Für eine reale Kundeninstanz werden Ziel, Daten, Benutzer und Entscheidungen neu gebunden; erst das Entry-Gate autorisiert Sandboxschritte.
+Diese Betriebsanleitung beschreibt den wiederverwendbaren Ziel- und Referenzprozess für BC Basic. Sie ist eine Produkt-/Consultant-Anleitung und **kein aktueller Kundenprojektstatus**. Im laufenden Universaarl-Pilot ist `UABC-BASIC-DE` eine CRONUS-Demo-Ausgangsbasis; Setup, Playthrough, Hypercare und Handover stehen aus. Erst projektspezifische Entry-Gates und eine getrennte Schreibfreigabe autorisieren Sandboxschritte.
 
 ## 1. Vorbedingungen
 
@@ -43,11 +43,11 @@ Scheitert eine Vorbedingung, endet der Lauf vor der ersten Mutation.
 - Nachweis je Szenario: Lauf-ID, Szenario, Jira-Key, Anforderungsreferenz, Schrittereignisse, Screenshots, Datensatz-IDs, erwartete Buchungswirkung, beobachtetes Ergebnis und Pruefer.
 - Aufbewahrung: Rohartefakte bleiben temporaer und werden erst nach Datenschutz- und Inhaltspruefung kuratiert.
 
-Der Katalog ist in der Referenzsimulation synthetisch bestanden. In einer realen Kundeninstanz bleibt jeder Fall `planned`, bis Benutzer, Berechtigung, UI-Antwort, Buchung und Reset in der Sandbox belegt sind.
+Der Katalog beschreibt einen historisch erprobten Referenzprozess. Im aktuellen Kundenprojekt bleibt jeder Fall `planned`, bis Benutzer, Berechtigung, UI-Antwort, Buchung und Reset in der Sandbox mit aktueller Evidence belegt sind.
 
 ## 4. Datenkontrolle
 
-`project/bc-basic/data-package.yaml` ist die einzige Datengrundlage. Acht kundenbereite Vorlagen und drei Wellen wurden synthetisch geprüft. Der Kunde ersetzt ausschließlich die synthetischen Werte durch freigegebene Quellen; Pflichtfelder, Eindeutigkeit, Referenzen und Summen werden vor jedem Import erneut geprüft.
+`project/bc-basic/data-package.yaml` beschreibt die Datengrundlage des Zielprozesses. Vorlagen und Wellen sind im aktuellen Pilot nicht geladen. Freigegebene Quellen, Pflichtfelder, Eindeutigkeit, Referenzen und Summen werden vor jedem Import erneut geprüft.
 
 ## 5. Abrechnung
 
@@ -55,7 +55,7 @@ Das Standardangebot beträgt 80 Stunden/9.600 EUR. Nur genehmigte Arbeitsprotoko
 
 ## 6. Fachliche Abschlusskontrollen
 
-- UAT: sieben Referenzfälle sind synthetisch bestanden; reale Key User wiederholen sie in der Kundensandbox.
+- UAT: Referenzfälle beschreiben den Zielumfang; im aktuellen Pilot bleiben sie bis zur Ausführung durch die typisierten Key-User-Rollen offen.
 - Monatsabschluss: Referenzprozess und Abstimmungen sind synthetisch bestanden; kein echter Monatsabschluss.
 - UStVA: Referenzvorschau ist abgestimmt; keine Test-, Produktiv- oder ELSTER-Übermittlung.
 - Steuergrenze: keine Steuer- oder Rechtsberatung und keine GoBD-Garantie.
@@ -67,8 +67,8 @@ Ausgeschlossen sind AL-Entwicklung, eigene Berichte oder Layouts, Integrationen,
 
 ## 8. Quellen und Nachweise
 
-Die fachliche Grundlage bilden `SRC-BC-016`, `SRC-BC-052` bis `SRC-BC-084`, `SRC-LAW-001` und `SRC-ELSTER-001`. Die Referenznachweise sind synthetisch abgeschlossen. Dieselben Evidence-IDs bleiben in einer realen Kundeninstanz offen, bis die echte Sandboxausführung belegt ist.
+Die fachliche Grundlage bilden `SRC-BC-016`, `SRC-BC-052` bis `SRC-BC-084`, `SRC-LAW-001` und `SRC-ELSTER-001`. Historische Referenznachweise erfüllen keine aktuellen Gates. Die Evidence-IDs bleiben im Kundenprojekt offen, bis die tatsächliche Sandboxausführung belegt ist.
 
 ## 9. V1-Exit und Kundenstart
 
-Das wiederverwendbare Produkt hat `V1_STANDARDPRODUCT_READY`. Der Consultant beginnt eine Kundeninstanz mit Angebot, sieben Entscheidungen, acht Datenvorlagen, Konfigurations-/SoD-Baseline und Entry-Gate. Er konfiguriert, prüft, dokumentiert, übergibt an UAT und behandelt jede Abweichung als Standard, Parametrisierung, Change oder außerhalb des Pakets.
+Das wiederverwendbare Produktmuster reicht als Zielprozess bis Hypercare und Handover. Dieser Produktumfang sagt nichts über den Status des aktuellen Kundenpiloten aus. Der Consultant beginnt mit Angebot, Entscheidungen, Datenvorlagen, Konfigurations-/SoD-Baseline und Entry-Gate; jede Ausführung benötigt aktuelle Evidence, und jede Abweichung wird als Standard, Parametrisierung, Change oder außerhalb des Pakets behandelt.

@@ -1,24 +1,24 @@
 # Angebot UABC-BCB-001 – BC Basic Fast-Track
 
-## Aktuelle Produktbaseline
+## Aktueller Pilot-Rebaseline-Stand
 
-Das aktuelle Standardangebot ist **Version 2.0: 80 Stunden zu 120 EUR, insgesamt 9.600 EUR netto**. Es führt eine Gesellschaft mit einem einfachen Lagerort in einem standardnahen Fast-Track von der Vorbereitung bis durch Hypercare. Die repositorybasierte Referenzsimulation ist vollständig abgeschlossen; bei einem echten Kunden werden dieselben Schritte in dessen freigegebener BC-Sandbox ausgeführt und belegt.
+Der aktive Angebotsstand `pilot-rebaseline-2026-07-13` ist **geplant und nicht als Kundenauftrag angenommen**. Der Plan umfasst 80 Stunden zu 120 EUR, insgesamt 9.600 EUR netto. Das aktuelle Ist beträgt 0 Stunden und 0 EUR und wird ausschließlich aus aktiven Task-Worklogs abgeleitet. Es gibt keinen geschlossenen Ist-Abgleich, keine Unterschrift, keine Rechnung, keine Zahlung und keine reale Kundenfreigabe.
 
-Die frühere Kalkulation mit 68 Stunden zu 162,50 EUR und 11.050 EUR netto ist ausschließlich eine historische Planungsbaseline. Sie wurde vor dem vollständigen UAT-, Cutover-, Hypercare- und Handoverumfang erstellt und ist **kein parallel wählbares Angebot**. Version 2.0 ersetzt sie kommerziell; Angebot und synthetischer Ist-Abschluss stimmen mit 80 Stunden und 9.600 EUR überein.
+`UABC-BASIC-DE` ist derzeit eine Microsoft-CRONUS-Demo-Ausgangsbasis. Pilotkonfiguration, Migration, Prozessläufe, Training, UAT, Cutover, Hypercare und Handover stehen aus. Vor jedem Schreibschritt müssen Wave-0, Zielentscheidung und Resetpunkt belegt sein; `writesAuthorized=false` bleibt unverändert.
 
-## Kundennutzen und Leistungsumfang
+## Kundennutzen und geplanter Leistungsumfang
 
-Geliefert wird ein wiederholbares BC-Basic-Einführungspaket für eine Gesellschaft und einen Lagerort:
+Das Angebot beschreibt einen standardnahen BC-Basic-Einführungsweg für eine Gesellschaft und einen einfachen Lagerort:
 
-- Projektstart, drei Fit-to-Standard-Workshops und verbindliches Solution Design;
+- Projektstart, drei Fit-to-Standard-Workshops und ein prüfbares Solution Design;
 - Finance-Grundeinrichtung, Konten-/Buchungsmatrix, VAT, Dimensionen und Perioden;
-- Einkauf, Verkauf, Zahlung/Ausgleich, eine einfache Mahnstufe und Bankabstimmung;
+- Einkauf, Verkauf, Zahlung/Ausgleich, einfache Mahnung und kontrollierte Bankabstimmung;
 - einfache Artikel- und Lagerführung ohne Lagerplätze, Chargen oder Seriennummern;
-- acht Datenvorlagen, drei Migrationswellen, Probeladung und Abstimmung;
-- sieben UAT-Pflichtfälle, rollenbezogene Schulung und Befähigungsnachweis;
-- Mock-Cutover, Go-live-Begleitung, eine Woche Hypercare und Supportübergabe.
+- kontrollierte Datenvorlagen, Migrationswellen, Probeladung und Abstimmung;
+- UAT-Pflichtfälle, rollenbezogene Schulung und Befähigungsnachweis;
+- Mock-Cutover, Simulationsabnahme, Hypercare und Supportübergabe.
 
-Standard vor Sonderlösung: Eine Abweichung wird nur übernommen, wenn der Geschäftsnutzen die zusätzliche Umsetzung, Prüfung und Betriebsverantwortung rechtfertigt.
+Diese Punkte sind Leistungsversprechen und noch keine ausgeführten Lieferergebnisse. Standard geht vor Sonderlösung; Abweichungen benötigen Nutzen, Aufwand, Prüfung und Change-Entscheidung.
 
 ## Nichtleistungen und Grenzen
 
@@ -26,46 +26,38 @@ Nicht enthalten sind Produktion, Service, Projekte, Anlagenbuchhaltung, Intercom
 
 ## Rollen und minimale Mitwirkung
 
-- `P-001` ist die synthetische Sponsor-/Entscheiderrolle und bestätigt Scope, UAT, Cutover und Abschluss.
-- `P-002` ist Projektleitung und Solution-Verantwortung; diese Rolle moderiert, konfiguriert und steuert.
-- `P-005` verantwortet Finance, VAT, Bank und Monatsabschluss.
-- `P-011` verantwortet Einkauf, Verkauf, Forderungen und Verbindlichkeiten.
-- `P-016` koordiniert Datenlieferung und Datenqualität.
-- `P-019` verantwortet Artikel, Lager und Inventur.
+- `P-PILOT-LEAD-001` verantwortet vendorseitig Projektleitung, Lead Consulting und Solution Architecture.
+- `P-001` steht für die noch zu besetzende Sponsor-/Entscheiderrolle.
+- `P-005` steht für Finance, VAT und Monatsabschluss.
+- `P-011` steht für Einkauf, Verkauf, Forderungen und Verbindlichkeiten.
+- `P-016` steht für Datenlieferung und Datenqualität.
+- `P-019` steht für Artikel, Lager und Inventur.
 
-Der Kunde stellt diese Rollen oder benannte Vertretungen, liefert die acht kontrollierten Datenvorlagen, entscheidet die sieben Bereiche aus `UABC-BCBDISCOVERY`, stellt eine rücksetzbare Sandbox bereit und nimmt an drei Workshops, UAT, Schulung und Cutover-GO teil.
+Die Kundenrollen bleiben als Actor-Refs typisiert; reale Personennamen und eine Kundenannahme werden nicht erfunden.
 
 ## Kürzester realistischer Einführungsweg
 
-**Angebot → Kundenvorbereitung → 3 Workshops → Setup/Migration → UAT → Mock-Cutover → Go-live/Hypercare**
+**Angebotsplanung → Kundenvorbereitung → Discovery → Wave-0/Resetpunkt → Setup/Migration → UAT/Training → Mock-Cutover → Hypercare/Handover**
 
-| Schritt | Kundenbeitrag | Ergebnis |
-|---|---|---|
-| Angebot und Start | Sponsor, Rollen und Termine benennen | Produktbaseline und Projektkalender bestätigt |
-| Kundenvorbereitung | Unternehmenssteckbrief, Finanz-/Steuervorgaben, Partner-/Artikelbeispiele, Salden und Rollen liefern | Workshop- und Datenpaket vollständig |
-| Drei Workshops | Entscheidungen treffen und offene Abweichungen priorisieren | Scope, Solution Design und Entry-Gate |
-| Setup/Migration | Ergebnisse prüfen, Datenkorrekturen freigeben | abgestimmte Konfiguration und Probeladung |
-| UAT/Schulung | sieben Pflichtfälle und Rollenübungen durchführen | fachlicher Sign-off und Befähigung |
-| Mock-Cutover | Freeze, Abschlusskontrollen, Rollback und Wiederanlauf entscheiden | Cutover-GO |
-| Go-live/Hypercare | Tagesstatus und Defects priorisieren | stabiler Betrieb und Supportübergabe |
+Jeder Übergang benötigt die im Projektvertrag benannte Evidence. Ein offenes Gate bleibt offen und darf nicht durch historische Simulationsevidence erfüllt werden.
 
-## Stunden und Preis
+## Stunden und Preis – Plan
 
-| Phase | Stunden | Kosten netto | Kundenergebnis |
+| Phase | Planstunden | Plankosten netto | Geplantes Kundenergebnis |
 |---|---:|---:|---|
 | Auftrag und Scope | 6 | 720 EUR | Rollen, Termine und Produktgrenze |
 | Discovery und Daten | 18 | 2.160 EUR | Entscheidungen, Solution Design und Datenbereitschaft |
 | Setup und Prozesse | 28 | 3.360 EUR | Konfiguration, Migration und E2E-Kontrollen |
-| UAT, Training und Cutover | 16 | 1.920 EUR | Sign-off, Befähigung und Cutover-GO |
+| UAT, Training und Cutover | 16 | 1.920 EUR | Simulationsabnahme, Befähigung und Cutover-Gate |
 | Hypercare und Handover | 12 | 1.440 EUR | Stabilisierung und Supportübergabe |
-| **Gesamt** | **80** | **9.600 EUR** | **vollständiges BC-Basic-Paket** |
+| **Gesamtplan** | **80** | **9.600 EUR** | **vollständiges BC-Basic-Paket** |
 
-Änderungen werden als Ticket mit Scope-, Kosten- und Abnahmewirkung bewertet. Es gibt keine echte Unterschrift, Rechnung, Zahlung oder Produktivleistung in der Referenzsimulation.
+**Aktuelles Ist:** 0 Stunden, 0 EUR, keine Task-Worklogs.
 
 ## Versionen und Nachweisgrenze
 
-- **Baseline 1.0, 20.08.2026:** synthetisches Projekt von Discovery bis Hypercare.
-- **Fortschreibung 1.1, 21.08.2026:** Playthrough, Restart und vollständige Hypercare ergänzt.
-- **Standardangebot 2.0, 03.09.2026:** 80 Stunden/9.600 EUR, Angebot und synthetischer Ist-Abschluss abgeglichen.
+- **Aktiver Pilot-Rebaseline-Stand, 13.07.2026:** `planned-not-accepted`; Plan 80 Stunden/9.600 EUR, Ist 0 Stunden/0 EUR.
+- **Historische Referenzsimulation, Version 3 vom 29.05.2026:** `synthetic-closed`, abgelöst und ausschließlich Historienprovenienz; sie speist keine aktuellen Ticket-, Worklog- oder Kostenrollups.
+- **Historische 68-Stunden-Kalkulation:** abgelöste Planungsbaseline, kein parallel wählbares Angebot.
 
-Referenzen: `evidence/simulation/project-story.json`, `evidence/simulation/project-reconciliation.json`. Spectra- und Twin-Provenienz sind technische Integritätsnachweise und keine zusätzliche Kundenleistung.
+Referenzen: `evidence/simulation/project-story.json`, `evidence/simulation/project-reconciliation.json`, `atlassian/confluence/pages/99-archive.md`. Spectra- und Twin-Provenienz sind technische Integritätsnachweise und keine zusätzliche Kundenleistung.

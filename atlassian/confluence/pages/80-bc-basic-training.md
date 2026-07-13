@@ -12,7 +12,7 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 4
 storyPageId: PAGE-UABC-170
-purpose: Befähigt operative Rollen für Alltag, Kontrolle, Fehlerdiagnose und Eskalation.
+purpose: Plant die spätere Befähigung operativer Rollen für Alltag, Kontrolle, Fehlerdiagnose und Eskalation.
 audience:
   - Key User
   - Endanwender
@@ -25,90 +25,48 @@ jiraRefs:
 referenceIds:
   - UABC-REQ-BCB-007
   - UABC-REQ-BCB-010
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 04 Handbuecher
 
-## Zielgruppen und Lernziele
+## Aktueller Stand
 
-Die Schulung übersetzt den BC-Playthrough in tägliche, wöchentliche und monatliche Arbeit. Sie nutzt dieselben synthetischen Daten wie UAT und Handover, damit Belege, Fehlerbilder, Kontrollen und Supportinformationen zusammenpassen.
+Training und Kompetenznachweise sind im aktuellen Pilot nicht ausgeführt. Die Standard-CRONUS-Demo-Baseline ist nicht pilotisch eingerichtet; deshalb können weder Rollenpfade noch Prozess- oder Supportkompetenz als bestanden gelten.
 
-## Lernergebnis der Referenzsimulation
+Teilnehmer, Berechtigungen, Seiten, Testdaten und Resetpunkt sind vor der Durchführung aktuell zu belegen.
 
-Vier Rollenpfade sind in der Referenzsimulation synthetisch bestanden.
-Ein echter Kunde wiederholt die Übungen mit benannten Benutzern, bestätigten Berechtigungen und rücksetzbarer Sandbox; dies blockiert die abgeschlossene Simulation nicht.
+## Geplante Lernfolge
 
-## Einheitliche Lernfolge
+1. Zielgesellschaft, Benutzerrolle, Arbeitsdatum und Sicherheitsgrenze lesen.
+2. Der Trainer zeigt einen freigegebenen positiven Fall und den zugehörigen Kontrollpunkt.
+3. Die Rolle führt denselben Fall begleitet und anschließend ohne Hilfe aus.
+4. Die Rolle diagnostiziert einen kontrollierten Fehler, wählt den richtigen Stop- oder Eskalationsweg und führt erst nach Korrektur einen Retest aus.
+5. Teilnahme, Ergebnis, offene Fragen und Kompetenzentscheidung werden je Rolle als aktuelle Evidence dokumentiert.
 
-1. Der Trainer macht den vollständigen Fall vor und erklärt die Kontrolle.
-2. Die Rolle führt denselben Fall begleitet aus.
-3. Die Rolle wiederholt den Fall ohne Hilfe.
-4. Die Rolle diagnostiziert einen realistischen Fehler und führt den Retest aus.
-5. Die Rolle wählt den richtigen Eskalationsausgang und liefert ein vollständiges Diagnosepaket.
+## Rollenpfade
 
-## Übung: Administration – `P-004`
+- **Administration:** Zielkontext, Navigation, Nummernserien, Perioden und Berechtigungsgrenzen.
+- **Finance:** Journale, Nebenbuchabstimmung, Monatsabschlussprobe und UStVA-Vorschau ohne Übermittlung.
+- **Einkauf und Verkauf:** Belegketten, Mengen, Preise, Abweichungen und Postenkontrolle.
+- **Lager:** Artikel, Lagerort, Mengen-, Inventur- und Wertkontrolle.
 
-- **Täglich:** Zielgesellschaft, Rolle, Buchungsdatum und offene Störungen prüfen.
-- **Wöchentlich:** Nummernserien, erlaubte Buchungszeiträume und Rollenänderungen kontrollieren.
-- **Monatlich:** Periodenwechsel und Zugriffsmatrix gemeinsam mit Finance vorbereiten.
-- **Positiver Fall:** Setup-Preflight lesen, Benutzerrolle zuordnen und operative Buchung bewusst nicht ausführen.
-- **Fehlerfall:** falsche Gesellschaft oder fehlende Nummernserie erkennen; Kontext korrigieren beziehungsweise Buchungsstopp auslösen.
-- **Ohne-Hilfe-Regel:** Zielkontext und Zugriffsgrenze erklären, die erlaubte Aktion durchführen und die fachliche Buchung korrekt verweigern.
+## Eskalation und Abnahme
 
-## Übung: Finance – `P-005`
+Reversible Eingabefehler vor Buchung dürfen innerhalb der eigenen Rolle korrigiert werden. Prozessfragen gehen an den Key User; Setup-, Berechtigungs- oder wiederholte Systembefunde an Consultant/Support. Falsche Gesellschaft oder unklare Finanz-, VAT-, Bestands- oder Datenschutzwirkung erzwingt sofortigen Stopp.
 
-- **Täglich:** Zahlungsvorschläge, offene Posten, Bankdifferenzen und gesperrte Belege prüfen.
-- **Wöchentlich:** Debitoren-, Kreditoren- und Bankabstimmung sowie überfällige Posten kontrollieren.
-- **Monatlich:** Hauptbuch, Nebenbücher, Lagerwert, VAT Entries, Zahllast und Periodenstatus abstimmen.
-- **Positiver Fall:** Zahlungen anwenden, Bank auf 5.440,30 EUR abstimmen und VAT-Vorschau von 70,30 EUR erklären.
-- **Fehlerfall:** Zahlung ohne Ausgleichsreferenz diagnostizieren, `SYN-AR-002` zuordnen und den Retest durchführen.
-- **Ohne-Hilfe-Regel:** Betrag, VAT, offene Posten, Bankdifferenz und Periodenwirkung korrekt erklären; keine Steuerentscheidung oder Übermittlung behaupten.
+Ein Rollenpfad gilt erst mit aktueller Teilnahme, selbstständiger Ausführung, erklärtem Kontrollwert, dokumentiertem Fehlerweg und bestandenem Retest als abgenommen. Planungsdokumente und historische Simulationsevidence ersetzen diese Nachweise nicht.
 
-## Übung: Handel – `P-011`
+## Historische Referenz
 
-- **Täglich:** offene Einkaufs- und Verkaufsbelege, Mengen, Preise, VAT-Gruppen, Fälligkeiten und Mahnstatus prüfen.
-- **Wöchentlich:** nicht fakturierte Lieferungen, offene Wareneingänge und überfällige Debitoren nachverfolgen.
-- **Monatlich:** Belegvollständigkeit und offene Partnerposten an Finance übergeben.
-- **Positiver Fall:** P2P über 499,80 EUR und O2C über 940,10 EUR bis Zahlung und Ausgleich nachvollziehen.
-- **Fehlerfall:** fehlende VAT-Gruppe oder doppelte externe Belegnummer erkennen, Beleg vor Buchung korrigieren und Preview erneut prüfen.
-- **Ohne-Hilfe-Regel:** Belegstatus, Menge, Preis, VAT und Partnerposten erklären; Setupänderungen werden an Consultant/Support eskaliert.
-
-## Übung: Lager – `P-019`
-
-- **Täglich:** offene Zugänge und Abgänge, Lagerort, Menge und negative Bestände prüfen.
-- **Wöchentlich:** Artikelposten und Wertposten stichprobenartig gegen Belege abstimmen.
-- **Monatlich:** Inventurzählung, Differenz und Lagerwert gemeinsam mit Finance kontrollieren.
-- **Positiver Fall:** Zugang und Abgang von je zehn Stück sowie Differenz von minus einem Stück bis zum Schlussbestand 99 Stück nachvollziehen.
-- **Fehlerfall:** falschen Lagerort erkennen, `HAUPT` korrigieren und Item/Value Entries im Retest prüfen.
-- **Ohne-Hilfe-Regel:** Menge, Lagerort, Artikelposten, Wertposten und 4.158,00 EUR Schlusswert erklären; Bewertungsparameter nicht eigenmächtig ändern.
-
-## Vierstufige Eskalation
-
-1. **Selbst korrigieren:** reversibler Eingabefehler innerhalb der eigenen Rolle, noch ohne Buchungswirkung.
-2. **Key User:** fachliche Prozess-, Stamm- oder Belegfrage.
-3. **Consultant/Support:** Setup-, Berechtigungs- oder reproduzierbarer Systembefund.
-4. **Sofortiger Buchungsstopp:** falsche Gesellschaft oder unklare Finanz-, VAT-, Bestands-, Berechtigungs- oder Datenschutzwirkung.
-
-## Operator-Smoke-Test
-
-Am ersten Arbeitstag und zu jedem Hypercare-Tagesstart prüft jede Rolle Zielkontext, Rolle, Pflichtarbeitsliste, einen bekannten Beleg und den Supportweg.
-Navigate/Find Entries und ein kontrolliert wiederholter Fehlerfall ergänzen den Smoke-Test.
-
-Ein Supportticket enthält Rolle, Umgebung, Version, Zeitpunkt, Seite/Aktion, Belegnummer, letzten erfolgreichen Schritt, Soll/Ist, Fehlertext, Kontrollwerte, Reproduktionsweg, sichere Evidence, Rücksetzpunkt und Auswirkung.
-
-## Nachbereitung und reale Kundendurchführung
-
-- **Synthetisch bestanden:** vier Rollenpfade, positiver Fall, Fehler, Retest, Ohne-Hilfe-Regel, Eskalation und Smoke-Test.
-- **Im Kundenprojekt zu belegen:** echte Teilnehmer, Rollen, Permission Sets, Seiten, Buchungen, Reset, Lernergebnis und Trainer-Sign-off.
-- Datenrolle `P-016` und Sponsor `P-001` unterstützen Mitwirkung und Gates, erhalten aber kein künstliches Endanwendertraining.
+Die früheren synthetischen Rollenpfade sind ausschließlich als `historical-reference-simulation` mit `currentAuthority=false` im [Archiv](99-archive.md) erhalten. Sie speisen keine aktuelle Kompetenz-, UAT- oder Handover-Aussage.
 
 ## Referenzen
 
-- [Rollenpfade und Übungen](../../../project/bc-basic/training-plan.yaml)
-- [UAT-/Trainingsdurchführung](../../../project/bc-basic/uat-training-run.yaml)
-- [Bedienfälle und Fehlerbilder](../../../project/bc-basic/bc-playthrough-catalog.yaml)
-- [Support- und Handover-Regeln](../../../docs/handover/bc-basic-handover.md)
+- [Aktueller Schulungsplan](../../../project/bc-basic/training-plan.yaml)
+- [Aktueller UAT-Katalog](../../../project/bc-basic/uat-catalog.yaml)
+- [Aktuelle Test- und Abnahmestrecke](50-tests.md)
+- [Aktueller Handover-Plan](../../../docs/handover/bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-170","title":"04 Handbuecher","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-170","title":"04 Handbuecher","parent":null,"version":6,"status":"published"} -->

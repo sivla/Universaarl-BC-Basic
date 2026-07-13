@@ -2,9 +2,11 @@ schemaVersion: 1
 planId: UABC-TRAIN-BCB-001
 projectId: UABC-BC-BASIC-001
 status: planned
-simulation: true
+simulation: false
 templateState: kundenbereit
-simulationState: simulated-complete
+currentBaselineKind: standard-cronus-demo
+pilotConfigured: false
+simulationState: planned-not-executed
 simulationEvidenceRef: project/bc-basic/uat-training-run.yaml
 realCustomerState: vor-Go-live-durchzufuehren
 customerCompletionGate: Jede benannte Rolle hat ihre zugeordneten UAT-Faelle und Uebungen selbst ausgefuehrt offene Fragen sind geklaert und der Kompetenzcheck ist durch Trainer und Teilnehmerrolle bestaetigt.

@@ -1,25 +1,31 @@
-# Handover und Abschluss UABC-BCB-001
+# Handover-Plan UABC-BCB-001
 
-Produktstatus: **V1_STANDARDPRODUCT_READY**. Neun Lieferobjekte, sieben UAT-Fälle, vier Operatorpfade, Cutover, Restart und drei Hypercaretage sind in der Referenzsimulation abgeschlossen. Der Branchvertrag ist mit Spectra 0.10 validiert und für den rein lesenden Twin vorbereitet.
+Status: **offen geplant**. Der aktuelle Playthru-Pilot besitzt noch kein abgeschlossenes Handover, keine Supportannahme und keine reale Kundenabnahme. `UABC-BASIC-DE` ist eine CRONUS-Demo-Ausgangsbasis; Setup, Prozesse, UAT, Cutover und Hypercare stehen aus.
 
-## Spectra-0.10-Abschluss
+**Page-ID:** PAGE-UABC-180 · **Version:** 3 · **Status:** published · **Datum:** 13.07.2026
 
-Der Abschluss bindet `evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json`, `exports/project-data/v1/twin-export-map.json`, `evidence/simulation/reference-graph-coverage.json`, `exports/project-data/v1/reference-graph-native.json`, `exports/project-data/v1/reference-graph-mapping.json` und `exports/project-data/v1/reference-graph-portable.json`. Damit kann der Twin Baseline, Angebot, Ist und die Differenz zwischen 252 nativen Relationen und 328 portablen Kanten erklaeren. Eine produktive Leistung, Rechnung, Zahlung, Schreibberechtigung oder 1:1-Vollstaendigkeitsbehauptung wird nicht abgeleitet.
+## Eintritt in die spätere Übergabe
 
-**Page-ID:** PAGE-UABC-180 · **Version:** 2 · **Status:** published · **Datum:** 03.09.2026
+Handover darf erst beginnen, wenn folgende Nachweise tatsächlich vorliegen:
 
-Synthetisch übergeben wurden Datenpaket, Setup- und Playthrough-Katalog, UAT-/Trainingsnachweis, Cutover-Generalprobe, Hypercare-Dailies, Restart-Checkpoint und Entry-Ledger. Der wiederholbare Smoke-Test besteht aus `npm run validate:project-story`, `npm run validate:bc-playthrough` und `npm run validate:snapshot-contract`.
+- Wave-0, Pilot-Zielentscheidung und Resetpunkt sind belegt;
+- freigegebene Setup- und Datenwellen besitzen differenzfreie Readbacks;
+- Prozessprüfungen, Training und UAT sind ausgeführt und ohne ungeklärten P1/P2-Befund;
+- Mock-Cutover, Wiederanlauf und Simulationsabnahme sind belegt;
+- Hypercare ist ausgeführt, Defects sind real beobachtet und Retests dokumentiert.
 
-Der Support-Backlog enthält nur den optionalen realen BC-Lauf. P1/P2-Simulationsdefects sind geschlossen. Lessons Learned: Freigaben vor Konfiguration, Kontrollsummen vor Buchung, Rücksetzung vor Mutation und Evidence direkt am Ticket. Eine produktive Übergabe oder echte Kundenabnahme wird nicht behauptet.
+## Geplantes Übergabepaket
 
-## Kundenbefähigung und Betriebsübergabe
+Das spätere Paket umfasst Rollen- und Eskalationsweg, Operator-Smoke-Test, Supportticket-Pflichtfelder, offene Restpunkte, Kontrollsummen, Runbook, Restartweg, Servicezeiten und Verantwortungen. Es bleibt bis zur Erfüllung der Eintrittskriterien ein Plan.
 
-Die Referenzsimulation hat die vier Rollenpfade aus `project/bc-basic/training-plan.yaml` vollständig durchgespielt. In einem echten Kundenprojekt ist die Übergabe erst abgeschlossen, wenn die benannten Benutzer ihre UAT-Fälle und Übungen selbst wiederholt haben, Navigation und Fehlerweg beherrschen, Beleg- und Entry-Ketten erklären können und der Kompetenzcheck durch Trainer und Teilnehmerrolle bestätigt ist.
+Der Operator-Smoke-Test `UABC-SMOKE-BCB-OPERATOR-001` soll am ersten Arbeitstag und während Hypercare wiederholt werden. Support darf einen Fall nur mit Rolle, Umgebung, Version, Seite/Aktion, letztem erfolgreichen Schritt, Fehlertext, Soll/Ist, sicherer Evidence, Reproduktionsweg, Resetpunkt, Auswirkung und Eskalationsausgang übernehmen.
 
-`P-001` bestätigt den Betriebsübergang, `P-002` übergibt Runbook und Supportbestand, `P-005` übernimmt Finance/Abschluss, `P-011` Einkauf/Verkauf, `P-016` Datenqualität und `P-019` Lager/Inventur. Der Mindestübergang umfasst Benutzer-/Berechtigungsliste, freigegebene Perioden, Cutoverkontrollsummen, offene Posten, Lagerbestand, Supportweg, Prioritätsdefinition, Tageskontrolle und Wiederanlaufpunkt. Reale Benutzerbefähigung, Sandboxbuchung und produktive Betriebsannahme werden im Kundenprojekt separat belegt.
+## Kundenbefähigung
 
-Der Operator-Smoke-Test `UABC-SMOKE-BCB-OPERATOR-001` wird am ersten Arbeitstag und während Hypercare täglich wiederholt. Support übernimmt einen Fall nur mit Rolle, Umgebung, Version, Seite/Aktion, Belegnummer, letztem erfolgreichen Schritt, Fehlertext, Soll/Ist, Kontrollwerten, sicherer Evidence, Reproduktionsweg, Rücksetzpunkt, Auswirkung und Eskalationsausgang. Damit bleibt die Diagnose reproduzierbar und frei von Zugangsdaten oder realen Bank-/Personengeheimnissen.
+Reale Benutzerbefähigung ist offen. Rollenübungen, UAT-Fälle, Navigation, Fehlerweg, Beleg-/Entry-Ketten und Kompetenzcheck müssen durch die jeweils typisierte Kundenrolle belegt werden. Historische Simulationsevidence erfüllt diese Bedingung nicht.
 
-Der finale Handover enthält außerdem den Spectra-konformen Abgleich `evidence/simulation/project-reconciliation.json`, die read-only Herkunftsbindung `evidence/simulation/adapter-provenance.json` und die daraus erzeugte Allowlistprojektion `exports/project-data/v1/twin-export-map.json`. Damit kann der Twin Baseline, Angebot, Ist und Exportherkunft darstellen, ohne BC Basic zu überschreiben oder eine produktive Leistung, Rechnung, Buchung oder Zahlung abzuleiten.
+## Provenienz und Grenzen
 
-Für eine reale Kundeninstanz bleiben exakt zu parametrisieren: Sponsor/Owner und Termine; Tenant, Zielgesellschaft, Lizenz, BC-Version und deutsche Lokalisierung; Benutzer, Profile und Permission Sets; Konten, VAT-/UStVA-Kennzeichen und Steuerberaterentscheidung; Datenquellen, Volumina, Anfangssalden und offene Posten; Bank-, Zahlungs-, Mahn- und Dokumentparameter; Sandbox-Schreibrecht, Rücksetz-/Wiederanlaufpunkt; echte UAT-, Cutover-, Hypercare- und Betriebsannahme. Diese Parameter durchlaufen das bestehende Entry-Gate und ändern das V1-Produkt nicht.
+`evidence/simulation/project-reconciliation.json`, `evidence/simulation/adapter-provenance.json` und `exports/project-data/v1/twin-export-map.json` belegen Plan/Ist-Trennung und read-only Exportherkunft. Sie sind kein Handoverabschluss. Der historische Referenzabschluss ist im Archiveintrag `UABC-HIST-REFSIM-001` abgelöst dokumentiert.
+
+Es wird keine produktive Leistung, Rechnung, Buchung, Zahlung, Kundenfreigabe oder Supportannahme behauptet.

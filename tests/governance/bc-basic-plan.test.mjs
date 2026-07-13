@@ -66,13 +66,19 @@ const [changeConfig, decisionRegister] = await Promise.all([
   yaml('project/bc-basic/decision-register.yaml')
 ]);
 
-test('BC-Basic bindet genau eine synthetische Gesellschaft in playthru', () => {
+test('BC-Basic bindet die CRONUS-Demo-Ausgangsbasis und hält den Pilotaufbau offen', () => {
   assert.equal(plan.projectId, 'UABC-BC-BASIC-001');
   assert.equal(plan.simulation, true);
   assert.equal(plan.environment, 'playthru');
   assert.equal(plan.company?.count, 1);
   assert.equal(plan.company?.id, 'UABC-BASIC-DE');
-  assert.equal(plan.company?.dataClassification, 'synthetic-only');
+  assert.equal(plan.status, 'in-progress');
+  assert.equal(plan.productState, 'PILOT_NOT_READY');
+  assert.equal(plan.company?.dataClassification, 'standard-cronus-demo-baseline');
+  assert.equal(plan.company?.baselineKind, 'standard-cronus-demo');
+  assert.equal(plan.company?.pilotConfigured, false);
+  assert.equal(plan.company?.writesApplied, false);
+  assert.equal(plan.company?.readbackStatus, 'pending');
   assert.equal(scenarioCatalog.target?.environment, 'playthru');
   assert.equal(scenarioCatalog.target?.companyRef, 'UABC-BASIC-DE');
   assert.equal(scenarioCatalog.target?.companyCount, 1);
@@ -92,12 +98,14 @@ test('Drei Phasen bilden den synthetischen 80-Stunden-Plan mit Einrichtungswoche
   assert.equal(plan.phases[2].plannedBillableHours, 18);
 });
 
-test('OpenSpec-Aufgaben und Ticketvertrag beschreiben die aktive Migration ohne historischen Planrueckfall', () => {
+test('archivierte Migration bleibt Historie und der aktive Ticketvertrag zählt dynamisch', () => {
   assert.match(taskPlanText, /UABC-1\.\.50/);
   assert.doesNotMatch(taskPlanText, /UABC-22.*UABC-38/);
   assert.equal(changeConfig.proposedCanonicalUpdate?.facts?.ticketContract?.value, 'UABC-1..UABC-50');
-  assert.equal(projectIndex.ticketCatalog?.recordCount, 50);
-  assert.equal(projectIndex.ticketCatalog?.customerStoryCount, 50);
+  assert.equal(projectIndex.ticketCatalog?.recordCount, projectStory.tickets.length);
+  assert.equal(projectIndex.ticketCatalog?.customerStoryCount, projectStory.tickets.length);
+  assert.equal(projectIndex.ticketCatalog?.sourceContract, 'evidence/simulation/project-story.json');
+  assert.equal(projectStory.controls.activeTicketIdRange, 'dynamisch-aus-kanonischer-Quelle');
 });
 
 test('Kanonischer Change bindet Projekt, Index und Dokumentkatalog', () => {
@@ -111,6 +119,11 @@ test('Kanonischer Change bindet Projekt, Index und Dokumentkatalog', () => {
 test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erfundene Budgetlimits', () => {
   const story = JSON.parse(readFileSync(path.join(root, 'evidence/simulation/project-story.json'), 'utf8'));
   const taskWorklogCount = story.tickets.filter(({ type }) => type === 'task').flatMap(({ worklogs }) => worklogs).length;
+  const taskHours = story.tickets.filter(({ type }) => type === 'task').flatMap(({ worklogs }) => worklogs).reduce((sum, log) => sum + Number(log.hours ?? 0), 0);
+  assert.equal(billing.forecast.countingRule, 'billable-task-worklogs-only');
+  assert.equal(billing.forecast.consumedHours, taskHours);
+  assert.equal(billing.forecast.parentBillingLines, false);
+  assert.equal(billing.simulationClose.worklogCount, taskWorklogCount);
   assert.equal(billing.plannedBillableHours, 80);
   assert.equal(billing.contingencyHours, 0);
   assert.equal(billing.maximumBillableHours, null);
@@ -118,20 +131,16 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
   assert.equal(billing.workdayHours, 8);
   assert.equal(billing.netHourlyRate, 120);
   assert.equal(billing.plannedNetAmount, 9600);
-  assert.deepEqual(billing.forecast, {
-    source: 'evidence/simulation/project-story.json:tickets[type=task]', countingRule: 'billable-task-worklogs-only',
-    plannedHours: 80, consumedHours: 80, committedHours: 80, remainingHours: 0,
-    estimateToCompleteHours: 0, estimateAtCompletionHours: 80, varianceHours: 0, hourlyRate: 120,
-    plannedNetAmount: 9600, consumedNetAmount: 9600, estimateAtCompletionNetAmount: 9600, varianceNetAmount: 0,
-    phaseHours: { 'UABC-1': 22, 'UABC-2': 40, 'UABC-3': 18 }, invoiceLineSource: 'task-worklogs-only', parentBillingLines: false
-  });
-  assert.deepEqual(billing.simulationClose, {
-    status: 'simulated-complete', offerVersion: 2, plannedHours: 80, actualHours: 80, hourlyRate: 120,
-    plannedNetAmount: 9600, actualNetAmount: 9600, worklogCount: taskWorklogCount, reconciliationResult: 'abgestimmt',
-    evidence: 'evidence/simulation/billing-reconciliation.yaml',
-    spectraReconciliation: 'evidence/simulation/project-reconciliation.json',
-    truthBoundary: 'Keine reale Rechnung, Jira-Freigabe, Kundenfreigabe oder Zahlung.'
-  });
+  assert.equal(billing.status, 'current-pilot-planning');
+  assert.equal(billing.forecast.plannedHours, 80);
+  assert.equal(billing.forecast.consumedHours, taskHours);
+  assert.equal(billing.forecast.committedHours, taskHours);
+  assert.equal(billing.forecast.remainingHours, 80 - taskHours);
+  assert.equal(billing.forecast.consumedNetAmount, taskHours * 120);
+  assert.equal(billing.simulationClose.status, 'planned-not-executed');
+  assert.equal(billing.simulationClose.plannedHours, 80);
+  assert.equal(billing.simulationClose.actualHours, taskHours);
+  assert.equal(billing.simulationClose.actualNetAmount, taskHours * 120);
   assert.deepEqual(billing.historicalBaseline, { plannedHours: 68, hourlyRate: 162.5, plannedNetAmount: 11050, status: 'superseded-for-synthetic-project-story-only' });
   assert.equal(billing.budgetLimitStatus, 'unknown');
   assert.equal(billing.budgetLimitNetAmount, null);
@@ -161,7 +170,7 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
   }
 });
 
-test('Jedes Jira-Ticket nennt Lieferergebnis und synthetischen Transkriptbezug', async () => {
+test('Historische Jira-Referenz bewahrt Transkripte, aktive Tickets übernehmen sie nicht als aktuelle Evidence', async () => {
   assert.deepEqual(issues.map((issue) => issue.key), Array.from({ length: 21 }, (_, index) => `UABC-${index + 18}`));
   assert.equal(new Set(issues.map((issue) => issue.key)).size, 21);
   for (const issue of issues) {
@@ -173,7 +182,9 @@ test('Jedes Jira-Ticket nennt Lieferergebnis und synthetischen Transkriptbezug',
     assert.ok(issue.transcriptRefs.every((id) => meetingById.has(id)), `${issue.key} verweist auf unbekanntes Transkript`);
   }
   const referencedMeetings = new Set(projectStory.tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.meetingTranscriptRefs ?? []));
-  assert.deepEqual(referencedMeetings, new Set(meetings.map((meeting) => meeting.id)));
+  assert.deepEqual(referencedMeetings, new Set());
+  assert.equal(meetingIndex.classification, 'historical-reference-simulation');
+  assert.equal(meetingIndex.currentAuthority, false);
   for (const meeting of meetings) {
     assert.equal(meeting.evidenceClaimed, false);
     assert.equal(await exists(meeting.transcriptPath), true);
@@ -430,11 +441,12 @@ test('Phase-2-Trockenlauf liefert synthetische Bereitschaft und blockiert reale 
   assert.match(dryRun.evidence.executionClaim, /keine reale BC-Ausfuehrung/);
 });
 
-test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und schliesst die Simulation ab', () => {
+test('Historischer UAT- und Schulungslauf bleibt intern vollständig und für den aktuellen Pilot abgelöst', () => {
   const runPlan = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'uat-training-run.yaml'), 'utf8'));
-  assert.equal(runPlan.classification, 'synthetic-only');
+  assert.equal(runPlan.classification, 'historical-reference-simulation');
+  assert.equal(runPlan.currentAuthority, false);
   assert.equal(runPlan.realExecution, false);
-  assert.equal(runPlan.status, 'synthetisch-uat-abgenommen');
+  assert.equal(runPlan.status, 'synthetic-closed-superseded');
   assert.equal(runPlan.goNoGo.decision, 'GO_SIMULATION');
   assert.equal(runPlan.cases.length, 7);
   assert.equal(runPlan.coverage.length, 7);
@@ -443,9 +455,11 @@ test('Synthetischer UAT- und Schulungslauf besitzt vollstaendige Coverage und sc
   assert.equal(runPlan.evidenceRules.realAcceptance, 'ausserhalb-des-simulationsziels');
 });
 
-test('Phase-2-Readiness-Gate schliesst synthetische Freigaben und bleibt real abgegrenzt', () => {
+test('Historisches Phase-2-Readiness-Gate bleibt intern konsistent und für aktuelle Readiness abgelöst', () => {
   const gate = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'phase-2-readiness-gate.yaml'), 'utf8'));
-  assert.equal(gate.status, 'synthetisch-abgeschlossen');
+  assert.equal(gate.classification, 'historical-reference-simulation');
+  assert.equal(gate.currentAuthority, false);
+  assert.equal(gate.status, 'synthetic-closed-superseded');
   assert.equal(gate.decision, 'GO_SIMULATION');
   assert.equal(gate.simulation.decision, 'GO_SIMULATION');
   assert.equal(gate.simulation.customerApproval, 'simulated');
@@ -461,14 +475,16 @@ test('Rueckverfolgbarkeitsmatrix verbindet Requirements bis Evidence ohne Abnahm
   const matrix = YAML.parse(readFileSync(path.join(root, 'project', 'bc-basic', 'traceability-matrix.yaml'), 'utf8'));
   assert.equal(matrix.entries.length, 12);
   assert.equal(matrix.evidenceStatus.realExecution, false);
-  assert.equal(matrix.evidenceStatus.humanAcceptance, 'synthetisch-abgenommen');
+  assert.equal(matrix.evidenceStatus.humanAcceptance, 'pending');
   assert.equal(matrix.evidenceStatus.missingEvidenceBlocks, true);
   assert.ok(matrix.entries.every((entry) => entry.requirement && entry.solution && Array.isArray(entry.workPackages) && Array.isArray(entry.uat) && Array.isArray(entry.training) && entry.evidence));
 });
 
-test('P2P- und O2C-Simulation besitzt Inventar Kontrollsummen Defects und Retests', () => {
+test('Historische P2P- und O2C-Referenz besitzt Inventar, Kontrollsummen, Defects und Retests ohne aktuellen Rollup', () => {
   const simulation = YAML.parse(readFileSync(path.join(root, 'evidence', 'simulation', 'phase-2-p2p-o2c.yaml'), 'utf8'));
-  assert.equal(simulation.classification, 'synthetic-only');
+  assert.equal(simulation.classification, 'historical-reference-simulation');
+  assert.equal(simulation.currentAuthority, false);
+  assert.equal(simulation.status, 'synthetic-closed-superseded');
   assert.equal(simulation.realBcExecution, false);
   assert.equal(simulation.inventory.openingBalance.difference, 0);
   assert.equal(simulation.purchaseToPay.controls.gross, 499.80);
@@ -587,10 +603,14 @@ test('Spectra 0.10 ist durch Release-Evidence, Reconciliation, Provenienz und Co
   assert.equal(conformanceEvidence.spectraRelease, consumerBindings.spectraReleaseBinding.releaseTag);
   assert.equal(conformanceEvidence.status, 'passed');
   assert.equal(conformanceEvidence.reconciliation.baselineHours, 68);
-  assert.equal(conformanceEvidence.reconciliation.actualAmount, 9600);
+  const activeTaskWorklogs = projectStory.tickets
+    .filter((ticket) => ticket.type === 'task')
+    .flatMap((ticket) => ticket.worklogs ?? []);
+  const derivedActualAmount = activeTaskWorklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
+  assert.equal(conformanceEvidence.reconciliation.actualAmount, derivedActualAmount);
   assert.equal(conformanceEvidence.adapterProvenance.sourceUnchanged, true);
   assert.equal(conformanceEvidence.adapterProvenance.writesPerformed, false);
-  assert.equal(conformanceEvidence.referenceGraphCoverage.nativeRelations, 252);
+  assert.equal(conformanceEvidence.referenceGraphCoverage.nativeRelations, projectStory.relations.length);
   assert.equal(conformanceEvidence.referenceGraphCoverage.portableEdges, portableGraph.edges.length);
   assert.equal(conformanceEvidence.referenceGraphCoverage.oneToOneClaim, false);
   assert.equal(conformanceEvidence.referenceGraphCoverage.completeProjectionClaim, false);
@@ -733,8 +753,10 @@ test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', (
   assert.ok(decisionRegister.decisions?.some((decision) => decision.id === 'UABC-DEC-BCB-009'));
   for (const decision of decisionRegister.decisions) {
     assert.equal(decision.decidedByRef, 'real-repository-user');
-    assert.equal(decision.status, 'decided');
+    assert.ok(['planned', 'decided'].includes(decision.status));
+    if (decision.status === 'planned') assert.equal(decision.decidedAt, null);
   }
+  assert.deepEqual(decisionRegister.activePilotDecisionRefs, ['UABC-DEC-BCB-009', 'UABC-DEC-BCB-010']);
   assert.ok(decisionRegister.openApprovals?.some((approval) => approval.id === 'UABC-APP-BCB-006' && approval.status === 'open'));
 });
 

@@ -1,8 +1,16 @@
-# Demo- und Abnahmeleitfaden: synthetischer BC-Basic-Projektstand
+---
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+currentRollupContribution: false
+---
+
+# Historischer Demo- und Abnahmeleitfaden der abgelösten Referenzsimulation
 
 ## Zweck und Wahrheitsgrenze
 
-Dieser Leitfaden führt einen unabhängigen Leser durch die vollständig repositorybasierte Generalprobe. Er verwendet ausschließlich synthetische Daten und Dateien. Die Ausgabe `GO_SIMULATION` ist keine produktive BC-Ausführung, keine Kundenfreigabe und keine UStVA- oder sonstige Übermittlung.
+Dieser Leitfaden bewahrt ausschließlich den am 13.07.2026 abgelösten repositorybasierten Referenzlauf. Er verwendet synthetische Daten und Dateien. Sein internes `GO_SIMULATION` ist weder aktueller Pilotstatus noch produktive BC-Ausführung, Kundenfreigabe oder UStVA- beziehungsweise sonstige Übermittlung und trägt zu keinem aktuellen Rollup bei.
 
 ## Eingangskontrolle
 
@@ -24,7 +32,7 @@ Dieser Leitfaden führt einen unabhängigen Leser durch die vollständig reposit
 
 ## Abnahmeausgabe
 
-Die synthetische Abnahme ist nur dann grün, wenn alle sechs Stationen und der Indexvalidator grün sind. Für den aktuellen Stand lautet die zulässige Ausgabe `GO_SIMULATION`: Alle Projektgates sind innerhalb der Simulation durchgeführt und bestanden; ein realer BC-Lauf ist nicht Teil dieser Aussage.
+Die historische synthetische Abnahme war nur grün, wenn alle sechs Stationen und der damalige Indexvalidator grün waren. Für diesen abgelösten Referenzstand lautete die Ausgabe `GO_SIMULATION`: Alle damaligen Projektgates waren innerhalb der Simulation durchgeführt und bestanden; diese Aussage ist kein aktueller Pilotstatus und belegt keinen realen BC-Lauf.
 
 ## Nicht zulässige Schlussfolgerungen
 

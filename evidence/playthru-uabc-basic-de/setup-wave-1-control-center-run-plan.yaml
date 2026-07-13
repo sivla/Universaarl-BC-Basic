@@ -18,7 +18,7 @@ authorization:
   writesAuthorized: false
   goReadOnlySteps: [PRE-01, PRE-02, PRE-03, PRE-04, PRE-05, PRE-06, PRE-07, PRE-08, PRE-09, PRE-10, PRE-11, PRE-12, RUN-01, RUN-02, RUN-03, RUN-04, RUN-05]
   noGoWriteSteps: [RUN-06, RUN-07, RUN-08, RUN-09, RUN-10, RUN-11, RUN-12, RUN-13, RUN-14, RUN-15, RUN-16, RUN-17, RUN-18, RUN-19, RUN-20, RUN-21, RUN-22]
-  rule: PRE-01 bis PRE-12 und RUN-01 bis RUN-05 sind ausschliesslich lesend freigegeben; RUN-06 bis RUN-22 bleiben bis zu einer ausdruecklichen separaten Freigabe gesperrt.
+  rule: PRE-01 bis PRE-12 und RUN-01 bis RUN-05 sind ausschliesslich lesend freigegeben; RUN-06 bis RUN-22 bleiben bis zu bestandenem Wave-0-Preflight, dokumentiertem Resetpunkt und ausdruecklicher separater Freigabe gesperrt.
 target:
   hostClass: Business Central SaaS
   environment: Playthru
@@ -40,17 +40,31 @@ automationResponsibility:
   actorRef: ACTOR-CODEX-BROWSER-001
   actorType: browser-automation
   role: autorisierte Bedienhandlung nach menschlich freigegebenem Run-Plan
+wave0Preflight:
+  status: required-not-executed
+  currentBaseline: standard-cronus-demo-baseline
+  configuredPilotClaimed: false
+  checks:
+    - { id: W0-01, check: interne Company-ID und technischer Name, expected: beide sichtbar gelesen und eindeutig UABC-BASIC-DE zugeordnet }
+    - { id: W0-02, check: Name und Display Name, expected: Istwerte getrennt vom Pilot-Soll dokumentiert }
+    - { id: W0-03, check: Ausgangsdaten und CRONUS-Provenienz, expected: CRONUS-Demodaten als Ausgangsbasis belegt; keine Pilot-Einrichtung behauptet }
+    - { id: W0-04, check: dedizierte Pilot-Zielentscheidung, expected: kontrollierte Weiterverwendung der dedizierten Kopie oder saubere Neuanlage/Kopie evidenzbasiert entschieden }
+    - { id: W0-05, check: Reset und Rollback, expected: eindeutiger Resetpunkt mit Name Methode Erstellzeit und Wiederanlaufweg vorhanden }
+    - { id: W0-06, check: Abgrenzung, expected: jede unveraenderte CRONUS-Referenzgesellschaft sowie UNIVERSAARL-DE und My Company bleiben unberuehrt }
+  allowedDecisions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
+  selectedDecision: null
+  evidencePath: null
 preflight:
   - { id: PRE-01, check: sichtbarer Host ist Business Central SaaS, expected: true, stopOnMismatch: true }
   - { id: PRE-02, check: Environmentanzeige, expected: Playthru, stopOnMismatch: true }
-  - { id: PRE-03, check: technischer Mandant, expected: UABC-BASIC-DE, stopOnMismatch: true }
-  - { id: PRE-04, check: rechtlicher Firmenname auf Firmendaten, expected: Universaarl GmbH, stopOnMismatch: true }
+  - { id: PRE-03, check: interne Company-ID und technischer Mandant, expected: interne ID sichtbar dokumentiert und technischer Name UABC-BASIC-DE, stopOnMismatch: true }
+  - { id: PRE-04, check: Name Display Name und Ausgangsdaten, expected: unveränderte Standard-CRONUS-Demo-Baseline getrennt vom Soll Universaarl GmbH (BC Basic Pilot); technischer Name und URL beweisen keine konfigurierte Kundeninstanz, stopOnMismatch: true }
   - { id: PRE-05, check: Legacy-Mandant bleibt unberuehrt, expected: UNIVERSAARL-DE nicht ausgewaehlt, stopOnMismatch: true }
   - { id: PRE-06, check: Anwendungsversion, expected: 28.2.50931.52241, stopOnMismatch: true }
   - { id: PRE-07, check: Lokalisierung und Sprache, expected: DE und de-DE, stopOnMismatch: true }
   - { id: PRE-08, check: Benutzerrolle und direkte Tabellenrechte, expected: Read Insert Modify fuer jede aufzunehmende Pakettabelle, stopOnMismatch: true }
   - { id: PRE-09, check: Arbeitsdatum, expected: sichtbar protokolliert und im Pilotzeitraum, stopOnMismatch: true }
-  - { id: PRE-10, check: Resetpunkt, expected: noch nicht vorhanden; vor jeder Schreibfreigabe zwingend Mandantenkopie von UABC-BASIC-DE mit Name Erstellzeit und Wiederanlaufweg dokumentieren, stopOnMismatch: true }
+  - { id: PRE-10, check: Resetpunkt und Zielentscheidung, expected: noch nicht vorhanden; vor jeder Schreibfreigabe Wave-0-Entscheidung sowie Resetpunkt mit Name Methode Erstellzeit und Wiederanlaufweg dokumentieren, stopOnMismatch: true }
   - { id: PRE-11, check: Paketnullstand, expected: alle drei Pakete 0 Tabellen 0 Datensaetze 0 Fehler, stopOnMismatch: true }
   - { id: PRE-12, check: Matrixvalidator, expected: npm run validate:setup-wave1 bestanden, stopOnMismatch: true }
 allowedWrites:
@@ -60,9 +74,9 @@ allowedWrites:
   singletonAllowlist: [{ tableId: 98, tableName: General Ledger Setup }, { tableId: 311, tableName: Sales & Receivables Setup }, { tableId: 312, tableName: Purchases & Payables Setup }, { tableId: 313, tableName: Inventory Setup }]
   correctionScope: nur Tabellen und Felder aus dieser CORE-Allowlist; TRADE-MASTER und OPENING-DATA sind ausgeschlossen
 steps:
-  - { id: RUN-01, page: Mandanten, action: Zielbindung read-only pruefen, fields: [Environment, Name, Display Name, Evaluation Company], expected: UABC-BASIC-DE ist ausgewaehlt und UNIVERSAARL-DE bleibt Legacy, write: false, performed: false, observedResult: null }
+  - { id: RUN-01, page: Mandanten, action: Wave-0-Zielbindung und Ausgangsbasis read-only pruefen, fields: [Internal Company ID, Environment, Name, Display Name, Evaluation Company], expected: UABC-BASIC-DE ist ausgewaehlt; unveränderte Standard-CRONUS-Demo-Baseline ist vom Pilot-Soll getrennt; UNIVERSAARL-DE und andere Gesellschaften bleiben unveraendert, write: false, performed: false, observedResult: null }
   - { id: RUN-02, page: Hilfe und Support, action: Versionsinformationen lesen, fields: [Country Version, Platform, Application, AL Runtime], expected: DE 28.2 / 28.0.52286.0 / 28.2.50931.52241 / 17.0, write: false, performed: false, observedResult: null }
-  - { id: RUN-03, page: Firmendaten, action: Country-/Company-Baseline read-only pruefen, fields: [Name, Address, Post Code, City, Country/Region Code, Contact, E-Mail, Home Page, Allow Empty Payment Information], expected: bestehende Country-/Company-Evidence unveraendert, write: false, performed: false, observedResult: null }
+  - { id: RUN-03, page: Firmendaten, action: CRONUS-Ausgangsdaten gegen Pilot-Soll read-only lesen, fields: [Name, Address, Post Code, City, Country/Region Code, Contact, E-Mail, Home Page, Allow Empty Payment Information], expected: Istwerte als CRONUS-Baseline dokumentiert; noch keine Sollabweichung als angewendet behauptet, write: false, performed: false, observedResult: null }
   - { id: RUN-04, page: Konfigurationspakete, action: Paketnullstand lesen, fields: [Code, No. of Tables, No. of Package Records, No. of Package Errors], expected: alle drei Pakete 0/0/0, write: false, performed: false, observedResult: null }
   - { id: RUN-05, page: Konfigurationspaketkarte, action: UABC-01-CORE-FINANCE oeffnen, fields: [Code, Package Name, Language ID, Product Version], expected: Code und Name stimmen; keine fremde Paketdefinition, write: false, performed: false, observedResult: null }
   - { id: RUN-06, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: CORE-Allowlist einzeln als Tabellen aufnehmen, fields: [Table ID, Table Name], expected: jede ID loest auf exakt den CORE-Allowlistnamen auf, write: true, readbackStepIds: [RUN-08], performed: false, observedResult: null }
@@ -83,6 +97,7 @@ steps:
   - { id: RUN-21, page: Sachposten Debitorenposten Kreditorenposten MwSt.-Posten Bankkontoposten Artikelposten Wertposten, action: Negativ-Readback, fields: [Entry No.], expected: keine durch diesen Lauf erzeugten Entries, write: false, performed: false, observedResult: null }
   - { id: RUN-22, packageId: UABC-01-CORE-FINANCE, page: Konfigurationspaketkarte, action: CORE-Allowlistkorrektur und Retest nur falls erforderlich, fields: [Table ID, Field Name, Package Error], expected: Ursache dokumentiert; nur CORE-Allowlistfelder korrigiert; Retest fehlerfrei, write: true, correctionScope: core-allowlist-only, readbackStepIds: [RUN-08, RUN-10, RUN-20, RUN-21], performed: false, observedResult: null }
 stopConditions:
+  - Wave-0-Preflight oder evidenzbasierte Pilot-Zielentscheidung fehlt.
   - Ziel ist nicht exakt Playthru/UABC-BASIC-DE.
   - Anwendung oder DE-Lokalisierung weicht vom Vertrag ab.
   - Resetpunkt oder Wiederanlaufweg fehlt.
@@ -95,7 +110,7 @@ stopConditions:
   - Unerwarteter Dialog, Fehler oder nicht erklaerbare Datenwirkung erscheint.
   - Eine Buchung, externe Uebermittlung oder produktive Integration wird angeboten.
 stopCodes:
-  - { code: UABC-STOP-01, condition: Zielbindung nicht exakt Playthru/UABC-BASIC-DE }
+  - { code: UABC-STOP-01, condition: Wave-0-Zielbindung Ausgangsprovenienz interne Company-ID oder Pilot-Zielentscheidung fehlt beziehungsweise ist nicht exakt Playthru/UABC-BASIC-DE }
   - { code: UABC-STOP-02, condition: CORE-Paket-ID, Name, Tabellen-ID oder Tabellenname weicht von der Allowlist ab }
   - { code: UABC-STOP-03, condition: UABC-02-TRADE-MASTER oder UABC-03-OPENING-DATA erzeugt einen Schreibschritt }
   - { code: UABC-STOP-04, condition: Abhaengigkeit oder Reihenfolge ist nicht aufgeloest }

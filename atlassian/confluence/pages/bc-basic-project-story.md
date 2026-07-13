@@ -11,7 +11,7 @@ spaceType: customer-project
 order: 3
 storyPageId: PAGE-UABC-150
 purpose: Führt Status, Zeitstrahl, Entscheidungen, Risiken, Budget und
-  Projektabschluss zusammen.
+  offene Projektgates zusammen.
 audience:
   - Steering
   - Projektleitung
@@ -30,81 +30,82 @@ referenceIds:
   - UABC-REQ-BCB-005
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 03 Projekte
 
 ## Managementsicht
 
-Diese Seite ist die Managementsicht auf die vollständige synthetische Projektstory. Sie verbindet Angebot, Phasen, Tickets, Entscheidungen, Risiken, Evidence, Hypercare und Handover, ohne die fachlichen Detailseiten zu duplizieren.
+Diese Seite ist die Managementsicht auf den neu gestarteten Playthru-Pilot. Sie verbindet Angebot, Phasen, Tickets, Entscheidungen, Risiken und Evidence, ohne die fachlichen Detailseiten zu duplizieren. Die frühere Referenzsimulation ist nur historische Provenienz und kein aktiver Projektstand.
 
-## Projektstatus und Abschlussaussage
+## Projektstatus und Wahrheitsgrenze
 
-Das Projekt ist als `V1_STANDARDPRODUCT_READY` und `GO_SIMULATION` abgeschlossen. Alle 13 Simulationsphasen, neun Lieferobjekte und internen Prozessgates sind bestanden; reale Produktivnutzung wird ausdrücklich nicht behauptet.
+Der aktuelle Lauf steht auf `current-pilot-planning`. `UABC-BASIC-DE` ist eine CRONUS-Demo-Ausgangsbasis; ein eingerichteter Kundenpilot ist nicht belegt.
+
+`pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` bleiben verbindlich, bis Wave-0, Resetpunkt, kontrollierte Zielentscheidung und spätere Soll-/Ist-Readbacks belegt sind.
 
 ## Projektverlauf, Steuerung und Ticketwahrheit
 
 ### Projektkennzahlen
 
-| Kennzahl | Abgeschlossener Stand | Aussage |
+| Kennzahl | Aktueller Stand | Aussage |
 |---|---|---|
-| Angebot | drei Versionen | aktuell 80 Stunden und 9.600 EUR netto |
-| Tickets | 17 abgeschlossen | mit Historie, Worklog und Abschlusskommentar |
-| Worklogs | 17 Einträge, 80 Stunden | synthetischer Angebots-/Ist-Abgleich geschlossen |
-| Projektstory | 15 Ereignisse | vom Angebot bis Hypercare-Exit |
-| Hypercare | drei Tage | P1 = 0 und P2 = 0 am Exit |
-| Relationen | 252 native Kanten | Projektstory referenziell verbunden |
+| Angebotsplan | 80 Stunden und 9.600 EUR netto | Planwert, nicht Ist oder Kundenabnahme |
+| Ist | 0 Stunden und 0 EUR | ausschließlich aus aktiven Task-Worklogs abgeleitet |
+| Tickets | dynamisch aus `project-story.json` | genau UABC-1/2/3 sind Phase-Roots; keine feste Gesamtzahl |
+| Setup | unveränderte Standard-CRONUS-Demo-Baseline | Pilotaufbau, Wave-0 und Resetentscheidung stehen aus |
+| BC-Schreibfreigabe | gesperrt | `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO |
+| Zukunftsgates | offen | Migration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind nicht ausgeführt |
 
 ### Zeitstrahl und Gates
 
 #### Angebot und Projektstart
 
-Das Angebot wurde als 80-Stunden-Paket zu 9.600 EUR synthetisch beauftragt. Scope, Rollen, Mitwirkung, Change-Regel und Wahrheitsgrenze wurden im Projektstart festgehalten.
+Der Angebotsplan umfasst 80 Stunden zu 9.600 EUR. Ein Kundenabschluss oder eine reale Beauftragung wird daraus nicht abgeleitet. Scope, Rollen, Mitwirkung, Change-Regel und Wahrheitsgrenze werden im Projektstart prüfbar festgehalten.
 
 #### Discovery und Design
 
-Drei Workshops führten zu `GO_DISCOVERY_SIMULATION`. Sieben Entscheidungsbereiche decken Finance/VAT, Dimensionen, Prozesse, Cash/Bank, Daten, Rollen und Cutover ab.
+Discovery und Design strukturieren Finance/VAT, Dimensionen, Einkauf, Verkauf, Lager, Daten, Rollen, Cutover und Support. Nur repositorybelegte Vorbereitung darf als erledigt gelten; fachliche Entscheidungen bleiben bis zur jeweiligen Evidence offen.
 
 #### Einrichtung und Migration
 
-Die Basiskonfiguration wurde in Abhängigkeitsreihenfolge vorbereitet. Acht Vorlagenpaare und zehn Migrationsobjekte liefen in drei Wellen mit Fehlerkorrektur, Wiederholung und Abstimmung.
+Vor jeder Basiskonfiguration muss Wave-0 interne Company-ID, technischen Namen, Name, Display Name, CRONUS-Provenienz, Resetpunkt und die Entscheidung zwischen kontrollierter Weiterverwendung und Neuanlage beziehungsweise Kopie belegen. Setup und Migration sind noch nicht ausgeführt.
 
 #### Prozesse, UAT und Training
 
-P2P, O2C, Cash/Bank, Lager, Monatsabschluss und VAT-Vorschau wurden mit konsistenten Belegen und Ledger Entries durchgespielt. Sieben UAT-Fälle und vier Operatorpfade wurden synthetisch bestanden.
+P2P, O2C, Lager, Monatsabschluss, VAT-Vorschau, Training und UAT sind als offene Arbeit geplant. Ein bestandener Prozess, Ledger-Readback, Retest oder Schulungsnachweis wird erst nach tatsächlicher Ausführung und gültiger aktueller Evidence ausgewiesen.
 
 #### Cutover und simulierter Go-live
 
-Mock-Cutover, `GO_SIMULATION`, Rollback- und Restartweg wurden anhand definierter Entry-/Exit-Kriterien entschieden. Der simulierte Go-live war eine Repository-Generalprobe und kein Produktivstart.
+Cutover und eine spätere Simulationsabnahme besitzen Entry-, Exit-, Rollback- und Restartkriterien. Sie bleiben offen; es gibt weder einen Produktivstart noch eine reale Kundenfreigabe.
 
 #### Hypercare und Abschluss
 
-Drei Hypercaretage behandelten Zahlungsausgleich, Inventurdifferenz und VAT-Wahrheitsgrenze. Alle Defects wurden korrigiert und retestet; das Projekt ging mit null offenen P1/P2 in Handover und Supportstart.
+Hypercare-Szenarien, Retro, Restpunkte, Handover und Supportstart sind zukünftige Arbeit. Ein Defect entsteht erst aus einer realen Beobachtung; Fix und Retest dürfen nicht vorweggenommen werden. Die spätere Übergabe setzt belegten Cutover, Hypercare-Abschluss und Simulationsabnahme voraus.
 
 ### Kaufmännische Steuerung
 
-Die historische Baseline von 68 Stunden zu 162,50 EUR ergab 11.050 EUR. Sie wurde durch das aktuelle Standardangebot mit 80 Stunden zu 120 EUR und 9.600 EUR ersetzt. Angebot und synthetisches Ist sind ohne Abweichung geschlossen.
+Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 0 Stunden und 0 EUR, dynamisch aus den vorhandenen aktiven Task-Worklogs abgeleitet. Plan und Ist werden nicht gleichgesetzt.
 
-Die 18/40/10-Stunden-Werte in `project-plan.yaml` bleiben deshalb ausdrücklich die historische Planvorlage. Die aktuelle 80-Stunden-Verteilung stammt aus den Angebotsversionen und den 17 Ticket-Worklogs; sie wird nicht mit der Vorlage zusammengerechnet.
-
-Die Werte sind eine Simulationsrechnung. Sie belegen keine reale Rechnung, Zahlung, Freigabe oder produktive Leistung.
+Die frühere Kalkulation und abgeschlossene Referenzsimulation bleiben historische Provenienz; sie belegen keine aktuelle Rechnung, Zahlung, Freigabe oder produktive Leistung.
 
 ### Entscheidungen, Risiken und Maßnahmen
 
-Entscheidungen besitzen Owner, Alternativen, Auswirkung und Evidence.
-Risiken werden nicht durch einen grünen Simulationsstatus verborgen: Kundenparameter, Steuer-/Rechtsreview, Tenant, reale Daten, Rollen und Sandboxverhalten bleiben Entry-Punkte.
+Entscheidungen besitzen Owner, Alternativen, Auswirkung und Evidence. Risiken werden nicht durch einen historischen Simulationsstatus verborgen: CRONUS-Ausgangsdaten, Kundenparameter, Steuer-/Rechtsreview, reale Daten, Rollen und Sandboxverhalten bleiben Entry-Punkte.
 
 Meetings führen zu Ticket oder Entscheidung. Ein Ticket ist nur abgeschlossen, wenn Akzeptanzkriterien, Evidence, Test beziehungsweise Retest und Abschlusskommentar vorliegen.
 
 ### Ticketwahrheit und Zählregel
 
-Die 17 Records in `bc-basic-story-tickets.yaml` bilden den kanonischen kundenlesbaren Projektverlauf. Nur diese Menge zählt in Angebot, Worklogs, 80-Stunden-Ist, Timeline, Status und Abschlusskennzahlen.
+`evidence/simulation/project-story.json` ist die einzige aktive kanonische Projektstory. `bc-basic-story-tickets.yaml` ist ausschließlich ihr deterministisches Jira-Materialisat.
 
-Weitere 38 ältere Issues aus Projekt-, Blueprint-, Umgebungs- und Walkthrough-Planung bleiben als interne historische Traceability erhalten.
-Sie erklären Vorbereitung und Herkunft einzelner Anforderungen, sind aber kein zweites Kundenbacklog.
-Sie werden nicht zu den 48 kundenlesbaren Tickets oder den 19 abrechenbaren Task-Worklogs addiert.
+Ticketgesamtzahl, Typmengen, Statussummen, Iststunden und Istkosten werden aus der aktiven Quelle abgeleitet und nicht auf eine historische Sollmenge festgesetzt.
+
+UABC-1, UABC-2 und UABC-3 sind die drei Phase-Roots. Die Hierarchie lautet Phase → Epic → Story/Bug → Task. Ausschließlich Tasks dürfen abrechenbar sein oder Worklogs besitzen.
+
+Historische Abschlussdaten verbleiben in Git-Historie beziehungsweise klar gekennzeichneter Provenienz und fließen nicht in aktive Rollups oder Materialisierung ein.
 
 Der Twin erhält für jedes sichtbare Ticket den expliziten kanonischen Typ, die Parent-Beziehung, die Sichtbarkeitsrolle und den Zählbereich. Typen werden weder aus Ticket-Key noch Titel oder Großschreibung erraten.
 
@@ -116,19 +117,26 @@ Die aktuelle Space-Struktur ordnet Kundendokumentation, Standardprodukt und inte
 
 ## Reale Entry-Parameter und verbleibende Grenzen
 
-- **Synthetisch abgeschlossen:** Scope, Budgetabgleich, Discovery, Setup, Migration, UAT, Training, Cutover, Go-live-Rehearsal, Hypercare, Restart und Handover.
-- **Entry-Gate einer realen Instanz:** Gesellschaft, Lizenz, Tenant, Konten/VAT, Daten, Benutzer/Rollen, Bank, Sandbox, Support und rechtlich/steuerliche Bestätigung.
-- Diese Parameter sind keine offenen Defects der Referenzsimulation. Sie werden im nächsten Kundenprojekt bewusst neu entschieden und belegt.
+- **Belegt:** repositorybasierte Vorbereitung und read-only beobachtete Standard-CRONUS-Demo-Ausgangsbasis.
+- **In Bearbeitung beziehungsweise blockiert:** Phase 1 sowie die abhängigen Phase-Roots, Wave-0, Ziel- und Resetentscheidung.
+- **Offen:** Setup, Datenmigration, Prozessläufe, Training, UAT, Cutover, Hypercare, Retro, Simulationsabnahme und Supportübergabe.
+- **Nicht autorisiert:** BC-Schreibschritte RUN-06 bis RUN-22 sowie jede Produktiv- oder Kundenabnahmebehauptung.
 
 ## Referenzen
 
 - [Maschinenlesbare Story](../../../evidence/simulation/project-story.json)
 - [Narrative Chronik](../../../docs/reports/bc-basic-project-chronicle.md)
 - [Entscheidungsregister](../../../project/bc-basic/decision-register.yaml)
-- [Historische Planvorlage und Projektsteuerung](../../../project/bc-basic/project-plan.yaml)
-- [Jira-ähnliche Projektwelt](../../jira/issues/bc-basic-project.yaml)
-- [Abschlussstatus](../../../evidence/simulation/project-completion.yaml)
+- [Aktueller Projektplan](../../../project/bc-basic/project-plan.yaml)
+- [Historische Jira-Referenzsimulation](../../jira/issues/bc-basic-project.yaml)
+- [Historischer Abschlussstatus ohne aktuellen Rollupbeitrag](../../../evidence/simulation/project-completion.yaml)
 - [Aktueller Angebots-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
 - [Twin-Allowlist](../../../exports/project-data/v1/index.yaml)
+- [Adapter-Provenienz](../../../evidence/simulation/adapter-provenance.json)
+- [Twin-Exportmap](../../../exports/project-data/v1/twin-export-map.json)
+- [Referenzgraph-Abdeckung](../../../evidence/simulation/reference-graph-coverage.json)
+- [Nativer Referenzgraph](../../../exports/project-data/v1/reference-graph-native.json)
+- [Referenzgraph-Mapping](../../../exports/project-data/v1/reference-graph-mapping.json)
+- [Portabler Referenzgraph](../../../exports/project-data/v1/reference-graph-portable.json)
 
-<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":6,"status":"published"} -->

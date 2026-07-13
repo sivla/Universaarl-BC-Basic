@@ -1,6 +1,11 @@
 schemaVersion: 1
 projectId: UABC-BC-BASIC-001
 simulation: true
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+currentRollupContribution: false
 truthBoundary: Alle Termine, Rollen, Entscheidungen und Ergebnisse sind Bestandteile der synthetischen Referenzsimulation; sie belegen keine reale Kundenbesprechung oder BC-Ausfuehrung.
 meetings:
   - id: UABC-MTG-001

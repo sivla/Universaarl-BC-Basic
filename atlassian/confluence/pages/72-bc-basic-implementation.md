@@ -41,7 +41,11 @@ version: 5
 
 ## Lösungsziel
 
-Die Seite beschreibt die für `UABC-BASIC-DE` entschiedene BC-Basic-Konfiguration. Sie ist ein ausführbares Consultant-Muster, ersetzt aber weder die Prüfung der realen Sandbox noch steuerliche oder rechtliche Entscheidungen.
+Die Seite beschreibt das Soll für `UABC-BASIC-DE`. Der aktuelle Istzustand ist eine unveränderte Microsoft-Standard-CRONUS-Demo-Baseline; `pilotConfigured=false`, `writesApplied=false` und der Readback steht aus.
+
+Technischer Firmenname, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz. Vor jedem Setup-Write muss Wave 0 interne Company-ID, Name, Display Name, Standard-CRONUS-Provenienz, Zielentscheidung und Resetpunkt nachweisen.
+
+Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche oder rechtliche Entscheidungen.
 
 ## Einrichtungsstatus und Wahrheitsgrenze
 

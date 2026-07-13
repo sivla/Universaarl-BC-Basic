@@ -21,9 +21,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-32, UABC-33]
-    status: simulated-complete
+    status: planned
     resultPath: docs/offers/bc-basic-offer.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Scope, Rollen, Budget, Gates und Change-Regel sind lesbar und synthetisch abgenommen.
   - objectId: UABC-DEL-BCB-002
     classification: customer-deliverable
@@ -31,9 +32,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-34, UABC-35, UABC-36, UABC-37]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/71-bc-basic-discovery.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Kernprozesse, Optionen, Empfehlungen und sieben Entscheidungsbereiche sind nachvollziehbar.
   - objectId: UABC-DEL-BCB-003
     classification: customer-deliverable
@@ -41,9 +43,10 @@ objects:
     version: 1.0
     ownerRef: P-016
     ticketRefs: [UABC-38]
-    status: simulated-complete
+    status: planned
     resultPath: project/bc-basic/data-readiness-check.yaml
-    evidencePath: evidence/simulation/phase-2-p2p-o2c.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/phase-2-p2p-o2c.yaml
     acceptance: Drei Wellen, Owner, Qualitaetsregeln und Kontrollsummen sind differenzfrei belegt.
   - objectId: UABC-DEL-BCB-004
     classification: customer-deliverable
@@ -51,9 +54,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/72-bc-basic-implementation.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Setupfolge, Werte, Abhaengigkeiten und feldnahe Pruefungen sind vollstaendig.
   - objectId: UABC-DEL-BCB-005
     classification: customer-deliverable
@@ -61,9 +65,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-45]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/80-bc-basic-training.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Vier Rollen koennen positiven Fall, Fehlerdiagnose, Retest und Eskalation erklaeren.
   - objectId: UABC-DEL-BCB-006
     classification: customer-deliverable
@@ -71,9 +76,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-46]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/50-tests.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Sieben UAT-Faelle, Defects, Retests und synthetische Entscheidung sind belegt.
   - objectId: UABC-DEL-BCB-007
     classification: customer-deliverable
@@ -81,9 +87,10 @@ objects:
     version: 1.0
     ownerRef: P-005
     ticketRefs: [UABC-47, UABC-48]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/73-bc-basic-hypercare.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Generalprobe, Restart und drei Hypercaretage enden ohne offene P1/P2.
   - objectId: UABC-DEL-BCB-008
     classification: customer-deliverable
@@ -91,9 +98,10 @@ objects:
     version: 1.0
     ownerRef: P-005
     ticketRefs: [UABC-49]
-    status: simulated-complete
+    status: planned
     resultPath: atlassian/confluence/pages/bc-basic-hypercare.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Nebenbuecher, Bank, Lager und VAT sind abgestimmt; keine externe Uebermittlung wird behauptet.
   - objectId: UABC-DEL-BCB-009
     classification: customer-deliverable
@@ -101,9 +109,10 @@ objects:
     version: 1.0
     ownerRef: P-002
     ticketRefs: [UABC-50]
-    status: simulated-complete
+    status: planned
     resultPath: docs/handover/bc-basic-handover.md
-    evidencePath: evidence/simulation/project-completion.yaml
+    evidencePath: null
+    historicalEvidencePath: evidence/simulation/project-completion.yaml
     acceptance: Navigation, Supportweg, Restpunkte, Lessons Learned und Verantwortungsuebergang sind lesbar.
   - objectId: UABC-OBJ-PDOC-001
     classification: project-document
@@ -134,33 +143,41 @@ objects:
     title: Playwright-Szenariokatalog
     sourcePath: playwright/scenarios/bc-basic-e2e.yaml
   - objectId: UABC-OBJ-EVD-001
-    classification: evidence
-    title: Projektabschluss
+    classification: historical-evidence
+    title: Historischer Projektabschluss der Referenzsimulation
     sourcePath: evidence/simulation/project-completion.yaml
   - objectId: UABC-OBJ-EVD-002
-    classification: evidence
-    title: UAT- und Trainingslauf
+    classification: historical-evidence
+    title: Historischer UAT- und Trainingslauf der Referenzsimulation
     sourcePath: project/bc-basic/uat-training-run.yaml
   - objectId: UABC-OBJ-EVD-003
-    classification: evidence
-    title: Billing-Abgleich
+    classification: historical-evidence
+    title: Historischer Billing-Abgleich der Referenzsimulation
     sourcePath: evidence/simulation/billing-reconciliation.yaml
   - objectId: UABC-OBJ-EVD-004
-    classification: evidence
-    title: Demo-Readiness
+    classification: historical-evidence
+    title: Historische Demo-Readiness der Referenzsimulation
     sourcePath: evidence/simulation/demo-readiness.yaml
   - objectId: UABC-OBJ-EVD-005
-    classification: evidence
+    classification: generated-dry-run-evidence
     title: Atlassian-Materialisierungs-Dry-run
     sourcePath: evidence/simulation/atlassian-materialization-dry-run.json
   - objectId: UABC-OBJ-EVD-006
-    classification: evidence
-    title: Playthru-Pilot-Setup-Baseline
+    classification: historical-evidence
+    title: Historischer Playthru-Bediennachweis ohne aktuelle Readiness
     sourcePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
   - objectId: UABC-OBJ-EVD-007
-    classification: evidence
-    title: Playthru-Country- und Firmendaten-Ausfuehrung
+    classification: historical-evidence
+    title: Historische Playthru-Country- und Firmendaten-Ausfuehrung
     sourcePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+  - objectId: UABC-OBJ-EVD-008
+    classification: current-read-only-evidence
+    title: Aktuelle Standard-CRONUS-Demo-Ausgangsbeobachtung
+    sourcePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+  - objectId: UABC-OBJ-EVD-009
+    classification: current-execution-plan
+    title: Aktueller schreibgesperrter Setup-Wave-1-Laufplan
+    sourcePath: evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
   - objectId: UABC-OBJ-TECH-001
     classification: technical-source
     title: Branch-Index

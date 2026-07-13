@@ -7,6 +7,8 @@ const run = (change) => { const fixture = structuredClone(baseline); change(fixt
 const has = (errors, code) => assert.ok(errors.some((error) => error.startsWith(`${code}:`)), `${code} fehlt: ${errors.join(', ')}`);
 
 test('kanonische CORE-Allowlist, Quellen und Run-Plan bestehen', () => assert.deepEqual(validateSetupWave1(baseline), []));
+test('umbenannte CRONUS-Baseline darf keinen eingerichteten Pilot behaupten', () => has(run(({ readOnlyPreflight }) => { readOnlyPreflight.configurationState.baseline.configuredPilotClaimed = true; readOnlyPreflight.configurationState.baseline.observedDisplayName = readOnlyPreflight.configurationState.pilotTarget.displayName; }), 'CRONUS_BASELINE'));
+test('fehlender Wave-0-Readback wird vor jedem Write abgelehnt', () => has(run(({ runPlan }) => { runPlan.wave0Preflight.status = 'passed'; runPlan.wave0Preflight.selectedDecision = 'controlled-reuse-of-dedicated-cronus-copy'; runPlan.wave0Preflight.evidencePath = null; }), 'WAVE0_PREFLIGHT'));
 test('abweichende CORE-Tabellen-ID oder Name wird abgelehnt', () => has(run(({ matrix }) => { matrix.matrix.find((row) => row.tableId === 348).tableName = 'Dimension Value'; }), 'CORE_ALLOWLIST'));
 test('TRADE-MASTER kann keinen Write-Step erzeugen', () => has(run(({ runPlan }) => { runPlan.steps.find((step) => step.id === 'RUN-06').packageId = 'UABC-02-TRADE-MASTER'; }), 'WRITE_STEPS'));
 test('OPENING-DATA kann keinen Write-Step erzeugen', () => has(run(({ runPlan }) => { runPlan.steps.push({ id: 'RUN-23', packageId: 'UABC-03-OPENING-DATA', write: true, readbackStepIds: ['RUN-21'], performed: false, observedResult: null }); }), 'WRITE_STEPS'));

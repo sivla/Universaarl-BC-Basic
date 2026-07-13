@@ -1,8 +1,8 @@
 schemaVersion: 1
 matrixId: UABC-TRACE-BCB-001
 projectId: UABC-BC-BASIC-001
-status: synthetisch-geprueft-real-nicht-abgenommen
-claimPolicy: Diese Matrix ist wiederverwendbare Planungsstruktur; die Referenzsimulation belegt ihre synthetische Ausfuehrung ueber die referenzierte Evidence; eine reale Kundeninstanz benoetigt neue Sandbox- und Abnahmenachweise.
+status: planned-current-pilot-not-accepted
+claimPolicy: Diese Matrix ist die Planungsstruktur des aktuellen Piloten. Ausschliesslich aktuelle Sandbox-, UAT- und Abnahmenachweise duerfen einen Eintrag erfuellen; die historische Referenzsimulation besitzt currentAuthority=false und traegt nicht zum aktuellen Rollup bei.
 entries:
   - { requirement: UABC-REQ-BCB-001, solution: project/bc-basic/project-plan.yaml, workPackages: [UABC-39], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-UAT-001 }
   - { requirement: UABC-REQ-BCB-002, solution: openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md, workPackages: [UABC-32, UABC-33], uat: [UABC-UAT-BCB-001], training: [UABC-TRAIN-BCB-ADM], evidence: UABC-EV-PLAN-002 }
@@ -17,7 +17,7 @@ entries:
   - { requirement: UABC-REQ-BCB-011, solution: governance/consumer-bindings.yaml, workPackages: [UABC-50], uat: [], training: [], evidence: UABC-EV-SNAPSHOT-011 }
   - { requirement: UABC-REQ-BCB-012, solution: openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/proposal.md, workPackages: [], uat: [], training: [], evidence: UABC-EV-REPOSITORY-012 }
 evidenceStatus:
-  allEntries: synthetisch-oder-geplant
+  allEntries: planned-not-executed
   realExecution: false
-  humanAcceptance: synthetisch-abgenommen
+  humanAcceptance: pending
   missingEvidenceBlocks: true

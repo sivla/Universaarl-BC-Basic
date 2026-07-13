@@ -4,15 +4,19 @@ projectId: UABC-BC-BASIC-001
 changeRef: migrate-bc-basic-to-single-uabc-ticket-project
 status: planned
 templateState: kundenbereit
-simulationState: synthetisch-sieben-Faelle-abgenommen
-customerInstanceState: durch-echte-Key-User-in-Sandbox-auszufuehren
+currentBaselineKind: standard-cronus-demo
+pilotConfigured: false
+writesApplied: false
+readbackStatus: pending
+simulationState: planned-not-executed
+customerInstanceState: standard-cronus-demo-wave-0-Setup-und-UAT-ausstehend
 executed: false
 resultClaimed: false
 ownerRef: P-016
 customerAcceptanceOwnerRef: P-005
 configurationPackageResponsibility: Konfigurationspakete sind ein Werkzeug des Dienstleisters und kein Schulungs- oder Pflegegegenstand fuer den Kunden.
 operatorAcceptanceRule: Ein Fall gilt fuer die Kundenbefaehigung nur als bestanden wenn die Rolle ihn ohne Anleitung ausfuehrt Kontrollen erklaert einen vorhandenen Fehler diagnostiziert den Retest besteht und einen der vier Eskalationsausgaenge korrekt waehlt.
-simulationBoundary: Referenzsimulation belegt Ablauf Werte Fehler und Retest; reale Benutzer Berechtigungen Seiten Buchungen und Reset werden spaeter in der Kundensandbox bestaetigt und blockieren GO_SIMULATION nicht.
+simulationBoundary: Die historische Referenzsimulation belegt nur einen abgeloesten Repositoryablauf. Im aktuellen Pilot bleiben Benutzer, Berechtigungen, Seiten, Setup, Buchungen, Reset und UAT offen; historische Ergebnisse tragen keinen aktuellen Gate- oder Rollupstatus.
 permissionProbes:
   - { roleRef: P-004, allowed: Benutzerkontext und Zuweisung pruefen, denied: Einkaufsrechnung buchen, uatRef: UABC-UAT-BCB-001 }
   - { roleRef: P-005, allowed: Journal Abstimmung Abschluss und VAT-Vorschau, denied: Permission Sets administrieren, uatRef: UABC-UAT-BCB-005 }

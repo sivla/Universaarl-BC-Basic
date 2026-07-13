@@ -11,8 +11,8 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 2
 storyPageId: PAGE-UABC-130
-purpose: Fasst Auftrag, Leistungsgrenze, kommerzielle Linie und neun
-  Lieferobjekte zusammen.
+purpose: Trennt Angebotsplan, aktuelles Ist und offene Lieferobjekte des
+  laufenden Piloten.
 audience:
   - Kunde
   - Vertrieb
@@ -27,86 +27,69 @@ referenceIds:
   - UABC-REQ-BCB-004
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 02 Business Central
 
 ## Projektauftrag
 
-Diese Seite erklärt das beauftragbare BC-Basic-Paket aus Kundensicht. Das kanonische Lieferregister bleibt `project/bc-basic/deliverables.yaml`; hier werden Leistungsversprechen, Abnahme und reale Parameter verständlich zusammengeführt.
+Diese Seite beschreibt das geplante BC-Basic-Paket. Das kanonische Lieferregister bleibt `project/bc-basic/deliverables.yaml`. Ein Leistungsversprechen ist kein ausgeführtes Lieferergebnis.
 
-## Kommerzielle Baseline und Status
+## Plan, Ist und Pilotstatus
 
-Das aktuelle Standardangebot und der synthetische Ist-Abgleich umfassen jeweils 80 Stunden zu 120 EUR, also 9.600 EUR netto.
-Die frühere Kalkulation mit 68 Stunden und 11.050 EUR ist als historische Baseline dokumentiert und nicht mehr das aktuelle Angebot.
+| Sicht | Stand | Wahrheitsgrenze |
+|---|---|---|
+| Angebotsplan | 80 Stunden, 9.600 EUR netto | `planned-not-accepted`; keine Kundenannahme |
+| Aktuelles Ist | 0 Stunden, 0 EUR | ausschließlich aus aktiven Task-Worklogs |
+| BC-Ausgangsbasis | CRONUS-Demo | `pilotConfigured=false`, `writesApplied=false`, Readback offen |
+| Setup-Pakete | 0 Tabellen / 0 Datensätze / 0 Fehler | keine Setup- oder Datenwirkung |
 
-`project-plan.yaml` bewahrt diese historische 18/40/10-Stunden-Phasenplanung als wiederverwendbare Vorlage. Die aktuelle 80-Stunden-Linie wird ausschließlich durch Angebotsversionen und die 17 Ticket-Worklogs belegt; beide Sichten werden nicht addiert.
+Die historische 68-Stunden-Kalkulation und die abgelöste Referenzsimulation bleiben Provenienz. Sie werden nicht mit dem aktiven Plan oder Ist zusammengerechnet.
 
-Die Simulation ist vollständig abgeschlossen. Sie erzeugt weder Rechnung noch Zahlung noch Anspruch auf produktive Leistung.
+## Geplanter Leistungsumfang
 
-## Umfang, Lieferobjekte und Abnahme
+Der Standardweg umfasst Projektstart, Discovery, Finance- und Prozessdesign, Wave-0, Basiseinrichtung, kontrollierte Datenmigration, Prozessprüfung, UAT, Training, Mock-Cutover, Hypercare und Handover. Alle operativen Ergebnisse sind im aktuellen Pilot noch offen.
 
-### Leistungsumfang
+Nicht enthalten sind AL-Entwicklung, individuelle Reports oder Layouts, Integrationen, Dataverse, produktive Bankanbindung, erweitertes Lager, Produktion, Projekte, Service, Konsolidierung, historischer Vollimport, E-Rechnung sowie Bank-, E-Mail- oder Steuerübermittlung.
 
-Im Scope liegen Projektstart, drei fokussierte Discovery-Workshops, Fit-to-Standard, Finanz- und Prozessdesign und kontrollierte Datenmigration.
-Hinzu kommen Basiseinrichtung, sieben UAT-Fälle, vier Rollenpfade, Mock-Cutover, Restart, drei Hypercaretage und Handover.
+## Lieferobjekte und aktueller Zustand
 
-Die operative Einführung folgt dem kürzesten Standardweg:
+### Auftrag, Discovery und Daten
 
-1. Angebot und Kundenvorbereitung.
-2. Discovery und notwendige Entscheidungen.
-3. Setup und drei Migrationswellen.
-4. Prozessprüfung, UAT und Befähigung.
-5. Mock-Cutover, Go-live-Rehearsal und Hypercare.
-6. Abschluss und Supportübergabe.
+- **`UABC-DEL-BCB-001` – Projektauftrag:** Plan, Scope, Rollen, Phasen und Change-Regel werden nachvollziehbar verknüpft. Kundenannahme und reale Termine sind offen.
+- **`UABC-DEL-BCB-002` – Fit-to-Standard:** Finance, Einkauf, Verkauf, Lager und Abweichungen werden fachlich entschieden; offene Werte bleiben sichtbar.
+- **`UABC-DEL-BCB-003` – Datenpaket:** Quellen, Pflichtfelder, Owner, Referenzen und Kontrollsummen werden vorbereitet; kein Import ist ausgeführt.
 
-### Leistungsgrenzen
+### Einrichtung, Befähigung und UAT
 
-Nicht enthalten sind AL-Entwicklung, individuelle Reports oder Layouts, Integrationen, Dataverse, produktive Bankanbindung, erweitertes Lager, Produktion, Projekte, Service, Konsolidierung, historischer Vollimport und E-Rechnung.
+- **`UABC-DEL-BCB-004` – Standardkonfiguration:** Wave-0, Setupfolge und Readbacks stehen aus; CRONUS-Standarddaten gelten nicht als eingerichteter Pilot.
+- **`UABC-DEL-BCB-005` – Training:** Rollenpfade und Fehlerfälle sind geplant; Teilnahme und Kompetenz sind nicht belegt.
+- **`UABC-DEL-BCB-006` – UAT:** Pflichtfälle, Evidence und Defect-/Retest-Regel sind geplant; kein Fall ist im aktuellen Pilot bestanden.
 
-Steuer- und Rechtsberatung, GoBD-Garantie, Lizenzen, Tenantkosten, reale UStVA- oder Bankübermittlung und produktiver Betrieb sind ebenfalls ausgeschlossen. Abweichungen werden als Parameter, Change oder Out-of-Scope entschieden.
+### Betrieb und Abschluss
 
-### Neun Lieferobjekte
+- **`UABC-DEL-BCB-007` – Cutover und Hypercare:** Entry-/Exit-, Rollback- und Restartkriterien sind geplant; Cutover und Hypercare sind nicht gestartet.
+- **`UABC-DEL-BCB-008` – Monatsabschluss und VAT:** Sollwerte und Nichtübermittlungsgrenze werden vorbereitet; Abschluss und VAT-Readback sind offen.
+- **`UABC-DEL-BCB-009` – Dokumentation und Handover:** Projekt- und Supportdokumentation werden aufgebaut; Supportannahme und Simulationsabnahme stehen aus.
 
-#### Auftrag, Discovery und Daten
+## Messbare spätere Abnahme
 
-- **`UABC-DEL-BCB-001` – Projektauftrag:** Scope, Rollen, Fast-Track und Gates sind simuliert abgenommen. Reale Namen, Termine und Vertragsentscheidung bleiben Kundenparameter. Owner: `P-002`.
-- **`UABC-DEL-BCB-002` – Fit-to-Standard:** Prozesse und sieben Entscheidungsbereiche sind entschieden. Reale Konten-, Steuer-, Bank- und Lagerwerte müssen bestätigt werden. Owner: `P-002`.
-- **`UABC-DEL-BCB-003` – Datenpaket:** acht Vorlagenpaare und zehn Migrationsobjekte sind in drei Wellen geprüft. Reale Quellen, Mengen und Salden bleiben Kundenparameter. Owner: `P-016`.
+Eine Simulationsabnahme erfordert ausgeführte und differenzfreie Setup-, Daten-, Prozess-, UAT-, Cutover-, Hypercare- und Handover-Nachweise sowie keine ungeklärten P1/P2-Befunde. Spectra-, Snapshot- und Twin-Integrität sind zusätzliche technische Gates. Aktuell sind diese fachlichen Exit-Kriterien nicht erfüllt.
 
-#### Einrichtung, Befähigung und UAT
+## Annahmen und Change-Regel
 
-- **`UABC-DEL-BCB-004` – Standardkonfiguration:** Setupfolge, Buchungsmatrizen und SoD-Baseline sind synthetisch geprüft. Tenantfelder, Apps und Permission Sets werden in der Kundensandbox bestätigt. Owner: `P-002`.
-- **`UABC-DEL-BCB-005` – Training:** vier Rollenpfade enthalten positiven Fall, Fehler, Retest und Kompetenzregel. Reale Benutzer absolvieren diese Übungen mit ihren Berechtigungen. Owner: `P-002`.
-- **`UABC-DEL-BCB-006` – UAT:** sieben Pflichtfälle sind synthetisch bestanden, Evidence ist vollständig und P1/P2 sind geschlossen. Reale Key User wiederholen die Fälle in der Sandbox. Owner: `P-002`.
-
-#### Betrieb und Abschluss
-
-- **`UABC-DEL-BCB-007` – Cutover und Hypercare:** Generalprobe, Restart und drei Hypercaretage sind abgeschlossen. Reale Freezezeit, Restorepunkt und Kontakte werden neu bestätigt. Owner: `P-005`.
-- **`UABC-DEL-BCB-008` – Monatsabschluss und VAT:** Die Vorschau weist 70,30 EUR Zahllast aus und wurde nicht übermittelt. Steuerkennzeichen und UStVA-Zuordnung benötigen fachliche Bestätigung. Owner: `P-005`.
-- **`UABC-DEL-BCB-009` – Dokumentation und Handover:** Supportdiagnose, Projektdokumentation und Twin-Ausgabe sind vollständig. Betreiber, Servicezeiten und Produktionsannahme bleiben reale Parameter. Owner: `P-002`.
-
-### Messbare Abnahme
-
-`V1_STANDARDPRODUCT_READY` setzt 80 Stunden und 9.600 EUR, sieben Entscheidungen, acht Vorlagenpaare, drei Migrationswellen, sieben UAT-Fälle, vier Operatorpfade, neun Lieferobjekte und null offene P1/P2 voraus.
-
-Zusätzlich müssen Buchungs- und Abstimmkontrollen differenzfrei, Cutover und Restart bestanden und drei Hypercaretage abgeschlossen sein.
-Spectra-, Snapshot- und Twin-Vertrag müssen ebenfalls validiert sein. Diese Kriterien sind für die Referenzsimulation erfüllt.
-
-## Annahmen, Mitwirkung und Change-Regel
-
-- Das 80-Stunden-Angebot zu 9.600 EUR ist die aktuelle kommerzielle Produktbaseline; die 68-Stunden-Kalkulation bleibt historische Evidence.
-- Reale Gesellschaft, Konten, Steuerlogik, Daten, Rollen, Sandbox und Termine werden vor dem Setup als Entry-Gate bestätigt.
-- Ein Kundenwunsch außerhalb der Standardbaseline benötigt Auswirkung, Aufwand, Entscheidung und Change-Freigabe; Schweigen erweitert den Scope nicht.
+- Der 80-Stunden-/9.600-EUR-Wert ist ein Plan, kein Istabschluss.
+- Gesellschaft, Konten, Steuerlogik, Daten, Rollen, Resetpunkt, Sandbox und Termine werden vor Ausführung belegt.
+- Ein Wunsch außerhalb der Standardbaseline benötigt Auswirkung, Aufwand, Entscheidung und Change-Freigabe; Schweigen erweitert den Scope nicht.
 
 ## Referenzen
 
-- [Angebot und Versionsverlauf](../../../docs/offers/bc-basic-offer.md)
-- [Historische 68-Stunden-Planvorlage und Entry-Kriterien](../../../project/bc-basic/project-plan.yaml)
-- [Lieferregister und Evidence](../../../project/bc-basic/deliverables.yaml)
-- [Aktueller 80-Stunden-Angebots-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
-- [Synthetische Abrechnungskontrolle](../../../evidence/simulation/billing-reconciliation.yaml)
+- [Aktiver Angebotsstand](../../../docs/offers/bc-basic-offer.md)
+- [Kanonische Projektstory](../../../evidence/simulation/project-story.json)
+- [Lieferregister](../../../project/bc-basic/deliverables.yaml)
+- [Plan-/Ist-Abgleich](../../../evidence/simulation/project-reconciliation.json)
+- [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Business Central","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-130","title":"02 Business Central","parent":null,"version":6,"status":"published"} -->

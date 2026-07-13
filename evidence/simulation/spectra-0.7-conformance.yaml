@@ -16,7 +16,7 @@ adapter:
   projectionDigest: 1a731316822f41108e4eee81e0e088499d08e556221db757b4384a0a405ec5ef
 conformance:
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
-  localValidator: scripts/validate-spectra-0.7-conformance.mjs
+  localValidator: scripts/validate-spectra-0.7-historical-provenance.mjs
   officialFullConformance: passed
   result: passed
 counts: { offerVersions: 3, pages: 19, tickets: 17, comments: 34, worklogs: 17, hours: 80, cost: 9600, timelineEvents: 15, hypercareDays: 3, nativeRelations: 252, portableEdges: 190 }

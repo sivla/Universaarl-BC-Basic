@@ -97,9 +97,9 @@ export function safeRelative(value) {
 
 export function buildReconciliation(story, billing) {
   const baseline = billing.historicalBaseline;
-  const offered = story.offer.versions.find((version) => version.version === 2);
-  const actual = story.offer.versions.find((version) => version.version === 3);
-  const state = (version, hours, cost) => ({ version, hours, rate: cost / hours, amount: cost, currency: 'EUR' });
+  const offered = { hours: story.offer.planned_hours, cost: story.offer.planned_cost };
+  const actual = { hours: story.offer.actual_hours, cost: story.offer.actual_cost };
+  const state = (version, hours, cost) => ({ version, hours, rate: hours === 0 ? 120 : cost / hours, amount: cost, currency: 'EUR' });
   return {
     schema_version: 1,
     contract_version: '0.10',
@@ -114,10 +114,10 @@ export function buildReconciliation(story, billing) {
     actual: state(3, actual.hours, actual.cost),
     variance: {
       hours: actual.hours - offered.hours,
-      rate: (actual.cost / actual.hours) - (offered.cost / offered.hours),
+      rate: (actual.hours === 0 ? 120 : actual.cost / actual.hours) - (offered.cost / offered.hours),
       amount: actual.cost - offered.cost,
-      reason_code: 'scope-change',
-      reason: 'Die historische 68-Stunden-Kalkulation zu 162,50 EUR wurde fuer die synthetische Projektstory durch das beauftragte Angebot mit 80 Stunden zu 120 EUR ersetzt; Spectra 0.10 ergaenzt den read-only Coverage-Nachweis ohne neue Leistung, und Angebot sowie Ist bleiben bei 80 Stunden und 9.600 EUR.'
+      reason_code: 'other-reviewed',
+      reason: 'Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant 80 Stunden und 9.600 EUR; Iststunden und Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet und stehen vor Ausführung bei null.'
     },
     truth_boundary: { owner: 'synthetic-fixture', source_of_truth: 'synthetic-fixture', invoice_claim: false, productive_activity_claim: false, billing_status: 'not-applicable' }
   };
@@ -142,7 +142,7 @@ export function buildTwinExportMap(index) {
 export function buildTicketExport(story, historicalSources = []) {
   const storyRecords = (story.tickets ?? []).map((ticket) => {
     const presentation = TICKET_TYPE_PRESENTATIONS[ticket.type] ?? {};
-    return { id:ticket.id, type:ticket.type, sourceType:ticket.type, canonicalType:ticket.type, ...presentation, parent:ticket.parent, childTicketIds:[...(ticket.childTicketIds??[])], dependencyRefs:[...(ticket.dependencies??[])], sourcePath:'evidence/simulation/project-story.json', visibility:'twin-visible', visibilityRole:'customer-project-story', countingScope:'active-project', status:ticket.status, statusReason:ticket.statusReason, summary:ticket.summary, description:ticket.description, deliverable:ticket.deliverable, deliverableRefs:[...(ticket.deliverableRefs??[])], pageRefs:[...(ticket.pageRefs??[])], decisionRefs:[...(ticket.decisionRefs??[])], meetingTranscriptRefs:[...(ticket.meetingTranscriptRefs??[])], phaseId:ticket.phaseId, phaseRefs:ticket.phaseRefs??null, phase:ticket.phase??null, reporter:ticket.reporter, reporterRole:ticket.reporterRole, assignee:ticket.assignee, assigneeRole:ticket.assigneeRole, participants:[...(ticket.participants??[])], billable:ticket.billable, billingSource:ticket.billingSource, estimateHours:ticket.estimateHours, actualHours:ticket.actualHours, remainingHours:ticket.remainingHours, hourlyRate:ticket.hourlyRate, netAmount:ticket.netAmount, acceptance:(ticket.acceptanceCriteria??[]).map((c)=>({criterion:c.criterion??c.text,fulfilled:c.fulfilled})), history:(ticket.statusHistory??[]), worklogs:(ticket.worklogs??[]), worklogHours:(ticket.worklogs??[]).reduce((s,w)=>s+w.hours,0), evidence:[...(ticket.evidenceRefs??[])], comments:(ticket.comments??[]).map((c)=>({id:c.id,type:c.type,time:c.time,actorRef:c.actorRef,actorType:c.actorType,actionRole:c.actionRole,evidenceRef:c.evidenceRef,text:c.text})) };
+    return { id:ticket.id, type:ticket.type, sourceType:ticket.type, canonicalType:ticket.type, ...presentation, parent:ticket.parent, childTicketIds:[...(ticket.childTicketIds??[])], dependencyRefs:[...(ticket.dependencies??[])], sourcePath:'evidence/simulation/project-story.json', visibility:'twin-visible', visibilityRole:'customer-project-story', countingScope:'active-project', status:ticket.status, statusReason:ticket.statusReason, summary:ticket.summary, description:ticket.description, deliverable:ticket.deliverable, deliverableRefs:[...(ticket.deliverableRefs??[])], pageRefs:[...(ticket.pageRefs??[])], decisionRefs:[...(ticket.decisionRefs??[])], meetingTranscriptRefs:[...(ticket.meetingTranscriptRefs??[])], phaseId:ticket.phaseId, phaseRefs:ticket.phaseRefs??null, phase:ticket.phase??null, reporter:ticket.reporter, reporterRole:ticket.reporterRole, assignee:ticket.assignee, assigneeRole:ticket.assigneeRole, participants:[...(ticket.participants??[])], billable:ticket.billable, billingSource:ticket.billingSource, estimateHours:ticket.estimateHours, actualHours:ticket.actualHours, remainingHours:ticket.remainingHours, acceptance:(ticket.acceptanceCriteria??[]).map((c)=>({criterion:c.criterion??c.text,fulfilled:c.fulfilled})), history:(ticket.statusHistory??[]), worklogs:(ticket.worklogs??[]).map(({ hourlyRate: _hourlyRate, netAmount: _netAmount, ...worklog }) => worklog), worklogHours:(ticket.worklogs??[]).reduce((s,w)=>s+w.hours,0), evidence:[...(ticket.evidenceRefs??[])], comments:(ticket.comments??[]).map((c)=>({id:c.id,type:c.type,time:c.time,actorRef:c.actorRef,actorType:c.actorType,actionRole:c.actionRole,evidenceRef:c.evidenceRef,text:c.text})) };
   });
   return { schemaVersion:1, projectId:story.projectId, classification:story.classification, sourceContract:'evidence/simulation/project-story.json', actorProfiles:structuredClone(story.actors??[]), generated:true, derivedFrom:['evidence/simulation/project-story.json','project/bc-basic/actor-register.yaml','project/bc-basic/ticket-migration.yaml'], canonicalTypes:['phase','epic','story','task'], typePresentations:structuredClone(TICKET_TYPE_PRESENTATIONS), liveIconPolicy:structuredClone(TICKET_LIVE_ICON_POLICY), views:structuredClone(TICKET_VIEWS), recordCount:storyRecords.length, customerStoryCount:storyRecords.length, internalTraceabilityCount:0, countedWorklogHours:storyRecords.reduce((s,t)=>s+t.worklogHours,0), ticketRecords:storyRecords, traceabilityRecords:[], traceabilityRelations:[] };
 /* legacy construction retained below for historical review but is unreachable */
@@ -222,10 +222,11 @@ export function buildTicketExport(story, historicalSources = []) {
 
 export function ticketExportErrors(ticketExport) {
   const errors=[]; const records=ticketExport?.ticketRecords??[]; const byId=new Map(records.map(r=>[r.id,r]));
+  if (ticketExport?.sourceContract === TICKET_EXPORT_PATH) errors.push('self-reference');
   if (/\b(?:TKT-UABC-[A-Z0-9-]+|UABC-PHASE-\d+)\b/.test(JSON.stringify(records))) errors.push('active-legacy-id');
-  if(records.length!==50||ticketExport.recordCount!==50||ticketExport.customerStoryCount!==50||ticketExport.internalTraceabilityCount!==0||ticketExport.traceabilityRecords?.length!==0) errors.push('ticket-count');
+  if(records.length===0||ticketExport.recordCount!==records.length||ticketExport.customerStoryCount!==records.length||ticketExport.internalTraceabilityCount!==0||ticketExport.traceabilityRecords?.length!==0) errors.push('ticket-count');
   if(new Set(records.map(r=>r.id)).size!==records.length) errors.push('duplicate-id');
-  if(ticketExport.countedWorklogHours!==80||records.reduce((s,r)=>s+r.worklogHours,0)!==80) errors.push('double-count');
+  if(ticketExport.countedWorklogHours!==records.reduce((s,r)=>s+r.worklogHours,0)) errors.push('double-count');
   if(JSON.stringify(ticketExport.typePresentations)!==JSON.stringify(TICKET_TYPE_PRESENTATIONS)) errors.push('type-presentation');
   for(const t of records){if(!CANONICAL_TICKET_TYPES.includes(t.type)||t.type!==t.canonicalType) errors.push(`${t.id}:unknown-type`); if(!byId.has(t.parent)&&t.parent!==null) errors.push(`${t.id}:parent`); if(t.type==='phase'&&t.parent!==null) errors.push(`${t.id}:phase-parent`); if(t.type==='task'&&t.billable!==true) errors.push(`${t.id}:billable`);}
   if(JSON.stringify(ticketExport.views)!==JSON.stringify(TICKET_VIEWS)) errors.push('ticket-view-contract');
@@ -347,5 +348,5 @@ export function writeIntegration(root = process.cwd()) {
 if (process.argv[1]?.endsWith('generate-spectra-0.10-integration.mjs')) {
   if (!process.argv.includes('--write')) throw new Error('Die Erzeugung benoetigt --write; ohne Schalter bleibt der Arbeitsbaum unveraendert.');
   const generated = writeIntegration();
-  console.log(`Spectra-0.10-Integration erzeugt: 50 aktive Tickets (3 Phasen, 10 Epics, 18 Stories, 19 Tasks), 80h/9.600 EUR, ${generated.source.relations.length} native Relationen, ${generated.projection.edges.length} portable Kanten und ${generated.exportMap.artifacts.length} Twin-Artefakte.`);
+  console.log(`Spectra-0.10-Integration erzeugt: ${generated.ticketExport.ticketRecords.length} aktive Tickets, ${generated.ticketExport.countedWorklogHours} Iststunden, ${generated.source.relations.length} native Relationen, ${generated.projection.edges.length} portable Kanten und ${generated.exportMap.artifacts.length} Twin-Artefakte.`);
 }
