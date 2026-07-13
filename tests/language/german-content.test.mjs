@@ -170,6 +170,10 @@ test('maschinenlesbare Pilotstatus und Relationstypen bleiben eng gebundene tech
       'resetDecision: pending-resetpoint-evidence',
       'allowedDecisions:',
       '  - clean-new-company-or-copy',
+      'allowedOptions:',
+      '  - clean-new-company-or-copy',
+      'nextExecutableStep: W0-01-read-company-identity',
+      'nextAllowedStep: W0-01-read-company-identity',
       'classification: current-read-only-evidence'
     ].join('\n')),
     entry('evidence/relationen.json', JSON.stringify({
@@ -180,6 +184,11 @@ test('maschinenlesbare Pilotstatus und Relationstypen bleiben eng gebundene tech
   ];
   assert.deepEqual(scanEntries(entries).violations, []);
   assert.equal(violations('docs/sichtbar.md', '# Status\nThe customer workflow requires careful approval.').length, 1);
+  const prose = scanEntries([entry('evidence/sichtbarer-text.yaml', [
+    'notes: W0-01-read-company-identity',
+    'description: clean-new-company-or-copy'
+  ].join('\n'))]);
+  assert.ok(prose.violations.length >= 2);
 });
 
 test('historische Roh-Nachweise sind nur mit exaktem Pfad und Git-Blob ausgenommen', () => {

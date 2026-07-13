@@ -6,7 +6,7 @@ status: standard-cronus-demo-baseline-pilot-build-pending
 simulation: false
 environmentRef: Playthru
 companyRef: UABC-BASIC-DE
-evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
 currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
 historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
 commercialBaseline:
@@ -20,6 +20,7 @@ commercialBaseline:
 companyInformation:
   currentState:
     baselineKind: standard-cronus-demo
+    baselineProvenance: microsoft-standard-cronus-demo-data
     pilotConfigured: false
     writesApplied: false
     readbackStatus: pending
@@ -29,6 +30,27 @@ companyInformation:
     targetDisplayName: Universaarl GmbH (BC Basic Pilot)
     targetDecision: pending-wave-0-evidence
     resetDecision: pending-resetpoint-evidence
+  targetState:
+    classification: bc-basic-target-not-applied
+    technicalCompanyName: UABC-BASIC-DE
+    displayName: Universaarl GmbH (BC Basic Pilot)
+    configurationScope: CORE-FINANCE nach bestandenem Wave-0-, Zielmandanten-, Reset- und Schreibfreigabegate
+    laterLockedWaves: [UABC-02-TRADE-MASTER, UABC-03-OPENING-DATA]
+  appliedDifference:
+    status: none-evidenced
+    readbackStatus: pending
+    readbackEvidence: []
+  companyStrategyDecision:
+    decisionId: UABC-DEC-PILOT-TARGET-001
+    status: blocked-pending-wave0-and-reset-evidence
+    selectedOption: null
+    allowedOptions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
+    requiredEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
+    decisionEvidence: []
+    ownerRef: P-PILOT-LEAD-001
+    decisionAuthority: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
+    nextExecutableStep: W0-01-read-company-identity
+    writesAuthorized: false
   targetValues:
     name: Universaarl GmbH
     address: Simulationsstraße 1
@@ -51,6 +73,8 @@ companyInformation:
     swift: ""
     allowEmptyPaymentInformation: true
   historicalObservedValues:
+    classification: historical-playthru-execution-superseded-for-active-readiness
+    currentAuthority: false
     name: Universaarl GmbH
     address: Simulationsstraße 1
     postCode: "66123"
@@ -66,7 +90,7 @@ companyInformation:
     isoCode: DE
     numericIsoCode: 276
     addressFormat: Post Code+City
-    status: validated
+    status: planned-not-applied
     requiredBeforeCompanyInformation: true
   identifierPolicy:
     validationStatus: pending
@@ -77,7 +101,7 @@ packageWaves:
     sequence: 1
     state: skeleton-only
     entry: Zielgesellschaft gebunden; Country/Region-Abhaengigkeit sichtbar; Schreibscope und Reset geklaert.
-    scope: Company Information nach Seed, General Ledger Setup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden, Dimensionen und Bankbaseline.
+    scope: Company Information nach Seed, General Ledger Setup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden und Dimensionen; keine Bankkonten oder Bankbaseline in CORE.
     exit: Alle aufgenommenen Tabellen und Felder sind fachlich freigegeben, referenziell gueltig und feldnah geprueft.
     ownerRef: P-PILOT-LEAD-001
     validation: Keine Tabelle vor freigegebener Abhaengigkeitsmatrix; aktuell 0 Tabellen und keine Setupwirkung.
@@ -105,7 +129,7 @@ packageWaves:
 dependencyMatrix:
   - { sequence: 1, prerequisite: PRESEED, result: Country/Region DE vorhanden, validation: Code DE aufloesbar, ownerRef: P-PILOT-LEAD-001 }
   - { sequence: 2, prerequisite: PRESEED, result: Company Information darf Zielwert DE erhalten, validation: Speichern und erneutes Lesen, ownerRef: P-PILOT-LEAD-001 }
-  - { sequence: 3, prerequisite: CORE-FINANCE, result: Kernsetup Posting VAT Nummernserien Zahlungsbedingungen Zahlungsmethoden Dimensionen Bankbaseline, validation: Feld- und Matrixpruefung, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 3, prerequisite: CORE-FINANCE, result: Kernsetup Posting VAT Nummernserien Zahlungsbedingungen Zahlungsmethoden und Dimensionen ohne Bankkonto, validation: Feld- und Matrixpruefung, ownerRef: P-PILOT-LEAD-001 }
   - { sequence: 4, prerequisite: UABC-02-TRADE-MASTER, result: Stammdaten Postingsgruppen Lager und Preise, validation: Referenz- und Dublettenpruefung, ownerRef: P-PILOT-LEAD-001 }
   - { sequence: 5, prerequisite: UABC-03-OPENING-DATA, result: Journals fuer Anfangssalden offene Posten und Bestand, validation: Buchungs- und Abstimmkontrollen, ownerRef: P-PILOT-LEAD-001 }
 prohibitedPackageTables:

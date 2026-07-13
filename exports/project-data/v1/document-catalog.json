@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "6399a6aa8061ce60433fb1cf057199176f075ccbc5b7fa1cc083c64e598530ea",
+      "contentSha256": "9d11c6bf57600b6f5dcda551cec332bc5b45fd628a6659b50475303e424b7cfa",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -722,8 +722,8 @@
         "UABC-REQ-BCB-006",
         "UABC-REQ-BCB-009"
       ],
-      "lastReviewed": "2026-09-03",
-      "contentSha256": "35393ebb439f2f6c6d61081d138544d8cc01f0ad3c9224db4e08030cbb9155e2",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "fad447f79908ae2d2ce698e00e876ce79815f597fde7429786b19101eac75583",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -824,8 +824,8 @@
         "UABC-CAP-CATALOG-001",
         "UABC-REQ-CAP-002"
       ],
-      "lastReviewed": "2026-07-12",
-      "contentSha256": "774a86a0d2166670266cf57c523aac2bd31951f0e3d1f964087453aa873ca828",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "a12762bb4b443c4bed36c82d18683b52297251f63ac96813f912c8bf482378c5",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -940,7 +940,7 @@
         "UABC-VER-ENV-POLICY-GATE-001"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "6e2e229c410496585458fe747097c2dcf62d10b52edf79f16be758276f0e7111",
+      "contentSha256": "3a2574c70eb61ab9f53c339a0136e1da1c17c50e436e5768e7a64e3947ea9a57",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1102,8 +1102,8 @@
         "UABC-REQ-BCB-008",
         "UABC-REQ-BCB-009"
       ],
-      "lastReviewed": "2026-09-03",
-      "contentSha256": "807bcf8ecaa41fd98901cea90cd4ca192c10d398caa1eb7c5b7f7e9563d4eade",
+      "lastReviewed": "2026-07-13",
+      "contentSha256": "124c2223236cf85d5d501fc3163451f3c107220e3372e7d0b3e887eda57dea62",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1656,7 +1656,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "d9d97a5567606faa5733ed0cf9c405d9f839ad8a5ef4c6db991513cafb281609",
+      "contentSha256": "3f19bd28f0077993c9caacb3b7ae523b1e28d967cb1f734d8fa319bd3124d39e",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,

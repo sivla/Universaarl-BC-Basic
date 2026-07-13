@@ -27,9 +27,10 @@
     "configurationState": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["baselineKind", "pilotConfigured", "writesApplied", "readbackStatus", "technicalCompanyName", "internalCompanyId", "observedDisplayName", "targetDisplayName", "targetDecision", "resetDecision"],
+      "required": ["baselineKind", "baselineProvenance", "pilotConfigured", "writesApplied", "readbackStatus", "technicalCompanyName", "internalCompanyId", "observedDisplayName", "targetDisplayName", "targetDecision", "resetDecision", "targetState", "appliedDifference", "companyStrategyGate"],
       "properties": {
         "baselineKind": { "const": "standard-cronus-demo" },
+        "baselineProvenance": { "const": "microsoft-standard-cronus-demo-data" },
         "pilotConfigured": { "const": false },
         "writesApplied": { "const": false },
         "readbackStatus": { "const": "pending" },
@@ -38,7 +39,43 @@
         "observedDisplayName": { "const": "Universaarl GmbH" },
         "targetDisplayName": { "const": "Universaarl GmbH (BC Basic Pilot)" },
         "targetDecision": { "const": "pending-wave-0-evidence" },
-        "resetDecision": { "const": "pending-resetpoint-evidence" }
+        "resetDecision": { "const": "pending-resetpoint-evidence" },
+        "targetState": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["classification", "displayName", "configurationScope", "laterLockedWaves"],
+          "properties": {
+            "classification": { "const": "bc-basic-target-not-applied" },
+            "displayName": { "const": "Universaarl GmbH (BC Basic Pilot)" },
+            "configurationScope": { "type": "string", "minLength": 40 },
+            "laterLockedWaves": { "const": ["UABC-02-TRADE-MASTER", "UABC-03-OPENING-DATA"] }
+          }
+        },
+        "appliedDifference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "readbackStatus", "readbackEvidenceCount"],
+          "properties": {
+            "status": { "const": "none-evidenced" },
+            "readbackStatus": { "const": "pending" },
+            "readbackEvidenceCount": { "const": 0 }
+          }
+        },
+        "companyStrategyGate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "selectedOption", "allowedOptions", "requiredEvidence", "decisionEvidenceCount", "decisionAuthority", "nextExecutableStep", "writesAuthorized"],
+          "properties": {
+            "status": { "const": "blocked-pending-wave0-and-reset-evidence" },
+            "selectedOption": { "type": "null" },
+            "allowedOptions": { "const": ["controlled-reuse-of-dedicated-cronus-copy", "clean-new-company-or-copy"] },
+            "requiredEvidence": { "type": "array", "minItems": 6, "maxItems": 6, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } },
+            "decisionEvidenceCount": { "const": 0 },
+            "decisionAuthority": { "const": "project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision" },
+            "nextExecutableStep": { "const": "W0-01-read-company-identity" },
+            "writesAuthorized": { "const": false }
+          }
+        }
       }
     },
     "packages": {
@@ -93,12 +130,12 @@
       "properties": {
         "writesAuthorized": { "const": false },
         "noGoSteps": { "const": ["RUN-06", "RUN-07", "RUN-08", "RUN-09", "RUN-10", "RUN-11", "RUN-12", "RUN-13", "RUN-14", "RUN-15", "RUN-16", "RUN-17", "RUN-18", "RUN-19", "RUN-20", "RUN-21", "RUN-22"] },
-        "nextAllowedStep": { "const": "Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen" }
+        "nextAllowedStep": { "const": "W0-01-read-company-identity" }
       }
     },
     "provenance": {
       "type": "array",
-      "minItems": 6,
+      "minItems": 7,
       "items": {
         "type": "object",
         "additionalProperties": false,

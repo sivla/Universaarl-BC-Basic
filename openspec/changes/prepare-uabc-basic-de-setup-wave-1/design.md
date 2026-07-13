@@ -9,6 +9,8 @@
 5. Erst nach separater authentisierter Laufentscheidung freigegebene Setupzeilen anwenden und jede Wirkung read-back pruefen.
 6. Paket `UABC-02-TRADE-MASTER` erst nach bestandenem CORE-Abschluss vorbereiten; Paket `UABC-03-OPENING-DATA` weder importieren noch anwenden.
 
+Die kanonische Pilot-Setup-Baseline besitzt dafür ein Entscheidungsobjekt mit genau zwei erlaubten Optionen, einer leeren Auswahl, der noch fehlenden Evidence, dem Owner und `W0-01` als nächstem ausführbaren Nur-Lese-Schritt. Matrix, Run-Plan, Projektstory und Twin-Projektion übernehmen nur diese Gate-Wahrheit. Eine Option darf erst nach dokumentierter Company-ID, CRONUS-Inventur, Fremdmandantenabgrenzung und Reset-/Wiederanlaufnachweis ausgewählt werden.
+
 ## Matrixvertrag
 
 Jeder Eintrag nennt Paket, Tabelle, belastbare Tabellen-ID oder `sandbox-confirmation-required`, Felder, Include-/Exclude-Entscheidung, Abhaengigkeit, Reihenfolge, Mandant, Quelle, Validierung, Wirkung, Ausschlussgrund, Owner und Evidence. Unbestaetigte Feld-IDs werden nicht erfunden. Singleton-Setup und komplexe UI-Logik duerfen als manueller Schritt klassifiziert werden.
@@ -16,6 +18,8 @@ Jeder Eintrag nennt Paket, Tabelle, belastbare Tabellen-ID oder `sandbox-confirm
 ## Sicherheitsvertrag
 
 Der Live-Lauf stoppt vor dem ersten Write bei fehlendem Wave-0-Readback, unbekannter Standard-CRONUS-Provenienz, fehlender Zielentscheidung, falschem Environment, falscher Gesellschaft, abweichender BC-Version/Lokalisierung/Rolle, fehlendem Resetpunkt, nicht leerem Paketgeruest, unbekannter Tabellen-ID, Schemaabweichung oder fehlender direkter Berechtigung. Eine blosse Umbenennung darf nie `pilotConfigured=true` setzen. Teilanwendungen werden nicht blind wiederholt. Die Ausgangs- und Nachkontrolle erfolgt ueber BC-Seiten sowie Paketfehler/Datensatzzaehler, nicht ueber importierte Ledger-Tabellen.
+
+CORE-FINANCE ist damit planseitig vorbereitet, aber nicht ausführbar. Der erste spätere BC-Schritt ist ausschließlich `W0-01`: interne Company-ID und technischen Namen lesend erfassen. Erst nach vollständigem Wave 0, ausgewählter Zielstrategie, Resetpunkt und separater Schreibfreigabe können RUN-06 bis RUN-22 neu bewertet werden.
 
 ## Projektstory- und Twin-Vertrag
 

@@ -748,7 +748,7 @@ documentCatalog:
         - UABC-REQ-BCB-003
         - UABC-REQ-BCB-006
         - UABC-REQ-BCB-009
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -972,7 +972,7 @@ documentCatalog:
         - UABC-REQ-BCB-006
         - UABC-REQ-BCB-008
         - UABC-REQ-BCB-009
-      lastReviewed: 2026-09-03
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -1144,7 +1144,7 @@ documentCatalog:
       referenceIds:
         - UABC-CAP-CATALOG-001
         - UABC-REQ-CAP-002
-      lastReviewed: 2026-07-12
+      lastReviewed: 2026-07-13
       visibility: twin-visible
       readiness: verified-with-history
       externalUrl: null
@@ -2149,16 +2149,6 @@ artifacts:
   - id: UABC-SRC-BCB-PILOT-SETUP-BASELINE-001
     kindId: pilot-setup-baseline
     path: project/bc-basic/pilot-setup-baseline.yaml
-    format: yaml
-    required: true
-  - id: UABC-SRC-BCB-PILOT-SETUP-EVIDENCE-001
-    kindId: pilot-setup-evidence
-    path: evidence/playthru-uabc-basic-de/setup-baseline.yaml
-    format: yaml
-    required: true
-  - id: UABC-SRC-BCB-COMPANY-EXEC-EVIDENCE-001
-    kindId: country-company-information-execution-evidence
-    path: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
     format: yaml
     required: true
   - id: UABC-SRC-BCB-PILOT-SETUP-VAL-001

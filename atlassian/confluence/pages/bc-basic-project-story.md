@@ -31,7 +31,7 @@ referenceIds:
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
 lastReviewed: 2026-07-13
-version: 6
+version: 7
 ---
 
 # 03 Projekte
@@ -45,6 +45,8 @@ Diese Seite ist die Managementsicht auf den neu gestarteten Playthru-Pilot. Sie 
 Der aktuelle Lauf steht auf `current-pilot-planning`. `UABC-BASIC-DE` ist eine CRONUS-Demo-Ausgangsbasis; ein eingerichteter Kundenpilot ist nicht belegt.
 
 `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` bleiben verbindlich, bis Wave-0, Resetpunkt, kontrollierte Zielentscheidung und spätere Soll-/Ist-Readbacks belegt sind.
+
+Die Zielstrategie ist `blocked-pending-wave0-and-reset-evidence`; es ist noch keine Option ausgewählt. `W0-01-read-company-identity` ist der nächste ausführbare, ausschließlich lesende BC-Schritt.
 
 ## Projektverlauf, Steuerung und Ticketwahrheit
 
@@ -139,4 +141,4 @@ Die aktuelle Space-Struktur ordnet Kundendokumentation, Standardprodukt und inte
 - [Referenzgraph-Mapping](../../../exports/project-data/v1/reference-graph-mapping.json)
 - [Portabler Referenzgraph](../../../exports/project-data/v1/reference-graph-portable.json)
 
-<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-150","title":"03 Projekte","parent":null,"version":7,"status":"published"} -->

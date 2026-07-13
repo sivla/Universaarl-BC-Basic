@@ -11,7 +11,7 @@ purpose: Interne Schrittfolge für sichere Vorbereitung, Konfiguration, Migratio
 audience: Consultant, Solution Architecture, Datenverantwortung und Testleitung
 owners:
   - P-002
-version: 5
+version: 6
 status: published
 jiraRefs:
   - UABC-11
@@ -33,7 +33,7 @@ lastReviewed: 2026-07-13
 ## Einsatzvoraussetzungen
 
 Diese interne Anleitung verbindet Umgebungskontrolle, BC-Konfiguration, Datenmigration und Testübergabe.
-Sie enthält keine Zugangsdaten und keine Behauptung über eine konkrete Kundenumgebung.
+Sie enthält keine Zugangsdaten, keine Kundenevidence und keine Behauptung über eine konkrete Kundenumgebung.
 
 ## Sicherheits- und Qualitätsprinzip
 
@@ -99,7 +99,7 @@ Die Übergabe umfasst Baseline, Testdaten, bekannte Einschränkungen, Evidencepf
 Voraussetzung laut Microsoft Learn ist eine fuer die Mandantenverwaltung geeignete Berechtigung.
 Im Zielsystem wird `SUPER` sichtbar bestaetigt und nicht aus einer Rollenanmutung abgeleitet.
 
-- **Neu erstellen - Keine Daten:** leerer Pilot oder kontrollierter Neuaufbau; verwendet fuer `UABC-BASIC-DE`.
+- **Neu erstellen - Keine Daten:** leerer Pilot oder kontrollierter Neuaufbau; die Eignung wird je Kundenprojekt entschieden.
 - **Neu erstellen - Nur Produktionssetupdaten:** nur wenn Standardsetupdaten fachlich geeignet und deren Herkunft geprueft sind.
 - **Evaluation:** ausschliesslich Evaluierungszweck, nie still als Kundenbaseline.
 - **Kopie:** nur bei ausdruecklicher Quelle-/Zielentscheidung, Datenschutzpruefung und Stillstandsfenster; keine Backupstrategie.
@@ -117,21 +117,18 @@ Loeschen ist eine separate freigabepflichtige Aktion. Eine Kopie ersetzt kein Ba
 ### 7. Paketabhaengigkeiten vor Tabellenaufnahme
 
 1. PRESEED: Country/Region `DE` bereitstellen und aufloesen.
-2. `UABC-01-CORE-FINANCE`: Kernsetup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden, Dimensionen und Bankbaseline.
+2. `UABC-01-CORE-FINANCE`: Kernsetup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden und Dimensionen; Bankkonten gehören nicht in CORE.
 3. `UABC-02-TRADE-MASTER`: Debitoren, Kreditoren, Artikel, Lager, Einheiten und Preise.
 4. `UABC-03-OPENING-DATA`: Anfangssalden, offene Posten und Bestand ausschliesslich ueber kontrollierte Journals und Buchungen.
 
 Jeder Schritt besitzt Entry, Exit, Owner, Validierung und gegebenenfalls Defect/Retest.
 Gebuchte G/L-, Debitoren-, Kreditoren-, VAT-, Item-, Value- oder Bank-Ledger-Tabellen werden nie als Paketinhalt aufgenommen.
 
-### 8. Ausgefuehrter Country-/Company-Schritt
+### 8. Kundenspezifische Anwendung der Methode
 
-Im Pilotmandanten `UABC-BASIC-DE` wurde Country/Region `DE` angelegt und per Readback geprueft.
-Anschliessend wurden ausschliesslich die freigegebenen synthetischen Firmendaten gespeichert.
-Der technische Mandant bleibt vom Legacy-Mandanten `UNIVERSAARL-DE` unterscheidbar.
-Der rechtliche Firmenname lautet Universaarl GmbH.
+Der Consulting-Space führt keine ausgeführte Country-, Company- oder Paketwirkung. Das Kundenprojekt dokumentiert seinen Iststand, die Zielstrategie, den Resetpunkt, jede Schreibfreigabe und die späteren Readbacks in der dort kanonischen Baseline und Evidence.
 
-Die drei Konfigurationspakete blieben unveraendert bei jeweils `0` Tabellen, `0` Datensaetzen und `0` Fehlern. Es gab keinen Import, keine Buchung und keine Aenderung von Geschaeftsdaten.
+Ein historischer Referenzlauf darf nur als abgelöste Methodenprovenienz verwendet werden. Er erfüllt kein aktuelles Kundengate. Ohne belegte Zielgesellschaft, Reset-/Wiederanlaufweg und getrennte Ist-/Soll-/Applied-Sicht bleibt jede schreibende Konfiguration gesperrt.
 
 ## Stopkriterien, Evidence und Übergabe
 
@@ -146,4 +143,4 @@ Die drei Konfigurationspakete blieben unveraendert bei jeweils `0` Tabellen, `0`
 - [Produkt: Prozess- und Konfigurationsstandard](31-processes.md)
 - [Produkt: Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-070","title":"03 BC-Einrichtung und Konfigurationspakete","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-070","title":"03 BC-Einrichtung und Konfigurationspakete","parent":null,"version":6,"status":"published"} -->

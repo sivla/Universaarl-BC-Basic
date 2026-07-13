@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: 35cb1de6d7347d0729036f5d134290c05f0d4605b3d9c7b905b02bb23bef05b4
+  projectionDigest: d8eb0167b7a792aa8bd3abb2f4363087d55922f39fb07d097bdcb0c4cad8fce9
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -25,24 +25,24 @@ reconciliation:
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: 4804f1b0fcac789ba396d206bb80caec9bf6d5c64c1da3faf8832f36d9ab640f
+  sourceHash: 766386d50eea2c2a032ebf3555379d599d076a344a675c2697ac35ba96e375c8
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: cf71fc5c57773bfea08caa0c5f852cb1170a68b1201e8bddc6e2d3bd43ff6c19
+  projectionDigest: 51c6a572e63ae7400c1615577dfd5c7cc31dd4bf7cdd3c2da2c7816cb5bec989
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
-  nativeRelations: 1020
-  portableEdges: 346
-  accountedNativeRelations: 1020
+  nativeRelations: 1034
+  portableEdges: 360
+  accountedNativeRelations: 1034
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
-  sourceDigest: 5a6f9997cfdfb5064a18b75ef7116cfc618cca55947c890d18ededff19adc28c
+  sourceDigest: 3c3cd6f787b81874e87f0d3328f6f874c3bdb1f9162940e979c6248fd30ccbe0
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: ae53dc5df16e7bc646c150cf3314be2a37ced0a91945ee733bcc9a0ab664c804
+  projectionDigest: dba0af1727f1915be0d41127b2baf2938b0c8849f6d1f2bbe42b3f4ea44fe8ea
 counts:
   offerVersions: 3
   pages: 28
@@ -59,8 +59,8 @@ counts:
   timelineEvents: 15
   projectPhases: 14
   hypercareRecords: 3
-  nativeRelations: 1020
-  portableEdges: 346
+  nativeRelations: 1034
+  portableEdges: 360
 processCoverage:
   - Finance
   - P2P
@@ -82,8 +82,14 @@ truthBoundary: Unveränderte Standard-CRONUS-Demo-Ausgangsbasis; der
   aus aktiven Task-Worklogs.
 businessCentralPilotState:
   baselineKind: standard-cronus-demo
+  baselineProvenance: microsoft-standard-cronus-demo-data
   pilotConfigured: false
   writesApplied: false
   readbackStatus: pending
   targetDecision: pending-wave-0-evidence
   resetDecision: pending-resetpoint-evidence
+  targetState: bc-basic-target-not-applied
+  appliedDifferenceStatus: none-evidenced
+  companyStrategyStatus: blocked-pending-wave0-and-reset-evidence
+  selectedCompanyStrategy: null
+  nextExecutableStep: W0-01-read-company-identity

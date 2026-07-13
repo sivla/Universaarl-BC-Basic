@@ -12,7 +12,7 @@ spaceId: UABC-SPACE-CUSTOMER
 spaceType: customer-project
 order: 1
 storyPageId: PAGE-UABC-010
-purpose: Beschreibt das synthetische Unternehmen, seine Rollen, Volumina und Wertströme.
+purpose: Trennt den aktuellen Standard-CRONUS-Demo-Inhalt vom geplanten synthetischen BC-Basic-Unternehmensmodell.
 audience:
   - Sponsor
   - Projektleitung
@@ -29,26 +29,39 @@ referenceIds:
   - UABC-REQ-BCB-003
   - UABC-REQ-BCB-006
   - UABC-REQ-BCB-009
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 01 Unternehmen
 
 ## Unternehmensprofil
 
-Der Referenzfall bildet eine kleine deutsche Handelsgesellschaft ab.
-Das Unternehmensmodell ist absichtlich schlank, damit Finance, Einkauf, Verkauf, Zahlung, Lager und Monatsabschluss ohne kundenspezifische Erweiterung Ende zu Ende demonstriert werden können.
+### Aktueller BC-Iststand
+
+Die Gesellschaft `UABC-BASIC-DE` enthält aktuell Microsoft-Standard-CRONUS-Demodaten. Dieser Zustand ist `standard-cronus-demo`, nicht die unten beschriebene Universaarl-Ausprägung.
+
+Technischer Gesellschaftsname, URL oder sichtbarer Anzeigename sind kein Einrichtungsnachweis; `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` bleiben verbindlich.
+
+Die interne Company-ID, die vollständige Baseline-Inventur und ein belastbarer Reset-/Wiederanlaufpunkt fehlen noch. Deshalb ist die Zielstrategie `blocked-pending-wave0-and-reset-evidence`; ausgewählt ist weder kontrollierte Weiterverwendung noch Neuanlage beziehungsweise Kopie.
+
+Der nächste zulässige BC-Schritt lautet ausschließlich `W0-01-read-company-identity` und ist nur lesend.
+
+### Geplanter BC-Basic-Sollstand
+
+Der Status `bc-basic-target-not-applied` beschreibt eine kleine synthetische deutsche Handelsgesellschaft. Das Unternehmensmodell ist absichtlich schlank, damit Finance, Einkauf, Verkauf, Zahlung, Lager und Monatsabschluss später ohne kundenspezifische Erweiterung Ende zu Ende geprüft werden können.
+
+Noch kein Sollwert gilt als angewendet.
 
 ## Betriebsmodell und Gültigkeit
 
-Das Betriebsmodell ist synthetisch abgestimmt und durchgängig mit den Daten-, Prozess- und Buchungsnachweisen verbunden. Es ist ein realistisches Standardmuster, keine Aussage über eine reale Universaarl-Gesellschaft.
+Das Betriebsmodell ist ein geplantes synthetisches Standardmuster, keine Aussage über den aktuellen CRONUS-Datenbestand und keine Aussage über eine reale Universaarl-Gesellschaft. Nur spätere feldgenaue Readbacks dürfen eine tatsächlich angewendete Abweichung belegen.
 
 ## Organisation, Wertströme und Volumina
 
 ### Geschäftsmodell und Organisation
 
-`UABC-BASIC-DE` handelt technische Standardartikel in Euro. Verwaltung und Buchhaltung arbeiten am Hauptsitz; Waren werden über den einfachen Lagerort `HAUPT` ohne Lagerplätze, Chargen oder Seriennummern geführt.
+Im Pilot-Soll handelt die synthetische Gesellschaft technische Standardartikel in Euro. Verwaltung und Buchhaltung arbeiten am Hauptsitz; Waren sollen über den einfachen Lagerort `HAUPT` ohne Lagerplätze, Chargen oder Seriennummern geführt werden.
 
 | Merkmal | Synthetische Ausprägung | Projektwirkung |
 |---|---|---|
@@ -92,4 +105,4 @@ Die Datenrolle liefert und bereinigt Vorlagen. Sponsor und Projektleitung entsch
 - [Beleg- und Postenketten](../../../evidence/simulation/bc-playthrough-ledger.yaml)
 - Der Prozessumfang ist mit den Tickets `UABC-34` und `UABC-35, UABC-36, UABC-37` verbunden.
 
-<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":null,"version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-010","title":"01 Unternehmen","parent":null,"version":6,"status":"published"} -->

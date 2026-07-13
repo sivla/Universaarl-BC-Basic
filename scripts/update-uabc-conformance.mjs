@@ -22,11 +22,17 @@ const typeCount = (type) => story.tickets.filter((ticket) => ticket.type === typ
 conformance.classification = 'current-pilot-planning';
 conformance.businessCentralPilotState = {
   baselineKind: story.businessCentralPilotState.baselineKind,
+  baselineProvenance: story.businessCentralPilotState.baselineProvenance,
   pilotConfigured: story.businessCentralPilotState.pilotConfigured,
   writesApplied: story.businessCentralPilotState.writesApplied,
   readbackStatus: story.businessCentralPilotState.readbackStatus,
   targetDecision: story.businessCentralPilotState.targetDecision,
-  resetDecision: story.businessCentralPilotState.resetDecision
+  resetDecision: story.businessCentralPilotState.resetDecision,
+  targetState: story.businessCentralPilotState.targetState,
+  appliedDifferenceStatus: story.businessCentralPilotState.appliedDifferenceStatus,
+  companyStrategyStatus: story.businessCentralPilotState.companyStrategyGate.status,
+  selectedCompanyStrategy: story.businessCentralPilotState.companyStrategyGate.selectedOption,
+  nextExecutableStep: story.businessCentralPilotState.companyStrategyGate.nextExecutableStep
 };
 conformance.portableConformance.projectionDigest = hash(Buffer.from(JSON.stringify(buildPortableStory(story, (relative) => read(relative)))));
 conformance.reconciliation = {

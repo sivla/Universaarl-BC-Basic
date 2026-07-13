@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import Ajv2020 from 'ajv/dist/2020.js';
 import YAML from 'yaml';
-import { PROJECTION_PATH, SCHEMA_PATH, INDEX_PATH, MAP_PATH, PROVENANCE_PATH, CONFORMANCE_PATH } from './generate-setup-wave-1-export.mjs';
+import { PROJECTION_PATH, SCHEMA_PATH, INDEX_PATH, MAP_PATH, PROVENANCE_PATH, CONFORMANCE_PATH, buildProjection } from './generate-setup-wave-1-export.mjs';
 import { buildTwinExportMap, lfBytes } from './generate-spectra-0.10-integration.mjs';
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export function validateProjection(projection, schema) {
@@ -12,7 +12,9 @@ export function validateProjection(projection, schema) {
   if (!valid(projection)) errors.push(...(valid.errors ?? []).map((error) => `${error.instancePath} ${error.message}`));
   if (projection.writesAuthorized !== false || projection.writeGate?.noGoSteps?.length !== 17) errors.push('SCHREIBSPERRE');
   const state = projection.configurationState ?? {};
-  if (state.baselineKind !== 'standard-cronus-demo' || state.pilotConfigured !== false || state.writesApplied !== false || state.readbackStatus !== 'pending' || state.internalCompanyId !== null || state.targetDecision !== 'pending-wave-0-evidence' || state.resetDecision !== 'pending-resetpoint-evidence' || state.observedDisplayName === state.targetDisplayName) errors.push('CRONUS-PILOT-TRENNUNG');
+  if (state.baselineKind !== 'standard-cronus-demo' || state.baselineProvenance !== 'microsoft-standard-cronus-demo-data' || state.pilotConfigured !== false || state.writesApplied !== false || state.readbackStatus !== 'pending' || state.internalCompanyId !== null || state.targetDecision !== 'pending-wave-0-evidence' || state.resetDecision !== 'pending-resetpoint-evidence' || state.observedDisplayName === state.targetDisplayName || state.targetState?.classification !== 'bc-basic-target-not-applied' || state.appliedDifference?.status !== 'none-evidenced' || state.appliedDifference?.readbackEvidenceCount !== 0) errors.push('CRONUS-PILOT-TRENNUNG');
+  const gate = state.companyStrategyGate ?? {};
+  if (gate.status !== 'blocked-pending-wave0-and-reset-evidence' || gate.selectedOption !== null || gate.allowedOptions?.join('|') !== 'controlled-reuse-of-dedicated-cronus-copy|clean-new-company-or-copy' || gate.requiredEvidence?.length !== 6 || gate.decisionEvidenceCount !== 0 || gate.decisionAuthority !== 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' || gate.nextExecutableStep !== 'W0-01-read-company-identity' || gate.writesAuthorized !== false || projection.writeGate?.nextAllowedStep !== gate.nextExecutableStep) errors.push('CRONUS-ZIELSTRATEGIE-GATE');
   return errors;
 }
 export function validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance = null }) {
@@ -24,10 +26,17 @@ export function validateAdapterProvenance({ provenance, indexBytes, mapBytes, co
   if (conformance && (conformance.adapterProvenance?.sourceHash !== provenance?.source?.source_hash || conformance.adapterProvenance?.projectionDigest !== provenance?.projection?.projection_digest)) errors.push('KONFORMITAET_ADAPTER_DIGEST');
   return errors;
 }
+export function validateCurrentAuthoritySurface(index, map) {
+  const errors = [];
+  const historicalPlaythruPaths = new Set(['evidence/playthru-uabc-basic-de/setup-baseline.yaml', 'evidence/playthru-uabc-basic-de/country-company-information-execution.yaml']);
+  if ((index?.artifacts ?? []).some((item) => historicalPlaythruPaths.has(item.path)) || (map?.artifacts ?? []).some((item) => historicalPlaythruPaths.has(item.path))) errors.push('HISTORISCHE-AUSFUEHRUNG-IN-AKTIVER-PROJEKTION');
+  return errors;
+}
 export function validateExport(root = process.cwd()) {
   const projection = JSON.parse(fs.readFileSync(path.join(root, PROJECTION_PATH), 'utf8'));
   const schema = JSON.parse(fs.readFileSync(path.join(root, SCHEMA_PATH), 'utf8'));
   const errors = validateProjection(projection, schema);
+  if (JSON.stringify(projection) !== JSON.stringify(buildProjection())) errors.push('PROJEKTION-QUELLBINDUNG');
   const indexBytes = lfBytes(fs.readFileSync(path.join(root, INDEX_PATH)));
   const index = YAML.parse(indexBytes.toString('utf8'));
   const map = JSON.parse(fs.readFileSync(path.join(root, MAP_PATH), 'utf8'));
@@ -35,6 +44,7 @@ export function validateExport(root = process.cwd()) {
   const provenance = JSON.parse(fs.readFileSync(path.join(root, PROVENANCE_PATH), 'utf8'));
   const conformance = YAML.parse(fs.readFileSync(path.join(root, CONFORMANCE_PATH), 'utf8'));
   if (JSON.stringify(map) !== JSON.stringify(buildTwinExportMap(index))) errors.push('EXPORTMAP_INDEX_BINDUNG');
+  errors.push(...validateCurrentAuthoritySurface(index, map));
   errors.push(...validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance }));
   for (const file of [PROJECTION_PATH, SCHEMA_PATH, 'scripts/generate-setup-wave-1-export.mjs', 'scripts/validate-setup-wave-1-export.mjs', 'tests/governance/setup-wave-1-export.test.mjs']) { if (!index.artifacts.some((item) => item.path === file) || !map.artifacts.some((item) => item.path === file)) errors.push(`POSITIVLISTE ${file}`); }
   return errors;

@@ -23,6 +23,8 @@ test('billable Non-Task wird abgelehnt',()=>has(run(d=>d.story.tickets.find(t=>t
 test('falsche Phase-Roots werden abgelehnt',()=>has(run(d=>d.story.tickets.find(t=>t.id==='UABC-3').id='UABC-300'),'PHASE-ROOTS'));
 test('zukünftiges Gate darf nicht erledigt sein',()=>has(run(d=>d.story.tickets.find(t=>t.id==='UABC-50').status='done'),'FUTURE-GATE-STATUS'));
 test('umbenannte CRONUS-Baseline bleibt unkonfiguriert',()=>has(run(d=>{d.story.businessCentralPilotState.pilotConfigured=true;d.story.businessCentralPilotState.observedDisplayName=d.story.businessCentralPilotState.targetDisplayName;}),'BC-PILOT-ZUSTAND'));
+test('vorzeitig ausgewaehlte Gesellschaftsstrategie bleibt blockiert',()=>has(run(d=>d.story.businessCentralPilotState.companyStrategyGate.selectedOption='controlled-reuse-of-dedicated-cronus-copy'),'BC-PILOT-ZUSTAND'));
+test('erfundene angewendete CRONUS-Differenz wird abgelehnt',()=>has(run(d=>d.story.businessCentralPilotState.appliedDifferenceStatus='applied'),'BC-PILOT-ZUSTAND'));
 test('generisches Task-Abnahmekriterium wird abgelehnt',()=>has(run(d=>d.story.tickets.find(t=>t.id==='UABC-39').acceptanceCriteria[0].criterion='Die Arbeit wird gemäß Beschreibung ausgeführt und mit Soll-/Ist-Readback dokumentiert.'),'TASK-ABNAHME-KONKRET'));
 test('generisches Story-Abnahmekriterium wird abgelehnt',()=>has(run(d=>d.story.tickets.find(t=>t.id==='UABC-21').acceptanceCriteria[0].criterion='Die Story ist fachlich mit der verantwortlichen Rolle abgestimmt und als überprüfbares Ergebnis beschrieben.'),'TICKET-ABNAHME-KONKRET'));
 test('Geldbetrag in Twin-Tickettext wird abgelehnt',()=>has(run(d=>d.story.tickets.find(t=>t.id==='UABC-32').summary='Projektauftrag mit 9.600 EUR abstimmen.'),'TWIN-TICKET-GELD'));

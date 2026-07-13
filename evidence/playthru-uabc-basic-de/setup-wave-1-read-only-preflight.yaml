@@ -28,6 +28,7 @@ configurationState:
   baseline:
     classification: standard-cronus-demo-baseline
     truthClass: user-confirmed-current-state
+    provenance: microsoft-standard-cronus-demo-data
     technicalCompanyName: UABC-BASIC-DE
     internalCompanyId: unknown-required-before-write
     observedDisplayName: Universaarl GmbH
@@ -38,9 +39,12 @@ configurationState:
     displayName: Universaarl GmbH (BC Basic Pilot)
     status: pilot-build-pending
     targetDecision: pending-wave-0-evidence
+    companyStrategyStatus: blocked-pending-wave0-and-reset-evidence
+    decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
   appliedDifference:
     status: none-evidenced
     readbackEvidence: []
+  nextExecutableStep: W0-01-read-company-identity
   rule: Nur spaeter autorisierte und je Feld gelesene Abweichungen duerfen als Pilotkonfiguration gelten.
 packages:
   - { packageId: UABC-01-CORE-FINANCE, tables: 0, records: 0, errors: 0 }
@@ -54,6 +58,12 @@ resetPoint:
   method: null
   createdAt: null
   restartPath: null
+companyStrategyDecision:
+  status: blocked-pending-wave0-and-reset-evidence
+  selectedOption: null
+  decisionEvidence: []
+  reason: Interne Company-ID, vollständige CRONUS-Inventur und belastbarer Reset-/Wiederanlaufnachweis fehlen noch.
+  nextExecutableStep: W0-01-read-company-identity
 truthBoundary:
   writePerformed: false
   companyRenamePerformed: false

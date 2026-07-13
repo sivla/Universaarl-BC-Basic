@@ -6,6 +6,7 @@ classification: autorisierter-sandbox-run-plan
 createdAt: 2026-07-13
 matrixPath: project/bc-basic/setup-wave-1-matrix.yaml
 parameterBaselinePath: project/bc-basic/setup-parameter-baseline.yaml
+pilotSetupBaselinePath: project/bc-basic/pilot-setup-baseline.yaml
 observedReadOnlyPreflightEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
 execution:
   performed: false
@@ -19,6 +20,7 @@ authorization:
   goReadOnlySteps: [PRE-01, PRE-02, PRE-03, PRE-04, PRE-05, PRE-06, PRE-07, PRE-08, PRE-09, PRE-10, PRE-11, PRE-12, RUN-01, RUN-02, RUN-03, RUN-04, RUN-05]
   noGoWriteSteps: [RUN-06, RUN-07, RUN-08, RUN-09, RUN-10, RUN-11, RUN-12, RUN-13, RUN-14, RUN-15, RUN-16, RUN-17, RUN-18, RUN-19, RUN-20, RUN-21, RUN-22]
   rule: PRE-01 bis PRE-12 und RUN-01 bis RUN-05 sind ausschliesslich lesend freigegeben; RUN-06 bis RUN-22 bleiben bis zu bestandenem Wave-0-Preflight, dokumentiertem Resetpunkt und ausdruecklicher separater Freigabe gesperrt.
+  nextExecutableStep: W0-01-read-company-identity
 target:
   hostClass: Business Central SaaS
   environment: Playthru
@@ -44,6 +46,9 @@ wave0Preflight:
   status: required-not-executed
   currentBaseline: standard-cronus-demo-baseline
   configuredPilotClaimed: false
+  decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
+  decisionGateStatus: blocked-pending-wave0-and-reset-evidence
+  nextExecutableStep: W0-01-read-company-identity
   checks:
     - { id: W0-01, check: interne Company-ID und technischer Name, expected: beide sichtbar gelesen und eindeutig UABC-BASIC-DE zugeordnet }
     - { id: W0-02, check: Name und Display Name, expected: Istwerte getrennt vom Pilot-Soll dokumentiert }
@@ -54,6 +59,7 @@ wave0Preflight:
   allowedDecisions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
   selectedDecision: null
   evidencePath: null
+  requiredDecisionEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
 preflight:
   - { id: PRE-01, check: sichtbarer Host ist Business Central SaaS, expected: true, stopOnMismatch: true }
   - { id: PRE-02, check: Environmentanzeige, expected: Playthru, stopOnMismatch: true }

@@ -10,14 +10,14 @@ purpose: Wiederverwendbare Prozess- und Einrichtungsvorgaben für BC Basic
 audience: Consultant, Solution Architecture und Key User
 owners:
   - P-002
-version: 6
+version: 7
 status: published
 jiraRefs:
   - UABC-3
 referenceIds:
   - UABC-CAP-CATALOG-001
   - UABC-REQ-CAP-002
-lastReviewed: 2026-07-12
+lastReviewed: 2026-07-13
 ---
 
 # 02 Leistungsumfang und Abgrenzung
@@ -25,6 +25,8 @@ lastReviewed: 2026-07-12
 ## Zweck des Standards
 
 Diese Seite beschreibt die fachliche Baseline des Produkts. Sie ist kein Kunden-Solution-Design: konkrete Konten, Nummernserien, Bankparameter, Steuerkennzeichen und Verantwortliche werden in der jeweiligen Kundeninstanz entschieden.
+
+Sie ist außerdem kein Statusnachweis für eine Kundeninstanz. Ob ein konkreter Mandant noch Standard-CRONUS-Demodaten enthält, bereits parametriert wurde oder ein Ausführungsgate erreicht hat, führt ausschließlich das jeweilige Kundenprojekt.
 
 ## Prozess- und Konfigurationsprinzip
 
@@ -97,4 +99,4 @@ Individuelle BI-Modelle, gesetzlich nicht bestätigte Auswertungen oder kundensp
 - [Lieferpaket, Tests und Standardtraining](81-bc-basic-handover.md)
 - [Consultant: Umgebung, Einrichtung, Daten und Testdurchführung](60-environment-baseline.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-040","title":"02 Leistungsumfang und Abgrenzung","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-040","title":"02 Leistungsumfang und Abgrenzung","parent":null,"version":7,"status":"published"} -->

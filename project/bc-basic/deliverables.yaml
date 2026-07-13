@@ -75,8 +75,8 @@ deliverables:
       - playwright/scenarios/bc-basic-e2e.yaml
       - atlassian/confluence/pages/72-bc-basic-implementation.md
       - project/bc-basic/pilot-setup-baseline.yaml
-      - evidence/playthru-uabc-basic-de/setup-baseline.yaml
-      - evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
     completionEvidence: null
     historicalEvidencePath: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-005

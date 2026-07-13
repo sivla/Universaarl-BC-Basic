@@ -9,13 +9,13 @@
   "native_relation_classes": [
     {
       "class_id": "native-reference",
-      "count": 1020
+      "count": 1034
     }
   ],
   "portable_relation_classes": [
     {
       "class_id": "portable-reference",
-      "count": 346
+      "count": 360
     }
   ],
   "mappings": [
@@ -25,24 +25,24 @@
       "portable_class": "portable-reference",
       "outcome": "transformed",
       "reason_code": "transformed-domain",
-      "native_count": 1020,
-      "portable_edge_count": 346
+      "native_count": 1034,
+      "portable_edge_count": 360
     }
   ],
   "summary": {
-    "native_total": 1020,
-    "portable_edge_total": 346,
-    "accounted_native_total": 1020,
-    "projected_native_total": 1020,
+    "native_total": 1034,
+    "portable_edge_total": 360,
+    "accounted_native_total": 1034,
+    "projected_native_total": 1034,
     "excluded_native_total": 0,
-    "coverage_numerator": 1020,
-    "coverage_denominator": 1020,
+    "coverage_numerator": 1034,
+    "coverage_denominator": 1034,
     "coverage_ratio": 1
   },
   "provenance": {
     "source": {
       "path": "exports/project-data/v1/reference-graph-native.json",
-      "sha256": "5a6f9997cfdfb5064a18b75ef7116cfc618cca55947c890d18ededff19adc28c"
+      "sha256": "3c3cd6f787b81874e87f0d3328f6f874c3bdb1f9162940e979c6248fd30ccbe0"
     },
     "mapping": {
       "path": "exports/project-data/v1/reference-graph-mapping.json",
@@ -50,7 +50,7 @@
     },
     "projection": {
       "path": "exports/project-data/v1/reference-graph-portable.json",
-      "sha256": "ae53dc5df16e7bc646c150cf3314be2a37ced0a91945ee733bcc9a0ab664c804"
+      "sha256": "dba0af1727f1915be0d41127b2baf2938b0c8849f6d1f2bbe42b3f4ea44fe8ea"
     },
     "digest_algorithm": "SHA-256",
     "source_mode": "read-only",

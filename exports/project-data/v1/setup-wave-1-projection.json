@@ -14,6 +14,7 @@
   },
   "configurationState": {
     "baselineKind": "standard-cronus-demo",
+    "baselineProvenance": "microsoft-standard-cronus-demo-data",
     "pilotConfigured": false,
     "writesApplied": false,
     "readbackStatus": "pending",
@@ -22,7 +23,41 @@
     "observedDisplayName": "Universaarl GmbH",
     "targetDisplayName": "Universaarl GmbH (BC Basic Pilot)",
     "targetDecision": "pending-wave-0-evidence",
-    "resetDecision": "pending-resetpoint-evidence"
+    "resetDecision": "pending-resetpoint-evidence",
+    "targetState": {
+      "classification": "bc-basic-target-not-applied",
+      "displayName": "Universaarl GmbH (BC Basic Pilot)",
+      "configurationScope": "CORE-FINANCE nach bestandenem Wave-0-, Zielmandanten-, Reset- und Schreibfreigabegate",
+      "laterLockedWaves": [
+        "UABC-02-TRADE-MASTER",
+        "UABC-03-OPENING-DATA"
+      ]
+    },
+    "appliedDifference": {
+      "status": "none-evidenced",
+      "readbackStatus": "pending",
+      "readbackEvidenceCount": 0
+    },
+    "companyStrategyGate": {
+      "status": "blocked-pending-wave0-and-reset-evidence",
+      "selectedOption": null,
+      "allowedOptions": [
+        "controlled-reuse-of-dedicated-cronus-copy",
+        "clean-new-company-or-copy"
+      ],
+      "requiredEvidence": [
+        "internal-company-id-readback",
+        "company-name-and-display-name-readback",
+        "standard-cronus-content-inventory",
+        "foreign-company-boundary-readback",
+        "resetpoint-with-restart-path",
+        "zero-package-state-readback"
+      ],
+      "decisionEvidenceCount": 0,
+      "decisionAuthority": "project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision",
+      "nextExecutableStep": "W0-01-read-company-identity",
+      "writesAuthorized": false
+    }
   },
   "packages": [
     {
@@ -82,7 +117,7 @@
       "RUN-21",
       "RUN-22"
     ],
-    "nextAllowedStep": "Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen"
+    "nextAllowedStep": "W0-01-read-company-identity"
   },
   "provenance": [
     {
@@ -92,6 +127,10 @@
     {
       "path": "project/bc-basic/setup-parameter-baseline.yaml",
       "role": "Singleton-Parameterbaseline"
+    },
+    {
+      "path": "project/bc-basic/pilot-setup-baseline.yaml",
+      "role": "Kanonischer CRONUS-Zielstrategieentscheid"
     },
     {
       "path": "project/bc-basic/posting-setup-matrix.yaml",

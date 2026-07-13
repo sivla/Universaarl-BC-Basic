@@ -12,13 +12,16 @@ export const PROVENANCE_PATH = 'evidence/simulation/adapter-provenance.json';
 export const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
 const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-const sources = ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/setup-parameter-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'];
+const sources = ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/setup-parameter-baseline.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'];
 
 export function buildProjection() {
   const matrix = readYaml(sources[0]);
-  const baseline = readYaml(sources[1]);
-  const preflight = readYaml(sources[4]);
-  const plan = readYaml(sources[5]);
+  const parameterBaseline = readYaml(sources[1]);
+  const pilotBaseline = readYaml(sources[2]);
+  const preflight = readYaml(sources[5]);
+  const plan = readYaml(sources[6]);
+  const companyState = pilotBaseline.companyInformation;
+  const strategy = companyState.companyStrategyDecision;
   return {
     schemaVersion: 1,
     exportId: 'UABC-EXP-SETUP-WAVE1-001',
@@ -28,6 +31,7 @@ export function buildProjection() {
     target: { environment: matrix.target.environment, companyId: matrix.target.companyId, platform: matrix.target.businessCentral.platform, application: matrix.target.businessCentral.application, pilotName: matrix.target.futureVisibleCompanyNames['UABC-BASIC-DE'], legacyName: matrix.target.futureVisibleCompanyNames['UNIVERSAARL-DE'] },
     configurationState: {
       baselineKind: 'standard-cronus-demo',
+      baselineProvenance: companyState.currentState.baselineProvenance,
       pilotConfigured: false,
       writesApplied: false,
       readbackStatus: 'pending',
@@ -36,18 +40,23 @@ export function buildProjection() {
       observedDisplayName: preflight.configurationState.baseline.observedDisplayName,
       targetDisplayName: preflight.configurationState.pilotTarget.displayName,
       targetDecision: preflight.configurationState.pilotTarget.targetDecision,
-      resetDecision: 'pending-resetpoint-evidence'
+      resetDecision: 'pending-resetpoint-evidence',
+      targetState: { classification: companyState.targetState.classification, displayName: companyState.targetState.displayName, configurationScope: companyState.targetState.configurationScope, laterLockedWaves: companyState.targetState.laterLockedWaves },
+      appliedDifference: { status: companyState.appliedDifference.status, readbackStatus: companyState.appliedDifference.readbackStatus, readbackEvidenceCount: companyState.appliedDifference.readbackEvidence.length },
+      companyStrategyGate: { status: strategy.status, selectedOption: strategy.selectedOption, allowedOptions: strategy.allowedOptions, requiredEvidence: strategy.requiredEvidence, decisionEvidenceCount: strategy.decisionEvidence.length, decisionAuthority: strategy.decisionAuthority, nextExecutableStep: strategy.nextExecutableStep, writesAuthorized: strategy.writesAuthorized }
     },
     packages: matrix.packages.map(({ packageId, status, liveState }) => ({ packageId, status, tables: liveState.tables, records: liveState.records, errors: liveState.errors })),
     preflight: { status: preflight.status, wave0Status: plan.wave0Preflight.status, workingDate: preflight.workingDate, operator: { userId: preflight.operator.userId, permissionSet: preflight.operator.permissionSet }, locale: preflight.locale, resetPoint: { status: preflight.resetPoint.status, requiredBeforeAnyWrite: preflight.resetPoint.requiredBeforeAnyWrite } },
-    writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: 'Wave-0-Preflight, Zielentscheidung und Resetpunkt dokumentieren; danach separate Freigabe einholen' },
-    provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorpruefung', 'Run-Plan und Schreibsperre'][index] }))
+    writeGate: { writesAuthorized: plan.authorization.writesAuthorized, noGoSteps: plan.authorization.noGoWriteSteps, nextAllowedStep: strategy.nextExecutableStep },
+    provenance: sources.map((file, index) => ({ path: file, role: ['Tabellen- und Paketvertrag', 'Singleton-Parameterbaseline', 'Kanonischer CRONUS-Zielstrategieentscheid', 'Buchungsmatrix', 'Nummernserien und Lösungssollwerte', 'Read-only-Vorpruefung', 'Run-Plan und Schreibsperre'][index] }))
   };
 }
 
 export function updateAllowlist(root = process.cwd()) {
   const index = readYaml(path.join(root, INDEX_PATH));
   index.governingChange = 'prepare-uabc-basic-de-setup-wave-1';
+  const historicalPlaythruPaths = new Set(['evidence/playthru-uabc-basic-de/setup-baseline.yaml', 'evidence/playthru-uabc-basic-de/country-company-information-execution.yaml']);
+  index.artifacts = index.artifacts.filter((item) => !historicalPlaythruPaths.has(item.path));
   const artifacts = [{ id: 'UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001', kindId: 'setup-wave-1-projection', path: PROJECTION_PATH, format: 'json', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-SCHEMA-001', kindId: 'setup-wave-1-projection-schema', path: SCHEMA_PATH, format: 'json-schema', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-GEN-001', kindId: 'setup-wave-1-projection-generator', path: 'scripts/generate-setup-wave-1-export.mjs', format: 'javascript', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-VAL-001', kindId: 'setup-wave-1-projection-validator', path: 'scripts/validate-setup-wave-1-export.mjs', format: 'javascript', required: true }, { id: 'UABC-SRC-BCB-SETUP-WAVE1-TEST-001', kindId: 'setup-wave-1-projection-tests', path: 'tests/governance/setup-wave-1-export.test.mjs', format: 'javascript', required: true }];
   for (const artifact of artifacts) if (!index.artifacts.some((item) => item.path === artifact.path)) index.artifacts.push(artifact);
   const indexPath = path.join(root, INDEX_PATH);

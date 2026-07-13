@@ -11,7 +11,8 @@ const evidence = [
   'project/bc-basic/setup-wave-1-matrix.yaml',
   'project/bc-basic/setup-parameter-baseline.yaml',
   'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml',
-  'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'
+  'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml',
+  'project/bc-basic/pilot-setup-baseline.yaml'
 ];
 const taskEvidence = {
   'UABC-32': ['docs/offers/bc-basic-offer.md', 'project/bc-basic/project-plan.yaml'],
@@ -22,7 +23,7 @@ const taskEvidence = {
   'UABC-37': ['atlassian/confluence/pages/71-bc-basic-discovery.md', 'project/bc-basic/decision-register.yaml'],
   'UABC-38': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
   'UABC-39': [...evidence],
-  'UABC-40': ['project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml'],
+  'UABC-40': ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
   'UABC-41': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
   'UABC-42': ['atlassian/confluence/pages/31-processes.md', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
   'UABC-43': ['atlassian/confluence/pages/31-processes.md', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
@@ -42,8 +43,8 @@ const taskAcceptance = {
   'UABC-36': ['Der Verkaufsstandard beschreibt Auftrag, Lieferung, Rechnung, Korrektur, Zahlungseingang und Ausgleich in fachlicher Reihenfolge.', 'Forderungs-, Umsatz-, VAT- und Bestandswirkung sind als Soll beschrieben und noch nicht als ausgeführt markiert.'],
   'UABC-37': ['Lagerort, Basiseinheit, Bewertungsmethode, Inventur und Negativbestandsregel sind als fachliches Soll dokumentiert.', 'Mengen- und Wertfluss besitzen eindeutige Kontrollpunkte, ohne eine ausgeführte Lagerbewegung zu behaupten.'],
   'UABC-38': ['Jedes Migrationsobjekt besitzt Owner, Quelle, Pflichtfelder, Referenzregeln und eine definierte Kontrollsumme.', 'Datenwellen bleiben bis zu ausgeführter Prüfung und differenzfreiem Readback offen; Alt-Simulationsevidence zählt nicht als aktuelles Ist.'],
-  'UABC-39': ['Wave-0-Readback belegt interne Company-ID, technischen Namen, Name, Display Name und die Standard-CRONUS-Demo-Ausgangsprovenienz von UABC-BASIC-DE.', 'Resetpunkt sowie die evidenzbasierte Entscheidung kontrollierte Weiterverwendung versus Neuanlage oder Kopie sind dokumentiert; ohne beides bleiben alle Writes gesperrt.'],
-  'UABC-40': ['CORE-FINANCE-Allowlist, Feldumfang, Abhängigkeiten und Singleton-Sollwerte bestehen die Setup-Wave-Validatoren.', 'Spätere Readbacks müssen Konten- und VAT-Matrix auflösen und zugleich 0 neu erzeugte Ledger-, Posted- oder Continia-Wirkungen belegen.'],
+  'UABC-39': ['Wave 0 liefert interne Company-ID, technische und sichtbare Namen, Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand als bereinigte Nur-Lese-Evidence.', 'Der Resetpunkt mit Wiederanlaufweg liegt vor und genau eine Zielstrategie ist begründet ausgewählt; solange Evidence fehlt, bleibt das Gate blockiert und W0-01 der nächste Schritt.'],
+  'UABC-40': ['CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe; TRADE-MASTER und OPENING-DATA bleiben gesperrt.', 'Alle freigegebenen CORE-Felder besitzen Soll-/Ist-Readback, Finance-Abnahme und den Negativnachweis ohne Ledger-, Posted-, Continia-, Bankkonto- oder Übermittlungswirkung.'],
   'UABC-41': ['Jede Datenvorlage besteht Pflichtfeld-, Referenz-, Dubletten- und Kontrollsummenprüfung vor einem Import.', 'Importfehler, Korrektur und Retest werden pro Welle dokumentiert; ohne differenzfreien Readback bleibt die Aufgabe offen.'],
   'UABC-42': ['Der P2P-Testfall nennt Sollbelege, erwartete Kontenwirkung, Mengen-/Preisabweichung und Abstimmkontrollen.', 'Bestellung bis Zahlung wird erst nach ausgeführtem Lauf, Ledger-Readback und dokumentiertem Retest als bestanden markiert.'],
   'UABC-43': ['Der O2C-Testfall nennt Sollbelege, erwartete Umsatz-/VAT-/Bestandswirkung und Korrekturweg.', 'Auftrag bis Zahlungseingang wird erst nach ausgeführtem Lauf, Readback und dokumentiertem Retest als bestanden markiert.'],
@@ -87,8 +88,8 @@ const storyAcceptance = {
   'UABC-18': ['Auftrag, Lieferung, Rechnung, Korrektur, Zahlungseingang und Ausgleich sind als O2C-Sollfolge beschrieben.', 'Forderungs-, Umsatz-, VAT- und Bestandswirkung besitzen eindeutige Sollkontrollen.'],
   'UABC-19': ['Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel sind entschieden oder als offen markiert.', 'Mengen-, Wert- und Sachkontowirkung besitzen getrennte Soll-Readbacks.'],
   'UABC-20': ['Jede Datenwelle besitzt Owner, Mapping, Pflichtfelder, Dublettenregel und Kontrollsumme.', 'Fehlerkorrektur und Retest sind definiert; ohne differenzfreie Prüfung bleibt die Welle offen.'],
-  'UABC-21': ['Wave 0 belegt Company-ID, Namen, Standard-CRONUS-Provenienz, Resetpunkt und die Zielentscheidung für UABC-BASIC-DE.', 'Perioden, Nummernserien und Rollenbaseline besitzen konkrete Sollwerte und bleiben bis zu feldgenauen Readbacks unkonfiguriert.'],
-  'UABC-22': ['Finance-, VAT- und Buchungsmatrizen lösen Konten und Buchungsgruppen ohne Widerspruch auf.', 'Unzulässige Rollenkombinationen sind als SoD-Befund sichtbar und blockieren die betroffene Freigabe.'],
+  'UABC-21': ['Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert getrennt; der Gesellschaftsname allein kann keinen konfigurierten Pilot belegen.', 'Company-ID, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie schließen das Gate nachvollziehbar oder lassen es sichtbar blockiert.'],
+  'UABC-22': ['CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte, Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.', 'Fachliche Finance-Abnahme bleibt offen, bis jeder aktuelle Readback passt und unzulässige SoD- oder Kontenwirkung ausgeschlossen ist.'],
   'UABC-23': ['Stammdaten, offene Posten, Bestand und Eröffnungsbilanz besitzen getrennte Import- und Kontrollsummen.', 'Fehlerkorrekturen werden je Welle erneut geprüft; historische Simulationswerte zählen nicht als aktueller Readback.'],
   'UABC-24': ['P2P-Probe definiert Sollbelege, Preis-/Mengenabweichung, Verbindlichkeit, VAT, Lager und Zahlung.', 'Bestellung bis Ausgleich gilt erst nach aktuellen Ledger-Readbacks und dokumentiertem Retest als nachgewiesen.'],
   'UABC-25': ['O2C-Probe definiert Sollbelege, Korrektur, Forderung, Umsatz, VAT, Bestand und Zahlungseingang.', 'Auftrag bis Ausgleich gilt erst nach aktuellen Readbacks und dokumentiertem Retest als nachgewiesen.'],
@@ -103,6 +104,7 @@ const deliverableOverrides = {
   'UABC-21': 'Prüfbares Sollbild für Gesellschaft, Rollen und Basis',
   'UABC-22': 'Prüfbares Finance-, VAT- und SoD-Sollbild',
   'UABC-39': 'Wave-0-Readback und begründete Pilot-Zielentscheidung',
+  'UABC-40': 'CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme',
   'UABC-46': 'Geplante UAT-, Retest- und Mock-Cutover-Abnahme',
   'UABC-47': 'Geplantes Hypercare-Fehlerszenario mit Retest-Regel',
   'UABC-50': 'Plan für Abschluss, Supportstart und Handover-Paket'
@@ -144,7 +146,10 @@ function rebaseline(ticket) {
     .replace(/synthetisch(?:e|er|es)?/gi, 'historisch');
   if (status !== 'done') original = original.replace(/\bwurden\b/g, 'werden').replace(/\bwurde\b/g, 'wird').replace(/\bbestanden\b/g, 'erfolgreich geprüft').replace(/\bdurchgespielt\b/g, 'für den Lauf geplant').replace(/\babgeschlossen\b/g, 'für die spätere Abnahme vorbereitet').replace(/\bwar\b/g, 'ist als geplantes Szenario');
   if (ticket.id === 'UABC-32') original = 'Projektauftrag, In- und Out-Scope, Angebotsplanung, Rollen, Phasen, Gate-Matrix und Change-Regel werden aus Angebot und Discovery zusammengeführt und gegen die vorgesehenen Lieferobjekte geprüft.';
-  if (ticket.id === 'UABC-39') original = 'UABC-BASIC-DE wird zunächst als unveränderte Microsoft-Standard-CRONUS-Demo-Baseline gelesen. Interne Company-ID, technischer Name, Name, Display Name, Ausgangsdaten, CRONUS-Provenienz, Resetpunkt und die Entscheidung zur kontrollierten Weiterverwendung oder Neuanlage beziehungsweise Kopie müssen belegt sein, bevor irgendeine Pilotabweichung angewendet wird.';
+  if (ticket.id === 'UABC-21') original = 'Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll, angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste zulässige Schritt eindeutig bleibt.';
+  if (ticket.id === 'UABC-22') original = 'Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne Ledger- oder Bankkontowrite nachvollziehbar bleibt.';
+  if (ticket.id === 'UABC-39') original = 'UABC-BASIC-DE wird ausschließlich lesend als Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit interner Company-ID und technischem Namen; danach folgen sichtbare Namen, Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie.';
+  if (ticket.id === 'UABC-40') original = 'Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe wird ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder Schreibschritt erhält feldgenauen Readback und Finance-Abnahme; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.';
   if (ticket.id === 'UABC-28') original = 'SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant. Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten Readbacks entschieden werden.';
   if (ticket.id === 'UABC-46') original = 'UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant; aktuell sind sie nicht ausgeführt.';
   if (ticket.id === 'UABC-47') original = 'Ein geplantes Hypercare-Szenario beschreibt die spätere Prüfung einer nicht automatisch zugeordneten Zahlung. Ein Defect entsteht erst nach Beobachtung im ausgeführten Lauf; aktuell werden Reproduktionsschritte und Abnahmekriterien vorbereitet.';
@@ -155,7 +160,10 @@ function rebaseline(ticket) {
   const description = original.length >= 40 ? original : `${focus} ${ticket.title}.`;
   let summary = clean(ticket.summary ?? ticket.title).replace(/soll geprüft werdener/gi, 'zu prüfender').replace(/historischn/gi, 'geplanten').replace(/synthetisch(?:e|er|es)?/gi, 'historisch').replace(/\bwurden\b/g, 'werden').replace(/\bwurde\b/g, 'wird').replace(/\bbestanden\b/g, 'erfolgreich geprüft').replace(/\babgeschlossen\b/g, 'für die spätere Abnahme vorbereitet').replace(/Aktueller Playthru-Pilot:/g, '').trim();
   if (ticket.id === 'UABC-32') summary = 'Projektauftrag, Scope, Angebotsplanung, Rollen, Phasen und Change-Regel abstimmen.';
-  if (ticket.id === 'UABC-39') summary = 'Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und Resetpunkt für den Pilotaufbau belegen.';
+  if (ticket.id === 'UABC-21') summary = 'CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.';
+  if (ticket.id === 'UABC-22') summary = 'CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.';
+  if (ticket.id === 'UABC-39') summary = 'CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.';
+  if (ticket.id === 'UABC-40') summary = 'CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.';
   if (ticket.id === 'UABC-28') summary = 'SIT, UAT und Mock-Cutover für eine spätere Simulationsabnahme planen.';
   if (ticket.id === 'UABC-46') summary = 'UAT, Retests und Mock-Cutover mit aktueller Evidence vorbereiten.';
   if (ticket.id === 'UABC-47') summary = 'Geplantes Hypercare-Szenario für eine mögliche nicht zugeordnete Zahlung vorbereiten.';
@@ -203,6 +211,7 @@ function rebaseline(ticket) {
     deliverable: deliverableOverrides[ticket.id] ?? ticket.deliverable,
     description,
     summary,
+    title: ['UABC-21', 'UABC-22', 'UABC-39', 'UABC-40'].includes(ticket.id) ? summary : ticket.title,
     acceptanceCriteria: criteria,
     evidenceRefs: evidenceByType,
     worklogs: [],
@@ -314,7 +323,7 @@ const currentPages = (source.pages ?? []).map((page) => {
 });
 const currentSource = { ...source, classification: 'current-pilot-planning', status: 'in-progress', generatedAt: today,
   historicalClassification: 'archived-in-git-history', pages: currentPages, tickets: currentTickets, timeline: currentTimeline, hypercare: currentHypercare, relations: buildCurrentRelations(), catalogs: currentCatalogs,
-  businessCentralPilotState: { baselineKind: 'standard-cronus-demo', pilotConfigured: false, writesApplied: false, readbackStatus: 'pending', technicalCompanyName: 'UABC-BASIC-DE', internalCompanyId: null, observedDisplayName: 'Universaarl GmbH', targetDisplayName: 'Universaarl GmbH (BC Basic Pilot)', targetDecision: 'pending-wave-0-evidence', resetDecision: 'pending-resetpoint-evidence', sourceEvidence: 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml' },
+  businessCentralPilotState: { baselineKind: 'standard-cronus-demo', baselineProvenance: 'microsoft-standard-cronus-demo-data', pilotConfigured: false, writesApplied: false, readbackStatus: 'pending', technicalCompanyName: 'UABC-BASIC-DE', internalCompanyId: null, observedDisplayName: 'Universaarl GmbH', targetDisplayName: 'Universaarl GmbH (BC Basic Pilot)', targetDecision: 'pending-wave-0-evidence', resetDecision: 'pending-resetpoint-evidence', targetState: 'bc-basic-target-not-applied', appliedDifferenceStatus: 'none-evidenced', companyStrategyGate: { status: 'blocked-pending-wave0-and-reset-evidence', selectedOption: null, nextExecutableStep: 'W0-01-read-company-identity', authority: 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' }, sourceEvidence: 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml' },
   offer: { ...Object.fromEntries(Object.entries(source.offer ?? {}).filter(([key]) => key !== 'versions')), currentVersion: 'pilot-rebaseline-2026-07-13', status: 'active-planning', currentStatus: 'active-planning', actual_hours: actualHours, actual_cost: actualNetAmount },
   historicalOfferVersions: structuredClone(source.historicalOfferVersions ?? source.offer?.versions ?? []),
   activeOffer: { status: 'planned-not-accepted', plannedHours: source.offer?.planned_hours ?? 80, plannedNetAmount: source.offer?.planned_cost ?? 9600, actualHours, actualNetAmount, customerAcceptanceClaimed: false },

@@ -23,11 +23,16 @@ target:
   bindingState: runtime-session-not-authenticated
   configurationState:
     baselineClass: standard-cronus-demo-baseline
+    baselineProvenance: microsoft-standard-cronus-demo-data
     baselineTruth: UABC-BASIC-DE enthaelt nach direkter Benutzerbestaetigung unveraenderte Microsoft-Standard-CRONUS-Demodaten; technischer Name, URL und sichtbarer Firmenname belegen keine eingerichtete Kundeninstanz.
     pilotTarget: dedizierter BC-Basic-Pilot mit ausschliesslich kontrolliert angewendeten und gelesenen Sollabweichungen
     appliedDifferenceStatus: none-evidenced
     configuredPilotClaimed: false
     decisionStatus: wave-0-read-only-preflight-required
+    decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
+    companyStrategyStatus: blocked-pending-wave0-and-reset-evidence
+    selectedCompanyStrategy: null
+    nextExecutableStep: W0-01-read-company-identity
 truthBoundary:
   liveTablesAdded: 0
   liveRecordsApplied: 0
@@ -65,7 +70,7 @@ packages:
     title: Kern und Finanzwesen
     sequence: 1
     status: prepared-for-controlled-live-run
-    entryCriteria: [Zielbindung exakt Playthru/UABC-BASIC-DE, BC-Version und DE-Lokalisierung bestaetigt, direkter Read/Insert/Modify-Zugriff je Pakettabelle bestaetigt, Resetpunkt dokumentiert, Paket vor Lauf 0/0/0]
+    entryCriteria: [Wave-0 vollständig belegt, Zielstrategie ausgewählt, Zielbindung exakt Playthru/UABC-BASIC-DE, BC-Version und DE-Lokalisierung bestaetigt, direkter Read/Insert/Modify-Zugriff je Pakettabelle bestaetigt, Resetpunkt mit Wiederanlaufweg dokumentiert, separate Schreibfreigabe erteilt, Paket vor Lauf 0/0/0]
     exitCriteria: [jede aufgenommene Tabellen-ID loest auf erwarteten Namen auf, Paketpruefung fehlerfrei, nur freigegebene Setupcodes vorhanden, Readback je Seite bestanden, keine Ledger- oder Buchungswirkung]
     liveState: { tables: 0, records: 0, errors: 0 }
   - packageId: UABC-02-TRADE-MASTER

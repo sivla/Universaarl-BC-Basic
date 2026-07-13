@@ -45,13 +45,13 @@ Der automatisierte Vergleich der produktiven Fehlerpfade ergab für `validate-pr
 ## Abschließende Gates
 
 - Zwölf abgeleitete Artefakte wurden einschließlich Jira-Materialisat, Index, Setup-Projektion, Twin-Map, Adapter-Provenienz, Referenzgraphen, Spectra-Konformität und Dokumentkatalog zweimal bytegleich erzeugt.
-- Der fokussierte kombinierte Setup-/Governance-/Story-/Jira-/Spectra-Testblock bestand mit 198 von 198 Tests; die anschließende Story-/Jira-Nachprüfung der ticketspezifischen Abnahmekriterien bestand mit 93 von 93 Tests.
+- Der fokussierte kombinierte Setup-/Governance-/Story-/Jira-/Spectra-Testblock bestand mit 174 von 174 Tests.
 - Der Sprachtest bestand mit 19 von 19 Tests; `check-german.mjs` lieferte den sechsfeldrigen deutschen Standardpayload ohne Verletzung.
 - Die direkte Projektstory-Prüfung meldete 50 tatsächlich vorhandene aktive Tickets, Plan 80 Stunden/9.600 EUR sowie Ist 0 Stunden/0 EUR. Die direkte Jira-Prüfung meldete 11 typisierte Akteure und 0 Task-Worklogs.
 - OpenSpec-Schema, OpenSpec strict mit 10 von 10 Items, Referenzen und Diff-Checks bestanden.
-- Genau ein vollständiger `npm test` lief 146,5 Sekunden und endete mit Exit 0. Er prüfte zusätzlich den commitgebundenen Snapshot- und Dokumentkatalogvertrag, 165 Governance-Tests, den deterministischen Walkthrough sowie zwei Playwright-Ansichten.
+- Der abschließende vollständige `npm test` lief 145 Sekunden und endete mit Exit 0. Er prüfte zusätzlich den commitgebundenen Snapshot- und Dokumentkatalogvertrag, 175 Governance-Tests, den deterministischen Walkthrough sowie zwei Playwright-Ansichten.
 - Die gezielte Diff-Review bestätigte die einzige aktive kanonische Story, die dynamische Materialisierung, den Erhalt aller bisherigen Validator-Fehlerpfade, die Stichproben `UABC-1`, `UABC-21`, `UABC-32`, `UABC-39`, `UABC-47` und `UABC-50` sowie die aktive/historische Wahrheitsgrenze.
-- `REVIEW.md` war vor dem Amend in Arbeitskopie und HEAD leer. Nach dem abschließenden Amend werden Commit, Baum, Snapshot-/Katalogbindung, `REVIEW.md` und sauberer Status erneut nur lesend geprüft.
+- `REVIEW.md` war vor dem Amend in Arbeitskopie und HEAD leer. Commit, Baum, Snapshot-/Katalogbindung, `REVIEW.md` und sauberer Status werden nach dem abschließenden Amend erneut nur lesend geprüft.
 
 Offen bleiben ausschließlich die fachlichen Live-Gates: Wave-0-, Reset- und Zielentscheidung, alle Setup-/Prozess-/UAT-/Cutover-/Hypercare-/Handover-Ausführungen sowie eine separate Schreibfreigabe. `writesAuthorized=false` und RUN-06 bis RUN-22 NO-GO bleiben unverändert.
 
@@ -65,3 +65,13 @@ Offen bleiben ausschließlich die fachlichen Live-Gates: Wave-0-, Reset- und Zie
 - Genau ein vollständiger `npm test` lief 130,4 Sekunden und endete mit Exit 0. Die gezielte Diff-Review blieb ohne Befund; `REVIEW.md` war in Arbeitskopie und HEAD leer.
 - Der Indexdigest `4804f1b0fcac789ba396d206bb80caec9bf6d5c64c1da3faf8832f36d9ab640f`, der Twin-Map-Digest `cf71fc5c57773bfea08caa0c5f852cb1170a68b1201e8bddc6e2d3bd43ff6c19` und die Adapter-Provenienz blieben unverändert. Der aus der geänderten Boardprojektion abgeleitete Konformitätsdigest lautet `35cb1de6d7347d0729036f5d134290c05f0d4605b3d9c7b905b02bb23bef05b4`.
 - Es gab keine BC-, Browser-, Authentifizierungs- oder Push-Aktion.
+
+## CRONUS-Rebaseline und Zielmandanten-Gate
+
+- Kanonischer Iststand ist `Playthru` / `UABC-BASIC-DE` mit `baselineKind=standard-cronus-demo`, `baselineProvenance=microsoft-standard-cronus-demo-data`, `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending`.
+- Der BC-Basic-Sollstand ist als `bc-basic-target-not-applied` getrennt; `appliedDifference.status=none-evidenced`. Eine Namensgleichheit oder URL gilt nicht als Einrichtungsnachweis.
+- `UABC-DEC-PILOT-TARGET-001` bleibt `blocked-pending-wave0-and-reset-evidence`, `selectedOption=null` und `writesAuthorized=false`. Nächster zulässiger BC-Schritt ist ausschließlich `W0-01-read-company-identity`.
+- Beide abgelösten Playthru-Ausführungsdateien bleiben historische Repository-Provenienz, wurden aber aus aktiven Deliverable-Quellen, dem Result-Objektkatalog und der Twin-Positivliste entfernt. Aktive Country-/Company-Bestätigungsclaims scheitern fail-closed.
+- Die fokussierte Testausführung bestand mit 174 von 174 Tests. Sechs direkte Story-/Jira-/Setup-/Spectra-Validatoren sowie OpenSpec-Schema und OpenSpec strict mit 10 von 10 Items waren grün.
+- Zwei vollständige Generatorläufe ergaben für zehn Story-/Jira-/Setup-/Index-/Map-/Provenienz-/Konformitäts-/Referenzgraph-Artefakte identische SHA-256-Digests.
+- Der erste Vor-Commit-Aufruf von `npm test` erreichte den Snapshotvertrag und stoppte ausschließlich am vorgesehenen Dirty-Worktree-Gate. Der abschließende commitgebundene Gesamtcheck lief 145 Sekunden und endete vollständig mit Exit 0.

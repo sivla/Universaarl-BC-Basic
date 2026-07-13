@@ -15,3 +15,7 @@
 - [x] Kanonische Boardspalte `In Bearbeitung` um den aktiven Status `blocked` ergaenzen und alle Jira-Ableitungen aus derselben Producerquelle erzeugen.
 - [x] Exakte Boardstatus-Partition mit Positiv- und Negativtests fuer fehlende, doppelte und unbekannte Zuordnungen absichern.
 - [x] Ableitungen zweimal bytegleich erzeugen, fokussiert und insgesamt pruefen, reviewen und als sauberen lokalen Folgecommit uebergeben.
+- [x] Kanonische Pilot-Setup-Baseline um den fail-closed CRONUS-Zielstrategieentscheid mit Evidence-Regel und `W0-01` als naechstem Schritt erweitern.
+- [x] Kundenprojekt-, Produkt- und Consulting-Flächen auf Ist/Soll/Gate beziehungsweise Methode ohne historischen Live-Claim ausrichten.
+- [x] Bestehende Jira-Kette `UABC-21/22/39/40` für Baseline-Inventur, Zielentscheidung, CORE-FINANCE, Readback und fachliche Abnahme konkretisieren.
+- [x] Projektion, Schema, Validatoren und positive/negative Tests regenerieren, fokussiert und einmal insgesamt pruefen und lokal committen.

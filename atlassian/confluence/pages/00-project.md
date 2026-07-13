@@ -26,7 +26,7 @@ referenceIds:
   - UABC-REQ-BCB-010
   - UABC-REQ-BCB-011
 lastReviewed: 2026-07-13
-version: 6
+version: 7
 ---
 
 # 00 Hilfe und Projektumgebung
@@ -72,7 +72,9 @@ Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehler
 
 ## Nächster zulässiger Schritt
 
-Die nur lesende Wave-0-Vorprüfung vervollständigen: interne Company-ID, Namen, CRONUS-Provenienz, Resetpunkt und Zielentscheidung belegen. Erst danach darf das Kontrollzentrum eine gesonderte Schreibfreigabe prüfen. RUN-06 bis RUN-22 bleiben NO-GO.
+`W0-01-read-company-identity` ausführen: interne Company-ID und technischen Namen ausschließlich lesend erfassen und bereinigt zurückgeben.
+
+Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiederanlaufprüfung. Erst auf vollständiger Evidence darf zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden. RUN-06 bis RUN-22 bleiben NO-GO.
 
 ## Referenzen
 
@@ -82,4 +84,4 @@ Die nur lesende Wave-0-Vorprüfung vervollständigen: interne Company-ID, Namen,
 - [Projektstatus und Ticketwahrheit](bc-basic-project-story.md)
 - [Historische Referenzsimulation](99-archive.md)
 
-<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":6,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":7,"status":"published"} -->

@@ -643,22 +643,6 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PILOT-SETUP-EVIDENCE-001",
-      "kindId": "pilot-setup-evidence",
-      "path": "evidence/playthru-uabc-basic-de/setup-baseline.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-COMPANY-EXEC-EVIDENCE-001",
-      "kindId": "country-company-information-execution-evidence",
-      "path": "evidence/playthru-uabc-basic-de/country-company-information-execution.yaml",
-      "selector": null,
-      "format": "yaml",
-      "required": true
-    },
-    {
       "id": "UABC-SRC-BCB-PILOT-SETUP-VAL-001",
       "kindId": "pilot-setup-validator",
       "path": "scripts/validate-pilot-setup-baseline.mjs",

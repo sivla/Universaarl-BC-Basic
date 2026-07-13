@@ -33,8 +33,8 @@ referenceIds:
   - UABC-REQ-BCB-006
   - UABC-REQ-BCB-008
   - UABC-REQ-BCB-009
-lastReviewed: 2026-09-03
-version: 5
+lastReviewed: 2026-07-13
+version: 6
 ---
 
 # 02.3 Loesung und Einrichtung
@@ -49,7 +49,16 @@ Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche od
 
 ## Einrichtungsstatus und Wahrheitsgrenze
 
-Setupfolge, Feldwerte, Buchungsmatrizen und Rollenproben sind in der Referenzsimulation synthetisch geprüft. Vor jeder realen Konfiguration müssen Zielgesellschaft, Schreibfreigabe, Rücksetzpunkt und bestätigte Kundenparameter vorliegen.
+| Ebene | Verbindlicher Stand | Nachweisregel |
+|---|---|---|
+| Ist-Ausgang | `standard-cronus-demo`; Microsoft-CRONUS-Demodaten | Wave 0 liest Company-ID, Namen, Ausgangsdaten und Fremdmandantengrenze |
+| Pilot-Soll | `bc-basic-target-not-applied` | Matrix und Parameterbaseline beschreiben nur gewünschte Werte |
+| Angewendete Differenz | `none-evidenced`; Readback ausstehend | nur spätere feldgenaue Vorher-/Nachher-Evidence darf diesen Stand ändern |
+| Zielstrategie | `blocked-pending-wave0-and-reset-evidence`; keine Option gewählt | Entscheidung erst nach vollständiger Baseline-Inventur und Reset-/Wiederanlaufnachweis |
+
+Der einzige nächste ausführbare BC-Schritt ist `W0-01-read-company-identity`: interne Company-ID und technischen Namen sichtbar lesen und bereinigt zurückgeben.
+
+CORE-FINANCE ist planseitig vorbereitet, aber bis zum bestandenen Wave-0-, Zielstrategie-, Reset- und separaten Schreibfreigabegate nicht ausführbar. TRADE-MASTER und OPENING-DATA bleiben gesperrt.
 
 ## Setupfolge, Konfiguration und Berechtigungen
 
@@ -65,7 +74,7 @@ Setupfolge, Feldwerte, Buchungsmatrizen und Rollenproben sind in der Referenzsim
 
 Jeder Abschnitt endet erst, wenn Pflichtfelder, Referenzen, erwartete Wirkung, Rücksetzbarkeit und zugeordneter UAT-Fall geprüft sind.
 
-### Konfigurationsbaseline
+### Pilot-Sollwerte, noch nicht angewendet
 
 | Bereich | Synthetischer Standardwert | Erwartete Wirkung |
 |---|---|---|
@@ -132,4 +141,4 @@ Die Referenzsimulation erstellt nur eine VAT-Vorschau. Sie behauptet keine ELSTE
 - [Offizielles Quellenregister](../../../docs/research/source-register.md)
 - [Maschinenlesbare Quellenzuordnung](../../../docs/research/sources.yaml)
 
-<!-- story-metadata {"id":"PAGE-UABC-110","title":"02.3 Loesung und Einrichtung","parent":"PAGE-UABC-130","version":5,"status":"published"} -->
+<!-- story-metadata {"id":"PAGE-UABC-110","title":"02.3 Loesung und Einrichtung","parent":"PAGE-UABC-130","version":6,"status":"published"} -->

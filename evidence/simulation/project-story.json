@@ -27,7 +27,7 @@
       "id": "PAGE-UABC-000",
       "title": "00 Hilfe und Projektumgebung",
       "parent": null,
-      "version": 6,
+      "version": 7,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -46,7 +46,7 @@
       "id": "PAGE-UABC-010",
       "title": "01 Unternehmen",
       "parent": null,
-      "version": 5,
+      "version": 6,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -85,7 +85,7 @@
       "id": "PAGE-UABC-150",
       "title": "03 Projekte",
       "parent": null,
-      "version": 6,
+      "version": 7,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -177,7 +177,7 @@
       "id": "PAGE-UABC-110",
       "title": "02.3 Loesung und Einrichtung",
       "parent": "PAGE-UABC-130",
-      "version": 5,
+      "version": 6,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -290,7 +290,7 @@
       "id": "PAGE-UABC-040",
       "title": "02 Leistungsumfang und Abgrenzung",
       "parent": null,
-      "version": 6,
+      "version": 7,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -443,7 +443,7 @@
       "id": "PAGE-UABC-070",
       "title": "03 BC-Einrichtung und Konfigurationspakete",
       "parent": null,
-      "version": 5,
+      "version": 6,
       "status": "published",
       "author_role": "project-team",
       "time": "2026-07-12T12:00:00+02:00",
@@ -611,7 +611,8 @@
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "project/bc-basic/pilot-setup-baseline.yaml"
       ],
       "comments": [
         {
@@ -722,7 +723,8 @@
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "project/bc-basic/pilot-setup-baseline.yaml"
       ],
       "comments": [
         {
@@ -835,7 +837,8 @@
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "project/bc-basic/pilot-setup-baseline.yaml"
       ],
       "comments": [
         {
@@ -2437,8 +2440,8 @@
     {
       "id": "UABC-21",
       "type": "story",
-      "summary": "Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien und Rollenbaseline geprueft einrichten, damit Finance- und Prozesskonfiguration darauf aufbauen kann.",
-      "description": "Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien und Rollenbaseline geprueft einrichten, damit Finance- und Prozesskonfiguration darauf aufbauen kann.",
+      "summary": "CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.",
+      "description": "Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll, angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste zulässige Schritt eindeutig bleibt.",
       "deliverable": "Prüfbares Sollbild für Gesellschaft, Rollen und Basis",
       "phaseId": "UABC-2",
       "phase": "P2",
@@ -2478,11 +2481,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Wave 0 belegt Company-ID, Namen, Standard-CRONUS-Provenienz, Resetpunkt und die Zielentscheidung für UABC-BASIC-DE.",
+          "criterion": "Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert getrennt; der Gesellschaftsname allein kann keinen konfigurierten Pilot belegen.",
           "fulfilled": false
         },
         {
-          "criterion": "Perioden, Nummernserien und Rollenbaseline besitzen konkrete Sollwerte und bleiben bis zu feldgenauen Readbacks unkonfiguriert.",
+          "criterion": "Company-ID, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie schließen das Gate nachvollziehbar oder lassen es sichtbar blockiert.",
           "fulfilled": false
         }
       ],
@@ -2499,14 +2502,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-21 – Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien und Rollenbaseline geprueft einrichten, damit Finance- und Prozesskonfiguration darauf aufbauen kann.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-21 – CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-21 ist created; „Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien und Rollenbaseline geprueft einrichten, damit Finance- und Prozesskonfiguration darauf aufbauen kann.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-21 ist created; „CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2522,13 +2525,14 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden."
     },
     {
       "id": "UABC-22",
       "type": "story",
-      "summary": "Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und SoD geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige Rollenkombinationen erkannt werden.",
-      "description": "Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und SoD geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige Rollenkombinationen erkannt werden.",
+      "summary": "CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.",
+      "description": "Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne Ledger- oder Bankkontowrite nachvollziehbar bleibt.",
       "deliverable": "Prüfbares Finance-, VAT- und SoD-Sollbild",
       "phaseId": "UABC-2",
       "phase": "P2",
@@ -2568,11 +2572,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Finance-, VAT- und Buchungsmatrizen lösen Konten und Buchungsgruppen ohne Widerspruch auf.",
+          "criterion": "CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte, Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.",
           "fulfilled": false
         },
         {
-          "criterion": "Unzulässige Rollenkombinationen sind als SoD-Befund sichtbar und blockieren die betroffene Freigabe.",
+          "criterion": "Fachliche Finance-Abnahme bleibt offen, bis jeder aktuelle Readback passt und unzulässige SoD- oder Kontenwirkung ausgeschlossen ist.",
           "fulfilled": false
         }
       ],
@@ -2589,14 +2593,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-22 – Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und SoD geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige Rollenkombinationen erkannt werden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-22 – CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-22 ist created; „Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und SoD geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige Rollenkombinationen erkannt werden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-22 ist created; „CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-003"
       ],
@@ -2612,7 +2616,8 @@
       "start": "2026-07-13",
       "end": null,
       "worklogHours": 0,
-      "meetingTranscriptRefs": []
+      "meetingTranscriptRefs": [],
+      "title": "CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen."
     },
     {
       "id": "UABC-23",
@@ -4129,11 +4134,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Wave-0-Readback belegt interne Company-ID, technischen Namen, Name, Display Name und die Standard-CRONUS-Demo-Ausgangsprovenienz von UABC-BASIC-DE.",
+          "criterion": "Wave 0 liefert interne Company-ID, technische und sichtbare Namen, Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand als bereinigte Nur-Lese-Evidence.",
           "fulfilled": false
         },
         {
-          "criterion": "Resetpunkt sowie die evidenzbasierte Entscheidung kontrollierte Weiterverwendung versus Neuanlage oder Kopie sind dokumentiert; ohne beides bleiben alle Writes gesperrt.",
+          "criterion": "Der Resetpunkt mit Wiederanlaufweg liegt vor und genau eine Zielstrategie ist begründet ausgewählt; solange Evidence fehlt, bleibt das Gate blockiert und W0-01 der nächste Schritt.",
           "fulfilled": false
         }
       ],
@@ -4141,7 +4146,8 @@
         "project/bc-basic/setup-wave-1-matrix.yaml",
         "project/bc-basic/setup-parameter-baseline.yaml",
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "project/bc-basic/pilot-setup-baseline.yaml"
       ],
       "comments": [
         {
@@ -4152,13 +4158,13 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-39 – Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und Resetpunkt für den Pilotaufbau belegen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "text": "UABC-39 – CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
           "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und Resetpunkt für den Pilotaufbau belegen.",
-      "description": "UABC-BASIC-DE wird zunächst als unveränderte Microsoft-Standard-CRONUS-Demo-Baseline gelesen. Interne Company-ID, technischer Name, Name, Display Name, Ausgangsdaten, CRONUS-Provenienz, Resetpunkt und die Entscheidung zur kontrollierten Weiterverwendung oder Neuanlage beziehungsweise Kopie müssen belegt sein, bevor irgendeine Pilotabweichung angewendet wird.",
+      "summary": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.",
+      "description": "UABC-BASIC-DE wird ausschließlich lesend als Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit interner Company-ID und technischem Namen; danach folgen sichtbare Namen, Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie.",
       "deliverable": "Wave-0-Readback und begründete Pilot-Zielentscheidung",
       "phase": "P2",
       "billable": true,
@@ -4177,7 +4183,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-39 ist created; „Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und Resetpunkt für den Pilotaufbau belegen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-39 ist created; „CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002",
         "UABC-DEC-BCB-009"
@@ -4195,7 +4201,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden."
     },
     {
       "id": "UABC-40",
@@ -4227,17 +4234,20 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "CORE-FINANCE-Allowlist, Feldumfang, Abhängigkeiten und Singleton-Sollwerte bestehen die Setup-Wave-Validatoren.",
+          "criterion": "CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe; TRADE-MASTER und OPENING-DATA bleiben gesperrt.",
           "fulfilled": false
         },
         {
-          "criterion": "Spätere Readbacks müssen Konten- und VAT-Matrix auflösen und zugleich 0 neu erzeugte Ledger-, Posted- oder Continia-Wirkungen belegen.",
+          "criterion": "Alle freigegebenen CORE-Felder besitzen Soll-/Ist-Readback, Finance-Abnahme und den Negativnachweis ohne Ledger-, Posted-, Continia-, Bankkonto- oder Übermittlungswirkung.",
           "fulfilled": false
         }
       ],
       "evidenceRefs": [
+        "project/bc-basic/setup-wave-1-matrix.yaml",
+        "project/bc-basic/pilot-setup-baseline.yaml",
         "project/bc-basic/posting-setup-matrix.yaml",
-        "project/bc-basic/solution-blueprint.yaml"
+        "project/bc-basic/solution-blueprint.yaml",
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
       ],
       "comments": [
         {
@@ -4248,14 +4258,14 @@
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-40 – Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird mit erwarteten Kontenwirkungen und verweigerten Rollenkombinationen geprueft.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
-          "evidenceRef": "project/bc-basic/posting-setup-matrix.yaml"
+          "text": "UABC-40 – CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
+          "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
         }
       ],
       "worklogs": [],
-      "summary": "Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird mit erwarteten Kontenwirkungen und verweigerten Rollenkombinationen geprueft.",
-      "description": "Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird mit erwarteten Kontenwirkungen und verweigerten Rollenkombinationen geprueft.",
-      "deliverable": "Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline",
+      "summary": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.",
+      "description": "Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe wird ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder Schreibschritt erhält feldgenauen Readback und Finance-Abnahme; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.",
+      "deliverable": "CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme",
       "phase": "P2",
       "billable": true,
       "billingSource": "task-worklogs",
@@ -4273,7 +4283,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-40 ist created; „Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird mit erwarteten Kontenwirkungen und verweigerten Rollenkombinationen geprueft.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "UABC-40 ist created; „CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
       "decisionRefs": [
         "UABC-DEC-BCB-002"
       ],
@@ -4290,7 +4300,8 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0
+      "worklogHours": 0,
+      "title": "CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und abnehmen."
     },
     {
       "id": "UABC-41",
@@ -6196,7 +6207,7 @@
     {
       "type": "references",
       "from": "COM-UABC-40-CURRENT-PLAN",
-      "to": "project/bc-basic/posting-setup-matrix.yaml"
+      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
     },
     {
       "type": "references",
@@ -6442,6 +6453,11 @@
       "type": "references",
       "from": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
       "to": "UABC-39"
+    },
+    {
+      "type": "references",
+      "from": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+      "to": "UABC-40"
     },
     {
       "type": "references",
@@ -7225,13 +7241,33 @@
     },
     {
       "type": "references",
-      "from": "project/bc-basic/posting-setup-matrix.yaml",
-      "to": "COM-UABC-34-CURRENT-PLAN"
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-1"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-2"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-3"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-39"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/pilot-setup-baseline.yaml",
+      "to": "UABC-40"
     },
     {
       "type": "references",
       "from": "project/bc-basic/posting-setup-matrix.yaml",
-      "to": "COM-UABC-40-CURRENT-PLAN"
+      "to": "COM-UABC-34-CURRENT-PLAN"
     },
     {
       "type": "references",
@@ -7531,6 +7567,11 @@
     {
       "type": "references",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
+      "to": "COM-UABC-40-CURRENT-PLAN"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
       "to": "COM-UABC-5-CURRENT-PLAN"
     },
     {
@@ -7672,6 +7713,11 @@
       "type": "references",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
       "to": "UABC-4"
+    },
+    {
+      "type": "references",
+      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
+      "to": "UABC-40"
     },
     {
       "type": "references",
@@ -8057,6 +8103,11 @@
       "type": "references",
       "from": "UABC-1",
       "to": "PAGE-UABC-030"
+    },
+    {
+      "type": "references",
+      "from": "UABC-1",
+      "to": "project/bc-basic/pilot-setup-baseline.yaml"
     },
     {
       "type": "references",
@@ -8451,6 +8502,11 @@
     {
       "type": "references",
       "from": "UABC-2",
+      "to": "project/bc-basic/pilot-setup-baseline.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-2",
       "to": "UABC-10"
     },
     {
@@ -8812,6 +8868,11 @@
       "type": "references",
       "from": "UABC-3",
       "to": "PAGE-UABC-040"
+    },
+    {
+      "type": "references",
+      "from": "UABC-3",
+      "to": "project/bc-basic/pilot-setup-baseline.yaml"
     },
     {
       "type": "references",
@@ -9291,6 +9352,11 @@
     {
       "type": "references",
       "from": "UABC-39",
+      "to": "project/bc-basic/pilot-setup-baseline.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-39",
       "to": "project/bc-basic/setup-parameter-baseline.yaml"
     },
     {
@@ -9371,6 +9437,11 @@
     {
       "type": "references",
       "from": "UABC-40",
+      "to": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-40",
       "to": "PAGE-UABC-110"
     },
     {
@@ -9381,7 +9452,17 @@
     {
       "type": "references",
       "from": "UABC-40",
+      "to": "project/bc-basic/pilot-setup-baseline.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-40",
       "to": "project/bc-basic/posting-setup-matrix.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-40",
+      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
     },
     {
       "type": "references",
@@ -10784,6 +10865,7 @@
       "project/bc-basic/setup-parameter-baseline.yaml",
       "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
       "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+      "project/bc-basic/pilot-setup-baseline.yaml",
       "docs/offers/bc-basic-offer.md",
       "project/bc-basic/project-plan.yaml",
       "project/bc-basic/decision-register.yaml",
@@ -11645,6 +11727,7 @@
   },
   "businessCentralPilotState": {
     "baselineKind": "standard-cronus-demo",
+    "baselineProvenance": "microsoft-standard-cronus-demo-data",
     "pilotConfigured": false,
     "writesApplied": false,
     "readbackStatus": "pending",
@@ -11654,6 +11737,14 @@
     "targetDisplayName": "Universaarl GmbH (BC Basic Pilot)",
     "targetDecision": "pending-wave-0-evidence",
     "resetDecision": "pending-resetpoint-evidence",
+    "targetState": "bc-basic-target-not-applied",
+    "appliedDifferenceStatus": "none-evidenced",
+    "companyStrategyGate": {
+      "status": "blocked-pending-wave0-and-reset-evidence",
+      "selectedOption": null,
+      "nextExecutableStep": "W0-01-read-company-identity",
+      "authority": "project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision"
+    },
     "sourceEvidence": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
   }
 }

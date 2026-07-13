@@ -408,6 +408,7 @@ ticketRecords:
     evidence:
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
     comments:
       - id: COM-UABC-1-CURRENT-PLAN
         type: status
@@ -500,6 +501,7 @@ ticketRecords:
     evidence:
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
     comments:
       - id: COM-UABC-2-CURRENT-PLAN
         type: status
@@ -587,6 +589,7 @@ ticketRecords:
     evidence:
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
     comments:
       - id: COM-UABC-3-CURRENT-PLAN
         type: status
@@ -1919,16 +1922,15 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-21 ist created; „Als Consultant moechte ich Gesellschaft,
-      Perioden, Nummernserien und Rollenbaseline geprueft einrichten, damit
-      Finance- und Prozesskonfiguration darauf aufbauen kann.“ darf nur mit
+    statusReason: UABC-21 ist created; „CRONUS-Ist, BC-Basic-Soll und
+      Gesellschaftsstrategie nachvollziehbar entscheiden.“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien und
-      Rollenbaseline geprueft einrichten, damit Finance- und
-      Prozesskonfiguration darauf aufbauen kann.
-    description: Als Consultant moechte ich Gesellschaft, Perioden, Nummernserien
-      und Rollenbaseline geprueft einrichten, damit Finance- und
-      Prozesskonfiguration darauf aufbauen kann.
+    summary: CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar
+      entscheiden.
+    description: Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll,
+      angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein
+      Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste
+      zulässige Schritt eindeutig bleibt.
     deliverable: Prüfbares Sollbild für Gesellschaft, Rollen und Basis
     deliverableRefs: []
     pageRefs: []
@@ -1949,11 +1951,13 @@ ticketRecords:
     actualHours: 0
     remainingHours: 5
     acceptance:
-      - criterion: Wave 0 belegt Company-ID, Namen, Standard-CRONUS-Provenienz,
-          Resetpunkt und die Zielentscheidung für UABC-BASIC-DE.
+      - criterion: Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert
+          getrennt; der Gesellschaftsname allein kann keinen konfigurierten
+          Pilot belegen.
         fulfilled: false
-      - criterion: Perioden, Nummernserien und Rollenbaseline besitzen konkrete
-          Sollwerte und bleiben bis zu feldgenauen Readbacks unkonfiguriert.
+      - criterion: Company-ID, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und
+          Zielstrategie schließen das Gate nachvollziehbar oder lassen es
+          sichtbar blockiert.
         fulfilled: false
     history:
       - status: created
@@ -1976,11 +1980,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-21 – Als Consultant moechte ich Gesellschaft, Perioden,
-          Nummernserien und Rollenbaseline geprueft einrichten, damit Finance-
-          und Prozesskonfiguration darauf aufbauen kann.: Pilotstand am
-          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-21 – CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie
+          nachvollziehbar entscheiden.: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-22
     type: story
     sourceType: story
@@ -1997,16 +1999,14 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-22 ist created; „Als Finance Key User moechte ich Finance,
-      VAT, Buchungsmatrizen und SoD geprueft vorfinden, damit Buchungen korrekt
-      kontiert und unzulaessige Rollenkombinationen erkannt werden.“ darf nur
-      mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und SoD
-      geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige
-      Rollenkombinationen erkannt werden.
-    description: Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen und
-      SoD geprueft vorfinden, damit Buchungen korrekt kontiert und unzulaessige
-      Rollenkombinationen erkannt werden.
+    statusReason: UABC-22 ist created; „CORE-FINANCE feldgenau einrichten, lesen und
+      fachlich abnehmen.“ darf nur mit ticket-spezifischer Evidence
+      abgeschlossen werden.
+    summary: CORE-FINANCE feldgenau einrichten, lesen und fachlich abnehmen.
+    description: Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach
+      geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich
+      abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne
+      Ledger- oder Bankkontowrite nachvollziehbar bleibt.
     deliverable: Prüfbares Finance-, VAT- und SoD-Sollbild
     deliverableRefs: []
     pageRefs: []
@@ -2027,11 +2027,11 @@ ticketRecords:
     actualHours: 0
     remainingHours: 9
     acceptance:
-      - criterion: Finance-, VAT- und Buchungsmatrizen lösen Konten und Buchungsgruppen
-          ohne Widerspruch auf.
+      - criterion: CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte,
+          Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.
         fulfilled: false
-      - criterion: Unzulässige Rollenkombinationen sind als SoD-Befund sichtbar und
-          blockieren die betroffene Freigabe.
+      - criterion: Fachliche Finance-Abnahme bleibt offen, bis jeder aktuelle Readback
+          passt und unzulässige SoD- oder Kontenwirkung ausgeschlossen ist.
         fulfilled: false
     history:
       - status: created
@@ -2054,11 +2054,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-22 – Als Finance Key User moechte ich Finance, VAT, Buchungsmatrizen
-          und SoD geprueft vorfinden, damit Buchungen korrekt kontiert und
-          unzulaessige Rollenkombinationen erkannt werden.: Pilotstand am
-          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
-          Live-Schritte bleiben offen."
+        text: "UABC-22 – CORE-FINANCE feldgenau einrichten, lesen und fachlich
+          abnehmen.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende
+          Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-23
     type: story
     sourceType: story
@@ -3334,17 +3332,18 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-39 ist created; „Standard-CRONUS-Demo-Ausgangsbasis,
-      Wave-0-Zielentscheidung und Resetpunkt für den Pilotaufbau belegen.“ darf
-      nur mit ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und
-      Resetpunkt für den Pilotaufbau belegen.
-    description: UABC-BASIC-DE wird zunächst als unveränderte
-      Microsoft-Standard-CRONUS-Demo-Baseline gelesen. Interne Company-ID,
-      technischer Name, Name, Display Name, Ausgangsdaten, CRONUS-Provenienz,
-      Resetpunkt und die Entscheidung zur kontrollierten Weiterverwendung oder
-      Neuanlage beziehungsweise Kopie müssen belegt sein, bevor irgendeine
-      Pilotabweichung angewendet wird.
+    statusReason: UABC-39 ist created; „CRONUS-Baseline inventarisieren, Resetpunkt
+      belegen und Zielstrategie entscheiden.“ darf nur mit ticket-spezifischer
+      Evidence abgeschlossen werden.
+    summary: CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie
+      entscheiden.
+    description: UABC-BASIC-DE wird ausschließlich lesend als
+      Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit
+      interner Company-ID und technischem Namen; danach folgen sichtbare Namen,
+      Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und
+      Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete
+      Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage
+      beziehungsweise Kopie.
     deliverable: Wave-0-Readback und begründete Pilot-Zielentscheidung
     deliverableRefs:
       - UABC-DEL-BCB-004
@@ -3370,13 +3369,13 @@ ticketRecords:
     actualHours: 0
     remainingHours: 5
     acceptance:
-      - criterion: Wave-0-Readback belegt interne Company-ID, technischen Namen, Name,
-          Display Name und die Standard-CRONUS-Demo-Ausgangsprovenienz von
-          UABC-BASIC-DE.
+      - criterion: Wave 0 liefert interne Company-ID, technische und sichtbare Namen,
+          Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand
+          als bereinigte Nur-Lese-Evidence.
         fulfilled: false
-      - criterion: Resetpunkt sowie die evidenzbasierte Entscheidung kontrollierte
-          Weiterverwendung versus Neuanlage oder Kopie sind dokumentiert; ohne
-          beides bleiben alle Writes gesperrt.
+      - criterion: Der Resetpunkt mit Wiederanlaufweg liegt vor und genau eine
+          Zielstrategie ist begründet ausgewählt; solange Evidence fehlt, bleibt
+          das Gate blockiert und W0-01 der nächste Schritt.
         fulfilled: false
     history:
       - status: created
@@ -3392,6 +3391,7 @@ ticketRecords:
       - project/bc-basic/setup-parameter-baseline.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
     comments:
       - id: COM-UABC-39-CURRENT-PLAN
         type: status
@@ -3401,10 +3401,9 @@ ticketRecords:
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
         evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-39 – Standard-CRONUS-Demo-Ausgangsbasis, Wave-0-Zielentscheidung und
-          Resetpunkt für den Pilotaufbau belegen.: Pilotstand am 2026-07-13 ist
-          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
-          offen."
+        text: "UABC-39 – CRONUS-Baseline inventarisieren, Resetpunkt belegen und
+          Zielstrategie entscheiden.: Pilotstand am 2026-07-13 ist created. Nur
+          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-40
     type: task
     sourceType: task
@@ -3420,16 +3419,18 @@ ticketRecords:
     visibilityRole: customer-project-story
     countingScope: active-project
     status: created
-    statusReason: UABC-40 ist created; „Finance-, Buchungsgruppen-, VAT-,
-      Dimensions- und SoD-Baseline wird mit erwarteten Kontenwirkungen und
-      verweigerten Rollenkombinationen geprueft.“ darf nur mit
+    statusReason: UABC-40 ist created; „CORE-FINANCE nach geschlossenem Gate
+      ausführen, read-back prüfen und abnehmen.“ darf nur mit
       ticket-spezifischer Evidence abgeschlossen werden.
-    summary: Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird mit
-      erwarteten Kontenwirkungen und verweigerten Rollenkombinationen geprueft.
-    description: Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline wird
-      mit erwarteten Kontenwirkungen und verweigerten Rollenkombinationen
-      geprueft.
-    deliverable: Reproduzierbare Finance-/VAT-/SoD-Konfigurationsbaseline
+    summary: CORE-FINANCE nach geschlossenem Gate ausführen, read-back prüfen und
+      abnehmen.
+    description: Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie,
+      dokumentiertem Resetpunkt und separater Schreibfreigabe wird
+      ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder
+      Schreibschritt erhält feldgenauen Readback und Finance-Abnahme;
+      TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und
+      Übermittlungswirkung bleiben ausgeschlossen.
+    deliverable: CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme
     deliverableRefs:
       - UABC-DEL-BCB-004
     pageRefs:
@@ -3453,11 +3454,13 @@ ticketRecords:
     actualHours: 0
     remainingHours: 9
     acceptance:
-      - criterion: CORE-FINANCE-Allowlist, Feldumfang, Abhängigkeiten und
-          Singleton-Sollwerte bestehen die Setup-Wave-Validatoren.
+      - criterion: CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter
+          Zielstrategie, dokumentiertem Resetpunkt und separater
+          Schreibfreigabe; TRADE-MASTER und OPENING-DATA bleiben gesperrt.
         fulfilled: false
-      - criterion: Spätere Readbacks müssen Konten- und VAT-Matrix auflösen und zugleich
-          0 neu erzeugte Ledger-, Posted- oder Continia-Wirkungen belegen.
+      - criterion: Alle freigegebenen CORE-Felder besitzen Soll-/Ist-Readback,
+          Finance-Abnahme und den Negativnachweis ohne Ledger-, Posted-,
+          Continia-, Bankkonto- oder Übermittlungswirkung.
         fulfilled: false
     history:
       - status: created
@@ -3469,8 +3472,11 @@ ticketRecords:
     worklogs: []
     worklogHours: 0
     evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
       - project/bc-basic/posting-setup-matrix.yaml
       - project/bc-basic/solution-blueprint.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
     comments:
       - id: COM-UABC-40-CURRENT-PLAN
         type: status
@@ -3479,11 +3485,10 @@ ticketRecords:
         actorType: human
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
-        evidenceRef: project/bc-basic/posting-setup-matrix.yaml
-        text: "UABC-40 – Finance-, Buchungsgruppen-, VAT-, Dimensions- und SoD-Baseline
-          wird mit erwarteten Kontenwirkungen und verweigerten
-          Rollenkombinationen geprueft.: Pilotstand am 2026-07-13 ist created.
-          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-40 – CORE-FINANCE nach geschlossenem Gate ausführen, read-back
+          prüfen und abnehmen.: Pilotstand am 2026-07-13 ist created. Nur
+          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
   - id: UABC-41
     type: task
     sourceType: task

@@ -39,9 +39,13 @@ configurationBaseline:
   deviationOutcomes: [Standard-uebernehmen, kundenspezifisch-parametrisieren, Change, ausserhalb-Paket]
 pilotSetupDecision:
   decisionRef: UABC-DEC-BCB-009
+  strategyDecisionId: UABC-DEC-PILOT-TARGET-001
+  strategyStatus: blocked-pending-wave0-and-reset-evidence
+  selectedStrategy: null
+  nextExecutableStep: W0-01-read-company-identity
   baselinePath: project/bc-basic/pilot-setup-baseline.yaml
-  evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
-  countryRegionDefectRef: UABC-DEF-PILOT-001
+  historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+  historicalCountryRegionDefectRef: UABC-DEF-PILOT-001
   currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
   historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
   status: standard-cronus-demo-baseline-pilot-build-pending

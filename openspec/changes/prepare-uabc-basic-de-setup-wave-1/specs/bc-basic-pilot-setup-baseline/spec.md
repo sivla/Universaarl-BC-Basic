@@ -54,6 +54,25 @@ Die Kundeninstanz MUST den aktiven Zustand strukturiert als `baselineKind=standa
 - **THEN** MUST `pilotConfigured` false und `writesApplied` false bleiben
 - **AND** MUST der Validator eine Einrichtungsbehauptung fail-closed ablehnen.
 
+#### Scenario: Zielstrategie ohne belastbare Evidence
+
+- **GIVEN** interne Company-ID, vollständige CRONUS-Inventur oder Reset-/Wiederanlaufnachweis fehlen
+- **WHEN** zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden soll
+- **THEN** MUST die Auswahl leer und der Status `blocked-pending-wave0-and-reset-evidence` bleiben
+- **AND** MUST `W0-01-read-company-identity` der einzige nächste ausführbare BC-Schritt sein
+- **AND** MUST jeder CORE-FINANCE-Write gesperrt bleiben.
+
+### Requirement: UABC-REQ-BCB-CRONUS-SPACE-TRUTH
+
+Das Kundenprojekt MUST `Standard CRONUS` als aktuellen Iststand, den BC-Basic-Parametersatz als Soll und die leere angewendete Differenz getrennt führen. Der Produkt-Space MUST nur Scope und Nicht-Scope beschreiben. Das Consulting-Handbuch MUST nur die wiederverwendbare Methode beschreiben und DARF keinen ausgeführten Country-, Company- oder Paket-Write für `UABC-BASIC-DE` behaupten.
+
+#### Scenario: Historische Ausführung wird current-facing
+
+- **WHEN** eine aktuelle Kunden- oder Consulting-Seite einen früheren Country-/Company-Schritt als aktuellen Pilotfortschritt ausgibt
+- **THEN** MUST das Wahrheitsgate fail-closed scheitern
+- **AND** MAY der alte Nachweis nur als explizit abgelöste historische Provenienz referenziert werden.
+- **AND** MUST die aktive Twin-Positivliste beide historischen Playthru-Ausführungsdateien ausschliessen.
+
 ### Requirement: UABC-REQ-BCB-CURRENT-PILOT-STORY
 
 `evidence/simulation/project-story.json` MUST die einzige aktive kanonische Ticketquelle sein. Genau `UABC-1`, `UABC-2` und `UABC-3` MUST Phase-Roots sein; Gesamt- und Typmengen MUST dynamisch aus dem fachlichen Bestand folgen. Nur Tasks MAY billable sein oder Worklogs tragen. Planwerte MAY 80 Stunden und 9.600 EUR betragen; Istwerte MUST aus aktiven Task-Worklogs abgeleitet werden. Twin-Ticketlisten MUST ohne Geldfelder und Geldbetraege bleiben.

@@ -162,14 +162,6 @@ objects:
     classification: generated-dry-run-evidence
     title: Atlassian-Materialisierungs-Dry-run
     sourcePath: evidence/simulation/atlassian-materialization-dry-run.json
-  - objectId: UABC-OBJ-EVD-006
-    classification: historical-evidence
-    title: Historischer Playthru-Bediennachweis ohne aktuelle Readiness
-    sourcePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
-  - objectId: UABC-OBJ-EVD-007
-    classification: historical-evidence
-    title: Historische Playthru-Country- und Firmendaten-Ausfuehrung
-    sourcePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
   - objectId: UABC-OBJ-EVD-008
     classification: current-read-only-evidence
     title: Aktuelle Standard-CRONUS-Demo-Ausgangsbeobachtung

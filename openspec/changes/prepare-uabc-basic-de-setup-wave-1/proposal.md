@@ -8,6 +8,8 @@ Die drei in `UABC-BASIC-DE` vorhandenen Konfigurationspakete besitzen weiterhin 
 
 Dieser Change bindet eine pruefbare Tabellen-/Feldmatrix, einen konkreten Wave-0-, Apply-, Readback- und Rollbackplan sowie einen spaeter ausfuehrbaren Kontrollzentrum-Lauf fuer `Playthru / UABC-BASIC-DE`. Er trennt strukturiert `standard-cronus-demo`-Baseline, Pilot-Soll und tatsaechlich gelesene Abweichung. `UABC-01-CORE-FINANCE` bleibt nur planseitig `prepared-for-controlled-live-run`, `UABC-02-TRADE-MASTER` bleibt `prepared-not-executed`, `UABC-03-OPENING-DATA` bleibt `designed-not-executed`.
 
+Die Wahl zwischen kontrollierter Weiterverwendung von `UABC-BASIC-DE` und einer sauberen CRONUS-Neuanlage beziehungsweise -Kopie wird als ein einziger source-driven Entscheidungsvertrag in der Pilot-Setup-Baseline geführt. Solange interne Company-ID, Baseline-Inventur und ein belastbarer Resetpunkt fehlen, bleibt die Wahl ungetroffen und jeder CORE-FINANCE-Write gesperrt.
+
 ## Wahrheitsgrenze
 
 - Kein Live-BC-Write in diesem Change.
@@ -23,3 +25,5 @@ Dieser Change bindet eine pruefbare Tabellen-/Feldmatrix, einen konkreten Wave-0
 Ein Consultant kann die erste Welle nach sicherer Runtime-Bindung ohne erneute Designrunde feldnah anlegen, validieren, stoppen oder zuruecksetzen. Der spaetere Live-Nachweis bleibt ein eigener Ausfuehrungsblock.
 
 Der aktive Jira-Boardvertrag bildet zusätzlich jeden tatsächlich verwendeten Ticketstatus genau einmal auf eine sichtbare Producer-Spalte ab. Blockierte Tickets bleiben dadurch ohne Twin-Sonderlogik sichtbar.
+
+Kundenprojekt, Produkt-Space und Consulting-Handbuch erklären denselben Stand ohne konkurrierende Wahrheit: Das Kundenprojekt führt Ist, Soll und Gate; das Produkt beschreibt Scope und Nicht-Scope; das Consulting-Handbuch ausschließlich die wiederverwendbare Methode.
