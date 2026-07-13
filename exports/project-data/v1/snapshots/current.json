@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "pointerContract": "uabc-portable-snapshot-current-v1",
+  "currentReleaseId": "UABC-PORTABLE-PILOT-0001",
+  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json",
+  "manifestSha256": "e6b2a6dd271afb2e9978423440de7aba53168a0a60d2a34dbba06f77438281fa",
+  "bindingStatus": "UNBOUND_LOCAL_PILOT",
+  "consumerEligible": false,
+  "publishEligible": false
+}

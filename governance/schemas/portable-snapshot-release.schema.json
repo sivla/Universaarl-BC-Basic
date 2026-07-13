@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:schema:portable-snapshot-release:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "files", "validationStatus"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "manifestContract": { "const": "uabc-portable-snapshot-release-v1" },
+    "releaseId": { "const": "UABC-PORTABLE-PILOT-0001" },
+    "immutable": { "const": true },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customerId", "projectIds", "commitShaProvenance"],
+      "properties": {
+        "customerId": { "const": "UABC-CUSTOMER-001" },
+        "projectIds": { "const": ["UABC-BC-BASIC-001"] },
+        "commitShaProvenance": { "type": "string", "pattern": "^[a-f0-9]{40}$" }
+      }
+    },
+    "releaseBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bindingStatus", "pendingReason", "consumerEligible", "publishEligible", "requiredEvidence"],
+      "properties": {
+        "bindingStatus": { "const": "UNBOUND_LOCAL_PILOT" },
+        "pendingReason": { "const": "PENDING_BCPROJECTOS_RELEASE" },
+        "consumerEligible": { "const": false },
+        "publishEligible": { "const": false },
+        "requiredEvidence": { "const": ["annotatedTag", "peeledCommit", "finalManifest", "productDigest"] }
+      }
+    },
+    "pathSemantics": { "const": "repository-relative" },
+    "byteContract": { "const": "identical-canonical-bytes" },
+    "sourceInventoryDigest": { "$ref": "#/$defs/sha" },
+    "files": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/file" } },
+    "validationStatus": { "const": "validated-local-pilot" }
+  },
+  "$defs": {
+    "sha": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "safePath": { "type": "string", "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$)).+$" },
+    "transport": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "relativePath", "sha256"],
+      "properties": { "type": { "enum": ["filesystem", "https"] }, "relativePath": { "$ref": "#/$defs/safePath" }, "sha256": { "$ref": "#/$defs/sha" } }
+    },
+    "file": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "path", "sizeBytes", "sha256", "transports"],
+      "properties": {
+        "kind": { "enum": ["payload", "catalog-fragment"] },
+        "path": { "$ref": "#/$defs/safePath" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha" },
+        "transports": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/transport" } }
+      }
+    }
+  }
+}

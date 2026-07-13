@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "contractId": "UABC-PORTABLE-SNAPSHOT-PILOT-V1",
+  "releaseId": "UABC-PORTABLE-PILOT-0001",
+  "customerId": "UABC-CUSTOMER-001",
+  "projectId": "UABC-BC-BASIC-001",
+  "classification": "synthetic-local-simulation",
+  "sourceInventory": {
+    "checkpoint": {
+      "checkpointId": "UABC-CONF-CP-20260713-001",
+      "capturedAt": "2026-07-13T12:00:00Z",
+      "mode": "local-simulation",
+      "producerCommitProvenance": "06e56eee4133069bb44e9d8ade1105179c40a381",
+      "externalReadPerformed": false
+    },
+    "pages": [
+      {
+        "sourceId": "PAGE-UABC-000",
+        "documentId": "UABC-PROJECT",
+        "sourcePath": "atlassian/confluence/pages/00-project.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "2b46e73fea4fa7b223ab99671e39199463fb6fef2ce496b7e409e922da9565c0",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-010",
+        "documentId": "UABC-COMPANY",
+        "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "4b0715927f9d0f706b70de7489608746143b2f252282651ec8a33d912be6660f",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-020",
+        "documentId": "UABC-DISCOVERY",
+        "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "6f2c033ab77408c0a9ea6aa8de6c29a65124afb0743c39acf9c58a22b5225ec0",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-030",
+        "documentId": "UABC-BLUEPRINT",
+        "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "52cb23b5c57b3f24ac95f24f7d76b88df4f729823700ee49128d233f3efa900a",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-040",
+        "documentId": "UABC-PROCESSES",
+        "sourcePath": "atlassian/confluence/pages/31-processes.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "8b0e0b6a280d3d6b68af8bcb2edc0e56fa054c6f4019130aaa15b126665fcbdb",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-050",
+        "documentId": "UABC-DECISIONS",
+        "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "d2abe35f6eaa36af360343f56450c69d5a9f2d67e947a39ea03e96881b0526b4",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBDELIVERABLES",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-060",
+        "documentId": "UABC-TESTS",
+        "sourcePath": "atlassian/confluence/pages/50-tests.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "fbc5086630ae5c366206ba08a954250e3f1bddead4b7b916b0c37e3d17ecc63a",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBSTORY",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-070",
+        "documentId": "UABC-ENVBASELINE",
+        "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "694fcc65c80c459bec140f8622d8c309cd38c69335fd1dcfb467e5fc9b02f464",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-080",
+        "documentId": "UABC-WALKTHROUGH",
+        "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "f9d6738cf03d0de2e75ec6be4f1aa6c207d762319dfb0f87d786a6d19fee4131",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBSTORY",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-090",
+        "documentId": "UABC-BCBPROJECT",
+        "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "0db5d643223261171e9b19dc3a735fb7a70c2be1e1da0fc4546691b12455eed4",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-100",
+        "documentId": "UABC-BCBDISCOVERY",
+        "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "4773a236a8cb7ef0924ca88a0dd1adfa98c9d537b7caff468ceca5bb19b19151",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBDELIVERABLES",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-110",
+        "documentId": "UABC-BCBIMPLEMENTATION",
+        "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "5e5cd8a1717fb2fd79992373a0edfd3a3931f969342037d5e0dc98f4dd301e9f",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBDELIVERABLES",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-120",
+        "documentId": "UABC-BCBHYPERCARE",
+        "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "922eda28837d9f9ac3688b4f8d55376db077b2276c44027b65f0abbd4cb9cb02",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-130",
+        "documentId": "UABC-BCBDELIVERABLES",
+        "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "614f29019c915fc043d66b9e8de75628b28f984ec86e9f07b692133969de61f5",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-140",
+        "documentId": "UABC-BCBMEETINGS",
+        "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "ae0d608d54ecde67ff75881068a6f7c6518302cca59904d7af47ab7854554239",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-150",
+        "documentId": "UABC-BCBSTORY",
+        "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "1ecae59c6ca79d4131f32ffa52b92108feee5bcec21f339587ab60556880e35e",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-160",
+        "documentId": "UABC-BCBHCSTORY",
+        "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "ad73acd9c3422fd176a15411c5452f850e99ca4ab6ca653094c2a317a3dd0d4c",
+        "attachmentDigests": [],
+        "parentId": "UABC-BCBSTORY",
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-170",
+        "documentId": "UABC-HYPERCARE",
+        "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "0ca809bf797dec880db0601fec387ab18f8dfe22ce83541eb95a877ccb040e0b",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-180",
+        "documentId": "UABC-TRAINING",
+        "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "f92fd08cd6472498be7d99586f8c2d548f74f3efcdf3b942f334d41e2afb84fb",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-190",
+        "documentId": "UABC-ARCHIVE",
+        "sourcePath": "atlassian/confluence/pages/99-archive.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "b6ee4485abb880fb71d583cf6bda59eaedc3a1ae62fa5aac1be6b2fda9fb1a53",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CUSTOMER",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-200",
+        "documentId": "UABC-PRODUCTAUDIENCE",
+        "sourcePath": "atlassian/confluence/pages/76-product-audience.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "972bacdb82a6dc6e2a63f6fa111c568ce82402836cb795ec8e13e16ef9fab89c",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-210",
+        "documentId": "UABC-PRODUCTAPPROACH",
+        "sourcePath": "atlassian/confluence/pages/77-product-approach.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "e8f3bc38b89b8f71867f01022f306a393b3b140c23a3da286f3f0f316a0597bb",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-220",
+        "documentId": "UABC-PRODUCTOFFER",
+        "sourcePath": "atlassian/confluence/pages/78-product-offer.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "1ad628c7c14a11db66aa2dc43e75c28a63ca9fc2a0201a8f21b60f05e8c4aa55",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-230",
+        "documentId": "UABC-PRODUCTSALESFAQ",
+        "sourcePath": "atlassian/confluence/pages/79-product-sales-faq.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "2e9a567e2daef4b69e55180c385baff31c9f2596fefe74230615359a411bae32",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-PRODUCT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-240",
+        "documentId": "UABC-CONSULTINGDESIGN",
+        "sourcePath": "atlassian/confluence/pages/82-consulting-design.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "323523306441faa1c9a53720392fda1144af538d5dfd0619427ec6754ff9b62e",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-250",
+        "documentId": "UABC-CONSULTINGTESTS",
+        "sourcePath": "atlassian/confluence/pages/83-consulting-tests.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "df5c13160bcb8cd1ca2bc7db7f012b7e7a044a55986c8a269ce15b980a5ea466",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-260",
+        "documentId": "UABC-CONSULTINGHANDOVER",
+        "sourcePath": "atlassian/confluence/pages/84-consulting-handover.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "015d7c4e2271ab0fb87b38de165925e008c59793fb98a53d34f43e7dd16f5152",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      },
+      {
+        "sourceId": "PAGE-UABC-270",
+        "documentId": "UABC-CONSULTINGCHECKLISTS",
+        "sourcePath": "atlassian/confluence/pages/85-consulting-checklists.md",
+        "sourceVersion": "lokaler-projektinhalt-v1",
+        "normalizedContentSha256": "1b21ed92fcc1eb49a5116dcfa17aef46359ff9f1ff814254bee047f8d953dde8",
+        "attachmentDigests": [],
+        "parentId": null,
+        "spaceId": "UABC-SPACE-CONSULTANT",
+        "checkpointId": "UABC-CONF-CP-20260713-001"
+      }
+    ]
+  },
+  "deltas": [
+    {
+      "changeId": "UABC-DELTA-001",
+      "type": "added",
+      "sourceId": "PAGE-UABC-190",
+      "predecessorId": null,
+      "successorId": "PAGE-UABC-190",
+      "tombstone": false,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "changeId": "UABC-DELTA-002",
+      "type": "modified",
+      "sourceId": "PAGE-UABC-110",
+      "predecessorId": "PAGE-UABC-110",
+      "successorId": "PAGE-UABC-110",
+      "tombstone": false,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "changeId": "UABC-DELTA-003",
+      "type": "renamed",
+      "sourceId": "PAGE-UABC-000",
+      "predecessorId": "PAGE-UABC-000",
+      "successorId": "PAGE-UABC-000",
+      "tombstone": false,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "changeId": "UABC-DELTA-004",
+      "type": "moved",
+      "sourceId": "PAGE-UABC-050",
+      "predecessorId": "PAGE-UABC-050",
+      "successorId": "PAGE-UABC-050",
+      "tombstone": false,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "changeId": "UABC-DELTA-005",
+      "type": "deleted",
+      "sourceId": "PAGE-UABC-LEGACY-001",
+      "predecessorId": "PAGE-UABC-LEGACY-001",
+      "successorId": "PAGE-UABC-050",
+      "tombstone": true,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "changeId": "UABC-DELTA-006",
+      "type": "inaccessible",
+      "sourceId": "UABC-CONF-EXTERNAL-001",
+      "predecessorId": null,
+      "successorId": null,
+      "tombstone": false,
+      "reviewStatus": "pending"
+    },
+    {
+      "changeId": "UABC-DELTA-007",
+      "type": "conflicted",
+      "sourceId": "PAGE-UABC-050",
+      "predecessorId": "PAGE-UABC-050",
+      "successorId": "PAGE-UABC-050",
+      "tombstone": false,
+      "reviewStatus": "pending"
+    }
+  ],
+  "views": {
+    "customer": {
+      "approvedKnowledgeChanges": [
+        {
+          "knowledgeId": "UABC-KNOW-001",
+          "subject": "Dauerhafte Seite 02.1 Datenmigration",
+          "sourceIds": [
+            "PAGE-UABC-050"
+          ],
+          "reviewStatus": "approved",
+          "authoritative": true,
+          "truthTarget": "project/bc-basic/confluence-three-space-v1.yaml"
+        }
+      ],
+      "coverage": [
+        {
+          "coverageId": "UABC-COV-001",
+          "area": "Support",
+          "sourceIds": [
+            "PAGE-UABC-000"
+          ],
+          "status": "covered",
+          "ownerRef": "P-PILOT-LEAD-001",
+          "workshopRef": "UABC-MTG-001",
+          "openGap": null
+        },
+        {
+          "coverageId": "UABC-COV-002",
+          "area": "Unternehmen",
+          "sourceIds": [
+            "PAGE-UABC-010"
+          ],
+          "status": "covered",
+          "ownerRef": "P-PILOT-LEAD-001",
+          "workshopRef": "UABC-MTG-001",
+          "openGap": null
+        },
+        {
+          "coverageId": "UABC-COV-003",
+          "area": "Datenmigration",
+          "sourceIds": [
+            "PAGE-UABC-050"
+          ],
+          "status": "conflicted",
+          "ownerRef": "P-016",
+          "workshopRef": "UABC-MTG-002",
+          "openGap": "Externe Quellversion ist nicht zugaenglich"
+        },
+        {
+          "coverageId": "UABC-COV-004",
+          "area": "Business Central",
+          "sourceIds": [
+            "PAGE-UABC-130",
+            "PAGE-UABC-110"
+          ],
+          "status": "covered",
+          "ownerRef": "P-PILOT-LEAD-001",
+          "workshopRef": "UABC-MTG-002",
+          "openGap": null
+        },
+        {
+          "coverageId": "UABC-COV-005",
+          "area": "Projekte",
+          "sourceIds": [
+            "PAGE-UABC-150"
+          ],
+          "status": "covered",
+          "ownerRef": "P-PILOT-LEAD-001",
+          "workshopRef": "UABC-MTG-003",
+          "openGap": null
+        },
+        {
+          "coverageId": "UABC-COV-006",
+          "area": "Handbuecher",
+          "sourceIds": [
+            "PAGE-UABC-170"
+          ],
+          "status": "covered",
+          "ownerRef": "P-PILOT-LEAD-001",
+          "workshopRef": "UABC-MTG-003",
+          "openGap": null
+        }
+      ]
+    },
+    "internal": {
+      "knowledgeChanges": [
+        {
+          "knowledgeId": "UABC-KNOW-001",
+          "subject": "Dauerhafte Seite 02.1 Datenmigration",
+          "sourceIds": [
+            "PAGE-UABC-050"
+          ],
+          "reviewStatus": "approved",
+          "authoritative": true,
+          "truthTarget": "project/bc-basic/confluence-three-space-v1.yaml"
+        },
+        {
+          "knowledgeId": "UABC-KNOW-002",
+          "subject": "Externe Brownfield-Quelle ohne lesbare Bytes",
+          "sourceIds": [
+            "UABC-CONF-EXTERNAL-001"
+          ],
+          "reviewStatus": "pending",
+          "authoritative": false,
+          "truthTarget": null
+        }
+      ],
+      "contradictions": [
+        {
+          "contradictionId": "UABC-CONFLICT-001",
+          "subject": "Externe Datenmigrationsquelle gegen lokale Seite",
+          "sourceIds": [
+            "UABC-CONF-EXTERNAL-001",
+            "PAGE-UABC-050"
+          ],
+          "status": "open",
+          "resolution": null,
+          "authoritativeSourceId": null
+        }
+      ],
+      "brownfieldReconciliation": {
+        "baseline": "Drei lokale synthetische Confluence-Spaces mit 28 stabilen Seiten-IDs",
+        "rows": [
+          {
+            "rowId": "UABC-BF-001",
+            "sourceId": "PAGE-UABC-000",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/00-project.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-002",
+            "sourceId": "PAGE-UABC-010",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/10-company-profile.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-003",
+            "sourceId": "PAGE-UABC-020",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/20-discovery.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-004",
+            "sourceId": "PAGE-UABC-030",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/30-blueprint.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-005",
+            "sourceId": "PAGE-UABC-040",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/31-processes.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-002",
+            "sourceId": "PAGE-UABC-050",
+            "decision": "conflict",
+            "artifactPath": "atlassian/confluence/pages/32-decisions.md",
+            "ownerRef": "P-016",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "local-authoritative-external-pending",
+            "openGap": "Externe Quellversion fehlt"
+          },
+          {
+            "rowId": "UABC-BF-PAGE-007",
+            "sourceId": "PAGE-UABC-060",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/50-tests.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-008",
+            "sourceId": "PAGE-UABC-070",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/60-environment-baseline.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-009",
+            "sourceId": "PAGE-UABC-080",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-010",
+            "sourceId": "PAGE-UABC-090",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/70-bc-basic-project.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-011",
+            "sourceId": "PAGE-UABC-100",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-012",
+            "sourceId": "PAGE-UABC-110",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-013",
+            "sourceId": "PAGE-UABC-120",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-014",
+            "sourceId": "PAGE-UABC-130",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-015",
+            "sourceId": "PAGE-UABC-140",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-016",
+            "sourceId": "PAGE-UABC-150",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/bc-basic-project-story.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-017",
+            "sourceId": "PAGE-UABC-160",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-018",
+            "sourceId": "PAGE-UABC-170",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/80-bc-basic-training.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-019",
+            "sourceId": "PAGE-UABC-180",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-020",
+            "sourceId": "PAGE-UABC-190",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/99-archive.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-001",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-021",
+            "sourceId": "PAGE-UABC-200",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/76-product-audience.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-022",
+            "sourceId": "PAGE-UABC-210",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/77-product-approach.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-023",
+            "sourceId": "PAGE-UABC-220",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/78-product-offer.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-024",
+            "sourceId": "PAGE-UABC-230",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/79-product-sales-faq.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-025",
+            "sourceId": "PAGE-UABC-240",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/82-consulting-design.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-026",
+            "sourceId": "PAGE-UABC-250",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/83-consulting-tests.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-027",
+            "sourceId": "PAGE-UABC-260",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/84-consulting-handover.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-PAGE-028",
+            "sourceId": "PAGE-UABC-270",
+            "decision": "import",
+            "artifactPath": "atlassian/confluence/pages/85-consulting-checklists.md",
+            "ownerRef": "P-PILOT-LEAD-001",
+            "workshopRef": "UABC-MTG-003",
+            "baselineStatus": "matched",
+            "openGap": null
+          },
+          {
+            "rowId": "UABC-BF-003",
+            "sourceId": "UABC-CONF-EXTERNAL-001",
+            "decision": "exclude",
+            "artifactPath": null,
+            "ownerRef": "P-016",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "inaccessible",
+            "openGap": "Zugriff und freigegebener Export fehlen"
+          },
+          {
+            "rowId": "UABC-BF-004",
+            "sourceId": "UABC-CONF-GAP-001",
+            "decision": "gap",
+            "artifactPath": null,
+            "ownerRef": "P-016",
+            "workshopRef": "UABC-MTG-002",
+            "baselineStatus": "missing",
+            "openGap": "Freigegebene Attachment-Baseline fehlt"
+          }
+        ]
+      }
+    }
+  },
+  "visibilityBoundary": {
+    "allowed": [
+      "customer",
+      "internal"
+    ],
+    "customerSelector": "views.customer",
+    "internalSelector": "views.internal",
+    "foreignCustomerDataAllowed": false
+  },
+  "truthBoundary": {
+    "liveExecutionClaimed": false,
+    "externalSyncClaimed": false,
+    "uncheckedKnowledgePromoted": false
+  }
+}

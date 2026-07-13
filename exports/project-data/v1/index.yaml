@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: prepare-uabc-basic-de-setup-wave-1
+governingChange: prepare-portable-snapshot-pilot
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -2480,6 +2480,66 @@ artifacts:
     kindId: meeting-transcript
     path: atlassian/confluence/meetings/UABC-MTG-003.md
     format: markdown
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-PILOT-001
+    kindId: portable-snapshot-pilot-source
+    path: project/bc-basic/portable-snapshot-pilot.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-SCHEMA-001
+    kindId: portable-snapshot-pilot-schema
+    path: governance/schemas/portable-snapshot-pilot.schema.json
+    format: json-schema
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-RELEASE-SCHEMA-001
+    kindId: portable-snapshot-release-schema
+    path: governance/schemas/portable-snapshot-release.schema.json
+    format: json-schema
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-LIB-001
+    kindId: portable-snapshot-contract-library
+    path: scripts/lib/portable-snapshot-pilot.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-GEN-001
+    kindId: portable-snapshot-generator
+    path: scripts/generate-portable-snapshot-pilot.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-VAL-001
+    kindId: portable-snapshot-validator
+    path: scripts/validate-portable-snapshot-pilot.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-TEST-001
+    kindId: portable-snapshot-negative-tests
+    path: tests/governance/portable-snapshot-pilot.test.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-CATALOG-001
+    kindId: portable-customer-snapshot-catalog
+    path: exports/project-data/v1/snapshots/catalog.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-CURRENT-001
+    kindId: portable-snapshot-current-pointer
+    path: exports/project-data/v1/snapshots/current.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-FRAGMENT-001
+    kindId: portable-customer-project-fragment
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-MANIFEST-001
+    kindId: portable-snapshot-release-manifest
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-PORTABLE-PAYLOAD-001
+    kindId: portable-snapshot-release-payload
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json
+    format: json
     required: true
 referenceDefinitions:
   jiraRefs:

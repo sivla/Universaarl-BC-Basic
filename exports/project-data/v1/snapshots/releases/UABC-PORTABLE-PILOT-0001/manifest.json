@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "manifestContract": "uabc-portable-snapshot-release-v1",
+  "releaseId": "UABC-PORTABLE-PILOT-0001",
+  "immutable": true,
+  "producer": {
+    "customerId": "UABC-CUSTOMER-001",
+    "projectIds": [
+      "UABC-BC-BASIC-001"
+    ],
+    "commitShaProvenance": "06e56eee4133069bb44e9d8ade1105179c40a381"
+  },
+  "releaseBinding": {
+    "bindingStatus": "UNBOUND_LOCAL_PILOT",
+    "pendingReason": "PENDING_BCPROJECTOS_RELEASE",
+    "consumerEligible": false,
+    "publishEligible": false,
+    "requiredEvidence": [
+      "annotatedTag",
+      "peeledCommit",
+      "finalManifest",
+      "productDigest"
+    ]
+  },
+  "pathSemantics": "repository-relative",
+  "byteContract": "identical-canonical-bytes",
+  "sourceInventoryDigest": "859ff927674c26985ed0963893c4cdd3cd4d4f38f7544ce79f827ddc78d08d68",
+  "files": [
+    {
+      "kind": "payload",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json",
+      "sizeBytes": 31058,
+      "sha256": "abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b",
+      "transports": [
+        {
+          "type": "filesystem",
+          "relativePath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json",
+          "sha256": "abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b"
+        },
+        {
+          "type": "https",
+          "relativePath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json",
+          "sha256": "abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b"
+        }
+      ]
+    },
+    {
+      "kind": "catalog-fragment",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json",
+      "sizeBytes": 620,
+      "sha256": "91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4",
+      "transports": [
+        {
+          "type": "filesystem",
+          "relativePath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json",
+          "sha256": "91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4"
+        },
+        {
+          "type": "https",
+          "relativePath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json",
+          "sha256": "91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4"
+        }
+      ]
+    }
+  ],
+  "validationStatus": "validated-local-pilot"
+}

@@ -54,6 +54,8 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['evidence/simulation/reference-graph-coverage.json\u001f$.provenance.source_mode\u001fread-only', 'gebundener-coverage-zugriffsmodus'],
   ['exports/project-data/v1/reference-graph-mapping.json\u001f$.recordType\u001freference-graph-mapping-rules', 'gebundener-coverage-recordtyp'],
   ['governance/consumer-bindings.yaml\u001f$.spectraReleaseBinding.bindingStatus\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-spectra-release-status'],
+  ['project/bc-basic/portable-snapshot-pilot.yaml\u001f$.release.pendingReason\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-portabler-release-status'],
+  ['exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json\u001f$.releaseBinding.pendingReason\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-portabler-release-status'],
   ['openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/.openspec.yaml\u001f$.approvalPolicy.authorizedBy\u001freal-repository-user', 'gebundene-freigabeidentitaet']
 ]);
 
@@ -139,8 +141,8 @@ const FIELD_ENUMS = new Map([
   ['visibilityBasis', new Set(['name-and-publisher-intersect-screenshot-viewport', 'row-intersects-screenshot-viewport'])]
 ]);
 
-const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|page|field|fields|expectedOperation|expectedOperations|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|requiredBeforePackageDefinition|requiredBeforeApply|requiredGates|gates|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
-const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls)$/;
+const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|releaseDirectory|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|page|field|fields|expectedOperation|expectedOperations|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|requiredBeforePackageDefinition|requiredBeforeApply|requiredGates|gates|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
+const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls|Selector)$/;
 const FIXED_OPENSPEC_PATTERN = /\b(?:ADDED|MODIFIED|REMOVED|RENAMED) Requirements\b|\b(?:Requirement|Scenario):|\*\*(?:GIVEN|WHEN|THEN|AND)\*\*|\bMUST\b/g;
 
 function normalizePath(value) {

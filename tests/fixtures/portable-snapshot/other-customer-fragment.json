@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fragmentContract": "uabc-customer-project-fragment-v1",
+  "customerId": "TEST-CUSTOMER-002",
+  "fixtureOnly": true,
+  "synthetic": true,
+  "projects": [
+    {
+      "projectId": "TEST-PROJECT-001",
+      "routeKey": "synthetischer-zweitkunde",
+      "visibility": "customer",
+      "snapshotReleaseId": "TEST-RELEASE-001",
+      "consumerEligible": false,
+      "publishEligible": false
+    }
+  ]
+}
