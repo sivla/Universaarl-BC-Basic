@@ -2021,7 +2021,7 @@ artifacts:
   - id: UABC-SRC-BCB-VER-001
     kindId: verification-register
     path: evidence/verification-register.yaml
-    selector: verifications[changeRef=prepare-uabc-basic-de-setup-wave-1]
+    selector: verifications[changeRef=prepare-portable-snapshot-pilot]
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001
@@ -2059,6 +2059,11 @@ artifacts:
   - id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001
     kindId: spectra-release-evidence
     path: evidence/spectra-release-0.10.0-alpha.1.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-SPECTRA-EVIDENCE-012
+    kindId: spectra-release-evidence
+    path: evidence/spectra-release-1.2.0-alpha.12.yaml
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SPECTRA-CONFORMANCE-001
@@ -2526,19 +2531,19 @@ artifacts:
     path: exports/project-data/v1/snapshots/current.json
     format: json
     required: true
-  - id: UABC-SRC-BCB-PORTABLE-FRAGMENT-001
+  - id: UABC-SRC-BCB-PORTABLE-FRAGMENT-002
     kindId: portable-customer-project-fragment
-    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/catalog-fragment.json
     format: json
     required: true
-  - id: UABC-SRC-BCB-PORTABLE-MANIFEST-001
+  - id: UABC-SRC-BCB-PORTABLE-MANIFEST-002
     kindId: portable-snapshot-release-manifest
-    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json
     format: json
     required: true
-  - id: UABC-SRC-BCB-PORTABLE-PAYLOAD-001
+  - id: UABC-SRC-BCB-PORTABLE-PAYLOAD-002
     kindId: portable-snapshot-release-payload
-    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json
+    path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/payload.json
     format: json
     required: true
 referenceDefinitions:

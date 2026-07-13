@@ -21,13 +21,27 @@ const rewrite = (artifacts, relative, mutate) => {
 test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   assert.deepEqual(validatePortableContract(source, confluence), []);
   assert.deepEqual(validatePortableArtifacts(source, build()), []);
-  assert.equal(source.release.bindingStatus, 'UNBOUND_LOCAL_PILOT');
-  assert.equal(source.release.consumerEligible, false);
-  assert.equal(source.release.publishEligible, false);
+  assert.equal(source.release.bindingStatus, 'BOUND_BCPROJECTOS_RELEASE');
+  assert.equal(source.release.pendingReason, null);
+  assert.equal(source.release.consumerEligible, true);
+  assert.equal(source.release.publishEligible, true);
+  assert.equal(source.release.spectraReleaseBinding.releaseTag, 'spectra-v1.2.0-alpha.12');
+  assert.equal(source.release.spectraReleaseBinding.platformEvidenceStatus, 'passed');
   const payload = JSON.parse(build()[`${source.release.releaseDirectory}/payload.json`]);
   assert.equal(payload.views.internal.brownfieldReconciliation.rows.length, 30);
   assert.equal(payload.views.customer.approvedKnowledgeChanges.length, 1);
   assert.equal(payload.views.customer.contradictions, undefined);
+});
+
+test('alter ungebundener Release bleibt als unveraenderliche Historie erhalten', () => {
+  const oldDirectory = 'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001';
+  for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
+  assert.notEqual(source.release.releaseDirectory, oldDirectory);
+});
+
+test('unvollstaendige Spectra-Releaseevidence wird abgelehnt', () => {
+  const input = clone(source); input.release.spectraReleaseBinding.platformEvidenceStatus = 'pending';
+  assert.match(validatePortableContract(input, confluence).join('\n'), /PILOT-SPECTRA-EVIDENCE/);
 });
 
 test('unbekannte Quelle wird abgelehnt', () => {
@@ -107,9 +121,9 @@ test('fremde Sichtklasse wird abgelehnt', () => {
   assert.match(errorText(source, changed), /PILOT-SICHTKLASSE/);
 });
 
-test('Katalogeintrag ohne freigegebenen Snapshot wird abgelehnt', () => {
+test('Katalogeintrag mit entzogener Releasefreigabe wird abgelehnt', () => {
   const artifacts = build();
-  const changed = rewrite(artifacts, source.release.catalogPath, (catalog) => { catalog.customerFragments[0].consumerEligible = true; });
+  const changed = rewrite(artifacts, source.release.catalogPath, (catalog) => { catalog.customerFragments[0].consumerEligible = false; });
   assert.match(errorText(source, changed), /PILOT-CROSS-CUSTOMER/);
 });
 

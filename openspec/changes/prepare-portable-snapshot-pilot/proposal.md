@@ -11,7 +11,8 @@ Die bestehende synthetische Drei-Space-Projektsimulation erhaelt einen determini
 - Unveraenderliches lokales Releaseverzeichnis, atomarer `current.json`-Zeiger und isolierter Kunden-/Projektkatalog.
 - Identischer Bytevertrag fuer Filesystem und HTTPS sowie fail-closed Digests und Sichtgrenzen.
 - Eine zweite Kundeninstanz ausschliesslich als synthetische Negativfixture unter `tests/fixtures`.
+- Bindung eines neuen, unveraenderlichen Snapshot-Releases an den nachweislich plattformgruenen Spectra-Release `spectra-v1.2.0-alpha.12`.
 
 ## Grenzen
 
-Keine Live-Verbindung, keine Produktivbehauptung, keine Twin-Code- oder BCProjectOS-Aenderung. Der Pilot bleibt `PENDING_BCPROJECTOS_RELEASE` und `UNBOUND_LOCAL_PILOT`; Consumer- und Publish-Eignung bleiben false.
+Keine Live-Verbindung, keine Produktivbehauptung, keine Twin-Code- oder BCProjectOS-Aenderung aus dieser Kundeninstanz. Der historische ungebundene Release `UABC-PORTABLE-PILOT-0001` bleibt bytegleich erhalten. Ausschliesslich der neue Release `UABC-PORTABLE-PILOT-0002` darf nach vollstaendiger Tag-, Commit-, Manifest-, Digest- und Plattform-Evidence `BOUND_BCPROJECTOS_RELEASE` sowie Consumer- und kontrollierte Publish-Eignung tragen.

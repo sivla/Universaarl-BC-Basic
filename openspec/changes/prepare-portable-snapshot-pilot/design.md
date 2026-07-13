@@ -8,10 +8,10 @@
 
 1. Seiteninhalte werden auf LF, entfernte Zeilenend-Leerzeichen und genau einen finalen Zeilenumbruch normalisiert.
 2. Inventar, Delta, Knowledge, Coverage und Reconciliation werden als kanonisches JSON projiziert.
-3. Payload und Kundenkatalog erhalten SHA-256-Digests; das Manifest bindet beide Bytes.
+3. Payload und Kundenkatalog erhalten SHA-256-Digests; das Manifest bindet beide Bytes sowie die vollstaendige Spectra-Release-Evidence.
 4. `current.json` bindet ausschließlich Release-ID, relativen Manifestpfad und Manifestdigest.
-5. Existierende Releasebytes duerfen nur bytegleich erneut erzeugt werden; Abweichungen scheitern.
+5. Existierende Releasebytes duerfen nur bytegleich erneut erzeugt werden; Abweichungen scheitern. Eine neue Bindung erzeugt deshalb eine neue Release-ID und veraendert `UABC-PORTABLE-PILOT-0001` nicht.
 
 ## Grenzen
 
-Der Release-Store liegt innerhalb der Kundeninstanz. Er enthaelt nur Universaarl-Projekte. Ein Aggregator darf mehrere isolierte Kundenfragmente nur nach demselben Schema zusammenfuehren. Commit-SHA ist Provenienz, keine Laufzeitschnittstelle. Filesystem und HTTPS transportieren exakt dieselben Bytes.
+Der Release-Store liegt innerhalb der Kundeninstanz. Er enthaelt nur Universaarl-Projekte. Ein Aggregator darf mehrere isolierte Kundenfragmente nur nach demselben Schema zusammenfuehren. Die Kundeninstanz bindet `spectra-v1.2.0-alpha.12` ueber annotiertes Tagobjekt, peeled Commit, finales Manifest, Source-Commit/-Tree, Produktdigest und die gruene Windows-/macOS-Matrix. Commit-SHA ist Provenienz, keine Laufzeitschnittstelle. Filesystem und HTTPS transportieren exakt dieselben Bytes.

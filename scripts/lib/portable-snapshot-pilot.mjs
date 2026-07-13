@@ -63,9 +63,11 @@ export function validatePortableContract(contract, confluence) {
   }
   const release = contract?.release;
   for (const path of [release?.releaseDirectory, release?.currentPointerPath, release?.catalogPath]) if (!safePath(path)) add(errors, 'PILOT-PFAD', `Releasepfad ist nicht repository-relativ: ${path}`);
-  if (release?.bindingStatus !== 'UNBOUND_LOCAL_PILOT' || release?.pendingReason !== 'PENDING_BCPROJECTOS_RELEASE' || release?.consumerEligible !== false || release?.publishEligible !== false) add(errors, 'PILOT-RELEASEBINDUNG', 'Ungebundener Pilot darf weder gelesen noch publiziert werden');
+  if (release?.bindingStatus !== 'BOUND_BCPROJECTOS_RELEASE' || release?.pendingReason !== null || release?.consumerEligible !== true || release?.publishEligible !== true) add(errors, 'PILOT-RELEASEBINDUNG', 'Nur ein vollstaendig gebundener Release darf gelesen und zur kontrollierten Publikation uebergeben werden');
   if (release?.immutable !== true || release?.byteContract !== 'identical-canonical-bytes' || JSON.stringify(release?.transports) !== JSON.stringify(['filesystem', 'https'])) add(errors, 'PILOT-IMMUTABILITAET', 'Release- und Transportvertrag ist ungueltig');
-  if (JSON.stringify(release?.requiredReleaseEvidence) !== JSON.stringify(['annotatedTag', 'peeledCommit', 'finalManifest', 'productDigest'])) add(errors, 'PILOT-RELEASEEVIDENCE', 'Echte Releasebindung benoetigt vier exakte Nachweise');
+  if (JSON.stringify(release?.requiredReleaseEvidence) !== JSON.stringify(['annotatedTag', 'peeledCommit', 'finalManifest', 'productDigest', 'platformMatrix'])) add(errors, 'PILOT-RELEASEEVIDENCE', 'Echte Releasebindung benoetigt Tag, Commit, Manifest, Produktdigest und Plattformmatrix');
+  const spectra = release?.spectraReleaseBinding ?? {};
+  if (spectra.productId !== 'spectra' || spectra.technicalRepositoryName !== 'BCProjectOS' || spectra.repositoryUrl !== 'https://github.com/sivla/BCProjectOS.git' || spectra.releaseTag !== `spectra-v${spectra.releaseVersion}` || !/^spectra-v\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/u.test(spectra.releaseTag ?? '') || !['annotatedTagObject', 'peeledCommit', 'manifestSourceCommit', 'sourceTree'].every((key) => /^[a-f0-9]{40}$/u.test(spectra[key] ?? '')) || spectra.manifestPath !== `release/versions/${spectra.releaseVersion}/release-manifest.json` || spectra.consumerMode !== 'INSTALLABLE_BLUEPRINT' || spectra.installableBlueprint !== true || spectra.digestAlgorithm !== 'SHA-256' || !/^[a-f0-9]{64}$/u.test(spectra.payloadBundleDigest ?? '') || spectra.platformEvidenceStatus !== 'passed' || !/^https:\/\/github\.com\/sivla\/BCProjectOS\/actions\/runs\/\d+$/u.test(spectra.platformEvidenceRun ?? '') || !safePath(spectra.evidencePath)) add(errors, 'PILOT-SPECTRA-EVIDENCE', 'Spectra-Releasebindung ist unvollstaendig oder nicht unveraenderlich belegt');
   if (contract?.customerCatalog?.producerCustomerId !== contract?.customerId || contract?.customerCatalog?.projects?.some((item) => item.projectId !== contract.projectId || item.snapshotReleaseId !== release?.releaseId) || contract?.customerCatalog?.foreignCustomerFixturesOnly !== true) add(errors, 'PILOT-KUNDENGRENZE', 'Producer darf nur die eigene Kundeninstanz und eigene Projekte veroeffentlichen');
   return errors;
 }
@@ -139,7 +141,7 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     fragmentContract: 'uabc-customer-project-fragment-v1',
     customerId: contract.customerId,
     fixtureOnly: false,
-    projects: contract.customerCatalog.projects.map((item) => ({ ...item, consumerEligible: false, publishEligible: false })),
+    projects: contract.customerCatalog.projects.map((item) => ({ ...item, consumerEligible: contract.release.consumerEligible, publishEligible: contract.release.publishEligible })),
     payload: { path: payloadPath, sha256: sha256Hex(payloadBytes), sizeBytes: payloadBytes.length }
   };
   const fragmentBytes = Buffer.from(canonicalJson(fragment), 'utf8');
@@ -156,12 +158,12 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     releaseId: contract.release.releaseId,
     immutable: true,
     producer: { customerId: contract.customerId, projectIds: [contract.projectId], commitShaProvenance: contract.release.producerCommitProvenance },
-    releaseBinding: { bindingStatus: 'UNBOUND_LOCAL_PILOT', pendingReason: 'PENDING_BCPROJECTOS_RELEASE', consumerEligible: false, publishEligible: false, requiredEvidence: contract.release.requiredReleaseEvidence },
+    releaseBinding: { bindingStatus: contract.release.bindingStatus, pendingReason: contract.release.pendingReason, consumerEligible: contract.release.consumerEligible, publishEligible: contract.release.publishEligible, requiredEvidence: contract.release.requiredReleaseEvidence, spectraReleaseBinding: contract.release.spectraReleaseBinding },
     pathSemantics: 'repository-relative',
     byteContract: 'identical-canonical-bytes',
     sourceInventoryDigest: sha256Hex(Buffer.from(canonicalJson(inventory), 'utf8')),
     files: records,
-    validationStatus: 'validated-local-pilot'
+    validationStatus: 'validated-release'
   };
   const manifestBytes = Buffer.from(canonicalJson(manifest), 'utf8');
   const manifestSha256 = sha256Hex(manifestBytes);
@@ -171,15 +173,15 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     currentReleaseId: contract.release.releaseId,
     manifestPath,
     manifestSha256,
-    bindingStatus: 'UNBOUND_LOCAL_PILOT',
-    consumerEligible: false,
-    publishEligible: false
+    bindingStatus: contract.release.bindingStatus,
+    consumerEligible: contract.release.consumerEligible,
+    publishEligible: contract.release.publishEligible
   };
   const catalog = {
     schemaVersion: 1,
     catalogContract: 'uabc-portable-customer-catalog-v1',
     producerCustomerId: contract.customerId,
-    customerFragments: [{ customerId: contract.customerId, fragmentPath, fragmentSha256: sha256Hex(fragmentBytes), manifestPath, manifestSha256, consumerEligible: false, publishEligible: false }],
+    customerFragments: [{ customerId: contract.customerId, fragmentPath, fragmentSha256: sha256Hex(fragmentBytes), manifestPath, manifestSha256, consumerEligible: contract.release.consumerEligible, publishEligible: contract.release.publishEligible }],
     aggregationRule: contract.customerCatalog.aggregationRule,
     foreignCustomerFixturesOnly: true
   };
@@ -207,22 +209,22 @@ export function validatePortableArtifacts(contract, artifacts) {
     catalog = JSON.parse(Buffer.from(artifacts[contract.release.catalogPath]).toString('utf8'));
   } catch (error) { return [`PILOT-OUTPUT-PARSE: ${error.message}`]; }
   if (manifest.immutable !== true) add(errors, 'PILOT-IMMUTABILITAET', 'Manifest muss immutable true sein');
-  if (manifest.releaseBinding?.bindingStatus !== 'UNBOUND_LOCAL_PILOT' || manifest.releaseBinding?.consumerEligible !== false || manifest.releaseBinding?.publishEligible !== false) add(errors, 'PILOT-RELEASEBINDUNG', 'Manifest hebt die offene Releasebindung unzulaessig auf');
+  if (manifest.releaseBinding?.bindingStatus !== contract.release.bindingStatus || manifest.releaseBinding?.pendingReason !== contract.release.pendingReason || manifest.releaseBinding?.consumerEligible !== contract.release.consumerEligible || manifest.releaseBinding?.publishEligible !== contract.release.publishEligible || JSON.stringify(manifest.releaseBinding?.spectraReleaseBinding) !== JSON.stringify(contract.release.spectraReleaseBinding)) add(errors, 'PILOT-RELEASEBINDUNG', 'Manifest bildet die vollstaendige Releasebindung nicht exakt ab');
   for (const record of manifest.files ?? []) {
     if (!safePath(record.path) || !artifacts[record.path]) { add(errors, 'PILOT-PFAD', `${record.path}: Releasepfad fehlt oder ist unsicher`); continue; }
     const bytes = Buffer.from(artifacts[record.path]);
     if (record.sha256 !== sha256Hex(bytes) || record.sizeBytes !== bytes.length) add(errors, 'PILOT-DIGEST', `${record.path}: Digest oder Groesse weicht ab`);
     if ((record.transports ?? []).length !== 2 || record.transports.some((item) => item.relativePath !== record.path || item.sha256 !== record.sha256) || !['filesystem', 'https'].every((type) => record.transports.some((item) => item.type === type))) add(errors, 'PILOT-TRANSPORT', `${record.path}: Filesystem- und HTTPS-Bytes divergieren`);
   }
-  if (current.manifestPath !== manifestPath || current.manifestSha256 !== sha256Hex(Buffer.from(artifacts[manifestPath])) || current.consumerEligible !== false || current.publishEligible !== false) add(errors, 'PILOT-CURRENT', 'current.json bindet nicht exakt das ungebundene Manifest');
+  if (current.currentReleaseId !== contract.release.releaseId || current.manifestPath !== manifestPath || current.manifestSha256 !== sha256Hex(Buffer.from(artifacts[manifestPath])) || current.bindingStatus !== contract.release.bindingStatus || current.consumerEligible !== contract.release.consumerEligible || current.publishEligible !== contract.release.publishEligible) add(errors, 'PILOT-CURRENT', 'current.json bindet nicht exakt das freigegebene Manifest');
   if (payload.customerId !== contract.customerId || payload.projectId !== contract.projectId || payload.truthBoundary?.liveExecutionClaimed !== false) add(errors, 'PILOT-KUNDENGRENZE', 'Payload enthaelt fremde oder unzulaessige Projektwahrheit');
   if (JSON.stringify(payload.visibilityBoundary?.allowed) !== JSON.stringify(['customer', 'internal']) || payload.visibilityBoundary?.customerSelector !== 'views.customer' || payload.visibilityBoundary?.internalSelector !== 'views.internal' || payload.visibilityBoundary?.foreignCustomerDataAllowed !== false) add(errors, 'PILOT-SICHTKLASSE', 'Payload besitzt eine fremde oder nicht freigegebene Sichtklasse');
   if (payload.views?.customer?.contradictions || payload.views?.customer?.brownfieldReconciliation || payload.views?.customer?.approvedKnowledgeChanges?.some((item) => item.reviewStatus !== 'approved')) add(errors, 'PILOT-SICHTKLASSE', 'Kundensicht enthaelt interne oder ungepruefte Wissensdaten');
   if ((payload.sourceInventory?.pages ?? []).length !== 28 || payload.sourceInventory.pages.some((page) => !/^[a-f0-9]{64}$/u.test(page.normalizedContentSha256) || !page.checkpointId || !unique(page.attachmentDigests ?? []) || page.attachmentDigests.some((digest) => !/^[a-f0-9]{64}$/u.test(digest)))) add(errors, 'PILOT-INVENTAR', 'Source Inventory ist unvollstaendig oder besitzt ungueltige Digests');
   const reconciliation = payload.views?.internal?.brownfieldReconciliation?.rows ?? [];
   if (reconciliation.length !== 30 || !['import', 'exclude', 'gap', 'conflict'].every((decision) => reconciliation.some((row) => row.decision === decision)) || payload.sourceInventory.pages.some((page) => !reconciliation.some((row) => row.sourceId === page.sourceId))) add(errors, 'PILOT-RECONCILIATION', 'Brownfield-Reconciliation deckt Quellen oder Entscheidungsarten nicht vollstaendig ab');
-  if (fragment.customerId !== contract.customerId || fragment.fixtureOnly !== false || fragment.projects?.some((project) => project.consumerEligible !== false || project.publishEligible !== false)) add(errors, 'PILOT-FRAGMENT', 'Kundenfragment verletzt Isolation oder offene Freigabe');
-  if (catalog.producerCustomerId !== contract.customerId || catalog.customerFragments?.length !== 1 || catalog.customerFragments[0]?.customerId !== contract.customerId || catalog.customerFragments[0]?.consumerEligible !== false || catalog.customerFragments[0]?.publishEligible !== false) add(errors, 'PILOT-CROSS-CUSTOMER', 'Katalog enthaelt fremde oder ungepruefte Kundenfragmente');
+  if (fragment.customerId !== contract.customerId || fragment.fixtureOnly !== false || fragment.projects?.some((project) => project.consumerEligible !== contract.release.consumerEligible || project.publishEligible !== contract.release.publishEligible)) add(errors, 'PILOT-FRAGMENT', 'Kundenfragment verletzt Isolation oder Releasefreigabe');
+  if (catalog.producerCustomerId !== contract.customerId || catalog.customerFragments?.length !== 1 || catalog.customerFragments[0]?.customerId !== contract.customerId || catalog.customerFragments[0]?.consumerEligible !== contract.release.consumerEligible || catalog.customerFragments[0]?.publishEligible !== contract.release.publishEligible) add(errors, 'PILOT-CROSS-CUSTOMER', 'Katalog enthaelt fremde oder ungepruefte Kundenfragmente');
   const forbiddenKey = (value) => value && typeof value === 'object' && Object.entries(value).some(([key, child]) => /password|token|cookie|secret|authstate/iu.test(key) || forbiddenKey(child));
   if ([payload, fragment, manifest, current, catalog].some(forbiddenKey)) add(errors, 'PILOT-GEHEIMNIS', 'Snapshot enthaelt ein verbotenes Geheimnis- oder Authfeld');
   return errors;

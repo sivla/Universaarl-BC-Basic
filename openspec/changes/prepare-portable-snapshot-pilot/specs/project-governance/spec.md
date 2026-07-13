@@ -26,3 +26,11 @@ Das System MUST Releasebytes, Digests, Kundengrenzen und Sichtklassen fail-close
 - **WHEN** annotierter Tag, peeled Commit, finales Manifest oder Produktdigest fehlen
 - **THEN** MUST der Status `PENDING_BCPROJECTOS_RELEASE` und `UNBOUND_LOCAL_PILOT` bleiben
 - **AND** `consumerEligible` und `publishEligible` MUST false sein
+
+#### Scenario: Plattformgruener Spectra-Release ist vollstaendig gebunden
+
+- **WHEN** das annotierte Tagobjekt, der aufgeloeste Commit, das finale Manifest, der Manifest-Quellcommit, der Quellbaum, der Produktdigest sowie die bestandenen Plattformnachweise fuer Windows und macOS gemeinsam vorliegen
+- **THEN** MUST ein neuer unveraenderlicher Snapshot-Release mit `BOUND_BCPROJECTOS_RELEASE` erzeugt werden
+- **AND** der historische ungebundene Release MUST bytegleich erhalten bleiben
+- **AND** `current.json`, Kundenfragment und Katalog MUST exakt denselben neuen Release und dessen Manifestdigest binden
+- **AND** `consumerEligible` und `publishEligible` duerfen erst dann true sein
