@@ -118,7 +118,7 @@ export function buildReconciliation(story, billing) {
       rate: (actual.hours === 0 ? 120 : actual.cost / actual.hours) - (offered.cost / offered.hours),
       amount: actual.cost - offered.cost,
       reason_code: 'other-reviewed',
-      reason: 'Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant 80 Stunden und 9.600 EUR; Iststunden und Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet und stehen vor Ausführung bei null.'
+      reason: `Die historische 68-Stunden-Kalkulation bleibt Provenienz. Der aktuelle Pilot plant ${offered.hours} Stunden und ${offered.cost.toLocaleString('de-DE')} EUR; ${actual.hours} Iststunden und ${actual.cost} EUR Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet.`
     },
     truth_boundary: { owner: 'synthetic-fixture', source_of_truth: 'synthetic-fixture', invoice_claim: false, productive_activity_claim: false, billing_status: 'not-applicable' }
   };

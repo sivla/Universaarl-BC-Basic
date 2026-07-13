@@ -62,6 +62,15 @@ Die Kundeninstanz MUST den aktiven Zustand strukturiert als `baselineKind=standa
 - **AND** MUST `W0-01-read-company-identity` der einzige nächste ausführbare BC-Schritt sein
 - **AND** MUST jeder CORE-FINANCE-Write gesperrt bleiben.
 
+#### Scenario: Browserzugriff endet vor DOM und Screenshot
+
+- **GIVEN** ein angemeldeter Tab zeigt nur den Business-Central-Titel sowie eine URL mit `Playthru` und `company=UABC-BASIC-DE`
+- **WHEN** die Browser-Sicherheitsrichtlinie den Zugriff vor jeder DOM- oder Screenshot-Lektüre blockiert
+- **THEN** MUST W0-01 den Status `blocked-before-dom-readback` behalten und DARF NICHT als ausgeführt oder abgeschlossen gelten
+- **AND** MUST die Versuchsevidence Zeitpunkt, Rolle, bereinigte URL, fehlende BC-Feldwerte, fehlenden Screenshot und `writesPerformed=false` nennen
+- **AND** DARF aus Titel oder URL weder interne Company-ID, CRONUS-Provenienz, Zielstrategie noch Pilotkonfiguration abgeleitet werden
+- **AND** MUST das zugeordnete Task-Ticket einen tatsächlichen Worklog und keinen Abschlusskommentar tragen.
+
 ### Requirement: UABC-REQ-BCB-CRONUS-SPACE-TRUTH
 
 Das Kundenprojekt MUST `Standard CRONUS` als aktuellen Iststand, den BC-Basic-Parametersatz als Soll und die leere angewendete Differenz getrennt führen. Der Produkt-Space MUST nur Scope und Nicht-Scope beschreiben. Das Consulting-Handbuch MUST nur die wiederverwendbare Methode beschreiben und DARF keinen ausgeführten Country-, Company- oder Paket-Write für `UABC-BASIC-DE` behaupten.

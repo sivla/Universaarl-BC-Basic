@@ -15,6 +15,8 @@ export function validateProjection(projection, schema) {
   if (state.baselineKind !== 'standard-cronus-demo' || state.baselineProvenance !== 'microsoft-standard-cronus-demo-data' || state.pilotConfigured !== false || state.writesApplied !== false || state.readbackStatus !== 'pending' || state.internalCompanyId !== null || state.targetDecision !== 'pending-wave-0-evidence' || state.resetDecision !== 'pending-resetpoint-evidence' || state.observedDisplayName === state.targetDisplayName || state.targetState?.classification !== 'bc-basic-target-not-applied' || state.appliedDifference?.status !== 'none-evidenced' || state.appliedDifference?.readbackEvidenceCount !== 0) errors.push('CRONUS-PILOT-TRENNUNG');
   const gate = state.companyStrategyGate ?? {};
   if (gate.status !== 'blocked-pending-wave0-and-reset-evidence' || gate.selectedOption !== null || gate.allowedOptions?.join('|') !== 'controlled-reuse-of-dedicated-cronus-copy|clean-new-company-or-copy' || gate.requiredEvidence?.length !== 6 || gate.decisionEvidenceCount !== 0 || gate.decisionAuthority !== 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' || gate.nextExecutableStep !== 'W0-01-read-company-identity' || gate.writesAuthorized !== false || projection.writeGate?.nextAllowedStep !== gate.nextExecutableStep) errors.push('CRONUS-ZIELSTRATEGIE-GATE');
+  const attempt = state.wave0ReadbackAttempt ?? {};
+  if (attempt.status !== 'blocked-before-dom-readback' || attempt.evidencePath !== 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml' || attempt.bcReadbackAuthority !== false || attempt.bcFieldValuesRead !== false || attempt.screenshotCaptured !== false || attempt.writesPerformed !== false || attempt.visibleTabTarget?.title !== 'Dynamics 365 Business Central' || attempt.visibleTabTarget?.environmentParameter !== 'Playthru' || attempt.visibleTabTarget?.companyParameter !== 'UABC-BASIC-DE') errors.push('W0-01-VERSUCHSWAHRHEIT');
   return errors;
 }
 export function validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance = null }) {
@@ -46,7 +48,7 @@ export function validateExport(root = process.cwd()) {
   if (JSON.stringify(map) !== JSON.stringify(buildTwinExportMap(index))) errors.push('EXPORTMAP_INDEX_BINDUNG');
   errors.push(...validateCurrentAuthoritySurface(index, map));
   errors.push(...validateAdapterProvenance({ provenance, indexBytes, mapBytes, conformance }));
-  for (const file of [PROJECTION_PATH, SCHEMA_PATH, 'scripts/generate-setup-wave-1-export.mjs', 'scripts/validate-setup-wave-1-export.mjs', 'tests/governance/setup-wave-1-export.test.mjs']) { if (!index.artifacts.some((item) => item.path === file) || !map.artifacts.some((item) => item.path === file)) errors.push(`POSITIVLISTE ${file}`); }
+  for (const file of [PROJECTION_PATH, SCHEMA_PATH, 'scripts/generate-setup-wave-1-export.mjs', 'scripts/validate-setup-wave-1-export.mjs', 'tests/governance/setup-wave-1-export.test.mjs', 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml']) { if (!index.artifacts.some((item) => item.path === file) || !map.artifacts.some((item) => item.path === file)) errors.push(`POSITIVLISTE ${file}`); }
   return errors;
 }
 if (process.argv[1]?.endsWith('validate-setup-wave-1-export.mjs')) { const errors = validateExport(); if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; } else console.log('Setup-Wave-1-Export bestanden.'); }

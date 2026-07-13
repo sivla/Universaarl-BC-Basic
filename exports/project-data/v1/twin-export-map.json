@@ -1091,6 +1091,14 @@
       "required": true
     },
     {
+      "id": "UABC-SRC-BCB-W0-01-ATTEMPT-001",
+      "kindId": "current-read-only-attempt",
+      "path": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
       "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
       "kindId": "meeting-transcript",
       "path": "atlassian/confluence/meetings/UABC-MTG-001.md",

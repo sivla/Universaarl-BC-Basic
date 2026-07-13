@@ -12,15 +12,15 @@ forecast:
   source: evidence/simulation/project-story.json:tickets[type=task]
   countingRule: billable-task-worklogs-only
   plannedHours: 80
-  consumedHours: 0
-  committedHours: 0
-  remainingHours: 80
-  estimateToCompleteHours: 80
+  consumedHours: 0.25
+  committedHours: 0.25
+  remainingHours: 79.75
+  estimateToCompleteHours: 79.75
   estimateAtCompletionHours: 80
   varianceHours: 0
   hourlyRate: 120
   plannedNetAmount: 9600
-  consumedNetAmount: 0
+  consumedNetAmount: 30
   estimateAtCompletionNetAmount: 9600
   varianceNetAmount: 0
   phaseHours:
@@ -33,12 +33,12 @@ simulationClose:
   status: planned-not-executed
   offerVersion: 2.0
   plannedHours: 80
-  actualHours: 0
+  actualHours: 0.25
   hourlyRate: 120
   plannedNetAmount: 9600
-  actualNetAmount: 0
-  worklogCount: 0
-  reconciliationResult: current-no-worklogs
+  actualNetAmount: 30
+  worklogCount: 1
+  reconciliationResult: current-active-task-worklog
   evidence: evidence/simulation/project-reconciliation.json
   historicalEvidence: evidence/simulation/billing-reconciliation.yaml
   spectraReconciliation: evidence/simulation/project-reconciliation.json

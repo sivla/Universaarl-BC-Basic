@@ -22,9 +22,19 @@ const historical = {
   index: yaml('exports/project-data/v1/index.yaml')
 };
 
-test('aktiver Pilot bleibt CRONUS-basiert offen, schreibgesperrt und ohne Ist', () => {
+test('aktiver Pilot bleibt CRONUS-basiert offen und schreibt nur den abgeleiteten W0-01-Aufwand als Ist fort', () => {
   assert.deepEqual(validateActiveSimulation(story, runPlan, projection), []);
   assert.deepEqual(validateActiveBcPlaythrough(story, runPlan, projection), []);
+  assert.equal(story.offer.actual_hours, 0.25);
+  assert.equal(story.offer.actual_cost, 30);
+});
+
+test('abweichende Istwerte außerhalb aktiver Task-Worklogs werden abgelehnt', () => {
+  const changed = structuredClone(story);
+  changed.offer.actual_hours = 0;
+  changed.offer.actual_cost = 0;
+  assert.ok(validateActiveSimulation(changed, runPlan, projection).some((error) => /Task-Worklogs/.test(error)));
+  assert.ok(validateActiveBcPlaythrough(changed, runPlan, projection).some((error) => /Task-Worklogs/.test(error)));
 });
 
 test('historischer Referenzlauf bleibt intern konsistent und currentAuthority false', () => {

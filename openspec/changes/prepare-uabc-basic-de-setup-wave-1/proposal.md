@@ -27,3 +27,5 @@ Ein Consultant kann die erste Welle nach sicherer Runtime-Bindung ohne erneute D
 Der aktive Jira-Boardvertrag bildet zusätzlich jeden tatsächlich verwendeten Ticketstatus genau einmal auf eine sichtbare Producer-Spalte ab. Blockierte Tickets bleiben dadurch ohne Twin-Sonderlogik sichtbar.
 
 Kundenprojekt, Produkt-Space und Consulting-Handbuch erklären denselben Stand ohne konkurrierende Wahrheit: Das Kundenprojekt führt Ist, Soll und Gate; das Produkt beschreibt Scope und Nicht-Scope; das Consulting-Handbuch ausschließlich die wiederverwendbare Methode.
+
+Der erste reale W0-01-Zugriffsversuch darf auch als fachlich relevanter Blockerstand zurückgegeben werden. Wenn die Browser-Sicherheitsrichtlinie vor jeder DOM- und Screenshot-Lektüre stoppt, werden nur der sichtbare Tabtitel, die bereinigten URL-Parameter, Zeitpunkt, Rolle und die fehlende Lesbarkeit dokumentiert. Daraus dürfen weder interne Company-ID noch CRONUS-Provenienz, Company Information, Gesellschaftsliste oder Zielstrategie abgeleitet werden.

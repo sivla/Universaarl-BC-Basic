@@ -38,6 +38,19 @@
       "readbackStatus": "pending",
       "readbackEvidenceCount": 0
     },
+    "wave0ReadbackAttempt": {
+      "status": "blocked-before-dom-readback",
+      "evidencePath": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "bcReadbackAuthority": false,
+      "bcFieldValuesRead": false,
+      "screenshotCaptured": false,
+      "writesPerformed": false,
+      "visibleTabTarget": {
+        "title": "Dynamics 365 Business Central",
+        "environmentParameter": "Playthru",
+        "companyParameter": "UABC-BASIC-DE"
+      }
+    },
     "companyStrategyGate": {
       "status": "blocked-pending-wave0-and-reset-evidence",
       "selectedOption": null,
@@ -84,7 +97,7 @@
   ],
   "preflight": {
     "status": "beobachtet-nur-lesend",
-    "wave0Status": "required-not-executed",
+    "wave0Status": "blocked-before-dom-readback",
     "workingDate": "2026-07-13",
     "operator": {
       "userId": "KAJETAN.KALICKI",
@@ -147,6 +160,10 @@
     {
       "path": "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
       "role": "Run-Plan und Schreibsperre"
+    },
+    {
+      "path": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "role": "Blockierter W0-01-Zugriffsversuch"
     }
   ]
 }

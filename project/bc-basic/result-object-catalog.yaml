@@ -170,6 +170,10 @@ objects:
     classification: current-execution-plan
     title: Aktueller schreibgesperrter Setup-Wave-1-Laufplan
     sourcePath: evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+  - objectId: UABC-OBJ-EVD-010
+    classification: current-read-only-attempt
+    title: Blockierter W0-01-Gesellschaftsidentitätsversuch
+    sourcePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
   - objectId: UABC-OBJ-TECH-001
     classification: technical-source
     title: Branch-Index

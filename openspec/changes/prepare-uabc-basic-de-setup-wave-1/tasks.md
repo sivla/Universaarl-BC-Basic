@@ -19,3 +19,7 @@
 - [x] Kundenprojekt-, Produkt- und Consulting-Flächen auf Ist/Soll/Gate beziehungsweise Methode ohne historischen Live-Claim ausrichten.
 - [x] Bestehende Jira-Kette `UABC-21/22/39/40` für Baseline-Inventur, Zielentscheidung, CORE-FINANCE, Readback und fachliche Abnahme konkretisieren.
 - [x] Projektion, Schema, Validatoren und positive/negative Tests regenerieren, fokussiert und einmal insgesamt pruefen und lokal committen.
+- [x] Den realen W0-01-Sicherheitsblock ohne BC-Feld- oder Screenshotclaim als bereinigte Versuchsevidence erfassen.
+- [x] UABC-39, Baseline, Entscheidung, Run-Plan, Kundenprojekt und Twin-Projektion source-driven auf den blockierten Versuch und das tatsächliche Task-Ist aktualisieren.
+- [x] Fail-closed prüfen, dass Titel oder URL keine Company-ID, CRONUS-Provenienz, Zielstrategie oder Schreibwirkung belegen.
+- [x] Ableitungen deterministisch regenerieren, fokussiert und insgesamt prüfen, reviewen und als einen lokalen Commit übergeben.

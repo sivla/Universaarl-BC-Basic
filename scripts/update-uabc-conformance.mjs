@@ -30,6 +30,12 @@ conformance.businessCentralPilotState = {
   resetDecision: story.businessCentralPilotState.resetDecision,
   targetState: story.businessCentralPilotState.targetState,
   appliedDifferenceStatus: story.businessCentralPilotState.appliedDifferenceStatus,
+  wave0AttemptStatus: story.businessCentralPilotState.wave0ReadbackAttempt.status,
+  wave0AttemptEvidence: story.businessCentralPilotState.wave0ReadbackAttempt.evidencePath,
+  wave0BcReadbackAuthority: story.businessCentralPilotState.wave0ReadbackAttempt.bcReadbackAuthority,
+  wave0BcFieldValuesRead: story.businessCentralPilotState.wave0ReadbackAttempt.bcFieldValuesRead,
+  wave0ScreenshotCaptured: story.businessCentralPilotState.wave0ReadbackAttempt.screenshotCaptured,
+  wave0WritesPerformed: story.businessCentralPilotState.wave0ReadbackAttempt.writesPerformed,
   companyStrategyStatus: story.businessCentralPilotState.companyStrategyGate.status,
   selectedCompanyStrategy: story.businessCentralPilotState.companyStrategyGate.selectedOption,
   nextExecutableStep: story.businessCentralPilotState.companyStrategyGate.nextExecutableStep

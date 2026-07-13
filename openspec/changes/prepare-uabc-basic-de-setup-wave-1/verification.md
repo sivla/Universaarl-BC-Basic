@@ -1,12 +1,12 @@
 # Verification
 
-Status: Repository-Rebaseline und alle vereinbarten Repository-Gates bestanden. Es gab in diesem Reparaturblock keinen BC-Zugriff und keine BC-Schreibaktion.
+Status: Repository-Rebaseline und die fokussierten W0-01-Gates bestanden. Der angemeldete Browser-Tab war als Ziel sichtbar; die Sicherheitsrichtlinie blockierte vor DOM-, Screenshot- und BC-Feldzugriff. Es gab keine BC-Schreibaktion.
 
 ## Aktuelle Projektwahrheit
 
 - `UABC-BASIC-DE` ist strukturiert als `baselineKind=standard-cronus-demo`, `pilotConfigured=false`, `writesApplied=false` und `readbackStatus=pending` erfasst. Technischer Firmenname und URL gelten ausdrücklich nicht als Einrichtungsnachweis.
 - Wave 0 muss vor jeder Pilotbehauptung interne Company-ID, Name und Anzeigename, Standard-CRONUS-Provenienz, Resetpunkt sowie die begründete Entscheidung „kontrolliert weiterverwenden“ oder „neu anlegen/kopieren“ belegen.
-- Plan bleibt 80 Stunden und 9.600 EUR; Iststunden und Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet und betragen aktuell 0 Stunden beziehungsweise 0 EUR.
+- Plan bleibt 80 Stunden und 9.600 EUR; Iststunden und Istkosten werden ausschließlich aus aktiven Task-Worklogs abgeleitet und betragen aktuell 0,25 Stunden beziehungsweise 30 EUR für den dokumentierten blockierten W0-01-Versuch.
 - Der aktuelle Backlog besitzt genau `UABC-1`, `UABC-2` und `UABC-3` als Phase-Roots. Seine übrige fachliche Menge ist dynamisch; eine feste Gesamtzahl oder eine feste letzte Ticket-ID ist kein Vertrag.
 - Der abgelöste Repository-Referenzlauf bleibt ausschließlich als `historical-reference-simulation` mit `currentAuthority=false` nachvollziehbar. Sein internes `GO_SIMULATION` speist keinen aktuellen Status, Rollup, Worklog oder Freigabenachweis.
 - `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO. Die drei Setup-Pakete bleiben im aktuellen Readback bei 0 Tabellen, 0 Datensätzen und 0 Fehlern.
@@ -34,10 +34,10 @@ Der automatisierte Vergleich der produktiven Fehlerpfade ergab für `validate-pr
 
 ## Bereits ausgeführte fokussierte Nachweise
 
-- Projektstory-Validator: 50 tatsächlich vorhandene aktive Tickets, 0 Iststunden, 0 EUR Istkosten; Plan 80 Stunden und 9.600 EUR.
-- Jira-Realismusvalidator: 50 tatsächlich vorhandene aktive Tickets, 11 typisierte Akteure, 0 Task-Worklogs, 0 Iststunden und 0 EUR Istkosten.
+- Projektstory-Validator: 50 tatsächlich vorhandene aktive Tickets, 0,25 Iststunden, 30 EUR Istkosten; Plan 80 Stunden und 9.600 EUR.
+- Jira-Realismusvalidator: 50 tatsächlich vorhandene aktive Tickets, 11 typisierte Akteure, ein Task-Worklog, 0,25 Iststunden und 30 EUR Istkosten.
 - Aktiver Ticketvertrag: produktive und current-facing Flächen ohne Fixcount-, Istabschluss-, Mojibake- oder Statusleckage; npm-Erreichbarkeit vollständig.
-- Aktive Pilotsimulation und aktiver BC-Playthrough: Standard-CRONUS-Demo-Baseline, offene Wave-0-/Setup-/Prozess-/UAT-/Hypercare-Gates, Ist 0/0 und `writesAuthorized=false`.
+- Aktive Pilotsimulation und aktiver BC-Playthrough: Standard-CRONUS-Demo-Baseline, W0-01 vor DOM-Readback blockiert, offene Setup-/Prozess-/UAT-/Hypercare-Gates, Ist 0,25/30 und `writesAuthorized=false`.
 - Historische Referenzsimulation und historischer BC-Playthrough: intern konsistent, `currentAuthority=false`, kein aktueller Rollupbeitrag.
 - Setup-Wave-1-Validatoren und fokussierte Governance-, Story-, Jira- und Spectra-Tests: erfolgreich.
 - OpenSpec-Schema und OpenSpec strict: erfolgreich.
@@ -47,7 +47,7 @@ Der automatisierte Vergleich der produktiven Fehlerpfade ergab für `validate-pr
 - Zwölf abgeleitete Artefakte wurden einschließlich Jira-Materialisat, Index, Setup-Projektion, Twin-Map, Adapter-Provenienz, Referenzgraphen, Spectra-Konformität und Dokumentkatalog zweimal bytegleich erzeugt.
 - Der fokussierte kombinierte Setup-/Governance-/Story-/Jira-/Spectra-Testblock bestand mit 174 von 174 Tests.
 - Der Sprachtest bestand mit 19 von 19 Tests; `check-german.mjs` lieferte den sechsfeldrigen deutschen Standardpayload ohne Verletzung.
-- Die direkte Projektstory-Prüfung meldete 50 tatsächlich vorhandene aktive Tickets, Plan 80 Stunden/9.600 EUR sowie Ist 0 Stunden/0 EUR. Die direkte Jira-Prüfung meldete 11 typisierte Akteure und 0 Task-Worklogs.
+- Die direkte Projektstory-Prüfung meldete 50 tatsächlich vorhandene aktive Tickets, Plan 80 Stunden/9.600 EUR sowie Ist 0,25 Stunden/30 EUR. Die direkte Jira-Prüfung meldete 11 typisierte Akteure und einen Task-Worklog.
 - OpenSpec-Schema, OpenSpec strict mit 10 von 10 Items, Referenzen und Diff-Checks bestanden.
 - Der abschließende vollständige `npm test` lief 145 Sekunden und endete mit Exit 0. Er prüfte zusätzlich den commitgebundenen Snapshot- und Dokumentkatalogvertrag, 175 Governance-Tests, den deterministischen Walkthrough sowie zwei Playwright-Ansichten.
 - Die gezielte Diff-Review bestätigte die einzige aktive kanonische Story, die dynamische Materialisierung, den Erhalt aller bisherigen Validator-Fehlerpfade, die Stichproben `UABC-1`, `UABC-21`, `UABC-32`, `UABC-39`, `UABC-47` und `UABC-50` sowie die aktive/historische Wahrheitsgrenze.
@@ -58,7 +58,7 @@ Offen bleiben ausschließlich die fachlichen Live-Gates: Wave-0-, Reset- und Zie
 ## Jira-Boardstatus-Folgeprüfung
 
 - Der Producer-Boardvertrag ordnet `created` der Spalte `Angelegt`, `in-progress` und `blocked` der Spalte `In Bearbeitung`, `tested` der Spalte `Getestet` sowie `done` und `closed` der Spalte `Erledigt` zu.
-- Im aktiven Materialisat sind 47 Tickets mit `created`, ein Ticket mit `in-progress` und zwei Tickets mit `blocked` jeweils genau einer sichtbaren Spalte zugeordnet. Ticketstatus und Projektstory wurden nicht geändert.
+- Im aktuellen Materialisat sind 46 Tickets mit `created`, ein Ticket mit `in-progress` und drei Tickets mit `blocked` jeweils genau einer sichtbaren Spalte zugeordnet. Der zusätzliche Blocker ist `UABC-39` nach dem realen, vor DOM-Readback blockierten W0-01-Versuch.
 - Fehlendes oder doppelt zugeordnetes `blocked` sowie ein unbekannter aktiver Status scheitern fail-closed mit `TICKET_BOARD_STATUS`.
 - Jira-Materialisat, Story, Index, Twin-Map, Adapter-Provenienz, Konformitätsevidence, Reconciliation und Referenzgraphen blieben in zwei Generatorläufen über elf Artefakte bytegleich.
 - Der fokussierte Spectra-0.10-Test bestand mit 23 von 23 Tests; OpenSpec-Schema und OpenSpec strict bestanden mit 10 von 10 Items. Projektstory, Jira-Realismus, aktiver Ticketvertrag, Referenzen und Deutschprüfung bestanden ebenfalls.
@@ -75,3 +75,12 @@ Offen bleiben ausschließlich die fachlichen Live-Gates: Wave-0-, Reset- und Zie
 - Die fokussierte Testausführung bestand mit 174 von 174 Tests. Sechs direkte Story-/Jira-/Setup-/Spectra-Validatoren sowie OpenSpec-Schema und OpenSpec strict mit 10 von 10 Items waren grün.
 - Zwei vollständige Generatorläufe ergaben für zehn Story-/Jira-/Setup-/Index-/Map-/Provenienz-/Konformitäts-/Referenzgraph-Artefakte identische SHA-256-Digests.
 - Der erste Vor-Commit-Aufruf von `npm test` erreichte den Snapshotvertrag und stoppte ausschließlich am vorgesehenen Dirty-Worktree-Gate. Der abschließende commitgebundene Gesamtcheck lief 145 Sekunden und endete vollständig mit Exit 0.
+
+## W0-01-Zugriffsversuch vom 13.07.2026
+
+- Die bereinigte Versuchsevidence trennt den sichtbaren Tabtitel sowie die bereinigten URL-Parameter `Playthru` und `UABC-BASIC-DE` strikt von BC-Feld-Readbacks. Die Nutzerinformation, dass der ausgewählte technische Mandant inhaltlich dem Standard-CRONUS-Demostand entspricht, ist als `user-provided-project-information` klassifiziert und ausdrücklich nicht als eigener Browser-Readback ausgegeben.
+- Die Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und BC-Feldlektüre. Interne Company-ID, sichtbarer Gesellschaftsname, Firmendaten, Country/Region, CRONUS-Indizien und Gesellschaftsliste bleiben `nicht-aus-bc-ui-gelesen`; Screenshotpfade und gelesene Werte bleiben leer. Es gab keine Speicherung, keine Authdatenlektüre und keine BC-Schreibwirkung.
+- `UABC-39` ist `blocked`, führt genau den Worklog `WL-UABC-39-W0-01-BLOCKED-20260713` mit 0,25 Stunden und 30 EUR, bindet die Versuchsevidence und besitzt keinen Abschlusskommentar. Ziel- und Resetentscheidung bleiben offen; nächster zulässiger Schritt bleibt `W0-01-read-company-identity` in einem manuell zugänglichen Nur-Lese-Termin.
+- Die fokussierten Story-, Jira-, Setup-, Simulation-, Playthrough- und Spectra-Validatoren bestanden. Der kombinierte Positiv-/Negativtestblock bestand mit 161 von 161 Tests; darunter URL-/Titelableitung, fehlende Screenshots, unzulässiger Write-Claim, falscher Ticketabschluss, Istsummenabweichung und Konformitätsleckage.
+- Dreizehn Story-/Jira-/Setup-/Index-/Map-/Provenienz-/Konformitäts-/Referenzgraph-/Katalogartefakte wurden in zwei vollständigen Generatorläufen bytegleich erzeugt. Die SHA-256-Digests lauten: Index `c2ca21a8faace5fbda0946a89aff25b6d045b9219183505080bc9d9da2598a2d`, Twin-Map `867f9132a18488a1389edb02f30a8171078e777c31123263d9addc3c4d78ab06`, Setup-Projektion `39c32f99eecb7dbd1dead63fea4c637f6e176748dd06ab66afbcd1413a42abe4`, Spectra-Konformität `9ef72fbf9e64abbd33dd0e15a2a1e1923731f79d3b8fcfa1107427445ebc0b4a` und Dokumentkatalog `1c41152a85a45ab251677326201fe4ed93f81e885497b8008021325c6081fedf`.
+- Die gezielte Diff-Review blieb ohne Fachbefund. Der commitgebundene Gesamtcheck `npm test` lief nach den fail-closed gefundenen und korrigierten Digest-, Git-Blob-Katalog- und `committedHours`-Abweichungen vollständig 131,5 Sekunden und endete mit Exit 0. Darin bestanden unter anderem 184 von 184 Governance-Tests, 10 von 10 Walkthrough-Artefakttests, 2 von 2 Playwright-Ansichten, Snapshot, Dokumentkatalog, Deutsch, OpenSpec und Referenzen.

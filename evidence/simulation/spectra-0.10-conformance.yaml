@@ -9,7 +9,7 @@ spectraRelease: spectra-v0.10.0-alpha.1
 releaseEvidence: evidence/spectra-release-0.10.0-alpha.1.yaml
 portableConformance:
   outputCommitted: false
-  projectionDigest: d8eb0167b7a792aa8bd3abb2f4363087d55922f39fb07d097bdcb0c4cad8fce9
+  projectionDigest: ca7c9c4f803f0209e040bb4e8bc40b117a7357bd75d9ea3cf02645f2f1f50320
   schema: governance/schemas/spectra-portable-project-story-0.7.schema.json
   publishedSchemaSha256: b1b4e498ef550b9081167358e1fbdde58ff3fe17a679881ec7378a37605b9b2a
 reconciliation:
@@ -18,31 +18,31 @@ reconciliation:
   baselineAmount: 11050
   offerHours: 80
   offerAmount: 9600
-  actualHours: 0
-  actualAmount: 0
+  actualHours: 0.25
+  actualAmount: 30
   invoiceClaim: false
   productiveActivityClaim: false
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: 766386d50eea2c2a032ebf3555379d599d076a344a675c2697ac35ba96e375c8
+  sourceHash: c2ca21a8faace5fbda0946a89aff25b6d045b9219183505080bc9d9da2598a2d
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: 51c6a572e63ae7400c1615577dfd5c7cc31dd4bf7cdd3c2da2c7816cb5bec989
+  projectionDigest: 867f9132a18488a1389edb02f30a8171078e777c31123263d9addc3c4d78ab06
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:
   path: evidence/simulation/reference-graph-coverage.json
   semantics: explained-native-relations
-  nativeRelations: 1034
-  portableEdges: 360
-  accountedNativeRelations: 1034
+  nativeRelations: 1040
+  portableEdges: 362
+  accountedNativeRelations: 1040
   coverageRatio: 1
   oneToOneClaim: false
   completeProjectionClaim: false
-  sourceDigest: 3c3cd6f787b81874e87f0d3328f6f874c3bdb1f9162940e979c6248fd30ccbe0
+  sourceDigest: e51db6a6bd0ce7dda89f6fece51b09691808c52b6cac1402e3e086d2effbf21c
   mappingDigest: a829661642e641b1ab225360db7aa4ece6d7e73c4743f7e4c9f4f919f310de26
-  projectionDigest: dba0af1727f1915be0d41127b2baf2938b0c8849f6d1f2bbe42b3f4ea44fe8ea
+  projectionDigest: 23553be97f93d949c94f527dca99392f5f3e03a46f6c379695252e28c1291abe
 counts:
   offerVersions: 3
   pages: 28
@@ -52,15 +52,15 @@ counts:
   stories: 18
   bugs: 0
   tasks: 19
-  comments: 50
-  worklogs: 0
-  actualHours: 0
-  actualNetAmount: 0
+  comments: 51
+  worklogs: 1
+  actualHours: 0.25
+  actualNetAmount: 30
   timelineEvents: 15
   projectPhases: 14
   hypercareRecords: 3
-  nativeRelations: 1034
-  portableEdges: 360
+  nativeRelations: 1040
+  portableEdges: 362
 processCoverage:
   - Finance
   - P2P
@@ -90,6 +90,12 @@ businessCentralPilotState:
   resetDecision: pending-resetpoint-evidence
   targetState: bc-basic-target-not-applied
   appliedDifferenceStatus: none-evidenced
+  wave0AttemptStatus: blocked-before-dom-readback
+  wave0AttemptEvidence: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+  wave0BcReadbackAuthority: false
+  wave0BcFieldValuesRead: false
+  wave0ScreenshotCaptured: false
+  wave0WritesPerformed: false
   companyStrategyStatus: blocked-pending-wave0-and-reset-evidence
   selectedCompanyStrategy: null
   nextExecutableStep: W0-01-read-company-identity

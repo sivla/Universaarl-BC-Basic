@@ -55,7 +55,7 @@ Die Zielstrategie ist `blocked-pending-wave0-and-reset-evidence`; es ist noch ke
 | Kennzahl | Aktueller Stand | Aussage |
 |---|---|---|
 | Angebotsplan | 80 Stunden und 9.600 EUR netto | Planwert, nicht Ist oder Kundenabnahme |
-| Ist | 0 Stunden und 0 EUR | ausschließlich aus aktiven Task-Worklogs abgeleitet |
+| Ist | 0,25 Stunden und 30 EUR | ausschließlich aus dem aktiven UABC-39-Task-Worklog abgeleitet |
 | Tickets | dynamisch aus `project-story.json` | genau UABC-1/2/3 sind Phase-Roots; keine feste Gesamtzahl |
 | Setup | unveränderte Standard-CRONUS-Demo-Baseline | Pilotaufbau, Wave-0 und Resetentscheidung stehen aus |
 | BC-Schreibfreigabe | gesperrt | `writesAuthorized=false`; RUN-06 bis RUN-22 bleiben NO-GO |
@@ -89,7 +89,7 @@ Hypercare-Szenarien, Retro, Restpunkte, Handover und Supportstart sind zukünfti
 
 ### Kaufmännische Steuerung
 
-Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 0 Stunden und 0 EUR, dynamisch aus den vorhandenen aktiven Task-Worklogs abgeleitet. Plan und Ist werden nicht gleichgesetzt.
+Der aktive Plan beträgt 80 Stunden und 9.600 EUR. Aktuelles Ist sind 0,25 Stunden und 30 EUR, dynamisch aus dem vorhandenen aktiven UABC-39-Task-Worklog für den blockierten W0-01-Versuch abgeleitet. Plan und Ist werden nicht gleichgesetzt.
 
 Die frühere Kalkulation und abgeschlossene Referenzsimulation bleiben historische Provenienz; sie belegen keine aktuelle Rechnung, Zahlung, Freigabe oder produktive Leistung.
 

@@ -19,12 +19,12 @@ export function validateActiveBcPlaythrough(story, runPlan, projection) {
   const worklogs = (story?.tickets ?? []).filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
   const hours = worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
   const amount = worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
-  if (hours !== 0 || amount !== 0 || story?.offer?.actual_hours !== hours || story?.offer?.actual_cost !== amount) fail('Aktueller Pilot muss vor Playthrough 0 Iststunden und 0 Istkosten ausweisen.');
+  if (story?.offer?.actual_hours !== hours || story?.offer?.actual_cost !== amount) fail('Aktuelle Iststunden und Istkosten müssen ausschließlich aus aktiven Task-Worklogs abgeleitet werden.');
   const futureTickets = (story?.tickets ?? []).filter((ticket) => Number(ticket.id?.split('-')[1]) >= 39);
   if (!futureTickets.length || futureTickets.some((ticket) => !OPEN.has(ticket.status))) fail('Setup-, Playthrough-, UAT-, Hypercare- und Handover-Tickets müssen offen bleiben.');
   if (futureTickets.some((ticket) => /GO_SIMULATION|V1_STANDARDPRODUCT_READY|\bBestandene\b|\bAbgeschlossene\b|\bErfolgreiche\b/i.test(`${ticket.summary} ${ticket.description} ${ticket.deliverable}`))) fail('Aktive Tickets enthalten eine historische Erfolgs- oder GO-Behauptung.');
   if (futureTickets.some((ticket) => (ticket.evidenceRefs ?? []).some((ref) => HISTORICAL_REFS.has(ref)))) fail('Historische Simulationsevidence darf kein aktives Ticketgate erfüllen.');
-  if (runPlan?.execution?.performed !== false || runPlan?.authorization?.writesAuthorized !== false || runPlan?.wave0Preflight?.status !== 'required-not-executed' || runPlan?.wave0Preflight?.selectedDecision !== null) fail('Run-Plan muss unausgeführt, schreibgesperrt und vor Wave-0 bleiben.');
+  if (runPlan?.execution?.performed !== false || runPlan?.authorization?.writesAuthorized !== false || runPlan?.wave0Preflight?.status !== 'blocked-before-dom-readback' || runPlan?.wave0Preflight?.selectedDecision !== null) fail('Run-Plan muss unausgeführt, schreibgesperrt und mit blockiertem W0-01-Readback offen bleiben.');
   const writeSteps = (runPlan?.steps ?? []).filter((step) => step.write === true);
   if (!writeSteps.length || writeSteps.some((step) => step.performed !== false || step.observedResult !== null)) fail('Kein Schreibschritt darf ausgeführt oder mit Ergebnis belegt sein.');
   if (projection?.writesAuthorized !== false || projection?.writeGate?.writesAuthorized !== false || projection?.configurationState?.pilotConfigured !== false || projection?.configurationState?.writesApplied !== false) fail('Twin-Projektion muss den offenen, schreibgesperrten Pilot zeigen.');
@@ -93,5 +93,12 @@ if (process.argv[1]?.endsWith('validate-bc-playthrough.mjs')) {
   else errors = validateActiveBcPlaythrough(JSON.parse(readFileSync('evidence/simulation/project-story.json','utf8')),loadYaml('evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml',loadErrors),JSON.parse(readFileSync('exports/project-data/v1/setup-wave-1-projection.json','utf8')));
   errors=[...loadErrors,...errors];
   if(errors.length){console.error(`${historical?'Historische BC-Referenz':'Aktiver BC-Playthrough'}-Pruefung fehlgeschlagen (${errors.length}):`);errors.forEach((error)=>console.error(`- ${error}`));process.exit(1);}
-  console.log(historical?'Historische BC-Referenzpruefung bestanden: 7 Sitzungen, Dokument-/Entry-Ketten, Kontrollen und internes GO_SIMULATION konsistent; currentAuthority=false.':'Aktiver BC-Playthrough bestanden: unveränderte Standard-CRONUS-Demo-Baseline, Wave-0/Setup/Prozesse/UAT/Hypercare offen, Ist 0/0, writesAuthorized=false und Pakete 0/0/0.');
+  if (historical) console.log('Historische BC-Referenzpruefung bestanden: 7 Sitzungen, Dokument-/Entry-Ketten, Kontrollen und internes GO_SIMULATION konsistent; currentAuthority=false.');
+  else {
+    const activeStory = JSON.parse(readFileSync('evidence/simulation/project-story.json','utf8'));
+    const worklogs = activeStory.tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
+    const hours = worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
+    const amount = worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
+    console.log(`Aktiver BC-Playthrough bestanden: unveränderte Standard-CRONUS-Demo-Baseline, W0-01 vor DOM-Readback blockiert, Setup/Prozesse/UAT/Hypercare offen, Ist ${hours}/${amount}, writesAuthorized=false und Pakete 0/0/0.`);
+  }
 }

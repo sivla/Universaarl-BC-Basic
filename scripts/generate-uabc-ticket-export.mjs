@@ -7,6 +7,8 @@ const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 const today = '2026-07-13';
 const lead = 'P-PILOT-LEAD-001';
 const leadRole = 'Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect';
+const wave0AttemptPath = 'evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml';
+const wave0Attempt = YAML.parse(fs.readFileSync(wave0AttemptPath, 'utf8'));
 const evidence = [
   'project/bc-basic/setup-wave-1-matrix.yaml',
   'project/bc-basic/setup-parameter-baseline.yaml',
@@ -22,7 +24,7 @@ const taskEvidence = {
   'UABC-36': ['atlassian/confluence/pages/71-bc-basic-discovery.md', 'project/bc-basic/decision-register.yaml'],
   'UABC-37': ['atlassian/confluence/pages/71-bc-basic-discovery.md', 'project/bc-basic/decision-register.yaml'],
   'UABC-38': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
-  'UABC-39': [...evidence],
+  'UABC-39': [...evidence, wave0AttemptPath],
   'UABC-40': ['project/bc-basic/setup-wave-1-matrix.yaml', 'project/bc-basic/pilot-setup-baseline.yaml', 'project/bc-basic/posting-setup-matrix.yaml', 'project/bc-basic/solution-blueprint.yaml', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
   'UABC-41': ['project/bc-basic/data-package.yaml', 'project/bc-basic/data-readiness-check.yaml'],
   'UABC-42': ['atlassian/confluence/pages/31-processes.md', 'evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml'],
@@ -118,7 +120,7 @@ const presentations = {
 
 function currentStatus(ticket) {
   if (ticket.id === 'UABC-1') return 'in-progress';
-  if (ticket.id === 'UABC-2' || ticket.id === 'UABC-3') return 'blocked';
+  if (ticket.id === 'UABC-2' || ticket.id === 'UABC-3' || ticket.id === 'UABC-39') return 'blocked';
   return 'created';
 }
 
@@ -148,7 +150,7 @@ function rebaseline(ticket) {
   if (ticket.id === 'UABC-32') original = 'Projektauftrag, In- und Out-Scope, Angebotsplanung, Rollen, Phasen, Gate-Matrix und Change-Regel werden aus Angebot und Discovery zusammengeführt und gegen die vorgesehenen Lieferobjekte geprüft.';
   if (ticket.id === 'UABC-21') original = 'Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll, angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste zulässige Schritt eindeutig bleibt.';
   if (ticket.id === 'UABC-22') original = 'Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne Ledger- oder Bankkontowrite nachvollziehbar bleibt.';
-  if (ticket.id === 'UABC-39') original = 'UABC-BASIC-DE wird ausschließlich lesend als Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit interner Company-ID und technischem Namen; danach folgen sichtbare Namen, Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie.';
+  if (ticket.id === 'UABC-39') original = 'W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter; die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.';
   if (ticket.id === 'UABC-40') original = 'Nach vollständig bestandenem Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe wird ausschließlich die CORE-FINANCE-Allowlist eingerichtet. Jeder Schreibschritt erhält feldgenauen Readback und Finance-Abnahme; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-, Continia- und Übermittlungswirkung bleiben ausgeschlossen.';
   if (ticket.id === 'UABC-28') original = 'SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant. Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten Readbacks entschieden werden.';
   if (ticket.id === 'UABC-46') original = 'UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant; aktuell sind sie nicht ausgeführt.';
@@ -194,6 +196,19 @@ function rebaseline(ticket) {
   const evidenceByType = ticket.type === 'task' ? (taskEvidence[ticket.id] ?? evidence) : ticket.type === 'phase' ? evidence.slice(2) : evidence.slice(0, 2);
   const statusHistory = [{ status: 'created', time: today, actorRef: lead, actorType: 'human', actionRole: leadRole }];
   if (status !== 'created') statusHistory.push({ status, time: today, actorRef: lead, actorType: 'human', actionRole: leadRole });
+  const isWave0Attempt = ticket.id === 'UABC-39';
+  const worklogs = isWave0Attempt ? [structuredClone(wave0Attempt.worklog)] : [];
+  const actualHours = worklogs.reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
+  const netAmount = worklogs.reduce((sum, worklog) => sum + Number(worklog.netAmount ?? 0), 0);
+  const comments = isWave0Attempt ? [
+    { id: 'COM-UABC-39-W0-01-START', type: 'status', time: today, role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole, text: 'W0-01 wurde am 2026-07-13 im ausdrücklich freigegebenen Nur-Lese-Modus gestartet. Ziel war ausschließlich die sichtbare Gesellschaftsidentität; Schreib-, Speicher-, Kopier-, Umbenennungs- und Setup-Aktionen waren ausgeschlossen.', evidenceRef: wave0AttemptPath },
+    { id: 'COM-UABC-39-W0-01-BLOCKED', type: 'status', time: today, role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole, text: 'Der vorhandene Tab zeigte nur den Titel Dynamics 365 Business Central sowie bereinigte Playthru- und Company-Parameter. Die Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und BC-Feldlektüre; es wurden keine Company-ID, Firmendaten, CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes ausgeführt. Die Zielstrategie bleibt offen.', evidenceRef: wave0AttemptPath }
+  ] : [{
+    id: `COM-${ticket.id}-CURRENT-PLAN`, type: 'status', time: today,
+    role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole,
+    text: `${ticket.id} – ${summary}: Pilotstand am ${today} ist ${status}. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.`,
+    evidenceRef: evidenceByType[0]
+  }];
   return {
     ...ticket,
     ...presentation,
@@ -205,29 +220,24 @@ function rebaseline(ticket) {
     startedAt: status === 'created' ? null : today,
     testedAt: null,
     closedAt: null,
-    actualHours: 0,
-    remainingHours: ticket.estimateHours ?? 0,
-    netAmount: 0,
+    actualHours,
+    remainingHours: Math.max(0, Number(ticket.estimateHours ?? 0) - actualHours),
+    netAmount,
     deliverable: deliverableOverrides[ticket.id] ?? ticket.deliverable,
     description,
     summary,
     title: ['UABC-21', 'UABC-22', 'UABC-39', 'UABC-40'].includes(ticket.id) ? summary : ticket.title,
     acceptanceCriteria: criteria,
     evidenceRefs: evidenceByType,
-    worklogs: [],
-    worklogHours: 0,
-    comments: [{
-      id: `COM-${ticket.id}-CURRENT-PLAN`, type: 'status', time: today,
-      role: 'Projektleitung', actorRef: lead, actorType: 'human', actionRole: leadRole,
-      text: `${ticket.id} – ${summary}: Pilotstand am ${today} ist ${status}. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.`,
-      evidenceRef: evidenceByType[0]
-    }],
+    worklogs,
+    worklogHours: actualHours,
+    comments,
     reporter: lead,
     assignee: lead,
     reporterRole: leadRole,
     assigneeRole: leadRole,
     statusHistory,
-    statusReason: status === 'blocked' ? `Abhängig von ${ticket.id === 'UABC-2' ? 'UABC-1' : 'UABC-2'}; die vorherige Phase ist fachlich noch nicht abgeschlossen und keine Live-Ausführung ist freigegeben.` : `${ticket.id} ist ${status}; „${summary}“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.`,
+    statusReason: isWave0Attempt ? 'W0-01 ist vor DOM-, Screenshot- und BC-Feldlektüre durch die Browser-Sicherheitsrichtlinie blockiert; die Zielstrategie bleibt ohne Company-ID-, CRONUS-, Fremdmandanten- und Reset-Evidence offen.' : status === 'blocked' ? `Abhängig von ${ticket.id === 'UABC-2' ? 'UABC-1' : 'UABC-2'}; die vorherige Phase ist fachlich noch nicht abgeschlossen und keine Live-Ausführung ist freigegeben.` : `${ticket.id} ist ${status}; „${summary}“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.`,
     dependencies: ticket.id === 'UABC-2' ? ['UABC-1'] : ticket.id === 'UABC-3' ? ['UABC-2'] : [...(ticket.dependencies ?? [])],
     decisionRefs: [...new Set([...(ticket.decisionRefs ?? []).filter((ref) => ref !== 'UABC-DEC-BCB-008'), decisionRefForTicket(ticket)])],
     meetingTranscriptRefs: [],
@@ -237,6 +247,22 @@ function rebaseline(ticket) {
 }
 
 const currentTickets = source.tickets.map(rebaseline);
+const currentTicketById = new Map(currentTickets.map((ticket) => [ticket.id, ticket]));
+for (const parentTicket of currentTickets.filter((ticket) => ticket.type !== 'task')) {
+  const descendantTasks = currentTickets.filter((candidate) => {
+    if (candidate.type !== 'task') return false;
+    let parentId = candidate.parent;
+    while (parentId) {
+      if (parentId === parentTicket.id) return true;
+      parentId = currentTicketById.get(parentId)?.parent ?? null;
+    }
+    return false;
+  });
+  parentTicket.actualHours = descendantTasks.reduce((sum, task) => sum + task.actualHours, 0);
+  parentTicket.worklogHours = parentTicket.actualHours;
+  parentTicket.netAmount = descendantTasks.reduce((sum, task) => sum + task.netAmount, 0);
+  parentTicket.remainingHours = Math.max(0, Number(parentTicket.estimateHours ?? 0) - parentTicket.actualHours);
+}
 const pendingDecision = 'UABC-DEC-PILOT-PENDING';
 const businessDate = (offset) => {
   const date = new Date(Date.UTC(2026, 6, 13));
@@ -323,7 +349,7 @@ const currentPages = (source.pages ?? []).map((page) => {
 });
 const currentSource = { ...source, classification: 'current-pilot-planning', status: 'in-progress', generatedAt: today,
   historicalClassification: 'archived-in-git-history', pages: currentPages, tickets: currentTickets, timeline: currentTimeline, hypercare: currentHypercare, relations: buildCurrentRelations(), catalogs: currentCatalogs,
-  businessCentralPilotState: { baselineKind: 'standard-cronus-demo', baselineProvenance: 'microsoft-standard-cronus-demo-data', pilotConfigured: false, writesApplied: false, readbackStatus: 'pending', technicalCompanyName: 'UABC-BASIC-DE', internalCompanyId: null, observedDisplayName: 'Universaarl GmbH', targetDisplayName: 'Universaarl GmbH (BC Basic Pilot)', targetDecision: 'pending-wave-0-evidence', resetDecision: 'pending-resetpoint-evidence', targetState: 'bc-basic-target-not-applied', appliedDifferenceStatus: 'none-evidenced', companyStrategyGate: { status: 'blocked-pending-wave0-and-reset-evidence', selectedOption: null, nextExecutableStep: 'W0-01-read-company-identity', authority: 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' }, sourceEvidence: 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml' },
+  businessCentralPilotState: { baselineKind: 'standard-cronus-demo', baselineProvenance: 'microsoft-standard-cronus-demo-data', pilotConfigured: false, writesApplied: false, readbackStatus: 'pending', technicalCompanyName: 'UABC-BASIC-DE', internalCompanyId: null, observedDisplayName: 'Universaarl GmbH', targetDisplayName: 'Universaarl GmbH (BC Basic Pilot)', targetDecision: 'pending-wave-0-evidence', resetDecision: 'pending-resetpoint-evidence', targetState: 'bc-basic-target-not-applied', appliedDifferenceStatus: 'none-evidenced', wave0ReadbackAttempt: { status: wave0Attempt.status, evidencePath: wave0AttemptPath, bcReadbackAuthority: wave0Attempt.bcReadbackAuthority, bcFieldValuesRead: !wave0Attempt.accessResult.blockedBeforeBcFieldRead, screenshotCaptured: wave0Attempt.accessResult.screenshotPerformed, writesPerformed: wave0Attempt.effects.writesPerformed }, companyStrategyGate: { status: 'blocked-pending-wave0-and-reset-evidence', selectedOption: null, nextExecutableStep: 'W0-01-read-company-identity', authority: 'project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision' }, sourceEvidence: wave0AttemptPath, planningEvidence: 'evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml' },
   offer: { ...Object.fromEntries(Object.entries(source.offer ?? {}).filter(([key]) => key !== 'versions')), currentVersion: 'pilot-rebaseline-2026-07-13', status: 'active-planning', currentStatus: 'active-planning', actual_hours: actualHours, actual_cost: actualNetAmount },
   historicalOfferVersions: structuredClone(source.historicalOfferVersions ?? source.offer?.versions ?? []),
   activeOffer: { status: 'planned-not-accepted', plannedHours: source.offer?.planned_hours ?? 80, plannedNetAmount: source.offer?.planned_cost ?? 9600, actualHours, actualNetAmount, customerAcceptanceClaimed: false },

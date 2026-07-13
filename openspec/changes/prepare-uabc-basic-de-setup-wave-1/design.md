@@ -21,6 +21,8 @@ Der Live-Lauf stoppt vor dem ersten Write bei fehlendem Wave-0-Readback, unbekan
 
 CORE-FINANCE ist damit planseitig vorbereitet, aber nicht ausführbar. Der erste spätere BC-Schritt ist ausschließlich `W0-01`: interne Company-ID und technischen Namen lesend erfassen. Erst nach vollständigem Wave 0, ausgewählter Zielstrategie, Resetpunkt und separater Schreibfreigabe können RUN-06 bis RUN-22 neu bewertet werden.
 
+Ein vor der DOM-Lektüre blockierter W0-01-Versuch wird als `blocked-before-dom-readback` modelliert. Die Versuchsevidence enthält keine BC-Feldwerte und keine Screenshotreferenz, darf aber den bereits sichtbaren Tabtitel sowie eine tenantbereinigte URL mit Environment- und Company-Query dokumentieren. UABC-39 erhält dafür einen Arbeitskommentar, einen tatsächlichen Task-Worklog und Status `blocked`, jedoch keinen Abschlusskommentar. Der nächste Schritt bleibt W0-01 in einem manuell freigegebenen read-only Termin.
+
 ## Projektstory- und Twin-Vertrag
 
 `evidence/simulation/project-story.json` bleibt die einzige aktive Ticketquelle. Jira, Spectra-0.10, Index und Twin werden deterministisch daraus erzeugt. Die Ticketmenge ist dynamisch; nur `UABC-1`, `UABC-2` und `UABC-3` sind feste Phase-Roots. Plan 80 Stunden/9.600 EUR bleibt im Angebots-/Billingvertrag, aktuelles Ist wird ausschliesslich aus Task-Worklogs abgeleitet. Twin-Ticketlisten enthalten keine Geldfelder oder Geldbetraege.

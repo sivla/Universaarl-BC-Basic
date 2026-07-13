@@ -327,7 +327,7 @@ views:
 recordCount: 50
 customerStoryCount: 50
 internalTraceabilityCount: 0
-countedWorklogHours: 0
+countedWorklogHours: 0.25
 ticketRecords:
   - id: UABC-1
     type: phase
@@ -472,8 +472,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 40
-    actualHours: 0
-    remainingHours: 40
+    actualHours: 0.25
+    remainingHours: 39.75
     acceptance:
       - criterion: Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen
           Vorarbeiten zu „Phase 2 – Einrichtung, Tests und Schulung“
@@ -873,8 +873,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 14
-    actualHours: 0
-    remainingHours: 14
+    actualHours: 0.25
+    remainingHours: 13.75
     acceptance:
       - criterion: Wave 0, Gesellschaftsbasis und Setup-Reihenfolge sind vor Finance-
           oder VAT-Writes belegt.
@@ -1948,8 +1948,8 @@ ticketRecords:
     billable: false
     billingSource: task-rollup-only
     estimateHours: 5
-    actualHours: 0
-    remainingHours: 5
+    actualHours: 0.25
+    remainingHours: 4.75
     acceptance:
       - criterion: Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert
           getrennt; der Gesellschaftsname allein kann keinen konfigurierten
@@ -3331,19 +3331,17 @@ ticketRecords:
     visibility: twin-visible
     visibilityRole: customer-project-story
     countingScope: active-project
-    status: created
-    statusReason: UABC-39 ist created; „CRONUS-Baseline inventarisieren, Resetpunkt
-      belegen und Zielstrategie entscheiden.“ darf nur mit ticket-spezifischer
-      Evidence abgeschlossen werden.
+    status: blocked
+    statusReason: W0-01 ist vor DOM-, Screenshot- und BC-Feldlektüre durch die
+      Browser-Sicherheitsrichtlinie blockiert; die Zielstrategie bleibt ohne
+      Company-ID-, CRONUS-, Fremdmandanten- und Reset-Evidence offen.
     summary: CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie
       entscheiden.
-    description: UABC-BASIC-DE wird ausschließlich lesend als
-      Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit
-      interner Company-ID und technischem Namen; danach folgen sichtbare Namen,
-      Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und
-      Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete
-      Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage
-      beziehungsweise Kopie.
+    description: W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter
+      Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter;
+      die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot
+      und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen,
+      CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.
     deliverable: Wave-0-Readback und begründete Pilot-Zielentscheidung
     deliverableRefs:
       - UABC-DEL-BCB-004
@@ -3366,8 +3364,8 @@ ticketRecords:
     billable: true
     billingSource: task-worklogs
     estimateHours: 5
-    actualHours: 0
-    remainingHours: 5
+    actualHours: 0.25
+    remainingHours: 4.75
     acceptance:
       - criterion: Wave 0 liefert interne Company-ID, technische und sichtbare Namen,
           Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand
@@ -3384,26 +3382,62 @@ ticketRecords:
         actorType: human
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
-    worklogs: []
-    worklogHours: 0
+      - status: blocked
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs:
+      - id: WL-UABC-39-W0-01-BLOCKED-20260713
+        taskId: UABC-39
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 0.25
+        activity: W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot
+          eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert;
+          keine BC-Feldwerte gelesen und keine Writes ausgeführt.
+        phase: P2
+        billable: true
+    worklogHours: 0.25
     evidence:
       - project/bc-basic/setup-wave-1-matrix.yaml
       - project/bc-basic/setup-parameter-baseline.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
       - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
       - project/bc-basic/pilot-setup-baseline.yaml
+      - evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
     comments:
-      - id: COM-UABC-39-CURRENT-PLAN
+      - id: COM-UABC-39-W0-01-START
         type: status
         time: 2026-07-13
         actorRef: P-PILOT-LEAD-001
         actorType: human
         actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
           Architect
-        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
-        text: "UABC-39 – CRONUS-Baseline inventarisieren, Resetpunkt belegen und
-          Zielstrategie entscheiden.: Pilotstand am 2026-07-13 ist created. Nur
-          vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: W0-01 wurde am 2026-07-13 im ausdrücklich freigegebenen Nur-Lese-Modus
+          gestartet. Ziel war ausschließlich die sichtbare
+          Gesellschaftsidentität; Schreib-, Speicher-, Kopier-, Umbenennungs-
+          und Setup-Aktionen waren ausgeschlossen.
+      - id: COM-UABC-39-W0-01-BLOCKED
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: Der vorhandene Tab zeigte nur den Titel Dynamics 365 Business Central
+          sowie bereinigte Playthru- und Company-Parameter. Die
+          Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und
+          BC-Feldlektüre; es wurden keine Company-ID, Firmendaten,
+          CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes
+          ausgeführt. Die Zielstrategie bleibt offen.
   - id: UABC-40
     type: task
     sourceType: task

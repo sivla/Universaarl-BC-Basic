@@ -12,7 +12,7 @@ decisions:
   - { id: UABC-DEC-BCB-006, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Die UStVA wird nur als Vorschau geprueft und niemals echt, als Test oder per ELSTER uebermittelt. }
   - { id: UABC-DEC-BCB-007, status: decided, decidedAt: 2026-07-11, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Solution Architect, statement: Der Projekt-Twin ist eine rein lesende Darstellung des Blueprint-Projektindex. }
   - { id: UABC-DEC-BCB-009, status: decided, decidedAt: 2026-07-13, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: PM und Solution Architect, statement: UABC-BASIC-DE ist aktuell eine unveränderte Microsoft-Standard-CRONUS-Demo-Ausgangsbasis und keine eingerichtete Kundeninstanz; technischer Firmenname und URL beweisen keine Pilotkonfiguration. Vor dem Pilotaufbau entscheidet Wave 0 evidenzbasiert zwischen kontrollierter Weiterverwendung und Neuanlage oder Kopie. PRESEED und CORE-FINANCE gehen TRADE-MASTER und OPENING-DATA voraus; Pakete 0/0/0 besitzen keine Setup- oder Datenwirkung. }
-  - { id: UABC-DEC-BCB-010, status: decided, decidedAt: 2026-07-13, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Der aktive Pilot fuehrt 80 Stunden und 9.600 EUR ausschliesslich als planned-not-accepted Angebotsplanung; Iststunden und Istkosten werden aus aktiven Task-Worklogs abgeleitet und betragen vor Ausfuehrung 0 Stunden und 0 EUR. Historische Simulationswerte erfuellen keine aktuellen Gates und es wird keine Kundenannahme erfunden. }
+  - { id: UABC-DEC-BCB-010, status: decided, decidedAt: 2026-07-13, decidedByRef: real-repository-user, decidedByActorRef: P-PILOT-LEAD-001, decidedByRole: Projektleitung, statement: Der aktive Pilot fuehrt 80 Stunden und 9.600 EUR ausschliesslich als planned-not-accepted Angebotsplanung; Iststunden und Istkosten werden aus aktiven Task-Worklogs abgeleitet. Der blockierte W0-01-Versuch und seine fail-closed Dokumentation ergeben aktuell 0,25 Stunden und 30 EUR; historische Simulationswerte erfuellen keine aktuellen Gates und es wird keine Kundenannahme erfunden. }
 historicalDecisionRefs: [UABC-DEC-BCB-008]
 activePilotDecisionRefs: [UABC-DEC-BCB-009, UABC-DEC-BCB-010]
 solutionDesignDecision:
@@ -47,9 +47,11 @@ pilotSetupDecision:
   historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
   historicalCountryRegionDefectRef: UABC-DEF-PILOT-001
   currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+  wave0AttemptEvidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+  wave0AttemptStatus: blocked-before-dom-readback
   historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
   status: standard-cronus-demo-baseline-pilot-build-pending
-  nextGate: Wave-0-Readback mit interner Company-ID, Name, Display Name, CRONUS-Provenienz, Zielentscheidung und Resetpunkt; Paketgerueste bleiben bis dahin ohne Tabellen oder Wirkung.
+  nextGate: W0-01 in einem manuell freigegebenen Nur-Lese-Termin erneut ausführen; interne Company-ID, Name, Display Name, CRONUS-Provenienz, Zielentscheidung und Resetpunkt fehlen weiterhin. Paketgerueste bleiben bis dahin ohne Tabellen oder Wirkung.
   truthClasses:
     documentedStandard: Verhalten aus Microsoft-Learn-Quellen
     projectAssumption: fuer BC Basic fachlich gewaehlte Standardauspraegung

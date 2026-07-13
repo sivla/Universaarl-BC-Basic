@@ -8,12 +8,13 @@ matrixPath: project/bc-basic/setup-wave-1-matrix.yaml
 parameterBaselinePath: project/bc-basic/setup-parameter-baseline.yaml
 pilotSetupBaselinePath: project/bc-basic/pilot-setup-baseline.yaml
 observedReadOnlyPreflightEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+wave0AttemptEvidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
 execution:
   performed: false
   performedAt: null
   actorRef: null
-  observedResult: null
-  reason: Im Projektbrowser ist keine authentisierte Runtime vorhanden; das Kontrollzentrum kann diesen Plan in seiner getrennten angemeldeten Playthru-Sitzung ausfuehren und Evidence zurueckgeben.
+  observedResult: Angemeldeter Tab mit bereinigter Playthru-/Company-URL sichtbar; Browser-Sicherheitsrichtlinie blockierte vor DOM-, Feld- und Screenshot-Lektüre.
+  reason: Der blockierte Nur-Lese-Versuch ist keine Ausführung dieses Run-Plans und belegt weder BC-Feldwerte noch CRONUS-Provenienz oder Zielstrategie.
 authorization:
   status: lesevorpruefung-freigegeben-schreibschritte-gesperrt
   writesAuthorized: false
@@ -43,14 +44,14 @@ automationResponsibility:
   actorType: browser-automation
   role: autorisierte Bedienhandlung nach menschlich freigegebenem Run-Plan
 wave0Preflight:
-  status: required-not-executed
+  status: blocked-before-dom-readback
   currentBaseline: standard-cronus-demo-baseline
   configuredPilotClaimed: false
   decisionContractPath: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
   decisionGateStatus: blocked-pending-wave0-and-reset-evidence
   nextExecutableStep: W0-01-read-company-identity
   checks:
-    - { id: W0-01, check: interne Company-ID und technischer Name, expected: beide sichtbar gelesen und eindeutig UABC-BASIC-DE zugeordnet }
+    - { id: W0-01, status: blocked-before-dom-readback, check: interne Company-ID und technischer Name, expected: beide sichtbar gelesen und eindeutig UABC-BASIC-DE zugeordnet }
     - { id: W0-02, check: Name und Display Name, expected: Istwerte getrennt vom Pilot-Soll dokumentiert }
     - { id: W0-03, check: Ausgangsdaten und CRONUS-Provenienz, expected: CRONUS-Demodaten als Ausgangsbasis belegt; keine Pilot-Einrichtung behauptet }
     - { id: W0-04, check: dedizierte Pilot-Zielentscheidung, expected: kontrollierte Weiterverwendung der dedizierten Kopie oder saubere Neuanlage/Kopie evidenzbasiert entschieden }
@@ -58,7 +59,7 @@ wave0Preflight:
     - { id: W0-06, check: Abgrenzung, expected: jede unveraenderte CRONUS-Referenzgesellschaft sowie UNIVERSAARL-DE und My Company bleiben unberuehrt }
   allowedDecisions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
   selectedDecision: null
-  evidencePath: null
+  evidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
   requiredDecisionEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
 preflight:
   - { id: PRE-01, check: sichtbarer Host ist Business Central SaaS, expected: true, stopOnMismatch: true }

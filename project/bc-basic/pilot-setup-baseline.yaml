@@ -8,19 +8,21 @@ environmentRef: Playthru
 companyRef: UABC-BASIC-DE
 historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
 currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+wave0AttemptEvidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
 historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
 commercialBaseline:
   status: planned
   plannedHours: 80
-  actualHours: 0
+  actualHours: 0.25
   hourlyRateEur: 120
   plannedNetEur: 9600
-  actualNetEur: 0
+  actualNetEur: 30
   billingRule: Erst fachlich abgeschlossene Task-Worklogs sind fakturierbar; dieser Baseline-Commit erzeugt keine Rechnungszeile.
 companyInformation:
   currentState:
     baselineKind: standard-cronus-demo
     baselineProvenance: microsoft-standard-cronus-demo-data
+    baselineTruthSource: user-provided-project-information
     pilotConfigured: false
     writesApplied: false
     readbackStatus: pending
@@ -30,6 +32,8 @@ companyInformation:
     targetDisplayName: Universaarl GmbH (BC Basic Pilot)
     targetDecision: pending-wave-0-evidence
     resetDecision: pending-resetpoint-evidence
+    wave0AttemptStatus: blocked-before-dom-readback
+    detailReadbackStatus: pending
   targetState:
     classification: bc-basic-target-not-applied
     technicalCompanyName: UABC-BASIC-DE
@@ -47,10 +51,19 @@ companyInformation:
     allowedOptions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
     requiredEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
     decisionEvidence: []
+    attemptEvidence: [evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml]
     ownerRef: P-PILOT-LEAD-001
     decisionAuthority: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
     nextExecutableStep: W0-01-read-company-identity
     writesAuthorized: false
+  wave0ReadbackAttempt:
+    stepId: W0-01-read-company-identity
+    status: blocked-before-dom-readback
+    evidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+    bcFieldValuesRead: false
+    screenshotCaptured: false
+    writesPerformed: false
+    nextExecutableStep: W0-01-read-company-identity
   targetValues:
     name: Universaarl GmbH
     address: Simulationsstraße 1

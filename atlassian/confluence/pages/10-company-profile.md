@@ -45,7 +45,9 @@ Technischer Gesellschaftsname, URL oder sichtbarer Anzeigename sind kein Einrich
 
 Die interne Company-ID, die vollständige Baseline-Inventur und ein belastbarer Reset-/Wiederanlaufpunkt fehlen noch. Deshalb ist die Zielstrategie `blocked-pending-wave0-and-reset-evidence`; ausgewählt ist weder kontrollierte Weiterverwendung noch Neuanlage beziehungsweise Kopie.
 
-Der nächste zulässige BC-Schritt lautet ausschließlich `W0-01-read-company-identity` und ist nur lesend.
+Ein angemeldeter Tab mit Playthru- und Company-Parameter war sichtbar; die Browser-Sicherheitsrichtlinie blockierte jedoch vor jeder DOM-, Feld- und Screenshot-Lektüre. Deshalb sind daraus keine interne Company-ID, Firmendaten, CRONUS-Provenienz oder Zielstrategie abgeleitet worden.
+
+Der nächste zulässige BC-Schritt bleibt ausschließlich `W0-01-read-company-identity` in einem manuell freigegebenen Nur-Lese-Termin.
 
 ### Geplanter BC-Basic-Sollstand
 

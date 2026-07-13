@@ -56,7 +56,9 @@ Das Consultant-Muster ersetzt weder die Prüfung der Sandbox noch steuerliche od
 | Angewendete Differenz | `none-evidenced`; Readback ausstehend | nur spätere feldgenaue Vorher-/Nachher-Evidence darf diesen Stand ändern |
 | Zielstrategie | `blocked-pending-wave0-and-reset-evidence`; keine Option gewählt | Entscheidung erst nach vollständiger Baseline-Inventur und Reset-/Wiederanlaufnachweis |
 
-Der einzige nächste ausführbare BC-Schritt ist `W0-01-read-company-identity`: interne Company-ID und technischen Namen sichtbar lesen und bereinigt zurückgeben.
+Der erste W0-01-Zugriffsversuch endete `blocked-before-dom-readback`: Ein angemeldeter Tab mit bereinigter Playthru-/Company-URL war sichtbar, der Sicherheitsblock trat aber vor DOM, BC-Feldern und Screenshot ein. URL und Titel sind kein Company-ID-, CRONUS- oder Konfigurationsnachweis.
+
+Der einzige nächste ausführbare BC-Schritt bleibt `W0-01-read-company-identity` in einem manuell freigegebenen Nur-Lese-Termin. Dort werden interne Company-ID, sichtbare Namen, Company Information, Country/Region, CRONUS-Indizien und Gesellschaftsliste mit bereinigten Screenshots erhoben.
 
 CORE-FINANCE ist planseitig vorbereitet, aber bis zum bestandenen Wave-0-, Zielstrategie-, Reset- und separaten Schreibfreigabegate nicht ausführbar. TRADE-MASTER und OPENING-DATA bleiben gesperrt.
 

@@ -35,7 +35,7 @@ version: 7
 
 Der Playthru-Pilot läuft auf `UABC-BASIC-DE`. Die Gesellschaft enthält eine Microsoft-CRONUS-Demo-Ausgangsbasis; ihr Anzeigename allein belegt keine eingerichtete BC-Basic-Kundeninstanz. `pilotConfigured=false`, `writesApplied=false`, `readbackStatus=pending` und `writesAuthorized=false` sind der aktuelle Stand.
 
-Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 0 Stunden und 0 EUR.
+Der Angebotsplan umfasst 80 Stunden und 9.600 EUR. Das aus aktiven Task-Worklogs abgeleitete Ist beträgt 0,25 Stunden und 30 EUR; es umfasst ausschließlich den begonnenen W0-01-Zugriffsversuch und seine fail-closed Dokumentation.
 
 Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen. Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
 
@@ -72,7 +72,9 @@ Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehler
 
 ## Nächster zulässiger Schritt
 
-`W0-01-read-company-identity` ausführen: interne Company-ID und technischen Namen ausschließlich lesend erfassen und bereinigt zurückgeben.
+`W0-01-read-company-identity` wurde read-only begonnen, aber von der Browser-Sicherheitsrichtlinie vor jeder DOM-, Feld- und Screenshot-Lektüre blockiert. Titel und bereinigte URL belegen nur das adressierte Ziel, nicht interne Company-ID, CRONUS-Provenienz oder Pilotkonfiguration.
+
+Nächster Schritt ist derselbe W0-01-Readback in einem manuell freigegebenen Nur-Lese-Termin: interne Company-ID, technischen und sichtbaren Namen, Company Information, Country/Region, CRONUS-Indizien und Gesellschaftsliste lesen sowie fachlich zugeschnittene Screenshots ohne Authdaten zurückgeben.
 
 Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiederanlaufprüfung. Erst auf vollständiger Evidence darf zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden. RUN-06 bis RUN-22 bleiben NO-GO.
 
@@ -81,6 +83,7 @@ Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiede
 - [Aktuelle Projektstory](../../../evidence/simulation/project-story.json)
 - [Nur-Lese-Vorprüfung](../../../evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml)
 - [Kontrollierter Run-Plan](../../../evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml)
+- [Blockierter W0-01-Zugriffsversuch](../../../evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml)
 - [Projektstatus und Ticketwahrheit](bc-basic-project-story.md)
 - [Historische Referenzsimulation](99-archive.md)
 

@@ -17,8 +17,8 @@
     "currentVersion": "pilot-rebaseline-2026-07-13",
     "planned_hours": 80,
     "planned_cost": 9600,
-    "actual_hours": 0,
-    "actual_cost": 0,
+    "actual_hours": 0.25,
+    "actual_cost": 30,
     "status": "active-planning",
     "currentStatus": "active-planning"
   },
@@ -662,9 +662,9 @@
       "end": null,
       "status": "blocked",
       "estimateHours": 40,
-      "actualHours": 0,
-      "remainingHours": 40,
-      "netAmount": 0,
+      "actualHours": 0.25,
+      "remainingHours": 39.75,
+      "netAmount": 30,
       "type": "phase",
       "summary": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
       "description": "Phase 2 setzt die entschiedene Baseline in nachvollziehbarer Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und Abnahmeprobe.",
@@ -764,7 +764,7 @@
       "displayIconKey": "jira-phase",
       "displayColorToken": "teal",
       "classification": "current-pilot-planning",
-      "worklogHours": 0,
+      "worklogHours": 0.25,
       "meetingTranscriptRefs": []
     },
     {
@@ -1169,10 +1169,10 @@
       "billable": false,
       "billingSource": "task-rollup-only",
       "estimateHours": 14,
-      "actualHours": 0,
-      "remainingHours": 14,
+      "actualHours": 0.25,
+      "remainingHours": 13.75,
       "hourlyRate": null,
-      "netAmount": 0,
+      "netAmount": 30,
       "status": "created",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
@@ -1249,7 +1249,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0,
+      "worklogHours": 0.25,
       "meetingTranscriptRefs": []
     },
     {
@@ -2448,10 +2448,10 @@
       "billable": false,
       "billingSource": "task-rollup-only",
       "estimateHours": 5,
-      "actualHours": 0,
-      "remainingHours": 5,
+      "actualHours": 0.25,
+      "remainingHours": 4.75,
       "hourlyRate": null,
-      "netAmount": 0,
+      "netAmount": 30,
       "status": "created",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
@@ -2524,7 +2524,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0,
+      "worklogHours": 0.25,
       "meetingTranscriptRefs": [],
       "title": "CRONUS-Ist, BC-Basic-Soll und Gesellschaftsstrategie nachvollziehbar entscheiden."
     },
@@ -4107,7 +4107,7 @@
     {
       "id": "UABC-39",
       "type": "task",
-      "status": "created",
+      "status": "blocked",
       "reporter": "P-PILOT-LEAD-001",
       "assignee": "P-PILOT-LEAD-001",
       "priority": "P1",
@@ -4120,12 +4120,19 @@
         "company"
       ],
       "createdAt": "2026-07-13",
-      "startedAt": null,
+      "startedAt": "2026-07-13",
       "testedAt": null,
       "closedAt": null,
       "statusHistory": [
         {
           "status": "created",
+          "time": "2026-07-13",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect"
+        },
+        {
+          "status": "blocked",
           "time": "2026-07-13",
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
@@ -4147,33 +4154,61 @@
         "project/bc-basic/setup-parameter-baseline.yaml",
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
         "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
-        "project/bc-basic/pilot-setup-baseline.yaml"
+        "project/bc-basic/pilot-setup-baseline.yaml",
+        "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
       ],
       "comments": [
         {
-          "id": "COM-UABC-39-CURRENT-PLAN",
+          "id": "COM-UABC-39-W0-01-START",
           "type": "status",
           "time": "2026-07-13",
           "role": "Projektleitung",
           "actorRef": "P-PILOT-LEAD-001",
           "actorType": "human",
           "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-          "text": "UABC-39 – CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.: Pilotstand am 2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen.",
-          "evidenceRef": "project/bc-basic/setup-wave-1-matrix.yaml"
+          "text": "W0-01 wurde am 2026-07-13 im ausdrücklich freigegebenen Nur-Lese-Modus gestartet. Ziel war ausschließlich die sichtbare Gesellschaftsidentität; Schreib-, Speicher-, Kopier-, Umbenennungs- und Setup-Aktionen waren ausgeschlossen.",
+          "evidenceRef": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
+        },
+        {
+          "id": "COM-UABC-39-W0-01-BLOCKED",
+          "type": "status",
+          "time": "2026-07-13",
+          "role": "Projektleitung",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
+          "text": "Der vorhandene Tab zeigte nur den Titel Dynamics 365 Business Central sowie bereinigte Playthru- und Company-Parameter. Die Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und BC-Feldlektüre; es wurden keine Company-ID, Firmendaten, CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes ausgeführt. Die Zielstrategie bleibt offen.",
+          "evidenceRef": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
         }
       ],
-      "worklogs": [],
+      "worklogs": [
+        {
+          "id": "WL-UABC-39-W0-01-BLOCKED-20260713",
+          "taskId": "UABC-39",
+          "date": "2026-07-13",
+          "role": "Lead BC Consultant",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect",
+          "hours": 0.25,
+          "activity": "W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert; keine BC-Feldwerte gelesen und keine Writes ausgeführt.",
+          "phase": "P2",
+          "billable": true,
+          "hourlyRate": 120,
+          "netAmount": 30
+        }
+      ],
       "summary": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.",
-      "description": "UABC-BASIC-DE wird ausschließlich lesend als Microsoft-Standard-CRONUS-Demo-Baseline inventarisiert. W0-01 startet mit interner Company-ID und technischem Namen; danach folgen sichtbare Namen, Ausgangsdaten, Fremdmandantengrenze, Paketnullstand und Reset-/Wiederanlaufnachweis. Erst diese Evidence erlaubt die begründete Wahl zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie.",
+      "description": "W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter; die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.",
       "deliverable": "Wave-0-Readback und begründete Pilot-Zielentscheidung",
       "phase": "P2",
       "billable": true,
       "billingSource": "task-worklogs",
       "estimateHours": 5,
-      "actualHours": 0,
-      "remainingHours": 5,
+      "actualHours": 0.25,
+      "remainingHours": 4.75,
       "hourlyRate": 120,
-      "netAmount": 0,
+      "netAmount": 30,
       "phaseId": "UABC-2",
       "category": "fachliche BC-Basic-Leistung",
       "participants": [
@@ -4183,7 +4218,7 @@
       "meetingTranscriptRefs": [],
       "reporterRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
       "assigneeRole": "Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect",
-      "statusReason": "UABC-39 ist created; „CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden.“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.",
+      "statusReason": "W0-01 ist vor DOM-, Screenshot- und BC-Feldlektüre durch die Browser-Sicherheitsrichtlinie blockiert; die Zielstrategie bleibt ohne Company-ID-, CRONUS-, Fremdmandanten- und Reset-Evidence offen.",
       "decisionRefs": [
         "UABC-DEC-BCB-002",
         "UABC-DEC-BCB-009"
@@ -4201,7 +4236,7 @@
       "classification": "current-pilot-planning",
       "start": "2026-07-13",
       "end": null,
-      "worklogHours": 0,
+      "worklogHours": 0.25,
       "title": "CRONUS-Baseline inventarisieren, Resetpunkt belegen und Zielstrategie entscheiden."
     },
     {
@@ -6186,12 +6221,22 @@
     },
     {
       "type": "references",
-      "from": "COM-UABC-39-CURRENT-PLAN",
-      "to": "project/bc-basic/setup-wave-1-matrix.yaml"
+      "from": "COM-UABC-39-W0-01-BLOCKED",
+      "to": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
     },
     {
       "type": "references",
-      "from": "COM-UABC-39-CURRENT-PLAN",
+      "from": "COM-UABC-39-W0-01-BLOCKED",
+      "to": "UABC-39"
+    },
+    {
+      "type": "references",
+      "from": "COM-UABC-39-W0-01-START",
+      "to": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
+    },
+    {
+      "type": "references",
+      "from": "COM-UABC-39-W0-01-START",
       "to": "UABC-39"
     },
     {
@@ -6507,6 +6552,21 @@
     {
       "type": "references",
       "from": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
+      "to": "UABC-39"
+    },
+    {
+      "type": "references",
+      "from": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "to": "COM-UABC-39-W0-01-BLOCKED"
+    },
+    {
+      "type": "references",
+      "from": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "to": "COM-UABC-39-W0-01-START"
+    },
+    {
+      "type": "references",
+      "from": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
       "to": "UABC-39"
     },
     {
@@ -7553,11 +7613,6 @@
       "type": "references",
       "from": "project/bc-basic/setup-wave-1-matrix.yaml",
       "to": "COM-UABC-31-CURRENT-PLAN"
-    },
-    {
-      "type": "references",
-      "from": "project/bc-basic/setup-wave-1-matrix.yaml",
-      "to": "COM-UABC-39-CURRENT-PLAN"
     },
     {
       "type": "references",
@@ -9327,7 +9382,12 @@
     {
       "type": "references",
       "from": "UABC-39",
-      "to": "COM-UABC-39-CURRENT-PLAN"
+      "to": "COM-UABC-39-W0-01-BLOCKED"
+    },
+    {
+      "type": "references",
+      "from": "UABC-39",
+      "to": "COM-UABC-39-W0-01-START"
     },
     {
       "type": "references",
@@ -9338,6 +9398,11 @@
       "type": "references",
       "from": "UABC-39",
       "to": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
+    },
+    {
+      "type": "references",
+      "from": "UABC-39",
+      "to": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
     },
     {
       "type": "references",
@@ -10813,18 +10878,18 @@
   "controls": {
     "openP1": 0,
     "openP2": 0,
-    "worklogHours": 0,
-    "worklogCost": 0,
+    "worklogHours": 0.25,
+    "worklogCost": 30,
     "worklogRate": 120,
     "realBcExecution": false,
     "activeTicketCount": 50,
     "activeTicketIdRange": "dynamisch-aus-kanonischer-Quelle",
     "internalTraceabilityCount": 0,
     "planHours": 80,
-    "actualHours": 0,
+    "actualHours": 0.25,
     "ticketSource": "evidence/simulation/project-story.json",
     "historicalTicketSource": "provenance-only",
-    "actualNetAmount": 0,
+    "actualNetAmount": 30,
     "plannedNetAmount": 9600,
     "plannedPhaseHours": {
       "P1": 22,
@@ -10874,6 +10939,7 @@
       "atlassian/confluence/pages/71-bc-basic-discovery.md",
       "project/bc-basic/data-package.yaml",
       "project/bc-basic/data-readiness-check.yaml",
+      "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
       "atlassian/confluence/pages/31-processes.md",
       "project/bc-basic/training-plan.yaml",
       "atlassian/confluence/pages/80-bc-basic-training.md",
@@ -11721,8 +11787,8 @@
     "status": "planned-not-accepted",
     "plannedHours": 80,
     "plannedNetAmount": 9600,
-    "actualHours": 0,
-    "actualNetAmount": 0,
+    "actualHours": 0.25,
+    "actualNetAmount": 30,
     "customerAcceptanceClaimed": false
   },
   "businessCentralPilotState": {
@@ -11739,12 +11805,21 @@
     "resetDecision": "pending-resetpoint-evidence",
     "targetState": "bc-basic-target-not-applied",
     "appliedDifferenceStatus": "none-evidenced",
+    "wave0ReadbackAttempt": {
+      "status": "blocked-before-dom-readback",
+      "evidencePath": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "bcReadbackAuthority": false,
+      "bcFieldValuesRead": false,
+      "screenshotCaptured": false,
+      "writesPerformed": false
+    },
     "companyStrategyGate": {
       "status": "blocked-pending-wave0-and-reset-evidence",
       "selectedOption": null,
       "nextExecutableStep": "W0-01-read-company-identity",
       "authority": "project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision"
     },
-    "sourceEvidence": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
+    "sourceEvidence": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+    "planningEvidence": "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml"
   }
 }

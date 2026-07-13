@@ -43,7 +43,7 @@ export function buildReconciliation(story, billing) {
       rate: actualRate - (offered.cost / offered.hours),
       amount: actual.cost - offered.cost,
       reason_code: 'scope-change',
-      reason: 'Die historische 68-Stunden-Kalkulation und die 80-Stunden-Angebotsplanung bleiben getrennte Provenienz. Das aktuelle Ist wird ausschliesslich aus aktiven Task-Worklogs abgeleitet und betraegt im neu gestarteten Piloten derzeit 0 Stunden und 0 EUR.'
+      reason: `Die historische 68-Stunden-Kalkulation und die ${offered.hours}-Stunden-Angebotsplanung bleiben getrennte Provenienz. Das aktuelle Ist wird ausschließlich aus aktiven Task-Worklogs abgeleitet und beträgt im neu gestarteten Piloten derzeit ${actual.hours} Stunden und ${actual.cost} EUR.`
     },
     truth_boundary: { owner: 'synthetic-fixture', source_of_truth: 'synthetic-fixture', invoice_claim: false, productive_activity_claim: false, billing_status: 'not-applicable' }
   };
