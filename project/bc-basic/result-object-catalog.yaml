@@ -12,7 +12,7 @@ counts:
   customerDeliverables: 9
   projectDocuments: 4
   blankTemplates: 3
-  evidenceObjects: 6
+  evidenceObjects: 7
   technicalSources: 4
 objects:
   - objectId: UABC-DEL-BCB-001
@@ -157,6 +157,10 @@ objects:
     classification: evidence
     title: Playthru-Pilot-Setup-Baseline
     sourcePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+  - objectId: UABC-OBJ-EVD-007
+    classification: evidence
+    title: Playthru-Country- und Firmendaten-Ausfuehrung
+    sourcePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
   - objectId: UABC-OBJ-TECH-001
     classification: technical-source
     title: Branch-Index

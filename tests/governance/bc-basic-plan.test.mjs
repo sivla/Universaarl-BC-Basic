@@ -77,7 +77,7 @@ test('BC-Basic bindet genau eine synthetische Gesellschaft in playthru', () => {
   assert.equal(scenarioCatalog.target?.companyRef, 'UABC-BASIC-DE');
   assert.equal(scenarioCatalog.target?.companyCount, 1);
   assert.equal(dataPackage.companyRef, 'UABC-BASIC-DE');
-  assert.equal(scenarioCatalog.status, 'planned');
+  assert.equal(scenarioCatalog.status, 'prepared-not-executed');
   assert.equal(scenarioCatalog.executed, false);
 });
 
@@ -701,9 +701,8 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
   assert.throws(() => parseGitTreeEntry(`100644 blob ${'a'.repeat(40)} 3\tfile\n100644 blob ${'b'.repeat(40)} 2\tother`, 'file'), /nicht genau eine Zeile/);
 });
 
-test('Reale BC-Basic-Nachweise bleiben ausstehend und abgeschlossene Repositorymigration ist belegt', () => {
+test('Ausgefuehrte lokale Pilotnachweise sind belegt und spaetere Prozessnachweise bleiben ausstehend', () => {
   const requiredIds = [
-    'UABC-VER-BCB-LOCAL-001',
     'UABC-VER-BCB-READINESS-001',
     'UABC-VER-BCB-E2E-001',
     'UABC-VER-BCB-TRAINING-001',
@@ -717,6 +716,12 @@ test('Reale BC-Basic-Nachweise bleiben ausstehend und abgeschlossene Repositorym
     assert.equal(verification.status, 'pending');
     assert.equal(verification.executedAt, null);
     assert.equal(verification.evidence, null);
+  }
+  for (const id of ['UABC-VER-BCB-LOCAL-001', 'UABC-VER-BCB-COMPANY-EXEC-001']) {
+    const verification = verificationById.get(id);
+    assert.equal(verification?.status, 'passed');
+    assert.equal(verification?.executedAt, '2026-07-13');
+    assert.ok(verification?.evidence);
   }
   const migration = verificationById.get('UABC-VER-BCB-TICKET-MIGRATION-001');
   assert.equal(migration.status, 'passed');
@@ -735,7 +740,8 @@ test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', (
 
 test('Szenariokatalog schliesst Produktivbetrieb E-Rechnung und UStVA-Uebermittlung aus', () => {
   assert.equal(scenarioCatalog.simulation, true);
-  assert.equal(scenarioCatalog.writePolicy?.authorizationStatus, 'required');
+  assert.equal(scenarioCatalog.writePolicy?.authorizationStatus, 'authorized-scope-awaiting-preflight');
+  assert.equal(scenarioCatalog.writePolicy?.requiredDecisionRef, 'UABC-DEC-BCB-009');
   assert.equal(scenarioCatalog.scenarios?.length, 9);
   const closeScenario = scenarioCatalog.scenarios.find((scenario) => scenario.id === 'UABC-PW-BCB-007');
   const vatScenario = scenarioCatalog.scenarios.find((scenario) => scenario.id === 'UABC-PW-BCB-008');

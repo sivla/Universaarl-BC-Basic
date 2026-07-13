@@ -11,6 +11,7 @@ const repositoryRoot = path.resolve(fileURLToPath(new URL('../..', import.meta.u
 const activeChange = 'establish-playthru-environment-baseline';
 const bcBasicChange = 'deliver-bc-basic-customer-project';
 const pilotSetupChange = 'document-uabc-basic-de-playthru-setup-baseline';
+const countryCompanyExecutionChange = 'record-uabc-basic-de-country-company-information-execution';
 const npmCli = process.env.npm_execpath ?? path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js');
 const openSpecCli = path.join(repositoryRoot, 'node_modules', '@fission-ai', 'openspec', 'bin', 'openspec.js');
 const allowedReadOnlyRequestClasses = ['GET', 'HEAD', 'OPTIONS'].flatMap((method) => ['document', 'script', 'stylesheet', 'image', 'font', 'xhr', 'fetch'].map((resourceType) => `${method}:${resourceType}`)).sort();
@@ -137,7 +138,7 @@ async function disposableRepository(t) {
     'project/bc-basic'
   ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
   for (const name of await fs.readdir(path.join(changesRoot, 'archive'))) {
-    if (name.endsWith('-establish-project-artifact-walkthrough-pilot') || name.endsWith(`-${bcBasicChange}`) || name.endsWith('-migrate-bc-basic-to-three-space-confluence-v1') || name.endsWith('-make-bc-basic-jira-story-human-readable-v1')) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
+    if (name.endsWith('-establish-project-artifact-walkthrough-pilot') || name.endsWith(`-${bcBasicChange}`) || name.endsWith('-migrate-bc-basic-to-three-space-confluence-v1') || name.endsWith('-make-bc-basic-jira-story-human-readable-v1') || name.endsWith(`-${pilotSetupChange}`)) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
   }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
@@ -146,7 +147,8 @@ async function disposableRepository(t) {
     bcBasicChange,
     'migrate-bc-basic-to-three-space-confluence-v1',
     'make-bc-basic-jira-story-human-readable-v1',
-    pilotSetupChange
+    pilotSetupChange,
+    countryCompanyExecutionChange
   ]);
   register.verifications = register.verifications.filter((item) => !removedFixtureChanges.has(item.changeRef));
   await writeYaml(root, verificationPath, register);

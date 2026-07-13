@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "d5ccd687a62bebed7798841580fd26430b77e5c262bd1ea8330306b270b04c6f",
+      "contentSha256": "467d60c28ed61f2448c4f2ac070c2d7b9cb2519c5ae8e81252c600d26f7fb0a4",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -940,7 +940,7 @@
         "UABC-VER-ENV-POLICY-GATE-001"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "816a7ba31f2c24ae3f5dc810a162315164a40ab893ba2843603a4e906f5a7296",
+      "contentSha256": "6e2e229c410496585458fe747097c2dcf62d10b52edf79f16be758276f0e7111",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1454,7 +1454,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "6403cc95990f4fc37a4686d7d3cda83481ac7c8d04e8bcf4cd6cad0c59637116",
+      "contentSha256": "323523306441faa1c9a53720392fda1144af538d5dfd0619427ec6754ff9b62e",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,

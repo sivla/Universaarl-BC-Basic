@@ -1,7 +1,8 @@
 schemaVersion: 1
 catalogId: UABC-PW-BCB-001
-projectId: UABC-BC-BASIC-001
-status: planned
+projectId: UABC-BC-PILOT-001
+customerProjectId: UABC-BC-BASIC-001
+status: prepared-not-executed
 executed: false
 simulation: true
 target:
@@ -11,8 +12,8 @@ target:
   companyCount: 1
 writePolicy:
   writesPlanned: true
-  authorizationStatus: required
-  requiredApprovalRef: UABC-APP-BCB-001
+  authorizationStatus: authorized-scope-awaiting-preflight
+  requiredDecisionRef: UABC-DEC-BCB-009
   rules:
     - Vor dem ersten Schreibvorgang Zielbindung, erlaubte Aktionen und Ruecksetzplan nachweisen.
     - Nur synthetische Datensatz-IDs mit Praefix SYN oder den freigegebenen Vorlagen verwenden.
@@ -22,6 +23,7 @@ evidenceContract:
   required: [runId, scenarioId, jiraRef, requirementRefs, stepEvents, screenshots, recordIds, expectedPostingEffect, observedResult, reviewer]
   rawArtifactsLocation: .tmp
   retainedOnlyAfterReview: true
+jiraReferenceRole: provenance-only-no-status-or-worklog-mutation
 scenarios:
   - id: UABC-PW-BCB-001
     title: Zielgesellschaft und Ausgangszustand binden

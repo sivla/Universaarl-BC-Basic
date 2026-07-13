@@ -4930,7 +4930,8 @@
       ],
       "evidenceRefs": [
         "BC-SIM-SETUP-001",
-        "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
+        "evidence/playthru-uabc-basic-de/setup-baseline.yaml",
+        "evidence/playthru-uabc-basic-de/country-company-information-execution.yaml"
       ],
       "comments": [
         {
@@ -4976,6 +4977,17 @@
           "actionRole": "fachliche Pruefung",
           "text": "Die Playthru-Pilotbaseline ist ein neuer separater Lauf des Projekts UABC-BC-PILOT-001. Sie aendert weder den synthetischen Abschluss noch den Worklog von UABC-39 und belegt noch keine Einrichtung: beobachtet sind nur der leere Mandant und drei Paketgerueste ohne Tabellen oder Datensaetze.",
           "evidenceRef": "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
+        },
+        {
+          "id": "COM-UABC-39-COMPANY-RETEST",
+          "type": "retest",
+          "time": "2026-07-13",
+          "role": "Solution Architect",
+          "actorRef": "P-PILOT-LEAD-001",
+          "actorType": "human",
+          "actionRole": "fachliche Pruefung",
+          "text": "Nachfolgelauf UABC-BC-PILOT-001: Country/Region DE und die freigegebenen Firmendaten wurden in Playthru gespeichert und per Readback geprueft. Die drei Paketgerueste blieben bei null Tabellen, Daten und Fehlern; der April-Abschluss und seine Worklogs bleiben unveraendert.",
+          "evidenceRef": "evidence/playthru-uabc-basic-de/country-company-information-execution.yaml"
         }
       ],
       "worklogs": [
@@ -7014,7 +7026,7 @@
         "BC-SIM-SETUP-001"
       ],
       "action": "Handover",
-      "result": "abgenommen; Reconciliation und Provenienz validiert Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft. Reconciliation und Provenienz sind im Abschluss verknuepft.",
+      "result": "abgenommen; Reconciliation und Provenienz validiert Reconciliation und Provenienz sind im Abschluss verknuepft.",
       "evidence": "docs/handover/bc-basic-handover.md",
       "decision": "closed",
       "nextStep": "Twin-Read-only-Darstellung",
@@ -7063,7 +7075,7 @@
       "comment": "COM-UABC-48-CLOSING",
       "priority": "P1",
       "diagnosis": "VAT-Vermerk",
-      "fix": "Entscheidung sowie Reconciliation und Provenienz dokumentiert Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen. Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen.",
+      "fix": "Entscheidung sowie Reconciliation und Provenienz dokumentiert Provenienz der Projektion und Reconciliation wurden in die Betriebsuebergabe aufgenommen.",
       "retest": "passed",
       "status": "closed",
       "decision": "EXIT",
@@ -8453,7 +8465,8 @@
       "evidence/simulation/project-reconciliation.json",
       "evidence/simulation/adapter-provenance.json",
       "exports/project-data/v1/twin-export-map.json",
-      "evidence/playthru-uabc-basic-de/setup-baseline.yaml"
+      "evidence/playthru-uabc-basic-de/setup-baseline.yaml",
+      "evidence/playthru-uabc-basic-de/country-company-information-execution.yaml"
     ]
   },
   "ticketMigration": [

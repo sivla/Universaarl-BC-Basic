@@ -1,0 +1,19 @@
+schema: universaarl-delivery
+created: 2026-07-13
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-COMPANY-EXEC-001
+  authorizedBy: P-PILOT-LEAD-001
+  authorizedAt: 2026-07-13
+  scope: Belegten Country/Region- und Firmendatenlauf dokumentieren; keine Paket-, Import- oder Buchungsaktion
+  conditions: [Zielbindung Playthru und UABC-BASIC-DE, Actortrennung, Paketnullwirkung, Gesamtcheck gruen]
+proposedCanonicalUpdate:
+  status: applied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    countryRegion: { status: confirmed, value: DE }
+    companyInformation: { status: confirmed, value: Universaarl GmbH }
+    defectRetest: { status: confirmed, value: UABC-DEF-PILOT-001 passed }
+  unknowns: [Tabellen- und Feldauswahl je Konfigurationspaket, reale Steuer- und Bankkennungen]
+  policyGateEvidenceId: UABC-VER-BCB-COMPANY-EXEC-001

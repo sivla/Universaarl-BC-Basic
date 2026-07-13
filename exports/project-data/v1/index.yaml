@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: document-uabc-basic-de-playthru-setup-baseline
+governingChange: record-uabc-basic-de-country-company-information-execution
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -2021,7 +2021,7 @@ artifacts:
   - id: UABC-SRC-BCB-VER-001
     kindId: verification-register
     path: evidence/verification-register.yaml
-    selector: verifications[changeRef=document-uabc-basic-de-playthru-setup-baseline]
+    selector: verifications[changeRef=record-uabc-basic-de-country-company-information-execution]
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001
@@ -2154,6 +2154,11 @@ artifacts:
   - id: UABC-SRC-BCB-PILOT-SETUP-EVIDENCE-001
     kindId: pilot-setup-evidence
     path: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-COMPANY-EXEC-EVIDENCE-001
+    kindId: country-company-information-execution-evidence
+    path: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
     format: yaml
     required: true
   - id: UABC-SRC-BCB-PILOT-SETUP-VAL-001
@@ -2478,4 +2483,4 @@ referenceDefinitions:
     - UABC-48
     - UABC-49
     - UABC-50
-deliveryBranch: codex/bc-basic-jira-story-realism-v1
+deliveryBranch: codex/universaarl-projekt

@@ -82,8 +82,7 @@ const definitions = pages.map((page,indexNumber)=>{
 });
 for(const definition of definitions){ if(!existingArtifacts.has(definition.artifactId)) index.artifacts.push({id:definition.artifactId,kindId:'confluence-page',path:pages.find((page)=>page.storyPageId===definition.storyPageId).sourcePath,format:'markdown',required:true}); }
 if(!index.artifacts.some((item)=>item.path===CONTRACT))index.artifacts.push({id:'UABC-SRC-BCB-THREE-SPACE-001',kindId:'confluence-three-space-contract',path:CONTRACT,format:'yaml',required:true});
-for(const artifact of index.artifacts) if(artifact.id==='UABC-SRC-BCB-VER-001') artifact.selector='verifications[changeRef=migrate-bc-basic-to-three-space-confluence-v1]';
-index.governingChange='migrate-bc-basic-to-three-space-confluence-v1'; index.allowedBranch='codex/universaarl-projekt'; index.deliveryBranch='codex/bc-basic-jira-story-realism-v1';
+index.allowedBranch='codex/universaarl-projekt'; index.deliveryBranch='codex/universaarl-projekt';
 index.consumerRules=(index.consumerRules??[]).map((rule)=>typeof rule==='string'?rule.replace('19 strukturierten Projektseiten','28 strukturierten Projektseiten mit 22 Roots und sechs Unterseiten'):rule);
 index.documentCatalog.documentCount=43; index.documentCatalog.spaces=spaces;
 index.documentCatalog.definitions=[...index.documentCatalog.definitions.filter((item)=>item.documentType!=='confluence-page'),...definitions];

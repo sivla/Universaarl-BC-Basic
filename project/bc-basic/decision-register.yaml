@@ -39,8 +39,9 @@ pilotSetupDecision:
   baselinePath: project/bc-basic/pilot-setup-baseline.yaml
   evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
   countryRegionDefectRef: UABC-DEF-PILOT-001
-  status: nur-mandant-und-paketgerueste-beobachtet
-  nextGate: Country Region DE seeden und retesten, danach Tabellenreview je Paket; keine weitere Live-Wirkung in diesem Commit.
+  latestExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+  status: country-region-und-firmendaten-ausgefuehrt
+  nextGate: Tabellen- und Feldreview je Paket; Paketgerueste bleiben bis dahin ohne Tabellen oder Wirkung.
   truthClasses:
     documentedStandard: Verhalten aus Microsoft-Learn-Quellen
     projectAssumption: fuer BC Basic fachlich gewaehlte Standardauspraegung

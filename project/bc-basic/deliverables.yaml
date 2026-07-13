@@ -73,6 +73,7 @@ deliverables:
       - atlassian/confluence/pages/72-bc-basic-implementation.md
       - project/bc-basic/pilot-setup-baseline.yaml
       - evidence/playthru-uabc-basic-de/setup-baseline.yaml
+      - evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
     completionEvidence: evidence/simulation/project-completion.yaml
   - id: UABC-DEL-BCB-005
     objectClass: customer-deliverable

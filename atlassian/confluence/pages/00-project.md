@@ -48,7 +48,7 @@ Zugangsdaten, reale Personen-, Bank- oder Steuerdaten und externe Freigaben sind
 
 | Bereich | Referenzsimulation | Reale Kundeninstanz |
 |---|---|---|
-| Gesellschaft | `UABC-BASIC-DE`, Universaarl GmbH | vor Projektstart eindeutig benennen |
+| Gesellschaft | technischer Pilotmandant `UABC-BASIC-DE`; rechtlicher Firmenname Universaarl GmbH | vor Projektstart eindeutig benennen |
 | Umgebung | repositorybasierter Playthrough | rücksetzbare BC-Sandbox bestätigen |
 | Lager | `HAUPT`, keine Lagerplätze | Code und Betriebsmodell bestätigen |
 | Daten | ausschließlich synthetisch | freigegebene Kundenvorlagen verwenden |
@@ -96,9 +96,11 @@ Die drei Pakete `UABC-01-CORE-FINANCE`, `UABC-02-TRADE-MASTER` und `UABC-03-OPEN
 Language ID ist `0`, Product Version ist leer; Tabellen, Datensaetze und Fehler stehen jeweils auf `0`.
 Sie beweisen noch keine Einrichtung oder Datenuebernahme.
 
-Offener Defect `UABC-DEF-PILOT-001`: Country/Region `DE` konnte in Company Information nicht gesetzt werden, weil `DE` im leeren Mandanten noch nicht existiert.
-Erst Country/Region seeden, retesten und danach Firmenwerte setzen.
-Steuer-/Bankkennungen bleiben leer; reale Zugangsdaten stehen weder hier noch im Repository.
+Defect `UABC-DEF-PILOT-001` ist retest-gruen: Country/Region `DE` wurde mit ISO `DE`, numerischem ISO-Code `276` und Adressformat PLZ+Ort angelegt. Danach wurden Name, synthetische Adresse, Ort, Kontakt, Funktions-E-Mail und Homepage gespeichert und erneut gelesen.
+
+`UABC-BASIC-DE` ist der technische **BC-Basic-Pilotmandant**. `UNIVERSAARL-DE` bleibt der unveraenderte **Legacy-Mandant**. Der rechtliche Firmenname in den Firmendaten lautet bei `UABC-BASIC-DE` **Universaarl GmbH**; dieser Lauf behauptet keine Aenderung des Anzeigenamens.
+
+Telefon, USt-IdNr., EORI, GLN und saemtliche Bankfelder bleiben bewusst leer. **Leere Zahlungsinformationen erlauben** ist bestaetigt. Reale Zugangsdaten stehen weder hier noch im Repository.
 
 ## Referenzen
 

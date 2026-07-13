@@ -38,7 +38,7 @@ identityPolicy:
   duplicateDecision: conflict
   missingParentDecision: conflict
 pilotExecutionPreparation:
-  projectId: UABC-BC-BASIC-PILOT-001
+  projectId: UABC-BC-PILOT-001
   status: prepared-not-executed
   authorizedTarget: dedicated-playthrough-sandbox-and-pilot-company
   liveExecutionInThisChange: false

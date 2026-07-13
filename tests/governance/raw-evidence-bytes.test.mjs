@@ -44,7 +44,40 @@ const expectedLfNormalizedFiles = new Set([
   'governance/schemas/spectra-portable-project-story-0.7.schema.json',
   'governance/schemas/spectra-project-reconciliation-0.9.schema.json',
   'governance/schemas/spectra-adapter-provenance-0.9.schema.json',
-  'governance/schemas/spectra-reference-graph-coverage-0.10.schema.json'
+  'governance/schemas/spectra-reference-graph-coverage-0.10.schema.json',
+  'atlassian/confluence/pages/00-project.md',
+  'atlassian/confluence/pages/10-company-profile.md',
+  'atlassian/confluence/pages/20-discovery.md',
+  'atlassian/confluence/pages/30-blueprint.md',
+  'atlassian/confluence/pages/31-processes.md',
+  'atlassian/confluence/pages/32-decisions.md',
+  'atlassian/confluence/pages/50-tests.md',
+  'atlassian/confluence/pages/60-environment-baseline.md',
+  'atlassian/confluence/pages/61-walkthrough-pilot.md',
+  'atlassian/confluence/pages/70-bc-basic-project.md',
+  'atlassian/confluence/pages/71-bc-basic-discovery.md',
+  'atlassian/confluence/pages/72-bc-basic-implementation.md',
+  'atlassian/confluence/pages/73-bc-basic-hypercare.md',
+  'atlassian/confluence/pages/74-bc-basic-deliverables.md',
+  'atlassian/confluence/pages/75-bc-basic-meetings-decisions.md',
+  'atlassian/confluence/pages/76-product-audience.md',
+  'atlassian/confluence/pages/77-product-approach.md',
+  'atlassian/confluence/pages/78-product-offer.md',
+  'atlassian/confluence/pages/79-product-sales-faq.md',
+  'atlassian/confluence/pages/80-bc-basic-training.md',
+  'atlassian/confluence/pages/81-bc-basic-handover.md',
+  'atlassian/confluence/pages/82-consulting-design.md',
+  'atlassian/confluence/pages/83-consulting-tests.md',
+  'atlassian/confluence/pages/84-consulting-handover.md',
+  'atlassian/confluence/pages/85-consulting-checklists.md',
+  'atlassian/confluence/pages/99-archive.md',
+  'atlassian/confluence/pages/bc-basic-hypercare.md',
+  'atlassian/confluence/pages/bc-basic-project-story.md',
+  'atlassian/jira/issues/bc-basic-story-tickets.yaml',
+  'evidence/simulation/project-story.json',
+  'evidence/simulation/atlassian-materialization-dry-run.json',
+  'project/bc-basic/confluence-three-space-v1.yaml',
+  'exports/project-data/v1/document-catalog.json'
 ]);
 
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -82,7 +115,7 @@ function parseExplicitBinaryRules(content) {
     assert.equal(lfRules.has(relative), true, `${relative}: explizite text eol=lf-Regel fehlt`);
   }
   assert.equal(rules.size, expectedCheckoutBoundFiles.size, 'Die .gitattributes muss exakt dreizehn checkoutgebundene Bytezeilen enthalten');
-  assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt dreizehn deterministische LF-Regeln enthalten');
+  assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt alle deterministischen LF-Regeln enthalten');
   return rules;
 }
 
@@ -117,7 +150,7 @@ test('fehlende doppelte und breite Attributregeln scheitern geschlossen', () => 
   const lines = fixture.attributes.trimEnd().split(/\r?\n/);
   assert.throws(
     () => parseExplicitBinaryRules(lines.slice(1).join('\n')),
-    /explizite -text-Regel fehlt|exakt dreizehn/
+    /explizite -text-Regel fehlt|exakt alle/
   );
   assert.throws(
     () => parseExplicitBinaryRules(`${lines.slice(0, -1).join('\n')}\n${lines[0]}\n`),
@@ -129,12 +162,12 @@ test('fehlende doppelte und breite Attributregeln scheitern geschlossen', () => 
   );
 });
 
-test('dreizehn Integrationsartefakte sind exakt und ohne breite Muster auf LF normalisiert', () => {
+test('alle deterministischen Generatorausgaben sind exakt und ohne breite Muster auf LF normalisiert', () => {
   const fixture = repositoryFixture();
   assert.doesNotThrow(() => parseExplicitBinaryRules(fixture.attributes));
   const lines = fixture.attributes.trimEnd().split(/\r?\n/);
   const lfLines = lines.filter((line) => line.endsWith(' text eol=lf'));
-  assert.equal(lfLines.length, 13);
+  assert.equal(lfLines.length, expectedLfNormalizedFiles.size);
   assert.deepEqual(new Set(lfLines.map((line) => line.split(' ')[0])), expectedLfNormalizedFiles);
   assert.throws(
     () => parseExplicitBinaryRules(`${fixture.attributes.trimEnd()}\nexports/project-data/v1/** text eol=lf\n`),

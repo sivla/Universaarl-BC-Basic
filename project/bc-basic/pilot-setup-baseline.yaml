@@ -2,11 +2,12 @@ schemaVersion: 1
 baselineId: UABC-PILOT-SETUP-BASELINE-001
 pilotProjectId: UABC-BC-PILOT-001
 customerProjectId: UABC-BC-BASIC-001
-status: mit-beobachtetem-mandanten-und-paketgeruesten-vorbereitet
+status: country-region-und-firmendaten-ausgefuehrt
 simulation: false
 environmentRef: Playthru
 companyRef: UABC-BASIC-DE
 evidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+latestExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
 commercialBaseline:
   status: planned
   plannedHours: 80
@@ -39,10 +40,21 @@ companyInformation:
     allowEmptyPaymentInformation: true
   observedValues:
     name: Universaarl GmbH
-    countryRegionCode: null
+    address: Simulationsstraße 1
+    postCode: "66123"
+    city: Saarbrücken
+    countryRegionCode: DE
+    contact: Projektteam BC Basic (synthetisch)
+    email: bc-basic@example.invalid
+    homePage: https://universaarl.example.invalid
+    allowEmptyPaymentInformation: true
   countryRegionSeed:
     code: DE
-    status: missing
+    name: Deutschland
+    isoCode: DE
+    numericIsoCode: 276
+    addressFormat: Post Code+City
+    status: validated
     requiredBeforeCompanyInformation: true
   identifierPolicy:
     validationStatus: pending
@@ -96,5 +108,6 @@ executionGate:
   state: authorized-scope-awaiting-table-review
   requires: [Zielpreflight je Lauf, sichere Authentisierung, erlaubter Schreibscope, Resetpunkt, Tabellen- und Feldreview, bestandene Abhaengigkeiten]
   liveTablesAdded: 0
-  liveSetupClaimed: false
+  liveCompanyInformationApplied: true
+  livePackageSetupClaimed: false
   liveBusinessDataClaimed: false

@@ -72,8 +72,7 @@ Er konfiguriert erst nach bestandenem Vorpruefungsgate, prueft jeden Abschnitt f
 Kajetan Kalicki verantwortet PM, fachliches Review und Architekturentscheidung.
 Codex-/Browserautomation bleibt ein eigener technischer Bedienakteur.
 
-Aktuell gilt: `UABC-BASIC-DE` ist leer erstellt, drei Paketgerueste besitzen `0` Tabellen und der Country/Region-Defect ist offen.
-Damit ist die Baseline vorbereitet, nicht eingerichtet.
+Aktuell gilt: Country/Region `DE` und Company Information sind im technischen Pilotmandanten `UABC-BASIC-DE` gespeichert und retest-gruen. `UNIVERSAARL-DE` bleibt Legacy; Universaarl GmbH ist der rechtliche Firmenname. Die drei Paketgerueste besitzen weiterhin `0` Tabellen und keine Daten- oder Buchungswirkung.
 
 ## Referenzen
 

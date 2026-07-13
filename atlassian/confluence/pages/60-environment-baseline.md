@@ -124,6 +124,15 @@ Loeschen ist eine separate freigabepflichtige Aktion. Eine Kopie ersetzt kein Ba
 Jeder Schritt besitzt Entry, Exit, Owner, Validierung und gegebenenfalls Defect/Retest.
 Gebuchte G/L-, Debitoren-, Kreditoren-, VAT-, Item-, Value- oder Bank-Ledger-Tabellen werden nie als Paketinhalt aufgenommen.
 
+### 8. Ausgefuehrter Country-/Company-Schritt
+
+Im Pilotmandanten `UABC-BASIC-DE` wurde Country/Region `DE` angelegt und per Readback geprueft.
+Anschliessend wurden ausschliesslich die freigegebenen synthetischen Firmendaten gespeichert.
+Der technische Mandant bleibt vom Legacy-Mandanten `UNIVERSAARL-DE` unterscheidbar.
+Der rechtliche Firmenname lautet Universaarl GmbH.
+
+Die drei Konfigurationspakete blieben unveraendert bei jeweils `0` Tabellen, `0` Datensaetzen und `0` Fehlern. Es gab keinen Import, keine Buchung und keine Aenderung von Geschaeftsdaten.
+
 ## Stopkriterien, Evidence und Übergabe
 
 - Reale Permission Sets werden im Tenant identifiziert und nicht aus generischen Namen abgeleitet.

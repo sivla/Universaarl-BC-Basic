@@ -1,0 +1,90 @@
+schemaVersion: 1
+evidenceId: UABC-EVD-PLAYTHRU-COMPANY-001
+projectId: UABC-BC-BASIC-001
+pilotProjectId: UABC-BC-PILOT-001
+classification: real-playthru-execution-observation
+observedAt: 2026-07-13
+timePrecision: date-only-user-provided
+environment:
+  name: Playthru
+  environmentType: Sandbox
+  clientVersion: "DE Business Central 28.2"
+  platformVersion: "28.0.52048.0"
+  applicationVersion: "28.2.50931.52241"
+  alRuntimeVersion: "17.0"
+companyIdentity:
+  technicalCompanyId: UABC-BASIC-DE
+  projectRole: BC-Basic-Pilot
+  legalCompanyName: Universaarl GmbH
+  observedDisplayName: Universaarl GmbH
+  displayNameChangedInThisRun: false
+  legacyCompanyId: UNIVERSAARL-DE
+  legacyProjectRole: Legacy
+  legacyCompanyChanged: false
+countryRegion:
+  code: DE
+  name: Deutschland
+  isoCode: DE
+  numericIsoCode: 276
+  addressFormat: Post Code+City
+  created: true
+  readBackPassed: true
+companyInformation:
+  saved: true
+  readBackPassed: true
+  values:
+    name: Universaarl GmbH
+    address: Simulationsstraße 1
+    postCode: "66123"
+    city: Saarbrücken
+    countryRegionCode: DE
+    contact: Projektteam BC Basic (synthetisch)
+    email: bc-basic@example.invalid
+    homePage: https://universaarl.example.invalid
+  intentionallyBlank:
+    phoneNo: ""
+    vatRegistrationNo: ""
+    eori: ""
+    gln: ""
+    bankName: ""
+    bankBranchNo: ""
+    bankAccountNo: ""
+    swiftBic: ""
+    iban: ""
+    otherBankFields: ""
+  allowEmptyPaymentInformation:
+    checked: true
+    ariaChecked: true
+actorTruth:
+  operationActorRef: ACTOR-CODEX-SPECTRA
+  operationActorType: codex-spectra
+  operationRole: Codex/In-App-Browserautomation
+  responsibleActorRef: P-PILOT-LEAD-001
+  responsiblePerson: Kajetan Kalicki
+  responsibleRoles: [PM, Lead BC Consultant, Solution Architect]
+  humanClickClaimed: false
+defectRetest:
+  defectId: UABC-DEF-PILOT-001
+  before: Country/Region DE fehlte; Company Information konnte DE nicht speichern.
+  fix: Country/Region DE wurde angelegt und danach Company Information gespeichert.
+  after: Country/Region DE und alle freigegebenen Firmendaten wurden erneut gelesen.
+  status: passed
+  closed: true
+packageTruth:
+  packages:
+    - { code: UABC-01-CORE-FINANCE, tables: 0, records: 0, errors: 0 }
+    - { code: UABC-02-TRADE-MASTER, tables: 0, records: 0, errors: 0 }
+    - { code: UABC-03-OPENING-DATA, tables: 0, records: 0, errors: 0 }
+  packageWritePerformed: false
+  importPerformed: false
+  postingPerformed: false
+  businessDataChanged: false
+screenshotEvidence:
+  status: not-provided-in-source-evidence
+  files: []
+truthBoundary:
+  noSecrets: true
+  noAuthData: true
+  noUrlOrSessionData: true
+  noTelemetry: true
+  noExternalTransmission: true
