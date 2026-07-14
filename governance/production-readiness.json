@@ -11,7 +11,7 @@
       "evidence": [
         { "kind": "test-report", "path": "evidence/verification-register.yaml" },
         { "kind": "operator-guide", "path": "docs/runbooks/business-central-basic.md" },
-        { "kind": "release-evidence", "path": "evidence/spectra-release-1.2.0-alpha.12.yaml" },
+        { "kind": "release-evidence", "path": "evidence/spectra-release-1.0.0.yaml" },
         { "kind": "security-boundary", "path": "AGENTS.md" },
         { "kind": "platform-matrix", "path": "evidence/spectra-release-1.2.0-alpha.12.yaml" }
       ],

@@ -1,5 +1,6 @@
 import fs from 'node:fs'; import YAML from 'yaml';
 const path='exports/project-data/v1/index.yaml'; const index=YAML.parse(fs.readFileSync(path,'utf8'));
+const archivedReferenceChangePath='openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation';
 const tickets=YAML.parse(fs.readFileSync('atlassian/jira/issues/bc-basic-story-tickets.yaml','utf8'));
 const records=tickets.records??tickets.ticketRecords??[];
 index.governingChange='complete-bc-basic-reference-simulation';
@@ -12,6 +13,7 @@ index.artifacts=(index.artifacts||[]).filter(a=>!String(a.path||'').includes('op
 for(const name of ['proposal.md','design.md','tasks.md','verification.md']) replacePath(`openspec/changes/deliver-bc-basic-customer-project/${name}`,`openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/${name}`);
 replacePath('openspec/changes/deliver-bc-basic-customer-project/specs/bc-basic-delivery/spec.md','openspec/changes/migrate-bc-basic-to-single-uabc-ticket-project/specs/bc-basic-ticket-migration/spec.md');
 replacePath('scripts/validate-spectra-0.7-conformance.mjs','scripts/validate-spectra-0.7-historical-provenance.mjs');
+replacePath('evidence/spectra-release-0.10.0-alpha.1.yaml','evidence/spectra-release-1.0.0.yaml');
 replacePath('openspec/changes/deliver-production-ready-bc-basic-onboarding/specs/project-governance/spec.md','openspec/changes/complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md');
 for(const [id,p,kind] of [['UABC-SRC-BCB-TICKET-MIGRATION-001','project/bc-basic/ticket-migration.yaml','ticket-migration-provenance']]) if(!(index.artifacts||[]).some(a=>a.path===p)) index.artifacts.push({id,kindId:kind,path:p,format:'yaml',required:true});
 const readinessArtifacts=[
@@ -37,6 +39,7 @@ for (const artifact of readinessArtifacts) {
   const legacy = artifact[1].replace('openspec/changes/complete-bc-basic-reference-simulation', 'openspec/changes/deliver-production-ready-bc-basic-onboarding');
   replacePath(legacy, artifact[1]);
 }
+for (const artifact of index.artifacts||[]) if (String(artifact.path||'').startsWith('openspec/changes/complete-bc-basic-reference-simulation/')) artifact.path=artifact.path.replace('openspec/changes/complete-bc-basic-reference-simulation',archivedReferenceChangePath);
 index.artifacts=(index.artifacts||[]).filter(a=>!String(a.path||'').includes('atlassian/confluence/meetings/')||a.path==='atlassian/confluence/meetings/index.yaml');
 const transcripts=[['UABC-SRC-BCB-MTG-TRANSCRIPT-001','UABC-MTG-001','Synthetischer Discovery- und Fit-to-Standard-Workshop','discovery'],['UABC-SRC-BCB-MTG-TRANSCRIPT-002','UABC-MTG-002','Setup, Migration, Prozesse, SIT, UAT und Schulung','setup-and-migration'],['UABC-SRC-BCB-MTG-TRANSCRIPT-003','UABC-MTG-003','Go-live, Hypercare, Finance-Abschluss und Handover','transition']];
 for(const [id,docId,title] of transcripts){const p=`atlassian/confluence/meetings/${docId}.md`;if(!(index.artifacts||[]).some(a=>a.path===p))index.artifacts.push({id,kindId:'meeting-transcript',path:p,format:'markdown',required:true});}

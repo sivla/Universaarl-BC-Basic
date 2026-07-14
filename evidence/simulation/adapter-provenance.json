@@ -9,8 +9,8 @@
   "synthetic": false,
   "source": {
     "blob_path": "exports/project-data/v1/index.yaml",
-    "source_hash": "d3511f396abb4f0e02c747d2b9c57522cc42604701c02c5c2ddadae79a24d52b",
-    "source_hash_after": "d3511f396abb4f0e02c747d2b9c57522cc42604701c02c5c2ddadae79a24d52b",
+    "source_hash": "0dc4d17750ef5ae7d5705fd46d462936ad20b0b0ba64a2321ec8a9ef64bccadf",
+    "source_hash_after": "0dc4d17750ef5ae7d5705fd46d462936ad20b0b0ba64a2321ec8a9ef64bccadf",
     "media_type": "application/yaml"
   },
   "mapping": {
@@ -21,7 +21,7 @@
   "projection": {
     "projection_path": "exports/project-data/v1/twin-export-map.json",
     "digest_algorithm": "SHA-256",
-    "projection_digest": "04e5ae6584f79dad9c527247624e3b502738e222d1fc8d8b2c0cf37ed1a8d329"
+    "projection_digest": "b3468f74e06ebcec91d2db65437e7f1363ec9a3b94fad479a7d96d15e5cfb1c7"
   },
   "source_of_truth": {
     "owner": "customer-workspace",

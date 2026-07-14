@@ -11,7 +11,7 @@ approvalPolicy:
   scope: synthetische Referenzsimulation ohne Live-BC-, Tenant-, Steuer- oder Publishing-Aktion
   conditions: [echte Live-Gates bleiben pending, Continia bleibt out-of-scope, Snapshot erst nach finalem Fachcommit]
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     referenceSimulation: SIMULATED_COMPLETE

@@ -493,7 +493,7 @@
     {
       "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-001",
       "kindId": "spectra-release-evidence",
-      "path": "evidence/spectra-release-0.10.0-alpha.1.yaml",
+      "path": "evidence/spectra-release-1.0.0.yaml",
       "selector": null,
       "format": "yaml",
       "required": true
@@ -1309,7 +1309,7 @@
     {
       "id": "UABC-SRC-BCB-ONBOARDING-PROPOSAL-001",
       "kindId": "openspec-proposal",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/proposal.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/proposal.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1317,7 +1317,7 @@
     {
       "id": "UABC-SRC-BCB-ONBOARDING-DESIGN-001",
       "kindId": "openspec-design",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/design.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/design.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1325,7 +1325,7 @@
     {
       "id": "UABC-SRC-BCB-ONBOARDING-TASKS-001",
       "kindId": "openspec-tasks",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/tasks.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/tasks.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1333,7 +1333,7 @@
     {
       "id": "UABC-SRC-BCB-ONBOARDING-VERIFICATION-001",
       "kindId": "openspec-verification",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/verification.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/verification.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1341,7 +1341,7 @@
     {
       "id": "UABC-SRC-BCB-ONBOARDING-SPEC-001",
       "kindId": "openspec-spec",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1349,7 +1349,7 @@
     {
       "id": "UABC-SRC-BCB-REFERENCE-PROPOSAL-001",
       "kindId": "openspec-proposal",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/proposal.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/proposal.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1357,7 +1357,7 @@
     {
       "id": "UABC-SRC-BCB-REFERENCE-DESIGN-001",
       "kindId": "openspec-design",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/design.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/design.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1365,7 +1365,7 @@
     {
       "id": "UABC-SRC-BCB-REFERENCE-TASKS-001",
       "kindId": "openspec-tasks",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/tasks.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/tasks.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1373,7 +1373,7 @@
     {
       "id": "UABC-SRC-BCB-REFERENCE-VERIFICATION-001",
       "kindId": "openspec-verification",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/verification.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/verification.md",
       "selector": null,
       "format": "markdown",
       "required": true
@@ -1381,7 +1381,7 @@
     {
       "id": "UABC-SRC-BCB-REFERENCE-SPEC-001",
       "kindId": "openspec-spec",
-      "path": "openspec/changes/complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md",
+      "path": "openspec/changes/archive/2026-07-14-complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md",
       "selector": null,
       "format": "markdown",
       "required": true

@@ -16,7 +16,7 @@ test('technischer Name darf im Twin keinen realisierten Kundenstand oder bestaet
 test('blockierter W0-01-Versuch darf in der Konformitätskette keine gelesenen BC-Feldwerte behaupten',()=>expectCode(d=>{d.story.businessCentralPilotState.wave0ReadbackAttempt.bcFieldValuesRead=true},'BC_PILOT_STATE'));
 test('Geldfeld im Twin-Ticket wird abgelehnt',()=>expectCode(d=>{d.ticketExport.ticketRecords[0].netAmount=0},'TICKET_GELD'));
 test('Generator liefert zweimal bytegleiche Ausgabeartefakte',()=>{const a=generateIntegration(),b=generateIntegration();for(const k of ['reconciliation','ticketExport','exportMap','provenance','source','mapping','projection','coverage'])assert.deepEqual(jsonBytes(a[k]),jsonBytes(b[k]),k)});
-test('alte Spectra-Bindung wird abgelehnt',()=>expectCode(d=>{d.binding.spectraReleaseBinding.releaseVersion='0.9.0-alpha.1'},'SPECTRA_BINDUNG'));
+test('historische Spectra-Evidence wird bei manipuliertem Peeled-Commit abgelehnt',()=>expectCode(d=>{d.releaseEvidence.tag.peeledCommit='0'.repeat(40)},'VEROEFFENTLICHUNGSNACHWEIS'));
 test('manipulierter Source-Hash wird abgelehnt',()=>expectCode(d=>{d.provenance.source.source_hash='0'.repeat(64)},'SOURCE_HASH'));
 test('consumerRules Mapping statt String wird abgelehnt',()=>expectCode(d=>{d.index.consumerRules[0]={falsch:true}},'CONSUMER_REGEL_TYP'));
 test('Ticket ohne Typ wird abgelehnt',()=>expectCode(d=>{delete d.ticketExport.ticketRecords[0].type},'TICKET_EXPORT_ABWEICHUNG'));

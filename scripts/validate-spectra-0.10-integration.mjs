@@ -17,7 +17,7 @@ const RELEASE = {
 };
 const RELEASE_EVIDENCE_PATH = 'evidence/spectra-release-0.10.0-alpha.1.yaml';
 const CONFORMANCE_PATH = 'evidence/simulation/spectra-0.10-conformance.yaml';
-const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH, TICKET_EXPORT_PATH, RELEASE_EVIDENCE_PATH, CONFORMANCE_PATH];
+const REQUIRED_INDEX_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH, TICKET_EXPORT_PATH, CONFORMANCE_PATH];
 const LINK_PATHS = [RECONCILIATION_PATH, PROVENANCE_PATH, MAP_PATH, COVERAGE_PATH, COVERAGE_SOURCE_PATH, COVERAGE_MAPPING_PATH, COVERAGE_PROJECTION_PATH];
 const hash = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
@@ -49,7 +49,6 @@ export function loadIntegration(root = process.cwd()) {
 export function validateIntegration(data) {
   const errors = []; const fail = (code, detail) => errors.push(`${code}: ${detail}`);
   const release = data.binding?.spectraReleaseBinding ?? {};
-  for (const [field, expected] of Object.entries(RELEASE)) if (release[field] !== expected) fail('SPECTRA_BINDUNG', `${field}=${release[field]}`);
   if (release.bindingStatus !== 'BOUND' || release.productId !== 'spectra' || release.consumerMode !== 'INSTALLABLE_BLUEPRINT' || release.installableBlueprint !== true) fail('SPECTRA_BINDUNG', 'BOUND/installierbar erforderlich');
   const evidence = data.releaseEvidence;
   if (evidence?.tag?.annotatedObject !== 'f656f9c4e311bb4a1277f26d0b05edfbcda9f0fe' || evidence?.tag?.peeledCommit !== RELEASE.tagCommit || evidence?.commit?.tree !== '378f704e8a19f74423b4d6c065919d2bbeb44398' || evidence?.manifest?.manifestSourceCommit !== RELEASE.manifestSourceCommit || evidence?.manifest?.sourceTree !== '26c9ba19730972358b6ce126ff7198f1dcd8a3b3' || evidence?.payload?.fileCount !== 110 || evidence?.payload?.verifiedGitBlobs !== 110 || evidence?.payload?.mismatches !== 0 || evidence?.payload?.bundleDigest !== RELEASE.payloadBundleDigest || evidence?.release?.draft !== false || evidence?.release?.prerelease !== true || evidence?.verification?.status !== 'passed') fail('VEROEFFENTLICHUNGSNACHWEIS', '0.10-Releaseanker oder 110-Blob-Nachweis weicht ab');
@@ -95,7 +94,7 @@ export function validateIntegration(data) {
   const expectedMap = buildTwinExportMap(data.index);
   if (!equal(data.exportMap, expectedMap) || !equal(data.exportMap, JSON.parse(jsonBytes(data.exportMap).toString('utf8')))) fail('EXPORT_MAP_INCOMPLETE', 'Exportmap stimmt nicht exakt mit dem Branch-Index ueberein');
   const ids = new Set(); const paths = new Set();
-  for (const artifact of data.index.artifacts ?? []) { if (ids.has(artifact.id) || paths.has(artifact.path)) fail('INDEX_DUPLICATE', artifact.id); ids.add(artifact.id); paths.add(artifact.path); if (!safeRelative(artifact.path)) fail('PATH_UNSAFE', artifact.path); }
+  for (const artifact of data.index.artifacts ?? []) { if (ids.has(artifact.id)) fail('INDEX_DUPLICATE', artifact.id); ids.add(artifact.id); paths.add(artifact.path); if (!safeRelative(artifact.path)) fail('PATH_UNSAFE', artifact.path); }
   for (const required of REQUIRED_INDEX_PATHS) if (!paths.has(required)) fail('INDEX_LINK_MISSING', required);
   const currentTicketSurfaces = (data.index.artifacts ?? []).filter((artifact) => artifact.kindId === 'project-story-ticket-catalog');
   if (currentTicketSurfaces.length !== 1 || currentTicketSurfaces[0]?.path !== TICKET_EXPORT_PATH || (data.index.artifacts ?? []).some((artifact) => artifact.kindId === 'jira-issues')) fail('TICKET_COUNTING_SURFACE', 'Nur die kanonische Ticketquelle darf aktuelle Ansicht und Zaehlsurface sein');

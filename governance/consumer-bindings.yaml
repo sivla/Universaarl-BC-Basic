@@ -10,17 +10,17 @@ spectraReleaseBinding:
   productId: spectra
   technicalRepositoryName: BCProjectOS
   repositoryUrl: https://github.com/sivla/BCProjectOS.git
-  releaseVersion: 0.10.0-alpha.1
-  releaseTag: spectra-v0.10.0-alpha.1
-  tagCommit: f89b4de9a9be63932f942f1b0fd8225512a12029
-  manifestPath: release/versions/0.10.0-alpha.1/release-manifest.json
-  manifestSourceCommit: 5c39c4223009ad87a226022a679bee1a691f0cc2
+  releaseVersion: 1.0.0
+  releaseTag: spectra-v1.0.0
+  tagCommit: c05649bd10ed29a082bbe2338d7d326d3d755687
+  manifestPath: release/versions/1.0.0/release-manifest.json
+  manifestSourceCommit: 1aaf874f5197afb34ea9caa2271e33f929d448b5
   consumerMode: INSTALLABLE_BLUEPRINT
   installableBlueprint: true
   digestAlgorithm: SHA-256
-  payloadBundleDigest: ee21672c215de04cb7ae51f57b1d40ef95c79add1868f49c36d042f7cb9416df
+  payloadBundleDigest: a46f7b5f517fec8f7288b2084a4654bb481a48d69706471d856d00f62d1f75e1
   installationStatus: geplant-nicht-installiert
-  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 0.10.0-alpha.1 ist mit 110 Git-Blobs reproduzierbar geprueft; Reconciliation, Adapter-Provenienz und Referenzgraph-Coverage werden lokal read-only angewendet, keine Installation in BC Basic.
+  reason: Kontrollierte GitHub-Release-Evidence fuer Spectra 1.0.0 ist mit 330 Git-Blobs und SHA-256-Payload-Digest reproduzierbar geprueft; keine Installation in BC Basic und keine Live-Ausfuehrung behauptet.
 consumers:
   - consumerId: project-twin
     displayName: Universaarl Project Twin

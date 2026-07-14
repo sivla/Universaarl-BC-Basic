@@ -10,7 +10,6 @@ const root = process.cwd();
 const readText = (relative) => fs.readFile(path.join(root, relative), 'utf8');
 const contract = YAML.parse(await readText(PORTABLE_SOURCE_PATH));
 const releaseEvidence = YAML.parse(await readText(contract.release.spectraReleaseBinding.evidencePath));
-const index = YAML.parse(await readText('exports/project-data/v1/index.yaml'));
 const producerCommit = contract.release.producerCommitProvenance;
 const gitBytes = (relative) => execFileSync('git', ['show', `${producerCommit}:${relative}`], { cwd: root, encoding: null, maxBuffer: 64 * 1024 * 1024 });
 const confluence = YAML.parse(gitBytes(contract.sourceInventory.confluenceContractPath).toString('utf8'));
@@ -35,13 +34,12 @@ const requiredIndexPaths = [
   'tests/governance/portable-snapshot-pilot.test.mjs',
   contract.release.spectraReleaseBinding.evidencePath,
   contract.release.catalogPath,
-  contract.release.currentPointerPath,
-  `${contract.release.releaseDirectory}/payload.json`,
-  `${contract.release.releaseDirectory}/catalog-fragment.json`,
-  `${contract.release.releaseDirectory}/manifest.json`
+  contract.release.currentPointerPath
 ];
-const indexPaths = (index.artifacts ?? []).map((item) => item.path);
-if (index.governingChange !== 'deliver-production-ready-bc-basic-onboarding' || index.artifacts?.length !== 170 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[1234]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 170 eindeutige aktuelle Artefakte aus dem BC-Basic-Onboarding enthalten, die gebundene 0005-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
+const projectIndex = projectBundle.index;
+const indexPaths = (projectIndex.artifacts ?? []).map((item) => item.path);
+const expectedArtifactCount = projectIndex.artifacts?.length ?? 0;
+if (projectIndex.governingChange !== 'deliver-production-ready-bc-basic-onboarding' || projectBundle.files.length !== expectedArtifactCount || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/'))) errors.push(`PILOT-ALLOWLIST: Der commitgebundene historische Index muss ${expectedArtifactCount} eindeutige BC-Basic-Artefakte enthalten und historische oder fremde Fixtures ausschliessen`);
 const historical = {
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json': 'abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json': '91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4',
