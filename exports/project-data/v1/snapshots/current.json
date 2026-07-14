@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "pointerContract": "uabc-customer-catalog-current-v1",
   "customerId": "UABC-CUSTOMER-001",
-  "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260714-V1",
-  "releasePath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V1",
-  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V1/manifest.json",
-  "manifestSha256": "76cd911e1e977ce39cf5b827aa2596515ac0434fb786a05bbe0e7683a6467a6d",
-  "payloadBundleDigest": "db7de1a7e2c77c6e450ea2a24ef6358334991def010fceabce9507b9dd4df785",
+  "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260714-V2-FINAL",
+  "releasePath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V2-FINAL",
+  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V2-FINAL/manifest.json",
+  "manifestSha256": "cbaf1dcbf5e07ea74d59d58ea6b8b6e138b1b9d36ff5d87c571542e6d7998458",
+  "payloadBundleDigest": "f01aba9de841fa48d87b3b5d7de1be056d8e28cbcd7d382a448042d7a8d2f8a6",
   "artifactCount": 112,
   "readOnly": true,
   "requiresGit": false,
   "bindingStatus": "BOUND_BCPROJECTOS_RELEASE",
-  "updatedAt": "2026-07-14T16:00:00+02:00"
+  "updatedAt": "2026-07-14T18:00:00+02:00"
 }

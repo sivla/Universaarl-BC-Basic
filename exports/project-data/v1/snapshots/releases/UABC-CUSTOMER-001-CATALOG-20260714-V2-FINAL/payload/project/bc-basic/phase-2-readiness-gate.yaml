@@ -1,0 +1,40 @@
+schemaVersion: 1
+gateId: UABC-GATE-BCB-PHASE2-001
+projectId: UABC-BC-BASIC-001
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+status: synthetic-closed-superseded
+decision: GO_SIMULATION
+simulation:
+  decision: GO_SIMULATION
+  customerApproval: simulated
+  assumptions:
+    zielumgebung: playthru
+    lizenz: Essentials
+    finanzSteuerVerantwortung: Kunde
+  note: Vollstaendige repositorybasierte Simulation ohne echte Freigabe, Zugangsdaten oder BC-Schreibvorgang.
+scope: Phase-2-Einrichtung-und-Schulung
+gateName: bereit-fuer-Setup-und-UAT
+customerEntryCriteria:
+  - { id: ENTRY-01, subject: Entscheidungen, pass: alle sieben Bereiche in UABC-BCBDISCOVERY entschieden oder mit akzeptiertem Owner und Termin versehen }
+  - { id: ENTRY-02, subject: Daten, pass: acht Vorlagenpaare sind qualitaetsgeprueft und Setup Stammdaten Eroeffnung sowie offene Posten abgestimmt }
+  - { id: ENTRY-03, subject: Rollen, pass: Sponsor Prozessowner Datenowner UAT-Abnehmer und SoD-Verantwortung sind benannt }
+  - { id: ENTRY-04, subject: Sandbox, pass: Zielgesellschaft Lizenz Schreibberechtigung Ruecksetzpunkt und Wiederanlauf sind vor Mutation nachgewiesen }
+entryDecisionRule: GO nur wenn ENTRY-01 bis ENTRY-04 bestanden sind und kein offener P1/P2 vorliegt; sonst NO_GO mit Owner Termin und Auswirkung.
+requiredEvidence:
+  - { id: UABC-GATE-EV-001, name: Umfang-und-Rollen, source: project/bc-basic/project-plan.yaml, status: vorhanden-synthetisch }
+  - { id: UABC-GATE-EV-002, name: Datenbereitschaft, source: project/bc-basic/data-readiness-check.yaml, status: synthetisch-geprueft }
+  - { id: UABC-GATE-EV-003, name: Finanz-und-Steuerdesign, source: project/bc-basic/decision-register.yaml, status: synthetisch-entschieden-real-nicht-validiert }
+  - { id: UABC-GATE-EV-004, name: Ziel-und-Schreibfreigabe, source: project/bc-basic/decision-register.yaml, status: synthetisch-freigegeben }
+  - { id: UABC-GATE-EV-005, name: Ruecksetzplan, source: project/bc-basic/phase-2-dry-run.yaml, status: synthetisch-bestanden }
+  - { id: UABC-GATE-EV-006, name: UAT-und-Schulung, source: project/bc-basic/uat-training-run.yaml, status: synthetisch-abgenommen }
+blockers: []
+rules:
+  - Alle Pflichtnachweise muessen vorhanden und fachlich freigegeben sein.
+  - Jede P1- oder P2-Abweichung blockiert den Start.
+  - Fehlende Ruecksetzbarkeit blockiert jeden mutierenden Lauf.
+  - Synthetische Freigaben gelten nur innerhalb dieser Simulation und werden nicht als reale Kundenentscheidung ausgegeben.
+  - Spectra-PENDING und fehlendes Snapshotmanifest blockieren keine lokale Phase-2-Planung, aber jede Snapshotbereitstellung.
+nextStep: Fuer einen echten BC-Lauf waeren separate reale Nachweise erforderlich; sie sind kein Blocker der abgeschlossenen Simulation.

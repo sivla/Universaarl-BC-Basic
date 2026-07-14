@@ -1,0 +1,27 @@
+schema: universaarl-delivery
+changeId: consolidate-bc-basic-pilot-v2-ticket-quality
+status: active
+summary: Realistischere V2-Ticketredaktion und validierter Twin-Katalog
+created: 2026-07-14
+goal: Realistischere kundenlesbare Ticketoberfläche und ein validierter, Git-unabhängiger V2-Katalog bei unverändertem V1-Last-known-good.
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-TICKET-QUALITY-V2-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-14
+  scope: Repositorybasierte synthetische Simulation ohne Live-Systemzugriff, Kundensystemzugriff oder Publishing-Aktion.
+  conditions: [V1 bleibt unverändert, acht reale Kundengates bleiben pending, kein Push]
+proposedCanonicalUpdate:
+  status: applied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    simulationStatus: simulated-complete
+    ticketQualityVersion: pilot-v2
+    ticketCount: 50
+    worklogHours: 80
+    worklogNetAmount: 9600
+    v1LastKnownGood: true
+    v2RequiresGit: false
+  unknowns: [echte Tenantberechtigungen, reale Lizenz-/Securityfreigabe, produktiver UAT, echter Cutover-GO, erster realer Abschluss, reale UStVA-/Steuerfreigabe, echte Supportübergabe, V2-Aktivierung erst nach Abschlusscommit]
+  policyGateEvidenceId: UABC-VER-BCB-TICKET-QUALITY-V2-001

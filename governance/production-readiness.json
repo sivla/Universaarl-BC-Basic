@@ -133,13 +133,13 @@
     },
     {
       "phaseId": "UABC-2",
-      "ticketIds": ["UABC-2", "UABC-7", "UABC-8", "UABC-9", "UABC-10", "UABC-21", "UABC-22", "UABC-23", "UABC-24", "UABC-25", "UABC-26", "UABC-27", "UABC-28", "UABC-39", "UABC-40", "UABC-41", "UABC-42", "UABC-43", "UABC-44", "UABC-45", "UABC-46"],
+      "ticketIds": ["UABC-2", "UABC-7", "UABC-8", "UABC-9", "UABC-10", "UABC-21", "UABC-22", "UABC-23", "UABC-24", "UABC-25", "UABC-26", "UABC-27", "UABC-28", "UABC-39", "UABC-40", "UABC-41", "UABC-42", "UABC-43", "UABC-44", "UABC-45"],
       "transcriptPath": "atlassian/confluence/meetings/UABC-MTG-002.md",
       "rationale": "Einrichtung, Migration, Kernprozesse, SIT, UAT und Schulung werden im konsolidierten Phase-2-Protokoll fachlich abgedeckt."
     },
     {
       "phaseId": "UABC-3",
-      "ticketIds": ["UABC-3", "UABC-11", "UABC-12", "UABC-13", "UABC-29", "UABC-30", "UABC-31", "UABC-47", "UABC-48", "UABC-49", "UABC-50"],
+      "ticketIds": ["UABC-3", "UABC-11", "UABC-12", "UABC-13", "UABC-29", "UABC-30", "UABC-31", "UABC-47", "UABC-48", "UABC-49", "UABC-50", "UABC-46"],
       "transcriptPath": "atlassian/confluence/meetings/UABC-MTG-003.md",
       "rationale": "Go-live, Hypercare, Monatsabschluss, VAT, Retro und Supportübergabe werden im Phase-3-Protokoll fachlich abgedeckt."
     }

@@ -1,0 +1,133 @@
+schemaVersion: 1
+budgetId: UABC-BUDGET-BCB-001
+projectId: UABC-BC-BASIC-001
+status: synthetic-closed
+currency: EUR
+netDailyRate: 960
+workdayHours: 8
+netHourlyRate: 120
+plannedBillableHours: 80
+plannedNetAmount: 9600
+forecast:
+  source: evidence/simulation/project-story.json:tickets[type=task]
+  countingRule: billable-task-worklogs-only
+  plannedHours: 80
+  consumedHours: 80
+  committedHours: 80
+  remainingHours: 0
+  estimateToCompleteHours: 0
+  estimateAtCompletionHours: 80
+  varianceHours: 0
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  consumedNetAmount: 9600
+  estimateAtCompletionNetAmount: 9600
+  varianceNetAmount: 0
+  phaseHours:
+    UABC-1: 22
+    UABC-2: 40
+    UABC-3: 18
+  invoiceLineSource: synthetic-task-worklogs-only
+  parentBillingLines: false
+simulationClose:
+  status: synthetic-closed
+  offerVersion: simulation-closed-2026-07-14
+  plannedHours: 80
+  actualHours: 80
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  actualNetAmount: 9600
+  worklogCount: 19
+  reconciliationResult: synthetic-complete
+  evidence: evidence/simulation/project-reconciliation.json
+  historicalEvidence: evidence/simulation/billing-reconciliation.yaml
+  spectraReconciliation: evidence/simulation/project-reconciliation.json
+  truthBoundary: Keine reale Rechnung, Zahlung, Kundenfreigabe oder Steueruebermittlung.
+historicalBaseline:
+  plannedHours: 68
+  hourlyRate: 162.5
+  plannedNetAmount: 11050
+  status: superseded-for-synthetic-project-story-only
+budgetLimitStatus: unknown
+budgetLimitNetAmount: null
+contingencyHours: 0
+contingencyBilling: not-applicable
+maximumBillableHours: null
+maximumNetAmount: null
+externalCostsIncluded: false
+externalCosts:
+  - Microsoft-Lizenzen und Tenantkosten
+  - Steuerberatung und Rechtsberatung
+  - Fremdsoftware, Erweiterungen und Integrationen
+  - Reise- und sonstige Auslagen, falls spaeter beauftragt
+customerEffortBilling: Kundeninterne Arbeitszeiten werden nicht erfasst und nicht abgerechnet.
+currentPilotWorklogSource: evidence/simulation/project-story.json:tickets[type=task].worklogs
+currentPilotTicketRange: dynamisch-aus-kanonischen-tasks
+currentPilotCountingScope: billable-task-worklogs-only
+historicalPlanSource: atlassian/jira/issues/bc-basic-project.yaml
+historicalPlanLeafRange: UABC-22..UABC-38
+ticketTruthNote: Genau UABC-1, UABC-2 und UABC-3 sind Phase-Roots. Typmengen und
+  fakturierbare Tasks werden dynamisch aus der kanonischen Projektstory gelesen;
+  nur reale Task-Worklogs erzeugen Iststunden und Istkosten. Historische
+  Identitaeten bleiben nicht zaehlende Provenienz.
+rollupRule:
+  scope: current-task-rollup-only
+  parentTickets:
+    - UABC-1
+    - UABC-2
+    - UABC-3
+  treatment: nicht abrechenbare Plan- und Fortschrittssummen
+  noDoubleBilling: Elternsummen und untergeordnete Arbeitsprotokolle duerfen
+    niemals gemeinsam abgerechnet werden.
+weeklyBillingRule:
+  cadence: ISO-Woche
+  eligibleWhen:
+    - Jira-Ticket auf unterster Ebene hat billable true.
+    - Das Jira-Arbeitsprotokoll beschreibt tatsaechlich geleistete Arbeit, ist
+      einem Jira-Key zugeordnet und fachlich genehmigt.
+    - Das Jira-Arbeitsprotokoll ist noch keiner Rechnung zugeordnet.
+  calculation: Summe genehmigter, nicht fakturierter Task-Iststunden der Woche mal
+    120 EUR netto
+  excluded:
+    - Schaetzungen und Elternsummen
+    - Eltern-, Epic- und Storysummen sowie jede doppelte Zuordnung desselben
+      Arbeitsprotokolls
+    - Kundenaufwaende
+    - nicht entschiedenes Budgetlimit
+    - abgelehnte, doppelte oder nicht einem Jira-Key zugeordnete Zeiten
+    - externe Kosten
+  invoiceLineFields:
+    - jiraKey
+    - summary
+    - workDate
+    - approvedHours
+    - hourlyRate
+    - netAmount
+    - approverRef
+  budgetStop: Kein Budgetstop ohne menschlich entschiedenes Budgetlimit;
+    Planstunden und Iststunden werden getrennt berichtet.
+worklogContract:
+  systemOfRecord: Jira
+  required:
+    - worklogId
+    - jiraKey
+    - personRef
+    - workDate
+    - isoWeek
+    - hours
+    - billable
+    - approvalStatus
+    - approverRef
+    - invoiceRef
+  allowedApprovalStatus:
+    - draft
+    - submitted
+    - approved
+    - rejected
+  initialActualHours: 0
+  uniquenessRule: Jede worklogId darf genau einmal und nur einem Jira-Key auf
+    unterster Ebene zugeordnet sein.
+  parentAggregation: Elternwerte werden ausschliesslich aus untergeordneten
+    Arbeitsprotokollen berechnet und erzeugen keine Rechnungszeile.
+worklogs: []
+invoices: []

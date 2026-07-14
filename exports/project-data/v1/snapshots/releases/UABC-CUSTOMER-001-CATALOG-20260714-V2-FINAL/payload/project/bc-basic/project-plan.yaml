@@ -1,0 +1,475 @@
+schemaVersion: 1
+projectId: UABC-BC-BASIC-001
+displayName: BC Basic Einrichtung
+servicePackage: BC Basic Einrichtung
+servicePackageNotice: Universaarl-Standardleistung; kein Microsoft-Lizenzname
+status: simulated-complete
+templateState: kundenbereite-wiederverwendbare-Vorlage
+simulationState: synthetic-canonical-project-v1-complete
+productState: SIMULATION_COMPLETE_REAL_GO_LIVE_PENDING
+customerInstanceState: synthetic-closed-real-gates-pending
+simulation: true
+environment: playthru
+company:
+  count: 1
+  id: UABC-BASIC-DE
+  displayName: Universaarl GmbH
+  targetDisplayName: Universaarl GmbH (BC Basic Simulation)
+  baselineKind: standard-cronus-demo
+  pilotConfigured: false
+  writesApplied: false
+  readbackStatus: synthetic-complete-no-live-readback
+  dataClassification: standard-cronus-demo-baseline
+  writeAuthorization: required
+readinessPath:
+  sourceClassification: canonical-synthetic-project
+  baselineKind: standard-cronus-demo
+  baselineTruth: Repositorybasierte synthetische Projektsimulation ist
+    vollstaendig ausgefuehrt und abgenommen; reale Folge-Gates bleiben pending.
+  targetGate: BC-BASIC-READY-TO-PROD
+  targetStatus: synthetic-complete-real-gates-pending
+  readyToProdClaimed: false
+  productionStartClaimed: false
+  customerAcceptanceClaimed: false
+  pilotConfigured: false
+  writesApplied: false
+  currentStageId: SIMULATION-CLOSED
+  nextExecutableStep: real-tenant-gate
+  requiredBeforeFirstWriteIds:
+    - W0-01-read-company-identity
+    - target-company-decision
+    - resetpoint-with-restart-path
+    - separate-write-authorization
+  stages:
+    - stageId: R0-BASELINE-INVENTORY
+      order: 0
+      name: Standard-CRONUS-Bestandsaufnahme und Zielgesellschaftsentscheidung
+      status: synthetic-complete
+      dependencyStageIds: []
+      ticketRefs:
+        - UABC-39
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: false
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - Playthru und UABC-BASIC-DE sind nur als adressiertes Browserziel
+          bekannt
+        - Nur-Lese-Modus ist verbindlich
+      plannedActions:
+        - interne Company-ID Namen Firmendaten Country-Region CRONUS-Indizien
+          und Gesellschaftsliste lesen
+        - Zieloption und Resetbedarf anhand der gelesenen Werte bewerten
+      exitCriteria:
+        - feldgenauer bereinigter Readback liegt vor
+        - Zielgesellschaft und Resetweg sind evidenzbasiert entschieden
+      evidenceTargets:
+        - evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        - project/bc-basic/pilot-setup-baseline.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Bei fehlendem DOM-Zugriff abweichender Gesellschaft oder
+        unklarer Herkunft ohne Write stoppen.
+    - stageId: R1-DEMO-DATA-DECISION
+      order: 1
+      name: Demodateninventur und Bereinigungsentscheidung
+      status: synthetic-complete
+      dependencyStageIds:
+        - R0-BASELINE-INVENTORY
+      ticketRefs:
+        - UABC-39
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: false
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - R0 ist mit Company- und CRONUS-Readback abgeschlossen
+        - Zielgesellschaft und Resetpunkt sind entschieden
+      plannedActions:
+        - CRONUS-Stamm- Bewegungs- und Setupdaten nach behalten bereinigen oder
+          neu aufsetzen klassifizieren
+        - kontrollierte Weiterverwendung gegen neue leere Gesellschaft oder
+          saubere Kopie entscheiden
+      exitCriteria:
+        - jede Datenklasse besitzt Entscheidung Owner und Bereinigungsweg
+        - keine Demo-Buchung wird ungeprueft als Pilotbestand uebernommen
+      evidenceTargets:
+        - project/bc-basic/data-readiness-check.yaml
+        - project/bc-basic/decision-register.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Ohne vollstaendige Inventur oder pruefbaren Resetweg keine
+        Bereinigung und kein Folge-Setup.
+    - stageId: R2-FOUNDATION-SETUP
+      order: 2
+      name: Firmengrunddaten und CORE-FINANCE-Grundeinrichtung
+      status: synthetic-complete
+      dependencyStageIds:
+        - R1-DEMO-DATA-DECISION
+      ticketRefs:
+        - UABC-40
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - R1 ist entschieden
+        - Resetpunkt Steuerannahme und separate CORE-Schreibfreigabe liegen vor
+      plannedActions:
+        - PRESEED Firmengrunddaten und CORE-FINANCE in definierter Reihenfolge
+          anwenden
+        - jeden Singleton und Finanzverweis feldgenau zuruecklesen
+      exitCriteria:
+        - CORE-Sollwerte sind differenzfrei gelesen
+        - keine Ledger Posted Bankkonto Steueruebertragung oder Buchung wurde
+          erzeugt
+      evidenceTargets:
+        - project/bc-basic/core-finance-payload.yaml
+        - project/bc-basic/core-finance-package-manifest.yaml
+        - evidence/playthru-uabc-basic-de/core-finance-readback.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Bei Paketfehler Referenzabweichung oder unbekannter Vorbelegung
+        stoppen und nur die freigegebene CORE-Allowlist korrigieren oder Reset
+        ausloesen.
+    - stageId: R3-CONFIGURATION-PACKAGES
+      order: 3
+      name: Kontrollierte Konfigurationspakete
+      status: synthetic-complete
+      dependencyStageIds:
+        - R2-FOUNDATION-SETUP
+      ticketRefs:
+        - UABC-40
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - CORE-FINANCE-Readback ist bestanden
+        - Paketumfang und Tabellen-Allowlist sind separat freigegeben
+      plannedActions:
+        - nur freigegebene Tabellen importieren validieren und anwenden
+        - Paketfehler korrigieren und denselben Umfang erneut validieren
+      exitCriteria:
+        - Paketzaehler und Feldreadbacks stimmen mit dem Manifest ueberein
+        - TRADE-MASTER und OPENING-DATA bleiben bis eigener Freigabe gesperrt
+      evidenceTargets:
+        - project/bc-basic/setup-wave-1-matrix.yaml
+        - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Unbekannte Tabelle Feldabweichung oder Ledger-Bezug stoppt den
+        Lauf und aktiviert Paketrollback oder Resetpunkt.
+    - stageId: R4-MASTER-AND-OPENING-DATA
+      order: 4
+      name: Stammdaten und kontrollierte Eroeffnungsdaten
+      status: synthetic-complete
+      dependencyStageIds:
+        - R3-CONFIGURATION-PACKAGES
+      ticketRefs:
+        - UABC-41
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - Konfiguration ist differenzfrei gelesen
+        - Datenvorlagen Owner Pflichtfelder und Kontrollsummen sind freigegeben
+      plannedActions:
+        - Stammdaten vor offenen Posten Bestand und Eroeffnungsbilanz laden
+        - Mengen Salden Dubletten und Fremdschluessel je Welle abstimmen
+      exitCriteria:
+        - jede Welle besitzt Null-Differenz oder dokumentierten Stopbefund
+        - keine historischen Bewegungsdaten oder ungeprueften CRONUS-Daten
+          gelten als Kundenbestand
+      evidenceTargets:
+        - project/bc-basic/data-package.yaml
+        - project/bc-basic/data-readiness-check.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Bei Differenz oder Referenzfehler nur die betroffene Welle
+        entfernen korrigieren und erneut abstimmen.
+    - stageId: R5-PROCESS-PLAYTHROUGH
+      order: 5
+      name: Finance Einkauf Verkauf und Lager durchspielen
+      status: synthetic-complete
+      dependencyStageIds:
+        - R4-MASTER-AND-OPENING-DATA
+      ticketRefs:
+        - UABC-42
+        - UABC-43
+        - UABC-44
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - Stammdaten und Eroeffnungswellen sind abgestimmt
+        - synthetische Prozessbelege und Buchungsgrenzen sind freigegeben
+      plannedActions:
+        - P2P O2C Lager und Finance mit positivem Fall Fehlerkorrektur und
+          Retest ausfuehren
+        - Beleg- Posten- und Sachkontowirkung abstimmen
+      exitCriteria:
+        - alle Kernprozesse besitzen Soll-Ist-Evidence und abgestimmte
+          Auswirkungen
+        - offene P1 oder P2 blockieren den Folgeabschnitt
+      evidenceTargets:
+        - atlassian/confluence/pages/31-processes.md
+        - project/bc-basic/traceability-matrix.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Falsche Buchungswirkung oder nicht reproduzierbarer Fehler
+        stoppt weitere Prozesse und nutzt den freigegebenen Korrektur- oder
+        Resetweg.
+    - stageId: R6-TEST-AND-UAT
+      order: 6
+      name: Technische Tests fachliche UAT und Retests
+      status: synthetic-complete
+      dependencyStageIds:
+        - R5-PROCESS-PLAYTHROUGH
+      ticketRefs:
+        - UABC-45
+        - UABC-46
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - Kernprozesse sind nachvollziehbar ausgefuehrt
+        - UAT-Rollen Faelle Sollwerte und Defectweg sind bestaetigt
+      plannedActions:
+        - positive und negative UAT-Faelle ausfuehren
+        - Defects priorisieren korrigieren und mit gleicher Ausgangslage erneut
+          testen
+      exitCriteria:
+        - alle Pflichtfaelle sind belegt
+        - kein offener P1 oder P2 und jede Abweichung besitzt Entscheidung
+      evidenceTargets:
+        - project/bc-basic/uat-catalog.yaml
+        - atlassian/confluence/pages/50-tests.md
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Fehlende UAT-Evidence oder offener P1 oder P2 sperrt
+        Schulungsabnahme und Cutover.
+    - stageId: R7-TRAINING
+      order: 7
+      name: Rollenbezogene Schulung und Operator-Befaehigung
+      status: synthetic-complete
+      dependencyStageIds:
+        - R6-TEST-AND-UAT
+      ticketRefs:
+        - UABC-45
+        - UABC-46
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: false
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - UAT-faehige Prozessversion und Schulungsmandant sind stabil
+        - Rollen und Termine sind bestaetigt
+      plannedActions:
+        - Navigation Finance Einkauf Verkauf Lager Fehlerdiagnose und Supportweg
+          rollenbezogen ueben
+        - Kompetenzcheck und offene Fragen dokumentieren
+      exitCriteria:
+        - jede Zielrolle hat Pflichtuebungen bestanden oder ist sichtbar
+          blockiert
+        - Konfigurationspaketpflege bleibt Consultant-Aufgabe
+      evidenceTargets:
+        - project/bc-basic/training-plan.yaml
+        - atlassian/confluence/pages/80-bc-basic-training.md
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Unbestandenes Rollenmodul oder instabile Prozessversion sperrt
+        Cutover und fuehrt zu Nachschulung oder Retest.
+    - stageId: R8-CUTOVER
+      order: 8
+      name: Mock-Cutover Resetprobe und Simulationsentscheidung
+      status: synthetic-complete
+      dependencyStageIds:
+        - R7-TRAINING
+      ticketRefs:
+        - UABC-46
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - UAT und Schulung sind bestanden
+        - Datenfreeze Kontrollsummen Zeitfenster Resetpunkt und Stopcodes sind
+          bestaetigt
+      plannedActions:
+        - vollstaendige Reihenfolge zeitlich proben
+        - Abbruch Reset Wiederanlauf und Nachkontrolle praktisch nachweisen
+      exitCriteria:
+        - Mock-Cutover ist innerhalb des Fensters differenzfrei wiederholbar
+        - eine menschliche GO- oder NO-GO-Simulationsentscheidung liegt vor
+      evidenceTargets:
+        - atlassian/confluence/pages/61-walkthrough-pilot.md
+        - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Zeitueberschreitung Kontrolldifferenz oder Resetfehler fuehrt zu
+        NO-GO und Rueckkehr zur verursachenden Stufe.
+    - stageId: R9-HYPERCARE-READY-GATE
+      order: 9
+      name: Hypercare Monatsabschlussprobe Retro und Ready-to-Prod-Gate
+      status: synthetic-complete
+      dependencyStageIds:
+        - R8-CUTOVER
+      ticketRefs:
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
+      ownerRef: P-PILOT-LEAD-001
+      bcWriteRequired: true
+      writeAuthorized: false
+      completed: true
+      entryCriteria:
+        - Mock-Cutover und Simulationsentscheidung sind belegt
+        - Supportrollen und Hypercare-Rhythmus sind bestaetigt
+      plannedActions:
+        - Operator-Smoke-Test Defects Retests Monatsabschlussprozess
+          VAT-Vorschau Retro und Supportuebergabe belegen
+        - Ready-to-Prod-Kriterien menschlich bewerten
+      exitCriteria:
+        - keine offenen P1 oder P2 Kernkontrollen stabil Support uebernommen und
+          Ready-to-Prod-Gate ausdruecklich entschieden
+        - kein Produktivstart wird automatisch behauptet
+      evidenceTargets:
+        - atlassian/confluence/pages/bc-basic-hypercare.md
+        - docs/handover/bc-basic-handover.md
+      executionEvidence:
+        - evidence/simulation/project-completion.yaml
+      stopOrRollback: Instabile Kontrolle offener P1 oder P2 oder fehlende
+        Supportannahme ergibt NO-GO und verlaengert nicht automatisch die
+        Hypercare.
+schedule:
+  scheduleSynthetic: true
+  customerConfirmed: false
+  timelineAuthority: reference-simulation-april-may-2026
+  referenceSimulationStart: 2026-04-06
+  referenceSimulationEnd: 2026-05-29
+  customerTemplateStatus: illustrative-not-current
+  notice: Die April-/Mai-Achse der Project Story ist die fuehrende abgeschlossene
+    Referenzsimulation. August/September ist ausschliesslich ein illustratives
+    Kundenfenster und keine zweite aktuelle Wahrheit oder Kundenzusage.
+  startDate: 2026-08-03
+  implementationWeek: 2026-08-24/2026-08-28
+  hypercareEndDate: 2026-09-04
+  relativePlan:
+    phase1: Vorbereitung, Anforderungen und Datenbereitschaft circa drei
+      Kalenderwochen ab bestaetigtem Projektauftakt
+    phase2: genau fuenf aufeinanderfolgende Arbeitstage nach bestandenem
+      Bereitschaftspruefpunkt
+    phase3: eine Woche Hypercare mit hoechstens 10 Stunden bis zur
+      Monatsabschlussprobe in der Sandbox
+budgetRef: UABC-BUDGET-BCB-001
+phases:
+  - id: UABC-1
+    name: Vorbereitung, Anforderungen und Datenbereitschaft
+    jiraRef: UABC-1
+    startDate: 2026-08-03
+    endDate: 2026-08-21
+    plannedBillableHours: 22
+    scheduleSynthetic: true
+    scheduleRole: illustrative-next-customer-window-not-current
+    dependencies: []
+    entryCriteria:
+      - Sponsor, Finanzverantwortung, Datenverantwortung und Schluesselanwender
+        sind benannt.
+      - Standardumfang, Tagessatz, Planstunden und Kundenmitwirkung sind zur
+        Pruefung vorgelegt.
+    exitCriteria:
+      - Umfang, Prozesse, Daten- und Konfigurationspaketvorlagen, Datenqualitaet
+        und Abnahmeplan sind dokumentiert.
+      - Zielgesellschaft, Lizenz und Finanz-/Steuerpruefpunkte sind entschieden
+        oder sichtbar blockierend.
+    deliverableIds:
+      - UABC-DEL-BCB-001
+      - UABC-DEL-BCB-002
+      - UABC-DEL-BCB-003
+  - id: UABC-2
+    name: Einrichtung und Schulung in einer Woche
+    jiraRef: UABC-2
+    startDate: 2026-08-24
+    endDate: 2026-08-28
+    plannedBillableHours: 40
+    scheduleSynthetic: true
+    dependencies:
+      - UABC-1
+    scheduleRole: illustrative-next-customer-window-not-current
+    entryCriteria:
+      - Der Datenbereitschaftspruefpunkt ist bestanden.
+      - Die exakte playthru-Zielgesellschaft, erlaubte Schreibvorgaenge und der
+        Ruecksetzplan sind menschlich freigegeben.
+      - Finanz- und Steuerdesign sind fachlich freigegeben.
+    exitCriteria:
+      - Grundeinrichtung, Finanzwesen, Einkauf, Verkauf und einfaches Lager sind
+        konfiguriert und abgestimmt.
+      - Stammdaten sind kontrolliert geladen, Ende-zu-Ende-Pruefung, fachlicher
+        Abnahmetest und Schulungen sind dokumentiert.
+      - Der simulierte Sandbox-Uebergang ist mit offenen Fehlern und
+        Unterstuetzungsweg abgenommen oder gestoppt.
+    deliverableIds:
+      - UABC-DEL-BCB-004
+      - UABC-DEL-BCB-005
+      - UABC-DEL-BCB-006
+  - id: UABC-3
+    name: Einwoechige Hypercare, Monatsabschlussprobe und UStVA-Vorschau
+    jiraRef: UABC-3
+    startDate: 2026-08-31
+    endDate: 2026-09-04
+    plannedBillableHours: 18
+    scheduleSynthetic: true
+    dependencies:
+      - UABC-2
+    scheduleRole: illustrative-next-customer-window-not-current
+    entryCriteria:
+      - Einrichtung, Schulung und vorbereitete UAT-Faelle sind fachlich geprueft
+        oder sichtbar blockiert.
+      - Alle gebuchten Geschaeftsvorfaelle bleiben synthetisch.
+    exitCriteria:
+      - Relevante UAT- und Hypercare-Befunde sind bearbeitet oder blockieren
+        sichtbar.
+      - Monatsabschlussprozess wurde in der Sandbox geprobt und Abstimmungen
+        sind dokumentiert; ein echter Monatsabschluss wird nicht behauptet.
+      - UStVA-Vorschau ist fachlich geprueft; keine Test-, Produktiv- oder
+        ELSTER-Uebermittlung erfolgte.
+      - Projektdokumentation und Schulungsunterlagen sind uebergeben.
+    deliverableIds:
+      - UABC-DEL-BCB-007
+      - UABC-DEL-BCB-008
+      - UABC-DEL-BCB-009
+definitionOfDone:
+  - Alle Jira-Akzeptanzkriterien und Lieferergebnisse sind erfuellt und
+    nachgewiesen.
+  - Jedes Ticket verweist auf mindestens ein Besprechungstranskript.
+  - Genehmigte Istzeit ist vollstaendig Ticket-bezogen, aber kein Budgetlimit
+    wird ohne menschliche Entscheidung behauptet.
+  - Daten, Rollen, Schulung, fachlicher Abnahmetest, UAT-Begleitung und
+    Hypercare sind nachvollziehbar dokumentiert.
+  - Monatsabschlussprozess wurde in der Sandbox geprobt und Abstimmungen sind
+    dokumentiert; UStVA-Vorschau ist geprueft, ohne Test-, Produktiv- oder
+    ELSTER-Uebermittlung.
+  - Projektdokumentation, Schulungsunterlagen und Confluence-Seitenbaum sind
+    uebergeben.
+  - Der Projekt-Twin kann alle freigegebenen Werte nur lesend aus dem
+    Projektindex aufloesen.
+excludedScope:
+  - AL-Entwicklung, eigene Berichte oder Layouts, Integrationen, Power Platform
+    und Dataverse
+  - produktive Bankanbindung, PSD2, mehrere Firmen, Waehrungen, Banken oder
+    Lagerorte
+  - erweitertes Lager, Chargen, Seriennummern, Varianten- und
+    Attributkomplexitaet ohne fachliche Pflicht, Produktion, Projekte, Service,
+    Anlagenbuchhaltung, Konsolidierung, Intercompany und Lohnabrechnung
+  - historische Bewegungsdaten und E-Rechnung
+  - Test-, Produktiv- oder ELSTER-Uebermittlung der UStVA und ELSTER-Zugangsdaten
+  - Produktivstart, echter Monatsabschluss, Support nach Hypercare und offene
+    oder unbegrenzte Stabilisierungsphase
+  - Steuer- oder Rechtsberatung und GoBD-Garantie
+  - reale Daten, Geheimnisse oder Authentifizierungsartefakte
+  - Lizenz-, Tenant- und sonstige externe Kosten
