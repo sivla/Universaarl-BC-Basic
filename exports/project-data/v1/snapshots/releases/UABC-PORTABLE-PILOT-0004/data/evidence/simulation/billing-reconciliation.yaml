@@ -1,0 +1,66 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-BILLING-001
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-reconciliation.json
+status: synthetic-closed-superseded
+currentRollupContribution: false
+simulationTimestamp: 2026-09-03T16:00:00+02:00
+timelineEvent: STORY-15
+scope:
+  ticketRange: UABC-32..UABC-50
+  sourceOfTruth: git-history-before-pilot-rebaseline
+  worklogSource: historical-project-story-task-worklogs
+  offerSource: historical-offer-version-3
+  spectraContractRecord: evidence/simulation/project-reconciliation.json
+  countingScope: billable-task-worklogs-only
+  historicalPlan:
+    ticketRange: UABC-22..UABC-38
+    source: atlassian/jira/issues/bc-basic-project.yaml
+    plannedHours: 68
+    countingRole: historical-plan-not-counted-as-actual
+reconciliation:
+  ticketWorklogHours: 80
+  offerActualHours: 80
+  ticketWorklogCost: 9600
+  offerActualCost: 9600
+  hourlyRate: 120
+  duplicateParentHours: 0
+  unassignedHours: 0
+  arithmetic: 80h * 120 EUR = 9600 EUR
+  result: abgestimmt
+  historicalBaseline:
+    hours: 68
+    hourlyRate: 162.5
+    netAmount: 11050
+  simulationOffer:
+    hours: 80
+    hourlyRate: 120
+    netAmount: 9600
+  variance:
+    hours: 12
+    hourlyRate: -42.5
+    netAmount: -1450
+    explanation: Version 2.0 des synthetischen Festpreisangebots ersetzt nur fuer die Projektstory die historische Dienstleisterkalkulation; keine reale Rechnung wird geaendert.
+    reasonCode: scope-change
+process:
+  steps:
+    - step: worklogs-collect
+      result: 19 synthetische Ticket-Worklogs aus der kanonischen Story gesammelt
+    - step: parent-deduplication
+      result: Eltern-/Epic-Summen nicht zusätzlich fakturiert
+    - step: offer-match
+      result: Angebots-Istwerte und Story-Kosten identisch
+    - step: approval-simulation
+      result: synthetische interne Prüferrolle P-002 bestätigt den Abgleich
+decision:
+  gate: SIMULIERTE_ABRECHNUNGSFREIGABE
+  outcome: GO_SIMULATION
+  decidedBy: P-002
+  decidedAt: 2026-09-03T16:00:00+02:00
+  limitation: Keine reale Jira-Freigabe, Rechnung, Kundenfreigabe oder Zahlung ausgeführt.
+references:
+  historicalStoryTickets: [UABC-32, UABC-34, UABC-35, UABC-38, UABC-33, UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-45, UABC-46, UABC-47, UABC-48, UABC-49, UABC-50]
+  historicalPlanTickets: [UABC-22, UABC-23, UABC-24, UABC-25, UABC-26, UABC-27, UABC-28, UABC-29, UABC-30, UABC-31, UABC-32, UABC-33, UABC-34, UABC-35, UABC-36, UABC-37, UABC-38]
+  evidence: [evidence/simulation/project-reconciliation.json, atlassian/confluence/pages/99-archive.md, atlassian/jira/issues/bc-basic-project.yaml]

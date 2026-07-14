@@ -1,5 +1,5 @@
 schemaVersion: 2
-governingChange: migrate-bc-basic-to-single-uabc-ticket-project
+governingChange: prepare-portable-snapshot-pilot
 lifecycleStatus: active
 producer:
   projectId: UABC-BC-BASIC-001
@@ -30,7 +30,7 @@ consumers:
       status: autorisierter-leser
       authorizationScope: ausschliesslich-validierte-snapshots-lesen
       repository:
-        url: https://github.com/sivla/FiBu.git
+        url: https://github.com/sivla/Universaarl-Project-Twin.git
         branch: codex/universaarl-projekt-twin
     snapshotContract:
       dataContractPath: exports/project-data/v1/index.yaml

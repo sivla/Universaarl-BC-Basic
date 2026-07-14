@@ -44,6 +44,8 @@ export function validatePortableContract(contract, confluence) {
   const spaces = confluence.spaces ?? [];
   if (contract?.schemaVersion !== 1 || contract?.contractId !== 'UABC-PORTABLE-SNAPSHOT-PILOT-V1') add(errors, 'PILOT-IDENTITAET', 'Schema oder Vertrags-ID ist ungueltig');
   if (contract?.classification !== 'synthetic-local-simulation' || contract?.simulation !== true) add(errors, 'PILOT-SIMULATION', 'Pilot muss vollstaendig synthetisch bleiben');
+  const consumer = contract?.consumerIdentity ?? {};
+  if (consumer.consumerId !== 'project-twin' || consumer.repositoryUrl !== 'https://github.com/sivla/Universaarl-Project-Twin.git' || consumer.branch !== 'codex/universaarl-projekt-twin' || consumer.access !== 'nur-lesend' || consumer.authorizationScope !== 'ausschliesslich-validierte-snapshots-lesen') add(errors, 'PILOT-CONSUMER', 'Release muss exakt den getrennten read-only Project Twin binden');
   if (spaces.length !== 3 || JSON.stringify(spaces.map((item) => item.spaceId)) !== JSON.stringify(contract?.sourceInventory?.invariants?.spaceIds)) add(errors, 'PILOT-SPACES', 'Exakt die bestehenden drei Spaces sind erforderlich');
   if (pages.length !== 28 || !unique(pages.map((page) => page.storyPageId)) || !unique(pages.map((page) => page.documentId))) add(errors, 'PILOT-SEITEN', '28 stabile Seiten- und Dokument-IDs sind erforderlich');
   const support = pages.find((page) => page.storyPageId === 'PAGE-UABC-000');
@@ -129,6 +131,8 @@ export function buildPortableArtifacts(contract, confluence, readText, projectBu
     ...contract.brownfieldReconciliation.rows.filter((row) => !inventory.some((page) => page.sourceId === row.sourceId))
   ];
   const releaseDir = contract.release.releaseDirectory;
+  const releaseNumber = contract.release.releaseId.match(/(\d{4})$/u)?.[1];
+  if (!releaseNumber) throw new Error('PILOT-IDENTITAET: Release-ID besitzt keine vierstellige Sequenz');
   const payloadPath = `${releaseDir}/${RELEASE_FILES.payload}`;
   const fragmentPath = `${releaseDir}/${RELEASE_FILES.fragment}`;
   const manifestPath = `${releaseDir}/${RELEASE_FILES.manifest}`;
@@ -168,9 +172,9 @@ export function buildPortableArtifacts(contract, confluence, readText, projectBu
   const fragmentBytes = Buffer.from(canonicalJson(fragment), 'utf8');
   const projectIndexPath = `${releaseDir}/data/${PROJECT_INDEX_PATH}`;
   const rawRecords = [
-    { kind: 'knowledge-payload', id: 'UABC-SNAPSHOT-KNOWLEDGE-0003', sourcePath: null, format: 'json', selector: null, path: payloadPath, bytes: payloadBytes },
-    { kind: 'catalog-fragment', id: 'UABC-SNAPSHOT-FRAGMENT-0003', sourcePath: null, format: 'json', selector: null, path: fragmentPath, bytes: fragmentBytes },
-    { kind: 'project-index', id: 'UABC-SNAPSHOT-INDEX-0003', sourcePath: PROJECT_INDEX_PATH, format: 'yaml', selector: null, path: projectIndexPath, bytes: projectBundle.indexBytes },
+    { kind: 'knowledge-payload', id: `UABC-SNAPSHOT-KNOWLEDGE-${releaseNumber}`, sourcePath: null, format: 'json', selector: null, path: payloadPath, bytes: payloadBytes },
+    { kind: 'catalog-fragment', id: `UABC-SNAPSHOT-FRAGMENT-${releaseNumber}`, sourcePath: null, format: 'json', selector: null, path: fragmentPath, bytes: fragmentBytes },
+    { kind: 'project-index', id: `UABC-SNAPSHOT-INDEX-${releaseNumber}`, sourcePath: PROJECT_INDEX_PATH, format: 'yaml', selector: null, path: projectIndexPath, bytes: projectBundle.indexBytes },
     ...projectBundle.files.map((item) => ({ kind: 'project-source', id: item.id, sourcePath: item.sourcePath, format: item.format, selector: item.selector, path: `${releaseDir}/data/${item.sourcePath}`, bytes: item.bytes }))
   ];
   const records = rawRecords.map((item) => ({ kind: item.kind, id: item.id, sourcePath: item.sourcePath, format: item.format, selector: item.selector, path: item.path, sizeBytes: item.bytes.length, sha256: sha256Hex(item.bytes), transports: [
@@ -183,6 +187,7 @@ export function buildPortableArtifacts(contract, confluence, readText, projectBu
     releaseId: contract.release.releaseId,
     immutable: true,
     producer: { customerId: contract.customerId, projectIds: [contract.projectId], commitShaProvenance: contract.release.producerCommitProvenance },
+    consumer: contract.consumerIdentity,
     releaseBinding: { bindingStatus: contract.release.bindingStatus, pendingReason: contract.release.pendingReason, consumerEligible: contract.release.consumerEligible, publishEligible: contract.release.publishEligible, requiredEvidence: contract.release.requiredReleaseEvidence, spectraReleaseBinding: contract.release.spectraReleaseBinding },
     pathSemantics: 'repository-relative',
     byteContract: 'identical-canonical-bytes',
@@ -241,6 +246,7 @@ export function validatePortableArtifacts(contract, artifacts) {
   if (manifest.immutable !== true) add(errors, 'PILOT-IMMUTABILITAET', 'Manifest muss immutable true sein');
   if (manifest.releaseBinding?.bindingStatus !== contract.release.bindingStatus || manifest.releaseBinding?.pendingReason !== contract.release.pendingReason || manifest.releaseBinding?.consumerEligible !== contract.release.consumerEligible || manifest.releaseBinding?.publishEligible !== contract.release.publishEligible || JSON.stringify(manifest.releaseBinding?.spectraReleaseBinding) !== JSON.stringify(contract.release.spectraReleaseBinding)) add(errors, 'PILOT-RELEASEBINDUNG', 'Manifest bildet die vollstaendige Releasebindung nicht exakt ab');
   if (manifest.producer?.customerId !== contract.customerId || JSON.stringify(manifest.producer?.projectIds) !== JSON.stringify([contract.projectId]) || manifest.producer?.commitShaProvenance !== contract.release.producerCommitProvenance) add(errors, 'PILOT-PROVENIENZ', 'Manifest bindet nicht exakt den freigegebenen Kunden-, Projekt- und Commitstand');
+  if (JSON.stringify(manifest.consumer) !== JSON.stringify(contract.consumerIdentity)) add(errors, 'PILOT-CONSUMER', 'Manifest bindet nicht exakt den getrennten read-only Project Twin');
   const records = manifest.files ?? [];
   const ids = records.map((record) => record.id);
   const paths = records.map((record) => record.path);

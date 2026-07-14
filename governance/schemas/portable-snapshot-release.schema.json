@@ -3,11 +3,11 @@
   "$id": "urn:universaarl:schema:portable-snapshot-release:v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "projectData", "files", "validationStatus"],
+  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "consumer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "projectData", "files", "validationStatus"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "manifestContract": { "const": "uabc-portable-snapshot-release-v1" },
-    "releaseId": { "const": "UABC-PORTABLE-PILOT-0003" },
+    "releaseId": { "const": "UABC-PORTABLE-PILOT-0004" },
     "immutable": { "const": true },
     "producer": {
       "type": "object",
@@ -19,6 +19,7 @@
         "commitShaProvenance": { "type": "string", "pattern": "^[a-f0-9]{40}$" }
       }
     },
+    "consumer": { "$ref": "#/$defs/consumerIdentity" },
     "releaseBinding": {
       "type": "object",
       "additionalProperties": false,
@@ -50,6 +51,18 @@
     "validationStatus": { "const": "validated-release" }
   },
   "$defs": {
+    "consumerIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consumerId", "repositoryUrl", "branch", "access", "authorizationScope"],
+      "properties": {
+        "consumerId": { "const": "project-twin" },
+        "repositoryUrl": { "const": "https://github.com/sivla/Universaarl-Project-Twin.git" },
+        "branch": { "const": "codex/universaarl-projekt-twin" },
+        "access": { "const": "nur-lesend" },
+        "authorizationScope": { "const": "ausschliesslich-validierte-snapshots-lesen" }
+      }
+    },
     "sha": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "sha40": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
     "safePath": { "type": "string", "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$)).+$" },

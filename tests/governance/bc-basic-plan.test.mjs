@@ -538,7 +538,7 @@ test('Cash Lager Monatsabschluss und UStVA-Simulation besitzen Summen Retests un
 
 test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigkeit', () => {
   assert.equal(consumerBindings.schemaVersion, 2);
-  assert.equal(consumerBindings.governingChange, 'migrate-bc-basic-to-single-uabc-ticket-project');
+  assert.equal(consumerBindings.governingChange, 'prepare-portable-snapshot-pilot');
   assert.equal(consumerBindings.lifecycleStatus, 'active');
   assert.deepEqual(consumerBindings.producer, {
     projectId: 'UABC-BC-BASIC-001',
@@ -572,7 +572,7 @@ test('Blueprint kennt den lesenden Project Twin ohne umgekehrte Datenabhaengigke
     status: 'autorisierter-leser',
     authorizationScope: 'ausschliesslich-validierte-snapshots-lesen',
     repository: {
-      url: 'https://github.com/sivla/FiBu.git',
+      url: 'https://github.com/sivla/Universaarl-Project-Twin.git',
       branch: 'codex/universaarl-projekt-twin'
     }
   });
@@ -696,8 +696,18 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
   falscherTag.spectraReleaseBinding.releaseTag = 'v0.1.0-alpha.1';
   assert.notDeepEqual(validateConsumerBindings(falscherTag, projectIndex), [], 'Ein Nicht-Spectra-Tag muss scheitern');
   const readEntry = (sourcePath) => ({ bytes: Buffer.from(`blob:${sourcePath}\n`, 'utf8'), gitMode: '100644' });
-  const manifest = buildSnapshotManifest({ binding: gebunden, projectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
+  const legacyBinding = structuredClone(gebunden);
+  legacyBinding.consumers[0].identity.repository.url = 'https://github.com/sivla/FiBu.git';
+  const manifest = buildSnapshotManifest({ binding: legacyBinding, projectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
   const schema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'project-snapshot-manifest.schema.json'), 'utf8'));
+  const legacyManifest = JSON.parse(readFileSync(path.join(root, 'exports', 'project-data', 'v1', 'snapshot-manifest.json'), 'utf8'));
+  const portablePilotSchema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'portable-snapshot-pilot.schema.json'), 'utf8'));
+  const portableReleaseSchema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'portable-snapshot-release.schema.json'), 'utf8'));
+  assert.equal(schema.$defs.consumer.properties.repositoryUrl.const, 'https://github.com/sivla/FiBu.git', 'Legacy-Schema muss die historische FiBu-Consumeridentitaet bewahren');
+  assert.equal(legacyManifest.consumer.repositoryUrl, 'https://github.com/sivla/FiBu.git', 'Legacy-Manifest muss unveraenderte historische Evidence bleiben');
+  assert.equal(consumerBindings.consumers[0].identity.repository.url, 'https://github.com/sivla/Universaarl-Project-Twin.git', 'Kanonische Consumerbindung muss das getrennte Twin-Repository verlangen');
+  assert.equal(portablePilotSchema.$defs.consumerIdentity.properties.repositoryUrl.const, 'https://github.com/sivla/Universaarl-Project-Twin.git', 'Portabler Pilotvertrag muss das getrennte Twin-Repository verlangen');
+  assert.equal(portableReleaseSchema.$defs.consumerIdentity.properties.repositoryUrl.const, 'https://github.com/sivla/Universaarl-Project-Twin.git', 'Portables Releasemanifest muss das getrennte Twin-Repository verlangen');
   assert.deepEqual(validateSnapshotManifest(manifest, schema), []);
   assert.deepEqual(validateManifestDigests(manifest, readEntry), []);
   assert.equal(manifest.producerId, 'blueprint');

@@ -30,6 +30,13 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   assert.equal(source.release.publishEligible, true);
   assert.equal(source.release.spectraReleaseBinding.releaseTag, 'spectra-v1.2.0-alpha.12');
   assert.equal(source.release.spectraReleaseBinding.platformEvidenceStatus, 'passed');
+  assert.deepEqual(source.consumerIdentity, {
+    consumerId: 'project-twin',
+    repositoryUrl: 'https://github.com/sivla/Universaarl-Project-Twin.git',
+    branch: 'codex/universaarl-projekt-twin',
+    access: 'nur-lesend',
+    authorizationScope: 'ausschliesslich-validierte-snapshots-lesen'
+  });
   const artifacts = build();
   const payload = JSON.parse(artifacts[`${source.release.releaseDirectory}/payload.json`]);
   const manifest = JSON.parse(artifacts[`${source.release.releaseDirectory}/manifest.json`]);
@@ -37,6 +44,7 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   assert.equal(payload.views.customer.approvedKnowledgeChanges.length, 1);
   assert.equal(payload.views.customer.contradictions, undefined);
   assert.equal(manifest.projectData.sourceCommit, source.release.producerCommitProvenance);
+  assert.deepEqual(manifest.consumer, source.consumerIdentity);
   assert.equal(manifest.projectData.artifactCount, 158);
   assert.equal(manifest.files.filter((item) => item.kind === 'project-source').length, 158);
   assert.equal(manifest.files.length, 161);
@@ -46,11 +54,22 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
 });
 
 test('alte Releases bleiben als unveraenderliche Historie erhalten', () => {
-  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002']) {
+  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002', 'UABC-PORTABLE-PILOT-0003']) {
     const oldDirectory = `exports/project-data/v1/snapshots/releases/${releaseId}`;
     for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
     assert.notEqual(source.release.releaseDirectory, oldDirectory);
   }
+});
+
+test('falsche oder schreibende Twin-Consumeridentitaet wird abgelehnt', () => {
+  const wrongRepository = clone(source); wrongRepository.consumerIdentity.repositoryUrl = 'https://github.com/sivla/FiBu.git';
+  const writable = clone(source); writable.consumerIdentity.access = 'schreibend';
+  assert.match(validatePortableContract(wrongRepository, confluence).join('\n'), /PILOT-CONSUMER/);
+  assert.match(validatePortableContract(writable, confluence).join('\n'), /PILOT-CONSUMER/);
+  const artifacts = build();
+  const manifestPath = `${source.release.releaseDirectory}/manifest.json`;
+  const changed = rewrite(artifacts, manifestPath, (manifest) => { manifest.consumer.branch = 'main'; });
+  assert.match(errorText(source, changed), /PILOT-CONSUMER/);
 });
 
 test('unvollstaendige Spectra-Releaseevidence wird abgelehnt', () => {

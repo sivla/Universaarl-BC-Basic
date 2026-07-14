@@ -34,6 +34,27 @@ async function writeImmutable(relative, bytes) {
   }
 }
 
+async function updateCurrentReleaseAllowlist() {
+  const absolute = path.join(root, PROJECT_INDEX_PATH);
+  let text = await fs.readFile(absolute, 'utf8');
+  const replacements = [
+    ['UABC-SRC-BCB-PORTABLE-FRAGMENT-003', 'UABC-SRC-BCB-PORTABLE-FRAGMENT-004'],
+    ['UABC-SRC-BCB-PORTABLE-MANIFEST-003', 'UABC-SRC-BCB-PORTABLE-MANIFEST-004'],
+    ['UABC-SRC-BCB-PORTABLE-PAYLOAD-003', 'UABC-SRC-BCB-PORTABLE-PAYLOAD-004'],
+    ['UABC-PORTABLE-PILOT-0003/catalog-fragment.json', 'UABC-PORTABLE-PILOT-0004/catalog-fragment.json'],
+    ['UABC-PORTABLE-PILOT-0003/manifest.json', 'UABC-PORTABLE-PILOT-0004/manifest.json'],
+    ['UABC-PORTABLE-PILOT-0003/payload.json', 'UABC-PORTABLE-PILOT-0004/payload.json']
+  ];
+  for (const [before, after] of replacements) {
+    const beforeCount = text.split(before).length - 1;
+    const afterCount = text.split(after).length - 1;
+    if (beforeCount === 1 && afterCount === 0) text = text.replace(before, after);
+    else if (beforeCount === 0 && afterCount === 1) continue;
+    else throw new Error(`PILOT-ALLOWLIST: erwartete eindeutige aktuelle Releasebindung fehlt oder ist mehrdeutig: ${before}`);
+  }
+  await fs.writeFile(absolute, text, 'utf8');
+}
+
 if (write) {
   for (const [relative, bytes] of Object.entries(artifacts)) {
     if (relative === contract.release.currentPointerPath || relative === contract.release.catalogPath) continue;
@@ -46,5 +67,6 @@ if (write) {
     await fs.writeFile(temporary, artifacts[relative]);
     await fs.rename(temporary, absolute);
   }
+  await updateCurrentReleaseAllowlist();
   console.log(`Portabler Snapshot-Pilot erzeugt: ${Object.keys(artifacts).length} Artefakte.`);
 } else console.log(`Portabler Snapshot-Pilot ist deterministisch erzeugbar: ${Object.keys(artifacts).length} Artefakte.`);

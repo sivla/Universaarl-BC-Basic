@@ -9,9 +9,9 @@
 1. Seiteninhalte werden auf LF, entfernte Zeilenend-Leerzeichen und genau einen finalen Zeilenumbruch normalisiert.
 2. Inventar, Delta, Knowledge, Coverage und Reconciliation werden als kanonisches JSON projiziert.
 3. Der Projektindex und alle 158 freigegebenen Quellbytes werden unter `data/` mit unveraenderten relativen Quellpfaden abgelegt.
-4. Das Manifest bindet Wissenspayload, Kundenfragment, Projektindex und jede Projektquelle einzeln ueber ID, Quellpfad, Format, Groesse, SHA-256 und identische Filesystem-/HTTPS-Transportpfade. Git-Attribute schalten Textnormalisierung fuer den gesamten Snapshot-Store ab, damit Checkout und Transport dieselben Bytes bewahren.
+4. Das Manifest bindet Wissenspayload, Kundenfragment, Projektindex und jede Projektquelle einzeln ueber ID, Quellpfad, Format, Groesse, SHA-256 und identische Filesystem-/HTTPS-Transportpfade. Es bindet ausserdem die exakte Project-Twin-Repository- und Branchidentitaet sowie den strikt nur-lesenden Zugriff. Git-Attribute schalten Textnormalisierung fuer den gesamten Snapshot-Store ab, damit Checkout und Transport dieselben Bytes bewahren.
 5. `current.json` bindet Kunden-ID, Projekt-ID, Release-ID, relativen Manifestpfad und Manifestdigest.
-6. Existierende Releasebytes duerfen nur bytegleich erneut erzeugt werden; Abweichungen scheitern. `UABC-PORTABLE-PILOT-0003` veraendert deshalb weder `0001` noch `0002`.
+6. Existierende Releasebytes duerfen nur bytegleich erneut erzeugt werden; Abweichungen scheitern. `UABC-PORTABLE-PILOT-0004` veraendert deshalb keinen der Releases `0001` bis `0003`.
 
 ## Grenzen
 

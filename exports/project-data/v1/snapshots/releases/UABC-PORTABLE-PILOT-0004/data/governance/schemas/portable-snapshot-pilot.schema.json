@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:schema:portable-snapshot-pilot:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "contractId", "projectId", "customerId", "classification", "simulation", "sourceInventory", "deltaContract", "knowledgeChanges", "coverage", "contradictions", "brownfieldReconciliation", "release", "customerCatalog"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "contractId": { "const": "UABC-PORTABLE-SNAPSHOT-PILOT-V1" },
+    "projectId": { "const": "UABC-BC-BASIC-001" },
+    "customerId": { "const": "UABC-CUSTOMER-001" },
+    "classification": { "const": "synthetic-local-simulation" },
+    "simulation": { "const": true },
+    "sourceInventory": { "type": "object" },
+    "deltaContract": { "type": "object" },
+    "knowledgeChanges": { "type": "array", "minItems": 1 },
+    "coverage": { "type": "array", "minItems": 1 },
+    "contradictions": { "type": "array", "minItems": 1 },
+    "brownfieldReconciliation": { "type": "object" },
+    "release": {
+      "type": "object",
+      "required": ["releaseId", "releaseDirectory", "immutable", "currentPointerPath", "catalogPath", "bindingStatus", "pendingReason", "consumerEligible", "publishEligible", "pathSemantics", "transports", "byteContract", "visibilityClasses", "producerCommitProvenance", "requiredReleaseEvidence", "spectraReleaseBinding"],
+      "properties": {
+        "releaseId": { "const": "UABC-PORTABLE-PILOT-0003" },
+        "immutable": { "const": true },
+        "bindingStatus": { "const": "BOUND_BCPROJECTOS_RELEASE" },
+        "pendingReason": { "type": "null" },
+        "consumerEligible": { "const": true },
+        "publishEligible": { "const": true },
+        "pathSemantics": { "const": "repository-relative" },
+        "byteContract": { "const": "identical-canonical-bytes" },
+        "releaseDirectory": { "$ref": "#/$defs/safePath" },
+        "currentPointerPath": { "$ref": "#/$defs/safePath" },
+        "catalogPath": { "$ref": "#/$defs/safePath" },
+        "transports": { "const": ["filesystem", "https"] },
+        "visibilityClasses": { "const": ["customer", "internal"] },
+        "producerCommitProvenance": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "requiredReleaseEvidence": { "const": ["annotatedTag", "peeledCommit", "finalManifest", "productDigest", "platformMatrix"] },
+        "spectraReleaseBinding": { "$ref": "#/$defs/spectraReleaseBinding" }
+      }
+    },
+    "customerCatalog": { "type": "object" }
+  },
+  "$defs": {
+    "safePath": { "type": "string", "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$)).+$" },
+    "sha40": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "sha64": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "spectraReleaseBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidencePath", "productId", "technicalRepositoryName", "repositoryUrl", "releaseVersion", "releaseTag", "annotatedTagObject", "peeledCommit", "manifestPath", "manifestSourceCommit", "sourceTree", "consumerMode", "installableBlueprint", "digestAlgorithm", "payloadBundleDigest", "platformEvidenceStatus", "platformEvidenceRun"],
+      "properties": {
+        "evidencePath": { "$ref": "#/$defs/safePath" },
+        "productId": { "const": "spectra" },
+        "technicalRepositoryName": { "const": "BCProjectOS" },
+        "repositoryUrl": { "const": "https://github.com/sivla/BCProjectOS.git" },
+        "releaseVersion": { "const": "1.2.0-alpha.12" },
+        "releaseTag": { "const": "spectra-v1.2.0-alpha.12" },
+        "annotatedTagObject": { "$ref": "#/$defs/sha40" },
+        "peeledCommit": { "$ref": "#/$defs/sha40" },
+        "manifestPath": { "const": "release/versions/1.2.0-alpha.12/release-manifest.json" },
+        "manifestSourceCommit": { "$ref": "#/$defs/sha40" },
+        "sourceTree": { "$ref": "#/$defs/sha40" },
+        "consumerMode": { "const": "INSTALLABLE_BLUEPRINT" },
+        "installableBlueprint": { "const": true },
+        "digestAlgorithm": { "const": "SHA-256" },
+        "payloadBundleDigest": { "$ref": "#/$defs/sha64" },
+        "platformEvidenceStatus": { "const": "passed" },
+        "platformEvidenceRun": { "const": "https://github.com/sivla/BCProjectOS/actions/runs/29293515568" }
+      }
+    }
+  }
+}

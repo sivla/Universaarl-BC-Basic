@@ -1,0 +1,170 @@
+schemaVersion: 1
+baselineId: UABC-PILOT-SETUP-BASELINE-001
+pilotProjectId: UABC-BC-PILOT-001
+customerProjectId: UABC-BC-BASIC-001
+status: standard-cronus-demo-baseline-pilot-build-pending
+simulation: false
+environmentRef: Playthru
+companyRef: UABC-BASIC-DE
+historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+wave0AttemptEvidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+commercialBaseline:
+  status: planned
+  plannedHours: 80
+  actualHours: 2.5
+  hourlyRateEur: 120
+  plannedNetEur: 9600
+  actualNetEur: 300
+  billingRule: Erst fachlich abgeschlossene Task-Worklogs sind fakturierbar; dieser Baseline-Commit erzeugt keine Rechnungszeile.
+companyInformation:
+  currentState:
+    baselineKind: standard-cronus-demo
+    baselineProvenance: microsoft-standard-cronus-demo-data
+    baselineTruthSource: user-provided-project-information
+    customerTargetRealized: false
+    originMechanismStatus: unbekannt-bis-wave0-readback
+    copyRenameHypothesis: nutzerhinweis-unbestaetigt
+    setupStatus: blockiert-bis-dom-readback-und-zielkonfiguration
+    pilotConfigured: false
+    writesApplied: false
+    readbackStatus: pending
+    internalCompanyId: null
+    technicalCompanyName: UABC-BASIC-DE
+    observedDisplayName: Universaarl GmbH
+    targetDisplayName: Universaarl GmbH (BC Basic Pilot)
+    targetDecision: pending-wave-0-evidence
+    resetDecision: pending-resetpoint-evidence
+    wave0AttemptStatus: blocked-before-dom-readback
+    detailReadbackStatus: pending
+  targetState:
+    classification: bc-basic-target-not-applied
+    technicalCompanyName: UABC-BASIC-DE
+    displayName: Universaarl GmbH (BC Basic Pilot)
+    configurationScope: CORE-FINANCE nach bestandenem Wave-0-, Zielmandanten-, Reset- und Schreibfreigabegate
+    laterLockedWaves: [UABC-02-TRADE-MASTER, UABC-03-OPENING-DATA]
+  appliedDifference:
+    status: none-evidenced
+    readbackStatus: pending
+    readbackEvidence: []
+  companyStrategyDecision:
+    decisionId: UABC-DEC-PILOT-TARGET-001
+    status: blocked-pending-wave0-and-reset-evidence
+    selectedOption: null
+    allowedOptions: [controlled-reuse-of-dedicated-cronus-copy, clean-new-company-or-copy]
+    requiredEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
+    decisionEvidence: []
+    attemptEvidence: [evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml]
+    ownerRef: P-PILOT-LEAD-001
+    decisionAuthority: project/bc-basic/pilot-setup-baseline.yaml#/companyInformation/companyStrategyDecision
+    nextExecutableStep: W0-01-read-company-identity
+    writesAuthorized: false
+  wave0ReadbackAttempt:
+    stepId: W0-01-read-company-identity
+    status: blocked-before-dom-readback
+    attemptCount: 2
+    latestAttemptId: UABC-W0-01-ATTEMPT-002
+    latestAttemptAt: 2026-07-13T14:11:07.3935478+02:00
+    evidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+    bcFieldValuesRead: false
+    screenshotCaptured: false
+    writesPerformed: false
+    nextExecutableStep: W0-01-read-company-identity
+  targetValues:
+    name: Universaarl GmbH
+    address: Simulationsstraße 1
+    postCode: "66123"
+    city: Saarbrücken
+    countryRegionCode: DE
+    language: de-DE
+    localCurrencyCode: EUR
+    fiscalYearStart: 2026-01-01
+    contact: Projektteam BC Basic (synthetisch)
+    email: bc-basic@example.invalid
+    homePage: https://universaarl.example.invalid
+    phoneNo: ""
+    vatRegistrationNo: ""
+    eori: ""
+    gln: ""
+    bankName: ""
+    bankBranchNo: ""
+    iban: ""
+    swift: ""
+    allowEmptyPaymentInformation: true
+  historicalObservedValues:
+    classification: historical-playthru-execution-superseded-for-active-readiness
+    currentAuthority: false
+    name: Universaarl GmbH
+    address: Simulationsstraße 1
+    postCode: "66123"
+    city: Saarbrücken
+    countryRegionCode: DE
+    contact: Projektteam BC Basic (synthetisch)
+    email: bc-basic@example.invalid
+    homePage: https://universaarl.example.invalid
+    allowEmptyPaymentInformation: true
+  countryRegionSeed:
+    code: DE
+    name: Deutschland
+    isoCode: DE
+    numericIsoCode: 276
+    addressFormat: Post Code+City
+    status: planned-not-applied
+    requiredBeforeCompanyInformation: true
+  identifierPolicy:
+    validationStatus: pending
+    rule: Keine reale Steuer- oder Bankkennung erfinden; ein separates synthetisches Bankkonto mit Posting Group folgt erst nach CORE-FINANCE und eigener Pruefevidence.
+packageWaves:
+  - waveId: UABC-01-CORE-FINANCE
+    name: Kern und Finanzwesen
+    sequence: 1
+    state: skeleton-only
+    entry: Zielgesellschaft gebunden; Country/Region-Abhaengigkeit sichtbar; Schreibscope und Reset geklaert.
+    scope: Company Information nach Seed, General Ledger Setup, Posting/VAT, Nummernserien, Zahlungsbedingungen/-methoden und Dimensionen; keine Bankkonten oder Bankbaseline in CORE.
+    exit: Alle aufgenommenen Tabellen und Felder sind fachlich freigegeben, referenziell gueltig und feldnah geprueft.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Keine Tabelle vor freigegebener Abhaengigkeitsmatrix; aktuell 0 Tabellen und keine Setupwirkung.
+    defectRetestRef: UABC-DEF-PILOT-001
+  - waveId: UABC-02-TRADE-MASTER
+    name: Handel und Stammdaten
+    sequence: 2
+    state: skeleton-only
+    entry: CORE-FINANCE Exit bestanden; Buchungsgruppen, VAT, Zahlungslogik, Dimensionen und Lagerbaseline vorhanden.
+    scope: Debitoren, Kreditoren, Artikel, Einheiten, Lagerort, Preise und erlaubtes synthetisches Bankkonto.
+    exit: Pflichtfelder, Referenzen, Dubletten, Buchungsgruppen, Lager und Preise sind abgestimmt.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Aktuell 0 Tabellen, 0 Datensaetze und keine Stammdatenwirkung.
+    defectRetestRef: null
+  - waveId: UABC-03-OPENING-DATA
+    name: Eroeffnungs- und offene Daten
+    sequence: 3
+    state: skeleton-only
+    entry: TRADE-MASTER Exit bestanden; Stammdaten, Postingsgruppen, Lager und Preise referenziell gueltig.
+    scope: Eroeffnungsbilanz, offene Debitoren-/Kreditorenposten und Anfangsbestand nur ueber kontrollierte Journals und Buchungen.
+    exit: Soll/Haben, Nebenbuch/Sachbuch, Menge/Wert und offene Posten sind differenzfrei abgestimmt.
+    ownerRef: P-PILOT-LEAD-001
+    validation: Gebuchte Ledger-Tabellen sind im Paket verboten; aktuell 0 Tabellen, 0 Datensaetze und keine Buchungswirkung.
+    defectRetestRef: null
+dependencyMatrix:
+  - { sequence: 1, prerequisite: PRESEED, result: Country/Region DE vorhanden, validation: Code DE aufloesbar, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 2, prerequisite: PRESEED, result: Company Information darf Zielwert DE erhalten, validation: Speichern und erneutes Lesen, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 3, prerequisite: CORE-FINANCE, result: Kernsetup Posting VAT Nummernserien Zahlungsbedingungen Zahlungsmethoden und Dimensionen ohne Bankkonto, validation: Feld- und Matrixpruefung, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 4, prerequisite: UABC-02-TRADE-MASTER, result: Stammdaten Postingsgruppen Lager und Preise, validation: Referenz- und Dublettenpruefung, ownerRef: P-PILOT-LEAD-001 }
+  - { sequence: 5, prerequisite: UABC-03-OPENING-DATA, result: Journals fuer Anfangssalden offene Posten und Bestand, validation: Buchungs- und Abstimmkontrollen, ownerRef: P-PILOT-LEAD-001 }
+prohibitedPackageTables:
+  - G/L Entry
+  - Customer Ledger Entry
+  - Vendor Ledger Entry
+  - VAT Entry
+  - Item Ledger Entry
+  - Value Entry
+  - Bank Account Ledger Entry
+executionGate:
+  state: blocked-wave-0-preflight-and-resetpoint
+  requires: [Zielpreflight je Lauf, sichere Authentisierung, erlaubter Schreibscope, Resetpunkt, Tabellen- und Feldreview, bestandene Abhaengigkeiten]
+  liveTablesAdded: 0
+  liveCompanyInformationApplied: false
+  configuredPilotClaimed: false
+  livePackageSetupClaimed: false
+  liveBusinessDataClaimed: false

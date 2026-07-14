@@ -3,7 +3,7 @@
   "$id": "urn:universaarl:schema:portable-snapshot-pilot:v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "contractId", "projectId", "customerId", "classification", "simulation", "sourceInventory", "deltaContract", "knowledgeChanges", "coverage", "contradictions", "brownfieldReconciliation", "release", "customerCatalog"],
+  "required": ["schemaVersion", "contractId", "projectId", "customerId", "classification", "simulation", "consumerIdentity", "sourceInventory", "deltaContract", "knowledgeChanges", "coverage", "contradictions", "brownfieldReconciliation", "release", "customerCatalog"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "contractId": { "const": "UABC-PORTABLE-SNAPSHOT-PILOT-V1" },
@@ -11,6 +11,7 @@
     "customerId": { "const": "UABC-CUSTOMER-001" },
     "classification": { "const": "synthetic-local-simulation" },
     "simulation": { "const": true },
+    "consumerIdentity": { "$ref": "#/$defs/consumerIdentity" },
     "sourceInventory": { "type": "object" },
     "deltaContract": { "type": "object" },
     "knowledgeChanges": { "type": "array", "minItems": 1 },
@@ -21,7 +22,7 @@
       "type": "object",
       "required": ["releaseId", "releaseDirectory", "immutable", "currentPointerPath", "catalogPath", "bindingStatus", "pendingReason", "consumerEligible", "publishEligible", "pathSemantics", "transports", "byteContract", "visibilityClasses", "producerCommitProvenance", "requiredReleaseEvidence", "spectraReleaseBinding"],
       "properties": {
-        "releaseId": { "const": "UABC-PORTABLE-PILOT-0003" },
+        "releaseId": { "const": "UABC-PORTABLE-PILOT-0004" },
         "immutable": { "const": true },
         "bindingStatus": { "const": "BOUND_BCPROJECTOS_RELEASE" },
         "pendingReason": { "type": "null" },
@@ -42,6 +43,18 @@
     "customerCatalog": { "type": "object" }
   },
   "$defs": {
+    "consumerIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consumerId", "repositoryUrl", "branch", "access", "authorizationScope"],
+      "properties": {
+        "consumerId": { "const": "project-twin" },
+        "repositoryUrl": { "const": "https://github.com/sivla/Universaarl-Project-Twin.git" },
+        "branch": { "const": "codex/universaarl-projekt-twin" },
+        "access": { "const": "nur-lesend" },
+        "authorizationScope": { "const": "ausschliesslich-validierte-snapshots-lesen" }
+      }
+    },
     "safePath": { "type": "string", "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$)).+$" },
     "sha40": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
     "sha64": { "type": "string", "pattern": "^[a-f0-9]{64}$" },

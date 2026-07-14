@@ -4,7 +4,7 @@ const SHA40 = /^[a-f0-9]{40}$/;
 const SHA256HEX = /^[a-f0-9]{64}$/;
 const SPECTRA_TAG = /^spectra-v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
 const BCPROJECTOS_URL = 'https://github.com/sivla/BCProjectOS.git';
-const TWIN_URL = 'https://github.com/sivla/FiBu.git';
+const TWIN_URL = 'https://github.com/sivla/Universaarl-Project-Twin.git';
 const TWIN_BRANCH = 'codex/universaarl-projekt-twin';
 const SAFE_REPOSITORY_PATH = /^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!\/)(?!.*[\\\\\u0000-\u001F\u007F])(?!.*\/\/)(?!.*(?:^|\/)\.(?:\/|$))(?!.*(?:^|\/)\.\.(?:\/|$)).+$/;
 
@@ -21,7 +21,7 @@ export function validateConsumerBindings(binding, projectIndex) {
   const check = (condition, message) => { if (!condition) errors.push(message); };
   const prefix = 'governance/consumer-bindings.yaml';
   check(binding?.schemaVersion === 2, `${prefix}: schemaVersion muss 2 sein`);
-  check(binding?.governingChange === 'migrate-bc-basic-to-single-uabc-ticket-project' && ['proposed','active'].includes(binding?.lifecycleStatus), `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
+  check(binding?.governingChange === 'prepare-portable-snapshot-pilot' && ['proposed','active'].includes(binding?.lifecycleStatus), `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
   check(exactKeys(binding?.producer, ['projectId', 'contractId', 'contractPath']), `${prefix}: producer enthaelt unerlaubte oder fehlende Felder`);
   check(binding?.producer?.projectId === projectIndex?.projectId && binding?.producer?.contractId === projectIndex?.contractId && binding?.producer?.contractPath === 'exports/project-data/v1/index.yaml', `${prefix}: Producervertrag stimmt nicht mit dem Index ueberein`);
   check(projectIndex?.contractRole === 'repository-relative-data-allowlist' && projectIndex?.snapshotManifestIncluded === false, `${prefix}: Index muss Allowlist und kein Snapshotmanifest sein`);

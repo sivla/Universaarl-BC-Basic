@@ -41,18 +41,27 @@ const requiredIndexPaths = [
   `${contract.release.releaseDirectory}/manifest.json`
 ];
 const indexPaths = (index.artifacts ?? []).map((item) => item.path);
-if (index.governingChange !== 'prepare-portable-snapshot-pilot' || index.artifacts?.length !== 158 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[12]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 158 eindeutige aktuelle Artefakte enthalten, die gebundene 0003-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
+if (index.governingChange !== 'prepare-portable-snapshot-pilot' || index.artifacts?.length !== 158 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[123]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 158 eindeutige aktuelle Artefakte enthalten, die gebundene 0004-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
 const historical = {
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json': 'abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json': '91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json': 'e6b2a6dd271afb2e9978423440de7aba53168a0a60d2a34dbba06f77438281fa',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/payload.json': '3207d0da25375c9b56dd816bc1f6f7c880b7ebaf0c289583985efd72146cb4e4',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/catalog-fragment.json': '01446f62fe5a1442f590dfb40cf96059f3e7baa4e3a1fc0788a54c0ea7735868',
-  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json': '505ee0fea7e7db9441fb9ad32a0a1f839e751cbd1e00d2b539b777c1ab400322'
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json': '505ee0fea7e7db9441fb9ad32a0a1f839e751cbd1e00d2b539b777c1ab400322',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/payload.json': '338a8d00e2b94e9b2af2ed48fcee4639b1253759c23deaea80459f35ac1076bd',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/catalog-fragment.json': '557c236ae973b6ccaf3f55a470c38717d9c151349c544b1c2e2a68b9ab5fa680',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/manifest.json': '5710f0c5315ede59f8af1bbe6a154725a180ef9c87c6502a83f1008892eaf863'
 };
 for (const [relative, digest] of Object.entries(historical)) {
   const bytes = await fs.readFile(path.join(root, relative));
   if (crypto.createHash('sha256').update(bytes).digest('hex') !== digest) errors.push(`PILOT-IMMUTABILITAET: historischer Release wurde veraendert: ${relative}`);
+}
+const historicalManifest = JSON.parse(await readText('exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/manifest.json'));
+for (const record of historicalManifest.records ?? []) {
+  const bytes = await fs.readFile(path.join(root, record.path));
+  const digest = crypto.createHash('sha256').update(bytes).digest('hex');
+  if (digest !== record.sha256 || bytes.length !== record.size) errors.push(`PILOT-IMMUTABILITAET: historischer Release 0003 enthaelt abweichende Bytes: ${record.path}`);
 }
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 for (const [schemaPath, value] of [[PORTABLE_SCHEMA_PATH, contract], [PORTABLE_RELEASE_SCHEMA_PATH, JSON.parse(actual[`${contract.release.releaseDirectory}/manifest.json`].toString('utf8'))]]) {
@@ -61,4 +70,4 @@ for (const [schemaPath, value] of [[PORTABLE_SCHEMA_PATH, contract], [PORTABLE_R
   if (!validate(value)) for (const error of validate.errors ?? []) errors.push(`PILOT-SCHEMA: ${schemaPath}${error.instancePath || '/'} ${error.message}`);
 }
 if (errors.length) { console.error(`Portabler Snapshot-Pilot ungueltig (${errors.length}):`); for (const error of errors) console.error(`- ${error}`); process.exit(1); }
-console.log(`Portabler Snapshot-Pilot gueltig: Quellen=${pages.length}; aktueller Release=${contract.release.releaseId}; historische Releases=2; Kunden=1; Projekte=${contract.customerCatalog.projects.length}; Projektartefakte=${projectBundle.files.length}; Bindung=${contract.release.bindingStatus}.`);
+console.log(`Portabler Snapshot-Pilot gueltig: Quellen=${pages.length}; aktueller Release=${contract.release.releaseId}; historische Releases=3; Kunden=1; Projekte=${contract.customerCatalog.projects.length}; Projektartefakte=${projectBundle.files.length}; Bindung=${contract.release.bindingStatus}.`);

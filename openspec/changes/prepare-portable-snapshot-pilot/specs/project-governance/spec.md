@@ -21,6 +21,13 @@ Das System MUST Releasebytes, Digests, Kundengrenzen und Sichtklassen fail-close
 - **THEN** MUST er ausschließlich den validierten Releasepfad aus `current.json` verwenden
 - **AND** Arbeitsbaumdaten, fremde Kundenfragmente und nicht freigegebene Sichtklassen bleiben unlesbar
 
+#### Scenario: Consumeridentitaet ist eindeutig und nur-lesend gebunden
+
+- **WHEN** `UABC-PORTABLE-PILOT-0004` erzeugt oder gelesen wird
+- **THEN** MUST der Release `https://github.com/sivla/Universaarl-Project-Twin.git` auf `codex/universaarl-projekt-twin` als einzigen Consumer binden
+- **AND** Zugriff und Berechtigungsumfang MUST strikt nur-lesend bleiben
+- **AND** eine alte Repository-URL, ein abweichender Branch oder ein Schreibrecht MUST die Validierung blockieren
+
 #### Scenario: Twin liest die vollstaendige Projektansicht ohne Git
 
 - **WHEN** der Twin einen validierten Release ueber Filesystem oder HTTPS oeffnet
@@ -41,3 +48,10 @@ Das System MUST Releasebytes, Digests, Kundengrenzen und Sichtklassen fail-close
 - **AND** alle historischen Releases MUST bytegleich erhalten bleiben
 - **AND** `current.json`, Kundenfragment und Katalog MUST exakt denselben neuen Release und dessen Manifestdigest binden
 - **AND** `consumerEligible` und `publishEligible` duerfen erst dann true sein
+
+#### Scenario: Consumer-Migrationsrelease wird aktiviert
+
+- **WHEN** die getrennte Project-Twin-Repositoryidentitaet in den kanonischen Vertrag uebernommen ist
+- **THEN** MUST `current.json` und der Kundenkatalog atomar `UABC-PORTABLE-PILOT-0004` mit dessen Manifestdigest binden
+- **AND** die Releases `UABC-PORTABLE-PILOT-0001` bis `UABC-PORTABLE-PILOT-0003` MUST bytegleich bleiben
+- **AND** die Projektpayload-Provenienz MUST weiterhin den unveraenderten Projektstand `83a63c0af8775001e4c7f909a46c5b227f3cce3d` nennen

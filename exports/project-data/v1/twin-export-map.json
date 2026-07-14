@@ -1251,25 +1251,25 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-FRAGMENT-003",
+      "id": "UABC-SRC-BCB-PORTABLE-FRAGMENT-004",
       "kindId": "portable-customer-project-fragment",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/catalog-fragment.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/catalog-fragment.json",
       "selector": null,
       "format": "json",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-MANIFEST-003",
+      "id": "UABC-SRC-BCB-PORTABLE-MANIFEST-004",
       "kindId": "portable-snapshot-release-manifest",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/manifest.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/manifest.json",
       "selector": null,
       "format": "json",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-PAYLOAD-003",
+      "id": "UABC-SRC-BCB-PORTABLE-PAYLOAD-004",
       "kindId": "portable-snapshot-release-payload",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/payload.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/payload.json",
       "selector": null,
       "format": "json",
       "required": true
