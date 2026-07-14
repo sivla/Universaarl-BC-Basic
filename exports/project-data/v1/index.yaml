@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: prepare-portable-snapshot-pilot
+governingChange: deliver-production-ready-bc-basic-onboarding
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -18,7 +18,7 @@ documentCatalog:
   catalogId: UABC-DOCUMENT-CATALOG-V1
   path: exports/project-data/v1/document-catalog.json
   schemaPath: governance/schemas/project-document-catalog.schema.json
-  documentCount: 43
+  documentCount: 46
   commitResolution: allowed-branch-head-resolved-once
   allowedExternalOrigins: []
   spaces:
@@ -689,6 +689,68 @@ documentCatalog:
       lastReviewed: null
       visibility: twin-visible
       readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-ONBOARDING-RUNBOOK-001
+      documentId: UABC-DOC-BCB-ONBOARDING-RUNBOOK-001
+      title: BC Basic – Onboarding- und Delivery-Runbook
+      documentType: consultant-runbook
+      parentId: null
+      phase: all
+      process: project-delivery
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-50
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001
+      documentId: UABC-DOC-BCB-ONBOARDING-INPUT-001
+      title: BC Basic – Sanitisierte Onboarding-Eingabe
+      documentType: blank-template
+      parentId: null
+      phase: discovery
+      process: customer-onboarding
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-38
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001
+      documentId: UABC-DOC-BCB-DELIVERY-EVIDENCE-TPL-001
+      title: BC Basic – Blankopaket für Delivery und Evidence
+      documentType: blank-template
+      parentId: null
+      phase: all
+      process: project-delivery
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-46
+        - UABC-47
+        - UABC-50
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
       externalUrl: null
       pageId: null
       spaceKey: null
@@ -2471,21 +2533,6 @@ artifacts:
     path: tests/governance/core-finance-package.test.mjs
     format: javascript
     required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-001.md
-    format: markdown
-    required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-002
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-002.md
-    format: markdown
-    required: true
-  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-003
-    kindId: meeting-transcript
-    path: atlassian/confluence/meetings/UABC-MTG-003.md
-    format: markdown
-    required: true
   - id: UABC-SRC-BCB-PORTABLE-PILOT-001
     kindId: portable-snapshot-pilot-source
     path: project/bc-basic/portable-snapshot-pilot.yaml
@@ -2545,6 +2592,81 @@ artifacts:
     kindId: portable-snapshot-release-payload
     path: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/payload.json
     format: json
+    required: true
+  - id: UABC-SRC-BCB-PRODUCTION-READINESS-001
+    kindId: production-readiness-contract
+    path: governance/production-readiness.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-RUNBOOK-001
+    kindId: consultant-onboarding-runbook
+    path: docs/runbooks/bc-basic-onboarding-delivery.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-INPUT-001
+    kindId: sanitized-input-template
+    path: project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001
+    kindId: sanitized-input-guide
+    path: docs/templates/bc-basic-onboarding-input.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001
+    kindId: delivery-evidence-template
+    path: docs/templates/bc-basic-delivery-evidence-pack.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-READINESS-VALIDATOR-001
+    kindId: production-readiness-validator
+    path: scripts/validate-production-readiness.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-READINESS-TEST-001
+    kindId: production-readiness-negative-tests
+    path: tests/governance/production-readiness.test.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-PROPOSAL-001
+    kindId: openspec-proposal
+    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/proposal.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-DESIGN-001
+    kindId: openspec-design
+    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/design.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-TASKS-001
+    kindId: openspec-tasks
+    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/tasks.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-VERIFICATION-001
+    kindId: openspec-verification
+    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/verification.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-ONBOARDING-SPEC-001
+    kindId: openspec-spec
+    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/specs/project-governance/spec.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-001.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-002
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-002.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-003
+    kindId: meeting-transcript
+    path: atlassian/confluence/meetings/UABC-MTG-003.md
+    format: markdown
     required: true
 referenceDefinitions:
   jiraRefs:

@@ -72,7 +72,9 @@ Er konfiguriert erst nach bestandenem Vorpruefungsgate, prueft jeden Abschnitt f
 Kajetan Kalicki verantwortet PM, fachliches Review und Architekturentscheidung.
 Codex-/Browserautomation bleibt ein eigener technischer Bedienakteur.
 
-Aktuell gilt: Country/Region `DE` und Company Information sind im technischen Pilotmandanten `UABC-BASIC-DE` gespeichert und retest-gruen. `UNIVERSAARL-DE` bleibt Legacy; Universaarl GmbH ist der rechtliche Firmenname. Die drei Paketgerueste besitzen weiterhin `0` Tabellen und keine Daten- oder Buchungswirkung.
+Aktuell gilt: Country/Region `DE` und Company Information sind im technischen Pilotmandanten `UABC-BASIC-DE` gespeichert und retest-gruen.
+`UNIVERSAARL-DE` bleibt Legacy; Universaarl GmbH ist der rechtliche Firmenname.
+Die drei Paketgerueste besitzen weiterhin `0` Tabellen und keine Daten- oder Buchungswirkung.
 
 ## Referenzen
 
@@ -80,3 +82,14 @@ Aktuell gilt: Country/Region `DE` und Company Information sind im technischen Pi
 - Projektstory: `evidence/simulation/project-story.json`
 
 <!-- story-metadata {"id":"PAGE-UABC-240","title":"02 Loesungsdesign und Projektplanung","parent":null,"version":2,"status":"published"} -->
+## Delivery-Methode
+
+Der Consultant arbeitet entlang des
+[Onboarding- und Delivery-Runbooks](../../../docs/runbooks/bc-basic-onboarding-delivery.md):
+qualifizieren, entscheiden, Zielbindung prüfen, konfigurieren, migrieren, read-back prüfen,
+SIT/UAT und Training führen, Cutover absichern und Hypercare bis Supportübergabe begleiten.
+
+Für Workshops, Abnahmen, Training, Cutover, Hypercare und T&M steht ein
+[sanitisiertes Blankopaket](../../../docs/templates/bc-basic-delivery-evidence-pack.md) bereit.
+
+Kundenspezifische Entscheidungen und Evidence bleiben im Kundenprojekt. Diese Seite führt ausschließlich die wiederverwendbare Consulting-Methode.

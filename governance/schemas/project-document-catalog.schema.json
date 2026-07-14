@@ -62,12 +62,12 @@
       "maxItems": 19,
       "items": { "$ref": "#/$defs/redirect" }
     },
-    "documentCount": { "const": 43 },
+    "documentCount": { "const": 46 },
     "confluenceDocumentCount": { "const": 28 },
     "documents": {
       "type": "array",
-      "minItems": 43,
-      "maxItems": 43,
+      "minItems": 46,
+      "maxItems": 46,
       "items": { "$ref": "#/$defs/document" }
     }
   },
@@ -212,7 +212,9 @@
             "synthetic-demo-guide",
             "commercial-offer",
             "project-chronicle",
-            "project-handover"
+            "project-handover",
+            "consultant-runbook",
+            "blank-template"
           ]
         },
         "sourcePath": { "$ref": "#/$defs/safePath" },
@@ -243,7 +245,8 @@
             "reference-complete",
             "simulation-complete",
             "verified-with-history",
-            "v1-ready"
+            "v1-ready",
+            "verified"
           ]
         },
         "externalUrl": { "type": ["string", "null"] },

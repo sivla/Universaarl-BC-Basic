@@ -32,11 +32,13 @@ const validatePageMutation = (mutateText) => {
   });
 };
 
-test('vollstaendiger BC-Basic-Katalog bindet 43 Dokumente und 28 strukturierte Seiten', () => {
-  assert.equal(catalog.documents.length, 43);
+test('vollstaendiger BC-Basic-Katalog bindet 46 Dokumente und 28 strukturierte Seiten', () => {
+  assert.equal(catalog.documents.length, 46);
   assert.equal(catalog.documents.filter((document) => document.documentType === 'confluence-page').length, 28);
-  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 43);
-  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 43);
+  assert.equal(new Set(catalog.documents.map((document) => document.sourcePath)).size, 46);
+  assert.equal(new Set(catalog.documents.map((document) => document.documentId)).size, 46);
+  const catalogArtifactIds = new Set(catalog.documents.map((document) => document.artifactId));
+  assert.equal(index.artifacts.filter((artifact) => artifact.id.startsWith('UABC-SRC-BCB-ONBOARDING-') && artifact.kindId.startsWith('openspec-')).every((artifact) => !catalogArtifactIds.has(artifact.id)), true, 'Technische OpenSpec-Quellen des aktiven Changes dürfen nicht als Projektdokumente klassifiziert werden');
   assert.equal(catalog.spaces.length, 3);
   assert.equal(catalog.spaces.every((space) => typeof space.purpose === 'string' && space.purpose.length > 0 && Array.isArray(space.audience) && space.audience.length > 0), true);
   assert.equal(catalog.navigationModules.length, 3);

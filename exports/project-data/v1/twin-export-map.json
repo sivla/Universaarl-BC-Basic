@@ -1155,30 +1155,6 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
-      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
-      "kindId": "meeting-transcript",
-      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
-      "selector": null,
-      "format": "markdown",
-      "required": true
-    },
-    {
       "id": "UABC-SRC-BCB-PORTABLE-PILOT-001",
       "kindId": "portable-snapshot-pilot-source",
       "path": "project/bc-basic/portable-snapshot-pilot.yaml",
@@ -1272,6 +1248,126 @@
       "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/payload.json",
       "selector": null,
       "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PRODUCTION-READINESS-001",
+      "kindId": "production-readiness-contract",
+      "path": "governance/production-readiness.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-RUNBOOK-001",
+      "kindId": "consultant-onboarding-runbook",
+      "path": "docs/runbooks/bc-basic-onboarding-delivery.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-INPUT-001",
+      "kindId": "sanitized-input-template",
+      "path": "project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001",
+      "kindId": "sanitized-input-guide",
+      "path": "docs/templates/bc-basic-onboarding-input.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001",
+      "kindId": "delivery-evidence-template",
+      "path": "docs/templates/bc-basic-delivery-evidence-pack.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-READINESS-VALIDATOR-001",
+      "kindId": "production-readiness-validator",
+      "path": "scripts/validate-production-readiness.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-READINESS-TEST-001",
+      "kindId": "production-readiness-negative-tests",
+      "path": "tests/governance/production-readiness.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-PROPOSAL-001",
+      "kindId": "openspec-proposal",
+      "path": "openspec/changes/deliver-production-ready-bc-basic-onboarding/proposal.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-DESIGN-001",
+      "kindId": "openspec-design",
+      "path": "openspec/changes/deliver-production-ready-bc-basic-onboarding/design.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-TASKS-001",
+      "kindId": "openspec-tasks",
+      "path": "openspec/changes/deliver-production-ready-bc-basic-onboarding/tasks.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-VERIFICATION-001",
+      "kindId": "openspec-verification",
+      "path": "openspec/changes/deliver-production-ready-bc-basic-onboarding/verification.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-SPEC-001",
+      "kindId": "openspec-spec",
+      "path": "openspec/changes/deliver-production-ready-bc-basic-onboarding/specs/project-governance/spec.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "selector": null,
+      "format": "markdown",
       "required": true
     }
   ]

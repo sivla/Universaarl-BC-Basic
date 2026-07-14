@@ -112,7 +112,8 @@ function semanticEqual(left, right) {
 
 export function buildDocumentCatalog(projectIndex, readEntry) {
   const config = projectIndex?.documentCatalog ?? {};
-  const markdownArtifacts = (projectIndex?.artifacts ?? []).filter((artifact) => artifact.format === 'markdown');
+  const definedArtifactIds = new Set((config.definitions ?? []).map((definition) => definition.artifactId));
+  const markdownArtifacts = (projectIndex?.artifacts ?? []).filter((artifact) => definedArtifactIds.has(artifact.id) && artifact.format === 'markdown');
   const artifactById = new Map(markdownArtifacts.map((artifact) => [artifact.id, artifact]));
   const documents = (config.definitions ?? []).map((definition) => {
     const artifact = artifactById.get(definition.artifactId);
@@ -384,19 +385,20 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   if (catalog?.catalogId !== DOCUMENT_CATALOG_ID || catalog?.projectId !== projectIndex?.projectId || catalog?.contractId !== projectIndex?.contractId || catalog?.allowedBranch !== projectIndex?.allowedBranch || catalog?.sourceIndexPath !== 'exports/project-data/v1/index.yaml') {
     add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Katalog und Branch-Index besitzen nicht dieselbe Projekt-/Vertragsidentitaet');
   }
-  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 43 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
+  if (config.path !== DOCUMENT_CATALOG_PATH || config.schemaPath !== DOCUMENT_CATALOG_SCHEMA_PATH || config.documentCount !== 46 || config.commitResolution !== 'allowed-branch-head-resolved-once') add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Dokumentkatalog-Pointer im Branch-Index ist ungueltig');
   if (!sameArray(config.allowedExternalOrigins, catalog?.allowedExternalOrigins)) add(errors, DOCUMENT_CATALOG_ERROR.identity, 'Erlaubte externe Origins stimmen nicht zwischen Index und Katalog ueberein');
 
   const documents = Array.isArray(catalog?.documents) ? catalog.documents : [];
-  if (catalog?.documentCount !== documents.length || documents.length !== 43) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 43 Dokumente, gefunden wurden ${documents.length}`);
+  if (catalog?.documentCount !== documents.length || documents.length !== 46) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 46 Dokumente, gefunden wurden ${documents.length}`);
   const pageCount = documents.filter((document) => document.documentType === 'confluence-page').length;
   if (catalog?.confluenceDocumentCount !== pageCount || pageCount !== 28) add(errors, DOCUMENT_CATALOG_ERROR.count, `Erwartet sind exakt 28 strukturierte Seiten, gefunden wurden ${pageCount}`);
 
-  const markdownArtifacts = (projectIndex?.artifacts ?? []).filter((artifact) => artifact.format === 'markdown');
+  const definedArtifactIds = new Set((config.definitions ?? []).map((definition) => definition.artifactId));
+  const markdownArtifacts = (projectIndex?.artifacts ?? []).filter((artifact) => definedArtifactIds.has(artifact.id) && artifact.format === 'markdown');
   const artifactById = new Map(markdownArtifacts.map((artifact) => [artifact.id, artifact]));
   const expectedPairs = new Set(markdownArtifacts.map((artifact) => `${artifact.id}\0${artifact.path}`));
   const actualPairs = new Set(documents.map((document) => `${document.artifactId}\0${document.sourcePath}`));
-  if (expectedPairs.size !== 43 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
+  if (expectedPairs.size !== 46 || actualPairs.size !== expectedPairs.size || [...expectedPairs].some((pair) => !actualPairs.has(pair))) add(errors, DOCUMENT_CATALOG_ERROR.index, 'Katalog und Markdown-Allowlist des Branch-Index sind nicht exakt mengengleich');
 
   const documentIds = new Set();
   const artifactIds = new Set();
@@ -404,7 +406,7 @@ export function validateDocumentCatalog({ catalog, schema, projectIndex, readEnt
   const refs = referenceSets ?? collectReferenceSets(projectIndex, readEntry);
   const origins = new Set(catalog?.allowedExternalOrigins ?? []);
   const definitions = new Map((config.definitions ?? []).map((definition) => [definition.artifactId, definition]));
-  if (definitions.size !== 43 || (config.definitions ?? []).length !== 43) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 43 eindeutige Dokumentdefinitionen enthalten');
+  if (definitions.size !== 46 || (config.definitions ?? []).length !== 46) add(errors, DOCUMENT_CATALOG_ERROR.count, 'Branch-Index muss exakt 46 eindeutige Dokumentdefinitionen enthalten');
   for (const origin of origins) if (!validOrigin(origin)) add(errors, DOCUMENT_CATALOG_ERROR.url, `Erlaubte Origin ist keine sichere kanonische HTTPS-Origin: ${origin}`);
 
   for (const document of documents) {

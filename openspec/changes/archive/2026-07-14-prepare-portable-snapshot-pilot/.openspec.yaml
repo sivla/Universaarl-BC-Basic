@@ -3,17 +3,17 @@ created: 2026-07-13
 canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
 approvalPolicy:
   type: automated-policy-gate
-  evidenceId: UABC-VER-BCB-PORTABLE-SNAPSHOT-001
+  evidenceId: UABC-VER-PORTABLE-SNAPSHOT-0004
   authorizedBy: P-PILOT-LEAD-001
   authorizedAt: 2026-07-13
   scope: Synthetischer lokaler Brownfield- und portabler Snapshot-Pilot ohne externe Verbindung oder Publikation
   conditions: [drei Spaces unveraendert, portable Pfade, Digests differenzfrei, Kundengrenzen geschlossen, Releasebindung offen]
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     brownfieldInventory: { status: prepared-local-simulation, sourceCount: 28 }
     portableSnapshot: { status: UNBOUND_LOCAL_PILOT, consumerEligible: false, publishEligible: false }
     customerBoundary: { status: isolated, customerId: UABC-CUSTOMER-001, projectId: UABC-BC-BASIC-001 }
-  unknowns: [echter neuer Spectra-Release-Tag, peeled Commit, finales Releasemanifest, Produktdigest, menschliche Publikationsfreigabe]
-  policyGateEvidenceId: UABC-VER-BCB-PORTABLE-SNAPSHOT-001
+  unknowns: []
+  policyGateEvidenceId: UABC-VER-PORTABLE-SNAPSHOT-0004

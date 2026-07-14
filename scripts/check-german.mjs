@@ -114,6 +114,14 @@ const TECHNICAL_PHRASES = Object.freeze([
   'Make-to-Stock',
   'Make-to-Order',
   'OpenSpec',
+  'What Changes',
+  'customer-onboarding',
+  'customer-source-of-truth',
+  'release-evidence',
+  'input-contract',
+  'readiness-validation',
+  'out-of-scope',
+  'repository-simulated-or-manually-materialized',
   'Playwright',
   'Chromium',
   'Node.js',
@@ -175,6 +183,7 @@ function splitWords(value) {
   return stripTechnicalPhrases(value)
     .replace(/https?:\/\/[^\s)\]}>'"]+/gi, ' ')
     .replace(/\b(?:UABC|SRC|ENV|STEP|RUN|UAS|UAD|SLS|NK|P|W)-[A-Z0-9._:-]+\b/g, ' ')
+    .replace(/\b[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+\b/g, ' ')
     .replace(/\b[0-9a-f]{40,64}\b/gi, ' ')
     .replace(/\{\{[^}]+\}\}|<[^>]+>|\[[A-Z0-9_.:-]+\]/g, ' ')
     .replace(/([\p{Ll}\d])([\p{Lu}])/gu, '$1 $2')

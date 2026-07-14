@@ -1,0 +1,20 @@
+schema: universaarl-delivery
+created: 2026-07-14
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-PRODUCTION-READINESS-001
+  authorizedBy: P-PILOT-LEAD-001
+  authorizedAt: 2026-07-14
+  scope: Repositorybasierte Onboarding- und Delivery-Bereitschaft ohne BC-Live-Schreibvorgang oder externe Uebermittlung
+  conditions: [customerGoLiveReady bleibt pending, Continia bleibt out-of-scope, nur Tasks sind abrechenbar, keine echten Kundendaten]
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    platformReady: READY
+    onboardingReady: READY
+    customerGoLiveReady: PENDING
+    simulationReference: SIMULATED_COMPLETE
+  unknowns: [echte Kundendaten, Tenantberechtigungen, produktive UAT-Freigabe, Cutover-GO, erster realer Abschluss, steuerliche Freigabe]
+  policyGateEvidenceId: UABC-VER-BCB-PRODUCTION-READINESS-001

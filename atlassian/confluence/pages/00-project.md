@@ -47,7 +47,8 @@ Task-Worklogs abgeleitete Ist beträgt 2,50 Stunden und 300 EUR: zusammen
 2 Stunden für Payload, Manifest, Validatoren und Ausführungsdokumentation von
 CORE-FINANCE. Es gab keine BC-Aktion.
 
-Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen. Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
+Setup, Datenmigration, Prozesse, Training, UAT, Cutover, Hypercare, Retro und Supportübergabe sind offen.
+Die frühere abgeschlossene Referenzsimulation ist abgelöst und ausschließlich im [Archiv](99-archive.md) nachvollziehbar.
 
 ## Projektumgebung
 
@@ -78,7 +79,9 @@ Wave-0 entscheidet anhand der Evidence zwischen kontrollierter Weiterverwendung 
 | Consultant/Support | Setup-, Rollen- oder reproduzierbarer Systembefund | Diagnosepaket übernehmen und Retest steuern |
 | sofortiger Stopp | falsche Gesellschaft, fehlender Resetpunkt oder unklare Finanz-/VAT-/Bestandswirkung | nichts schreiben, Zustand sichern, eskalieren |
 
-Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehlertext, letzten erfolgreichen Schritt, Reproduktionsweg und bereinigte Evidence. Zugangsdaten, Cookies, Tokens, Browserprofile sowie reale Bank- oder Personengeheimnisse gehören nicht in Projektartefakte.
+Ein Supportfall nennt Rolle, Umgebung, Zeitpunkt, Seite/Aktion, Soll/Ist, Fehlertext,
+den letzten erfolgreichen Schritt, den Reproduktionsweg und bereinigte Evidence.
+Zugangsdaten, Cookies, Tokens, Browserprofile sowie reale Bank- oder Personengeheimnisse gehören nicht in Projektartefakte.
 
 ## Nächster zulässiger Schritt
 
@@ -88,11 +91,18 @@ Screenshot-Lektüre blockiert. Titel und bereinigte URL belegen nur das
 adressierte Ziel, nicht interne Company-ID, CRONUS-Provenienz oder
 Pilotkonfiguration.
 
-Nächster Schritt ist derselbe W0-01-Readback in einem manuell freigegebenen Nur-Lese-Termin: interne Company-ID, technischen und sichtbaren Namen, Company Information, Country/Region, CRONUS-Indizien und Gesellschaftsliste lesen sowie fachlich zugeschnittene Screenshots ohne Authdaten zurückgeben.
+Nächster Schritt ist derselbe W0-01-Readback in einem manuell freigegebenen Nur-Lese-Termin.
+Dabei werden interne Company-ID, technischer und sichtbarer Name, Company Information,
+Country/Region, CRONUS-Indizien und Gesellschaftsliste gelesen.
+Zurückgegeben werden fachlich zugeschnittene Screenshots ohne Authdaten.
 
-Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiederanlaufprüfung. Erst auf vollständiger Evidence darf zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden. RUN-06 bis RUN-22 bleiben NO-GO.
+Danach folgen die übrige CRONUS-Inventur, Fremdmandantengrenze und Reset-/Wiederanlaufprüfung.
+Erst auf vollständiger Evidence darf zwischen kontrollierter Weiterverwendung und sauberer Neuanlage beziehungsweise Kopie entschieden werden.
+RUN-06 bis RUN-22 bleiben NO-GO.
 
-CORE-FINANCE ist repositoryseitig `prepared-for-controlled-live-run`: 19 Pakettabellen/51 Datensätze sowie 7 manuelle Tabellen/18 Sollwerte sind referenziell geschlossen. Dieser Reifegrad bedeutet vorbereitet, nicht angewendet, abgenommen oder kundenbereit.
+CORE-FINANCE ist repositoryseitig `prepared-for-controlled-live-run`.
+19 Pakettabellen mit 51 Datensätzen sowie 7 manuelle Tabellen mit 18 Sollwerten sind referenziell geschlossen.
+Dieser Reifegrad bedeutet vorbereitet, nicht angewendet, abgenommen oder kundenbereit.
 
 ## Referenzen
 
@@ -106,3 +116,13 @@ CORE-FINANCE ist repositoryseitig `prepared-for-controlled-live-run`: 19 Paketta
 - [Historische Referenzsimulation](99-archive.md)
 
 <!-- story-metadata {"id":"PAGE-UABC-000","title":"00 Hilfe und Projektumgebung","parent":null,"version":5,"status":"published"} -->
+## Delivery-Bereitschaft
+
+Der repositorybasierte Projektstand ist als Plattform und Onboarding-Paket vorbereitet.
+Die reale Kunden-Go-live-Bereitschaft bleibt `PENDING`.
+Tenant, Lizenzen, Berechtigungen, UAT, Cutover, erster Abschluss, VAT-Entscheidung und Supportannahme benötigen aktuelle reale Evidence.
+
+Maßgeblich sind der [Readiness-Vertrag](../../../governance/production-readiness.json)
+und das [Onboarding-Runbook](../../../docs/runbooks/bc-basic-onboarding-delivery.md).
+
+Synthetische Referenznachweise erklären den Standardweg, ersetzen aber keine Kunden-, Steuer- oder Produktivfreigabe.

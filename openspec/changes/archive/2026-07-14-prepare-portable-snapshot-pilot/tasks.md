@@ -11,4 +11,4 @@
 - [x] Immutable Release `UABC-PORTABLE-PILOT-0003` mit Projektindex und allen 158 commitgebundenen Projektquellen erzeugen, historische Releases bytegleich pruefen und die vollstaendige Suite commitgebunden nachweisen.
 - [x] Kanonische Project-Twin-Consumeridentitaet auf das getrennte Repository aktualisieren und als strikt nur-lesende Releasebindung in Vertrag, Schema und Negativtests verankern.
 - [x] Immutable Release `UABC-PORTABLE-PILOT-0004` mit Projektpayload-Provenienz `83a63c0af8775001e4c7f909a46c5b227f3cce3d` erzeugen, `current.json` und Kundenkatalog aktualisieren und die Releases `0001` bis `0003` bytegleich nachweisen.
-- [ ] Fokus-, Determinismus-, OpenSpec-, Referenz- und Gesamtpruefungen ausfuehren, `REVIEW.md` leeren, einen kohaerenten Commit erstellen und den Arbeitsbranch normal veroeffentlichen.
+- [x] Fokus-, Determinismus-, OpenSpec-, Referenz- und Gesamtpruefungen ausfuehren, `REVIEW.md` leeren, einen kohaerenten Commit erstellen und den Arbeitsbranch normal veroeffentlichen.

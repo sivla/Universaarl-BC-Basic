@@ -588,7 +588,7 @@
       "migrationStatus": "migrated-in-place"
     }
   ],
-  "documentCount": 43,
+  "documentCount": 46,
   "confluenceDocumentCount": 28,
   "documents": [
     {
@@ -681,7 +681,7 @@
         "UABC-REQ-BCB-011"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "2b46e73fea4fa7b223ab99671e39199463fb6fef2ce496b7e409e922da9565c0",
+      "contentSha256": "2d59bba3002883870f380321c3e68dca89e3d84680d8cb76eca682832f7d9ea1",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1014,7 +1014,7 @@
         "UABC-REQ-BCB-004"
       ],
       "lastReviewed": "2026-09-03",
-      "contentSha256": "0db5d643223261171e9b19dc3a735fb7a70c2be1e1da0fc4546691b12455eed4",
+      "contentSha256": "f9e9ef727c995905a5c63419a1b2afcb74b6d0c05851dc6e6f4144b96d2d3352",
       "visibility": "twin-visible",
       "readiness": "verified-with-history",
       "externalUrl": null,
@@ -1454,7 +1454,7 @@
         "UABC-REQ-BCB-010"
       ],
       "lastReviewed": "2026-07-13",
-      "contentSha256": "323523306441faa1c9a53720392fda1144af538d5dfd0619427ec6754ff9b62e",
+      "contentSha256": "3afa4dafaad8f158b2e9a0bde05d53e0d239ad5d93f48b7945e1d1e2d053b4a6",
       "visibility": "twin-visible",
       "readiness": "v1-ready",
       "externalUrl": null,
@@ -1758,6 +1758,32 @@
       "spaceKey": null
     },
     {
+      "artifactId": "UABC-SRC-BCB-ONBOARDING-RUNBOOK-001",
+      "documentId": "UABC-DOC-BCB-ONBOARDING-RUNBOOK-001",
+      "title": "BC Basic – Onboarding- und Delivery-Runbook",
+      "documentType": "consultant-runbook",
+      "sourcePath": "docs/runbooks/bc-basic-onboarding-delivery.md",
+      "parentId": null,
+      "phase": "all",
+      "process": "project-delivery",
+      "status": "ready",
+      "ownerRefs": [
+        "P-003"
+      ],
+      "jiraRefs": [
+        "UABC-32",
+        "UABC-50"
+      ],
+      "referenceIds": [],
+      "lastReviewed": "2026-07-14",
+      "contentSha256": "1b021a4cd3033558c9841c392ffb47017c42afa8ec5f2048de21219584a7f27c",
+      "visibility": "twin-visible",
+      "readiness": "verified",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
       "artifactId": "UABC-SRC-BCB-DEMO-001",
       "documentId": "UABC-SRC-BCB-DEMO-001",
       "title": "Historischer Demo- und Abnahmeleitfaden der abgelösten Referenzsimulation",
@@ -1797,6 +1823,60 @@
       "contentSha256": "ec7a54e689283a4a647fa274c295b7a5db6d616c84f8fc86286aeb949cad3f26",
       "visibility": "twin-visible",
       "readiness": "customer-ready-template",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001",
+      "documentId": "UABC-DOC-BCB-DELIVERY-EVIDENCE-TPL-001",
+      "title": "BC Basic – Blankopaket für Delivery und Evidence",
+      "documentType": "blank-template",
+      "sourcePath": "docs/templates/bc-basic-delivery-evidence-pack.md",
+      "parentId": null,
+      "phase": "all",
+      "process": "project-delivery",
+      "status": "ready",
+      "ownerRefs": [
+        "P-003"
+      ],
+      "jiraRefs": [
+        "UABC-32",
+        "UABC-46",
+        "UABC-47",
+        "UABC-50"
+      ],
+      "referenceIds": [],
+      "lastReviewed": "2026-07-14",
+      "contentSha256": "0f16ddac23512862b49f3a914377518c2dba0c8ccbe4ad1f805cf3eb99213483",
+      "visibility": "twin-visible",
+      "readiness": "verified",
+      "externalUrl": null,
+      "pageId": null,
+      "spaceKey": null
+    },
+    {
+      "artifactId": "UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001",
+      "documentId": "UABC-DOC-BCB-ONBOARDING-INPUT-001",
+      "title": "BC Basic – Sanitisierte Onboarding-Eingabe",
+      "documentType": "blank-template",
+      "sourcePath": "docs/templates/bc-basic-onboarding-input.md",
+      "parentId": null,
+      "phase": "discovery",
+      "process": "customer-onboarding",
+      "status": "ready",
+      "ownerRefs": [
+        "P-003"
+      ],
+      "jiraRefs": [
+        "UABC-32",
+        "UABC-38"
+      ],
+      "referenceIds": [],
+      "lastReviewed": "2026-07-14",
+      "contentSha256": "450b4cf1371470de504f52c0b577110494d5d3e9440f5aa0ebd34ea0505dfcd1",
+      "visibility": "twin-visible",
+      "readiness": "verified",
       "externalUrl": null,
       "pageId": null,
       "spaceKey": null

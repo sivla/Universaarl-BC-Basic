@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { loadCanonical, validateProductionReadiness } from '../../scripts/validate-production-readiness.mjs';
+
+const fixture = () => structuredClone(loadCanonical());
+const fails = (mutate, code) => { const data = fixture(); mutate(data); assert.throws(() => validateProductionReadiness(data), (error) => error.code === code); };
+
+test('vollständiger kanonischer Readiness-Vertrag ist gültig', () => { const x = validateProductionReadiness(fixture()); assert.deepEqual([x.plannedHours, x.plannedNetAmount, x.deliverableCount, x.transcriptCount, x.spaceCount, x.liveGateCount], [80, 9600, 9, 3, 3, 8]); });
+test('synthetische Evidence darf Kunden-Go-live nicht grün setzen', () => fails((x) => { x.readiness.assessments.customerGoLiveReady.status = 'passed'; x.readiness.assessments.customerGoLiveReady.evidenceMode = 'real'; }, 'READINESS-LIVE-TRUTH'));
+test('unbekannter Evidence-Kind wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.evidence[0].kind = 'frei-erfunden'; }, 'READINESS-EVIDENCE-KIND'));
+test('unsicherer Evidence-Pfad wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.evidence[0].path = '../secret.env'; }, 'READINESS-EVIDENCE-PATH'));
+test('Evidence-Selbstreferenz wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.evidence[0].path = 'governance/production-readiness.json'; }, 'READINESS-EVIDENCE-SELF'));
+test('Binärpfad als reale Kunden-Evidence wird abgelehnt', () => fails((x) => { const a=x.readiness.assessments.customerGoLiveReady; a.evidence=[{kind:'real-tenant',path:'artifacts/walkthrough/generated/UABC-WT-ENV-001/preview.webp'}]; }, 'READINESS-EVIDENCE-BINARY'));
+test('unbekannter Evidence-Modus wird abgelehnt', () => fails((x) => { x.readiness.assessments.onboardingReady.evidenceMode = 'synthetic-real'; }, 'READINESS-ASSESSMENT'));
+test('passed Plattform mit Blocker wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.blockers.push('offen'); }, 'READINESS-PREPARED'));
+test('öffentliche Distribution ohne Lizenzentscheidung wird abgelehnt', () => fails((x) => { x.readiness.distribution.status = 'public'; }, 'READINESS-DISTRIBUTION'));
+test('Distribution-Evidence ohne Lizenzentscheidung wird abgelehnt', () => fails((x) => { x.readiness.distribution.evidence = [{path:'NOTICE'}]; }, 'READINESS-DISTRIBUTION'));
+test('Budget ab 10.000 EUR wird abgelehnt', () => fails((x) => { x.readiness.commercial.plannedNetAmount = 10000; }, 'READINESS-BUDGET'));
+test('Eltern-Worklog wird abgelehnt', () => fails((x) => { x.story.tickets.find((t) => t.type === 'epic').worklogs = [{ id: 'WL-X', hours: 1 }]; }, 'READINESS-PARENT-WORKLOG'));
+test('nicht abrechenbarer Task wird abgelehnt', () => fails((x) => { x.story.tickets.find((t) => t.type === 'task').billable = false; }, 'READINESS-TASK-BILLABLE'));
+test('Task ohne Deliverable wird abgelehnt', () => fails((x) => { x.story.tickets.find((t) => t.type === 'task').deliverableRefs = []; }, 'READINESS-DELIVERABLE'));
+test('Ticket ohne Transkriptabdeckung wird abgelehnt', () => fails((x) => { x.readiness.ticketTranscriptCoverage[0].ticketIds.pop(); }, 'READINESS-TRANSCRIPT'));
+test('fehlender Kundenroot wird abgelehnt', () => fails((x) => { x.spaces.roots = x.spaces.roots.filter((r) => r.title !== '99 Archiv'); }, 'READINESS-SPACE-ROOT'));
+test('fehlende Securitykontrolle wird abgelehnt', () => fails((x) => { x.readiness.security.controls = ['Security Groups']; }, 'READINESS-SECURITY'));
+test('ungeschützte Kundendatenübertragung wird abgelehnt', () => fails((x) => { x.readiness.customerInputs.protectedTransferRequired = false; }, 'READINESS-DATA-TRANSFER'));
+test('Ledger-Importfreigabe wird abgelehnt', () => fails((x) => { x.readiness.migration.prohibitedImports = []; }, 'READINESS-MIGRATION'));
+test('geschlossenes reales VAT-Gate ohne Evidence wird abgelehnt', () => fails((x) => { x.readiness.deliveryGates.find((g) => g.id === 'UABC-GATE-LIVE-TAX').status = 'READY'; }, 'READINESS-LIVE-GATE'));
+test('fehlende Quellenkategorie wird abgelehnt', () => fails((x) => { x.readiness.sources.truthCategories = ['BC-Standard']; }, 'READINESS-SOURCE-CATEGORY'));
+test('fehlende offizielle Primärquelle wird abgelehnt', () => fails((x) => { x.readiness.sources.primary.pop(); }, 'READINESS-SOURCE'));
+test('Continia im Pilot wird abgelehnt', () => fails((x) => { x.readiness.truthBoundary.continia = 'in-scope'; }, 'READINESS-CONTINIA'));
+test('Produktivbehauptung wird abgelehnt', () => fails((x) => { x.readiness.truthBoundary.productionUseClaimed = true; }, 'READINESS-TRUTH'));

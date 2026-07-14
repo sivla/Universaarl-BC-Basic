@@ -7,7 +7,7 @@ catalogPath: exports/project-data/v1/document-catalog.json
 schemaPath: governance/schemas/project-document-catalog.schema.json
 sourceIndexPath: exports/project-data/v1/index.yaml
 commitResolution: allowed-branch-head-resolved-once
-documentCount: 43
+documentCount: 46
 confluenceDocumentCount: 28
 otherDocumentCount: 15
 spaceCount: 3

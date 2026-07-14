@@ -307,3 +307,12 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-38]
     evidence: Pruefcommit 7ab90c5f6ad4cde805b44f8b2f75d2ccf54008a5 bestand im sauberen Arbeitsbaum den vollstaendigen npm-Testlauf mit 10 von 10 OpenSpec-Pruefungen, 21 von 21 portablen Snapshot-Tests, 239 von 239 Governance-Tests, 21 von 21 Sprachtests, dem standardisierten Deutsch-Gate, beiden Walkthrough-Browsertests sowie den Dokument-, Snapshot- und Referenzgates. Release UABC-PORTABLE-PILOT-0003 bindet den Projektindex und 158 positivgelistete Projektquellen bytegenau an Producer-Commit 8132f2ce692dfcb8e12a3a4db4a287c643a6376f; das Manifest umfasst 161 digestgebundene Dateien, Filesystem und HTTPS liefern identische Bytes, Git-Textnormalisierung ist fuer den Snapshot-Store abgeschaltet und die Releases 0001 sowie 0002 blieben bytegleich. REVIEW.md war in Arbeitskopie und HEAD leer; es gab keinen Push und keine externe Plattformveraenderung.
+  - id: UABC-VER-PORTABLE-SNAPSHOT-0004
+    changeRef: prepare-portable-snapshot-pilot
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-38]
+    evidence: Commit 281d2bab4fadce74c7756cc42a14dbf0a6a9eb45 mit Tree b4c2170eaf3b6165fe283b15fdd688a34df8cdc4 bestand commitgebunden Snapshotvertrag, Dokumentkatalog, Deutsch, 240 Governance-Tests, Walkthrough und Playwright sowie die Referenzpruefung. Release UABC-PORTABLE-PILOT-0004 bindet den getrennten Project-Twin-Consumer strikt nur-lesend; die Releases 0001 bis 0003 blieben bytegleich. REVIEW.md war in Arbeitskopie und HEAD leer, der Arbeitsbaum sauber und der Arbeitsbranch wurde normal veroeffentlicht. Keine BC-Live-, Kunden-, Steuer- oder Produktivfreigabe wurde behauptet.

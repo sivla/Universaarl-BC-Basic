@@ -82,3 +82,14 @@ Das gilt auch für produktive Bank- oder Steuerübermittlung sowie Rechts- und S
 - [Internes Consultant-Handbuch](30-blueprint.md)
 
 <!-- story-metadata {"id":"PAGE-UABC-090","title":"00 BC Basic Produktuebersicht","parent":null,"version":4,"status":"published"} -->
+## Onboarding-Fähigkeit
+
+BC Basic umfasst einen standardisierten Drei-Phasen-Weg:
+Vorbereitung und Discovery, eine fokussierte Einrichtungswoche sowie Go-live/Hypercare bis zum ersten Abschluss.
+
+Der geplante Beratungsaufwand beträgt 80 Stunden zu 120 EUR und damit 9.600 EUR netto.
+Abgerechnet werden ausschließlich genehmigte Task-Worklogs je ISO-Woche.
+
+Voraussetzungen, Ausschlüsse und reale Kundengates stehen im
+[Onboarding-Runbook](../../../docs/runbooks/bc-basic-onboarding-delivery.md).
+Continia, externe Steuer-, Bank- und E-Mail-Übermittlung sowie kundenspezifische Erweiterungen sind nicht Bestandteil des Pilots.
