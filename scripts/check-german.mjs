@@ -50,6 +50,8 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['architecture/enterprise-blueprint.yaml\u001f$.sites[4].inventoryPurpose\u001fproject staging', 'gebundener-inventarzweck'],
   ['capabilities/catalog.yaml\u001f$.statusValues[4]\u001fout-of-scope', 'deklarierter-statuswert'],
   ['governance/production-readiness.json\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
+  ['project/bc-basic/reference-simulation.yaml\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
+  ['exports/project-data/v1/reference-simulation.json\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
   ['exports/project-data/v1/document-catalog.json\u001f$.documents[39].process\u001fcustomer-onboarding', 'gebundener-onboarding-prozess'],
   ['exports/project-data/v1/index.yaml\u001f$.documentCatalog.definitions[13].process\u001fcustomer-onboarding', 'gebundener-onboarding-prozess'],
   ['governance/production-readiness.json\u001f$.deploymentBoundary\u001fcustomer-source-of-truth', 'gebundene-source-of-truth-grenze'],

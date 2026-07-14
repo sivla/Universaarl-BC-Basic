@@ -9,7 +9,7 @@ approvalPolicy:
   scope: Repositorybasierte Onboarding- und Delivery-Bereitschaft ohne BC-Live-Schreibvorgang oder externe Uebermittlung
   conditions: [customerGoLiveReady bleibt pending, Continia bleibt out-of-scope, nur Tasks sind abrechenbar, keine echten Kundendaten]
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     platformReady: READY

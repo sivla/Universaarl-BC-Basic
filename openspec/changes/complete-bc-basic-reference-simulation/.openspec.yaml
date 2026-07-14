@@ -1,0 +1,23 @@
+schema: universaarl-delivery
+created: 2026-07-14
+goal: 50 UABC-Tickets, realistische Playthroughs, UAT, Cutover, Hypercare und
+  Supportuebergabe als lokale Source of Truth
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-REFERENCE-SIMULATION-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-14
+  scope: synthetische Referenzsimulation ohne Live-BC-, Tenant-, Steuer- oder Publishing-Aktion
+  conditions: [echte Live-Gates bleiben pending, Continia bleibt out-of-scope, Snapshot erst nach finalem Fachcommit]
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    referenceSimulation: SIMULATED_COMPLETE
+    liveExecution: PENDING
+    ticketCount: 50
+    worklogHours: 80
+    worklogNetAmount: 9600
+  unknowns: [echte Tenantberechtigungen, reale Kundenfreigabe, produktiver UAT, Cutover-GO, Steuerfreigabe]
+  policyGateEvidenceId: UABC-VER-BCB-REFERENCE-SIMULATION-001

@@ -1,0 +1,49 @@
+schemaVersion: 1
+projectId: UABC-BC-BASIC-001
+classification: current-reference-simulation
+currentAuthority: true
+simulationOnly: true
+sourceStory: evidence/simulation/project-story.json
+sourceHistoricalEvidence:
+  - project/bc-basic/bc-playthrough-catalog.yaml
+  - evidence/simulation/bc-playthrough-ledger.yaml
+  - evidence/simulation/phase-2-p2p-o2c.yaml
+  - evidence/simulation/phase-3-cash-inventory-close.yaml
+  - evidence/simulation/project-completion.yaml
+truthBoundary:
+  liveExecutionClaimed: false
+  customerApprovalClaimed: false
+  taxApprovalClaimed: false
+  productionUseClaimed: false
+  externalTransmissionAllowed: false
+  continia: out-of-scope
+  liveGates: pending
+offer:
+  plannedHours: 80
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  ceilingNetAmount: 10000
+  billingRule: billable-task-worklogs-only
+phases:
+  - { id: UABC-1, code: P1, title: Vorbereitung und Lösungsdesign, plannedHours: 22, syntheticResult: completed }
+  - { id: UABC-2, code: P2, title: "Einrichtung, Tests und Schulung", plannedHours: 40, syntheticResult: completed }
+  - { id: UABC-3, code: P3, title: Hypercare und Abschluss, plannedHours: 18, syntheticResult: completed }
+meetings:
+  - { id: UABC-MTG-001, path: atlassian/confluence/meetings/UABC-MTG-001.md, phase: P1 }
+  - { id: UABC-MTG-002, path: atlassian/confluence/meetings/UABC-MTG-002.md, phase: P2 }
+  - { id: UABC-MTG-003, path: atlassian/confluence/meetings/UABC-MTG-003.md, phase: P3 }
+playthroughs:
+  - { id: SIM-P2P-001, title: Einkauf bis Zahlung, evidence: evidence/simulation/phase-2-p2p-o2c.yaml, navigation: Bestellung > Wareneingang > Einkaufsrechnung > Zahlung, input: SYN-PO-001, documents: [SYN-PO-001, SYN-AP-001], postings: [inventory, inputVat, vendor], controls: [gross-499.80, quantity-10], defect: SIM-DEF-P2P-001, correction: MWST19-zuordnen, retest: bestanden-synthetisch }
+  - { id: SIM-O2C-001, title: Verkauf bis Zahlungseingang, evidence: evidence/simulation/phase-2-p2p-o2c.yaml, navigation: Verkaufsauftrag > Versand > Verkaufsrechnung > Zahlungseingang, input: SYN-SO-001, documents: [SYN-SO-001, SYN-AR-002], postings: [customer, revenue, outputVat, cogs, inventory], controls: [gross-940.10, quantity-10], defect: SIM-DEF-O2C-001, correction: Artikelpreis-79.00, retest: bestanden-synthetisch }
+  - { id: SIM-INV-001, title: Inventur und Lagerbewertung, evidence: evidence/simulation/phase-3-cash-inventory-close.yaml, navigation: Lager > Inventur > Bewertung > Differenzbuchung, input: SYN-INV-001, documents: [SYN-INV-001], postings: [inventory, inventoryDifference], controls: [quantity-readback, value-readback], defect: SIM-DEF-INV-001, correction: Differenzbuchung, retest: bestanden-synthetisch }
+  - { id: SIM-CASH-001, title: Bank und Zahlungsausgleich, evidence: evidence/simulation/phase-3-cash-inventory-close.yaml, navigation: Bank > Zahlungseingang > Zahlungsausgang > Abstimmung, input: SYN-BANK-001, documents: [SYN-AR-002, SYN-AP-002], postings: [bank, customer, vendor], controls: [closingBank-5440.30, difference-0], defect: SIM-DEF-CASH-001, correction: SYN-AR-002-zuordnen, retest: bestanden-synthetisch }
+  - { id: SIM-CLOSE-001, title: Monatsabschluss, evidence: evidence/simulation/phase-3-cash-inventory-close.yaml, navigation: Finanzbuchhaltung > Periodenabschluss > Nebenbücher > Schlussbilanz, input: 2026-05, documents: [SYN-CLOSE-001], postings: [gl, customer, vendor, bank, inventory], controls: [debit-11080.20, credit-11080.20, difference-0], defect: SIM-DEF-CLOSE-001, correction: Abschlussreview-dokumentieren, retest: bestanden-synthetisch }
+  - { id: SIM-VAT-001, title: Deutsche UStVA-Vorschau, evidence: evidence/simulation/phase-3-cash-inventory-close.yaml, navigation: Finanzbuchhaltung > Umsatzsteuer > UStVA-Vorschau, input: 2026-05-DE, documents: [SYN-VAT-001], postings: [inputVat, outputVat], controls: [output-150.10, input-79.80, payable-70.30], defect: SIM-DEF-VAT-001, correction: Buchungskette-abstimmen, retest: bestanden-synthetisch }
+  - { id: SIM-HYPERCARE-001, title: Restart und Supportübergabe, evidence: evidence/simulation/project-completion.yaml, navigation: Support > Tickettriage > Restartpunkt > Handover, input: SYN-AR-002, documents: [SYN-HYPERCARE-001, SYN-HANDOVER-001], postings: [none], controls: [openP1-0, openP2-0, restart-readback], defect: SIM-DEF-HYPERCARE-001, correction: Zahlungsreferenz-korrigieren, retest: bestanden-synthetisch }
+gates:
+  syntheticDecision: GO_SIMULATION
+  syntheticStatus: completed
+  realGateStatus: pending
+  openP1: 0
+  openP2: 0
+  requiredLiveGates: [tenant, licenses, security, uat, cutover, close, tax, support]

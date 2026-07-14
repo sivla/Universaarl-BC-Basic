@@ -18,7 +18,7 @@ export function loadCanonical() {
 
 export function validateProductionReadiness({ readiness, story, spaces }) {
   if (readiness?.schemaVersion !== 1 || readiness?.kind !== 'universaarl-component-production-readiness' || readiness?.projectId !== 'blueprint' || readiness?.deploymentBoundary !== 'customer-source-of-truth') fail('READINESS-CONTRACT', 'Unbekannter Readiness-Vertrag.');
-  if (readiness.governingChange !== 'deliver-production-ready-bc-basic-onboarding') fail('READINESS-CHANGE', 'Falscher OpenSpec-Change.');
+  if (readiness.governingChange !== 'complete-bc-basic-reference-simulation') fail('READINESS-CHANGE', 'Falscher OpenSpec-Change.');
   const r = readiness.assessments;
   const allowedKinds = {
     platformReady: ['test-report', 'operator-guide', 'release-evidence', 'security-boundary', 'platform-matrix'],

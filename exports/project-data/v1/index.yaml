@@ -4,7 +4,7 @@ projectId: UABC-BC-BASIC-001
 projectKey: BCB
 routeKey: bc-basic
 displayName: BC Basic Einrichtung
-governingChange: deliver-production-ready-bc-basic-onboarding
+governingChange: complete-bc-basic-reference-simulation
 lifecycleStatus: active
 allowedBranch: codex/universaarl-projekt
 validationStatus: validated
@@ -2083,7 +2083,7 @@ artifacts:
   - id: UABC-SRC-BCB-VER-001
     kindId: verification-register
     path: evidence/verification-register.yaml
-    selector: verifications[changeRef=deliver-production-ready-bc-basic-onboarding]
+    selector: verifications[changeRef=complete-bc-basic-reference-simulation]
     format: yaml
     required: true
   - id: UABC-SRC-BCB-SNAPSHOT-SCHEMA-001
@@ -2630,28 +2630,73 @@ artifacts:
     required: true
   - id: UABC-SRC-BCB-ONBOARDING-PROPOSAL-001
     kindId: openspec-proposal
-    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/proposal.md
+    path: openspec/changes/complete-bc-basic-reference-simulation/proposal.md
     format: markdown
     required: true
   - id: UABC-SRC-BCB-ONBOARDING-DESIGN-001
     kindId: openspec-design
-    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/design.md
+    path: openspec/changes/complete-bc-basic-reference-simulation/design.md
     format: markdown
     required: true
   - id: UABC-SRC-BCB-ONBOARDING-TASKS-001
     kindId: openspec-tasks
-    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/tasks.md
+    path: openspec/changes/complete-bc-basic-reference-simulation/tasks.md
     format: markdown
     required: true
   - id: UABC-SRC-BCB-ONBOARDING-VERIFICATION-001
     kindId: openspec-verification
-    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/verification.md
+    path: openspec/changes/complete-bc-basic-reference-simulation/verification.md
     format: markdown
     required: true
   - id: UABC-SRC-BCB-ONBOARDING-SPEC-001
     kindId: openspec-spec
-    path: openspec/changes/deliver-production-ready-bc-basic-onboarding/specs/project-governance/spec.md
+    path: openspec/changes/complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md
     format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-PROPOSAL-001
+    kindId: openspec-proposal
+    path: openspec/changes/complete-bc-basic-reference-simulation/proposal.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-DESIGN-001
+    kindId: openspec-design
+    path: openspec/changes/complete-bc-basic-reference-simulation/design.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-TASKS-001
+    kindId: openspec-tasks
+    path: openspec/changes/complete-bc-basic-reference-simulation/tasks.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-VERIFICATION-001
+    kindId: openspec-verification
+    path: openspec/changes/complete-bc-basic-reference-simulation/verification.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-SPEC-001
+    kindId: openspec-spec
+    path: openspec/changes/complete-bc-basic-reference-simulation/specs/bc-basic-reference-simulation/spec.md
+    format: markdown
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-CONTRACT-001
+    kindId: reference-simulation-contract
+    path: project/bc-basic/reference-simulation.yaml
+    format: yaml
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-EXPORT-001
+    kindId: reference-simulation-export
+    path: exports/project-data/v1/reference-simulation.json
+    format: json
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-VALIDATOR-001
+    kindId: reference-simulation-validator
+    path: scripts/validate-reference-simulation.mjs
+    format: javascript
+    required: true
+  - id: UABC-SRC-BCB-REFERENCE-TEST-001
+    kindId: reference-simulation-negative-tests
+    path: tests/governance/reference-simulation.test.mjs
+    format: javascript
     required: true
   - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
     kindId: meeting-transcript

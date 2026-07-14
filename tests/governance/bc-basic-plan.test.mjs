@@ -698,7 +698,10 @@ test('BOUND-Zustand und JSON-Snapshotmanifest verlangen vollstaendige konsistent
   const readEntry = (sourcePath) => ({ bytes: Buffer.from(`blob:${sourcePath}\n`, 'utf8'), gitMode: '100644' });
   const legacyBinding = structuredClone(gebunden);
   legacyBinding.consumers[0].identity.repository.url = 'https://github.com/sivla/FiBu.git';
-  const manifest = buildSnapshotManifest({ binding: legacyBinding, projectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
+  const legacyProjectIndex = structuredClone(projectIndex);
+  const seenLegacyPaths = new Set();
+  legacyProjectIndex.artifacts = legacyProjectIndex.artifacts.filter((artifact) => !seenLegacyPaths.has(artifact.path) && seenLegacyPaths.add(artifact.path));
+  const manifest = buildSnapshotManifest({ binding: legacyBinding, projectIndex: legacyProjectIndex, producerCommitSha: 'd'.repeat(40), readEntry });
   const schema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'project-snapshot-manifest.schema.json'), 'utf8'));
   const legacyManifest = JSON.parse(readFileSync(path.join(root, 'exports', 'project-data', 'v1', 'snapshot-manifest.json'), 'utf8'));
   const portablePilotSchema = JSON.parse(readFileSync(path.join(root, 'governance', 'schemas', 'portable-snapshot-pilot.schema.json'), 'utf8'));

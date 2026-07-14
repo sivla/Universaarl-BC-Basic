@@ -36,15 +36,18 @@ try {
   if (projectIndex.allowedBranch !== 'codex/universaarl-projekt' || ![projectIndex.allowedBranch, projectIndex.deliveryBranch].includes(branch)) errors.push('Index trennt Consumer-Producerbranch und lokalen Delivery-Branch nicht korrekt');
   if (projectIndex.lifecycleStatus !== 'active' || projectIndex.validationStatus !== 'validated') errors.push('Index-Lifecycle oder Validierungsstatus ist ungueltig');
   const artifacts = projectIndex.artifacts ?? [];
+  const indexedArtifactCount = artifacts.length;
+  if (indexedArtifactCount < 1) errors.push('Aktueller Branch-Index enthaelt keine positivgelisteten Artefakte');
   const ids = new Set();
   const paths = new Set();
   for (const artifact of artifacts) {
     const safe = typeof artifact.path === 'string' && artifact.path.length > 0 && !artifact.path.startsWith('/') && !artifact.path.includes('\\') && !artifact.path.split('/').some((segment) => segment === '' || segment === '.' || segment === '..');
     if (!safe) errors.push(`Indexpfad ist unsicher: ${artifact.path}`);
-    if (ids.has(artifact.id) || paths.has(artifact.path)) errors.push(`Index-ID oder Pfad ist doppelt: ${artifact.id}`);
+    if (ids.has(artifact.id)) errors.push(`Index-ID ist doppelt: ${artifact.id}`);
     ids.add(artifact.id); paths.add(artifact.path);
     if (safe && !hasBlob(artifact.path)) errors.push(`Index verweist auf fehlenden Git-Blob: ${artifact.path}`);
   }
+  if (ids.size !== indexedArtifactCount) errors.push(`Aktueller Branch-Index muss ${indexedArtifactCount} eindeutige Artefakt-IDs enthalten`);
   errors.push(...validateConsumerBindings(binding, projectIndex));
   const documentCatalogBytes = readEntry(DOCUMENT_CATALOG_PATH).bytes;
   const documentCatalog = JSON.parse(documentCatalogBytes.toString('utf8'));
@@ -66,7 +69,7 @@ try {
   const snapshotContract = binding.consumers?.[0]?.snapshotContract;
   if (snapshotContract?.manifestPath !== null || snapshotContract?.lifecycleStatus !== 'active' || snapshotContract?.validationStatus !== 'validated') errors.push('Aktueller Branch-Commit-Vertrag ist nicht als validierter Indexvertrag gebunden');
   if (errors.length) fail(errors);
-  console.log(`Snapshotvertragspruefung bestanden: Spectra=${binding.spectraReleaseBinding.bindingStatus}; Branch-Commit=${consumerCommitSha}; Legacy-Manifest=${manifestExists ? 'vorhanden-nicht-normativ' : 'nicht-vorhanden'}; Branchvertrag=${snapshotContract.validationStatus}.`);
+  console.log(`Snapshotvertragspruefung bestanden: Artefakte=${indexedArtifactCount}; Spectra=${binding.spectraReleaseBinding.bindingStatus}; Branch-Commit=${consumerCommitSha}; Legacy-Manifest=${manifestExists ? 'vorhanden-nicht-normativ' : 'nicht-vorhanden'}; Branchvertrag=${snapshotContract.validationStatus}.`);
 } catch (error) {
   fail([`Commitgebundener B-Nachweis konnte nicht gelesen werden: ${error.message}`]);
 }

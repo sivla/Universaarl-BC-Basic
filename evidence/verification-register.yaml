@@ -325,3 +325,22 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-38, UABC-39, UABC-40]
     evidence: Commit b388519d5bbca7c4fe9a52c977741ca40d0b8e89 bestand im sauberen Arbeitsbaum den vollstaendigen npm-Testlauf mit 10 von 10 OpenSpec-Pruefungen, 24 Readiness-Tests, 21 Sprachtests, 264 Governance-Tests, 10 Medien- und Walkthroughtests, beiden Playwright-Browsertests sowie Snapshot-, Dokumentkatalog-, Deutsch- und Referenzgates. Snapshot UABC-PORTABLE-PILOT-0005 bindet 170 Projektartefakte an den fachlichen Producer-Commit 27d7fc19da7259705b556d03d0090c53632a68fb. Reale Kunden-, BC-, Steuer-, UAT-, Cutover-, Abschluss- und UStVA-Nachweise bleiben als acht Live-Gates offen.
+  - id: UABC-VER-BCB-REFERENCE-SIMULATION-001
+    changeRef: complete-bc-basic-reference-simulation
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-38, UABC-39, UABC-40, UABC-41, UABC-42, UABC-43, UABC-44, UABC-45, UABC-46, UABC-47, UABC-48, UABC-49, UABC-50]
+    evidence: >-
+      Referenzsimulationsgenerator und Validator bestanden: 50 Tickets, 19 Worklogs, 80 Stunden, 9.600 EUR, sieben Playthroughs sowie GO_SIMULATION mit offenen echten Live-Gates. Negativtests für fehlendes Ticket, Live-Abschlussbehauptung und Reconciliation-Abweichung bestanden. Keine Live-BC-, Tenant-, Steuer-, Continia- oder Publishing-Aktion.
+  - id: UABC-VER-BCB-PRODUCTION-READINESS-001
+    changeRef: deliver-production-ready-bc-basic-onboarding
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-38, UABC-39, UABC-40]
+    evidence: Repositorybasierte Produktions- und Onboarding-Bereitschaft ist durch die dokumentierten 24 Readiness-Tests, 10 von 10 OpenSpec-Pruefungen, Snapshot UABC-PORTABLE-PILOT-0005 mit 170 Artefakten sowie den bestehenden Gesamtcheck nachgewiesen. Die acht echten Kunden-, BC-, Steuer-, UAT-, Cutover-, Abschluss- und UStVA-Gates bleiben PENDING; kein Live-Gate wird als bestanden behauptet. Spectra 1.2.0-alpha.12 bleibt fuer den portablen Snapshot commitgebunden.
