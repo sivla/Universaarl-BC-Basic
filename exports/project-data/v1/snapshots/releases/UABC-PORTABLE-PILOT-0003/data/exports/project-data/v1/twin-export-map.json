@@ -1,0 +1,1278 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "0.10",
+  "recordType": "twin-export-map",
+  "mappingId": "MAP-UABC-BCB-TWIN-001",
+  "mappingVersion": "1.1.0",
+  "projectId": "UABC-BC-BASIC-001",
+  "allowedBranch": "codex/universaarl-projekt",
+  "classification": "synthetische-projektevidence",
+  "sourceOfTruth": "exports/project-data/v1/index.yaml",
+  "readOnly": true,
+  "artifacts": [
+    {
+      "id": "UABC-SRC-BCB-OPENSPEC-001",
+      "kindId": "openspec-change",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/proposal.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPEC-001",
+      "kindId": "requirements",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/specs/bc-basic-ticket-migration/spec.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DESIGN-001",
+      "kindId": "solution-design",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/design.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DPLAN-001",
+      "kindId": "delivery-plan",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/delivery-plan.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TASKS-001",
+      "kindId": "delivery-tasks",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/tasks.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-VPLAN-001",
+      "kindId": "verification-plan",
+      "path": "openspec/changes/archive/2026-07-12-migrate-bc-basic-to-single-uabc-ticket-project/verification.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAN-001",
+      "kindId": "project-plan",
+      "path": "project/bc-basic/project-plan.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DEL-001",
+      "kindId": "deliverable-register",
+      "path": "project/bc-basic/deliverables.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-003",
+      "kindId": "historical-jira-plan-traceability",
+      "path": "atlassian/jira/issues/bc-basic-project.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-004",
+      "kindId": "jira-people",
+      "path": "atlassian/jira/people.yaml",
+      "selector": "people[id in P-001,P-002,P-003,P-004,P-005,P-011,P-015,P-016,P-019]",
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-003",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-004",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-005",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-006",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-007",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-008",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-009",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/00-project.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-010",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/10-company-profile.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-011",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/20-discovery.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-012",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/30-blueprint.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-013",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/31-processes.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-014",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/32-decisions.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-015",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/50-tests.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-016",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/60-environment-baseline.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-017",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-018",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-019",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-001",
+      "kindId": "meeting-index",
+      "path": "atlassian/confluence/meetings/index.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DEC-001",
+      "kindId": "decision-register",
+      "path": "project/bc-basic/decision-register.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-001",
+      "kindId": "data-package",
+      "path": "project/bc-basic/data-package.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-001",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/company-setup.blank.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-002",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/dimensions.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-003",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/customers.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-004",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/vendors.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-005",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/items.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-006",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/inventory-opening.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-007",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/gl-opening.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-008",
+      "kindId": "customer-data-template",
+      "path": "project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-001",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/company-setup.example.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-002",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/dimensions.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-003",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/customers.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-004",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/vendors.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-005",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/items.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-006",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/inventory-opening.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-007",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/gl-opening.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-008",
+      "kindId": "synthetic-data-example",
+      "path": "project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-READY-001",
+      "kindId": "data-readiness-check",
+      "path": "project/bc-basic/data-readiness-check.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-UAT-001",
+      "kindId": "uat-catalog",
+      "path": "project/bc-basic/uat-catalog.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TRAIN-001",
+      "kindId": "training-plan",
+      "path": "project/bc-basic/training-plan.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-BILL-001",
+      "kindId": "billing-and-worklogs",
+      "path": "project/bc-basic/billing.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CUST-001",
+      "kindId": "customer-handbook",
+      "path": "docs/guides/beginner/business-central-basic.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONS-001",
+      "kindId": "consultant-handbook",
+      "path": "docs/runbooks/business-central-basic.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PW-001",
+      "kindId": "playwright-scenario-catalog",
+      "path": "playwright/scenarios/bc-basic-e2e.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-VER-001",
+      "kindId": "verification-register",
+      "path": "evidence/verification-register.yaml",
+      "selector": "verifications[changeRef=prepare-portable-snapshot-pilot]",
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SNAPSHOT-SCHEMA-001",
+      "kindId": "snapshot-manifest-schema",
+      "path": "governance/schemas/project-snapshot-manifest.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SOURCES-001",
+      "kindId": "source-register",
+      "path": "docs/research/sources.yaml",
+      "selector": "sources[id in SRC-OPSX-001,SRC-BC-001,SRC-BC-016,SRC-BC-052,SRC-BC-053,SRC-BC-054,SRC-BC-055,SRC-BC-056,SRC-BC-057,SRC-BC-058,SRC-BC-059,SRC-BC-060,SRC-BC-061,SRC-BC-062,SRC-BC-063,SRC-BC-064,SRC-BC-065,SRC-BC-066,SRC-BC-067,SRC-BC-068,SRC-BC-069,SRC-BC-070,SRC-BC-071,SRC-BC-072,SRC-BC-073,SRC-BC-074,SRC-BC-075,SRC-BC-076,SRC-BC-077,SRC-BC-078,SRC-BC-079,SRC-BC-080,SRC-BC-081,SRC-BC-082,SRC-BC-083,SRC-BC-084,SRC-LAW-001,SRC-ELSTER-001]",
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DRYRUN-001",
+      "kindId": "phase-2-dry-run",
+      "path": "project/bc-basic/phase-2-dry-run.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-UAT-RUN-001",
+      "kindId": "uat-training-run",
+      "path": "project/bc-basic/uat-training-run.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-READINESS-001",
+      "kindId": "phase-2-readiness-gate",
+      "path": "project/bc-basic/phase-2-readiness-gate.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TRACE-001",
+      "kindId": "traceability-matrix",
+      "path": "project/bc-basic/traceability-matrix.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-001",
+      "kindId": "spectra-release-evidence",
+      "path": "evidence/spectra-release-0.10.0-alpha.1.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-012",
+      "kindId": "spectra-release-evidence",
+      "path": "evidence/spectra-release-1.2.0-alpha.12.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-CONFORMANCE-001",
+      "kindId": "spectra-portable-conformance-evidence",
+      "path": "evidence/simulation/spectra-0.10-conformance.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-SCHEMA-001",
+      "kindId": "spectra-portable-project-story-schema",
+      "path": "governance/schemas/spectra-portable-project-story-0.7.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-ADAPTER-001",
+      "kindId": "spectra-portable-project-story-adapter",
+      "path": "scripts/adapt-spectra-portable-story.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-VALIDATOR-001",
+      "kindId": "spectra-portable-project-story-validator",
+      "path": "scripts/validate-spectra-0.7-historical-provenance.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-TESTS-001",
+      "kindId": "spectra-portable-project-story-tests",
+      "path": "tests/story/spectra-0.7-conformance.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA09-REC-SCHEMA-001",
+      "kindId": "spectra-project-reconciliation-schema",
+      "path": "governance/schemas/spectra-project-reconciliation-0.9.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA09-PRV-SCHEMA-001",
+      "kindId": "spectra-adapter-provenance-schema",
+      "path": "governance/schemas/spectra-adapter-provenance-0.9.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA09-REC-001",
+      "kindId": "spectra-project-reconciliation",
+      "path": "evidence/simulation/project-reconciliation.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA09-PRV-001",
+      "kindId": "spectra-adapter-provenance",
+      "path": "evidence/simulation/adapter-provenance.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TWIN-MAP-001",
+      "kindId": "twin-export-map",
+      "path": "exports/project-data/v1/twin-export-map.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-GEN-001",
+      "kindId": "spectra10-integration-generator",
+      "path": "scripts/generate-spectra-0.10-integration.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-VAL-001",
+      "kindId": "spectra10-integration-validator",
+      "path": "scripts/validate-spectra-0.10-integration.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-TEST-001",
+      "kindId": "spectra10-integration-tests",
+      "path": "tests/story/spectra-0.10-integration.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ACTOR-REGISTER-001",
+      "kindId": "project-actor-register",
+      "path": "project/bc-basic/actor-register.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-GEN-001",
+      "kindId": "jira-story-realism-generator",
+      "path": "scripts/enrich-jira-story-realism.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-VAL-001",
+      "kindId": "jira-story-realism-validator",
+      "path": "scripts/validate-jira-story-realism.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-JIRA-REALISM-TEST-001",
+      "kindId": "jira-story-realism-tests",
+      "path": "tests/story/jira-story-realism.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-BASELINE-001",
+      "kindId": "pilot-setup-baseline",
+      "path": "project/bc-basic/pilot-setup-baseline.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-VAL-001",
+      "kindId": "pilot-setup-validator",
+      "path": "scripts/validate-pilot-setup-baseline.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-TEST-001",
+      "kindId": "pilot-setup-negative-tests",
+      "path": "tests/governance/pilot-setup-baseline.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-COVERAGE-SCHEMA-001",
+      "kindId": "spectra-reference-graph-coverage-schema",
+      "path": "governance/schemas/spectra-reference-graph-coverage-0.10.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-COVERAGE-001",
+      "kindId": "spectra-reference-graph-coverage",
+      "path": "evidence/simulation/reference-graph-coverage.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-NATIVE-GRAPH-001",
+      "kindId": "derived-native-reference-graph",
+      "path": "exports/project-data/v1/reference-graph-native.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-GRAPH-MAPPING-001",
+      "kindId": "reference-graph-mapping-rules",
+      "path": "exports/project-data/v1/reference-graph-mapping.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-PORTABLE-GRAPH-001",
+      "kindId": "portable-reference-graph",
+      "path": "exports/project-data/v1/reference-graph-portable.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE3-001",
+      "kindId": "phase-3-cash-inventory-close",
+      "path": "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE2-SIM-001",
+      "kindId": "phase-2-p2p-o2c-simulation",
+      "path": "evidence/simulation/phase-2-p2p-o2c.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-COMPLETION-001",
+      "kindId": "synthetic-project-completion",
+      "path": "evidence/simulation/project-completion.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-BANKSIM-001",
+      "kindId": "synthetic-bank-statement",
+      "path": "evidence/simulation/synthetic-bank-statement.csv",
+      "selector": null,
+      "format": "csv",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DEMO-001",
+      "kindId": "synthetic-demo-guide",
+      "path": "docs/runbooks/bc-basic-simulation-demo.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DEMO-EVIDENCE-001",
+      "kindId": "synthetic-demo-evidence",
+      "path": "evidence/simulation/demo-readiness.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-BILLING-SIM-001",
+      "kindId": "synthetic-billing-reconciliation",
+      "path": "evidence/simulation/billing-reconciliation.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-AUDIT-001",
+      "kindId": "synthetic-objective-audit",
+      "path": "evidence/simulation/end-to-end-objective-audit.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE-GATES-001",
+      "kindId": "synthetic-phase-gate-register",
+      "path": "evidence/simulation/phase-gate-register.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAY-CATALOG-001",
+      "kindId": "bc-playthrough-catalog",
+      "path": "project/bc-basic/bc-playthrough-catalog.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAY-LEDGER-001",
+      "kindId": "bc-playthrough-ledger",
+      "path": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAY-VALIDATOR-001",
+      "kindId": "bc-playthrough-validator",
+      "path": "scripts/validate-bc-playthrough.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CANDIDATES-001",
+      "kindId": "anonymized-blueprint-candidates",
+      "path": "project/bc-basic/blueprint-candidates.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PROJECT-STORY-001",
+      "kindId": "project-story-core",
+      "path": "evidence/simulation/project-story.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-VALIDATOR-001",
+      "kindId": "project-story-validator",
+      "path": "scripts/validate-project-story.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-OFFER-001",
+      "kindId": "project-story-readable-offer",
+      "path": "docs/offers/bc-basic-offer.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-CONFLUENCE-001",
+      "kindId": "project-story-readable-pages",
+      "path": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-HYPERCARE-001",
+      "kindId": "project-story-readable-hypercare",
+      "path": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-CHRONICLE-001",
+      "kindId": "project-story-readable-chronicle",
+      "path": "docs/reports/bc-basic-project-chronicle.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-HANDOVER-001",
+      "kindId": "project-story-readable-handover",
+      "path": "docs/handover/bc-basic-handover.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-TICKETS-001",
+      "kindId": "project-story-ticket-catalog",
+      "path": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-TESTS-001",
+      "kindId": "project-story-negative-tests",
+      "path": "tests/story/project-story-validator.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-CATALOG-001",
+      "kindId": "project-document-catalog",
+      "path": "exports/project-data/v1/document-catalog.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-SCHEMA-001",
+      "kindId": "project-document-catalog-schema",
+      "path": "governance/schemas/project-document-catalog.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-GENERATOR-001",
+      "kindId": "project-document-catalog-generator",
+      "path": "scripts/generate-document-catalog.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-VALIDATOR-001",
+      "kindId": "project-document-catalog-validator",
+      "path": "scripts/validate-document-catalog.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-TESTS-001",
+      "kindId": "project-document-catalog-negative-tests",
+      "path": "tests/governance/document-catalog.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-EVIDENCE-001",
+      "kindId": "project-document-catalog-evidence",
+      "path": "evidence/simulation/document-catalog-validation.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-TICKET-MIGRATION-001",
+      "kindId": "ticket-migration-provenance",
+      "path": "project/bc-basic/ticket-migration.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-025",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/99-archive.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-033",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/76-product-audience.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-035",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/77-product-approach.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-037",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/78-product-offer.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-039",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/79-product-sales-faq.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-042",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/82-consulting-design.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-044",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/83-consulting-tests.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-046",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/84-consulting-handover.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-047",
+      "kindId": "confluence-page",
+      "path": "atlassian/confluence/pages/85-consulting-checklists.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-THREE-SPACE-001",
+      "kindId": "confluence-three-space-contract",
+      "path": "project/bc-basic/confluence-three-space-v1.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-RESULT-OBJECTS-001",
+      "kindId": "result-object-catalog",
+      "path": "project/bc-basic/result-object-catalog.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-MATRIX-001",
+      "kindId": "atlassian-materialization-contract",
+      "path": "project/bc-basic/atlassian-materialization-v1.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-DRYRUN-001",
+      "kindId": "atlassian-materialization-dry-run",
+      "path": "evidence/simulation/atlassian-materialization-dry-run.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-GEN-001",
+      "kindId": "atlassian-materialization-generator",
+      "path": "scripts/generate-atlassian-materialization.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-TEST-001",
+      "kindId": "atlassian-materialization-tests",
+      "path": "tests/governance/atlassian-materialization.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001",
+      "kindId": "setup-wave-1-projection",
+      "path": "exports/project-data/v1/setup-wave-1-projection.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-SCHEMA-001",
+      "kindId": "setup-wave-1-projection-schema",
+      "path": "governance/schemas/setup-wave-1-projection.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-GEN-001",
+      "kindId": "setup-wave-1-projection-generator",
+      "path": "scripts/generate-setup-wave-1-export.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-VAL-001",
+      "kindId": "setup-wave-1-projection-validator",
+      "path": "scripts/validate-setup-wave-1-export.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-TEST-001",
+      "kindId": "setup-wave-1-projection-tests",
+      "path": "tests/governance/setup-wave-1-export.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-W0-01-ATTEMPT-001",
+      "kindId": "current-read-only-attempt",
+      "path": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-PAYLOAD-001",
+      "kindId": "core-finance-payload",
+      "path": "project/bc-basic/core-finance-payload.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-MANIFEST-001",
+      "kindId": "core-finance-package-manifest",
+      "path": "project/bc-basic/core-finance-package-manifest.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-SCHEMA-001",
+      "kindId": "core-finance-payload-schema",
+      "path": "governance/schemas/core-finance-payload.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-GEN-001",
+      "kindId": "core-finance-package-generator",
+      "path": "scripts/generate-core-finance-package.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-VAL-001",
+      "kindId": "core-finance-package-validator",
+      "path": "scripts/validate-core-finance-package.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-TEST-001",
+      "kindId": "core-finance-package-tests",
+      "path": "tests/governance/core-finance-package.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
+      "kindId": "meeting-transcript",
+      "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "selector": null,
+      "format": "markdown",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-PILOT-001",
+      "kindId": "portable-snapshot-pilot-source",
+      "path": "project/bc-basic/portable-snapshot-pilot.yaml",
+      "selector": null,
+      "format": "yaml",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-SCHEMA-001",
+      "kindId": "portable-snapshot-pilot-schema",
+      "path": "governance/schemas/portable-snapshot-pilot.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-RELEASE-SCHEMA-001",
+      "kindId": "portable-snapshot-release-schema",
+      "path": "governance/schemas/portable-snapshot-release.schema.json",
+      "selector": null,
+      "format": "json-schema",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-LIB-001",
+      "kindId": "portable-snapshot-contract-library",
+      "path": "scripts/lib/portable-snapshot-pilot.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-GEN-001",
+      "kindId": "portable-snapshot-generator",
+      "path": "scripts/generate-portable-snapshot-pilot.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-VAL-001",
+      "kindId": "portable-snapshot-validator",
+      "path": "scripts/validate-portable-snapshot-pilot.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-TEST-001",
+      "kindId": "portable-snapshot-negative-tests",
+      "path": "tests/governance/portable-snapshot-pilot.test.mjs",
+      "selector": null,
+      "format": "javascript",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-CATALOG-001",
+      "kindId": "portable-customer-snapshot-catalog",
+      "path": "exports/project-data/v1/snapshots/catalog.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-CURRENT-001",
+      "kindId": "portable-snapshot-current-pointer",
+      "path": "exports/project-data/v1/snapshots/current.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-FRAGMENT-002",
+      "kindId": "portable-customer-project-fragment",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/catalog-fragment.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-MANIFEST-002",
+      "kindId": "portable-snapshot-release-manifest",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-PAYLOAD-002",
+      "kindId": "portable-snapshot-release-payload",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/payload.json",
+      "selector": null,
+      "format": "json",
+      "required": true
+    }
+  ]
+}

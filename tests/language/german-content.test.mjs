@@ -328,6 +328,17 @@ test('offizielle Originaltitel sind nur im Quellenfeld und an der passenden Link
   assert.ok(wrongUrl.violations.some((item) => item.path === 'docs/research/source-register.md'));
 });
 
+test('portabler Snapshot nutzt Quellpfadsemantik und technische Manifesttypen', () => {
+  const release = 'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003';
+  const manifest = scanEntries([entry(`${release}/manifest.json`, JSON.stringify({ files: [{ kind: 'project-source' }] }))]);
+  assert.deepEqual(manifest.violations, []);
+  assert.equal(manifest.exceptions.some((item) => item.kind === 'technischer-portabler-dateityp'), true);
+
+  const mirrored = scanEntries([entry(`${release}/data/docs/probe.md`, '# Pruefung\nThis unfamiliar customer workflow requires careful approval.')]);
+  assert.equal(mirrored.violations.some((item) => item.path === 'docs/probe.md'), true);
+  assert.equal(mirrored.exceptions.some((item) => item.kind === 'commitgebundene-snapshot-projektquelle'), true);
+});
+
 test('Standardpayload besitzt exakt sechs Eigenschaften in fester Schreibweise Reihenfolge und Typisierung', () => {
   const commit = 'a'.repeat(40);
   const payload = createStandardPayload(commit);

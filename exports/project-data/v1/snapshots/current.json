@@ -1,10 +1,13 @@
 {
   "schemaVersion": 1,
   "pointerContract": "uabc-portable-snapshot-current-v1",
-  "currentReleaseId": "UABC-PORTABLE-PILOT-0002",
-  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json",
-  "manifestSha256": "505ee0fea7e7db9441fb9ad32a0a1f839e751cbd1e00d2b539b777c1ab400322",
+  "customerId": "UABC-CUSTOMER-001",
+  "projectId": "UABC-BC-BASIC-001",
+  "currentReleaseId": "UABC-PORTABLE-PILOT-0003",
+  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003/manifest.json",
+  "manifestSha256": "5710f0c5315ede59f8af1bbe6a154725a180ef9c87c6502a83f1008892eaf863",
   "bindingStatus": "BOUND_BCPROJECTOS_RELEASE",
   "consumerEligible": true,
-  "publishEligible": true
+  "publishEligible": true,
+  "updatedAt": "2026-07-13T23:40:49Z"
 }

@@ -57,3 +57,4 @@ evidence/simulation/project-story.json text eol=lf
 evidence/simulation/atlassian-materialization-dry-run.json text eol=lf
 project/bc-basic/confluence-three-space-v1.yaml text eol=lf
 exports/project-data/v1/document-catalog.json text eol=lf
+exports/project-data/v1/snapshots/** -text

@@ -1,0 +1,300 @@
+schemaVersion: 1
+artifactId: UABC-VER-REGISTER-001
+verifications:
+  - id: UABC-VER-WORKTREE-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: repository
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-GOV-REFERENCE-001]
+    evidence: V2-Worktree auf Orphan-Branch; Legacy-Branch und HEAD beibehalten
+  - id: UABC-VER-LOCAL-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: automated
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-REQ-GOV-001, UABC-REQ-GOV-002]
+    evidence: npm test exit 0; OpenSpec-Schema und strict Change-Validierung bestanden
+  - id: UABC-VER-REFS-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: automated
+    executedAt: 2026-07-10
+    environment: local-v2-worktree
+    subjectRefs: [UABC-REQ-GOV-002]
+    evidence: lokale ID-, Hierarchie-, Personen-, Workflow- und Referenzvalidierung bestanden
+  - id: UABC-VER-SOURCES-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: document-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-ARCH-ENTERPRISE-001]
+    evidence: Direkte OpenSpec- und Microsoft-Quellen sind mit Abrufdatum, Umfang, Entscheidungen, Alternativen und Unsicherheiten dokumentiert; reale bedingte W0-Freigabe durch Repository-Nutzer am 2026-07-10 dokumentiert
+  - id: UABC-VER-ARCH-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: architecture-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENT-001, UABC-REQ-ENT-002, UABC-REQ-ENT-003, UABC-REQ-ENT-004]
+    evidence: Unternehmens- und Loesungsarchitektur einschliesslich vier substanzieller Rechtstraeger, UAC-CONS, Rollen, Kontrollen, Entscheidungen und W1-Pruefpunkte durch den realen Repository-Nutzer am 2026-07-10 bedingt freigegeben
+  - id: UABC-VER-CAP-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: capability-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-CAP-001, UABC-REQ-CAP-002]
+    evidence: Faehigkeitsportfolio und W1-W5-Lieferplan durch den realen Repository-Nutzer am 2026-07-10 als W0-Planungsumfang akzeptiert; einzelne Faehigkeiten bleiben planned oder deferred und unvalidiert
+  - id: UABC-VER-BLUEPRINT-APPROVAL-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: human-approval
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-ARCH-ENTERPRISE-001]
+    evidence: "Die Entscheidung 'Empfehlungen uebernehmen' des realen Repository-Nutzers am 2026-07-10 gibt W0-Unternehmens- und Loesungsarchitektur, Faehigkeitsplan, W1-W5-Liefermodell, Rollen, Kontrollen und Pruefpunkte fuer offene Fragen bedingt frei. Der Freigebende ist nicht die synthetische Jira-Person P-001. Ausgeschlossen sind tatsaechliche playthru-Baseline und Funktionsverfuegbarkeit, Rechts-/Steuerdetails, finale Lizenzierung, Validierung einzelner Faehigkeiten, W1-Schreibvorgaenge, BC-Zugriff und Produktivstart."
+  - id: UABC-VER-ARCHIVE-DRYRUN-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: archive-dry-run
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001]
+    evidence: evidence/archive-dry-run-2026-07-10.yaml; Archivierung exit 0 und post-archive npm test exit 0 mit 0 aktiven Changes
+  - id: UABC-VER-GOV-SELFTEST-001
+    changeRef: establish-universaarl-enterprise-blueprint
+    requiredForArchive: true
+    status: passed
+    type: governance-negative-and-positive-selftest
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001, UABC-REQ-GOV-004]
+    evidence: evidence/governance-selftests-2026-07-10.yaml; erforderliche negative und positive Faelle verhielten sich wie spezifiziert
+  - id: UABC-VER-ENV-RUN1-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: playwright-ui-baseline
+    executedAt: 2026-07-10
+    environment: playthru
+    subjectRefs: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-SCN-ENV-001, UABC-SCN-ENV-002, UABC-SCN-ENV-003, UABC-SCN-ENV-004]
+    evidence: evidence/playthru-environment-baseline/run-1/manifest.json und events.jsonl; sieben visuell aufbewahrte Screenshots; Playwright 1.61.1; finalisierter Trace-Pfad existiert; Manifest dokumentiert keinen Wechsel und keinen Schreibvorgang
+  - id: UABC-VER-ENV-RUN2-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: playwright-ui-baseline
+    executedAt: 2026-07-10
+    environment: playthru
+    subjectRefs: [UABC-REQ-ENV-004, UABC-SCN-ENV-006]
+    evidence: evidence/playthru-environment-baseline/run-2/manifest.json und events.jsonl; unabhaengige Ausfuehrung desselben korrigierten Tests; Playwright 1.61.1; finalisierter Trace-Pfad existiert; Manifest dokumentiert keinen Wechsel und keinen Schreibvorgang
+  - id: UABC-VER-ENV-COMPARE-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: normalized-result-comparison
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-004, UABC-SCN-ENV-006]
+    evidence: evidence/playthru-environment-baseline/comparison.json; stableFactsEqual true und differences leer
+  - id: UABC-VER-ENV-VISUAL-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: visual-evidence-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-003, UABC-SCN-ENV-005]
+    evidence: evidence/playthru-environment-baseline/visual-review.yaml; 14 kuratierte Screenshots durch Codex-Agent geprueft mit humanApproval false
+  - id: UABC-VER-ENV-DOCS-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: curated-document-review
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-005, UABC-SCN-ENV-007]
+    evidence: docs/guides/beginner/playthru-environment-baseline.md und docs/runbooks/playthru-environment-baseline.md fuehren Behauptungen auf Szenarien und Verifikations-IDs zurueck und bewahren unknown-Werte
+  - id: UABC-VER-ENV-GOV-SELFTEST-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: governance-regression-test
+    executedAt: 2026-07-10
+    environment: disposable-copy
+    subjectRefs: [UABC-GOV-REFERENCE-001, UABC-REQ-ENV-004]
+    evidence: tests/governance/archive-ready.test.mjs und evidence/playthru-environment-baseline/lifecycle-selftest.yaml; sechs ausfuehrbare Node-Tests bestanden, einschliesslich echtem OpenSpec-Merge/Archivierung, Roharchiv-Ablehnung, Ablehnung kanonischer Drift und Post-Archive-Validierung; temporaere Repositories wurden entfernt
+  - id: UABC-VER-ENV-POLICY-GATE-001
+    changeRef: establish-playthru-environment-baseline
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-ENV-001, UABC-REQ-ENV-002, UABC-REQ-ENV-003, UABC-REQ-ENV-004, UABC-REQ-ENV-005]
+    evidence: Realer Repository-Nutzer autorisierte am 2026-07-10 im aktuellen Codex-Thread die Ersetzung des menschlichen Gates durch einen ausdruecklich automatisierten Policy-Pruefpunkt; npm test einschliesslich vier wegwerfbarer Governance-Regressionen bestanden und kanonische Synchronisierung wird durch Validator erzwungen
+  - id: UABC-VER-WT-BUILD-001
+    changeRef: establish-project-artifact-walkthrough-pilot
+    requiredForArchive: true
+    status: passed
+    type: deterministic-artifact-build
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    evidence: npm run test:walkthrough exit 0 mit sechs Node-Vertrags-/Konsumenten-/Medientests und zwei lokalen Playwright-HTML-Tests fuer Desktop und Mobilgeraet; zwei Builds erzeugten byte-identische SHA-256-Ausgaben; sieben repraesentative WebM-Frames bestanden die visuelle Pruefung in artifacts/walkthrough/reviews/UABC-WT-ENV-001-visual.yaml; realer Twin-Smoke lieferte warningCount 0
+  - id: UABC-VER-WT-POLICY-GATE-001
+    changeRef: establish-project-artifact-walkthrough-pilot
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-10
+    environment: repository
+    subjectRefs: [UABC-REQ-WT-001, UABC-REQ-WT-002, UABC-REQ-WT-003]
+    evidence: Automatisierter change-spezifischer Pruefpunkt nach Draft-2020-12-Schemavalidierung, Pilotadapter-Pruefungen, deterministischem Rebuild, begrenztem Export-/Checksum-Konsumententest, lokalem Desktop-/Mobil-Playwright-Interaktionstest, OpenSpec-strict-Validierung und Projekt-Referenzvalidierung bestanden; kanonisches Walkthrough-Registry-Update ist angewendet, ohne neue fachliche Nachweise zu behaupten
+  - id: UABC-VER-BCB-LOCAL-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: passed
+    type: repository
+    executedAt: 2026-07-13
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-004, UABC-REQ-BCB-011]
+    evidence: Historischer, durch den CRONUS-Pilot-Rebaseline abgeloester Repository- und Browsernachweis. Er bleibt Provenienz fuer die damalige Country/Region- und Company-Information-Beobachtung, erfuellt aber kein aktuelles Setup-, Wave-0-, Worklog-, Kundenfreigabe- oder Live-Gate.
+  - id: UABC-VER-BCB-READINESS-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: human-approval
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-002, UABC-REQ-BCB-005, UABC-REQ-BCB-006]
+    evidence: null
+  - id: UABC-VER-BCB-E2E-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: automated
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
+    evidence: null
+  - id: UABC-VER-BCB-TRAINING-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: human-approval
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-007, UABC-REQ-BCB-008]
+    evidence: null
+  - id: UABC-VER-BCB-CLOSE-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: document-review
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-009]
+    evidence: null
+  - id: UABC-VER-BCB-VAT-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: document-review
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-009]
+    evidence: null
+  - id: UABC-VER-BCB-HANDOVER-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: false
+    status: pending
+    type: human-approval
+    executedAt: null
+    environment: null
+    subjectRefs: [UABC-REQ-BCB-007, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+    evidence: null
+  - id: UABC-VER-BCB-POLICY-GATE-001
+    changeRef: deliver-bc-basic-customer-project
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-12
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003, UABC-REQ-BCB-004, UABC-REQ-BCB-005, UABC-REQ-BCB-006, UABC-REQ-BCB-007, UABC-REQ-BCB-008, UABC-REQ-BCB-009, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+    evidence: Archivierung des vollständig abgeschlossenen Changes ist kontrolliert in die Projektablage erfolgt.
+  - id: UABC-VER-BCB-TICKET-MIGRATION-001
+    changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-12
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-003]
+    evidence: Commit 7b988e1cb8dee9b7f227481478ad97449e774100 bindet exakt UABC-1..50, die 86/86-Migrationsmatrix, fail-closed Alt-ID-Pruefungen, OpenSpec 6/6, Snapshotvertrag, Dokumentkatalog und den vollstaendigen lokalen Gesamtcheck; keine Live-Jira-, BC- oder Remote-Aktion.
+  - id: UABC-VER-BCB-THREE-SPACE-001
+    changeRef: migrate-bc-basic-to-three-space-confluence-v1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Commit 683aed2e3f150ae680a67e2a9cd189a9c5ff83c4 bindet drei Spaces mit 28 konkreten Seiten, 19 Altseitenmigrationen, neun getrennte neue Seiten, neun klassifizierte Kundendeliverables, 78 trockene Atlassian-Entscheidungen, Katalog/Index/Referenzgraph/Snapshot sowie den commitgebundenen Gesamtcheck; REVIEW in Arbeitskopie und HEAD leer, keine Live- oder Publishing-Aktion.
+  - id: UABC-VER-BCB-JIRA-REALISM-001
+    changeRef: make-bc-basic-jira-story-human-readable-v1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Historischer, am 13.07.2026 durch die aktive Pilot-Rebaseline abgeloester Jira-Realismus-Nachweis. Seine damaligen Abschluss-, Ticket- und Worklogwerte bleiben ausschliesslich Auditprovenienz und fliessen nicht in aktuelle Counts, Istsummen, Materialisierung oder Gate-Erfuellung ein.
+  - id: UABC-VER-BCB-PILOT-SETUP-001
+    changeRef: document-uabc-basic-de-playthru-setup-baseline
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    evidence: Historischer read-only Ausgangsnachweis fuer Playthru/UABC-BASIC-DE mit BC 28.2 und drei Paketgeruesten ohne Wirkung. Die aktive Rebaseline klassifiziert den Gesellschaftsinhalt als CRONUS-Demo-Baseline; Pilotkonfiguration, Wave-0 und Resetentscheidung bleiben offen.
+  - id: UABC-VER-BCB-COMPANY-EXEC-001
+    changeRef: record-uabc-basic-de-country-company-information-execution
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-39, UABC-REQ-BCB-001, UABC-REQ-BCB-003]
+    evidence: Historischer, durch den CRONUS-Pilot-Rebaseline abgeloester Country/Region- und Company-Information-Ausfuehrungsnachweis. Er bleibt Auditprovenienz, besitzt currentAuthority=false und darf keinen aktuellen Pilot-, Setup-, Schreib- oder Readbackstatus erfuellen.
+  - id: UABC-VER-BCB-SETUP-WAVE1-001
+    changeRef: prepare-uabc-basic-de-setup-wave-1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-39, UABC-40, UABC-REQ-BCB-001, UABC-REQ-BCB-003]
+    evidence: Repositorybasiertes Policy-Gate auf Commit 4a35e9521bb56006f05bc1a0a5702ae586de14b5. OpenSpec strict bestand mit 10 von 10 Items, der fokussierte Setup-, Story-, Plan- und Ticketblock mit 154 von 154 Tests, und 13 deterministische Ableitungen waren im Wiederholungslauf bytegleich; git diff --check und die gezielte Review waren ohne Befund. Geprueft ist ausschliesslich der vorbereitete und schreibgesperrte Setup-Wave-1-Vertrag; es gab keinen Live-Run, keine BC-Ausfuehrung und keine externe oder menschliche Freigabe. writesAuthorized, pilotConfigured und writesApplied bleiben false.
+  - id: UABC-VER-PORTABLE-SNAPSHOT-0002
+    changeRef: prepare-portable-snapshot-pilot
+    requiredForArchive: false
+    status: passed
+    type: automated
+    executedAt: 2026-07-13
+    environment: local-repository
+    subjectRefs: [UABC-38]
+    evidence: Commit ad1818a6b6b409c309cad45de918e5992c4d1304 bestand im sauberen Arbeitsbaum den commitgebundenen Snapshotvertrag und Dokumentkatalog sowie den vollstaendigen npm-Testlauf mit 10 von 10 OpenSpec-Pruefungen, 19 von 19 portablen Snapshot-Tests, 237 von 237 Governance-Tests, beiden Walkthrough-Browsertests und den Deutsch- und Referenzgates. REVIEW.md war in Arbeitskopie und HEAD leer. Geprueft wurden die gebundene Spectra-Version spectra-v1.2.0-alpha.12, der immutable Release UABC-PORTABLE-PILOT-0002, Digest- und Transportgleichheit, Kundentrennung und fail-closed Negativfaelle; es gab keinen Push und keine externe Plattformveraenderung.

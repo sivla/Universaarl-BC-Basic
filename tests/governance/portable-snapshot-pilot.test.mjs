@@ -1,14 +1,17 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import test from 'node:test';
 import YAML from 'yaml';
-import { buildPortableArtifacts, canonicalJson, validatePortableArtifacts, validatePortableContract } from '../../scripts/lib/portable-snapshot-pilot.mjs';
+import { buildPortableArtifacts, buildProjectBundle, canonicalJson, PROJECT_INDEX_PATH, validatePortableArtifacts, validatePortableContract } from '../../scripts/lib/portable-snapshot-pilot.mjs';
 
 const source = YAML.parse(fs.readFileSync('project/bc-basic/portable-snapshot-pilot.yaml', 'utf8'));
-const confluence = YAML.parse(fs.readFileSync('project/bc-basic/confluence-three-space-v1.yaml', 'utf8'));
-const readText = (relative) => fs.readFileSync(relative, 'utf8');
+const gitBytes = (relative) => execFileSync('git', ['show', `${source.release.producerCommitProvenance}:${relative}`], { encoding: null, maxBuffer: 64 * 1024 * 1024 });
+const confluence = YAML.parse(gitBytes(source.sourceInventory.confluenceContractPath).toString('utf8'));
+const readText = (relative) => gitBytes(relative).toString('utf8');
 const clone = (value) => structuredClone(value);
-const build = (contract = source, pages = confluence) => buildPortableArtifacts(contract, pages, readText);
+const projectBundle = buildProjectBundle({ producerCommit: source.release.producerCommitProvenance, indexBytes: gitBytes(PROJECT_INDEX_PATH), readBytes: gitBytes });
+const build = (contract = source, pages = confluence) => buildPortableArtifacts(contract, pages, readText, projectBundle);
 const errorText = (contract, artifacts) => validatePortableArtifacts(contract, artifacts).join('\n');
 const rewrite = (artifacts, relative, mutate) => {
   const copy = Object.fromEntries(Object.entries(artifacts).map(([key, value]) => [key, Buffer.from(value)]));
@@ -27,16 +30,27 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   assert.equal(source.release.publishEligible, true);
   assert.equal(source.release.spectraReleaseBinding.releaseTag, 'spectra-v1.2.0-alpha.12');
   assert.equal(source.release.spectraReleaseBinding.platformEvidenceStatus, 'passed');
-  const payload = JSON.parse(build()[`${source.release.releaseDirectory}/payload.json`]);
+  const artifacts = build();
+  const payload = JSON.parse(artifacts[`${source.release.releaseDirectory}/payload.json`]);
+  const manifest = JSON.parse(artifacts[`${source.release.releaseDirectory}/manifest.json`]);
   assert.equal(payload.views.internal.brownfieldReconciliation.rows.length, 30);
   assert.equal(payload.views.customer.approvedKnowledgeChanges.length, 1);
   assert.equal(payload.views.customer.contradictions, undefined);
+  assert.equal(manifest.projectData.sourceCommit, source.release.producerCommitProvenance);
+  assert.equal(manifest.projectData.artifactCount, 158);
+  assert.equal(manifest.files.filter((item) => item.kind === 'project-source').length, 158);
+  assert.equal(manifest.files.length, 161);
+  for (const relative of [source.release.currentPointerPath, `${source.release.releaseDirectory}/manifest.json`, manifest.files.find((item) => item.kind === 'project-source').path]) {
+    assert.match(execFileSync('git', ['check-attr', 'text', '--', relative], { encoding: 'utf8' }), /text: unset/u, relative);
+  }
 });
 
-test('alter ungebundener Release bleibt als unveraenderliche Historie erhalten', () => {
-  const oldDirectory = 'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001';
-  for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
-  assert.notEqual(source.release.releaseDirectory, oldDirectory);
+test('alte Releases bleiben als unveraenderliche Historie erhalten', () => {
+  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002']) {
+    const oldDirectory = `exports/project-data/v1/snapshots/releases/${releaseId}`;
+    for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
+    assert.notEqual(source.release.releaseDirectory, oldDirectory);
+  }
 });
 
 test('unvollstaendige Spectra-Releaseevidence wird abgelehnt', () => {
@@ -92,6 +106,25 @@ test('falscher Payloaddigest wird abgelehnt', () => {
   const manifestPath = `${source.release.releaseDirectory}/manifest.json`;
   const changed = rewrite(artifacts, manifestPath, (manifest) => { manifest.files[0].sha256 = '0'.repeat(64); });
   assert.match(errorText(source, changed), /PILOT-DIGEST/);
+});
+
+test('veraenderte commitgebundene Projektbytes werden abgelehnt', () => {
+  const artifacts = build();
+  const manifestPath = `${source.release.releaseDirectory}/manifest.json`;
+  const manifest = JSON.parse(artifacts[manifestPath]);
+  const projectSource = manifest.files.find((item) => item.kind === 'project-source');
+  artifacts[projectSource.path] = Buffer.concat([artifacts[projectSource.path], Buffer.from('\nveraendert')]);
+  assert.match(errorText(source, artifacts), /PILOT-DIGEST/);
+});
+
+test('widerspruechliche Projektindex-Zuordnung wird abgelehnt', () => {
+  const artifacts = build();
+  const manifestPath = `${source.release.releaseDirectory}/manifest.json`;
+  const changed = rewrite(artifacts, manifestPath, (manifest) => {
+    const projectSources = manifest.files.filter((item) => item.kind === 'project-source');
+    projectSources[1].sourcePath = projectSources[0].sourcePath;
+  });
+  assert.match(errorText(source, changed), /PILOT-PROJEKTDATEN/);
 });
 
 test('ungueltiger Attachment-Digest wird abgelehnt', () => {

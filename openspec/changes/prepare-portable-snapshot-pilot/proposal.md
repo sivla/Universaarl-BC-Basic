@@ -10,9 +10,10 @@ Die bestehende synthetische Drei-Space-Projektsimulation erhaelt einen determini
 - Alle sieben Deltaarten, Tombstones, Wissensreview, Coverage, Widersprueche und Brownfield-Reconciliation.
 - Unveraenderliches lokales Releaseverzeichnis, atomarer `current.json`-Zeiger und isolierter Kunden-/Projektkatalog.
 - Identischer Bytevertrag fuer Filesystem und HTTPS sowie fail-closed Digests und Sichtgrenzen.
+- Commitgebundener Projektindex mit allen 158 positivgelisteten Projektquellen, damit ein Consumer die vollstaendige Projektansicht ohne produktive Git-Abhaengigkeit lesen kann.
 - Eine zweite Kundeninstanz ausschliesslich als synthetische Negativfixture unter `tests/fixtures`.
 - Bindung eines neuen, unveraenderlichen Snapshot-Releases an den nachweislich plattformgruenen Spectra-Release `spectra-v1.2.0-alpha.12`.
 
 ## Grenzen
 
-Keine Live-Verbindung, keine Produktivbehauptung, keine Twin-Code- oder BCProjectOS-Aenderung aus dieser Kundeninstanz. Der historische ungebundene Release `UABC-PORTABLE-PILOT-0001` bleibt bytegleich erhalten. Ausschliesslich der neue Release `UABC-PORTABLE-PILOT-0002` darf nach vollstaendiger Tag-, Commit-, Manifest-, Digest- und Plattform-Evidence `BOUND_BCPROJECTOS_RELEASE` sowie Consumer- und kontrollierte Publish-Eignung tragen.
+Keine Live-Verbindung, keine Produktivbehauptung, keine Twin-Code- oder BCProjectOS-Aenderung aus dieser Kundeninstanz. Die historischen Releases `UABC-PORTABLE-PILOT-0001` und `UABC-PORTABLE-PILOT-0002` bleiben bytegleich erhalten. Ausschliesslich der aktuelle Release `UABC-PORTABLE-PILOT-0003` bindet die vollstaendige Projekt-Quellmenge aus dem festgehaltenen Producer-Commit. Die Spectra-Bindung bleibt auf `spectra-v1.2.0-alpha.12` mit vollstaendiger Tag-, Commit-, Manifest-, Digest- und Plattform-Evidence begrenzt.

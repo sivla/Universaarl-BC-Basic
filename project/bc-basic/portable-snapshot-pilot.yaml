@@ -50,8 +50,8 @@ brownfieldReconciliation:
     - { rowId: UABC-BF-003, sourceId: UABC-CONF-EXTERNAL-001, decision: exclude, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: inaccessible, openGap: Zugriff und freigegebener Export fehlen }
     - { rowId: UABC-BF-004, sourceId: UABC-CONF-GAP-001, decision: gap, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: missing, openGap: Freigegebene Attachment-Baseline fehlt }
 release:
-  releaseId: UABC-PORTABLE-PILOT-0002
-  releaseDirectory: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002
+  releaseId: UABC-PORTABLE-PILOT-0003
+  releaseDirectory: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0003
   immutable: true
   currentPointerPath: exports/project-data/v1/snapshots/current.json
   catalogPath: exports/project-data/v1/snapshots/catalog.json
@@ -63,7 +63,7 @@ release:
   transports: [filesystem, https]
   byteContract: identical-canonical-bytes
   visibilityClasses: [customer, internal]
-  producerCommitProvenance: f7564cb3dc5f67086a78cd59b0b7b441437cacb9
+  producerCommitProvenance: 8132f2ce692dfcb8e12a3a4db4a287c643a6376f
   requiredReleaseEvidence: [annotatedTag, peeledCommit, finalManifest, productDigest, platformMatrix]
   spectraReleaseBinding:
     evidencePath: evidence/spectra-release-1.2.0-alpha.12.yaml
@@ -86,6 +86,6 @@ release:
 customerCatalog:
   producerCustomerId: UABC-CUSTOMER-001
   projects:
-    - { projectId: UABC-BC-BASIC-001, routeKey: bc-basic, visibility: customer, snapshotReleaseId: UABC-PORTABLE-PILOT-0002 }
+    - { projectId: UABC-BC-BASIC-001, routeKey: bc-basic, visibility: customer, snapshotReleaseId: UABC-PORTABLE-PILOT-0003 }
   aggregationRule: Mehrere Projekte desselben Kunden sind erlaubt; mehrere Kunden nur als isolierte validierte Fragmente ohne gemeinsame Payload.
   foreignCustomerFixturesOnly: true

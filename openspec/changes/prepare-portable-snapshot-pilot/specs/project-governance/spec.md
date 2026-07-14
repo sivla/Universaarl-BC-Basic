@@ -21,6 +21,13 @@ Das System MUST Releasebytes, Digests, Kundengrenzen und Sichtklassen fail-close
 - **THEN** MUST er ausschließlich den validierten Releasepfad aus `current.json` verwenden
 - **AND** Arbeitsbaumdaten, fremde Kundenfragmente und nicht freigegebene Sichtklassen bleiben unlesbar
 
+#### Scenario: Twin liest die vollstaendige Projektansicht ohne Git
+
+- **WHEN** der Twin einen validierten Release ueber Filesystem oder HTTPS oeffnet
+- **THEN** MUST das Manifest den commitgebundenen Projektindex und jede darin positivgelistete Projektquelle einzeln ueber ID, Quellpfad, Format, Groesse und SHA-256 binden
+- **AND** die Releasebytes MUST unter beiden Transportarten identisch sein
+- **AND** der Producer-Commit MUST reine Provenienz bleiben und darf keine Git-Laufzeitabhaengigkeit des Twin erzeugen
+
 #### Scenario: Neuer Spectra-Release fehlt
 
 - **WHEN** annotierter Tag, peeled Commit, finales Manifest oder Produktdigest fehlen
@@ -31,6 +38,6 @@ Das System MUST Releasebytes, Digests, Kundengrenzen und Sichtklassen fail-close
 
 - **WHEN** das annotierte Tagobjekt, der aufgeloeste Commit, das finale Manifest, der Manifest-Quellcommit, der Quellbaum, der Produktdigest sowie die bestandenen Plattformnachweise fuer Windows und macOS gemeinsam vorliegen
 - **THEN** MUST ein neuer unveraenderlicher Snapshot-Release mit `BOUND_BCPROJECTOS_RELEASE` erzeugt werden
-- **AND** der historische ungebundene Release MUST bytegleich erhalten bleiben
+- **AND** alle historischen Releases MUST bytegleich erhalten bleiben
 - **AND** `current.json`, Kundenfragment und Katalog MUST exakt denselben neuen Release und dessen Manifestdigest binden
 - **AND** `consumerEligible` und `publishEligible` duerfen erst dann true sein

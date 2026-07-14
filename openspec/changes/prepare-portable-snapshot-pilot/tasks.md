@@ -8,3 +8,4 @@
 - [x] Plattformgruenen Spectra-Release `spectra-v1.2.0-alpha.12` mit Tagobjekt, aufgeloestem Commit, finalem Manifest, Quellbaum, Produktdigest und Plattformlauf-Nachweis versioniert binden.
 - [x] Neuen immutable Release `UABC-PORTABLE-PILOT-0002` erzeugen, historischen Release bytegleich erhalten und `current.json` sowie Kundenkatalog atomar auf den neuen Release setzen.
 - [x] Positive, negative, Determinismus-, Kundentrennungs-, Deutsch-, Referenz- und Gesamtgates ausfuehren; `REVIEW.md` vor dem lokalen Commit in Arbeitskopie und `HEAD` leer nachweisen.
+- [x] Immutable Release `UABC-PORTABLE-PILOT-0003` mit Projektindex und allen 158 commitgebundenen Projektquellen erzeugen, historische Releases bytegleich pruefen und die vollstaendige Suite commitgebunden nachweisen.

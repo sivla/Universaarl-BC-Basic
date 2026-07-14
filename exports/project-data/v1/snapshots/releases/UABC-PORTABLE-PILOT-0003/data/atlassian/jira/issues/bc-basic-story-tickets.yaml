@@ -1,0 +1,4155 @@
+schemaVersion: 1
+projectId: UABC-BC-BASIC-001
+classification: current-pilot-planning
+sourceContract: evidence/simulation/project-story.json
+actorProfiles:
+  - personId: P-PILOT-LEAD-001
+    displayName: Kajetan Kalicki
+    organization: Universaarl
+    actorType: human
+    activeRoles:
+      - Projektleitung
+      - Lead BC Consultant
+      - Solution Architect
+    responsibilities:
+      - Projektsteuerung
+      - Fit-to-Standard
+      - Loesungsdesign
+      - Qualitaetsentscheidung
+      - Handover
+    availabilityStatus: realer-projektverantwortlicher-aktiv
+    allowedApprovalRoles:
+      - interne Projektfreigabe
+      - technische Qualitaetsfreigabe
+  - personId: ROLE-CUSTOMER-SPONSOR
+    displayName: Sponsor zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Sponsor und Auftraggeber
+    responsibilities:
+      - Scope
+      - Budget
+      - Gate-Entscheidung
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetisches Projektgate
+  - personId: ROLE-CUSTOMER-FINANCE
+    displayName: Finance-Verantwortung zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Finance Key User
+      - UAT-Verantwortung
+    responsibilities:
+      - Konten
+      - VAT
+      - Abstimmung
+      - Monatsabschluss
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme
+  - personId: ROLE-CUSTOMER-PURCHASE
+    displayName: Einkauf Key User zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Einkauf Key User
+    responsibilities:
+      - Bestellung
+      - Wareneingang
+      - Eingangsrechnung
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme
+  - personId: ROLE-CUSTOMER-SALES
+    displayName: Verkauf Key User zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Verkauf Key User
+    responsibilities:
+      - Auftrag
+      - Lieferung
+      - Rechnung
+      - Zahlungseingang
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme
+  - personId: ROLE-CUSTOMER-WAREHOUSE
+    displayName: Lager Key User zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Lager Key User
+    responsibilities:
+      - Bestand
+      - Lagerbewegung
+      - Inventur
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme
+  - personId: ROLE-CUSTOMER-IT
+    displayName: IT- und Sandbox-Verantwortung zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - IT
+      - Sandbox- und Berechtigungsverantwortung
+    responsibilities:
+      - Zielbindung
+      - Rollen
+      - Resetpunkt
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetisches Umgebungs-Gate
+  - personId: ACTOR-KUNDEN-SUPPORT
+    displayName: Supportverantwortung zu bestaetigen
+    organization: synthetischer Beispielkunde
+    actorType: simulated-customer-role
+    activeRoles:
+      - Betrieb und Support
+    responsibilities:
+      - Ticketannahme
+      - Eskalation
+      - Betriebsuebergabe
+    availabilityStatus: nur-simuliert
+    allowedApprovalRoles:
+      - synthetische Supportannahme
+  - personId: ACTOR-CODEX-SPECTRA
+    displayName: Codex Spectra Automation
+    organization: Universaarl Tooling
+    actorType: codex-spectra
+    activeRoles:
+      - Generator und Vertragspruefung
+    responsibilities:
+      - deterministische Projektion
+      - technische Validierung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+  - personId: ACTOR-PLAYWRIGHT
+    displayName: Playwright Automation
+    organization: Universaarl Tooling
+    actorType: playwright
+    activeRoles:
+      - Szenarioautomation
+    responsibilities:
+      - reproduzierbare UI-Szenarien und technische Evidence
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+  - personId: ACTOR-SYSTEM
+    displayName: Repository Automation
+    organization: Universaarl Tooling
+    actorType: system-automation
+    activeRoles:
+      - Generator
+      - Validator und Export
+    responsibilities:
+      - Ableitung
+      - Integritaetspruefung
+      - Snapshotvorbereitung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+generated: true
+derivedFrom:
+  - evidence/simulation/project-story.json
+  - project/bc-basic/actor-register.yaml
+  - project/bc-basic/ticket-migration.yaml
+canonicalTypes:
+  - phase
+  - epic
+  - story
+  - task
+typePresentations:
+  phase:
+    typeLabel: Phase
+    displayIconKey: jira-phase
+    displayColorToken: teal
+  epic:
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+  story:
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+  task:
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+liveIconPolicy:
+  sourceMode: local-allowlist-only
+  allowlistedAssets: []
+  allowedOrigins: []
+  digestAlgorithm: SHA-256
+  digestRequired: true
+views:
+  - id: UABC-TICKET-VIEW-BOARD-001
+    type: board
+    title: Projektboard
+    order: 1
+    initialState: expanded
+    allowedFilters:
+      - status
+      - type
+    visibleFields:
+      - id
+      - type
+      - summary
+      - status
+      - parent
+    columns:
+      - id: created
+        title: Angelegt
+        order: 1
+        statuses:
+          - created
+      - id: in-progress
+        title: In Bearbeitung
+        order: 2
+        statuses:
+          - in-progress
+          - blocked
+      - id: tested
+        title: Getestet
+        order: 3
+        statuses:
+          - tested
+      - id: done-closed
+        title: Erledigt
+        order: 4
+        statuses:
+          - done
+          - closed
+    groups: &a1
+      - id: UABC-TICKET-GROUP-P1
+        type: phase
+        phaseId: UABC-1
+        title: Phase 1 – Vorbereitung und Datenbereitschaft
+        order: 1
+        collapsible: true
+        initialState: expanded
+        epicIds:
+          - UABC-4
+          - UABC-5
+          - UABC-6
+        ticketIds:
+          - UABC-1
+          - UABC-4
+          - UABC-5
+          - UABC-6
+          - UABC-14
+          - UABC-32
+          - UABC-15
+          - UABC-33
+          - UABC-16
+          - UABC-34
+          - UABC-17
+          - UABC-35
+          - UABC-18
+          - UABC-36
+          - UABC-19
+          - UABC-37
+          - UABC-20
+          - UABC-38
+      - id: UABC-TICKET-GROUP-P2
+        type: phase
+        phaseId: UABC-2
+        title: Phase 2 – Einrichtung, Tests und Schulung
+        order: 2
+        collapsible: true
+        initialState: expanded
+        epicIds:
+          - UABC-7
+          - UABC-8
+          - UABC-9
+          - UABC-10
+        ticketIds:
+          - UABC-2
+          - UABC-7
+          - UABC-8
+          - UABC-9
+          - UABC-10
+          - UABC-21
+          - UABC-39
+          - UABC-22
+          - UABC-40
+          - UABC-23
+          - UABC-41
+          - UABC-24
+          - UABC-42
+          - UABC-25
+          - UABC-43
+          - UABC-26
+          - UABC-44
+          - UABC-27
+          - UABC-45
+          - UABC-28
+          - UABC-46
+      - id: UABC-TICKET-GROUP-P3
+        type: phase
+        phaseId: UABC-3
+        title: Phase 3 – Hypercare und Abschluss
+        order: 3
+        collapsible: true
+        initialState: expanded
+        epicIds:
+          - UABC-11
+          - UABC-12
+          - UABC-13
+        ticketIds:
+          - UABC-3
+          - UABC-11
+          - UABC-12
+          - UABC-13
+          - UABC-29
+          - UABC-47
+          - UABC-30
+          - UABC-48
+          - UABC-49
+          - UABC-31
+          - UABC-50
+  - id: UABC-TICKET-VIEW-COMPACT-001
+    type: compact-list
+    title: Kompakte Phasenliste
+    order: 2
+    initialState: expanded
+    allowedFilters:
+      - status
+      - type
+    visibleFields:
+      - id
+      - type
+      - summary
+      - status
+      - parent
+    groups: *a1
+recordCount: 50
+customerStoryCount: 50
+internalTraceabilityCount: 0
+countedWorklogHours: 2.5
+ticketRecords:
+  - id: UABC-1
+    type: phase
+    sourceType: phase
+    canonicalType: phase
+    typeLabel: Phase
+    displayIconKey: jira-phase
+    displayColorToken: teal
+    parent: null
+    childTicketIds:
+      - UABC-4
+      - UABC-5
+      - UABC-6
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: in-progress
+    statusReason: UABC-1 ist in-progress; „Phase 1 – Vorbereitung und Lösungsdesign“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Phase 1 – Vorbereitung und Lösungsdesign
+    description: Phase 1 schafft einen entscheidungsfaehigen Projektauftrag, ein
+      abgestimmtes Standarddesign und ein pruefbares Datenpaket. Eintritt sind
+      benannte Rollen und vorbereitete Workshops; Austritt sind entschiedener
+      Scope, Finance-/Prozessdesign und Datenbereitschaft.
+    deliverable: Phase 1 – Vorbereitung und Datenbereitschaft
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs:
+      - UABC-1
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 22
+    actualHours: 0
+    remainingHours: 22
+    acceptance:
+      - criterion: Eintritt für UABC-1 ist mit Rollen, Abhängigkeiten und freigegebenen
+          Vorarbeiten zu „Phase 1 – Vorbereitung und Lösungsdesign“
+          dokumentiert.
+        fulfilled: false
+      - criterion: Austritt für UABC-1 ist erst erreicht, wenn die untergeordneten Epics
+          von „Phase 1 – Vorbereitung und Lösungsdesign“ fachlich abgenommen und
+          belegt sind.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+      - status: in-progress
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
+    comments:
+      - id: COM-UABC-1-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+        text: "UABC-1 – Phase 1 – Vorbereitung und Lösungsdesign: Pilotstand am
+          2026-07-13 ist in-progress. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-2
+    type: phase
+    sourceType: phase
+    canonicalType: phase
+    typeLabel: Phase
+    displayIconKey: jira-phase
+    displayColorToken: teal
+    parent: null
+    childTicketIds:
+      - UABC-7
+      - UABC-8
+      - UABC-9
+      - UABC-10
+    dependencyRefs:
+      - UABC-1
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: blocked
+    statusReason: Abhängig von UABC-1; die vorherige Phase ist fachlich noch nicht
+      abgeschlossen und keine Live-Ausführung ist freigegeben.
+    summary: Phase 2 – Einrichtung und Erprobung
+    description: Phase 2 setzt die entschiedene Baseline in nachvollziehbarer
+      Reihenfolge um, stimmt drei Datenwellen ab und weist Kernprozesse, UAT und
+      Rollenkompetenz nach. Die Phase endet erst nach erfolgreicher Prozess- und
+      Abnahmeprobe.
+    deliverable: Phase 2 – Einrichtung, Tests und Schulung
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 40
+    actualHours: 2.5
+    remainingHours: 37.5
+    acceptance:
+      - criterion: Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen
+          Vorarbeiten zu „Phase 2 – Einrichtung und Erprobung“ dokumentiert.
+        fulfilled: false
+      - criterion: Austritt für UABC-2 ist erst erreicht, wenn die untergeordneten Epics
+          von „Phase 2 – Einrichtung und Erprobung“ fachlich abgenommen und
+          belegt sind.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+      - status: blocked
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
+    comments:
+      - id: COM-UABC-2-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+        text: "UABC-2 – Phase 2 – Einrichtung und Erprobung: Pilotstand am 2026-07-13
+          ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-3
+    type: phase
+    sourceType: phase
+    canonicalType: phase
+    typeLabel: Phase
+    displayIconKey: jira-phase
+    displayColorToken: teal
+    parent: null
+    childTicketIds:
+      - UABC-11
+      - UABC-12
+      - UABC-13
+    dependencyRefs:
+      - UABC-2
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: blocked
+    statusReason: Abhängig von UABC-2; die vorherige Phase ist fachlich noch nicht
+      abgeschlossen und keine Live-Ausführung ist freigegeben.
+    summary: Phase 3 – Stabilisierung und Übergabe
+    description: Phase 3 stabilisiert den simulierten Go-live, korrigiert den
+      Zahlungsreferenzbefund, probt Finance-Abschluss und VAT-Vorschau und
+      uebergibt Betrieb und Support nach einer Retro ohne offene P1/P2.
+    deliverable: Phase 3 – Hypercare und Abschluss
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 18
+    actualHours: 0
+    remainingHours: 18
+    acceptance:
+      - criterion: Eintritt für UABC-3 ist mit Rollen, Abhängigkeiten und freigegebenen
+          Vorarbeiten zu „Phase 3 – Stabilisierung und Übergabe“ dokumentiert.
+        fulfilled: false
+      - criterion: Austritt für UABC-3 ist erst erreicht, wenn die untergeordneten Epics
+          von „Phase 3 – Stabilisierung und Übergabe“ fachlich abgenommen und
+          belegt sind.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+      - status: blocked
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
+    comments:
+      - id: COM-UABC-3-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+        text: "UABC-3 – Phase 3 – Stabilisierung und Übergabe: Pilotstand am 2026-07-13
+          ist blocked. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-4
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-1
+    childTicketIds:
+      - UABC-14
+      - UABC-15
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-4 ist created; „Projektinitiierung und Discovery“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektinitiierung und Discovery
+    description: Projektauftrag, Scope, Rollen, Discovery und Gate-Verantwortung für
+      den Pilotstart abstimmen.
+    deliverable: Projektinitiierung und Discovery
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs:
+      - UABC-1
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 9
+    actualHours: 0
+    remainingHours: 9
+    acceptance:
+      - criterion: Projektauftrag nennt In-/Out-Scope, Rollen, Entscheidungsrechte und
+          Change-Weg.
+        fulfilled: false
+      - criterion: Discovery- und Gate-Eintritt besitzen Owner, Abhängigkeiten und
+          prüfbare Nachweise.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-4-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-4 – Projektinitiierung und Discovery: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-5
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-1
+    childTicketIds:
+      - UABC-16
+      - UABC-17
+      - UABC-18
+      - UABC-19
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-5 ist created; „Fit-to-Standard und Lösungsdesign“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Fit-to-Standard und Lösungsdesign
+    description: Finance-, Einkaufs-, Verkaufs- und Lagerstandard vor jeder
+      Einrichtung fachlich entscheiden.
+    deliverable: Finance- und Lösungsdesign
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs:
+      - UABC-1
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 8
+    actualHours: 0
+    remainingHours: 8
+    acceptance:
+      - criterion: Finance-, Einkaufs-, Verkaufs- und Lagerentscheidungen sind je
+          Sollprozess dokumentiert.
+        fulfilled: false
+      - criterion: Unbestätigte Kunden- oder Steuerfragen bleiben sichtbar offen und
+          blockieren die betroffene Einrichtung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-5-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-5 – Fit-to-Standard und Lösungsdesign: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-6
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-1
+    childTicketIds:
+      - UABC-20
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-6 ist created; „Datenbereitschaft und Migrationsplanung“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenbereitschaft und Migrationsplanung
+    description: Migrationsobjekte, Datenwellen, Owner, Qualitätsregeln und
+      Kontrollsummen planbar machen.
+    deliverable: Datenbereitschaft
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs:
+      - UABC-1
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Jedes Migrationsobjekt besitzt Datenowner, Quelle, Mapping,
+          Pflichtfelder und Qualitätsregel.
+        fulfilled: false
+      - criterion: Jede Datenwelle definiert Kontrollsumme, Fehlerkorrektur und
+          differenzfreien Readback als Austritt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-6-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-6 – Datenbereitschaft und Migrationsplanung: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-7
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-2
+    childTicketIds:
+      - UABC-21
+      - UABC-22
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-7 ist created; „Grundeinrichtung und Finance“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Grundeinrichtung und Finance
+    description: Gesellschaftsbasis, Perioden, Nummernserien, Finance, VAT und
+      Funktionstrennung kontrolliert planen.
+    deliverable: BC-Grundeinrichtung und Finance
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 14
+    actualHours: 2.5
+    remainingHours: 11.5
+    acceptance:
+      - criterion: Wave 0, Gesellschaftsbasis und Setup-Reihenfolge sind vor Finance-
+          oder VAT-Writes belegt.
+        fulfilled: false
+      - criterion: Nummernserien, Posting- und SoD-Soll sind widerspruchsfrei und ohne
+          Ledger-/Posted-Write geplant.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-7-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-7 – Grundeinrichtung und Finance: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-8
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-2
+    childTicketIds:
+      - UABC-23
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-8 ist created; „Stammdaten und Migration“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Stammdaten und Migration
+    description: Stamm-, Eröffnungs- und Bestandsdaten mit Fehlerkorrektur und
+      Abstimmung für spätere Importe vorbereiten.
+    deliverable: Stammdaten und Migration
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Stamm-, Eröffnungs- und Bestandsdaten sind von historischen
+          Bewegungsdaten abgegrenzt.
+        fulfilled: false
+      - criterion: Import, Fehlerkorrektur und Abstimmung bleiben bis zu aktuellen
+          Kontrollsummen und Readbacks offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-8-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-8 – Stammdaten und Migration: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-9
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-2
+    childTicketIds:
+      - UABC-24
+      - UABC-25
+      - UABC-26
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-9 ist created; „Kernprozesse P2P, O2C und Lager“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Kernprozesse P2P, O2C und Lager
+    description: Einkauf, Verkauf, Zahlung und Lager als getrennte
+      Ende-zu-Ende-Proben mit Readbacks planen.
+    deliverable: Einkaufs-, Verkaufs- und Lagerprozesse
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 15
+    actualHours: 0
+    remainingHours: 15
+    acceptance:
+      - criterion: P2P, O2C, Zahlung und Lager besitzen getrennte Testfälle mit
+          erwarteter Beleg- und Kontenwirkung.
+        fulfilled: false
+      - criterion: Jede Prozessprobe verlangt Readback, Abweichungsbehandlung und Retest
+          vor einer Simulationsabnahme.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-9-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-9 – Kernprozesse P2P, O2C und Lager: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-10
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-2
+    childTicketIds:
+      - UABC-27
+      - UABC-28
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-10 ist created; „Test, UAT und Schulung“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Test, UAT und Schulung
+    description: Rollenbefähigung, SIT, UAT und Mock-Cutover für eine spätere
+      Simulationsentscheidung vorbereiten.
+    deliverable: Schulung und Abnahme
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs:
+      - UABC-2
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 7
+    actualHours: 0
+    remainingHours: 7
+    acceptance:
+      - criterion: Vier operative Rollen besitzen Lernziel, positiven Fall, Fehlerfall
+          und Eskalationsweg.
+        fulfilled: false
+      - criterion: SIT, sieben UAT-Fälle und Mock-Cutover bleiben ohne aktuelle Evidence
+          und P1/P2-Prüfung offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-10-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-10 – Test, UAT und Schulung: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-11
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-3
+    childTicketIds:
+      - UABC-29
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-11 ist created; „Hypercare und Stabilisierung“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Hypercare und Stabilisierung
+    description: Hypercare-Triage und Retestregeln für mögliche
+      Zahlungsreferenzabweichungen vorbereiten.
+    deliverable: Hypercare und Stabilisierung
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 2.5
+    actualHours: 0
+    remainingHours: 2.5
+    acceptance:
+      - criterion: Hypercare-Triage definiert Symptomaufnahme, Priorität, Owner und
+          Diagnose-Readbacks.
+        fulfilled: false
+      - criterion: Defect und Retest entstehen nur nach realer Beobachtung; eine
+          historische Zahlungsevidence erfüllt das Epic nicht.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-11-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-11 – Hypercare und Stabilisierung: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-12
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-3
+    childTicketIds:
+      - UABC-30
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-12 ist created; „Monatsabschluss und Umsatzsteuer“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss und Umsatzsteuer
+    description: Monatsabschluss- und VAT-Abstimmungen ohne externe Übermittlung als
+      kontrollierbares Soll planen.
+    deliverable: Finance-Abschluss
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4.5
+    actualHours: 0
+    remainingHours: 4.5
+    acceptance:
+      - criterion: Sachkonto, Nebenbücher, Bank, Lager und VAT besitzen geplante
+          Abstimmkontrollen.
+        fulfilled: false
+      - criterion: UStVA bleibt Vorschau ohne externe Übermittlung und darf erst nach
+          lokalen Readbacks bewertet werden.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-12-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-12 – Monatsabschluss und Umsatzsteuer: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-13
+    type: epic
+    sourceType: epic
+    canonicalType: epic
+    typeLabel: Epic
+    displayIconKey: jira-epic
+    displayColorToken: purple
+    parent: UABC-3
+    childTicketIds:
+      - UABC-31
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-13 ist created; „Projektabschluss und Betriebsübergabe“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektabschluss und Betriebsübergabe
+    description: Retro, Restpunkte, Supportweg und Handover für den noch offenen
+      Pilotabschluss vorbereiten.
+    deliverable: Dokumentation und Betriebsübergabe
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs:
+      - UABC-3
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 11
+    actualHours: 0
+    remainingHours: 11
+    acceptance:
+      - criterion: Handover nennt Deliverables, Restpunkte, Betriebsrollen, Supportweg
+          und Wiederanlauf.
+        fulfilled: false
+      - criterion: Retro und Simulationsabnahme benötigen aktuelle Cutover- und
+          Hypercare-Evidence; eine Kundenfreigabe wird nicht behauptet.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-13-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-13 – Projektabschluss und Betriebsübergabe: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-14
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-4
+    childTicketIds:
+      - UABC-32
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-14 ist created; „Projektauftrag und Scope abstimmen“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektauftrag und Scope abstimmen
+    description: Als Projektleitung moechte ich einen abgestimmten Projektauftrag
+      mit Scope, Nicht-Scope, Rollen, Budget, Phasen und Change-Regel, damit
+      Kunde und Consultant denselben Startpunkt und dieselben
+      Entscheidungsgrenzen verwenden.
+    deliverable: Projektauftrag und Scope sind startklar
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5.5
+    actualHours: 0
+    remainingHours: 5.5
+    acceptance:
+      - criterion: Projektauftrag nennt Scope, Nicht-Scope, Rollen, Phasen, Planbudget
+          und Change-Regel.
+        fulfilled: false
+      - criterion: Angebotsplanung und aktuelles Task-Worklog-Ist sind getrennt; eine
+          Kundenannahme wird nicht behauptet.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-14-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-14 – Projektauftrag und Scope abstimmen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-15
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-4
+    childTicketIds:
+      - UABC-33
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-15 ist created; „Setup-, UAT- und Cutover-Gates definieren“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Setup-, UAT- und Cutover-Gates definieren
+    description: Als Projektleitung moechte ich klare Entry- und Exit-Kriterien fuer
+      Setup, UAT und Mock-Cutover, damit offene Daten-, Rollen- oder
+      Steuerfragen nicht in spaetere Gates verschoben werden.
+    deliverable: Abnahme- und Cutover-Eintritt ist vorbereitet
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 3.5
+    actualHours: 0
+    remainingHours: 3.5
+    acceptance:
+      - criterion: Entry und Exit für Setup, UAT und Mock-Cutover nennen
+          Pflichtnachweise und verantwortliche Rollen.
+        fulfilled: false
+      - criterion: Offene Daten-, Rollen-, Steuer- oder Resetfragen erzeugen einen
+          eindeutigen Stopzustand.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-15-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-15 – Setup-, UAT- und Cutover-Gates definieren: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-16
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-5
+    childTicketIds:
+      - UABC-34
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-16 ist created; „Finance-Design festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Finance-Design festlegen
+    description: Als Finance-Verantwortung moechte ich Konten-, Buchungsgruppen-,
+      VAT-, Dimensions- und Periodenentscheidungen nachvollziehen, damit die
+      spaetere Einrichtung konsistent und pruefbar ist.
+    deliverable: Finance- und Steuerdesign ist entschieden
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Konten, Buchungsgruppen, VAT, Dimensionen und Perioden sind in einer
+          konsistenten Entscheidungsmatrix verbunden.
+        fulfilled: false
+      - criterion: Steuerliche Annahmen bleiben bis zur fachlichen Bestätigung offen und
+          erzeugen keine Buchungsbehauptung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-16-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-16 – Finance-Design festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-17
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-5
+    childTicketIds:
+      - UABC-35
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-17 ist created; „Einkaufsprozess festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Einkaufsprozess festlegen
+    description: Als Einkauf Key User moechte ich Bestellung, Wareneingang, Rechnung
+      und Zahlung im Standard festlegen, damit Abweichungen vor der Einrichtung
+      entschieden sind.
+    deliverable: Einkaufsstandard ist entschieden
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 1.5
+    actualHours: 0
+    remainingHours: 1.5
+    acceptance:
+      - criterion: Bestellung, Wareneingang, Rechnung, Abweichung, Zahlung und Ausgleich
+          sind als P2P-Sollfolge beschrieben.
+        fulfilled: false
+      - criterion: Jede Einkaufsabweichung besitzt Owner, Entscheidung und erwartete
+          Beleg-, VAT- und Lagerwirkung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-17-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-17 – Einkaufsprozess festlegen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-18
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-5
+    childTicketIds:
+      - UABC-36
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-18 ist created; „Verkaufsprozess festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Verkaufsprozess festlegen
+    description: Als Verkauf Key User moechte ich Auftrag, Lieferung, Rechnung,
+      Zahlungseingang und Korrektur im Standard festlegen, damit Forderungs- und
+      Umsatzwirkung eindeutig sind.
+    deliverable: Verkaufsstandard ist entschieden
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 1.5
+    actualHours: 0
+    remainingHours: 1.5
+    acceptance:
+      - criterion: Auftrag, Lieferung, Rechnung, Korrektur, Zahlungseingang und
+          Ausgleich sind als O2C-Sollfolge beschrieben.
+        fulfilled: false
+      - criterion: Forderungs-, Umsatz-, VAT- und Bestandswirkung besitzen eindeutige
+          Sollkontrollen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-18-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-18 – Verkaufsprozess festlegen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-19
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-5
+    childTicketIds:
+      - UABC-37
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-19 ist created; „Lagerprozess festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Lagerprozess festlegen
+    description: Als Lager Key User moechte ich Lagerort, Einheit,
+      Bewertungsmethode, Inventur und Negativbestandsregel entscheiden, damit
+      Mengen- und Wertfluesse abgestimmt werden koennen.
+    deliverable: Lagerstandard ist entschieden
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 1
+    actualHours: 0
+    remainingHours: 1
+    acceptance:
+      - criterion: Lagerort, Einheit, Bewertungsmethode, Inventur und
+          Negativbestandsregel sind entschieden oder als offen markiert.
+        fulfilled: false
+      - criterion: Mengen-, Wert- und Sachkontowirkung besitzen getrennte Soll-Readbacks.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-19-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-19 – Lagerprozess festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-20
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-6
+    childTicketIds:
+      - UABC-38
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-20 ist created; „Datenwellen freigeben“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenwellen freigeben
+    description: Als Datenowner moechte ich vollstaendige, bereinigte und
+      abgestimmte Datenwellen bereitstellen, damit Setup und UAT ohne verdeckte
+      Datenfehler beginnen.
+    deliverable: Datenpaket ist bereit
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Jede Datenwelle besitzt Owner, Mapping, Pflichtfelder, Dublettenregel
+          und Kontrollsumme.
+        fulfilled: false
+      - criterion: Fehlerkorrektur und Retest sind definiert; ohne differenzfreie
+          Prüfung bleibt die Welle offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-20-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-20 – Datenwellen freigeben: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-21
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-7
+    childTicketIds:
+      - UABC-39
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-21 ist created; „Pilotgesellschaft und Resetstrategie
+      festlegen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Pilotgesellschaft und Resetstrategie festlegen
+    description: Als Projektleitung möchte ich Ist-Baseline, BC-Basic-Soll,
+      angewendete Differenz und Zielstrategie getrennt entscheiden, damit ein
+      Gesellschaftsname niemals als Konfigurationsnachweis gilt und der nächste
+      zulässige Schritt eindeutig bleibt.
+    deliverable: Prüfbares Sollbild für Gesellschaft, Rollen und Basis
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0.5
+    remainingHours: 4.5
+    acceptance:
+      - criterion: Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert
+          getrennt; der Gesellschaftsname allein kann keinen konfigurierten
+          Pilot belegen.
+        fulfilled: false
+      - criterion: Company-ID, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und
+          Zielstrategie schließen das Gate nachvollziehbar oder lassen es
+          sichtbar blockiert.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-21-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-21 – Pilotgesellschaft und Resetstrategie festlegen: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-22
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-7
+    childTicketIds:
+      - UABC-40
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-22 ist created; „CORE-FINANCE einrichten und prüfen“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: CORE-FINANCE einrichten und prüfen
+    description: Als Finance-Verantwortung möchte ich CORE-FINANCE erst nach
+      geschlossenem Ziel- und Resetgate feldgenau einrichten, lesen und fachlich
+      abnehmen, damit Konten-, VAT-, Dimensions- und Nummernserienwirkung ohne
+      Ledger- oder Bankkontowrite nachvollziehbar bleibt.
+    deliverable: Prüfbares Finance-, VAT- und SoD-Sollbild
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 9
+    actualHours: 2
+    remainingHours: 7
+    acceptance:
+      - criterion: CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte,
+          Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.
+        fulfilled: false
+      - criterion: Fachliche Finance-Abnahme bleibt offen, bis jeder aktuelle Readback
+          passt und unzulässige SoD- oder Kontenwirkung ausgeschlossen ist.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-22-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-22 – CORE-FINANCE einrichten und prüfen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-23
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-8
+    childTicketIds:
+      - UABC-41
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-23 ist created; „Migrationsdaten abstimmen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Migrationsdaten abstimmen
+    description: Als Datenowner moechte ich Stammdaten, offene Posten, Bestand und
+      Eroeffnungsbilanz nach Fehlerkorrektur abgestimmt sehen, damit die
+      Prozessprobe mit einer belastbaren Ausgangslage startet.
+    deliverable: Migration und Eröffnungswerte sind abgestimmt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Stammdaten, offene Posten, Bestand und Eröffnungsbilanz besitzen
+          getrennte Import- und Kontrollsummen.
+        fulfilled: false
+      - criterion: Fehlerkorrekturen werden je Welle erneut geprüft; historische
+          Simulationswerte zählen nicht als aktueller Readback.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-23-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-23 – Migrationsdaten abstimmen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-24
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-9
+    childTicketIds:
+      - UABC-42
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-24 ist created; „P2P-Prozess nachweisen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Prozess nachweisen
+    description: Als Einkauf Key User moechte ich die P2P-Kette inklusive
+      Abweichung, Zahlung und Ausgleich nachweisen, damit Bestellung,
+      Verbindlichkeit, VAT und Lagerwirkung kontrolliert sind.
+    deliverable: Purchase-to-Pay ist durchgespielt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: P2P-Probe definiert Sollbelege, Preis-/Mengenabweichung,
+          Verbindlichkeit, VAT, Lager und Zahlung.
+        fulfilled: false
+      - criterion: Bestellung bis Ausgleich gilt erst nach aktuellen Ledger-Readbacks
+          und dokumentiertem Retest als nachgewiesen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-24-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-24 – P2P-Prozess nachweisen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-25
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-9
+    childTicketIds:
+      - UABC-43
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-25 ist created; „O2C-Prozess nachweisen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: O2C-Prozess nachweisen
+    description: Als Verkauf Key User moechte ich die O2C-Kette inklusive Korrektur,
+      Zahlungseingang und Ausgleich nachweisen, damit Lieferung, Forderung,
+      Umsatz, VAT und Bestand stimmen.
+    deliverable: Order-to-Cash ist durchgespielt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: O2C-Probe definiert Sollbelege, Korrektur, Forderung, Umsatz, VAT,
+          Bestand und Zahlungseingang.
+        fulfilled: false
+      - criterion: Auftrag bis Ausgleich gilt erst nach aktuellen Readbacks und
+          dokumentiertem Retest als nachgewiesen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-25-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-25 – O2C-Prozess nachweisen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-26
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-9
+    childTicketIds:
+      - UABC-44
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-26 ist created; „Lager und Inventur abstimmen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Lager und Inventur abstimmen
+    description: Als Lager Key User moechte ich Bewegungen, Inventur, Differenz und
+      Bewertung abstimmen, damit Artikel-, Wert- und Sachkontoeintraege dieselbe
+      Bestandswahrheit zeigen.
+    deliverable: Lager und Inventur sind abgestimmt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Lagerprobe definiert Bewegung, Inventur, Differenz und Bewertung mit
+          erwarteten Mengen und Werten.
+        fulfilled: false
+      - criterion: Artikel-, Wert- und Sachkontoeinträge müssen nach einem späteren Lauf
+          dieselbe Bestandswahrheit zeigen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-26-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-26 – Lager und Inventur abstimmen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-27
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-10
+    childTicketIds:
+      - UABC-45
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-27 ist created; „Rollenkompetenz nachweisen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Rollenkompetenz nachweisen
+    description: Als Key User moechte ich meinen positiven Prozess, einen Fehlerfall
+      und den Retest ohne Hilfe ausfuehren, damit ich Alltag, Kontrolle und
+      Eskalation sicher beherrsche.
+    deliverable: Key User sind befähigt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Jede Key-User-Rolle führt später einen positiven Fall und einen
+          Fehlerfall mit Eskalation aus.
+        fulfilled: false
+      - criterion: Kompetenz gilt erst mit dokumentierter eigenständiger Durchführung,
+          Kontrolle und Retest als belegt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-27-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-27 – Rollenkompetenz nachweisen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-28
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-10
+    childTicketIds:
+      - UABC-46
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-28 ist created; „SIT, UAT und Mock-Cutover vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: SIT, UAT und Mock-Cutover vorbereiten
+    description: SIT, UAT und Mock-Cutover werden mit aktueller Evidence geplant.
+      Eine Simulationsabnahme darf erst ohne offene P1/P2 und nach ausgeführten
+      Readbacks entschieden werden.
+    deliverable: SIT, UAT und Cutover-Probe sind bestanden
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 3
+    actualHours: 0
+    remainingHours: 3
+    acceptance:
+      - criterion: SIT, sieben UAT-Fälle und Mock-Cutover besitzen Rollen, Sollwerte,
+          Evidence und P1/P2-Regel.
+        fulfilled: false
+      - criterion: Eine Simulationsentscheidung bleibt bis zu ausgeführten Fällen,
+          aktuellen Readbacks und geschlossenem P1/P2-Gate offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-28-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-28 – SIT, UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-29
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-11
+    childTicketIds:
+      - UABC-47
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-29 ist created; „Hypercare-Fehlerszenario vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Hypercare-Fehlerszenario vorbereiten
+    description: Ein geplantes Hypercare-Szenario beschreibt eine mögliche
+      Zahlungsreferenzabweichung mit Diagnosewerten, Korrekturregel und
+      erwartetem Retest. Ein tatsächlicher Defect entsteht erst nach Beobachtung
+      im ausgeführten Lauf.
+    deliverable: Zahlungsreferenz-Abweichung ist behoben
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 2.5
+    actualHours: 0
+    remainingHours: 2.5
+    acceptance:
+      - criterion: Das geplante Hypercare-Szenario definiert Referenzabweichung,
+          Diagnosewerte, Korrekturregel und erwarteten Retest.
+        fulfilled: false
+      - criterion: Ein tatsächlicher Defect darf erst nach Beobachtung entstehen;
+          historische Zahlungsevidence erfüllt die Story nicht.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-29-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-29 – Hypercare-Fehlerszenario vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-30
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-12
+    childTicketIds:
+      - UABC-48
+      - UABC-49
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-30 ist created; „Monatsabschluss und UStVA-Vorschau
+      abstimmen“ darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss und UStVA-Vorschau abstimmen
+    description: Als Finance Key User moechte ich Monatsabschlusskontrollen und
+      VAT-/UStVA-Vorschau differenzfrei abstimmen, damit der simulierte
+      Periodenabschluss fachlich für die spätere Abnahme vorbereitet ist.
+    deliverable: Monatsabschluss und UStVA-Vorschau sind abgestimmt
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 4.5
+    actualHours: 0
+    remainingHours: 4.5
+    acceptance:
+      - criterion: Monatsabschlusskontrollen stimmen Sachkonto, Nebenbücher, Bank, Lager
+          und Periodenstatus ab.
+        fulfilled: false
+      - criterion: VAT-/UStVA-Vorschau bleibt lokal, ohne externe Übermittlung, und
+          benötigt differenzfreie aktuelle Readbacks.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-30-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-30 – Monatsabschluss und UStVA-Vorschau abstimmen: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-31
+    type: story
+    sourceType: story
+    canonicalType: story
+    typeLabel: Story
+    displayIconKey: jira-story
+    displayColorToken: green
+    parent: UABC-13
+    childTicketIds:
+      - UABC-50
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-31 ist created; „Projektabschluss und Supportübergabe“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektabschluss und Supportübergabe
+    description: Als Projektleitung moechte ich Deliverables, Restpunkte, Retro,
+      Supportweg und Verantwortung uebergeben, damit das Projekt nach Hypercare
+      eindeutig endet.
+    deliverable: Betrieb und Abschluss sind übergeben
+    deliverableRefs: []
+    pageRefs: []
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants: []
+    billable: false
+    billingSource: task-rollup-only
+    estimateHours: 11
+    actualHours: 0
+    remainingHours: 11
+    acceptance:
+      - criterion: Handover-Paket nennt Deliverables, Restpunkte, Retro-Ergebnis,
+          Supportweg und Verantwortungen.
+        fulfilled: false
+      - criterion: Übergabe bleibt bis zu aktueller Cutover-, Hypercare- und
+          Simulationsabnahme-Evidence offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+    comments:
+      - id: COM-UABC-31-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/setup-wave-1-matrix.yaml
+        text: "UABC-31 – Projektabschluss und Supportübergabe: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-32
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-14
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-32 ist created; „Projektauftrag und Scope ausarbeiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Projektauftrag und Scope ausarbeiten
+    description: Projektauftrag, In- und Out-Scope, Angebotsplanung, Rollen, Phasen,
+      Gate-Matrix und Change-Regel werden aus Angebot und Discovery
+      zusammengeführt und gegen die vorgesehenen Lieferobjekte geprüft.
+    deliverable: Abgestimmter Projektauftrag, Scope und Startbaseline
+    deliverableRefs:
+      - UABC-DEL-BCB-001
+    pageRefs:
+      - PAGE-UABC-130
+    decisionRefs:
+      - UABC-DEC-BCB-003
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5.5
+    actualHours: 0
+    remainingHours: 5.5
+    acceptance:
+      - criterion: Projektauftrag, Scope, Rollen, Phasen und Change-Regel sind im
+          Projektplan nachvollziehbar miteinander verknüpft.
+        fulfilled: false
+      - criterion: Angebotsplanung und aktuelles Ist sind getrennt; Iststunden und
+          Istkosten entsprechen ausschließlich den aktiven Task-Worklogs.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - docs/offers/bc-basic-offer.md
+      - project/bc-basic/project-plan.yaml
+    comments:
+      - id: COM-UABC-32-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: docs/offers/bc-basic-offer.md
+        text: "UABC-32 – Projektauftrag und Scope ausarbeiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-33
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-15
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-38
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-33 ist created; „Setup-, UAT- und Cutover-Gates
+      dokumentieren“ darf nur mit ticket-spezifischer Evidence abgeschlossen
+      werden.
+    summary: Setup-, UAT- und Cutover-Gates dokumentieren
+    description: Entry-Kriterien fuer Setup, UAT und Mock-Cutover werden mit
+      Datenqualitaet, Rollen, Steuerfragen, Resetpunkt und Abbruchkriterien
+      verbunden und als passierbare Simulationsgates dokumentiert.
+    deliverable: Erfuellte Eintrittskriterien fuer Setup, UAT und Cutover-Probe
+    deliverableRefs:
+      - UABC-DEL-BCB-006
+    pageRefs:
+      - PAGE-UABC-060
+    decisionRefs:
+      - UABC-DEC-BCB-003
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 3.5
+    actualHours: 0
+    remainingHours: 3.5
+    acceptance:
+      - criterion: Entry- und Exit-Kriterien nennen Datenqualität, Rollen, Steuerfragen,
+          Resetpunkt und eindeutige Stopbedingungen.
+        fulfilled: false
+      - criterion: Jedes Gate verweist auf eine verantwortliche Rolle, eine prüfbare
+          Evidence und den nächsten zulässigen Schritt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/project-plan.yaml
+      - project/bc-basic/decision-register.yaml
+    comments:
+      - id: COM-UABC-33-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/project-plan.yaml
+        text: "UABC-33 – Setup-, UAT- und Cutover-Gates dokumentieren: Pilotstand am
+          2026-07-13 ist created. Nur vorbereitende Arbeit ist belegt;
+          Live-Schritte bleiben offen."
+  - id: UABC-34
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-16
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-34 ist created; „Finance-Baseline festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Finance-Baseline festlegen
+    description: Kontenplan, Buchungsmatrizen, VAT-Annahmen, Dimensionen,
+      Nummernserien und Perioden werden als Standardbaseline entschieden; reale
+      Steuerkennzeichen bleiben explizit zu bestaetigen.
+    deliverable: Dokumentierte Finance-/Steuerentscheidungen fuer die Simulation
+    deliverableRefs:
+      - UABC-DEL-BCB-002
+    pageRefs:
+      - PAGE-UABC-100
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Konten-, Buchungs-, VAT-, Dimensions- und Nummernseriensoll sind in
+          Posting-Matrix und Solution Blueprint widerspruchsfrei aufgelöst.
+        fulfilled: false
+      - criterion: Unbestätigte Steuerwerte bleiben als offene Entscheidung markiert und
+          erzeugen keine Live- oder Buchungsbehauptung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/posting-setup-matrix.yaml
+      - project/bc-basic/solution-blueprint.yaml
+    comments:
+      - id: COM-UABC-34-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/posting-setup-matrix.yaml
+        text: "UABC-34 – Finance-Baseline festlegen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-35
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-17
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-34
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-35 ist created; „P2P-Standard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Standard festlegen
+    description: Bestellung, Wareneingang, Eingangsrechnung,
+      Preis-/Mengenabweichung, Zahlung und Ausgleich werden als schlanker
+      Einkaufsstandard entschieden.
+    deliverable: Einkaufsstandard und Ausnahmen sind entschieden
+    deliverableRefs:
+      - UABC-DEL-BCB-002
+    pageRefs:
+      - PAGE-UABC-100
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1.5
+    actualHours: 0
+    remainingHours: 1.5
+    acceptance:
+      - criterion: Der Einkaufsstandard beschreibt Bestellung, Wareneingang, Rechnung,
+          Abweichung, Zahlung und Ausgleich in fachlicher Reihenfolge.
+        fulfilled: false
+      - criterion: Offene Abweichungen besitzen einen Entscheider, einen dokumentierten
+          Sollzustand und eine prüfbare Discovery-Referenz.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/71-bc-basic-discovery.md
+      - project/bc-basic/decision-register.yaml
+    comments:
+      - id: COM-UABC-35-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
+        text: "UABC-35 – P2P-Standard festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-36
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-18
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-34
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-36 ist created; „O2C-Standard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: O2C-Standard festlegen
+    description: Auftrag, Lieferung, Ausgangsrechnung, Preisabweichung,
+      Zahlungseingang, Ausgleich und Gutschrift werden als Verkaufsstandard
+      entschieden.
+    deliverable: Verkaufsstandard und Ausnahmen sind entschieden
+    deliverableRefs:
+      - UABC-DEL-BCB-002
+    pageRefs:
+      - PAGE-UABC-100
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SALES
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1.5
+    actualHours: 0
+    remainingHours: 1.5
+    acceptance:
+      - criterion: Der Verkaufsstandard beschreibt Auftrag, Lieferung, Rechnung,
+          Korrektur, Zahlungseingang und Ausgleich in fachlicher Reihenfolge.
+        fulfilled: false
+      - criterion: Forderungs-, Umsatz-, VAT- und Bestandswirkung sind als Soll
+          beschrieben und noch nicht als ausgeführt markiert.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/71-bc-basic-discovery.md
+      - project/bc-basic/decision-register.yaml
+    comments:
+      - id: COM-UABC-36-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
+        text: "UABC-36 – O2C-Standard festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-37
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-19
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-34
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-37 ist created; „Lagerstandard festlegen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Lagerstandard festlegen
+    description: Lagerort HAUPT, Basiseinheit STK, FIFO, Inventur und Verbot des
+      Soll-Negativbestands werden als Lagerstandard entschieden.
+    deliverable: Lagerstandard und Ausnahmen sind entschieden
+    deliverableRefs:
+      - UABC-DEL-BCB-002
+    pageRefs:
+      - PAGE-UABC-100
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-WAREHOUSE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 1
+    actualHours: 0
+    remainingHours: 1
+    acceptance:
+      - criterion: Lagerort, Basiseinheit, Bewertungsmethode, Inventur und
+          Negativbestandsregel sind als fachliches Soll dokumentiert.
+        fulfilled: false
+      - criterion: Mengen- und Wertfluss besitzen eindeutige Kontrollpunkte, ohne eine
+          ausgeführte Lagerbewegung zu behaupten.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/71-bc-basic-discovery.md
+      - project/bc-basic/decision-register.yaml
+    comments:
+      - id: COM-UABC-37-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/71-bc-basic-discovery.md
+        text: "UABC-37 – Lagerstandard festlegen: Pilotstand am 2026-07-13 ist created.
+          Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben offen."
+  - id: UABC-38
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-20
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-38 ist created; „Datenwellen prüfen und freigeben“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Datenwellen prüfen und freigeben
+    description: Acht Vorlagenpaare und zehn Migrationsobjekte werden drei Wellen
+      zugeordnet, auf Pflichtfelder und Referenzen geprueft und mit Mengen-,
+      Salden- und Bestandskontrollen freigegeben.
+    deliverable: Geprueftes synthetisches Datenpaket mit Kontrollsummen
+    deliverableRefs:
+      - UABC-DEL-BCB-003
+    pageRefs:
+      - PAGE-UABC-050
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-1
+    phaseRefs: null
+    phase: P1
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-IT
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Jedes Migrationsobjekt besitzt Owner, Quelle, Pflichtfelder,
+          Referenzregeln und eine definierte Kontrollsumme.
+        fulfilled: false
+      - criterion: Datenwellen bleiben bis zu ausgeführter Prüfung und differenzfreiem
+          Readback offen; Alt-Simulationsevidence zählt nicht als aktuelles Ist.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/data-package.yaml
+      - project/bc-basic/data-readiness-check.yaml
+    comments:
+      - id: COM-UABC-38-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/data-package.yaml
+        text: "UABC-38 – Datenwellen prüfen und freigeben: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-39
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-21
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: blocked
+    statusReason: W0-01 ist vor DOM-, Screenshot- und BC-Feldlektüre durch die
+      Browser-Sicherheitsrichtlinie blockiert; die Zielstrategie bleibt ohne
+      Company-ID-, CRONUS-, Fremdmandanten- und Reset-Evidence offen.
+    summary: Pilotgesellschaft und Resetpunkt prüfen
+    description: W0-01 wurde ausschließlich lesend begonnen. Ein angemeldeter
+      Browser-Tab zeigte Titel sowie bereinigte Playthru- und Company-Parameter;
+      die Browser-Sicherheitsrichtlinie blockierte jedoch vor DOM, Screenshot
+      und BC-Feldlektüre. Deshalb bleiben interne Company-ID, sichtbare Namen,
+      CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie offen.
+    deliverable: Wave-0-Readback und begründete Pilot-Zielentscheidung
+    deliverableRefs:
+      - UABC-DEL-BCB-004
+    pageRefs:
+      - PAGE-UABC-110
+    decisionRefs:
+      - UABC-DEC-BCB-002
+      - UABC-DEC-BCB-009
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-IT
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 0.5
+    remainingHours: 4.5
+    acceptance:
+      - criterion: Wave 0 liefert interne Company-ID, technische und sichtbare Namen,
+          Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand
+          als bereinigte Nur-Lese-Evidence.
+        fulfilled: false
+      - criterion: Der Resetpunkt mit Wiederanlaufweg liegt vor und genau eine
+          Zielstrategie ist begründet ausgewählt; solange Evidence fehlt, bleibt
+          das Gate blockiert und W0-01 der nächste Schritt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+      - status: blocked
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs:
+      - id: WL-UABC-39-W0-01-BLOCKED-20260713
+        taskId: UABC-39
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 0.25
+        activity: W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot
+          eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert;
+          keine BC-Feldwerte gelesen und keine Writes ausgeführt.
+        phase: P2
+        billable: true
+      - id: WL-UABC-39-W0-01-RETRY-BLOCKED-20260713
+        taskId: UABC-39
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 0.25
+        activity: Zweiten ausdrücklich lesenden W0-01-Zugriffsversuch über die
+          vorhandene angemeldete Registerkarte geprüft, denselben
+          Sicherheitsblock vor DOM, Screenshot und BC-Feldwerten bestätigt und
+          die Versuchshistorie aktualisiert; keine Authdaten gelesen und keine
+          Writes ausgeführt.
+        phase: P2
+        billable: true
+    worklogHours: 0.5
+    evidence:
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/setup-parameter-baseline.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+      - project/bc-basic/pilot-setup-baseline.yaml
+      - evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+    comments:
+      - id: COM-UABC-39-W0-01-START
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: W0-01 wurde am 2026-07-13 im ausdrücklich freigegebenen Nur-Lese-Modus
+          gestartet. Ziel war ausschließlich die sichtbare
+          Gesellschaftsidentität; Schreib-, Speicher-, Kopier-, Umbenennungs-
+          und Setup-Aktionen waren ausgeschlossen.
+      - id: COM-UABC-39-W0-01-BLOCKED
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: Der vorhandene Tab zeigte nur den Titel Dynamics 365 Business Central
+          sowie bereinigte Playthru- und Company-Parameter. Die
+          Browser-Sicherheitsrichtlinie blockierte vor DOM, Screenshot und
+          BC-Feldlektüre; es wurden keine Company-ID, Firmendaten,
+          CRONUS-Indizien oder Gesellschaftslistenwerte gelesen und keine Writes
+          ausgeführt. Die Zielstrategie bleibt offen.
+      - id: COM-UABC-39-W0-01-RETRY-BLOCKED
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+        text: Der zweite ausdrücklich lesende Zugriffsversuch über die vorhandene
+          angemeldete Registerkarte wurde erneut durch die
+          Unternehmensrichtlinie vor DOM, Screenshot und BC-Feldlektüre
+          blockiert. Es wurden weder Authdaten noch BC-Feldwerte gelesen und
+          keine Writes ausgeführt; W0-01 und die Zielstrategie bleiben offen.
+  - id: UABC-40
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-22
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: in-progress
+    statusReason: UABC-40 ist in-progress; „CORE-FINANCE ausführen und nachprüfen“
+      darf nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: CORE-FINANCE ausführen und nachprüfen
+    description: Der deterministische CORE-FINANCE-Payload mit 19 Pakettabellen, 51
+      Paketdatensätzen, 7 manuellen Tabellen und 18 Sollwerten ist als
+      Consultant-Arbeitsgrundlage vorbereitet. Die Ausführung beginnt erst nach
+      bestandenem Wave 0, Zielstrategie, Resetpunkt und separater
+      Schreibfreigabe; TRADE-MASTER, OPENING-DATA, Bankkonten, Ledger-, Posted-,
+      Continia- und Übermittlungswirkung bleiben ausgeschlossen.
+    deliverable: CORE-FINANCE-Einrichtung, Readback und fachliche Finance-Abnahme
+    deliverableRefs:
+      - UABC-DEL-BCB-004
+    pageRefs:
+      - PAGE-UABC-110
+    decisionRefs:
+      - UABC-DEC-BCB-002
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 9
+    actualHours: 2
+    remainingHours: 7
+    acceptance:
+      - criterion: CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter
+          Zielstrategie, dokumentiertem Resetpunkt und separater
+          Schreibfreigabe; TRADE-MASTER und OPENING-DATA bleiben gesperrt.
+        fulfilled: false
+      - criterion: Alle freigegebenen CORE-Felder besitzen Soll-/Ist-Readback,
+          Finance-Abnahme und den Negativnachweis ohne Ledger-, Posted-,
+          Continia-, Bankkonto- oder Übermittlungswirkung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+      - status: in-progress
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs:
+      - id: WL-UABC-40-CORE-PREP-20260713
+        taskId: UABC-40
+        date: 2026-07-13
+        role: Lead BC Consultant
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution
+          Architect
+        hours: 2
+        phase: P2
+        billable: true
+        activity: CORE-FINANCE-Payload, Manifest, Finanzreferenzen, Runbook, Validatoren
+          und Projektionen vorbereitet; keine BC-Aktion.
+    worklogHours: 2
+    evidence:
+      - project/bc-basic/core-finance-payload.yaml
+      - project/bc-basic/core-finance-package-manifest.yaml
+      - project/bc-basic/setup-wave-1-matrix.yaml
+      - project/bc-basic/posting-setup-matrix.yaml
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+    comments:
+      - id: COM-UABC-40-CORE-PREPARED-20260713
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/core-finance-package-manifest.yaml
+        text: CORE-FINANCE ist source-driven als 19 Pakettabellen mit 51 Datensätzen
+          sowie 7 manuellen Tabellen mit 18 Sollwerten vorbereitet und
+          fail-closed validiert. Es wurde weder Business Central gelesen oder
+          beschrieben noch eine Schreibfreigabe erteilt; W0-01, Zielstrategie,
+          Resetpunkt und Steuerbestätigung bleiben vorgelagert.
+  - id: UABC-41
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-23
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-41 ist created; „Migrationsdaten laden und abstimmen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Migrationsdaten laden und abstimmen
+    description: Stammdaten, offene Posten, Bestand und Eroeffnungsbilanz werden
+      geladen, ein Referenzfehler korrigiert und Mengen sowie Salden
+      differenzfrei erneut abgestimmt.
+    deliverable: Abgestimmte synthetische Migration mit Fehlerkorrektur
+    deliverableRefs:
+      - UABC-DEL-BCB-003
+    pageRefs:
+      - PAGE-UABC-050
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-IT
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Jede Datenvorlage besteht Pflichtfeld-, Referenz-, Dubletten- und
+          Kontrollsummenprüfung vor einem Import.
+        fulfilled: false
+      - criterion: Importfehler, Korrektur und Retest werden pro Welle dokumentiert;
+          ohne differenzfreien Readback bleibt die Aufgabe offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/data-package.yaml
+      - project/bc-basic/data-readiness-check.yaml
+    comments:
+      - id: COM-UABC-41-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/data-package.yaml
+        text: "UABC-41 – Migrationsdaten laden und abstimmen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-42
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-24
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-41
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-42 ist created; „P2P-Kette durchführen und retesten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: P2P-Kette durchführen und retesten
+    description: Die P2P-Kette wird von Bestellung bis Kreditorenzahlung mit
+      Belegfolge, Lagerzugang, Vorsteuer, Verbindlichkeit, Abweichung und Retest
+      für den Lauf geplant.
+    deliverable: Vollstaendige P2P-Beleg-, Buchungs- und Zahlungskette
+    deliverableRefs:
+      - UABC-DEL-BCB-004
+    pageRefs:
+      - PAGE-UABC-110
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Der P2P-Testfall nennt Sollbelege, erwartete Kontenwirkung,
+          Mengen-/Preisabweichung und Abstimmkontrollen.
+        fulfilled: false
+      - criterion: Bestellung bis Zahlung wird erst nach ausgeführtem Lauf,
+          Ledger-Readback und dokumentiertem Retest als bestanden markiert.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/31-processes.md
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+    comments:
+      - id: COM-UABC-42-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/31-processes.md
+        text: "UABC-42 – P2P-Kette durchführen und retesten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-43
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-25
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-42
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-43 ist created; „O2C-Kette durchführen und retesten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: O2C-Kette durchführen und retesten
+    description: Die O2C-Kette wird von Auftrag bis Zahlungseingang mit Lieferung,
+      Forderung, Umsatz, VAT, Lagerabgang, Korrektur und Retest für den Lauf
+      geplant.
+    deliverable: Vollstaendige O2C-Beleg-, Buchungs- und Zahlungskette
+    deliverableRefs:
+      - UABC-DEL-BCB-004
+    pageRefs:
+      - PAGE-UABC-110
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SALES
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Der O2C-Testfall nennt Sollbelege, erwartete
+          Umsatz-/VAT-/Bestandswirkung und Korrekturweg.
+        fulfilled: false
+      - criterion: Auftrag bis Zahlungseingang wird erst nach ausgeführtem Lauf,
+          Readback und dokumentiertem Retest als bestanden markiert.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/31-processes.md
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+    comments:
+      - id: COM-UABC-43-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/31-processes.md
+        text: "UABC-43 – O2C-Kette durchführen und retesten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-44
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-26
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-42
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-44 ist created; „Inventur und Lagerbewertung abstimmen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Inventur und Lagerbewertung abstimmen
+    description: Lagerbewegung, Inventurzaehlung, Differenzbuchung und Bewertung
+      werden mit Artikel-, Wert- und Sachkontoeintraegen abgestimmt.
+    deliverable: Abgestimmte Lagerbewegungen, Inventur und Bewertung
+    deliverableRefs:
+      - UABC-DEL-BCB-004
+    pageRefs:
+      - PAGE-UABC-110
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-WAREHOUSE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 5
+    actualHours: 0
+    remainingHours: 5
+    acceptance:
+      - criterion: Lagerprobe definiert Bewegung, Inventur, Differenz und Bewertung mit
+          erwarteten Mengen und Werten.
+        fulfilled: false
+      - criterion: Artikel-, Wert- und Sachkontoreadbacks müssen differenzfrei sein; bis
+          dahin bleibt der Prozessstatus offen.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/31-processes.md
+      - evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml
+    comments:
+      - id: COM-UABC-44-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/31-processes.md
+        text: "UABC-44 – Inventur und Lagerbewertung abstimmen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-45
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-27
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-45 ist created; „Rollenkompetenz praktisch nachweisen“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Rollenkompetenz praktisch nachweisen
+    description: Finance, Handel und Lager absolvierten historisch Rollenpfade mit
+      positivem Fall, Fehlerdiagnose, Retest, Kontrollpunkt und vierstufiger
+      Eskalation.
+    deliverable: Nachgewiesene Operator-Kompetenz fuer Finance, Handel und Lager
+    deliverableRefs:
+      - UABC-DEL-BCB-005
+    pageRefs:
+      - PAGE-UABC-170
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 4
+    actualHours: 0
+    remainingHours: 4
+    acceptance:
+      - criterion: Jede operative Rolle besitzt positiven Prozess, Fehlerfall,
+          Kontrollpunkt und Eskalationsweg im Schulungsplan.
+        fulfilled: false
+      - criterion: Teilnahme, eigenständige Durchführung und Verständnis werden erst mit
+          konkretem Schulungsnachweis bestätigt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/training-plan.yaml
+      - atlassian/confluence/pages/80-bc-basic-training.md
+    comments:
+      - id: COM-UABC-45-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/training-plan.yaml
+        text: "UABC-45 – Rollenkompetenz praktisch nachweisen: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-46
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-28
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-42
+      - UABC-43
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-46 ist created; „UAT und Mock-Cutover vorbereiten“ darf nur
+      mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: UAT und Mock-Cutover vorbereiten
+    description: UAT-Fälle, Defect-Retests, Rollenkompetenz, Datenkontrollen und
+      Mock-Cutover werden für eine spätere belegte Simulationsabnahme geplant;
+      aktuell sind sie nicht ausgeführt.
+    deliverable: Geplante UAT-, Retest- und Mock-Cutover-Abnahme
+    deliverableRefs:
+      - UABC-DEL-BCB-006
+    pageRefs:
+      - PAGE-UABC-060
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-2
+    phaseRefs: null
+    phase: P2
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 3
+    actualHours: 0
+    remainingHours: 3
+    acceptance:
+      - criterion: Alle sieben UAT-Fälle besitzen erwartete Ergebnisse, Rollen, Evidence
+          und Defect-/Retest-Regel.
+        fulfilled: false
+      - criterion: Mock-Cutover und UAT bleiben offen, bis echte Ergebnisse vorliegen
+          und kein ungeklärter P1/P2-Befund besteht.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/uat-catalog.yaml
+      - atlassian/confluence/pages/50-tests.md
+    comments:
+      - id: COM-UABC-46-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/uat-catalog.yaml
+        text: "UABC-46 – UAT und Mock-Cutover vorbereiten: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-47
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-29
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-43
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-47 ist created; „Hypercare-Fehlerszenario ausarbeiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Hypercare-Fehlerszenario ausarbeiten
+    description: Ein geplantes Hypercare-Szenario beschreibt die spätere Prüfung
+      einer nicht automatisch zugeordneten Zahlung. Ein Defect entsteht erst
+      nach Beobachtung im ausgeführten Lauf; aktuell werden
+      Reproduktionsschritte und Abnahmekriterien vorbereitet.
+    deliverable: Geplantes Hypercare-Fehlerszenario mit Retest-Regel
+    deliverableRefs:
+      - UABC-DEL-BCB-007
+    pageRefs:
+      - PAGE-UABC-160
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 2.5
+    actualHours: 0
+    remainingHours: 2.5
+    acceptance:
+      - criterion: Das geplante Hypercare-Szenario enthält Reproduktionsschritte und
+          Soll-Readbacks für eine möglicherweise nicht zugeordnete Zahlung.
+        fulfilled: false
+      - criterion: Ein Defect und Retest dürfen erst nach realer Beobachtung entstehen;
+          aktuell bleiben Diagnose, Fix und Retest ausdrücklich nicht
+          ausgeführt.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/bc-basic-hypercare.md
+      - docs/handover/bc-basic-handover.md
+    comments:
+      - id: COM-UABC-47-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/bc-basic-hypercare.md
+        text: "UABC-47 – Hypercare-Fehlerszenario ausarbeiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+  - id: UABC-48
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-30
+    childTicketIds: []
+    dependencyRefs: []
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-48 ist created; „Monatsabschluss abstimmen“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Monatsabschluss abstimmen
+    description: Sachkonto, Debitoren, Kreditoren, Bank und Lager werden fuer den
+      Monatsabschluss abgestimmt; offene Belege und Periodenstatus werden
+      kontrolliert.
+    deliverable: Abgestimmter synthetischer Monatsabschluss
+    deliverableRefs:
+      - UABC-DEL-BCB-007
+    pageRefs:
+      - PAGE-UABC-160
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 2.5
+    actualHours: 0
+    remainingHours: 2.5
+    acceptance:
+      - criterion: Monatsabschlusskontrollen nennen Sachkonto, Nebenbücher, Bank, Lager,
+          offene Belege und Periodenstatus.
+        fulfilled: false
+      - criterion: Der Abschluss bleibt offen, bis alle Soll-/Ist-Abstimmungen
+          ausgeführt und mit differenzfreien Readbacks belegt sind.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - atlassian/confluence/pages/bc-basic-hypercare.md
+      - docs/handover/bc-basic-handover.md
+    comments:
+      - id: COM-UABC-48-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: atlassian/confluence/pages/bc-basic-hypercare.md
+        text: "UABC-48 – Monatsabschluss abstimmen: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-49
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-30
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-48
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-49 ist created; „UStVA-Vorschau vorbereiten“ darf nur mit
+      ticket-spezifischer Evidence abgeschlossen werden.
+    summary: UStVA-Vorschau vorbereiten
+    description: VAT-Entries, Bemessungsgrundlagen, Vorsteuer und Umsatzsteuer
+      werden als Soll für die geplante UStVA-Vorschau vorbereitet. Eine externe
+      ELSTER-Übermittlung bleibt verboten; Ausführung und Readback stehen noch
+      aus.
+    deliverable: Gepruefte synthetische VAT-/UStVA-Vorschau ohne Uebermittlung
+    deliverableRefs:
+      - UABC-DEL-BCB-008
+    pageRefs:
+      - PAGE-UABC-160
+    decisionRefs:
+      - UABC-DEC-BCB-006
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 2
+    actualHours: 0
+    remainingHours: 2
+    acceptance:
+      - criterion: VAT-Prüfung definiert Bemessungsgrundlagen, Vorsteuer, Umsatzsteuer
+          und UStVA-Vorschau als kontrollierbare Sollwerte.
+        fulfilled: false
+      - criterion: Eine externe ELSTER-Übermittlung bleibt verboten; Abschluss erfordert
+          lokale Readbacks und eine dokumentierte Freigabeentscheidung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - project/bc-basic/decision-register.yaml
+      - atlassian/confluence/pages/bc-basic-hypercare.md
+    comments:
+      - id: COM-UABC-49-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: project/bc-basic/decision-register.yaml
+        text: "UABC-49 – UStVA-Vorschau vorbereiten: Pilotstand am 2026-07-13 ist
+          created. Nur vorbereitende Arbeit ist belegt; Live-Schritte bleiben
+          offen."
+  - id: UABC-50
+    type: task
+    sourceType: task
+    canonicalType: task
+    typeLabel: Aufgabe
+    displayIconKey: jira-task
+    displayColorToken: blue
+    parent: UABC-31
+    childTicketIds: []
+    dependencyRefs:
+      - UABC-47
+      - UABC-48
+      - UABC-49
+    sourcePath: evidence/simulation/project-story.json
+    visibility: twin-visible
+    visibilityRole: customer-project-story
+    countingScope: active-project
+    status: created
+    statusReason: UABC-50 ist created; „Retro und Supportübergabe vorbereiten“ darf
+      nur mit ticket-spezifischer Evidence abgeschlossen werden.
+    summary: Retro und Supportübergabe vorbereiten
+    description: Retro, Restpunkte und Supportübergabe werden für den aktuellen
+      Piloten vorbereitet. Die spätere Übergabe benötigt echte Cutover-,
+      Hypercare- und belegte Simulationsabnahme-Evidence und ist noch nicht
+      abgeschlossen.
+    deliverable: Plan für Abschluss, Supportstart und Handover-Paket
+    deliverableRefs:
+      - UABC-DEL-BCB-009
+    pageRefs:
+      - PAGE-UABC-180
+    decisionRefs:
+      - UABC-DEC-BCB-010
+    meetingTranscriptRefs: []
+    phaseId: UABC-3
+    phaseRefs: null
+    phase: P3
+    reporter: P-PILOT-LEAD-001
+    reporterRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    assignee: P-PILOT-LEAD-001
+    assigneeRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution Architect
+    participants:
+      - P-PILOT-LEAD-001
+      - ACTOR-KUNDEN-SUPPORT
+    billable: true
+    billingSource: task-worklogs
+    estimateHours: 11
+    actualHours: 0
+    remainingHours: 11
+    acceptance:
+      - criterion: Handover-Paket nennt Deliverables, offene Restpunkte, Retro-Ergebnis,
+          Supportweg und verantwortliche Rollen.
+        fulfilled: false
+      - criterion: Übergabe bleibt bis zu belegtem Cutover, Hypercare-Abschluss und
+          belegter Simulationsabnahme offen; historische Simulation gilt nicht
+          als aktuelle Erfüllung.
+        fulfilled: false
+    history:
+      - status: created
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+    worklogs: []
+    worklogHours: 0
+    evidence:
+      - docs/handover/bc-basic-handover.md
+      - atlassian/confluence/pages/81-bc-basic-handover.md
+    comments:
+      - id: COM-UABC-50-CURRENT-PLAN
+        type: status
+        time: 2026-07-13
+        actorRef: P-PILOT-LEAD-001
+        actorType: human
+        actionRole: Kajetan Kalicki – Projektleitung, Lead BC Consultant und Solution
+          Architect
+        evidenceRef: docs/handover/bc-basic-handover.md
+        text: "UABC-50 – Retro und Supportübergabe vorbereiten: Pilotstand am 2026-07-13
+          ist created. Nur vorbereitende Arbeit ist belegt; Live-Schritte
+          bleiben offen."
+traceabilityRecords: []
+traceabilityRelations: []

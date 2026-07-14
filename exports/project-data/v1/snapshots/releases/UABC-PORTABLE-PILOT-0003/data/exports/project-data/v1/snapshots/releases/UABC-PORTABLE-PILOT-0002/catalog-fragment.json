@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "fragmentContract": "uabc-customer-project-fragment-v1",
+  "customerId": "UABC-CUSTOMER-001",
+  "fixtureOnly": false,
+  "projects": [
+    {
+      "projectId": "UABC-BC-BASIC-001",
+      "routeKey": "bc-basic",
+      "visibility": "customer",
+      "snapshotReleaseId": "UABC-PORTABLE-PILOT-0002",
+      "consumerEligible": true,
+      "publishEligible": true
+    }
+  ],
+  "payload": {
+    "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/payload.json",
+    "sha256": "3207d0da25375c9b56dd816bc1f6f7c880b7ebaf0c289583985efd72146cb4e4",
+    "sizeBytes": 31058
+  }
+}

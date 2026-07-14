@@ -3,11 +3,11 @@
   "$id": "urn:universaarl:schema:portable-snapshot-release:v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "files", "validationStatus"],
+  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "projectData", "files", "validationStatus"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "manifestContract": { "const": "uabc-portable-snapshot-release-v1" },
-    "releaseId": { "const": "UABC-PORTABLE-PILOT-0002" },
+    "releaseId": { "const": "UABC-PORTABLE-PILOT-0003" },
     "immutable": { "const": true },
     "producer": {
       "type": "object",
@@ -35,7 +35,18 @@
     "pathSemantics": { "const": "repository-relative" },
     "byteContract": { "const": "identical-canonical-bytes" },
     "sourceInventoryDigest": { "$ref": "#/$defs/sha" },
-    "files": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/file" } },
+    "projectData": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractId", "indexSourcePath", "indexPath", "sourceCommit", "artifactCount"],
+      "properties": {
+        "contractId": { "const": "UABC-PROJECT-DATA-V1" },
+        "indexSourcePath": { "const": "exports/project-data/v1/index.yaml" },
+        "indexPath": { "$ref": "#/$defs/safePath" },
+        "sourceCommit": { "$ref": "#/$defs/sha40" },
+        "artifactCount": { "type": "integer", "minimum": 1, "maximum": 1000 }
+      }
+    },
+    "files": { "type": "array", "minItems": 4, "maxItems": 1000, "items": { "$ref": "#/$defs/file" } },
     "validationStatus": { "const": "validated-release" }
   },
   "$defs": {
@@ -60,9 +71,13 @@
     },
     "file": {
       "type": "object", "additionalProperties": false,
-      "required": ["kind", "path", "sizeBytes", "sha256", "transports"],
+      "required": ["kind", "id", "sourcePath", "format", "selector", "path", "sizeBytes", "sha256", "transports"],
       "properties": {
-        "kind": { "enum": ["payload", "catalog-fragment"] },
+        "kind": { "enum": ["knowledge-payload", "catalog-fragment", "project-index", "project-source"] },
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9._-]{0,118}[A-Za-z0-9])?$" },
+        "sourcePath": { "anyOf": [{ "$ref": "#/$defs/safePath" }, { "type": "null" }] },
+        "format": { "enum": ["json", "json-schema", "yaml", "markdown", "csv", "javascript", "png", "binary"] },
+        "selector": { "type": ["string", "null"], "maxLength": 1000 },
         "path": { "$ref": "#/$defs/safePath" },
         "sizeBytes": { "type": "integer", "minimum": 1 },
         "sha256": { "$ref": "#/$defs/sha" },

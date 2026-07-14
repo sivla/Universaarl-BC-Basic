@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import YAML from 'yaml';
 
 export const PORTABLE_SOURCE_PATH = 'project/bc-basic/portable-snapshot-pilot.yaml';
 export const PORTABLE_SCHEMA_PATH = 'governance/schemas/portable-snapshot-pilot.schema.json';
@@ -8,6 +9,24 @@ export const canonicalJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
 export const sha256Hex = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 export const normalizeContent = (value) => `${String(value).replace(/\r\n/g, '\n').split('\n').map((line) => line.replace(/[ \t]+$/u, '')).join('\n').replace(/\n+$/u, '')}\n`;
 export const safePath = (value) => typeof value === 'string' && value.length > 0 && !/^[A-Za-z]:|^[A-Za-z][A-Za-z0-9+.-]*:|^\//u.test(value) && !value.includes('\\') && !value.split('/').some((part) => ['', '.', '..'].includes(part));
+
+export const PROJECT_INDEX_PATH = 'exports/project-data/v1/index.yaml';
+
+export function buildProjectBundle({ producerCommit, indexBytes, readBytes }) {
+  if (!/^[a-f0-9]{40}$/u.test(producerCommit ?? '') || !Buffer.isBuffer(indexBytes) || typeof readBytes !== 'function') throw new Error('PILOT-PROJEKTDATEN: Commit, Indexbytes oder Blobleser fehlen');
+  let index;
+  try { index = YAML.parse(indexBytes.toString('utf8')); } catch (error) { throw new Error(`PILOT-PROJEKTINDEX: ${error.message}`); }
+  if (index?.schemaVersion !== 1 || index?.contractId !== 'UABC-PROJECT-DATA-V1' || index?.projectId !== 'UABC-BC-BASIC-001' || index?.routeKey !== 'bc-basic' || !Array.isArray(index?.artifacts) || index.artifacts.length < 1) throw new Error('PILOT-PROJEKTINDEX: Identitaet oder Artefaktliste ist ungueltig');
+  const ids = new Set(); const paths = new Set();
+  const files = index.artifacts.map((artifact) => {
+    if (!artifact?.id || ids.has(artifact.id) || !safePath(artifact?.path) || paths.has(artifact.path) || artifact.required !== true || !artifact.kindId || !artifact.format) throw new Error(`PILOT-PROJEKTINDEX: Artefakt ${artifact?.id ?? 'unbekannt'} ist ungueltig oder doppelt`);
+    ids.add(artifact.id); paths.add(artifact.path);
+    const bytes = Buffer.from(readBytes(artifact.path));
+    if (bytes.length < 1) throw new Error(`PILOT-PROJEKTDATEN: ${artifact.path} ist leer`);
+    return Object.freeze({ id: artifact.id, kindId: artifact.kindId, sourcePath: artifact.path, format: artifact.format, selector: artifact.selector ?? null, bytes });
+  });
+  return Object.freeze({ producerCommit, index: Object.freeze(index), indexBytes: Buffer.from(indexBytes), files: Object.freeze(files) });
+}
 
 const add = (errors, code, message) => errors.push(`${code}: ${message}`);
 const unique = (values) => new Set(values).size === values.length;
@@ -89,9 +108,10 @@ function inventoryFor(contract, confluence, readText) {
   }).sort((left, right) => left.sourceId.localeCompare(right.sourceId));
 }
 
-export function buildPortableArtifacts(contract, confluence, readText) {
+export function buildPortableArtifacts(contract, confluence, readText, projectBundle) {
   const contractErrors = validatePortableContract(contract, confluence);
   if (contractErrors.length) throw new Error(contractErrors.join('\n'));
+  if (!projectBundle || projectBundle.producerCommit !== contract.release.producerCommitProvenance || projectBundle.index?.contractId !== 'UABC-PROJECT-DATA-V1' || projectBundle.index?.projectId !== contract.projectId) throw new Error('PILOT-PROJEKTDATEN: Der commitgebundene Projektindex fehlt oder widerspricht dem Release');
   const inventory = inventoryFor(contract, confluence, readText);
   const reconciliationOverrides = new Map(contract.brownfieldReconciliation.rows.map((row) => [row.sourceId, row]));
   const defaultWorkshop = { 'UABC-SPACE-CUSTOMER': 'UABC-MTG-001', 'UABC-SPACE-PRODUCT': 'UABC-MTG-002', 'UABC-SPACE-CONSULTANT': 'UABC-MTG-003' };
@@ -142,13 +162,18 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     customerId: contract.customerId,
     fixtureOnly: false,
     projects: contract.customerCatalog.projects.map((item) => ({ ...item, consumerEligible: contract.release.consumerEligible, publishEligible: contract.release.publishEligible })),
-    payload: { path: payloadPath, sha256: sha256Hex(payloadBytes), sizeBytes: payloadBytes.length }
+    payload: { path: payloadPath, sha256: sha256Hex(payloadBytes), sizeBytes: payloadBytes.length },
+    projectData: { contractId: 'UABC-PROJECT-DATA-V1', sourceCommit: projectBundle.producerCommit, artifactCount: projectBundle.files.length }
   };
   const fragmentBytes = Buffer.from(canonicalJson(fragment), 'utf8');
-  const records = [
-    { kind: 'payload', path: payloadPath, bytes: payloadBytes },
-    { kind: 'catalog-fragment', path: fragmentPath, bytes: fragmentBytes }
-  ].map((item) => ({ kind: item.kind, path: item.path, sizeBytes: item.bytes.length, sha256: sha256Hex(item.bytes), transports: [
+  const projectIndexPath = `${releaseDir}/data/${PROJECT_INDEX_PATH}`;
+  const rawRecords = [
+    { kind: 'knowledge-payload', id: 'UABC-SNAPSHOT-KNOWLEDGE-0003', sourcePath: null, format: 'json', selector: null, path: payloadPath, bytes: payloadBytes },
+    { kind: 'catalog-fragment', id: 'UABC-SNAPSHOT-FRAGMENT-0003', sourcePath: null, format: 'json', selector: null, path: fragmentPath, bytes: fragmentBytes },
+    { kind: 'project-index', id: 'UABC-SNAPSHOT-INDEX-0003', sourcePath: PROJECT_INDEX_PATH, format: 'yaml', selector: null, path: projectIndexPath, bytes: projectBundle.indexBytes },
+    ...projectBundle.files.map((item) => ({ kind: 'project-source', id: item.id, sourcePath: item.sourcePath, format: item.format, selector: item.selector, path: `${releaseDir}/data/${item.sourcePath}`, bytes: item.bytes }))
+  ];
+  const records = rawRecords.map((item) => ({ kind: item.kind, id: item.id, sourcePath: item.sourcePath, format: item.format, selector: item.selector, path: item.path, sizeBytes: item.bytes.length, sha256: sha256Hex(item.bytes), transports: [
     { type: 'filesystem', relativePath: item.path, sha256: sha256Hex(item.bytes) },
     { type: 'https', relativePath: item.path, sha256: sha256Hex(item.bytes) }
   ] }));
@@ -162,6 +187,7 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     pathSemantics: 'repository-relative',
     byteContract: 'identical-canonical-bytes',
     sourceInventoryDigest: sha256Hex(Buffer.from(canonicalJson(inventory), 'utf8')),
+    projectData: { contractId: 'UABC-PROJECT-DATA-V1', indexSourcePath: PROJECT_INDEX_PATH, indexPath: projectIndexPath, sourceCommit: projectBundle.producerCommit, artifactCount: projectBundle.files.length },
     files: records,
     validationStatus: 'validated-release'
   };
@@ -170,12 +196,15 @@ export function buildPortableArtifacts(contract, confluence, readText) {
   const current = {
     schemaVersion: 1,
     pointerContract: 'uabc-portable-snapshot-current-v1',
+    customerId: contract.customerId,
+    projectId: contract.projectId,
     currentReleaseId: contract.release.releaseId,
     manifestPath,
     manifestSha256,
     bindingStatus: contract.release.bindingStatus,
     consumerEligible: contract.release.consumerEligible,
-    publishEligible: contract.release.publishEligible
+    publishEligible: contract.release.publishEligible,
+    updatedAt: contract.sourceInventory.checkpoint.capturedAt
   };
   const catalog = {
     schemaVersion: 1,
@@ -186,6 +215,7 @@ export function buildPortableArtifacts(contract, confluence, readText) {
     foreignCustomerFixturesOnly: true
   };
   return {
+    ...Object.fromEntries(rawRecords.map((item) => [item.path, Buffer.from(item.bytes)])),
     [payloadPath]: payloadBytes,
     [fragmentPath]: fragmentBytes,
     [manifestPath]: manifestBytes,
@@ -210,21 +240,41 @@ export function validatePortableArtifacts(contract, artifacts) {
   } catch (error) { return [`PILOT-OUTPUT-PARSE: ${error.message}`]; }
   if (manifest.immutable !== true) add(errors, 'PILOT-IMMUTABILITAET', 'Manifest muss immutable true sein');
   if (manifest.releaseBinding?.bindingStatus !== contract.release.bindingStatus || manifest.releaseBinding?.pendingReason !== contract.release.pendingReason || manifest.releaseBinding?.consumerEligible !== contract.release.consumerEligible || manifest.releaseBinding?.publishEligible !== contract.release.publishEligible || JSON.stringify(manifest.releaseBinding?.spectraReleaseBinding) !== JSON.stringify(contract.release.spectraReleaseBinding)) add(errors, 'PILOT-RELEASEBINDUNG', 'Manifest bildet die vollstaendige Releasebindung nicht exakt ab');
-  for (const record of manifest.files ?? []) {
+  if (manifest.producer?.customerId !== contract.customerId || JSON.stringify(manifest.producer?.projectIds) !== JSON.stringify([contract.projectId]) || manifest.producer?.commitShaProvenance !== contract.release.producerCommitProvenance) add(errors, 'PILOT-PROVENIENZ', 'Manifest bindet nicht exakt den freigegebenen Kunden-, Projekt- und Commitstand');
+  const records = manifest.files ?? [];
+  const ids = records.map((record) => record.id);
+  const paths = records.map((record) => record.path);
+  const sourcePaths = records.map((record) => record.sourcePath).filter(Boolean);
+  if (!unique(ids) || !unique(paths) || !unique(sourcePaths)) add(errors, 'PILOT-PROJEKTDATEN', 'Manifest-IDs, Releasepfade und Quellpfade muessen eindeutig sein');
+  for (const record of records) {
     if (!safePath(record.path) || !artifacts[record.path]) { add(errors, 'PILOT-PFAD', `${record.path}: Releasepfad fehlt oder ist unsicher`); continue; }
     const bytes = Buffer.from(artifacts[record.path]);
     if (record.sha256 !== sha256Hex(bytes) || record.sizeBytes !== bytes.length) add(errors, 'PILOT-DIGEST', `${record.path}: Digest oder Groesse weicht ab`);
     if ((record.transports ?? []).length !== 2 || record.transports.some((item) => item.relativePath !== record.path || item.sha256 !== record.sha256) || !['filesystem', 'https'].every((type) => record.transports.some((item) => item.type === type))) add(errors, 'PILOT-TRANSPORT', `${record.path}: Filesystem- und HTTPS-Bytes divergieren`);
   }
-  if (current.currentReleaseId !== contract.release.releaseId || current.manifestPath !== manifestPath || current.manifestSha256 !== sha256Hex(Buffer.from(artifacts[manifestPath])) || current.bindingStatus !== contract.release.bindingStatus || current.consumerEligible !== contract.release.consumerEligible || current.publishEligible !== contract.release.publishEligible) add(errors, 'PILOT-CURRENT', 'current.json bindet nicht exakt das freigegebene Manifest');
+  const projectIndexRecords = records.filter((record) => record.kind === 'project-index');
+  const projectSourceRecords = records.filter((record) => record.kind === 'project-source');
+  const projectData = manifest.projectData;
+  const expectedIndexPath = `${releaseDir}/data/${PROJECT_INDEX_PATH}`;
+  if (projectData?.contractId !== 'UABC-PROJECT-DATA-V1' || projectData?.indexSourcePath !== PROJECT_INDEX_PATH || projectData?.indexPath !== expectedIndexPath || projectData?.sourceCommit !== contract.release.producerCommitProvenance || projectData?.artifactCount !== projectSourceRecords.length || records.length !== projectSourceRecords.length + 3 || projectIndexRecords.length !== 1 || records.filter((record) => record.kind === 'knowledge-payload').length !== 1 || records.filter((record) => record.kind === 'catalog-fragment').length !== 1) add(errors, 'PILOT-PROJEKTDATEN', 'Manifest bildet Projektindex, Projektquellen und Releasebeilagen nicht vollstaendig ab');
+  let projectIndex;
+  try { projectIndex = YAML.parse(Buffer.from(artifacts[expectedIndexPath]).toString('utf8')); } catch (error) { add(errors, 'PILOT-PROJEKTINDEX', `Gebundener Projektindex ist nicht lesbar: ${error.message}`); }
+  if (projectIndex) {
+    if (projectIndex.schemaVersion !== 1 || projectIndex.contractId !== 'UABC-PROJECT-DATA-V1' || projectIndex.projectId !== contract.projectId || projectIndex.routeKey !== 'bc-basic' || !Array.isArray(projectIndex.artifacts) || projectIndex.artifacts.length !== projectSourceRecords.length) add(errors, 'PILOT-PROJEKTINDEX', 'Gebundener Projektindex besitzt eine falsche Identitaet oder Artefaktzahl');
+    for (const indexed of projectIndex.artifacts ?? []) {
+      const record = projectSourceRecords.find((candidate) => candidate.id === indexed.id);
+      if (!record || record.sourcePath !== indexed.path || record.format !== indexed.format || record.selector !== (indexed.selector ?? null) || record.path !== `${releaseDir}/data/${indexed.path}`) add(errors, 'PILOT-PROJEKTDATEN', `${indexed.id}: Index und gebundene Projektquelle widersprechen sich`);
+    }
+  }
+  if (current.customerId !== contract.customerId || current.projectId !== contract.projectId || current.currentReleaseId !== contract.release.releaseId || current.manifestPath !== manifestPath || current.manifestSha256 !== sha256Hex(Buffer.from(artifacts[manifestPath])) || current.bindingStatus !== contract.release.bindingStatus || current.consumerEligible !== contract.release.consumerEligible || current.publishEligible !== contract.release.publishEligible || current.updatedAt !== contract.sourceInventory.checkpoint.capturedAt) add(errors, 'PILOT-CURRENT', 'current.json bindet nicht exakt das freigegebene Kundenprojekt und Manifest');
   if (payload.customerId !== contract.customerId || payload.projectId !== contract.projectId || payload.truthBoundary?.liveExecutionClaimed !== false) add(errors, 'PILOT-KUNDENGRENZE', 'Payload enthaelt fremde oder unzulaessige Projektwahrheit');
   if (JSON.stringify(payload.visibilityBoundary?.allowed) !== JSON.stringify(['customer', 'internal']) || payload.visibilityBoundary?.customerSelector !== 'views.customer' || payload.visibilityBoundary?.internalSelector !== 'views.internal' || payload.visibilityBoundary?.foreignCustomerDataAllowed !== false) add(errors, 'PILOT-SICHTKLASSE', 'Payload besitzt eine fremde oder nicht freigegebene Sichtklasse');
   if (payload.views?.customer?.contradictions || payload.views?.customer?.brownfieldReconciliation || payload.views?.customer?.approvedKnowledgeChanges?.some((item) => item.reviewStatus !== 'approved')) add(errors, 'PILOT-SICHTKLASSE', 'Kundensicht enthaelt interne oder ungepruefte Wissensdaten');
   if ((payload.sourceInventory?.pages ?? []).length !== 28 || payload.sourceInventory.pages.some((page) => !/^[a-f0-9]{64}$/u.test(page.normalizedContentSha256) || !page.checkpointId || !unique(page.attachmentDigests ?? []) || page.attachmentDigests.some((digest) => !/^[a-f0-9]{64}$/u.test(digest)))) add(errors, 'PILOT-INVENTAR', 'Source Inventory ist unvollstaendig oder besitzt ungueltige Digests');
   const reconciliation = payload.views?.internal?.brownfieldReconciliation?.rows ?? [];
   if (reconciliation.length !== 30 || !['import', 'exclude', 'gap', 'conflict'].every((decision) => reconciliation.some((row) => row.decision === decision)) || payload.sourceInventory.pages.some((page) => !reconciliation.some((row) => row.sourceId === page.sourceId))) add(errors, 'PILOT-RECONCILIATION', 'Brownfield-Reconciliation deckt Quellen oder Entscheidungsarten nicht vollstaendig ab');
-  if (fragment.customerId !== contract.customerId || fragment.fixtureOnly !== false || fragment.projects?.some((project) => project.consumerEligible !== contract.release.consumerEligible || project.publishEligible !== contract.release.publishEligible)) add(errors, 'PILOT-FRAGMENT', 'Kundenfragment verletzt Isolation oder Releasefreigabe');
-  if (catalog.producerCustomerId !== contract.customerId || catalog.customerFragments?.length !== 1 || catalog.customerFragments[0]?.customerId !== contract.customerId || catalog.customerFragments[0]?.consumerEligible !== contract.release.consumerEligible || catalog.customerFragments[0]?.publishEligible !== contract.release.publishEligible) add(errors, 'PILOT-CROSS-CUSTOMER', 'Katalog enthaelt fremde oder ungepruefte Kundenfragmente');
+  if (fragment.customerId !== contract.customerId || fragment.fixtureOnly !== false || fragment.projectData?.contractId !== 'UABC-PROJECT-DATA-V1' || fragment.projectData?.sourceCommit !== contract.release.producerCommitProvenance || fragment.projectData?.artifactCount !== projectSourceRecords.length || fragment.projects?.some((project) => project.consumerEligible !== contract.release.consumerEligible || project.publishEligible !== contract.release.publishEligible)) add(errors, 'PILOT-FRAGMENT', 'Kundenfragment verletzt Isolation, Projektbindung oder Releasefreigabe');
+  if (catalog.producerCustomerId !== contract.customerId || catalog.customerFragments?.length !== 1 || catalog.customerFragments[0]?.customerId !== contract.customerId || catalog.customerFragments[0]?.fragmentPath !== fragmentPath || catalog.customerFragments[0]?.fragmentSha256 !== sha256Hex(Buffer.from(artifacts[fragmentPath])) || catalog.customerFragments[0]?.manifestPath !== manifestPath || catalog.customerFragments[0]?.manifestSha256 !== sha256Hex(Buffer.from(artifacts[manifestPath])) || catalog.customerFragments[0]?.consumerEligible !== contract.release.consumerEligible || catalog.customerFragments[0]?.publishEligible !== contract.release.publishEligible) add(errors, 'PILOT-CROSS-CUSTOMER', 'Katalog enthaelt fremde, divergierende oder ungepruefte Kundenfragmente');
   const forbiddenKey = (value) => value && typeof value === 'object' && Object.entries(value).some(([key, child]) => /password|token|cookie|secret|authstate/iu.test(key) || forbiddenKey(child));
   if ([payload, fragment, manifest, current, catalog].some(forbiddenKey)) add(errors, 'PILOT-GEHEIMNIS', 'Snapshot enthaelt ein verbotenes Geheimnis- oder Authfeld');
   return errors;

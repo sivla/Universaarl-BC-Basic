@@ -1,20 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import Ajv2020 from 'ajv/dist/2020.js';
 import YAML from 'yaml';
-import { buildPortableArtifacts, PORTABLE_RELEASE_SCHEMA_PATH, PORTABLE_SCHEMA_PATH, PORTABLE_SOURCE_PATH, validatePortableArtifacts, validatePortableContract } from './lib/portable-snapshot-pilot.mjs';
+import { buildPortableArtifacts, buildProjectBundle, PORTABLE_RELEASE_SCHEMA_PATH, PORTABLE_SCHEMA_PATH, PORTABLE_SOURCE_PATH, PROJECT_INDEX_PATH, validatePortableArtifacts, validatePortableContract } from './lib/portable-snapshot-pilot.mjs';
 
 const root = process.cwd();
 const readText = (relative) => fs.readFile(path.join(root, relative), 'utf8');
 const contract = YAML.parse(await readText(PORTABLE_SOURCE_PATH));
 const releaseEvidence = YAML.parse(await readText(contract.release.spectraReleaseBinding.evidencePath));
 const index = YAML.parse(await readText('exports/project-data/v1/index.yaml'));
-const confluence = YAML.parse(await readText(contract.sourceInventory.confluenceContractPath));
+const producerCommit = contract.release.producerCommitProvenance;
+const gitBytes = (relative) => execFileSync('git', ['show', `${producerCommit}:${relative}`], { cwd: root, encoding: null, maxBuffer: 64 * 1024 * 1024 });
+const confluence = YAML.parse(gitBytes(contract.sourceInventory.confluenceContractPath).toString('utf8'));
 const pages = [...(confluence.roots ?? []), ...(confluence.children ?? [])];
 const pageTexts = new Map();
-for (const page of pages) pageTexts.set(page.sourcePath, await readText(page.sourcePath));
-const expected = buildPortableArtifacts(contract, confluence, (relative) => pageTexts.get(relative));
+for (const page of pages) pageTexts.set(page.sourcePath, gitBytes(page.sourcePath).toString('utf8'));
+const projectBundle = buildProjectBundle({ producerCommit, indexBytes: gitBytes(PROJECT_INDEX_PATH), readBytes: gitBytes });
+const expected = buildPortableArtifacts(contract, confluence, (relative) => pageTexts.get(relative), projectBundle);
 const actual = {};
 for (const relative of Object.keys(expected)) actual[relative] = await fs.readFile(path.join(root, relative));
 const errors = [...validatePortableContract(contract, confluence), ...validatePortableArtifacts(contract, actual)];
@@ -32,14 +36,19 @@ const requiredIndexPaths = [
   contract.release.spectraReleaseBinding.evidencePath,
   contract.release.catalogPath,
   contract.release.currentPointerPath,
-  ...Object.keys(expected).filter((relative) => relative.startsWith(`${contract.release.releaseDirectory}/`))
+  `${contract.release.releaseDirectory}/payload.json`,
+  `${contract.release.releaseDirectory}/catalog-fragment.json`,
+  `${contract.release.releaseDirectory}/manifest.json`
 ];
 const indexPaths = (index.artifacts ?? []).map((item) => item.path);
-if (index.governingChange !== 'prepare-portable-snapshot-pilot' || index.artifacts?.length !== 158 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || relative.startsWith('exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/'))) errors.push('PILOT-ALLOWLIST: Index muss 158 eindeutige aktuelle Artefakte enthalten, die gebundene Pilotflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
+if (index.governingChange !== 'prepare-portable-snapshot-pilot' || index.artifacts?.length !== 158 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[12]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 158 eindeutige aktuelle Artefakte enthalten, die gebundene 0003-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
 const historical = {
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json': 'abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json': '91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4',
-  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json': 'e6b2a6dd271afb2e9978423440de7aba53168a0a60d2a34dbba06f77438281fa'
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json': 'e6b2a6dd271afb2e9978423440de7aba53168a0a60d2a34dbba06f77438281fa',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/payload.json': '3207d0da25375c9b56dd816bc1f6f7c880b7ebaf0c289583985efd72146cb4e4',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/catalog-fragment.json': '01446f62fe5a1442f590dfb40cf96059f3e7baa4e3a1fc0788a54c0ea7735868',
+  'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0002/manifest.json': '505ee0fea7e7db9441fb9ad32a0a1f839e751cbd1e00d2b539b777c1ab400322'
 };
 for (const [relative, digest] of Object.entries(historical)) {
   const bytes = await fs.readFile(path.join(root, relative));
@@ -52,4 +61,4 @@ for (const [schemaPath, value] of [[PORTABLE_SCHEMA_PATH, contract], [PORTABLE_R
   if (!validate(value)) for (const error of validate.errors ?? []) errors.push(`PILOT-SCHEMA: ${schemaPath}${error.instancePath || '/'} ${error.message}`);
 }
 if (errors.length) { console.error(`Portabler Snapshot-Pilot ungueltig (${errors.length}):`); for (const error of errors) console.error(`- ${error}`); process.exit(1); }
-console.log(`Portabler Snapshot-Pilot gueltig: Quellen=${pages.length}; aktueller Release=${contract.release.releaseId}; historische Releases=1; Kunden=1; Projekte=${contract.customerCatalog.projects.length}; Bindung=${contract.release.bindingStatus}.`);
+console.log(`Portabler Snapshot-Pilot gueltig: Quellen=${pages.length}; aktueller Release=${contract.release.releaseId}; historische Releases=2; Kunden=1; Projekte=${contract.customerCatalog.projects.length}; Projektartefakte=${projectBundle.files.length}; Bindung=${contract.release.bindingStatus}.`);

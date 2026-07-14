@@ -1,16 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { buildPortableArtifacts, PORTABLE_SOURCE_PATH, validatePortableArtifacts } from './lib/portable-snapshot-pilot.mjs';
+import { buildPortableArtifacts, buildProjectBundle, PORTABLE_SOURCE_PATH, PROJECT_INDEX_PATH, validatePortableArtifacts } from './lib/portable-snapshot-pilot.mjs';
 
 const root = process.cwd();
 const write = process.argv.includes('--write');
 const readText = (relative) => fs.readFile(path.join(root, relative), 'utf8');
 const contract = YAML.parse(await readText(PORTABLE_SOURCE_PATH));
-const confluence = YAML.parse(await readText(contract.sourceInventory.confluenceContractPath));
+const producerCommit = contract.release.producerCommitProvenance;
+const gitBytes = (relative) => execFileSync('git', ['show', `${producerCommit}:${relative}`], { cwd: root, encoding: null, maxBuffer: 64 * 1024 * 1024 });
+try {
+  execFileSync('git', ['cat-file', '-e', `${producerCommit}^{commit}`], { cwd: root, stdio: 'ignore' });
+  execFileSync('git', ['merge-base', '--is-ancestor', producerCommit, 'HEAD'], { cwd: root, stdio: 'ignore' });
+} catch { throw new Error(`PILOT-PROVENIENZ: ${producerCommit} ist kein erreichbarer Vorfahr von HEAD`); }
+const confluence = YAML.parse(gitBytes(contract.sourceInventory.confluenceContractPath).toString('utf8'));
 const pageTexts = new Map();
-for (const page of [...(confluence.roots ?? []), ...(confluence.children ?? [])]) pageTexts.set(page.sourcePath, await readText(page.sourcePath));
-const artifacts = buildPortableArtifacts(contract, confluence, (relative) => pageTexts.get(relative));
+for (const page of [...(confluence.roots ?? []), ...(confluence.children ?? [])]) pageTexts.set(page.sourcePath, gitBytes(page.sourcePath).toString('utf8'));
+const projectBundle = buildProjectBundle({ producerCommit, indexBytes: gitBytes(PROJECT_INDEX_PATH), readBytes: gitBytes });
+const artifacts = buildPortableArtifacts(contract, confluence, (relative) => pageTexts.get(relative), projectBundle);
 const errors = validatePortableArtifacts(contract, artifacts);
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 

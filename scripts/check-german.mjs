@@ -58,6 +58,9 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/manifest.json\u001f$.releaseBinding.pendingReason\u001fPENDING_BCPROJECTOS_RELEASE', 'gebundener-portabler-release-status'],
   ['openspec/changes/archive/2026-07-10-establish-playthru-environment-baseline/.openspec.yaml\u001f$.approvalPolicy.authorizedBy\u001freal-repository-user', 'gebundene-freigabeidentitaet']
 ]);
+const PORTABLE_SNAPSHOT_FILE_KINDS = new Set(['knowledge-payload', 'catalog-fragment', 'project-index', 'project-source']);
+const PORTABLE_SNAPSHOT_MANIFEST_PATTERN = /^exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-[A-Z0-9.-]+\/manifest\.json$/u;
+const PORTABLE_SNAPSHOT_DATA_PATTERN = /^exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-[A-Z0-9.-]+\/data\/(.+)$/u;
 
 const ENGLISH_WORDS = new Set(`
   a an the this that these those is are was were be been being will would should could can may might must have has had do does did
@@ -282,6 +285,9 @@ function boundStructuredValueException(file, tokens, value) {
   if (file === 'evidence/verification-register.yaml'
       && /^\$\.verifications\[\d+\]\.type$/.test(location)
       && VERIFICATION_TYPE_VALUES.has(value)) return 'deklarierter-verifikationstyp';
+  if (PORTABLE_SNAPSHOT_MANIFEST_PATTERN.test(file)
+      && /^\$\.files\[\d+\]\.kind$/.test(location)
+      && PORTABLE_SNAPSHOT_FILE_KINDS.has(value)) return 'technischer-portabler-dateityp';
   return null;
 }
 
@@ -617,30 +623,33 @@ export function scanEntries(inputEntries) {
   const sourceCatalog = sourceCatalogFromEntries(entries);
   const report = createReport();
   for (const entry of entries) {
-    if (!isTextEntry(entry.path)) continue;
+    const snapshotSourcePath = PORTABLE_SNAPSHOT_DATA_PATTERN.exec(entry.path)?.[1] ?? null;
+    const scanEntry = snapshotSourcePath ? { ...entry, path: snapshotSourcePath } : entry;
+    if (!isTextEntry(scanEntry.path)) continue;
     report.scannedFileCount += 1;
-    const rawExpected = RAW_EVIDENCE_BLOBS[entry.path];
+    if (snapshotSourcePath) report.exceptions.push({ path: entry.path, kind: 'commitgebundene-snapshot-projektquelle', sourcePath: snapshotSourcePath });
+    const rawExpected = RAW_EVIDENCE_BLOBS[scanEntry.path];
     if (rawExpected) {
-      if (entry.blobHash !== rawExpected || entry.indexBlobHash !== rawExpected) {
-        addViolation(report, { file: entry.path, kind: 'raw-evidence-blobabweichung', text: `Erwarteter Git-Blob ${rawExpected}, Arbeitskopie ${entry.blobHash}, Index ${entry.indexBlobHash}` });
-      } else report.exceptions.push({ path: entry.path, kind: 'historische-raw-evidence', gitBlob: rawExpected });
+      if (scanEntry.blobHash !== rawExpected || scanEntry.indexBlobHash !== rawExpected) {
+        addViolation(report, { file: scanEntry.path, kind: 'raw-evidence-blobabweichung', text: `Erwarteter Git-Blob ${rawExpected}, Arbeitskopie ${scanEntry.blobHash}, Index ${scanEntry.indexBlobHash}` });
+      } else report.exceptions.push({ path: scanEntry.path, kind: 'historische-raw-evidence', gitBlob: rawExpected });
       continue;
     }
-    if (entry.path === PACKAGE_LOCK_PATH) {
-      report.exceptions.push({ path: entry.path, kind: 'generierte-drittanbieter-sperrdatei' });
+    if (scanEntry.path === PACKAGE_LOCK_PATH) {
+      report.exceptions.push({ path: scanEntry.path, kind: 'generierte-drittanbieter-sperrdatei' });
       continue;
     }
-    const extension = path.posix.extname(entry.path).toLowerCase();
-    if (extension === '.md') scanMarkdown(report, entry, sourceCatalog);
-    else if (extension === '.yaml' || extension === '.yml') scanStructured(report, entry, sourceCatalog, (content) => YAML.parse(content));
-    else if (extension === '.json') scanStructured(report, entry, sourceCatalog, (content) => JSON.parse(content));
-    else if (extension === '.jsonl') scanJsonLines(report, entry, sourceCatalog);
-    else if (extension === '.html' || extension === '.htm') scanHtml(report, entry, sourceCatalog);
-    else if (extension === '.vtt') scanVtt(report, entry);
-    else if (['.mjs', '.js', '.ts', '.tsx'].includes(extension)) scanJavaScriptSource(report, entry.path, asText(entry.content));
-    else if (entry.path === '.gitattributes') scanGitAttributes(report, entry);
-    else if (entry.path === '.gitignore') {
-      for (const [index, line] of asText(entry.content).split(/\r?\n/).entries()) checkText(report, entry.path, line, { line: index + 1 });
+    const extension = path.posix.extname(scanEntry.path).toLowerCase();
+    if (extension === '.md') scanMarkdown(report, scanEntry, sourceCatalog);
+    else if (extension === '.yaml' || extension === '.yml') scanStructured(report, scanEntry, sourceCatalog, (content) => YAML.parse(content));
+    else if (extension === '.json') scanStructured(report, scanEntry, sourceCatalog, (content) => JSON.parse(content));
+    else if (extension === '.jsonl') scanJsonLines(report, scanEntry, sourceCatalog);
+    else if (extension === '.html' || extension === '.htm') scanHtml(report, scanEntry, sourceCatalog);
+    else if (extension === '.vtt') scanVtt(report, scanEntry);
+    else if (['.mjs', '.js', '.ts', '.tsx'].includes(extension)) scanJavaScriptSource(report, scanEntry.path, asText(scanEntry.content));
+    else if (scanEntry.path === '.gitattributes') scanGitAttributes(report, scanEntry);
+    else if (scanEntry.path === '.gitignore') {
+      for (const [index, line] of asText(scanEntry.content).split(/\r?\n/).entries()) checkText(report, scanEntry.path, line, { line: index + 1 });
     }
   }
   report.violations.sort((left, right) => left.path.localeCompare(right.path) || (left.line ?? 0) - (right.line ?? 0) || left.text.localeCompare(right.text));

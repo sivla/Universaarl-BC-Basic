@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "recordType": "reference-graph-mapping-rules",
+  "mappings": [
+    {
+      "mapping_id": "MAP-UABC-BCB-REFERENCE-001",
+      "native_class": "native-reference",
+      "portable_class": "portable-reference",
+      "outcome": "transformed",
+      "reason_code": "transformed-domain"
+    }
+  ]
+}

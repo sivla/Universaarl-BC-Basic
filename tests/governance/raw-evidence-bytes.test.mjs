@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const attributePath = path.join(root, '.gitattributes');
+const portableSnapshotByteRule = 'exports/project-data/v1/snapshots/**';
 
 const expectedRawEvidence = new Map([
   ['evidence/archive-dry-run-2026-07-10.yaml', '14d90ca6b55d966760afa6708def05d1aa27731ea25003836a4f9d22e74ef457'],
@@ -86,17 +87,22 @@ function parseExplicitBinaryRules(content) {
   const rules = new Set();
   const lfRules = new Set();
   const allPaths = new Set();
+  let portableSnapshotRuleSeen = false;
   const lines = String(content).split(/\r?\n/);
   if (lines.at(-1) === '') lines.pop();
   for (const [index, line] of lines.entries()) {
     assert.equal(line, line.trim(), `.gitattributes-Zeile ${index + 1} darf keinen Randabstand enthalten`);
     const parts = line.split(/\s+/);
     const relative = parts[0];
-    assert.doesNotMatch(relative, /[*?\[]/, `${relative}: breite Muster sind fuer checkoutgebundene Bytes verboten`);
+    if (relative !== portableSnapshotByteRule) assert.doesNotMatch(relative, /[*?\[]/, `${relative}: breite Muster sind fuer checkoutgebundene Bytes verboten`);
     assert.equal(allPaths.has(relative), false, `${relative}: Regel ist doppelt vorhanden`);
     allPaths.add(relative);
 
     if (parts.length === 2 && parts[1] === '-text') {
+      if (relative === portableSnapshotByteRule) {
+        portableSnapshotRuleSeen = true;
+        continue;
+      }
       assert.equal(expectedCheckoutBoundFiles.has(relative), true, `${relative}: unerwartete checkoutgebundene Byteregel`);
       rules.add(relative);
       continue;
@@ -114,6 +120,7 @@ function parseExplicitBinaryRules(content) {
   for (const relative of expectedLfNormalizedFiles) {
     assert.equal(lfRules.has(relative), true, `${relative}: explizite text eol=lf-Regel fehlt`);
   }
+  assert.equal(portableSnapshotRuleSeen, true, `Die exakte Regel ${portableSnapshotByteRule} -text fehlt`);
   assert.equal(rules.size, expectedCheckoutBoundFiles.size, 'Die .gitattributes muss exakt dreizehn checkoutgebundene Bytezeilen enthalten');
   assert.equal(lfRules.size, expectedLfNormalizedFiles.size, 'Die .gitattributes muss exakt alle deterministischen LF-Regeln enthalten');
   return rules;
@@ -160,9 +167,13 @@ test('fehlende doppelte und breite Attributregeln scheitern geschlossen', () => 
     () => parseExplicitBinaryRules(`${lines.slice(0, -1).join('\n')}\nevidence/** -text\n`),
     /breite Muster/
   );
+  assert.throws(
+    () => parseExplicitBinaryRules(`${lines.slice(0, -1).join('\n')}\nexports/project-data/v1/snapshots/releases/** -text\n`),
+    /breite Muster/
+  );
 });
 
-test('alle deterministischen Generatorausgaben sind exakt und ohne breite Muster auf LF normalisiert', () => {
+test('deterministische Generatorausgaben sind exakt normalisiert und nur der Snapshot-Store besitzt die enge Musterregel', () => {
   const fixture = repositoryFixture();
   assert.doesNotThrow(() => parseExplicitBinaryRules(fixture.attributes));
   const lines = fixture.attributes.trimEnd().split(/\r?\n/);

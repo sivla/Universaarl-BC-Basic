@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:schema:portable-snapshot-release:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "manifestContract", "releaseId", "immutable", "producer", "releaseBinding", "pathSemantics", "byteContract", "sourceInventoryDigest", "files", "validationStatus"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "manifestContract": { "const": "uabc-portable-snapshot-release-v1" },
+    "releaseId": { "const": "UABC-PORTABLE-PILOT-0002" },
+    "immutable": { "const": true },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customerId", "projectIds", "commitShaProvenance"],
+      "properties": {
+        "customerId": { "const": "UABC-CUSTOMER-001" },
+        "projectIds": { "const": ["UABC-BC-BASIC-001"] },
+        "commitShaProvenance": { "type": "string", "pattern": "^[a-f0-9]{40}$" }
+      }
+    },
+    "releaseBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bindingStatus", "pendingReason", "consumerEligible", "publishEligible", "requiredEvidence", "spectraReleaseBinding"],
+      "properties": {
+        "bindingStatus": { "const": "BOUND_BCPROJECTOS_RELEASE" },
+        "pendingReason": { "type": "null" },
+        "consumerEligible": { "const": true },
+        "publishEligible": { "const": true },
+        "requiredEvidence": { "const": ["annotatedTag", "peeledCommit", "finalManifest", "productDigest", "platformMatrix"] },
+        "spectraReleaseBinding": { "$ref": "#/$defs/spectraReleaseBinding" }
+      }
+    },
+    "pathSemantics": { "const": "repository-relative" },
+    "byteContract": { "const": "identical-canonical-bytes" },
+    "sourceInventoryDigest": { "$ref": "#/$defs/sha" },
+    "files": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/file" } },
+    "validationStatus": { "const": "validated-release" }
+  },
+  "$defs": {
+    "sha": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "sha40": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "safePath": { "type": "string", "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$)).+$" },
+    "transport": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "relativePath", "sha256"],
+      "properties": { "type": { "enum": ["filesystem", "https"] }, "relativePath": { "$ref": "#/$defs/safePath" }, "sha256": { "$ref": "#/$defs/sha" } }
+    },
+    "spectraReleaseBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidencePath", "productId", "technicalRepositoryName", "repositoryUrl", "releaseVersion", "releaseTag", "annotatedTagObject", "peeledCommit", "manifestPath", "manifestSourceCommit", "sourceTree", "consumerMode", "installableBlueprint", "digestAlgorithm", "payloadBundleDigest", "platformEvidenceStatus", "platformEvidenceRun"],
+      "properties": {
+        "evidencePath": { "$ref": "#/$defs/safePath" }, "productId": { "const": "spectra" }, "technicalRepositoryName": { "const": "BCProjectOS" }, "repositoryUrl": { "const": "https://github.com/sivla/BCProjectOS.git" },
+        "releaseVersion": { "const": "1.2.0-alpha.12" }, "releaseTag": { "const": "spectra-v1.2.0-alpha.12" }, "annotatedTagObject": { "$ref": "#/$defs/sha40" }, "peeledCommit": { "$ref": "#/$defs/sha40" },
+        "manifestPath": { "const": "release/versions/1.2.0-alpha.12/release-manifest.json" }, "manifestSourceCommit": { "$ref": "#/$defs/sha40" }, "sourceTree": { "$ref": "#/$defs/sha40" },
+        "consumerMode": { "const": "INSTALLABLE_BLUEPRINT" }, "installableBlueprint": { "const": true }, "digestAlgorithm": { "const": "SHA-256" }, "payloadBundleDigest": { "$ref": "#/$defs/sha" },
+        "platformEvidenceStatus": { "const": "passed" }, "platformEvidenceRun": { "const": "https://github.com/sivla/BCProjectOS/actions/runs/29293515568" }
+      }
+    },
+    "file": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "path", "sizeBytes", "sha256", "transports"],
+      "properties": {
+        "kind": { "enum": ["payload", "catalog-fragment"] },
+        "path": { "$ref": "#/$defs/safePath" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha" },
+        "transports": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/transport" } }
+      }
+    }
+  }
+}

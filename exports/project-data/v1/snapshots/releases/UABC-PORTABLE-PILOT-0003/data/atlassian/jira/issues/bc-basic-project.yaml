@@ -1,0 +1,566 @@
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+recordScope: historical-reference-only
+issues:
+  - key: UABC-18
+    type: Epic
+    summary: BC Basic Einrichtung als wiederverwendbares Grundpaket planen
+    parent: null
+    status: Backlog
+    components: [Projektmanagement, Finanzwesen, Einkauf, Verkauf, Artikel, Bestand, Lager, Daten, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-03
+    dueDate: 2026-09-04
+    effort: 68h Planwert
+    plannedBillableHours: 68
+    historicalReferenceSimulation: { offerVersion: 2.0, actualHours: 80, actualNetAmount: 9600, worklogCount: 19, evidence: evidence/simulation/billing-reconciliation.yaml, status: synthetic-closed-superseded, currentRollupContribution: false }
+    billable: false
+    worklogEligible: false
+    dependencies: []
+    dataRequirements: [historischer synthetischer Produktauftrag, Drei-Phasen-Plan, Tagessatz, offene belegte Simulationsfreigaben]
+    acceptanceCriteria:
+      - Genau eine synthetische Gesellschaft in playthru ist geplant und jeder Schreibvorgang bleibt gesperrt.
+      - Die 17 untergeordneten Arbeitspakete ergeben 68 Dienstleisterstunden; Elternsummen und Kundenaufwaende sind nicht abrechenbar.
+      - Alle neun Lieferergebnisse und ausstehenden Nachweise sind ohne Erfolgsbehauptung referenziert.
+    deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003, UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006, UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-002, UABC-REQ-BCB-004]
+    confluenceRefs: [UABC-BCBPROJECT]
+    evidenceRefs: [UABC-VER-BCB-LOCAL-001, UABC-VER-BCB-POLICY-GATE-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-19
+    type: Story
+    summary: Phase 1 Vorbereitung, Anforderungen und Datenbereitschaft abschliessen
+    parent: UABC-18
+    status: Backlog
+    components: [Projektmanagement, Finanzwesen, Einkauf, Verkauf, Lager, Daten]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-03
+    dueDate: 2026-08-21
+    effort: 18h Planwert
+    plannedBillableHours: 18
+    billable: false
+    worklogEligible: false
+    dependencies: []
+    dataRequirements: [Anforderungen, Prozessentscheidungen, Datenvorlagen, Abnahmeplan]
+    acceptanceCriteria:
+      - Umfang, Verantwortungen und Abhaengigkeiten sind nachvollziehbar dokumentiert.
+      - Daten- sowie Finanz- und Steuerfreigaben sind entschieden oder sichtbar blockierend.
+    deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-005, UABC-REQ-BCB-006]
+    confluenceRefs: [UABC-BCBDISCOVERY]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-20
+    type: Story
+    summary: Phase 2 Standardumfang in genau einer Woche einrichten und schulen
+    parent: UABC-18
+    status: Backlog
+    components: [Finanzwesen, Einkauf, Verkauf, Artikel, Bestand, Lager, Daten, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-24
+    dueDate: 2026-08-28
+    effort: 40h Planwert
+    plannedBillableHours: 40
+    billable: false
+    worklogEligible: false
+    dependencies: [UABC-19]
+    dataRequirements: [freigegebenes synthetisches Datenpaket, Zielbindung, Finanzdesign, Ruecksetzplan]
+    acceptanceCriteria:
+      - Grundeinrichtung, Finanzwesen, Einkauf, Verkauf und einfacher Bestand sind gegen das freigegebene Design geprueft.
+      - Schulung, fachlicher Abnahmetest und simulierter Sandbox-Uebergang sind nachgewiesen oder blockiert.
+    deliverableIds: [UABC-DEL-BCB-004, UABC-DEL-BCB-005, UABC-DEL-BCB-006]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-007, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION]
+    evidenceRefs: [UABC-VER-BCB-E2E-001, UABC-VER-BCB-TRAINING-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-21
+    type: Story
+    summary: Phase 3 Hypercare, Monatsabschlussprobe und UStVA-Vorschau abschliessen
+    parent: UABC-18
+    status: Backlog
+    components: [Projektmanagement, Finanzwesen, Berichtswesen, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-31
+    dueDate: 2026-09-04
+    effort: 10h Planwert
+    plannedBillableHours: 10
+    billable: false
+    worklogEligible: false
+    dependencies: [UABC-20]
+    dataRequirements: [synthetische Buchungen, Abstimmcheckliste, UStVA-Kennzeichen, UAT- und Hypercare-Befunde, Uebergabeunterlagen]
+    acceptanceCriteria:
+      - Monatsabschlussprozess ist in der Sandbox geprobt und abgestimmt; UStVA-Vorschau ist fachlich geprueft, ohne Test-, Produktiv- oder ELSTER-Uebermittlung.
+      - Abschluss der Hypercare und Uebergabe wurden im historischen Referenzlauf nur mit belegten Simulationsfreigaben markiert; dieser Nachweis erfuellt kein aktuelles Pilotgate.
+    deliverableIds: [UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-009, UABC-REQ-BCB-010]
+    confluenceRefs: [UABC-BCBHYPERCARE]
+    evidenceRefs: [UABC-VER-BCB-CLOSE-001, UABC-VER-BCB-VAT-001, UABC-VER-BCB-HANDOVER-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-22
+    type: Sub-task
+    summary: Projektauftakt, Umfang, Rollen und Abrechnung vorbereiten
+    parent: UABC-19
+    status: Backlog
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-03
+    dueDate: 2026-08-03
+    effort: 2h
+    plannedBillableHours: 2
+    billable: true
+    worklogEligible: true
+    dependencies: []
+    dataRequirements: [Produktziel, Rollen, 68-Stunden-Plan, Tagessatz, offenes Budgetlimit, Besprechungsrhythmus]
+    acceptanceCriteria: [Projektauftrag benennt drei Phasen und Nicht-Ziele, 1.300 EUR Tagessatz und 162,50 EUR Stundensatz sind dokumentiert, ein Budgetlimit wird nicht erfunden, echte Kundentermine bleiben offen]
+    deliverableIds: [UABC-DEL-BCB-001]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-004]
+    confluenceRefs: [UABC-BCBPROJECT, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-001, comment: Scope Rollen Fast-Track und kaufmaennischer Rahmen sind erklaert und in der bestehenden Story abgeglichen, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY], additionalHours: 0 }
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-23
+    type: Sub-task
+    summary: Finanz- und Steueranforderungen dokumentieren
+    parent: UABC-19
+    status: Backlog
+    components: [Finanzwesen]
+    assignee: P-002
+    customerRole: P-005
+    startDate: 2026-08-05
+    dueDate: 2026-08-07
+    effort: 4h
+    plannedBillableHours: 4
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-22]
+    dataRequirements: [Kontenplan, Buchungsgruppen, MwSt.-Matrix, Dimensionen, UStVA-Kennzeichen]
+    acceptanceCriteria: [Finanzdesign und offene Steuerfreigaben sind getrennt dokumentiert, keine Steuerberatung oder Uebermittlungsfreigabe wird behauptet]
+    deliverableIds: [UABC-DEL-BCB-002]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-009]
+    confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-005, comment: Finance VAT Dimensionen Perioden und offene reale Steuerbestaetigung sind entscheidungsfaehig getrennt, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY, UABC-DEC-BCB-REGISTER-001], additionalHours: 0 }
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-24
+    type: Sub-task
+    summary: Einkaufs-, Verkaufs- und Lagerprozesse standardnah entscheiden
+    parent: UABC-19
+    status: Backlog
+    components: [Einkauf, Verkauf, Artikel, Bestand, Lager]
+    assignee: P-002
+    customerRole: P-011
+    startDate: 2026-08-10
+    dueDate: 2026-08-12
+    effort: 4h
+    plannedBillableHours: 4
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-22]
+    dataRequirements: [Pflichtszenarien, Lagerort, Artikel- und Beleganforderungen, Zahlungsgrenzen]
+    acceptanceCriteria: [Pflichtablaeufe bleiben auf Bestellung Wareneingang Eingangsrechnung, Angebot oder Auftrag Lieferung Verkaufsrechnung, Artikelanlage Zugang Bestand und einfache Inventur begrenzt; genau ein Lagerort ohne verpflichtende Lagerplaetze ist festgelegt, Erweiterungswuensche sind ausgeschlossen]
+    deliverableIds: [UABC-DEL-BCB-002]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003]
+    confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-011, comment: P2P O2C Cash Bank Lager und Abschluss sind standardnah entschieden und abgegrenzt, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY, UABC-DEC-BCB-REGISTER-001], additionalHours: 0 }
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-25
+    type: Sub-task
+    summary: Synthetisches Datenpaket pruefbereit machen
+    parent: UABC-19
+    status: Backlog
+    components: [Daten, Finanzwesen, Einkauf, Verkauf, Lager]
+    assignee: P-002
+    customerRole: P-016
+    startDate: 2026-08-13
+    dueDate: 2026-08-18
+    effort: 5h
+    plannedBillableHours: 5
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-23, UABC-24]
+    dataRequirements: [acht getrennte maschinenlesbare Blanko-/Beispielpaare, Unternehmen, SKR04-Setup, Dimensionen, Debitor, Kreditor, Artikel, Bestand, Eroeffnungs- und offene Posten, Datenbereitschaftscheck, Konfigurationspaket-Reihenfolge]
+    acceptanceCriteria: [Alle acht Objektvorlagen liegen getrennt als wertefreie Blanko- und vollstaendig synthetische Beispieldatei vor; Referenzen und Summen sind maschinenlesbar abgestimmt; offene Fachfreigaben blockieren die Weitergabe; Konfigurationspakete bleiben dokumentiertes Dienstleisterwerkzeug]
+    deliverableIds: [UABC-DEL-BCB-003]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-006]
+    confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBDELIVERABLES]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-016, comment: Drei Datenwellen besitzen Objekte Quellen Volumina Bereinigung Mapping Owner und Abstimmung, evidenceRefs: [UABC-MTG-001, UABC-DATA-BCB-001], additionalHours: 0 }
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-26
+    type: Sub-task
+    summary: Loesungs-, Pruef-, Uebergangs- und Abnahmeplan vorlegen
+    parent: UABC-19
+    status: Backlog
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-19
+    dueDate: 2026-08-21
+    effort: 3h
+    plannedBillableHours: 3
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-23, UABC-24, UABC-25]
+    dataRequirements: [Loesungsdesign, Pflichtszenarien, Ruecksetzplan, genau sieben geplante UAT-Faelle, Abnahmerollen, offene Freigaben]
+    acceptanceCriteria: [Der UAT-Katalog enthaelt genau sieben geplante Pflichtfaelle mit Ausgangslage Rolle Testdatenreferenz fachlichen Schritten erwartetem Ergebnis und Abnahmekriterium ohne Ausfuehrungs- oder Freigabebehauptung; die Einrichtungswoche startet nur nach bestandenem Bereitschaftspruefpunkt]
+    deliverableIds: [UABC-DEL-BCB-001, UABC-DEL-BCB-002, UABC-DEL-BCB-003]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBDISCOVERY, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-READINESS-001]
+    simulationOutcome: { status: simulated-complete, acceptedAt: 2026-08-21, acceptedByRef: P-001, comment: Solution Blueprint UAT und Cutover sind mit GO_DISCOVERY_SIMULATION freigegeben, evidenceRefs: [UABC-MTG-001, UABC-BCBDISCOVERY], additionalHours: 0 }
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-27
+    type: Sub-task
+    summary: Zielgesellschaft, Grundeinrichtung und Rollen binden
+    parent: UABC-20
+    status: Backlog
+    components: [Projektmanagement, Finanzwesen]
+    assignee: P-002
+    customerRole: P-004
+    startDate: 2026-08-24
+    dueDate: 2026-08-24
+    effort: 4h
+    plannedBillableHours: 4
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-26]
+    dataRequirements: [playthru-Zielbindung, UABC-BASIC-DE, Unternehmensdaten, Nummernserien, Perioden, Rollen]
+    acceptanceCriteria: [Nur Universaarl GmbH in playthru ist gebunden, Schreibfreigabe und Ruecksetzpunkt sind vor jeder Mutation nachgewiesen, keine zweite Gesellschaft wird verwendet]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-001, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-28
+    type: Sub-task
+    summary: Finanzwesen und Buchungsmatrix einrichten
+    parent: UABC-20
+    status: Backlog
+    components: [Finanzwesen]
+    assignee: P-002
+    customerRole: P-005
+    startDate: 2026-08-24
+    dueDate: 2026-08-25
+    effort: 10h
+    plannedBillableHours: 10
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-27]
+    dataRequirements: [Konten, Buchungsgruppen, MwSt.-Matrix, Zahlungsbedingungen, Dimensionen, Journale]
+    acceptanceCriteria: [Konfiguration entspricht dem fachlich freigegebenen Design, synthetisches Journal ist abstimmbar, ungepruefte Steuerkennzeichen blockieren]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-009]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-29
+    type: Sub-task
+    summary: Konfigurationspakete erstellen, Stammdaten laden und abstimmen
+    parent: UABC-20
+    status: Backlog
+    components: [Daten, Finanzwesen, Einkauf, Verkauf, Artikel]
+    assignee: P-002
+    customerRole: P-016
+    startDate: 2026-08-25
+    dueDate: 2026-08-25
+    effort: 4h
+    plannedBillableHours: 4
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-28]
+    dataRequirements: [freigegebenes Datenpaket, Konfigurationspakete, Importreihenfolge, Importprotokoll, Fehlerliste, Abstimmsummen]
+    acceptanceCriteria: [Nur synthetische freigegebene Zeilen werden ueber dokumentierte Konfigurationspakete oder begruendete manuelle Ausnahmen geladen, Fehler und Summen sind protokolliert, fehlende Werte werden nicht erfunden]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-006]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBDELIVERABLES]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-30
+    type: Sub-task
+    summary: Einkaufsprozess vom Auftrag bis zur Zahlungsvorbereitung pruefen
+    parent: UABC-20
+    status: Backlog
+    components: [Einkauf, Bestand, Finanzwesen]
+    assignee: P-002
+    customerRole: P-011
+    startDate: 2026-08-26
+    dueDate: 2026-08-26
+    effort: 5h
+    plannedBillableHours: 5
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-29]
+    dataRequirements: [synthetischer Kreditor, Artikel, Lagerort, Bestellung, Wareneingang, Rechnung]
+    acceptanceCriteria: [Bestellung, Wareneingang, Eingangsrechnung und erwartete Lieferanten-, Bestands-, Steuer- und Sachposten sind nachvollziehbar; optionale Zahlungsvorbereitung bleibt begrenzt]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-31
+    type: Sub-task
+    summary: Verkaufsprozess vom Auftrag bis zum Zahlungseingang pruefen
+    parent: UABC-20
+    status: Backlog
+    components: [Verkauf, Bestand, Finanzwesen]
+    assignee: P-002
+    customerRole: P-011
+    startDate: 2026-08-26
+    dueDate: 2026-08-26
+    effort: 5h
+    plannedBillableHours: 5
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-29]
+    dataRequirements: [synthetischer Debitor, Artikel, Lagerort, Auftrag, Lieferung, Rechnung]
+    acceptanceCriteria: [Angebot oder Auftrag, Lieferung, Verkaufsrechnung und erwartete Kunden-, Bestands-, Steuer- und Sachposten sind nachvollziehbar; optionaler Zahlungseingang bleibt begrenzt]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-32
+    type: Sub-task
+    summary: Einfachen Bestand an einem Lagerort pruefen
+    parent: UABC-20
+    status: Backlog
+    components: [Artikel, Bestand, Lager, Finanzwesen]
+    assignee: P-002
+    customerRole: P-019
+    startDate: 2026-08-26
+    dueDate: 2026-08-27
+    effort: 5h
+    plannedBillableHours: 5
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-29]
+    dataRequirements: [Artikel, Lagerort HAUPT, Anfangsbestand, Zu- und Abgang, Inventurdifferenz]
+    acceptanceCriteria: [Genau ein Lagerort ohne verpflichtende Lagerplaetze wird verwendet, Mengen- und Wertbewegungen sind abgestimmt]
+    deliverableIds: [UABC-DEL-BCB-004]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-003, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-33
+    type: Sub-task
+    summary: Rollenbezogene Schulungen durchfuehren und protokollieren
+    parent: UABC-20
+    status: Backlog
+    components: [Training, Finanzwesen, Einkauf, Verkauf, Lager]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-27
+    dueDate: 2026-08-28
+    effort: 4h
+    plannedBillableHours: 4
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-30, UABC-31, UABC-32]
+    dataRequirements: [Lernziele, Agenda, Uebungen, Teilnehmer, Fragen, Kompetenzpruefung]
+    acceptanceCriteria: [Navigation, Rollencenter, Tell Me, Suche, Filter, Listen, Debitoren, Kreditoren, Artikel, Einkauf, Verkauf, Bestand und grundlegendes Finanzwesen sind abgedeckt; Konfigurationspaketpflege ist ausgeschlossen; Ausfuehrungstranskript und Kompetenzstand bleiben bis zur echten Schulung leer]
+    deliverableIds: [UABC-DEL-BCB-005]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-007]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBDELIVERABLES]
+    evidenceRefs: [UABC-VER-BCB-TRAINING-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-34
+    type: Sub-task
+    summary: Ende-zu-Ende-Pflichtfaelle, Fachabnahme und UAT-Begleitung durchfuehren
+    parent: UABC-20
+    status: Backlog
+    components: [Projektmanagement, Finanzwesen, Einkauf, Verkauf, Lager, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-28
+    dueDate: 2026-08-28
+    effort: 3h
+    plannedBillableHours: 3
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-28, UABC-30, UABC-31, UABC-32, UABC-33]
+    dataRequirements: [Playwright-Pflichtszenarien, Fachabnahmeliste, UAT-Faelle, offene Fehler, Schreibfreigabe, Ruecksetzplan, Unterstuetzungsweg]
+    acceptanceCriteria: [Jedes Pflichtszenario besitzt referenzierbaren Nachweis oder bleibt blockiert, vorbereitete UAT-Faelle konnten ausgefuehrt werden oder blockieren nachvollziehbar, echte Verantwortliche dokumentieren Ergebnis und offene Fehler]
+    deliverableIds: [UABC-DEL-BCB-006]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-008]
+    confluenceRefs: [UABC-BCBIMPLEMENTATION, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-E2E-001, UABC-VER-BCB-TRAINING-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-35
+    type: Sub-task
+    summary: UAT- und Hypercare-Befunde priorisieren und begrenzt bearbeiten
+    parent: UABC-21
+    status: Backlog
+    components: [Projektmanagement]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-08-31
+    dueDate: 2026-09-01
+    effort: 2h
+    plannedBillableHours: 2
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-34]
+    dataRequirements: [UAT-Ergebnisse, Fehlerliste, Prioritaet, Verantwortliche, Reproduktionsschritte, Tagesstatus]
+    acceptanceCriteria: [Relevante Faelle sind bearbeitet oder blockieren sichtbar, Hypercare bleibt auf eine Woche und hoechstens 10 Stunden begrenzt, keine synthetische Simulation wird als echter Unterstuetzungsfall dargestellt]
+    deliverableIds: [UABC-DEL-BCB-007]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-002, UABC-REQ-BCB-010]
+    confluenceRefs: [UABC-BCBHYPERCARE, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-CLOSE-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-36
+    type: Sub-task
+    summary: Monatsabschlussprozess in der Sandbox proben und Basisberichte abstimmen
+    parent: UABC-21
+    status: Backlog
+    components: [Finanzwesen, Berichtswesen, Bestand]
+    assignee: P-002
+    customerRole: P-005
+    startDate: 2026-09-02
+    dueDate: 2026-09-02
+    effort: 3h
+    plannedBillableHours: 3
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-35]
+    dataRequirements: [Debitoren, Kreditoren, Bankersatz, Bestand, Steuer, Sachkonten, Perioden, Basisberichte]
+    acceptanceCriteria: [Alle Nebenbuecher und Sachkonten sind abgestimmt, Differenzen bleiben blockierend dokumentiert, ausschliesslich synthetische Werte werden verwendet]
+    deliverableIds: [UABC-DEL-BCB-007]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-009]
+    confluenceRefs: [UABC-BCBHYPERCARE, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-CLOSE-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-37
+    type: Sub-task
+    summary: UStVA-Vorschau fachlich pruefen, nicht uebermitteln
+    parent: UABC-21
+    status: Backlog
+    components: [Finanzwesen, Berichtswesen]
+    assignee: P-002
+    customerRole: P-005
+    startDate: 2026-09-03
+    dueDate: 2026-09-03
+    effort: 2h
+    plannedBillableHours: 2
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-36]
+    dataRequirements: [abgestimmter Abschluss, freigegebene UStVA-Kennzeichen, Vorschau, Uebermittlungssperre]
+    acceptanceCriteria: [Periode, Betraege und Kennzeichen stimmen mit der Abstimmung ueberein, Steuerberatung prueft fachlich, keine Test-, Produktiv- oder ELSTER-Uebermittlung wird ausgeloest]
+    deliverableIds: [UABC-DEL-BCB-008]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-009]
+    confluenceRefs: [UABC-BCBHYPERCARE, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-VAT-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
+
+  - key: UABC-38
+    type: Sub-task
+    summary: Schulungsunterlagen, Projektdokumentation und Uebergabe abschliessen
+    parent: UABC-21
+    status: Backlog
+    components: [Projektmanagement, Training]
+    assignee: P-002
+    customerRole: P-001
+    startDate: 2026-09-04
+    dueDate: 2026-09-04
+    effort: 3h
+    plannedBillableHours: 3
+    billable: true
+    worklogEligible: true
+    dependencies: [UABC-35, UABC-36, UABC-37]
+    dataRequirements: [Schulungsunterlagen, Projektdokumentation, Confluence-Seitenbaum, offene Punkte, Nachweisindex, Uebergabeentscheidung]
+    acceptanceCriteria: [Dokumentation und Schulungsunterlagen enthalten Quellen, Versionen, Szenarien und Nachweise, fehlende Ergebnisse bleiben leer, Abschluss der Hypercare wird nur menschlich freigegeben]
+    deliverableIds: [UABC-DEL-BCB-009]
+    transcriptRefs: [UABC-MTG-001]
+    referenceIds: [UABC-REQ-BCB-007, UABC-REQ-BCB-010, UABC-REQ-BCB-011]
+    confluenceRefs: [UABC-BCBDELIVERABLES, UABC-BCBMEETINGS]
+    evidenceRefs: [UABC-VER-BCB-HANDOVER-001]
+    historySynthetic: true
+    history: []
+    doneGate: { acceptanceCriteriaMet: false, verificationPassed: false, humanApprovalRequired: true, humanApprovalRecorded: false }
