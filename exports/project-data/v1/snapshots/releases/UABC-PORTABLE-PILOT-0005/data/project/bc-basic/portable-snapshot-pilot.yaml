@@ -1,0 +1,97 @@
+schemaVersion: 1
+contractId: UABC-PORTABLE-SNAPSHOT-PILOT-V1
+projectId: UABC-BC-BASIC-001
+customerId: UABC-CUSTOMER-001
+classification: synthetic-local-simulation
+simulation: true
+consumerIdentity:
+  consumerId: project-twin
+  repositoryUrl: https://github.com/sivla/Universaarl-Project-Twin.git
+  branch: codex/universaarl-projekt-twin
+  access: nur-lesend
+  authorizationScope: ausschliesslich-validierte-snapshots-lesen
+sourceInventory:
+  confluenceContractPath: project/bc-basic/confluence-three-space-v1.yaml
+  sourceVersion: lokaler-projektinhalt-v1
+  normalization: utf8-lf-trim-line-end-single-final-newline
+  attachmentPolicy: local-allowlisted-digests-only
+  checkpoint:
+    checkpointId: UABC-CONF-CP-20260714-003
+    capturedAt: 2026-07-14T03:41:53Z
+    mode: local-simulation
+    producerCommitProvenance: 83a63c0af8775001e4c7f909a46c5b227f3cce3d
+    externalReadPerformed: false
+  invariants:
+    spaceIds: [UABC-SPACE-CUSTOMER, UABC-SPACE-PRODUCT, UABC-SPACE-CONSULTANT]
+    customerSupportRoot: UABC-PROJECT
+    dataMigrationPageId: PAGE-UABC-050
+    dataMigrationTitle: 02.1 Datenmigration
+deltaContract:
+  allowedTypes: [added, modified, renamed, moved, deleted, inaccessible, conflicted]
+  changes:
+    - { changeId: UABC-DELTA-001, type: added, sourceId: PAGE-UABC-190, predecessorId: null, successorId: PAGE-UABC-190, tombstone: false, reviewStatus: reviewed }
+    - { changeId: UABC-DELTA-002, type: modified, sourceId: PAGE-UABC-110, predecessorId: PAGE-UABC-110, successorId: PAGE-UABC-110, tombstone: false, reviewStatus: reviewed }
+    - { changeId: UABC-DELTA-003, type: renamed, sourceId: PAGE-UABC-000, predecessorId: PAGE-UABC-000, successorId: PAGE-UABC-000, tombstone: false, reviewStatus: reviewed }
+    - { changeId: UABC-DELTA-004, type: moved, sourceId: PAGE-UABC-050, predecessorId: PAGE-UABC-050, successorId: PAGE-UABC-050, tombstone: false, reviewStatus: reviewed }
+    - { changeId: UABC-DELTA-005, type: deleted, sourceId: PAGE-UABC-LEGACY-001, predecessorId: PAGE-UABC-LEGACY-001, successorId: PAGE-UABC-050, tombstone: true, reviewStatus: reviewed }
+    - { changeId: UABC-DELTA-006, type: inaccessible, sourceId: UABC-CONF-EXTERNAL-001, predecessorId: null, successorId: null, tombstone: false, reviewStatus: pending }
+    - { changeId: UABC-DELTA-007, type: conflicted, sourceId: PAGE-UABC-050, predecessorId: PAGE-UABC-050, successorId: PAGE-UABC-050, tombstone: false, reviewStatus: pending }
+knowledgeChanges:
+  - { knowledgeId: UABC-KNOW-001, subject: Dauerhafte Seite 02.1 Datenmigration, sourceIds: [PAGE-UABC-050], reviewStatus: approved, authoritative: true, truthTarget: project/bc-basic/confluence-three-space-v1.yaml }
+  - { knowledgeId: UABC-KNOW-002, subject: Externe Brownfield-Quelle ohne lesbare Bytes, sourceIds: [UABC-CONF-EXTERNAL-001], reviewStatus: pending, authoritative: false, truthTarget: null }
+coverage:
+  - { coverageId: UABC-COV-001, area: Support, sourceIds: [PAGE-UABC-000], status: covered, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-001, openGap: null }
+  - { coverageId: UABC-COV-002, area: Unternehmen, sourceIds: [PAGE-UABC-010], status: covered, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-001, openGap: null }
+  - { coverageId: UABC-COV-003, area: Datenmigration, sourceIds: [PAGE-UABC-050], status: conflicted, ownerRef: P-016, workshopRef: UABC-MTG-002, openGap: Externe Quellversion ist nicht zugaenglich }
+  - { coverageId: UABC-COV-004, area: Business Central, sourceIds: [PAGE-UABC-130, PAGE-UABC-110], status: covered, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-002, openGap: null }
+  - { coverageId: UABC-COV-005, area: Projekte, sourceIds: [PAGE-UABC-150], status: covered, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-003, openGap: null }
+  - { coverageId: UABC-COV-006, area: Handbuecher, sourceIds: [PAGE-UABC-170], status: covered, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-003, openGap: null }
+contradictions:
+  - { contradictionId: UABC-CONFLICT-001, subject: Externe Datenmigrationsquelle gegen lokale Seite, sourceIds: [UABC-CONF-EXTERNAL-001, PAGE-UABC-050], status: open, resolution: null, authoritativeSourceId: null }
+brownfieldReconciliation:
+  baseline: Drei lokale synthetische Confluence-Spaces mit 28 stabilen Seiten-IDs
+  rows:
+    - { rowId: UABC-BF-001, sourceId: PAGE-UABC-000, decision: import, artifactPath: atlassian/confluence/pages/00-project.md, ownerRef: P-PILOT-LEAD-001, workshopRef: UABC-MTG-001, baselineStatus: matched, openGap: null }
+    - { rowId: UABC-BF-002, sourceId: PAGE-UABC-050, decision: conflict, artifactPath: atlassian/confluence/pages/32-decisions.md, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: local-authoritative-external-pending, openGap: Externe Quellversion fehlt }
+    - { rowId: UABC-BF-003, sourceId: UABC-CONF-EXTERNAL-001, decision: exclude, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: inaccessible, openGap: Zugriff und freigegebener Export fehlen }
+    - { rowId: UABC-BF-004, sourceId: UABC-CONF-GAP-001, decision: gap, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: missing, openGap: Freigegebene Attachment-Baseline fehlt }
+release:
+  releaseId: UABC-PORTABLE-PILOT-0004
+  releaseDirectory: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004
+  immutable: true
+  currentPointerPath: exports/project-data/v1/snapshots/current.json
+  catalogPath: exports/project-data/v1/snapshots/catalog.json
+  bindingStatus: BOUND_BCPROJECTOS_RELEASE
+  pendingReason: null
+  consumerEligible: true
+  publishEligible: true
+  pathSemantics: repository-relative
+  transports: [filesystem, https]
+  byteContract: identical-canonical-bytes
+  visibilityClasses: [customer, internal]
+  producerCommitProvenance: 83a63c0af8775001e4c7f909a46c5b227f3cce3d
+  requiredReleaseEvidence: [annotatedTag, peeledCommit, finalManifest, productDigest, platformMatrix]
+  spectraReleaseBinding:
+    evidencePath: evidence/spectra-release-1.2.0-alpha.12.yaml
+    productId: spectra
+    technicalRepositoryName: BCProjectOS
+    repositoryUrl: https://github.com/sivla/BCProjectOS.git
+    releaseVersion: 1.2.0-alpha.12
+    releaseTag: spectra-v1.2.0-alpha.12
+    annotatedTagObject: 80563e5823a042a95582c88cb41aaf6306a9cfce
+    peeledCommit: 6b3d9a1bfaf6cd806218a802fdde8f1a4cfa55a1
+    manifestPath: release/versions/1.2.0-alpha.12/release-manifest.json
+    manifestSourceCommit: cf8c182141328a35780f55211459e6af3a45d57c
+    sourceTree: 291f88c7aaec4aa0b07c07752771017ed737829c
+    consumerMode: INSTALLABLE_BLUEPRINT
+    installableBlueprint: true
+    digestAlgorithm: SHA-256
+    payloadBundleDigest: b637a82c381d7744f08949c264393382cb90d7e6b1f67d56afacb6e88a312c7b
+    platformEvidenceStatus: passed
+    platformEvidenceRun: https://github.com/sivla/BCProjectOS/actions/runs/29293515568
+customerCatalog:
+  producerCustomerId: UABC-CUSTOMER-001
+  projects:
+    - { projectId: UABC-BC-BASIC-001, routeKey: bc-basic, visibility: customer, snapshotReleaseId: UABC-PORTABLE-PILOT-0004 }
+  aggregationRule: Mehrere Projekte desselben Kunden sind erlaubt; mehrere Kunden nur als isolierte validierte Fragmente ohne gemeinsame Payload.
+  foreignCustomerFixturesOnly: true

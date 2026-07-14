@@ -316,3 +316,12 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-38]
     evidence: Commit 281d2bab4fadce74c7756cc42a14dbf0a6a9eb45 mit Tree b4c2170eaf3b6165fe283b15fdd688a34df8cdc4 bestand commitgebunden Snapshotvertrag, Dokumentkatalog, Deutsch, 240 Governance-Tests, Walkthrough und Playwright sowie die Referenzpruefung. Release UABC-PORTABLE-PILOT-0004 bindet den getrennten Project-Twin-Consumer strikt nur-lesend; die Releases 0001 bis 0003 blieben bytegleich. REVIEW.md war in Arbeitskopie und HEAD leer, der Arbeitsbaum sauber und der Arbeitsbranch wurde normal veroeffentlicht. Keine BC-Live-, Kunden-, Steuer- oder Produktivfreigabe wurde behauptet.
+  - id: UABC-VER-BCB-ONBOARDING-001
+    changeRef: deliver-production-ready-bc-basic-onboarding
+    requiredForArchive: false
+    status: passed
+    type: automated
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-38, UABC-39, UABC-40]
+    evidence: Commit b388519d5bbca7c4fe9a52c977741ca40d0b8e89 bestand im sauberen Arbeitsbaum den vollstaendigen npm-Testlauf mit 10 von 10 OpenSpec-Pruefungen, 24 Readiness-Tests, 21 Sprachtests, 264 Governance-Tests, 10 Medien- und Walkthroughtests, beiden Playwright-Browsertests sowie Snapshot-, Dokumentkatalog-, Deutsch- und Referenzgates. Snapshot UABC-PORTABLE-PILOT-0005 bindet 170 Projektartefakte an den fachlichen Producer-Commit 27d7fc19da7259705b556d03d0090c53632a68fb. Reale Kunden-, BC-, Steuer-, UAT-, Cutover-, Abschluss- und UStVA-Nachweise bleiben als acht Live-Gates offen.

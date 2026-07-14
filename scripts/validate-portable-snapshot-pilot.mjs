@@ -41,7 +41,7 @@ const requiredIndexPaths = [
   `${contract.release.releaseDirectory}/manifest.json`
 ];
 const indexPaths = (index.artifacts ?? []).map((item) => item.path);
-if (index.governingChange !== 'prepare-portable-snapshot-pilot' || index.artifacts?.length !== 158 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[123]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 158 eindeutige aktuelle Artefakte enthalten, die gebundene 0004-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
+if (index.governingChange !== 'deliver-production-ready-bc-basic-onboarding' || index.artifacts?.length !== 170 || new Set(indexPaths).size !== indexPaths.length || requiredIndexPaths.some((relative) => !indexPaths.includes(relative)) || indexPaths.some((relative) => relative.startsWith('tests/fixtures/') || /exports\/project-data\/v1\/snapshots\/releases\/UABC-PORTABLE-PILOT-000[1234]\//u.test(relative))) errors.push('PILOT-ALLOWLIST: Index muss 170 eindeutige aktuelle Artefakte aus dem BC-Basic-Onboarding enthalten, die gebundene 0005-Steuerflaeche positivlisten und historische oder fremde Fixtures ausschliessen');
 const historical = {
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/payload.json': 'abc2bb5347978d15ed1ebfcf50fd344f71b8d4a1b265eee900090d2de8272c3b',
   'exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0001/catalog-fragment.json': '91a1f1fae8360d7f1e7445081ffc44d5e6d65be602ada96347f9b5a41185a1c4',

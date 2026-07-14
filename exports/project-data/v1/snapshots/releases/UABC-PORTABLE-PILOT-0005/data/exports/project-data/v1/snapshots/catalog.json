@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "catalogContract": "uabc-portable-customer-catalog-v1",
+  "producerCustomerId": "UABC-CUSTOMER-001",
+  "customerFragments": [
+    {
+      "customerId": "UABC-CUSTOMER-001",
+      "fragmentPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/catalog-fragment.json",
+      "fragmentSha256": "ba2cf6c57e9f2d1cea7ccc477d9044c037dc38dca489ad06ff5bfff88ec0bdd1",
+      "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/manifest.json",
+      "manifestSha256": "38fcef85b101c05aee075a0692e08956a5090796aa2015affd5c687a2503daf3",
+      "consumerEligible": true,
+      "publishEligible": true
+    }
+  ],
+  "aggregationRule": "Mehrere Projekte desselben Kunden sind erlaubt; mehrere Kunden nur als isolierte validierte Fragmente ohne gemeinsame Payload.",
+  "foreignCustomerFixturesOnly": true
+}

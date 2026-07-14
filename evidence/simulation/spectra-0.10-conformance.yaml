@@ -25,10 +25,10 @@ reconciliation:
 adapterProvenance:
   path: evidence/simulation/adapter-provenance.json
   sourcePath: exports/project-data/v1/index.yaml
-  sourceHash: f3dfd8e23e91bc9ed10edd37db201a72baf09244d31f869b3f4c4a6af716b0f2
+  sourceHash: afbe43b60309366f2778a471e52bb34094337cbd35269e039ee7a0cbb51ec1d9
   mappingVersion: 1.1.0
   projectionPath: exports/project-data/v1/twin-export-map.json
-  projectionDigest: b1ef4b3a5b42755324f00f84019e7b763b7bab3713f524f4e349894a5c7c761a
+  projectionDigest: 94fc6ca2ba14ae2c4d9fd731ca98b2499ff6066a21a46d8e992882b9a38e5965
   sourceUnchanged: true
   writesPerformed: false
 referenceGraphCoverage:

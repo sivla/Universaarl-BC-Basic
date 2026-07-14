@@ -1,0 +1,582 @@
+schemaVersion: 1
+contractId: UABC-CONFLUENCE-THREE-SPACE-V1
+projectId: UABC-BC-BASIC-001
+governingChange: migrate-bc-basic-to-three-space-confluence-v1
+sourceMode: repository-quelle
+deliveryBranch: codex/universaarl-projekt
+consumerProducerBranch: codex/universaarl-projekt
+spaceCount: 3
+rootDistribution:
+  customer: 6
+  product: 8
+  consultant: 8
+pageCount: 28
+legacyPageCount: 19
+newRequiredRootCount: 9
+truthBoundaries:
+  customer: konkrete-kundenprojektwahrheit
+  product: pilotstand-verkaufs-und-lieferumfang
+  consulting: pilotstand-durchfuehrungsmethode
+  spectra: blueprint-candidate-only-no-automatic-adoption
+leadingContentOwnership:
+  customer: konkrete-kundenauspraegung
+  product: verkaufs-und-lieferumfang
+  consulting: durchfuehrungsmethode
+spaces:
+  - spaceId: UABC-SPACE-CUSTOMER
+    spaceType: customer-project
+    title: Universaarl Kundenprojekt
+    purpose: Fuehrende Wahrheit fuer die konkrete Universaarl-Kundeninstanz.
+    audience:
+      - Kunde
+      - Projektleitung
+      - Key User
+      - Consultant
+    order: 0
+    homeDocumentId: UABC-PROJECT
+    externalUrl: null
+    pageId: null
+    spaceKey: null
+  - spaceId: UABC-SPACE-PRODUCT
+    spaceType: standard-product
+    title: BC Basic Produkt
+    purpose: Pilot-Arbeitsstand fuer das verkaufte und gelieferte
+      BC-Basic-Leistungsmodell.
+    audience:
+      - Vertrieb
+      - Projektleitung
+      - Consultant
+      - Solution Architect
+    order: 1
+    homeDocumentId: UABC-BCBPROJECT
+    externalUrl: null
+    pageId: null
+    spaceKey: null
+  - spaceId: UABC-SPACE-CONSULTANT
+    spaceType: consultant-internal
+    title: BC Basic Consulting-Handbuch
+    purpose: Pilot-Arbeitsstand fuer die reproduzierbare interne Durchfuehrung.
+    audience:
+      - Consultant
+      - Solution Architect
+      - Support
+    order: 2
+    homeDocumentId: UABC-BLUEPRINT
+    externalUrl: null
+    pageId: null
+    spaceKey: null
+roots:
+  - storyPageId: PAGE-UABC-000
+    documentId: UABC-PROJECT
+    title: 00 Hilfe und Projektumgebung
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 0
+    sourcePath: atlassian/confluence/pages/00-project.md
+  - storyPageId: PAGE-UABC-010
+    documentId: UABC-COMPANY
+    title: 01 Unternehmen
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 1
+    sourcePath: atlassian/confluence/pages/10-company-profile.md
+  - storyPageId: PAGE-UABC-130
+    documentId: UABC-BCBDELIVERABLES
+    title: 02 Business Central
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 2
+    sourcePath: atlassian/confluence/pages/74-bc-basic-deliverables.md
+  - storyPageId: PAGE-UABC-150
+    documentId: UABC-BCBSTORY
+    title: 03 Projekte
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 3
+    sourcePath: atlassian/confluence/pages/bc-basic-project-story.md
+  - storyPageId: PAGE-UABC-170
+    documentId: UABC-HYPERCARE
+    title: 04 Handbuecher
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 4
+    sourcePath: atlassian/confluence/pages/80-bc-basic-training.md
+  - storyPageId: PAGE-UABC-190
+    documentId: UABC-ARCHIVE
+    title: 99 Archiv
+    parentId: null
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 5
+    sourcePath: atlassian/confluence/pages/99-archive.md
+  - storyPageId: PAGE-UABC-090
+    documentId: UABC-BCBPROJECT
+    title: 00 BC Basic Produktuebersicht
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 0
+    sourcePath: atlassian/confluence/pages/70-bc-basic-project.md
+  - storyPageId: PAGE-UABC-200
+    documentId: UABC-PRODUCTAUDIENCE
+    title: 01 Zielgruppe und Einsatzfaelle
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 1
+    sourcePath: atlassian/confluence/pages/76-product-audience.md
+  - storyPageId: PAGE-UABC-040
+    documentId: UABC-PROCESSES
+    title: 02 Leistungsumfang und Abgrenzung
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 2
+    sourcePath: atlassian/confluence/pages/31-processes.md
+  - storyPageId: PAGE-UABC-210
+    documentId: UABC-PRODUCTAPPROACH
+    title: 03 Phasen und Vorgehensmodell
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 3
+    sourcePath: atlassian/confluence/pages/77-product-approach.md
+  - storyPageId: PAGE-UABC-180
+    documentId: UABC-TRAINING
+    title: 04 Lieferobjekte und Abnahme
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 4
+    sourcePath: atlassian/confluence/pages/81-bc-basic-handover.md
+  - storyPageId: PAGE-UABC-220
+    documentId: UABC-PRODUCTOFFER
+    title: 05 Angebot, Aufwand und Voraussetzungen
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 5
+    sourcePath: atlassian/confluence/pages/78-product-offer.md
+  - storyPageId: PAGE-UABC-120
+    documentId: UABC-BCBHYPERCARE
+    title: 06 Optionen und Erweiterungen
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 6
+    sourcePath: atlassian/confluence/pages/73-bc-basic-hypercare.md
+  - storyPageId: PAGE-UABC-230
+    documentId: UABC-PRODUCTSALESFAQ
+    title: 07 Vertriebsleitfaden und FAQ
+    parentId: null
+    spaceId: UABC-SPACE-PRODUCT
+    order: 7
+    sourcePath: atlassian/confluence/pages/79-product-sales-faq.md
+  - storyPageId: PAGE-UABC-030
+    documentId: UABC-BLUEPRINT
+    title: 00 Durchfuehrungsueberblick
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 0
+    sourcePath: atlassian/confluence/pages/30-blueprint.md
+  - storyPageId: PAGE-UABC-020
+    documentId: UABC-DISCOVERY
+    title: 01 Discovery und Fit-to-Standard
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 1
+    sourcePath: atlassian/confluence/pages/20-discovery.md
+  - storyPageId: PAGE-UABC-240
+    documentId: UABC-CONSULTINGDESIGN
+    title: 02 Loesungsdesign und Projektplanung
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 2
+    sourcePath: atlassian/confluence/pages/82-consulting-design.md
+  - storyPageId: PAGE-UABC-070
+    documentId: UABC-ENVBASELINE
+    title: 03 BC-Einrichtung und Konfigurationspakete
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 3
+    sourcePath: atlassian/confluence/pages/60-environment-baseline.md
+  - storyPageId: PAGE-UABC-250
+    documentId: UABC-CONSULTINGTESTS
+    title: 04 Tests, UAT und Evidence
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 4
+    sourcePath: atlassian/confluence/pages/83-consulting-tests.md
+  - storyPageId: PAGE-UABC-140
+    documentId: UABC-BCBMEETINGS
+    title: 05 Schulung, Cutover und Hypercare
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 5
+    sourcePath: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md
+  - storyPageId: PAGE-UABC-260
+    documentId: UABC-CONSULTINGHANDOVER
+    title: 06 Dokumentation und Uebergabe
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 6
+    sourcePath: atlassian/confluence/pages/84-consulting-handover.md
+  - storyPageId: PAGE-UABC-270
+    documentId: UABC-CONSULTINGCHECKLISTS
+    title: 07 Checklisten, Vorlagen und Fehlerbilder
+    parentId: null
+    spaceId: UABC-SPACE-CONSULTANT
+    order: 7
+    sourcePath: atlassian/confluence/pages/85-consulting-checklists.md
+children:
+  - storyPageId: PAGE-UABC-050
+    documentId: UABC-DECISIONS
+    title: 02.1 Datenmigration
+    parentId: UABC-BCBDELIVERABLES
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 6
+    sourcePath: atlassian/confluence/pages/32-decisions.md
+  - storyPageId: PAGE-UABC-100
+    documentId: UABC-BCBDISCOVERY
+    title: 02.2 Prozesse und Fit-to-Standard
+    parentId: UABC-BCBDELIVERABLES
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 7
+    sourcePath: atlassian/confluence/pages/71-bc-basic-discovery.md
+  - storyPageId: PAGE-UABC-110
+    documentId: UABC-BCBIMPLEMENTATION
+    title: 02.3 Loesung und Einrichtung
+    parentId: UABC-BCBDELIVERABLES
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 8
+    sourcePath: atlassian/confluence/pages/72-bc-basic-implementation.md
+  - storyPageId: PAGE-UABC-060
+    documentId: UABC-TESTS
+    title: 03.1 Test und Abnahme
+    parentId: UABC-BCBSTORY
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 9
+    sourcePath: atlassian/confluence/pages/50-tests.md
+  - storyPageId: PAGE-UABC-080
+    documentId: UABC-WALKTHROUGH
+    title: 03.2 Cutover und Go-live
+    parentId: UABC-BCBSTORY
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 10
+    sourcePath: atlassian/confluence/pages/61-walkthrough-pilot.md
+  - storyPageId: PAGE-UABC-160
+    documentId: UABC-BCBHCSTORY
+    title: 03.3 Hypercare und Uebergabe
+    parentId: UABC-BCBSTORY
+    spaceId: UABC-SPACE-CUSTOMER
+    order: 11
+    sourcePath: atlassian/confluence/pages/bc-basic-hypercare.md
+migrations:
+  - documentId: UABC-PROJECT
+    storyPageId: PAGE-UABC-000
+    sourcePath: atlassian/confluence/pages/00-project.md
+    previousTitle: 00 Support – Projektumgebung
+    previousParentId: null
+    targetTitle: 00 Hilfe und Projektumgebung
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 3b05d93edbe7e8df067b5494ba783e4ec9855f46a8a2dbd652220abd3253c9f6
+    bodySha256After: 3b05d93edbe7e8df067b5494ba783e4ec9855f46a8a2dbd652220abd3253c9f6
+    lossless: true
+  - documentId: UABC-COMPANY
+    storyPageId: PAGE-UABC-010
+    sourcePath: atlassian/confluence/pages/10-company-profile.md
+    previousTitle: 01 Unternehmen
+    previousParentId: PAGE-UABC-000
+    targetTitle: 01 Unternehmen
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: a88682a85b63f609a59ef12cf1fc9ade89fb88ba3d5a9beebbe3f1d80f75ee6c
+    bodySha256After: a88682a85b63f609a59ef12cf1fc9ade89fb88ba3d5a9beebbe3f1d80f75ee6c
+    lossless: true
+  - documentId: UABC-DISCOVERY
+    storyPageId: PAGE-UABC-020
+    sourcePath: atlassian/confluence/pages/20-discovery.md
+    previousTitle: 01 Discovery, Workshops und Fit-to-Standard
+    previousParentId: PAGE-UABC-030
+    targetTitle: 01 Discovery und Fit-to-Standard
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 8cb82a99ecde8e05d3c398f3ad43dc08b92195179a2f795cc532a2ec921d6cfe
+    bodySha256After: 8cb82a99ecde8e05d3c398f3ad43dc08b92195179a2f795cc532a2ec921d6cfe
+    lossless: true
+  - documentId: UABC-BLUEPRINT
+    storyPageId: PAGE-UABC-030
+    sourcePath: atlassian/confluence/pages/30-blueprint.md
+    previousTitle: 00 Consultant-Handbuch und Fast-Track
+    previousParentId: null
+    targetTitle: 00 Durchfuehrungsueberblick
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 783ee026f476a73529bf647b4a6dd9ef3b1141160ef6f7c81cc2bf2d4fd529f6
+    bodySha256After: 783ee026f476a73529bf647b4a6dd9ef3b1141160ef6f7c81cc2bf2d4fd529f6
+    lossless: true
+  - documentId: UABC-PROCESSES
+    storyPageId: PAGE-UABC-040
+    sourcePath: atlassian/confluence/pages/31-processes.md
+    previousTitle: 01 Prozess- und Konfigurationsstandard
+    previousParentId: PAGE-UABC-090
+    targetTitle: 02 Leistungsumfang und Abgrenzung
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 0735e01b187e4c753c0e11f25b4aa172165c2e3ad433023b62b476e5456b4faf
+    bodySha256After: 0735e01b187e4c753c0e11f25b4aa172165c2e3ad433023b62b476e5456b4faf
+    lossless: true
+  - documentId: UABC-DECISIONS
+    storyPageId: PAGE-UABC-050
+    sourcePath: atlassian/confluence/pages/32-decisions.md
+    previousTitle: 05 Datenmigration
+    previousParentId: PAGE-UABC-000
+    targetTitle: 02.1 Datenmigration
+    targetParentId: UABC-BCBDELIVERABLES
+    migrationStatus: migrated-in-place
+    bodySha256Before: bf9e7ab12d540eb641d026624c13d51ba95b2b5f772179736696f36c1e5904c6
+    bodySha256After: bf9e7ab12d540eb641d026624c13d51ba95b2b5f772179736696f36c1e5904c6
+    lossless: true
+  - documentId: UABC-TESTS
+    storyPageId: PAGE-UABC-060
+    sourcePath: atlassian/confluence/pages/50-tests.md
+    previousTitle: 06 Test und Abnahme
+    previousParentId: PAGE-UABC-000
+    targetTitle: 03.1 Test und Abnahme
+    targetParentId: UABC-BCBSTORY
+    migrationStatus: migrated-in-place
+    bodySha256Before: c3c919ba5e92bbb232e99bb0f9d51a0cf5a949e4f72abaa58777a1e0a7a25a9d
+    bodySha256After: c3c919ba5e92bbb232e99bb0f9d51a0cf5a949e4f72abaa58777a1e0a7a25a9d
+    lossless: true
+  - documentId: UABC-ENVBASELINE
+    storyPageId: PAGE-UABC-070
+    sourcePath: atlassian/confluence/pages/60-environment-baseline.md
+    previousTitle: 02 Umgebung, Einrichtung, Daten und Testdurchführung
+    previousParentId: PAGE-UABC-030
+    targetTitle: 03 BC-Einrichtung und Konfigurationspakete
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 717d3ac3e1f7bbfff6dd7660e2151b93e89e376687bfae26647a685d1cd7740b
+    bodySha256After: 717d3ac3e1f7bbfff6dd7660e2151b93e89e376687bfae26647a685d1cd7740b
+    lossless: true
+  - documentId: UABC-WALKTHROUGH
+    storyPageId: PAGE-UABC-080
+    sourcePath: atlassian/confluence/pages/61-walkthrough-pilot.md
+    previousTitle: 08 Cutover und Go-live
+    previousParentId: PAGE-UABC-000
+    targetTitle: 03.2 Cutover und Go-live
+    targetParentId: UABC-BCBSTORY
+    migrationStatus: migrated-in-place
+    bodySha256Before: 89c68d16d09c6c4a4ebc220a67e267b75819941081ebd2d876b48e48638e8731
+    bodySha256After: 89c68d16d09c6c4a4ebc220a67e267b75819941081ebd2d876b48e48638e8731
+    lossless: true
+  - documentId: UABC-BCBPROJECT
+    storyPageId: PAGE-UABC-090
+    sourcePath: atlassian/confluence/pages/70-bc-basic-project.md
+    previousTitle: 00 BC Basic Standardprodukt
+    previousParentId: null
+    targetTitle: 00 BC Basic Produktuebersicht
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 7b88dd2bb4fa18d82395cc9a1f2da690cd602213dbabc7af59e3dbf515d9ce75
+    bodySha256After: 7b88dd2bb4fa18d82395cc9a1f2da690cd602213dbabc7af59e3dbf515d9ce75
+    lossless: true
+  - documentId: UABC-BCBDISCOVERY
+    storyPageId: PAGE-UABC-100
+    sourcePath: atlassian/confluence/pages/71-bc-basic-discovery.md
+    previousTitle: 03 Prozesse und Fit-to-Standard
+    previousParentId: PAGE-UABC-000
+    targetTitle: 02.2 Prozesse und Fit-to-Standard
+    targetParentId: UABC-BCBDELIVERABLES
+    migrationStatus: migrated-in-place
+    bodySha256Before: 2da3395e767eda56353e6d0b7dc055ff65261fd458e844e0f9f6011c77f159b8
+    bodySha256After: 2da3395e767eda56353e6d0b7dc055ff65261fd458e844e0f9f6011c77f159b8
+    lossless: true
+  - documentId: UABC-BCBIMPLEMENTATION
+    storyPageId: PAGE-UABC-110
+    sourcePath: atlassian/confluence/pages/72-bc-basic-implementation.md
+    previousTitle: 04 Lösung und Einrichtung
+    previousParentId: PAGE-UABC-000
+    targetTitle: 02.3 Loesung und Einrichtung
+    targetParentId: UABC-BCBDELIVERABLES
+    migrationStatus: migrated-in-place
+    bodySha256Before: 6c0a2abe3e8d9dd10a3019b0d426a5d5927aa176b10367d582527620fbfffd0a
+    bodySha256After: 6c0a2abe3e8d9dd10a3019b0d426a5d5927aa176b10367d582527620fbfffd0a
+    lossless: true
+  - documentId: UABC-BCBHYPERCARE
+    storyPageId: PAGE-UABC-120
+    sourcePath: atlassian/confluence/pages/73-bc-basic-hypercare.md
+    previousTitle: 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
+    previousParentId: PAGE-UABC-090
+    targetTitle: 06 Optionen und Erweiterungen
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 86d03333074c72d9a05590c8a743fa5c156cab041275e17092d8aac3bbd99b35
+    bodySha256After: 86d03333074c72d9a05590c8a743fa5c156cab041275e17092d8aac3bbd99b35
+    lossless: true
+  - documentId: UABC-BCBDELIVERABLES
+    storyPageId: PAGE-UABC-130
+    sourcePath: atlassian/confluence/pages/74-bc-basic-deliverables.md
+    previousTitle: 02 Projektauftrag und Scope
+    previousParentId: PAGE-UABC-000
+    targetTitle: 02 Business Central
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: fa381b8fe9af18dbff2b3a5b61f4b850cb2ff6f9de51f6827475ea8ad63d7650
+    bodySha256After: fa381b8fe9af18dbff2b3a5b61f4b850cb2ff6f9de51f6827475ea8ad63d7650
+    lossless: true
+  - documentId: UABC-BCBMEETINGS
+    storyPageId: PAGE-UABC-140
+    sourcePath: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md
+    previousTitle: 03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss
+    previousParentId: PAGE-UABC-030
+    targetTitle: 05 Schulung, Cutover und Hypercare
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: b9f97a9f3785caef112d445b978342525f8e48aba597230cff70f26fb265d947
+    bodySha256After: b9f97a9f3785caef112d445b978342525f8e48aba597230cff70f26fb265d947
+    lossless: true
+  - documentId: UABC-BCBSTORY
+    storyPageId: PAGE-UABC-150
+    sourcePath: atlassian/confluence/pages/bc-basic-project-story.md
+    previousTitle: 10 Projektsteuerung
+    previousParentId: PAGE-UABC-000
+    targetTitle: 03 Projekte
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 195bc4aed630e34f7ef0dbf79dd23543cab825b37eabc3f07f99df4413270a9e
+    bodySha256After: 195bc4aed630e34f7ef0dbf79dd23543cab825b37eabc3f07f99df4413270a9e
+    lossless: true
+  - documentId: UABC-BCBHCSTORY
+    storyPageId: PAGE-UABC-160
+    sourcePath: atlassian/confluence/pages/bc-basic-hypercare.md
+    previousTitle: 09 Hypercare und Übergabe
+    previousParentId: PAGE-UABC-000
+    targetTitle: 03.3 Hypercare und Uebergabe
+    targetParentId: UABC-BCBSTORY
+    migrationStatus: migrated-in-place
+    bodySha256Before: 7c8774c33c921699c44e88057aa0f027411a39479d1cd74ac3973e054be24a0e
+    bodySha256After: 7c8774c33c921699c44e88057aa0f027411a39479d1cd74ac3973e054be24a0e
+    lossless: true
+  - documentId: UABC-HYPERCARE
+    storyPageId: PAGE-UABC-170
+    sourcePath: atlassian/confluence/pages/80-bc-basic-training.md
+    previousTitle: 07 Schulung und Befähigung
+    previousParentId: PAGE-UABC-000
+    targetTitle: 04 Handbuecher
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: 5ba7e6ff95b766c01f136a308652801f7d69ef68871f8e80a879e713c796cd77
+    bodySha256After: 5ba7e6ff95b766c01f136a308652801f7d69ef68871f8e80a879e713c796cd77
+    lossless: true
+  - documentId: UABC-TRAINING
+    storyPageId: PAGE-UABC-180
+    sourcePath: atlassian/confluence/pages/81-bc-basic-handover.md
+    previousTitle: 02 Lieferpaket, Tests und Standardtraining
+    previousParentId: PAGE-UABC-090
+    targetTitle: 04 Lieferobjekte und Abnahme
+    targetParentId: null
+    migrationStatus: migrated-in-place
+    bodySha256Before: ea4acf1bd23281d2fc4cdc5d2dfc5559adc8a6d5ac8c5ce01ce3f29c8dfaee33
+    bodySha256After: ea4acf1bd23281d2fc4cdc5d2dfc5559adc8a6d5ac8c5ce01ce3f29c8dfaee33
+    lossless: true
+newRoots:
+  - documentId: UABC-ARCHIVE
+    storyPageId: PAGE-UABC-190
+    sourcePath: atlassian/confluence/pages/99-archive.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 99 Archiv
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 2d442a7b3ea22f18a204d5b92092da3721afc8fac2fdf74a156a7918c5ae635f
+    lossless: true
+  - documentId: UABC-PRODUCTAUDIENCE
+    storyPageId: PAGE-UABC-200
+    sourcePath: atlassian/confluence/pages/76-product-audience.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 01 Zielgruppe und Einsatzfaelle
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 43473dd6a4ade76b3571fa051f68d5c0d9e3ad379360591da97de3333a8641b4
+    lossless: true
+  - documentId: UABC-PRODUCTAPPROACH
+    storyPageId: PAGE-UABC-210
+    sourcePath: atlassian/confluence/pages/77-product-approach.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 03 Phasen und Vorgehensmodell
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 4126886c45b1c4c2d24bbdddd82dfd6d0a2ae5f5423812b49acc3663983ee84d
+    lossless: true
+  - documentId: UABC-PRODUCTOFFER
+    storyPageId: PAGE-UABC-220
+    sourcePath: atlassian/confluence/pages/78-product-offer.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 05 Angebot, Aufwand und Voraussetzungen
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 6e649eb514a58163dea11b1bcd06a352e615a3de862fd723215b12af408b2d06
+    lossless: true
+  - documentId: UABC-PRODUCTSALESFAQ
+    storyPageId: PAGE-UABC-230
+    sourcePath: atlassian/confluence/pages/79-product-sales-faq.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 07 Vertriebsleitfaden und FAQ
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 57ff50690aacb44222564697bbb8d1034113e27d5da6eff3ce793c701759648d
+    lossless: true
+  - documentId: UABC-CONSULTINGDESIGN
+    storyPageId: PAGE-UABC-240
+    sourcePath: atlassian/confluence/pages/82-consulting-design.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 02 Loesungsdesign und Projektplanung
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 2104ea42ad8f08abaa3848d142ac309ccb28b982c43c0a7106a2d8ac3cd804d7
+    lossless: true
+  - documentId: UABC-CONSULTINGTESTS
+    storyPageId: PAGE-UABC-250
+    sourcePath: atlassian/confluence/pages/83-consulting-tests.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 04 Tests, UAT und Evidence
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 0e5cf7e4b5ee371a9a7d0e7cb13c5932ba386286aea084c88ebd9615d07104e4
+    lossless: true
+  - documentId: UABC-CONSULTINGHANDOVER
+    storyPageId: PAGE-UABC-260
+    sourcePath: atlassian/confluence/pages/84-consulting-handover.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 06 Dokumentation und Uebergabe
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 015d7c4e2271ab0fb87b38de165925e008c59793fb98a53d34f43e7dd16f5152
+    lossless: true
+  - documentId: UABC-CONSULTINGCHECKLISTS
+    storyPageId: PAGE-UABC-270
+    sourcePath: atlassian/confluence/pages/85-consulting-checklists.md
+    previousTitle: null
+    previousParentId: null
+    targetTitle: 07 Checklisten, Vorlagen und Fehlerbilder
+    targetParentId: null
+    migrationStatus: neue-erforderliche-wurzelseite
+    bodySha256Before: null
+    bodySha256After: 1b21ed92fcc1eb49a5116dcfa17aef46359ff9f1ff814254bee047f8d953dde8
+    lossless: true
+forbiddenClaims:
+  - live-atlassian
+  - live-rovo
+  - live-business-central
+  - continia-execution
+  - invented-approval
+  - invented-spectra-release

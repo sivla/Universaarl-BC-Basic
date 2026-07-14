@@ -38,12 +38,12 @@ async function updateCurrentReleaseAllowlist() {
   const absolute = path.join(root, PROJECT_INDEX_PATH);
   let text = await fs.readFile(absolute, 'utf8');
   const replacements = [
-    ['UABC-SRC-BCB-PORTABLE-FRAGMENT-003', 'UABC-SRC-BCB-PORTABLE-FRAGMENT-004'],
-    ['UABC-SRC-BCB-PORTABLE-MANIFEST-003', 'UABC-SRC-BCB-PORTABLE-MANIFEST-004'],
-    ['UABC-SRC-BCB-PORTABLE-PAYLOAD-003', 'UABC-SRC-BCB-PORTABLE-PAYLOAD-004'],
-    ['UABC-PORTABLE-PILOT-0003/catalog-fragment.json', 'UABC-PORTABLE-PILOT-0004/catalog-fragment.json'],
-    ['UABC-PORTABLE-PILOT-0003/manifest.json', 'UABC-PORTABLE-PILOT-0004/manifest.json'],
-    ['UABC-PORTABLE-PILOT-0003/payload.json', 'UABC-PORTABLE-PILOT-0004/payload.json']
+    ['UABC-SRC-BCB-PORTABLE-FRAGMENT-004', 'UABC-SRC-BCB-PORTABLE-FRAGMENT-005'],
+    ['UABC-SRC-BCB-PORTABLE-MANIFEST-004', 'UABC-SRC-BCB-PORTABLE-MANIFEST-005'],
+    ['UABC-SRC-BCB-PORTABLE-PAYLOAD-004', 'UABC-SRC-BCB-PORTABLE-PAYLOAD-005'],
+    ['UABC-PORTABLE-PILOT-0004/catalog-fragment.json', 'UABC-PORTABLE-PILOT-0005/catalog-fragment.json'],
+    ['UABC-PORTABLE-PILOT-0004/manifest.json', 'UABC-PORTABLE-PILOT-0005/manifest.json'],
+    ['UABC-PORTABLE-PILOT-0004/payload.json', 'UABC-PORTABLE-PILOT-0005/payload.json']
   ];
   for (const [before, after] of replacements) {
     const beforeCount = text.split(before).length - 1;

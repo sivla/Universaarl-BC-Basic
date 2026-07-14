@@ -7,7 +7,7 @@
   "properties": {
     "schemaVersion": { "const": 1 },
     "manifestContract": { "const": "uabc-portable-snapshot-release-v1" },
-    "releaseId": { "const": "UABC-PORTABLE-PILOT-0004" },
+    "releaseId": { "const": "UABC-PORTABLE-PILOT-0005" },
     "immutable": { "const": true },
     "producer": {
       "type": "object",

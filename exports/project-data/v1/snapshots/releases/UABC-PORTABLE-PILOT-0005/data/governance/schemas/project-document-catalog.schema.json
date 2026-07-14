@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universaarl:schema:project-document-catalog:v1",
+  "title": "Universaarl-Projektdokumentkatalog v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "catalogId",
+    "contractId",
+    "projectId",
+    "sourceIndexPath",
+    "allowedBranch",
+    "commitBinding",
+    "readOnly",
+    "validationStatus",
+    "allowedExternalOrigins",
+    "spaces",
+    "navigationModules",
+    "navigationNodes",
+    "redirects",
+    "documentCount",
+    "confluenceDocumentCount",
+    "documents"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "catalogId": { "const": "UABC-DOCUMENT-CATALOG-V1" },
+    "contractId": { "const": "UABC-PROJECT-DATA-V1" },
+    "projectId": { "const": "UABC-BC-BASIC-001" },
+    "sourceIndexPath": { "const": "exports/project-data/v1/index.yaml" },
+    "allowedBranch": { "const": "codex/universaarl-projekt" },
+    "commitBinding": { "const": "allowed-branch-head-resolved-once" },
+    "readOnly": { "const": true },
+    "validationStatus": { "const": "validated" },
+    "allowedExternalOrigins": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^https://[^/]+$" }
+    },
+    "spaces": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/space" }
+    },
+    "navigationModules": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/navigationModule" }
+    },
+    "navigationNodes": {
+      "type": "array",
+      "minItems": 31,
+      "maxItems": 31,
+      "items": { "$ref": "#/$defs/navigationNode" }
+    },
+    "redirects": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "items": { "$ref": "#/$defs/redirect" }
+    },
+    "documentCount": { "const": 46 },
+    "confluenceDocumentCount": { "const": 28 },
+    "documents": {
+      "type": "array",
+      "minItems": 46,
+      "maxItems": 46,
+      "items": { "$ref": "#/$defs/document" }
+    }
+  },
+  "$defs": {
+    "safePath": {
+      "type": "string",
+      "pattern": "^(?![A-Za-z]:)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*[\\\\\\u0000-\\u001F\\u007F])(?!.*//)(?!.*(?:^|/)\\.(?:/|$))(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\/$).+\\.md$"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Z0-9]+(?:-[A-Z0-9]+)+$"
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "space": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spaceId", "spaceType", "title", "purpose", "audience", "order", "homeDocumentId", "externalUrl", "pageId", "spaceKey"],
+      "properties": {
+        "spaceId": { "enum": ["UABC-SPACE-CUSTOMER", "UABC-SPACE-PRODUCT", "UABC-SPACE-CONSULTANT"] },
+        "spaceType": { "enum": ["customer-project", "standard-product", "consultant-internal"] },
+        "title": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "audience": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "order": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "homeDocumentId": { "$ref": "#/$defs/id" },
+        "externalUrl": { "type": "null" },
+        "pageId": { "type": "null" },
+        "spaceKey": { "type": "null" }
+      }
+    },
+    "navigationModule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["moduleId", "spaceId", "title", "order"],
+      "properties": {
+        "moduleId": { "$ref": "#/$defs/id" },
+        "spaceId": { "enum": ["UABC-SPACE-CUSTOMER", "UABC-SPACE-PRODUCT", "UABC-SPACE-CONSULTANT"] },
+        "title": { "type": "string", "minLength": 1 },
+        "order": { "type": "integer", "minimum": 0, "maximum": 2 }
+      }
+    },
+    "navigationNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodeId", "moduleId", "nodeType", "title", "order", "parentNodeId", "documentId", "initialState"],
+      "properties": {
+        "nodeId": { "$ref": "#/$defs/id" },
+        "moduleId": { "$ref": "#/$defs/id" },
+        "nodeType": { "enum": ["group", "page"] },
+        "title": { "type": "string", "minLength": 1 },
+        "order": { "type": "integer", "minimum": 0, "maximum": 11 },
+        "parentNodeId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "documentId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "description": { "type": "string", "minLength": 1 },
+        "initialState": { "enum": ["expanded", "collapsed"] }
+      }
+    },
+    "redirect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["documentId", "storyPageId", "sourcePath", "previousTitle", "previousParentId", "targetTitle", "targetParentId", "migrationStatus"],
+      "properties": {
+        "documentId": { "$ref": "#/$defs/id" },
+        "storyPageId": { "type": "string", "pattern": "^PAGE-UABC-[0-9]{3}$" },
+        "sourcePath": { "$ref": "#/$defs/safePath" },
+        "previousTitle": { "type": "string", "minLength": 1 },
+        "previousParentId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "targetTitle": { "type": "string", "minLength": 1 },
+        "targetParentId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "migrationStatus": { "const": "migrated-in-place" }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactId",
+        "documentId",
+        "title",
+        "documentType",
+        "sourcePath",
+        "parentId",
+        "phase",
+        "process",
+        "status",
+        "ownerRefs",
+        "jiraRefs",
+        "referenceIds",
+        "lastReviewed",
+        "contentSha256",
+        "visibility",
+        "readiness",
+        "externalUrl",
+        "pageId",
+        "spaceKey"
+      ],
+      "allOf": [
+        {
+          "if": { "properties": { "documentType": { "const": "confluence-page" } }, "required": ["documentType"] },
+          "then": {
+            "required": ["spaceId", "spaceType", "order", "storyPageId"],
+            "properties": { "spaceId": true, "spaceType": true, "order": true, "storyPageId": true }
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                { "required": ["spaceId"], "properties": { "spaceId": true } },
+                { "required": ["spaceType"], "properties": { "spaceType": true } },
+                { "required": ["order"], "properties": { "order": true } },
+                { "required": ["storyPageId"], "properties": { "storyPageId": true } }
+              ]
+            }
+          }
+        }
+      ],
+      "properties": {
+        "artifactId": { "$ref": "#/$defs/id" },
+        "documentId": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "documentType": {
+          "enum": [
+            "confluence-page",
+            "meeting-transcript",
+            "openspec-change",
+            "requirements",
+            "solution-design",
+            "delivery-plan",
+            "delivery-tasks",
+            "verification-plan",
+            "customer-handbook",
+            "consultant-handbook",
+            "synthetic-demo-guide",
+            "commercial-offer",
+            "project-chronicle",
+            "project-handover",
+            "consultant-runbook",
+            "blank-template"
+          ]
+        },
+        "sourcePath": { "$ref": "#/$defs/safePath" },
+        "parentId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "phase": { "type": ["string", "null"], "minLength": 1 },
+        "process": { "type": ["string", "null"], "minLength": 1 },
+        "status": { "type": "string", "minLength": 1 },
+        "ownerRefs": { "$ref": "#/$defs/idList" },
+        "jiraRefs": { "$ref": "#/$defs/idList" },
+        "referenceIds": { "$ref": "#/$defs/idList" },
+        "lastReviewed": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            { "type": "null" }
+          ]
+        },
+        "contentSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "visibility": { "const": "twin-visible" },
+        "readiness": {
+          "enum": [
+            "authoritative-current",
+            "authoritative-with-history",
+            "customer-ready-template",
+            "draft-template",
+            "historical-current",
+            "implementation-complete",
+            "not-ready",
+            "reference-complete",
+            "simulation-complete",
+            "verified-with-history",
+            "v1-ready",
+            "verified"
+          ]
+        },
+        "externalUrl": { "type": ["string", "null"] },
+        "pageId": { "type": ["string", "null"] },
+        "spaceKey": { "type": ["string", "null"] },
+        "spaceId": { "enum": ["UABC-SPACE-CUSTOMER", "UABC-SPACE-PRODUCT", "UABC-SPACE-CONSULTANT"] },
+        "spaceType": { "enum": ["customer-project", "standard-product", "consultant-internal"] },
+        "order": { "type": "integer", "minimum": 0, "maximum": 11 },
+        "storyPageId": { "type": "string", "pattern": "^PAGE-UABC-[0-9]{3}$" }
+      }
+    }
+  }
+}

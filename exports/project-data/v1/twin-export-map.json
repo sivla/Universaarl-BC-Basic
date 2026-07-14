@@ -438,7 +438,7 @@
       "id": "UABC-SRC-BCB-VER-001",
       "kindId": "verification-register",
       "path": "evidence/verification-register.yaml",
-      "selector": "verifications[changeRef=prepare-portable-snapshot-pilot]",
+      "selector": "verifications[changeRef=deliver-production-ready-bc-basic-onboarding]",
       "format": "yaml",
       "required": true
     },
@@ -1227,25 +1227,25 @@
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-FRAGMENT-004",
+      "id": "UABC-SRC-BCB-PORTABLE-FRAGMENT-005",
       "kindId": "portable-customer-project-fragment",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/catalog-fragment.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0005/catalog-fragment.json",
       "selector": null,
       "format": "json",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-MANIFEST-004",
+      "id": "UABC-SRC-BCB-PORTABLE-MANIFEST-005",
       "kindId": "portable-snapshot-release-manifest",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/manifest.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0005/manifest.json",
       "selector": null,
       "format": "json",
       "required": true
     },
     {
-      "id": "UABC-SRC-BCB-PORTABLE-PAYLOAD-004",
+      "id": "UABC-SRC-BCB-PORTABLE-PAYLOAD-005",
       "kindId": "portable-snapshot-release-payload",
-      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004/payload.json",
+      "path": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0005/payload.json",
       "selector": null,
       "format": "json",
       "required": true

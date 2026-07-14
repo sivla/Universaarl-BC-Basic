@@ -45,16 +45,16 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   assert.equal(payload.views.customer.contradictions, undefined);
   assert.equal(manifest.projectData.sourceCommit, source.release.producerCommitProvenance);
   assert.deepEqual(manifest.consumer, source.consumerIdentity);
-  assert.equal(manifest.projectData.artifactCount, 158);
-  assert.equal(manifest.files.filter((item) => item.kind === 'project-source').length, 158);
-  assert.equal(manifest.files.length, 161);
+  assert.equal(manifest.projectData.artifactCount, 170);
+  assert.equal(manifest.files.filter((item) => item.kind === 'project-source').length, 170);
+  assert.equal(manifest.files.length, 173);
   for (const relative of [source.release.currentPointerPath, `${source.release.releaseDirectory}/manifest.json`, manifest.files.find((item) => item.kind === 'project-source').path]) {
     assert.match(execFileSync('git', ['check-attr', 'text', '--', relative], { encoding: 'utf8' }), /text: unset/u, relative);
   }
 });
 
 test('alte Releases bleiben als unveraenderliche Historie erhalten', () => {
-  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002', 'UABC-PORTABLE-PILOT-0003']) {
+  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002', 'UABC-PORTABLE-PILOT-0003', 'UABC-PORTABLE-PILOT-0004']) {
     const oldDirectory = `exports/project-data/v1/snapshots/releases/${releaseId}`;
     for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
     assert.notEqual(source.release.releaseDirectory, oldDirectory);

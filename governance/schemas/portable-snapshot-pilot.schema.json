@@ -22,7 +22,7 @@
       "type": "object",
       "required": ["releaseId", "releaseDirectory", "immutable", "currentPointerPath", "catalogPath", "bindingStatus", "pendingReason", "consumerEligible", "publishEligible", "pathSemantics", "transports", "byteContract", "visibilityClasses", "producerCommitProvenance", "requiredReleaseEvidence", "spectraReleaseBinding"],
       "properties": {
-        "releaseId": { "const": "UABC-PORTABLE-PILOT-0004" },
+        "releaseId": { "const": "UABC-PORTABLE-PILOT-0005" },
         "immutable": { "const": true },
         "bindingStatus": { "const": "BOUND_BCPROJECTOS_RELEASE" },
         "pendingReason": { "type": "null" },

@@ -16,10 +16,10 @@ sourceInventory:
   normalization: utf8-lf-trim-line-end-single-final-newline
   attachmentPolicy: local-allowlisted-digests-only
   checkpoint:
-    checkpointId: UABC-CONF-CP-20260714-003
+    checkpointId: UABC-CONF-CP-20260714-004
     capturedAt: 2026-07-14T03:41:53Z
     mode: local-simulation
-    producerCommitProvenance: 83a63c0af8775001e4c7f909a46c5b227f3cce3d
+    producerCommitProvenance: 27d7fc19da7259705b556d03d0090c53632a68fb
     externalReadPerformed: false
   invariants:
     spaceIds: [UABC-SPACE-CUSTOMER, UABC-SPACE-PRODUCT, UABC-SPACE-CONSULTANT]
@@ -56,8 +56,8 @@ brownfieldReconciliation:
     - { rowId: UABC-BF-003, sourceId: UABC-CONF-EXTERNAL-001, decision: exclude, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: inaccessible, openGap: Zugriff und freigegebener Export fehlen }
     - { rowId: UABC-BF-004, sourceId: UABC-CONF-GAP-001, decision: gap, artifactPath: null, ownerRef: P-016, workshopRef: UABC-MTG-002, baselineStatus: missing, openGap: Freigegebene Attachment-Baseline fehlt }
 release:
-  releaseId: UABC-PORTABLE-PILOT-0004
-  releaseDirectory: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0004
+  releaseId: UABC-PORTABLE-PILOT-0005
+  releaseDirectory: exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0005
   immutable: true
   currentPointerPath: exports/project-data/v1/snapshots/current.json
   catalogPath: exports/project-data/v1/snapshots/catalog.json
@@ -69,7 +69,7 @@ release:
   transports: [filesystem, https]
   byteContract: identical-canonical-bytes
   visibilityClasses: [customer, internal]
-  producerCommitProvenance: 83a63c0af8775001e4c7f909a46c5b227f3cce3d
+  producerCommitProvenance: 27d7fc19da7259705b556d03d0090c53632a68fb
   requiredReleaseEvidence: [annotatedTag, peeledCommit, finalManifest, productDigest, platformMatrix]
   spectraReleaseBinding:
     evidencePath: evidence/spectra-release-1.2.0-alpha.12.yaml
@@ -92,6 +92,6 @@ release:
 customerCatalog:
   producerCustomerId: UABC-CUSTOMER-001
   projects:
-    - { projectId: UABC-BC-BASIC-001, routeKey: bc-basic, visibility: customer, snapshotReleaseId: UABC-PORTABLE-PILOT-0004 }
+    - { projectId: UABC-BC-BASIC-001, routeKey: bc-basic, visibility: customer, snapshotReleaseId: UABC-PORTABLE-PILOT-0005 }
   aggregationRule: Mehrere Projekte desselben Kunden sind erlaubt; mehrere Kunden nur als isolierte validierte Fragmente ohne gemeinsame Payload.
   foreignCustomerFixturesOnly: true

@@ -1,0 +1,58 @@
+templateId: UABC-DATA-TPL-001-EXAMPLE
+objectId: company-setup
+templateKind: example
+classification: synthetic-only
+sourceContract: project/bc-basic/core-finance-payload.yaml
+values:
+  companyId: UABC-BASIC-DE
+  displayName: Universaarl GmbH (BC Basic Pilot)
+  address: Simulationsstraße 1
+  postCode: "66123"
+  city: Saarbrücken
+  countryCode: DE
+  baseCurrency: EUR
+  fiscalYearStart: 2026-01-01
+  language: de-DE
+  contact: Projektteam
+  email: bc-basic@example.invalid
+  homePage: https://example.invalid/universaarl-bc-basic
+  phoneNo: ""
+  vatRegistrationNo: ""
+  eori: ""
+  gln: ""
+  bankName: ""
+  bankBranchNo: ""
+  iban: ""
+  swift: ""
+  allowEmptyPaymentInformation: true
+  chartOfAccountsTemplate: SKR04
+  locationCode: HAUPT
+  locationName: Hauptlager
+  postingGroupsApprovalStatus: prepared-not-applied
+  taxSetupApprovalStatus: confirmation-open
+  syntheticConfigurationBaseline:
+    accountRoles:
+      - { role: BANK-CLEARING, accountNoCandidate: "12000", purpose: synthetische EUR-Bankverrechnung ohne Bankkonto }
+      - { role: DEBITOREN-SAMMEL, accountNoCandidate: "14000", purpose: Forderungen aus Lieferungen und Leistungen }
+      - { role: VORSTEUER-19, accountNoCandidate: "15760", purpose: abziehbare Vorsteuer 19 Prozent }
+      - { role: BESTAND-HANDEL, accountNoCandidate: "16000", purpose: Bestand Handelswaren }
+      - { role: EIGENKAPITAL-CLEARING, accountNoCandidate: "29000", purpose: synthetisches Eröffnungsgegenkonto }
+      - { role: KREDITOREN-SAMMEL, accountNoCandidate: "33000", purpose: Verbindlichkeiten aus Lieferungen und Leistungen }
+      - { role: UMSATZSTEUER-19, accountNoCandidate: "38000", purpose: Umsatzsteuer 19 Prozent }
+      - { role: ERLOES-HANDEL, accountNoCandidate: "44000", purpose: Umsatzerlöse Handelswaren 19 Prozent }
+      - { role: EINKAUF-HANDEL, accountNoCandidate: "50000", purpose: Wareneingang Handelswaren }
+      - { role: WARENEINSATZ-HANDEL, accountNoCandidate: "50100", purpose: Wareneinsatz Handelswaren }
+      - { role: INVENTURDIFFERENZ, accountNoCandidate: "69000", purpose: synthetische Inventurdifferenz }
+    postingMatrices:
+      - { matrix: general, businessGroup: INLAND, productGroup: HANDEL, salesAccountRole: ERLOES-HANDEL, purchaseAccountRole: EINKAUF-HANDEL, cogsAccountRole: WARENEINSATZ-HANDEL, inventoryAdjustmentAccountRole: INVENTURDIFFERENZ }
+      - { matrix: vat, businessGroup: DE, productGroup: VAT19, vatPercent: 19, purchaseVatAccountRole: VORSTEUER-19, salesVatAccountRole: UMSATZSTEUER-19, taxConfirmationStatus: open }
+      - { matrix: customer, postingGroup: DEB, receivablesAccountRole: DEBITOREN-SAMMEL }
+      - { matrix: vendor, postingGroup: KRED, payablesAccountRole: KREDITOREN-SAMMEL }
+      - { matrix: inventory, postingGroup: HANDEL, inventoryAccountRole: BESTAND-HANDEL, inventoryAdjustmentAccountRole: INVENTURDIFFERENZ }
+      - { matrix: bank, postingGroup: EUR-BANK, bankAccountRole: BANK-CLEARING, realBankIdentifiers: false }
+    costingMethod: FIFO
+    dimensionCodes: [KOSTENSTELLE, GESCHAEFT]
+    syntheticOnly: true
+    realConfirmationRequired: true
+  synthetic: true
+  approvalStatus: prepared-for-controlled-live-run

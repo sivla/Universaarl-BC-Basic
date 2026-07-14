@@ -139,7 +139,7 @@ async function disposableRepository(t) {
     'project/bc-basic'
   ]) await fs.rm(path.join(root, relative), { recursive: true, force: true });
   for (const name of await fs.readdir(path.join(changesRoot, 'archive'))) {
-    if (name.endsWith('-establish-project-artifact-walkthrough-pilot') || name.endsWith(`-${bcBasicChange}`) || name.endsWith('-migrate-bc-basic-to-three-space-confluence-v1') || name.endsWith('-make-bc-basic-jira-story-human-readable-v1') || name.endsWith(`-${pilotSetupChange}`) || name.endsWith(`-${countryCompanyExecutionChange}`)) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
+    if (name.endsWith('-establish-project-artifact-walkthrough-pilot') || name.endsWith(`-${bcBasicChange}`) || name.endsWith('-migrate-bc-basic-to-three-space-confluence-v1') || name.endsWith('-make-bc-basic-jira-story-human-readable-v1') || name.endsWith(`-${pilotSetupChange}`) || name.endsWith(`-${countryCompanyExecutionChange}`) || name.endsWith(`-${portableSnapshotChange}`)) await fs.rm(path.join(changesRoot, 'archive', name), { recursive: true, force: true });
   }
   const verificationPath = 'evidence/verification-register.yaml';
   const register = await readYaml(root, verificationPath);
@@ -150,7 +150,8 @@ async function disposableRepository(t) {
     'make-bc-basic-jira-story-human-readable-v1',
     pilotSetupChange,
     countryCompanyExecutionChange,
-    portableSnapshotChange
+    portableSnapshotChange,
+    'deliver-production-ready-bc-basic-onboarding'
   ]);
   register.verifications = register.verifications.filter((item) => !removedFixtureChanges.has(item.changeRef));
   await writeYaml(root, verificationPath, register);
