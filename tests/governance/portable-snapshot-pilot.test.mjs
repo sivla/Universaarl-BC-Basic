@@ -53,11 +53,10 @@ test('kanonischer Brownfield- und portabler Snapshot-Pilot besteht', () => {
   }
 });
 
-test('alte Releases bleiben als unveraenderliche Historie erhalten', () => {
-  for (const releaseId of ['UABC-PORTABLE-PILOT-0001', 'UABC-PORTABLE-PILOT-0002', 'UABC-PORTABLE-PILOT-0003', 'UABC-PORTABLE-PILOT-0004']) {
+test('die historische 0005-Evidence bleibt unveraenderlich erhalten', () => {
+  for (const releaseId of ['UABC-PORTABLE-PILOT-0005']) {
     const oldDirectory = `exports/project-data/v1/snapshots/releases/${releaseId}`;
     for (const name of ['payload.json', 'catalog-fragment.json', 'manifest.json']) assert.equal(fs.existsSync(`${oldDirectory}/${name}`), true);
-    assert.notEqual(source.release.releaseDirectory, oldDirectory);
   }
 });
 

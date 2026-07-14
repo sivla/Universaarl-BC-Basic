@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "projectId": "UABC-BC-BASIC-001",
-  "classification": "current-reference-simulation",
+  "classification": "synthetic-canonical-project-v1",
   "currentAuthority": true,
+  "simulationOnly": true,
   "sourceContract": "project/bc-basic/reference-simulation.yaml",
   "sourceStory": "evidence/simulation/project-story.json",
   "truthBoundary": {
@@ -69,7 +70,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": null,
-      "liveStatus": "in-progress",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -111,7 +112,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": null,
-      "liveStatus": "blocked",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -153,7 +154,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": null,
-      "liveStatus": "blocked",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -195,7 +196,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -236,7 +237,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -277,7 +278,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -318,7 +319,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -359,7 +360,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -400,7 +401,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -441,7 +442,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -482,7 +483,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -523,7 +524,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -564,7 +565,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -605,7 +606,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-4",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -646,7 +647,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-4",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -687,7 +688,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -728,7 +729,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -769,7 +770,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -810,7 +811,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -851,7 +852,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-6",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -892,7 +893,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-7",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -933,7 +934,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-7",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -974,7 +975,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-8",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1015,7 +1016,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1056,7 +1057,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1097,7 +1098,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1138,7 +1139,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-10",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1179,7 +1180,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-10",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1220,7 +1221,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-11",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -1261,7 +1262,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-12",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -1302,7 +1303,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-13",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -1343,7 +1344,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-14",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1392,7 +1393,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-15",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1441,7 +1442,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-16",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1490,7 +1491,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-17",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1539,7 +1540,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-18",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1588,7 +1589,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-19",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1637,7 +1638,7 @@
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-20",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-06",
@@ -1686,7 +1687,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-21",
-      "liveStatus": "blocked",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1739,7 +1740,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-22",
-      "liveStatus": "in-progress",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1791,7 +1792,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-23",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1840,7 +1841,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-24",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1889,7 +1890,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-25",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1938,7 +1939,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-26",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -1987,7 +1988,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-27",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -2036,7 +2037,7 @@
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-28",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-04-27",
@@ -2085,7 +2086,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-29",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -2134,7 +2135,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-30",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -2183,7 +2184,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-30",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",
@@ -2232,7 +2233,7 @@
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-31",
-      "liveStatus": "created",
+      "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
         "createdAt": "2026-05-25",

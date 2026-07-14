@@ -3,7 +3,7 @@
   "kind": "universaarl-component-production-readiness",
   "projectId": "blueprint",
   "deploymentBoundary": "customer-source-of-truth",
-  "governingChange": "complete-bc-basic-reference-simulation",
+  "governingChange": "consolidate-bc-basic-canonical-project-v1",
   "assessments": {
     "platformReady": {
       "status": "passed",

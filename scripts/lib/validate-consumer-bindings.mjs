@@ -21,10 +21,10 @@ export function validateConsumerBindings(binding, projectIndex) {
   const check = (condition, message) => { if (!condition) errors.push(message); };
   const prefix = 'governance/consumer-bindings.yaml';
   check(binding?.schemaVersion === 2, `${prefix}: schemaVersion muss 2 sein`);
-  check(binding?.governingChange === 'prepare-portable-snapshot-pilot' && ['proposed','active'].includes(binding?.lifecycleStatus), `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
+  check(binding?.governingChange === 'consolidate-bc-basic-canonical-project-v1' && binding?.lifecycleStatus === 'active', `${prefix}: Change- und Lebenszyklusbindung ist ungueltig`);
   check(exactKeys(binding?.producer, ['projectId', 'contractId', 'contractPath']), `${prefix}: producer enthaelt unerlaubte oder fehlende Felder`);
   check(binding?.producer?.projectId === projectIndex?.projectId && binding?.producer?.contractId === projectIndex?.contractId && binding?.producer?.contractPath === 'exports/project-data/v1/index.yaml', `${prefix}: Producervertrag stimmt nicht mit dem Index ueberein`);
-  check(projectIndex?.contractRole === 'repository-relative-data-allowlist' && projectIndex?.snapshotManifestIncluded === false, `${prefix}: Index muss Allowlist und kein Snapshotmanifest sein`);
+  check(projectIndex?.contractRole === 'dateisystem-katalog-index' && projectIndex?.snapshotManifestIncluded === true && projectIndex?.runtime?.requiresGit === false, `${prefix}: Index muss den Git-unabhaengigen Katalogvertrag binden`);
 
   const release = binding?.spectraReleaseBinding ?? {};
   const releaseKeys = ['bindingStatus', 'productId', 'technicalRepositoryName', 'repositoryUrl', 'releaseVersion', 'releaseTag', 'tagCommit', 'manifestPath', 'manifestSourceCommit', 'consumerMode', 'installableBlueprint', 'digestAlgorithm', 'payloadBundleDigest', 'installationStatus', 'reason'];
@@ -50,9 +50,9 @@ export function validateConsumerBindings(binding, projectIndex) {
   check(snapshot.dataContractPath === binding.producer.contractPath, `${prefix}: Snapshotdatenpfad ist ungueltig`);
   check(snapshot.manifestSchemaPath === 'governance/schemas/project-snapshot-manifest.schema.json' && repositoryRelative(snapshot.manifestSchemaPath), `${prefix}: JSON-Schema-Pfad ist ungueltig`);
   check(snapshot.pathSemantics === 'repository-relative' && snapshot.lifecycleStatus === 'active' && snapshot.digestAlgorithm === 'SHA-256' && snapshot.canonicalization === 'uabc-snapshot-records-v1', `${prefix}: Snapshotvertrag verwendet nicht den kanonischen Rohblobvertrag`);
-  check(JSON.stringify(snapshot.generationStages) === JSON.stringify(['commitgebundene-payloadliste-und-digests', 'manifest-aus-validierter-payloadliste']), `${prefix}: Snapshot muss zweistufig erzeugt werden`);
+  check(JSON.stringify(snapshot.generationStages) === JSON.stringify(['filesystem-katalog-aus-validierter-payloadliste', 'atomarer-current-zeiger-auf-unveraenderliches-release']), `${prefix}: Snapshot muss zweistufig erzeugt werden`);
   check(snapshot.manifestPath === null && snapshot.sourceCommitSha === null && snapshot.consumerBindingDigest === null && snapshot.payloadBundleDigest === null && snapshot.validationStatus === 'validated', `${prefix}: aktueller Branchvertrag muss ohne Selbst-SHA extern pinnbar und validiert sein`);
-  check(snapshot.availability === 'validierter-branch-commit-extern-zu-pinnen', `${prefix}: Snapshotavailability ist ungueltig`);
+  check(snapshot.availability === 'filesystem-release-ohne-git-runtime', `${prefix}: Snapshotavailability ist ungueltig`);
   check(twin.dependency?.direction === 'consumer-to-producer' && twin.dependency?.blueprintReadsConsumer === false && twin.dependency?.consumerWritesProducer === false, `${prefix}: Rueckschreiben oder umgekehrtes Lesen ist unzulaessig`);
   check(!(projectIndex?.artifacts ?? []).some((item) => item.path === 'governance/consumer-bindings.yaml'), `${prefix}: interne Consumerbindung darf nicht als Twin-Payload positivgelistet sein`);
   for (const artifact of projectIndex?.artifacts ?? []) if (artifact.kindId === 'snapshot-manifest-schema') check(artifact.format === 'json-schema' && artifact.path.endsWith('.json'), `${prefix}: Snapshot-Schema muss als json-schema unter .json positivgelistet sein`);

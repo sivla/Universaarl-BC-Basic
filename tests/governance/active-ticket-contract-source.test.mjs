@@ -8,8 +8,8 @@ const entries = [...PRODUCTIVE_TICKET_CONTRACT_FILES, ...CURRENT_PROJECT_TRUTH_F
 const historicalEntries = HISTORICAL_PROJECT_FILES.map((file) => [file, fs.readFileSync(file, 'utf8')]);
 
 test('produktive Ticketvertragskette und current-facing Projektdoku sind dynamisch und über npm erreichbar', () => assert.deepEqual(validateReachability(packageJson, entries, historicalEntries), []));
-test('feste aktive Ticketmenge wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['validator.mjs', 'if (story.tickets.length !== 50) fail();']]), ['fixed-ticket-count: validator.mjs']));
-test('feste aktive Istsumme wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['validator.mjs', 'if (taskHours !== 80) fail();']]), ['fixed-active-actual: validator.mjs']));
+test('feste aktive Ticketmenge wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['validator.mjs', 'const activeTicketCount: 50;']]), ['fixed-active-count-field: validator.mjs']));
+test('feste aktive Istsumme wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['validator.mjs', 'const tasks: 19;']]), ['fixed-active-count-field: validator.mjs']));
 test('starrer aktiver Nummernkreis wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['generator.mjs', "activeTicketIdRange: 'UABC-1..UABC-50'"]]), ['fixed-id-range: generator.mjs']));
 test('fehlender kanonischer npm-Validator wird abgelehnt', () => { const changed=structuredClone(packageJson);changed.scripts.test=changed.scripts.test.replace('npm run validate:project-story && ', '');assert.ok(validateReachability(changed,entries).includes('npm-test-fehlt: validate:project-story')); });
 test('aktiver synthetischer Ist-Abschluss wird abgelehnt', () => assert.deepEqual(findForbiddenActiveContracts([['projekt.md', 'Angebot und synthetisches Ist sind geschlossen.']]), ['active-ist-close-claim: projekt.md']));

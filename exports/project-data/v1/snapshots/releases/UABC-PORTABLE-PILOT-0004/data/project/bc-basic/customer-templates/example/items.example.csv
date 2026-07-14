@@ -1,2 +1,0 @@
-itemNo;description;baseUnit;inventoryPostingGroupCandidate;genProductPostingGroupCandidate;vatProductPostingGroupCandidate;costingMethod;unitCost;unitPrice;defaultCostCenter;defaultBusiness;taxDecisionStatus;synthetic
-A-1000;Universalsensor Basic;STK;HANDEL;HANDEL;MWST19;FIFO;42.00;79.00;VERTRIEB;HANDEL;simulated-approved;true

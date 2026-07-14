@@ -1,3 +1,0 @@
-accountType;accountNo;documentType;documentNo;postingDate;dueDate;amount;currencyCode;costCenter;business;synthetic
-customer;K-10000;invoice;SYN-AR-001;2026-08-24;2026-09-07;940.10;EUR;VERTRIEB;HANDEL;true
-vendor;L-70000;invoice;SYN-AP-001;2026-08-24;2026-09-07;499.80;EUR;VERWALTUNG;HANDEL;true

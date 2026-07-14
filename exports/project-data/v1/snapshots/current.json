@@ -1,13 +1,15 @@
 {
   "schemaVersion": 1,
-  "pointerContract": "uabc-portable-snapshot-current-v1",
+  "pointerContract": "uabc-customer-catalog-current-v1",
   "customerId": "UABC-CUSTOMER-001",
-  "projectId": "UABC-BC-BASIC-001",
-  "currentReleaseId": "UABC-PORTABLE-PILOT-0005",
-  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-PORTABLE-PILOT-0005/manifest.json",
-  "manifestSha256": "b0202e3969958aca151121ef53338d5b489a0876250c2b5322ce0dfbbf3b7305",
+  "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260714-V1",
+  "releasePath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V1",
+  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260714-V1/manifest.json",
+  "manifestSha256": "76cd911e1e977ce39cf5b827aa2596515ac0434fb786a05bbe0e7683a6467a6d",
+  "payloadBundleDigest": "db7de1a7e2c77c6e450ea2a24ef6358334991def010fceabce9507b9dd4df785",
+  "artifactCount": 112,
+  "readOnly": true,
+  "requiresGit": false,
   "bindingStatus": "BOUND_BCPROJECTOS_RELEASE",
-  "consumerEligible": true,
-  "publishEligible": true,
-  "updatedAt": "2026-07-14T03:41:53Z"
+  "updatedAt": "2026-07-14T16:00:00+02:00"
 }

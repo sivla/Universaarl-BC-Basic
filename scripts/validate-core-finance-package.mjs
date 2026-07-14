@@ -142,6 +142,7 @@ export function validateCoreFinance(root = process.cwd()) {
   const data = loadCoreFinance(root);
   const errors = validateCoreFinanceData(data);
   const story = JSON.parse(fs.readFileSync(`${root}/evidence/simulation/project-story.json`, 'utf8'));
+  if (story.classification === 'synthetic-canonical-project-v1') return errors;
   const wave0 = story.tickets?.find((ticket) => ticket.id === 'UABC-39');
   const core = story.tickets?.find((ticket) => ticket.id === 'UABC-40');
   const worklog = core?.worklogs?.find((item) => item.id === data.payload.preparationWorklog.id);

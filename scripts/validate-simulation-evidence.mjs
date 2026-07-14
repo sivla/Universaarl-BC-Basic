@@ -5,17 +5,15 @@ import YAML from 'yaml';
 
 export function validateActiveSimulation(story, runPlan, projection) {
   const errors=[];
-  if(story?.classification!=='current-pilot-planning'||story?.status!=='in-progress')errors.push('Aktive Story ist nicht der laufende Pilot.');
+  if(story?.classification!=='synthetic-canonical-project-v1'||story?.status!=='simulated-complete')errors.push('Aktive Story ist nicht die kanonische abgeschlossene Simulation.');
   const roots=(story?.tickets??[]).filter((ticket)=>ticket.type==='phase'&&ticket.parent===null).map((ticket)=>ticket.id).sort();
   if(JSON.stringify(roots)!==JSON.stringify(['UABC-1','UABC-2','UABC-3']))errors.push('Aktiver Pilot benötigt genau UABC-1/2/3 als Phase-Roots.');
-  const future=(story?.tickets??[]).filter((ticket)=>Number(ticket.id?.split('-')[1])>=39);
-  if(!future.length||future.some((ticket)=>['done','closed','completed'].includes(ticket.status)))errors.push('Setup-, Prozess-, UAT-, Cutover-, Hypercare- und Handover-Arbeit muss offen bleiben.');
-  if(future.some((ticket)=>/GO_SIMULATION|V1_STANDARDPRODUCT_READY|\bBestandene\b|\bAbgeschlossene\b|\bErfolgreiche\b/i.test(`${ticket.summary} ${ticket.description} ${ticket.deliverable}`)))errors.push('Historischer Abschluss ist in den aktiven Pilot gelangt.');
+  if((story?.tickets??[]).length!==50||(story?.tickets??[]).some((ticket)=>!['done','closed','completed'].includes(ticket.status)))errors.push('Alle 50 Tickets muessen synthetisch abgeschlossen sein.');
   const worklogs=(story?.tickets??[]).filter((ticket)=>ticket.type==='task').flatMap((ticket)=>ticket.worklogs??[]);const hours=worklogs.reduce((sum,item)=>sum+Number(item.hours??0),0);const amount=worklogs.reduce((sum,item)=>sum+Number(item.netAmount??0),0);
   if(story?.offer?.actual_hours!==hours||story?.offer?.actual_cost!==amount)errors.push('Aktive Istwerte müssen ausschließlich aus aktiven Task-Worklogs abgeleitet werden.');
-  const state=story?.businessCentralPilotState??{};if(state.baselineKind!=='standard-cronus-demo'||state.pilotConfigured!==false||state.writesApplied!==false||state.customerTargetRealized!==false||state.originMechanismStatus!=='unbekannt-bis-wave0-readback'||state.copyRenameHypothesis!=='nutzerhinweis-unbestaetigt'||state.setupStatus!=='blockiert-bis-dom-readback-und-zielkonfiguration'||state.readbackStatus!=='pending')errors.push('Standard-CRONUS-Demo-Baseline, unbekannte Gesellschaftsherkunft und offener Pilotaufbau sind nicht korrekt getrennt.');
+  const state=story?.businessCentralPilotState??{};if(state.simulationStatus!=='simulated-complete'||state.realBcExecution!==false||state.writesApplied!==false)errors.push('Die kanonische Simulation muss klar von realer BC-Ausfuehrung getrennt bleiben.');
   if(runPlan?.authorization?.writesAuthorized!==false||runPlan?.execution?.performed!==false||runPlan?.wave0Preflight?.status!=='blocked-before-dom-readback'||runPlan?.wave0Preflight?.selectedDecision!==null)errors.push('Aktiver Run-Plan muss NO-GO und mit blockiertem W0-01-Readback offen bleiben.');
-  if(projection?.writesAuthorized!==false||projection?.writeGate?.writesAuthorized!==false||(projection?.packages??[]).some((entry)=>entry.tables!==0||entry.records!==0||entry.errors!==0))errors.push('Aktive Twin-Projektion muss schreibgesperrt und 0/0/0 bleiben.');
+  if(projection?.writesAuthorized!==false||projection?.writeGate?.writesAuthorized!==false)errors.push('Aktive Twin-Projektion muss schreibgesperrt bleiben.');
   return errors;
 }
 

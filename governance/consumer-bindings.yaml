@@ -1,5 +1,5 @@
 schemaVersion: 2
-governingChange: prepare-portable-snapshot-pilot
+governingChange: consolidate-bc-basic-canonical-project-v1
 lifecycleStatus: active
 producer:
   projectId: UABC-BC-BASIC-001
@@ -44,11 +44,11 @@ consumers:
       digestAlgorithm: SHA-256
       canonicalization: uabc-snapshot-records-v1
       generationStages:
-        - commitgebundene-payloadliste-und-digests
-        - manifest-aus-validierter-payloadliste
+        - filesystem-katalog-aus-validierter-payloadliste
+        - atomarer-current-zeiger-auf-unveraenderliches-release
       validationStatus: validated
       accessRule: Nur ein validierter, versionierter Snapshot mit positivgelisteten Pfaden und verbindlichen Selektoren darf gelesen werden.
-      availability: validierter-branch-commit-extern-zu-pinnen
+      availability: filesystem-release-ohne-git-runtime
     dependency:
       direction: consumer-to-producer
       blueprintReadsConsumer: false

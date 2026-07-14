@@ -64,6 +64,7 @@ const output = {
   projectId: source.projectId,
   classification: source.classification,
   currentAuthority: source.currentAuthority,
+  simulationOnly: source.simulationOnly,
   sourceContract: sourcePath,
   sourceStory: storyPath,
   truthBoundary: source.truthBoundary,

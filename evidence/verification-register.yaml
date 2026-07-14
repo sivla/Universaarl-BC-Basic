@@ -344,3 +344,13 @@ verifications:
     environment: local-repository
     subjectRefs: [UABC-38, UABC-39, UABC-40]
     evidence: Repositorybasierte Produktions- und Onboarding-Bereitschaft ist durch die dokumentierten 24 Readiness-Tests, 10 von 10 OpenSpec-Pruefungen, Snapshot UABC-PORTABLE-PILOT-0005 mit 170 Artefakten sowie den bestehenden Gesamtcheck nachgewiesen. Die acht echten Kunden-, BC-, Steuer-, UAT-, Cutover-, Abschluss- und UStVA-Gates bleiben PENDING; kein Live-Gate wird als bestanden behauptet. Spectra 1.2.0-alpha.12 bleibt fuer den portablen Snapshot commitgebunden.
+  - id: UABC-VER-BCB-CANONICAL-PROJECT-V1-001
+    changeRef: consolidate-bc-basic-canonical-project-v1
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-1, UABC-2, UABC-3]
+    evidence: >-
+      Kanonische Single-Truth-Pruefung bestanden: synthetisch abgeschlossene 50-Ticket-Historie, 19 Task-Worklogs mit 80 Stunden und 9.600 EUR, neun Deliverables, drei Spaces, sieben Playthroughs, GO_SIMULATION sowie acht echte Folgegates pending. Der Git-unabhaengige Kundenkatalog UABC-CUSTOMER-001-CATALOG-20260714-V1 enthaelt genau ein Projekt und eine simulierte Supportuebergabe, 115 Payloadartefakte, Manifest-/Payload-Digests und Read-only-/Cross-Customer-Pruefungen. Keine reale Kunden-, BC-, Steuer- oder Publishing-Freigabe.

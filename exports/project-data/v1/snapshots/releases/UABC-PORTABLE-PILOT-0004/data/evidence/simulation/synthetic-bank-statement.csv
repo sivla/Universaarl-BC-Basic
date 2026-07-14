@@ -1,4 +1,0 @@
-statementId;account;date;documentNo;amount;currency;synthetic
-SYN-BANK-001;BANK-SYN;2026-08-24;SYN-OPEN-BANK;5000.00;EUR;true
-SYN-BANK-001;BANK-SYN;2026-08-25;SYN-AR-002;940.10;EUR;true
-SYN-BANK-001;BANK-SYN;2026-08-25;SYN-AP-002;-499.80;EUR;true

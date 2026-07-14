@@ -1,7 +1,8 @@
 schemaVersion: 1
 projectId: UABC-BC-BASIC-001
-classification: current-reference-simulation
+classification: synthetic-canonical-project-v1
 currentAuthority: true
+status: simulated-complete
 simulationOnly: true
 sourceStory: evidence/simulation/project-story.json
 sourceHistoricalEvidence:

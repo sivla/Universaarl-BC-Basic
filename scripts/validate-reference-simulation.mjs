@@ -26,7 +26,7 @@ export function validateReferenceSimulation(contract, exportData, story, fileExi
   for (const [index, ticket] of (story?.tickets ?? []).entries()) exact(ticket, ticketKeys, `story.tickets[${index}]`, 'STORY-STRUCTURED-PROPERTY');
   const exportPhaseKeys = phaseKeys;
   for (const [index, phase] of (exportData?.phases ?? []).entries()) exact(phase, exportPhaseKeys, `export.phases[${index}]`, 'EXPORT-STRUCTURED-PROPERTY');
-  if (contract?.classification !== 'current-reference-simulation' || contract.currentAuthority !== true || contract.simulationOnly !== true) fail('CONTRACT-KLASSIFIKATION', 'Referenzsimulation muss currentAuthority=true und simulationOnly=true tragen.');
+  if (contract?.classification !== 'synthetic-canonical-project-v1' || contract.currentAuthority !== true || contract.simulationOnly !== true) fail('CONTRACT-KLASSIFIKATION', 'Kanonische Simulation muss synthetic-canonical-project-v1, currentAuthority=true und simulationOnly=true tragen.');
   if (!contract?.truthBoundary || Object.values(contract.truthBoundary).some((value) => value === true && value !== 'pending')) fail('WAHRHEITSGRENZE', 'Live-/Freigabe-/Übermittlungsbehauptungen müssen false bleiben.');
   if (contract.truthBoundary.continia !== 'out-of-scope' || contract.truthBoundary.liveGates !== 'pending') fail('CONTINIA-LIVE-GATE', 'Continia und echte Live-Gates müssen offen beziehungsweise out-of-scope bleiben.');
   for (const source of [contract.sourceStory, ...(contract.sourceHistoricalEvidence ?? []), ...(contract.meetings ?? []).map((meeting) => meeting.path)]) if (!fileExists(source)) fail('QUELLE-FEHLT', source);

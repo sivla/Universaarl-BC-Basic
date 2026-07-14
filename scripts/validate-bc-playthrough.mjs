@@ -14,6 +14,18 @@ export function validateActiveBcPlaythrough(story, runPlan, projection) {
   const errors = [];
   const fail = (message) => errors.push(message);
   const state = story?.businessCentralPilotState ?? {};
+  if (story?.classification === 'synthetic-canonical-project-v1' && story?.status === 'simulated-complete') {
+    if (state.simulationStatus !== 'simulated-complete' || state.realBcExecution !== false || state.writesApplied !== false) fail('Kanonische Simulation muss synthetisch und schreibgesperrt bleiben.');
+    const tickets = story.tickets ?? [];
+    if (tickets.length !== 50 || tickets.some((ticket) => !['closed', 'completed', 'done'].includes(ticket.status))) fail('Alle 50 Tickets muessen synthetisch abgeschlossen sein.');
+    const worklogs = tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
+    const hours = worklogs.reduce((sum, item) => sum + Number(item.hours ?? 0), 0);
+    const amount = worklogs.reduce((sum, item) => sum + Number(item.netAmount ?? 0), 0);
+    if (hours !== 80 || amount !== 9600 || story.offer?.actual_hours !== 80 || story.offer?.actual_cost !== 9600) fail('Kanonische Worklogs muessen 80 Stunden und 9.600 EUR ergeben.');
+    if (runPlan?.execution?.performed !== false || runPlan?.authorization?.writesAuthorized !== false) fail('Run-Plan muss unausgefuehrt und schreibgesperrt bleiben.');
+    if (projection?.writesAuthorized !== false || projection?.writeGate?.writesAuthorized !== false) fail('Twin-Projektion muss schreibgesperrt bleiben.');
+    return errors;
+  }
   if (story?.classification !== 'current-pilot-planning' || story?.status !== 'in-progress') fail('Aktive Projektstory ist nicht der laufende Pilot.');
   if (state.baselineKind !== 'standard-cronus-demo' || state.pilotConfigured !== false || state.writesApplied !== false || state.customerTargetRealized !== false || state.originMechanismStatus !== 'unbekannt-bis-wave0-readback' || state.copyRenameHypothesis !== 'nutzerhinweis-unbestaetigt' || state.setupStatus !== 'blockiert-bis-dom-readback-und-zielkonfiguration' || state.readbackStatus !== 'pending') fail('Aktiver BC-Zustand muss Standard-CRONUS-Demo-Baseline mit unbekannter Gesellschaftsherkunft und offenem Pilotaufbau sein.');
   const worklogs = (story?.tickets ?? []).filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);

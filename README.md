@@ -26,6 +26,8 @@ npm test
 
 OpenSpec ist als exakte Entwicklungsabhaengigkeit gepinnt. Direkte Aufrufe erfolgen mit `npm exec openspec -- <command>`.
 
-## Aktive OpenSpec-Aenderung
+## Aktueller Projekt- und Katalogvertrag
 
-Aktiv ist `prepare-portable-snapshot-pilot`. Der Produktvertrag heisst fachlich Spectra (`productId: spectra`); die technische Repository-Identitaet bleibt BCProjectOS. Die historische 0.10-Konformitaetsevidence bleibt erhalten. Der aktuelle portable Snapshot `UABC-PORTABLE-PILOT-0003` ist ueber den annotierten Tag `spectra-v1.2.0-alpha.12`, finales Manifest, Commit-/Tree-Nachweis, Produktdigest und bestandene Windows-/macOS-Matrix gebunden. Er verpackt den Projektindex und alle 158 darin positivgelisteten Quelldateien bytegenau aus Producer-Commit `8132f2ce692dfcb8e12a3a4db4a287c643a6376f`; Git ist nur Erzeugungswerkzeug und keine Twin-Laufzeitschnittstelle. Die native Kundeninstanz bleibt alleinige Source of Truth. Brownfield-, Wissensdelta- und Snapshotartefakte sind deterministische Projektionen; die Releases `0001` und `0002` bleiben bytegleich erhalten. Der Project Twin darf ausschliesslich `current.json`, Katalog, Manifest und digestgebundene Releasebytes ueber Filesystem oder HTTPS lesen und niemals zurueckschreiben.
+Die kanonische Kundeninstanz ist eine vollständig simulierte und synthetisch abgenommene BC-Basic-Einführung mit 50 UABC-Tickets, 19 Task-Worklogs, 80 Stunden und 9.600 EUR. Acht reale Tenant-, Lizenz-, Security-, UAT-, Cutover-, First-Close-, VAT- und Support-Gates bleiben als echte Folgegrenze offen.
+
+Spectra (`productId: spectra`) ist über den echten Release `spectra-v1.0.0` von BCProjectOS gebunden. Der Project Twin liest ausschließlich den filesystem-basierten Kundenkatalog über `exports/project-data/v1/snapshots/current.json`; dieser zeigt auf genau ein unveränderliches Release mit Manifest, Index, Ressourcenkatalog und Payloadbytes. Git, Branch und Commit sind für die Runtime nicht erforderlich. Die Producer-Commit-SHA ist, falls vorhanden, reine Provenienz. Der Katalog ist read-only und kundenisoliert.

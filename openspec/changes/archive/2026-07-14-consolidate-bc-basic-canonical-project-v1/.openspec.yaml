@@ -1,0 +1,24 @@
+schema: universaarl-delivery
+created: 2026-07-14
+goal: Eine kanonische, synthetisch vollstaendig ausgefuehrte und abgenommene BC-Basic-Projektsimulation ohne konkurrierende aktuelle Pilotwahrheit.
+canonicalTargets: [project-story, project-plan, reference-simulation, readiness, project-index, document-catalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-CANONICAL-PROJECT-V1-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-14
+  scope: Repositorybasierte synthetische Projektsimulation ohne Live-Systemzugriff, Kundensystemzugriff oder Publishing-Aktion.
+  conditions: [acht echte Live-Gates bleiben pending, keine Steuerberatung, keine reale Kundenfreigabe, kein Push]
+proposedCanonicalUpdate:
+  status: applied
+  targets: [project-story, project-plan, reference-simulation, readiness, project-index, document-catalog, verification-register]
+  facts:
+    simulationStatus: simulated-complete
+    truthBoundary: synthetisch-vollstaendig-und-synthetisch-abgenommen
+    ticketCount: 50
+    hierarchy: 3 Phasen, 10 Epics, 18 Stories, 19 Tasks
+    worklogHours: 80
+    worklogNetAmount: 9600
+    realLiveGates: 8
+  unknowns: [echte Tenantberechtigungen, reale Lizenz-/Securityfreigabe, produktiver UAT, Cutover-GO, erster realer Abschluss, reale UStVA-/Steuerfreigabe, echte Supportuebergabe]
+  policyGateEvidenceId: UABC-VER-BCB-CANONICAL-PROJECT-V1-001
