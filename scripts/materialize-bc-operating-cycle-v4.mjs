@@ -94,6 +94,33 @@ export function buildOperatingCycle(source) {
     traceabilityEdges.push({from: record.recordId, to: id, relation: `verweist-auf-${type}`});
     traceabilityEdges.push({from: id, to: record.recordId, relation: 'belegt-betriebstag'});
   }
+  const journalByDate = new Map(journalRecords.map(record => [record.date, record]));
+  const exceptionById = new Map((source.exceptions ?? []).map(item => [item.id, item]));
+  const hypercareDays = source.operationalClosure.hypercare.days.map(day => {
+    const date = asDate(day.date);
+    const journalRecord = journalByDate.get(date);
+    if (!journalRecord) throw new Error(`Kein Journaltag fuer Hypercare ${date}.`);
+    return {
+      ...day,
+      date,
+      journalRecordRef: journalRecord.recordId,
+      slaEvents: (day.slaEvents ?? []).map(event => {
+        const exception = exceptionById.get(event.incidentRef);
+        if (!exception) throw new Error(`Unbekannte Ausnahme ${event.incidentRef} im Hypercareprotokoll.`);
+        const reactionMinutes = Math.round((new Date(event.reactionAt) - new Date(event.reportedAt)) / 60000);
+        const closureMinutes = Math.round((new Date(event.closedAt) - new Date(event.reportedAt)) / 60000);
+        return {...event, reactionMinutes, closureMinutes, exceptionStatus: exception.status};
+      })
+    };
+  });
+  const closure = {
+    hypercare: {...source.operationalClosure.hypercare, start: asDate(source.operationalClosure.hypercare.start), end: asDate(source.operationalClosure.hypercare.end), days: hypercareDays},
+    restart: {...source.operationalClosure.restart, date: asDate(source.operationalClosure.restart.date), journalRecordRef: journalByDate.get(asDate(source.operationalClosure.restart.date))?.recordId},
+    monthEndClose: {...source.operationalClosure.monthEndClose, date: asDate(source.operationalClosure.monthEndClose.date), journalRecordRef: journalByDate.get(asDate(source.operationalClosure.monthEndClose.date))?.recordId},
+    vatPreview: {...source.operationalClosure.vatPreview, date: asDate(source.operationalClosure.vatPreview.date), journalRecordRef: journalByDate.get(asDate(source.operationalClosure.vatPreview.date))?.recordId},
+    retrospective: {...source.operationalClosure.retrospective, date: asDate(source.operationalClosure.retrospective.date), journalRecordRef: journalByDate.get(asDate(source.operationalClosure.retrospective.date))?.recordId},
+    supportHandover: {...source.operationalClosure.supportHandover, date: asDate(source.operationalClosure.supportHandover.date), journalRecordRef: journalByDate.get(asDate(source.operationalClosure.supportHandover.date))?.recordId}
+  };
   return {
     schemaVersion: 1,
     journalId: source.journalId,
@@ -103,10 +130,12 @@ export function buildOperatingCycle(source) {
     truthBoundary: source.truthBoundary,
     v3Baseline: source.baseline,
     ticketProjection: source.extensionTask,
+    ticketProjections: [source.extensionTask, source.m3ExtensionTask],
     billing: source.billing,
     openingControl: source.openingControl,
     journalRecords,
     exceptions: (source.exceptions ?? []).map(item => ({...item, date: asDate(item.date)})),
+    operationalClosure: closure,
     traceability: {
       contract: 'bidirectional-day-object-v1',
       edges: traceabilityEdges,

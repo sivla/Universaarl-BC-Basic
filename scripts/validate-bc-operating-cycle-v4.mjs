@@ -55,7 +55,7 @@ for (const record of actual.journalRecords) {
       const reverse = actual.traceability.edges.some(edge => edge.from === ref && edge.to === record.recordId);
       if (!forward || !reverse) fail('TRACE-EINSEITIG', `${record.recordId}/${ref}`);
       const known = {
-        tickets: new Set([...story.tickets.map(ticket => ticket.id), actual.ticketProjection.id]),
+        tickets: new Set([...story.tickets.map(ticket => ticket.id), ...actual.ticketProjections.map(ticket => ticket.id)]),
         meetings: new Set(meetings.meetings.map(meeting => meeting.id)),
         processes: new Set(ledger.cases.map(item => item.caseId)),
         tests: new Set(uat.cases.map(item => item.id)),
@@ -70,19 +70,60 @@ for (const item of actual.exceptions) {
   for (const field of ['finding', 'cause', 'correction', 'retest', 'decision', 'owner', 'decisionRef']) if (!item[field]) fail('AUSNAHME-FELD', `${item.id}/${field}`);
   if (item.status !== 'closed-synthetic' || item.severity !== 'P2') fail('AUSNAHME-STATUS', item.id);
 }
-const task = actual.ticketProjection;
-if (task.id !== 'UABC-51' || task.type !== 'task' || !story.tickets.some(ticket => ticket.id === task.parent && ticket.type === 'story')) fail('TICKET-HIERARCHIE', `${task.id}->${task.parent}`);
-if (!/^UABC-[1-9]\d*$/.test(task.id) || task.summary.split(/\s+/).length > 3 || task.meetingTranscriptRefs?.length !== 1 || !fs.existsSync(`atlassian/confluence/meetings/${task.meetingTranscriptRefs[0]}.md`) || !task.deliverableRefs?.length || task.acceptanceCriteria?.length < 3) fail('TICKET-QUALITAET', task.id);
-if (task.worklog.hours > 3 || task.worklog.netAmount > 360 || task.worklog.netAmount !== task.worklog.hours * task.worklog.hourlyRate || !task.worklog.syntheticApprovalOnly || task.worklog.invoiceStatus !== 'projektion-nicht-versendet') fail('M2-ABRECHNUNG', JSON.stringify(task.worklog));
-if (actual.billing.cumulativeHours !== 81 || actual.billing.cumulativeNetAmount !== 9720 || actual.billing.cumulativeNetAmount >= actual.billing.overallCapNetAmount) fail('BUDGET', JSON.stringify(actual.billing));
+for (const task of actual.ticketProjections) {
+  if (task.type !== 'task' || !story.tickets.some(ticket => ticket.id === task.parent && ticket.type === 'story')) fail('TICKET-HIERARCHIE', `${task.id}->${task.parent}`);
+  if (!/^UABC-[1-9]\d*$/.test(task.id) || task.summary.split(/\s+/).length > 3 || task.meetingTranscriptRefs?.length !== 1 || !fs.existsSync(`atlassian/confluence/meetings/${task.meetingTranscriptRefs[0]}.md`) || !task.deliverableRefs?.length || task.acceptanceCriteria?.length < 3) fail('TICKET-QUALITAET', task.id);
+  if (task.worklog.netAmount !== task.worklog.hours * task.worklog.hourlyRate || !task.worklog.syntheticApprovalOnly || task.worklog.invoiceStatus !== 'projektion-nicht-versendet') fail('TASK-ABRECHNUNG', JSON.stringify(task.worklog));
+}
+const m2Task = actual.ticketProjections.find(task => task.id === 'UABC-51');
+const m3Task = actual.ticketProjections.find(task => task.id === 'UABC-52');
+if (!m2Task || m2Task.worklog.hours !== 3 || m2Task.worklog.netAmount !== 360) fail('M2-ABRECHNUNG', JSON.stringify(m2Task?.worklog));
+if (!m3Task || m3Task.worklog.hours > 1 || m3Task.worklog.netAmount > 120) fail('M3-ABRECHNUNG', JSON.stringify(m3Task?.worklog));
+if (actual.billing.afterM2Hours !== 81 || actual.billing.afterM2NetAmount !== 9720 || actual.billing.cumulativeHours !== 82 || actual.billing.cumulativeNetAmount !== 9840 || actual.billing.cumulativeNetAmount >= actual.billing.overallCapNetAmount) fail('BUDGET', JSON.stringify(actual.billing));
 const end = actual.closingControl;
 const expectedEnd = {bank: 5440.3, inventoryQuantity: 49, inventoryValue: 2058, accountsReceivable: 0, accountsPayable: 0, inputVat: 79.8, outputVat: 150.1, trialBalanceDebit: 11080.2, trialBalanceCredit: 11080.2};
 for (const [key, value] of Object.entries(expectedEnd)) if (round(end[key]) !== value) fail('ENDKONTROLLE', `${key}=${end[key]} statt ${value}`);
 if (round(end.outputVat - end.inputVat) !== 70.3 || actual.truthBoundary.vatTransmitted !== false || actual.truthBoundary.realCustomerApprovalClaimed !== false || actual.materialization.twinVisible !== false) fail('WAHRHEITSGRENZE', 'UStVA, reale Freigabe oder Twin-Aktivierung unzulaessig.');
+
+const closure = actual.operationalClosure;
+const recordIds = new Set(actual.journalRecords.map(record => record.recordId));
+const exceptionIds = new Set(actual.exceptions.map(item => item.id));
+const hypercare = closure.hypercare;
+if (hypercare.days.length !== hypercare.requiredDays || hypercare.requiredDays !== 11 || hypercare.start !== '2026-05-12' || hypercare.end !== '2026-05-22') fail('HYPERCARE-MENGE', `${hypercare.days.length}/${hypercare.requiredDays}`);
+const seenIncidents = new Set();
+for (let index = 0; index < hypercare.days.length; index++) {
+  const day = hypercare.days[index];
+  const expectedDate = new Date('2026-05-12T00:00:00Z');
+  expectedDate.setUTCDate(expectedDate.getUTCDate() + index);
+  if (day.date !== expectedDate.toISOString().slice(0, 10) || !recordIds.has(day.journalRecordRef) || !day.status || !day.availability || !day.decision || !day.dayClose) fail('HYPERCARE-TAG', `${index + 1}/${day.date}`);
+  for (const incidentRef of day.incidentRefs) {
+    if (!exceptionIds.has(incidentRef) || seenIncidents.has(incidentRef)) fail('HYPERCARE-INCIDENT', incidentRef);
+    seenIncidents.add(incidentRef);
+  }
+  for (const event of day.slaEvents ?? []) {
+    const times = ['reportedAt', 'reactionAt', 'correctedAt', 'retestedAt', 'closedAt'].map(field => new Date(event[field]).getTime());
+    if (times.some(Number.isNaN) || times.some((value, position) => position > 0 && value < times[position - 1])) fail('SLA-CHRONOLOGIE', event.incidentRef);
+    const target = hypercare.sla[event.severity]?.targetMinutes;
+    if (event.exceptionStatus !== 'closed-synthetic' || event.reactionMinutes > target || event.closureMinutes > target) fail('SLA-VERSTOSS', `${event.incidentRef}/${event.reactionMinutes}/${event.closureMinutes}/${target}`);
+  }
+}
+for (const id of ['UABC-V4-DEF-001', 'UABC-V4-DEF-002', 'UABC-V4-DEF-003', 'UABC-V4-DEF-004']) if (!seenIncidents.has(id)) fail('HYPERCARE-INCIDENT-FEHLT', id);
+if (actual.exceptions.some(item => ['P1', 'P2'].includes(item.severity) && item.status !== 'closed-synthetic')) fail('OFFENE-P1-P2', 'Mindestens ein P1/P2 ist nicht geschlossen.');
+
+const restart = closure.restart;
+if (!recordIds.has(restart.journalRecordRef) || !recordIds.has(restart.lastKnownGood) || restart.checklist.some(item => item.result !== 'bestanden-synthetisch') || restart.decision !== 'restart-bestanden-synthetisch' || restart.realApprovalClaimed !== false) fail('RESTART', JSON.stringify(restart));
+const close = closure.monthEndClose;
+if (!recordIds.has(close.journalRecordRef) || close.checklist.some(item => item.result !== 'bestanden-synthetisch') || close.decision !== 'monatsabschluss-bestanden-synthetisch' || close.productivePostingClaimed !== false) fail('MONATSABSCHLUSS', 'Checkliste, Entscheidung oder Wahrheitsgrenze ist ungueltig.');
+for (const [name, values] of Object.entries(close.reconciliations)) for (const [key, value] of Object.entries(values)) if (/difference/i.test(key) && value !== 0) fail('ABSCHLUSSDIFFERENZ', `${name}/${key}=${value}`);
+if (close.reconciliations.bank.ledger !== end.bank || close.reconciliations.inventory.itemQuantity !== end.inventoryQuantity || close.reconciliations.inventory.itemValue !== end.inventoryValue || close.reconciliations.trialBalance.debit !== end.trialBalanceDebit || close.reconciliations.trialBalance.credit !== end.trialBalanceCredit) fail('ABSCHLUSS-JOURNAL-DRIFT', 'Abschlusswerte weichen vom Journal ab.');
+const vat = closure.vatPreview;
+if (!recordIds.has(vat.journalRecordRef) || round(vat.outputVat - vat.inputVat) !== vat.payable || vat.difference !== 0 || vat.transmitted !== false || vat.taxApprovalClaimed !== false) fail('USTVA-VORSCHAU', JSON.stringify(vat));
+if (closure.retrospective.openP1 !== 0 || closure.retrospective.openP2 !== 0 || !recordIds.has(closure.retrospective.journalRecordRef)) fail('RETRO', JSON.stringify(closure.retrospective));
+if (!recordIds.has(closure.supportHandover.journalRecordRef) || closure.supportHandover.checklist.some(item => item.result !== 'bestanden-synthetisch') || closure.supportHandover.realCustomerAcceptanceClaimed !== false) fail('SUPPORT-UEBERGABE', JSON.stringify(closure.supportHandover));
 
 if (errors.length) {
   console.error(`V4-Betriebsjournal-Pruefung fehlgeschlagen (${errors.length}):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log('V4-Betriebsjournal bestanden: 22 Tage, 5 geschlossene P2-Ausnahmen, 81 h/9.720 EUR, Endkontrollen differenzfrei, V3 current unveraendert.');
+console.log('V4-Betriebsabschluss bestanden: 22 Tage, 11 Hypercareabschluesse, 5 geschlossene P2-Ausnahmen, Restart/Monatsabschluss/UStVA-Vorschau, 82 h/9.840 EUR, V3 current unveraendert.');

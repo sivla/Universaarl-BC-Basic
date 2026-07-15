@@ -139,3 +139,20 @@ Die einzige neue Jira-Arbeit ist `UABC-51` mit dem Kurztitel `Betriebsjournal` a
 `UABC-31`. Das Worklog `WL-UABC-51-V4` umfasst am 1. Juni 2026 genau 3 Stunden zu 120 EUR beziehungsweise 360 EUR.
 Damit betraegt die kumulierte Projektion 81 Stunden und 9.720 EUR netto. Die Rechnungszeile bleibt nicht versendet;
 die dokumentierte Annahme ist ausschliesslich synthetisch. Bestehende V3-Arbeit wird nicht erneut fakturiert.
+
+## 10. M3-Betriebsabschluss
+
+M3 erweitert dieselbe kanonische V4-Quelle um elf Hypercare-Tagesabschluesse vom 12. bis 22. Mai 2026. Jeder Tag
+nennt Erreichbarkeit, Incidentbezug, SLA-Reaktion, Entscheidung und Tagesabschluss. Die vier waehrend Hypercare
+auftretenden P2-Ausnahmen werden innerhalb des Vier-Stunden-Ziels korrigiert, mit identischer Ausgangslage retestet
+und erst danach synthetisch geschlossen. Die Inventurdifferenz am 27. Mai bleibt als fuenfte P2-Ausnahme Bestandteil
+des anschliessenden Monatsabschlusses.
+
+Der dokumentierte Restart am 26. Mai bindet Benutzer-, Perioden-, Kernprozess- und Ledgerkontrollen an die letzte
+differenzfreie Hypercare-Baseline. Der Monatsabschluss stimmt Debitoren, Kreditoren, Bank, Lager, MwSt. und
+Summen-/Saldenliste mit dem Betriebsjournal ab. Die UStVA-Vorschau weist 150,10 EUR Umsatzsteuer abzueglich
+79,80 EUR Vorsteuer gleich 70,30 EUR Zahllast aus; Uebermittlung und reale Steuerfreigabe bleiben ausgeschlossen.
+
+Die einzige neue M3-Arbeit ist `UABC-52` als Task unter `UABC-31` mit genau einer Stunde beziehungsweise 120 EUR.
+Die kumulierte Projektion betraegt damit 82 Stunden und 9.840 EUR netto; beide V4-Rechnungsprojektionen bleiben
+nicht versendet. V3, `current.json` und der Twin-Katalog bleiben bis M4 unveraendert.

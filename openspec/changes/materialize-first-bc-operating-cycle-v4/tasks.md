@@ -17,8 +17,8 @@
 
 ## UABC-M3 - Hypercare, Abschluss und UStVA-Vorschau
 
-- [ ] Alle elf Hypercaretage, Nachsorge, Restart, Monatsabschluss, UStVA-Vorschau, Retro und Supportuebergabe mit konkreter synthetischer Evidence ausfuehren.
-- [ ] Rechenketten, Defect-SLAs, Retests, Gateentscheidungen und Budget ohne offene P1/P2 oder Differenzen abschliessen.
+- [x] Alle elf Hypercaretage, Nachsorge, Restart, Monatsabschluss, UStVA-Vorschau, Retro und Supportuebergabe mit konkreter synthetischer Evidence ausfuehren.
+- [x] Rechenketten, Defect-SLAs, Retests, Gateentscheidungen und Budget ohne offene P1/P2 oder Differenzen abschliessen.
 
 ## UABC-M4 - Handbuecher, Katalog und Uebergabe
 
