@@ -38,7 +38,9 @@ export const CURRENT_PROJECT_TRUTH_FILES = Object.freeze([
   'project/bc-basic/uat-catalog.yaml',
   'project/bc-basic/training-plan.yaml',
   'project/bc-basic/data-package.yaml',
-  'project/bc-basic/traceability-matrix.yaml'
+  'project/bc-basic/traceability-matrix.yaml',
+  'project/bc-basic/pilot-v3.yaml',
+  'atlassian/confluence/meetings/index.yaml'
 ]);
 export const HISTORICAL_PROJECT_FILES = Object.freeze([
   'atlassian/jira/issues/bc-basic-project.yaml',
@@ -53,10 +55,6 @@ export const HISTORICAL_PROJECT_FILES = Object.freeze([
   'evidence/simulation/phase-gate-register.yaml',
   'evidence/simulation/project-completion.yaml',
   'evidence/simulation/demo-readiness.yaml',
-  'atlassian/confluence/meetings/index.yaml',
-  'atlassian/confluence/meetings/UABC-MTG-001.md',
-  'atlassian/confluence/meetings/UABC-MTG-002.md',
-  'atlassian/confluence/meetings/UABC-MTG-003.md',
   'docs/runbooks/bc-basic-simulation-demo.md'
 ]);
 

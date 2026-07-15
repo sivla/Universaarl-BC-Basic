@@ -54,11 +54,56 @@
     {
       "id": "UABC-MTG-002",
       "path": "atlassian/confluence/meetings/UABC-MTG-002.md",
-      "phase": "P2"
+      "phase": "P1"
     },
     {
       "id": "UABC-MTG-003",
       "path": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "phase": "P1"
+    },
+    {
+      "id": "UABC-MTG-004",
+      "path": "atlassian/confluence/meetings/UABC-MTG-004.md",
+      "phase": "P1"
+    },
+    {
+      "id": "UABC-MTG-005",
+      "path": "atlassian/confluence/meetings/UABC-MTG-005.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-006",
+      "path": "atlassian/confluence/meetings/UABC-MTG-006.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-007",
+      "path": "atlassian/confluence/meetings/UABC-MTG-007.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-008",
+      "path": "atlassian/confluence/meetings/UABC-MTG-008.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-009",
+      "path": "atlassian/confluence/meetings/UABC-MTG-009.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-010",
+      "path": "atlassian/confluence/meetings/UABC-MTG-010.md",
+      "phase": "P2"
+    },
+    {
+      "id": "UABC-MTG-011",
+      "path": "atlassian/confluence/meetings/UABC-MTG-011.md",
+      "phase": "P3"
+    },
+    {
+      "id": "UABC-MTG-012",
+      "path": "atlassian/confluence/meetings/UABC-MTG-012.md",
       "phase": "P3"
     }
   ],
@@ -66,26 +111,27 @@
     {
       "id": "UABC-1",
       "type": "phase",
-      "title": "Phase 1 – Vorbereitung und Lösungsdesign",
+      "title": "Projektstart",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": null,
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-001",
+        "UABC-MTG-004"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Phase 1 – Vorbereitung und Datenbereitschaft"
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
@@ -94,11 +140,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-1 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 1 – Vorbereitung und Lösungsdesign“ dokumentiert.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer projektstart die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Austritt für UABC-1 ist erst erreicht, wenn die untergeordneten Epics von „Phase 1 – Vorbereitung und Lösungsdesign“ fachlich abgenommen und belegt sind.",
+          "criterion": "Die dokumentierte Ausnahme fuer projektstart ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -108,26 +154,27 @@
     {
       "id": "UABC-2",
       "type": "phase",
-      "title": "Phase 2 – Einrichtung und Erprobung",
+      "title": "Einrichtung",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": null,
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-005",
+        "UABC-MTG-010"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Phase 2 – Einrichtung, Tests und Schulung"
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
@@ -136,11 +183,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-2 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 2 – Einrichtung und Erprobung“ dokumentiert.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer einrichtung die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Austritt für UABC-2 ist erst erreicht, wenn die untergeordneten Epics von „Phase 2 – Einrichtung und Erprobung“ fachlich abgenommen und belegt sind.",
+          "criterion": "Die dokumentierte Ausnahme fuer einrichtung ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -150,26 +197,27 @@
     {
       "id": "UABC-3",
       "type": "phase",
-      "title": "Phase 3 – Stabilisierung und Übergabe",
+      "title": "Übergabe",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": null,
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-011",
+        "UABC-MTG-012"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Phase 3 – Hypercare und Abschluss"
       ],
       "evidenceRefs": [
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
@@ -178,11 +226,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Eintritt für UABC-3 ist mit Rollen, Abhängigkeiten und freigegebenen Vorarbeiten zu „Phase 3 – Stabilisierung und Übergabe“ dokumentiert.",
+          "criterion": "Unternehmen / Benutzer / Benutzergruppen / Buchungsdatumsteuerung zeigt fuer übergabe die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Austritt für UABC-3 ist erst erreicht, wenn die untergeordneten Epics von „Phase 3 – Stabilisierung und Übergabe“ fachlich abgenommen und belegt sind.",
+          "criterion": "Die dokumentierte Ausnahme fuer übergabe ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -192,26 +240,26 @@
     {
       "id": "UABC-4",
       "type": "epic",
-      "title": "Projektinitiierung und Discovery",
+      "title": "Projektauftrag",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Projektinitiierung und Discovery"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -219,11 +267,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Projektauftrag nennt In-/Out-Scope, Rollen, Entscheidungsrechte und Change-Weg.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer projektauftrag die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Discovery- und Gate-Eintritt besitzen Owner, Abhängigkeiten und prüfbare Nachweise.",
+          "criterion": "Die dokumentierte Ausnahme fuer projektauftrag ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -233,26 +281,26 @@
     {
       "id": "UABC-5",
       "type": "epic",
-      "title": "Fit-to-Standard und Lösungsdesign",
+      "title": "Prozessbild",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Finance- und Lösungsdesign"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -260,11 +308,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Finance-, Einkaufs-, Verkaufs- und Lagerentscheidungen sind je Sollprozess dokumentiert.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer prozessbild die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Unbestätigte Kunden- oder Steuerfragen bleiben sichtbar offen und blockieren die betroffene Einrichtung.",
+          "criterion": "Die dokumentierte Ausnahme fuer prozessbild ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -274,26 +322,26 @@
     {
       "id": "UABC-6",
       "type": "epic",
-      "title": "Datenbereitschaft und Migrationsplanung",
+      "title": "Datenbereitschaft",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-1",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Datenbereitschaft"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -301,11 +349,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jedes Migrationsobjekt besitzt Datenowner, Quelle, Mapping, Pflichtfelder und Qualitätsregel.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer datenbereitschaft die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Jede Datenwelle definiert Kontrollsumme, Fehlerkorrektur und differenzfreien Readback als Austritt.",
+          "criterion": "Die dokumentierte Ausnahme fuer datenbereitschaft ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -315,26 +363,26 @@
     {
       "id": "UABC-7",
       "type": "epic",
-      "title": "Grundeinrichtung und Finance",
+      "title": "Grundeinrichtung",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "BC-Grundeinrichtung und Finance"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -342,11 +390,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Wave 0, Gesellschaftsbasis und Setup-Reihenfolge sind vor Finance- oder VAT-Writes belegt.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer grundeinrichtung die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Nummernserien, Posting- und SoD-Soll sind widerspruchsfrei und ohne Ledger-/Posted-Write geplant.",
+          "criterion": "Die dokumentierte Ausnahme fuer grundeinrichtung ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -356,26 +404,26 @@
     {
       "id": "UABC-8",
       "type": "epic",
-      "title": "Stammdaten und Migration",
+      "title": "Kernprozesse",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Stammdaten und Migration"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -383,11 +431,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Stamm-, Eröffnungs- und Bestandsdaten sind von historischen Bewegungsdaten abgegrenzt.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer kernprozesse die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Import, Fehlerkorrektur und Abstimmung bleiben bis zu aktuellen Kontrollsummen und Readbacks offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer kernprozesse ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -397,26 +445,26 @@
     {
       "id": "UABC-9",
       "type": "epic",
-      "title": "Kernprozesse P2P, O2C und Lager",
+      "title": "Prozessnachweise",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Einkaufs-, Verkaufs- und Lagerprozesse"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -424,11 +472,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "P2P, O2C, Zahlung und Lager besitzen getrennte Testfälle mit erwarteter Beleg- und Kontenwirkung.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer prozessnachweise die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Jede Prozessprobe verlangt Readback, Abweichungsbehandlung und Retest vor einer Simulationsabnahme.",
+          "criterion": "Die dokumentierte Ausnahme fuer prozessnachweise ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -438,26 +486,26 @@
     {
       "id": "UABC-10",
       "type": "epic",
-      "title": "Test, UAT und Schulung",
+      "title": "Schulungsnachweis",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-2",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-009"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Schulung und Abnahme"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -465,11 +513,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Vier operative Rollen besitzen Lernziel, positiven Fall, Fehlerfall und Eskalationsweg.",
+          "criterion": "Rollencenter / Meine Einstellungen / Unterstützte Einrichtung zeigt fuer schulungsnachweis die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "SIT, sieben UAT-Fälle und Mock-Cutover bleiben ohne aktuelle Evidence und P1/P2-Prüfung offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer schulungsnachweis ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -479,26 +527,26 @@
     {
       "id": "UABC-11",
       "type": "epic",
-      "title": "Hypercare und Stabilisierung",
+      "title": "Stabilisierung",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Hypercare und Stabilisierung"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -506,11 +554,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Hypercare-Triage definiert Symptomaufnahme, Priorität, Owner und Diagnose-Readbacks.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer stabilisierung die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Defect und Retest entstehen nur nach realer Beobachtung; eine historische Zahlungsevidence erfüllt das Epic nicht.",
+          "criterion": "Die dokumentierte Ausnahme fuer stabilisierung ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -520,26 +568,26 @@
     {
       "id": "UABC-12",
       "type": "epic",
-      "title": "Monatsabschluss und Umsatzsteuer",
+      "title": "Abschlusssteuerung",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Finance-Abschluss"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -547,11 +595,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Sachkonto, Nebenbücher, Bank, Lager und VAT besitzen geplante Abstimmkontrollen.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer abschlusssteuerung die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "UStVA bleibt Vorschau ohne externe Übermittlung und darf erst nach lokalen Readbacks bewertet werden.",
+          "criterion": "Die dokumentierte Ausnahme fuer abschlusssteuerung ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -561,26 +609,26 @@
     {
       "id": "UABC-13",
       "type": "epic",
-      "title": "Projektabschluss und Betriebsübergabe",
+      "title": "Supportübergabe",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-3",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-010"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Dokumentation und Betriebsübergabe"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -588,11 +636,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Handover nennt Deliverables, Restpunkte, Betriebsrollen, Supportweg und Wiederanlauf.",
+          "criterion": "Unternehmen / Benutzer / Benutzergruppen / Buchungsdatumsteuerung zeigt fuer supportübergabe die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Retro und Simulationsabnahme benötigen aktuelle Cutover- und Hypercare-Evidence; eine Kundenfreigabe wird nicht behauptet.",
+          "criterion": "Die dokumentierte Ausnahme fuer supportübergabe ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -602,26 +650,26 @@
     {
       "id": "UABC-14",
       "type": "story",
-      "title": "Projektauftrag und Scope abstimmen",
+      "title": "Kickoff vorbereiten",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-4",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Projektauftrag und Scope sind startklar"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -629,11 +677,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Projektauftrag nennt Scope, Nicht-Scope, Rollen, Phasen, Planbudget und Change-Regel.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer kickoff-vorbereiten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Angebotsplanung und aktuelles Task-Worklog-Ist sind getrennt; eine Kundenannahme wird nicht behauptet.",
+          "criterion": "Die dokumentierte Ausnahme fuer kickoff-vorbereiten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -643,26 +691,26 @@
     {
       "id": "UABC-15",
       "type": "story",
-      "title": "Setup-, UAT- und Cutover-Gates definieren",
+      "title": "Discovery durchführen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-4",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Abnahme- und Cutover-Eintritt ist vorbereitet"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -670,11 +718,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Entry und Exit für Setup, UAT und Mock-Cutover nennen Pflichtnachweise und verantwortliche Rollen.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer discovery-durchführen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Offene Daten-, Rollen-, Steuer- oder Resetfragen erzeugen einen eindeutigen Stopzustand.",
+          "criterion": "Die dokumentierte Ausnahme fuer discovery-durchführen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -684,26 +732,26 @@
     {
       "id": "UABC-16",
       "type": "story",
-      "title": "Finance-Design festlegen",
+      "title": "Kontenplan abstimmen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Finance- und Steuerdesign ist entschieden"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -711,11 +759,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Konten, Buchungsgruppen, VAT, Dimensionen und Perioden sind in einer konsistenten Entscheidungsmatrix verbunden.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer kontenplan-abstimmen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Steuerliche Annahmen bleiben bis zur fachlichen Bestätigung offen und erzeugen keine Buchungsbehauptung.",
+          "criterion": "Die dokumentierte Ausnahme fuer kontenplan-abstimmen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -725,26 +773,26 @@
     {
       "id": "UABC-17",
       "type": "story",
-      "title": "Einkaufsprozess festlegen",
+      "title": "Stammdaten prüfen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Einkaufsstandard ist entschieden"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -752,11 +800,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Bestellung, Wareneingang, Rechnung, Abweichung, Zahlung und Ausgleich sind als P2P-Sollfolge beschrieben.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer stammdaten-prüfen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Jede Einkaufsabweichung besitzt Owner, Entscheidung und erwartete Beleg-, VAT- und Lagerwirkung.",
+          "criterion": "Die dokumentierte Ausnahme fuer stammdaten-prüfen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -766,26 +814,26 @@
     {
       "id": "UABC-18",
       "type": "story",
-      "title": "Verkaufsprozess festlegen",
+      "title": "Datenmapping klären",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Verkaufsstandard ist entschieden"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -793,11 +841,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Auftrag, Lieferung, Rechnung, Korrektur, Zahlungseingang und Ausgleich sind als O2C-Sollfolge beschrieben.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer datenmapping-klären die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Forderungs-, Umsatz-, VAT- und Bestandswirkung besitzen eindeutige Sollkontrollen.",
+          "criterion": "Die dokumentierte Ausnahme fuer datenmapping-klären ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -807,26 +855,26 @@
     {
       "id": "UABC-19",
       "type": "story",
-      "title": "Lagerprozess festlegen",
+      "title": "Migrationsprobe",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-5",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Lagerstandard ist entschieden"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -834,11 +882,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Lagerort, Einheit, Bewertungsmethode, Inventur und Negativbestandsregel sind entschieden oder als offen markiert.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer migrationsprobe die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Mengen-, Wert- und Sachkontowirkung besitzen getrennte Soll-Readbacks.",
+          "criterion": "Die dokumentierte Ausnahme fuer migrationsprobe ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -848,26 +896,26 @@
     {
       "id": "UABC-20",
       "type": "story",
-      "title": "Datenwellen freigeben",
+      "title": "Rollenmodell",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-6",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
       ],
       "pageRefs": [
-        "PAGE-UABC-030"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-001"
+        "Datenpaket ist bereit"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -875,11 +923,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jede Datenwelle besitzt Owner, Mapping, Pflichtfelder, Dublettenregel und Kontrollsumme.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer rollenmodell die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Fehlerkorrektur und Retest sind definiert; ohne differenzfreie Prüfung bleibt die Welle offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer rollenmodell ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -889,26 +937,26 @@
     {
       "id": "UABC-21",
       "type": "story",
-      "title": "Pilotgesellschaft und Resetstrategie festlegen",
+      "title": "Finanzsetup",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-7",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-002"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Prüfbares Sollbild für Gesellschaft, Rollen und Basis"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -916,11 +964,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Ist-Baseline, Pilot-Soll und angewendete Differenz sind strukturiert getrennt; der Gesellschaftsname allein kann keinen konfigurierten Pilot belegen.",
+          "criterion": "Finanzbuchhaltung Einrichtung / Buchhaltungsperioden / Sachposten zeigt fuer finanzsetup die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Company-ID, CRONUS-Inventur, Fremdmandantengrenze, Resetpunkt und Zielstrategie schließen das Gate nachvollziehbar oder lassen es sichtbar blockiert.",
+          "criterion": "Die dokumentierte Ausnahme fuer finanzsetup ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -930,26 +978,26 @@
     {
       "id": "UABC-22",
       "type": "story",
-      "title": "CORE-FINANCE einrichten und prüfen",
+      "title": "Einkauf einrichten",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-7",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Prüfbares Finance-, VAT- und SoD-Sollbild"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -957,11 +1005,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "CORE-FINANCE besitzt eine konkrete Allowlist, Reihenfolge, Sollwerte, Rollback- und Readbackkette ohne Bankkonto oder Ledger-Tabellen.",
+          "criterion": "Einkaufsbestellungen / Gebuchte Einkaufslieferungen / Gebuchte Einkaufsrechnungen zeigt fuer einkauf-einrichten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Fachliche Finance-Abnahme bleibt offen, bis jeder aktuelle Readback passt und unzulässige SoD- oder Kontenwirkung ausgeschlossen ist.",
+          "criterion": "Die dokumentierte Ausnahme fuer einkauf-einrichten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -971,26 +1019,26 @@
     {
       "id": "UABC-23",
       "type": "story",
-      "title": "Migrationsdaten abstimmen",
+      "title": "Verkauf einrichten",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-8",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Migration und Eröffnungswerte sind abgestimmt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -998,11 +1046,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Stammdaten, offene Posten, Bestand und Eröffnungsbilanz besitzen getrennte Import- und Kontrollsummen.",
+          "criterion": "Verkaufsaufträge / Gebuchte Verkaufslieferungen / Gebuchte Verkaufsrechnungen zeigt fuer verkauf-einrichten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Fehlerkorrekturen werden je Welle erneut geprüft; historische Simulationswerte zählen nicht als aktueller Readback.",
+          "criterion": "Die dokumentierte Ausnahme fuer verkauf-einrichten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1012,26 +1060,26 @@
     {
       "id": "UABC-24",
       "type": "story",
-      "title": "P2P-Prozess nachweisen",
+      "title": "Lager einrichten",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Purchase-to-Pay ist durchgespielt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1039,11 +1087,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "P2P-Probe definiert Sollbelege, Preis-/Mengenabweichung, Verbindlichkeit, VAT, Lager und Zahlung.",
+          "criterion": "Inventuraufträge / Artikelposten / Wertposten zeigt fuer lager-einrichten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Bestellung bis Ausgleich gilt erst nach aktuellen Ledger-Readbacks und dokumentiertem Retest als nachgewiesen.",
+          "criterion": "Die dokumentierte Ausnahme fuer lager-einrichten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1053,26 +1101,26 @@
     {
       "id": "UABC-25",
       "type": "story",
-      "title": "O2C-Prozess nachweisen",
+      "title": "Zahlungen prüfen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-008"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Order-to-Cash ist durchgespielt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1080,11 +1128,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "O2C-Probe definiert Sollbelege, Korrektur, Forderung, Umsatz, VAT, Bestand und Zahlungseingang.",
+          "criterion": "Zahlungsabstimmungsbuchblatt zeigt fuer zahlungen-prüfen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Auftrag bis Ausgleich gilt erst nach aktuellen Readbacks und dokumentiertem Retest als nachgewiesen.",
+          "criterion": "Die dokumentierte Ausnahme fuer zahlungen-prüfen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1094,26 +1142,26 @@
     {
       "id": "UABC-26",
       "type": "story",
-      "title": "Lager und Inventur abstimmen",
+      "title": "Bankabstimmung",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-9",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-008"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Lager und Inventur sind abgestimmt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1121,11 +1169,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Lagerprobe definiert Bewegung, Inventur, Differenz und Bewertung mit erwarteten Mengen und Werten.",
+          "criterion": "Bankkontoabstimmung zeigt fuer bankabstimmung die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Artikel-, Wert- und Sachkontoeinträge müssen nach einem späteren Lauf dieselbe Bestandswahrheit zeigen.",
+          "criterion": "Die dokumentierte Ausnahme fuer bankabstimmung ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1135,26 +1183,26 @@
     {
       "id": "UABC-27",
       "type": "story",
-      "title": "Rollenkompetenz nachweisen",
+      "title": "Periodenabschluss",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-10",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-002"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "Key User sind befähigt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1162,11 +1210,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jede Key-User-Rolle führt später einen positiven Fall und einen Fehlerfall mit Eskalation aus.",
+          "criterion": "Finanzbuchhaltung Einrichtung / Buchhaltungsperioden / Sachposten zeigt fuer periodenabschluss die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Kompetenz gilt erst mit dokumentierter eigenständiger Durchführung, Kontrolle und Retest als belegt.",
+          "criterion": "Die dokumentierte Ausnahme fuer periodenabschluss ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1176,26 +1224,26 @@
     {
       "id": "UABC-28",
       "type": "story",
-      "title": "SIT, UAT und Mock-Cutover vorbereiten",
+      "title": "UStVA prüfen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-10",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-008"
       ],
       "pageRefs": [
-        "PAGE-UABC-050"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-004"
+        "SIT, UAT und Cutover-Probe sind bestanden"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1203,11 +1251,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "SIT, sieben UAT-Fälle und Mock-Cutover besitzen Rollen, Sollwerte, Evidence und P1/P2-Regel.",
+          "criterion": "USt.-Voranmeldungen / USt.-Bericht Einrichtung zeigt fuer ustva-prüfen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Eine Simulationsentscheidung bleibt bis zu ausgeführten Fällen, aktuellen Readbacks und geschlossenem P1/P2-Gate offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer ustva-prüfen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1217,26 +1265,26 @@
     {
       "id": "UABC-29",
       "type": "story",
-      "title": "Hypercare-Fehlerszenario vorbereiten",
+      "title": "UAT planen",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-11",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-007"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Zahlungsreferenz-Abweichung ist behoben"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1244,11 +1292,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Das geplante Hypercare-Szenario definiert Referenzabweichung, Diagnosewerte, Korrekturregel und erwarteten Retest.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer uat-planen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Ein tatsächlicher Defect darf erst nach Beobachtung entstehen; historische Zahlungsevidence erfüllt die Story nicht.",
+          "criterion": "Die dokumentierte Ausnahme fuer uat-planen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1258,26 +1306,26 @@
     {
       "id": "UABC-30",
       "type": "story",
-      "title": "Monatsabschluss und UStVA-Vorschau abstimmen",
+      "title": "UAT durchführen",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-12",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-007"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Monatsabschluss und UStVA-Vorschau sind abgestimmt"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1285,11 +1333,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Monatsabschlusskontrollen stimmen Sachkonto, Nebenbücher, Bank, Lager und Periodenstatus ab.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer uat-durchführen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "VAT-/UStVA-Vorschau bleibt lokal, ohne externe Übermittlung, und benötigt differenzfreie aktuelle Readbacks.",
+          "criterion": "Die dokumentierte Ausnahme fuer uat-durchführen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1299,26 +1347,26 @@
     {
       "id": "UABC-31",
       "type": "story",
-      "title": "Projektabschluss und Supportübergabe",
+      "title": "Defects korrigieren",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-13",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-007"
       ],
       "pageRefs": [
-        "PAGE-UABC-070"
+        "atlassian/confluence/pages/80-bc-basic-project-overview.md"
       ],
       "deliverableRefs": [
-        "UABC-DEL-BCB-009"
+        "Betrieb und Abschluss sind übergeben"
       ],
       "evidenceRefs": [
         "project/bc-basic/setup-wave-1-matrix.yaml",
@@ -1326,11 +1374,11 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Handover-Paket nennt Deliverables, Restpunkte, Retro-Ergebnis, Supportweg und Verantwortungen.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer defects-korrigieren die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Übergabe bleibt bis zu aktueller Cutover-, Hypercare- und Simulationsabnahme-Evidence offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer defects-korrigieren ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
@@ -1340,17 +1388,17 @@
     {
       "id": "UABC-32",
       "type": "task",
-      "title": "Projektauftrag und Scope ausarbeiten",
+      "title": "Datenworkshop",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-14",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
         "UABC-MTG-001"
@@ -1367,42 +1415,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Projektauftrag, Scope, Rollen, Phasen und Change-Regel sind im Projektplan nachvollziehbar miteinander verknüpft.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer datenworkshop die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Angebotsplanung und aktuelles Ist sind getrennt; Iststunden und Istkosten entsprechen ausschließlich den aktiven Task-Worklogs.",
+          "criterion": "Die dokumentierte Ausnahme fuer datenworkshop ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-32: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-32-SIM-20260714",
+        "id": "WL-UABC-32-V3",
         "taskId": "UABC-32",
-        "hours": 5.5,
+        "date": "2026-04-10",
+        "hours": 5,
         "hourlyRate": 120,
-        "netAmount": 660,
+        "netAmount": 600,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-33",
       "type": "task",
-      "title": "Setup-, UAT- und Cutover-Gates dokumentieren",
+      "title": "Prozessdesign",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-15",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
         "PAGE-UABC-060"
@@ -1416,42 +1465,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Entry- und Exit-Kriterien nennen Datenqualität, Rollen, Steuerfragen, Resetpunkt und eindeutige Stopbedingungen.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer prozessdesign die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Jedes Gate verweist auf eine verantwortliche Rolle, eine prüfbare Evidence und den nächsten zulässigen Schritt.",
+          "criterion": "Die dokumentierte Ausnahme fuer prozessdesign ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-33: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-33-SIM-20260714",
+        "id": "WL-UABC-33-V3",
         "taskId": "UABC-33",
+        "date": "2026-04-13",
         "hours": 3.5,
         "hourlyRate": 120,
         "netAmount": 420,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-34",
       "type": "task",
-      "title": "Finance-Baseline festlegen",
+      "title": "Fit-Gap bewerten",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-16",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-002"
       ],
       "pageRefs": [
         "PAGE-UABC-100"
@@ -1465,42 +1515,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Konten-, Buchungs-, VAT-, Dimensions- und Nummernseriensoll sind in Posting-Matrix und Solution Blueprint widerspruchsfrei aufgelöst.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer fit-gap-bewerten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Unbestätigte Steuerwerte bleiben als offene Entscheidung markiert und erzeugen keine Live- oder Buchungsbehauptung.",
+          "criterion": "Die dokumentierte Ausnahme fuer fit-gap-bewerten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-34: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-34-SIM-20260714",
+        "id": "WL-UABC-34-V3",
         "taskId": "UABC-34",
+        "date": "2026-04-15",
         "hours": 4,
         "hourlyRate": 120,
         "netAmount": 480,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-35",
       "type": "task",
-      "title": "P2P-Standard festlegen",
+      "title": "Konfiguration prüfen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-17",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
         "PAGE-UABC-100"
@@ -1514,42 +1565,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Der Einkaufsstandard beschreibt Bestellung, Wareneingang, Rechnung, Abweichung, Zahlung und Ausgleich in fachlicher Reihenfolge.",
+          "criterion": "Unternehmensinformationen / Meine Einstellungen / Projektdokumentation zeigt fuer konfiguration-prüfen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Offene Abweichungen besitzen einen Entscheider, einen dokumentierten Sollzustand und eine prüfbare Discovery-Referenz.",
+          "criterion": "Die dokumentierte Ausnahme fuer konfiguration-prüfen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-35: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-35-SIM-20260714",
+        "id": "WL-UABC-35-V3",
         "taskId": "UABC-35",
+        "date": "2026-04-17",
         "hours": 1.5,
         "hourlyRate": 120,
         "netAmount": 180,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-36",
       "type": "task",
-      "title": "O2C-Standard festlegen",
+      "title": "Testdaten laden",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-18",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-004"
       ],
       "pageRefs": [
         "PAGE-UABC-100"
@@ -1563,42 +1615,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Der Verkaufsstandard beschreibt Auftrag, Lieferung, Rechnung, Korrektur, Zahlungseingang und Ausgleich in fachlicher Reihenfolge.",
+          "criterion": "Konfigurationspakete / Debitoren / Kreditoren / Artikel zeigt fuer testdaten-laden die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Forderungs-, Umsatz-, VAT- und Bestandswirkung sind als Soll beschrieben und noch nicht als ausgeführt markiert.",
+          "criterion": "Die dokumentierte Ausnahme fuer testdaten-laden ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-36: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-36-SIM-20260714",
+        "id": "WL-UABC-36-V3",
         "taskId": "UABC-36",
-        "hours": 1.5,
+        "date": "2026-04-28",
+        "hours": 2,
         "hourlyRate": 120,
-        "netAmount": 180,
+        "netAmount": 240,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-37",
       "type": "task",
-      "title": "Lagerstandard festlegen",
+      "title": "P2P testen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-19",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
         "PAGE-UABC-100"
@@ -1612,42 +1665,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Lagerort, Basiseinheit, Bewertungsmethode, Inventur und Negativbestandsregel sind als fachliches Soll dokumentiert.",
+          "criterion": "Einkaufsbestellungen / Gebuchte Einkaufslieferungen / Gebuchte Einkaufsrechnungen zeigt fuer p2p-testen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Mengen- und Wertfluss besitzen eindeutige Kontrollpunkte, ohne eine ausgeführte Lagerbewegung zu behaupten.",
+          "criterion": "Die dokumentierte Ausnahme fuer p2p-testen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-37: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-37-SIM-20260714",
+        "id": "WL-UABC-37-V3",
         "taskId": "UABC-37",
-        "hours": 1,
+        "date": "2026-04-29",
+        "hours": 2,
         "hourlyRate": 120,
-        "netAmount": 120,
+        "netAmount": 240,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-38",
       "type": "task",
-      "title": "Datenwellen prüfen und freigeben",
+      "title": "O2C testen",
       "phase": "P1",
       "phaseId": "UABC-1",
       "parent": "UABC-20",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-06",
-        "startedAt": "2026-04-06",
-        "testedAt": "2026-04-24",
-        "closedAt": "2026-04-24"
+        "createdAt": "2026-04-01",
+        "startedAt": "2026-04-01",
+        "testedAt": "2026-05-01",
+        "closedAt": "2026-05-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-001"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
         "PAGE-UABC-050"
@@ -1661,42 +1715,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jedes Migrationsobjekt besitzt Owner, Quelle, Pflichtfelder, Referenzregeln und eine definierte Kontrollsumme.",
+          "criterion": "Verkaufsaufträge / Gebuchte Verkaufslieferungen / Gebuchte Verkaufsrechnungen zeigt fuer o2c-testen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Datenwellen bleiben bis zu ausgeführter Prüfung und differenzfreiem Readback offen; Alt-Simulationsevidence zählt nicht als aktuelles Ist.",
+          "criterion": "Die dokumentierte Ausnahme fuer o2c-testen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-38: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-38-SIM-20260714",
+        "id": "WL-UABC-38-V3",
         "taskId": "UABC-38",
+        "date": "2026-04-30",
         "hours": 5,
         "hourlyRate": 120,
         "netAmount": 600,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-39",
       "type": "task",
-      "title": "Pilotgesellschaft und Resetpunkt prüfen",
+      "title": "Lager testen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-21",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-006"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -1710,46 +1765,48 @@
         "evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml",
         "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
         "project/bc-basic/pilot-setup-baseline.yaml",
-        "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml"
+        "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+        "evidence/simulation/pilot-v3-finance-ledger.json"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Wave 0 liefert interne Company-ID, technische und sichtbare Namen, Standard-CRONUS-Inventur, Fremdmandantengrenze sowie Paketnullstand als bereinigte Nur-Lese-Evidence.",
+          "criterion": "Inventuraufträge / Artikelposten / Wertposten zeigt fuer lager-testen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Der Resetpunkt mit Wiederanlaufweg liegt vor und genau eine Zielstrategie ist begründet ausgewählt; solange Evidence fehlt, bleibt das Gate blockiert und W0-01 der nächste Schritt.",
+          "criterion": "Die dokumentierte Ausnahme fuer lager-testen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-39: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-39-SIM-20260714",
+        "id": "WL-UABC-39-V3",
         "taskId": "UABC-39",
+        "date": "2026-05-07",
         "hours": 5,
         "hourlyRate": 120,
         "netAmount": 600,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-40",
       "type": "task",
-      "title": "CORE-FINANCE ausführen und nachprüfen",
+      "title": "Close testen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-22",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-007"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -1762,46 +1819,48 @@
         "project/bc-basic/core-finance-package-manifest.yaml",
         "project/bc-basic/setup-wave-1-matrix.yaml",
         "project/bc-basic/posting-setup-matrix.yaml",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "evidence/simulation/pilot-v3-finance-ledger.json"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "CORE-FINANCE beginnt erst nach bestandener Wave 0, ausgewählter Zielstrategie, dokumentiertem Resetpunkt und separater Schreibfreigabe; TRADE-MASTER und OPENING-DATA bleiben gesperrt.",
+          "criterion": "Finanzbuchhaltung Einrichtung / Buchhaltungsperioden / Sachposten zeigt fuer close-testen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Alle freigegebenen CORE-Felder besitzen Soll-/Ist-Readback, Finance-Abnahme und den Negativnachweis ohne Ledger-, Posted-, Continia-, Bankkonto- oder Übermittlungswirkung.",
+          "criterion": "Die dokumentierte Ausnahme fuer close-testen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-40: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-40-SIM-20260714",
+        "id": "WL-UABC-40-V3",
         "taskId": "UABC-40",
-        "hours": 9,
+        "date": "2026-05-08",
+        "hours": 8.5,
         "hourlyRate": 120,
-        "netAmount": 1080,
+        "netAmount": 1020,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-41",
       "type": "task",
-      "title": "Migrationsdaten laden und abstimmen",
+      "title": "Schulungsplan",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-23",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-003"
       ],
       "pageRefs": [
         "PAGE-UABC-050"
@@ -1815,42 +1874,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jede Datenvorlage besteht Pflichtfeld-, Referenz-, Dubletten- und Kontrollsummenprüfung vor einem Import.",
+          "criterion": "Rollencenter / Meine Einstellungen / Unterstützte Einrichtung zeigt fuer schulungsplan die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Importfehler, Korrektur und Retest werden pro Welle dokumentiert; ohne differenzfreien Readback bleibt die Aufgabe offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer schulungsplan ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-41: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-41-SIM-20260714",
+        "id": "WL-UABC-41-V3",
         "taskId": "UABC-41",
-        "hours": 4,
+        "date": "2026-04-24",
+        "hours": 3.5,
         "hourlyRate": 120,
-        "netAmount": 480,
+        "netAmount": 420,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-42",
       "type": "task",
-      "title": "P2P-Kette durchführen und retesten",
+      "title": "Key User schulen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-24",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-009"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -1864,42 +1924,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Der P2P-Testfall nennt Sollbelege, erwartete Kontenwirkung, Mengen-/Preisabweichung und Abstimmkontrollen.",
+          "criterion": "Rollencenter / Meine Einstellungen / Unterstützte Einrichtung zeigt fuer key-user-schulen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Bestellung bis Zahlung wird erst nach ausgeführtem Lauf, Ledger-Readback und dokumentiertem Retest als bestanden markiert.",
+          "criterion": "Die dokumentierte Ausnahme fuer key-user-schulen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-42: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-42-SIM-20260714",
+        "id": "WL-UABC-42-V3",
         "taskId": "UABC-42",
-        "hours": 5,
+        "date": "2026-05-08",
+        "hours": 5.5,
         "hourlyRate": 120,
-        "netAmount": 600,
+        "netAmount": 660,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-43",
       "type": "task",
-      "title": "O2C-Kette durchführen und retesten",
+      "title": "Cutover planen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-25",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-010"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -1913,42 +1974,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Der O2C-Testfall nennt Sollbelege, erwartete Umsatz-/VAT-/Bestandswirkung und Korrekturweg.",
+          "criterion": "Unternehmen / Benutzer / Benutzergruppen / Buchungsdatumsteuerung zeigt fuer cutover-planen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Auftrag bis Zahlungseingang wird erst nach ausgeführtem Lauf, Readback und dokumentiertem Retest als bestanden markiert.",
+          "criterion": "Die dokumentierte Ausnahme fuer cutover-planen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-43: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-43-SIM-20260714",
+        "id": "WL-UABC-43-V3",
         "taskId": "UABC-43",
-        "hours": 5,
+        "date": "2026-05-01",
+        "hours": 4.5,
         "hourlyRate": 120,
-        "netAmount": 600,
+        "netAmount": 540,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-44",
       "type": "task",
-      "title": "Inventur und Lagerbewertung abstimmen",
+      "title": "Go-live proben",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-26",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-010"
       ],
       "pageRefs": [
         "PAGE-UABC-110"
@@ -1958,46 +2020,48 @@
       ],
       "evidenceRefs": [
         "atlassian/confluence/pages/31-processes.md",
-        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml"
+        "evidence/playthru-uabc-basic-de/setup-wave-1-control-center-run-plan.yaml",
+        "evidence/simulation/project-completion.yaml"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Lagerprobe definiert Bewegung, Inventur, Differenz und Bewertung mit erwarteten Mengen und Werten.",
+          "criterion": "Unternehmen / Benutzer / Benutzergruppen / Buchungsdatumsteuerung zeigt fuer go-live-proben die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Artikel-, Wert- und Sachkontoreadbacks müssen differenzfrei sein; bis dahin bleibt der Prozessstatus offen.",
+          "criterion": "Die dokumentierte Ausnahme fuer go-live-proben ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-44: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-44-SIM-20260714",
+        "id": "WL-UABC-44-V3",
         "taskId": "UABC-44",
+        "date": "2026-05-11",
         "hours": 5,
         "hourlyRate": 120,
         "netAmount": 600,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-45",
       "type": "task",
-      "title": "Rollenkompetenz praktisch nachweisen",
+      "title": "Hypercare planen",
       "phase": "P2",
       "phaseId": "UABC-2",
       "parent": "UABC-27",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-04",
+        "startedAt": "2026-05-04",
+        "testedAt": "2026-05-11",
+        "closedAt": "2026-05-11"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-011"
       ],
       "pageRefs": [
         "PAGE-UABC-170"
@@ -2011,42 +2075,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Jede operative Rolle besitzt positiven Prozess, Fehlerfall, Kontrollpunkt und Eskalationsweg im Schulungsplan.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer hypercare-planen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Teilnahme, eigenständige Durchführung und Verständnis werden erst mit konkretem Schulungsnachweis bestätigt.",
+          "criterion": "Die dokumentierte Ausnahme fuer hypercare-planen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-45: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-45-SIM-20260714",
+        "id": "WL-UABC-45-V3",
         "taskId": "UABC-45",
-        "hours": 4,
+        "date": "2026-05-08",
+        "hours": 3.5,
         "hourlyRate": 120,
-        "netAmount": 480,
+        "netAmount": 420,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-46",
       "type": "task",
-      "title": "UAT und Mock-Cutover vorbereiten",
-      "phase": "P2",
-      "phaseId": "UABC-2",
+      "title": "Hypercare begleiten",
+      "phase": "P3",
+      "phaseId": "UABC-3",
       "parent": "UABC-28",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-04-27",
-        "startedAt": "2026-04-27",
-        "testedAt": "2026-05-22",
-        "closedAt": "2026-05-22"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-002"
+        "UABC-MTG-011"
       ],
       "pageRefs": [
         "PAGE-UABC-060"
@@ -2056,46 +2121,48 @@
       ],
       "evidenceRefs": [
         "project/bc-basic/uat-catalog.yaml",
-        "atlassian/confluence/pages/50-tests.md"
+        "atlassian/confluence/pages/50-tests.md",
+        "evidence/simulation/project-completion.yaml"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Alle sieben UAT-Fälle besitzen erwartete Ergebnisse, Rollen, Evidence und Defect-/Retest-Regel.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer hypercare-begleiten die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Mock-Cutover und UAT bleiben offen, bis echte Ergebnisse vorliegen und kein ungeklärter P1/P2-Befund besteht.",
+          "criterion": "Die dokumentierte Ausnahme fuer hypercare-begleiten ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-46: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-46-SIM-20260714",
+        "id": "WL-UABC-46-V3",
         "taskId": "UABC-46",
+        "date": "2026-05-22",
         "hours": 3,
         "hourlyRate": 120,
         "netAmount": 360,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-47",
       "type": "task",
-      "title": "Hypercare-Fehlerszenario ausarbeiten",
+      "title": "Monatsabschluss",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-29",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-008"
       ],
       "pageRefs": [
         "PAGE-UABC-160"
@@ -2105,46 +2172,48 @@
       ],
       "evidenceRefs": [
         "atlassian/confluence/pages/bc-basic-hypercare.md",
-        "docs/handover/bc-basic-handover.md"
+        "docs/handover/bc-basic-handover.md",
+        "evidence/simulation/pilot-v3-finance-ledger.json"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Das geplante Hypercare-Szenario enthält Reproduktionsschritte und Soll-Readbacks für eine möglicherweise nicht zugeordnete Zahlung.",
+          "criterion": "Finanzbuchhaltung Einrichtung / Buchhaltungsperioden / Sachposten zeigt fuer monatsabschluss die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Ein Defect und Retest dürfen erst nach realer Beobachtung entstehen; aktuell bleiben Diagnose, Fix und Retest ausdrücklich nicht ausgeführt.",
+          "criterion": "Die dokumentierte Ausnahme fuer monatsabschluss ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-47: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-47-SIM-20260714",
+        "id": "WL-UABC-47-V3",
         "taskId": "UABC-47",
-        "hours": 2.5,
+        "date": "2026-05-27",
+        "hours": 3,
         "hourlyRate": 120,
-        "netAmount": 300,
+        "netAmount": 360,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-48",
       "type": "task",
-      "title": "Monatsabschluss abstimmen",
+      "title": "VAT-Vorschau",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-30",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-008"
       ],
       "pageRefs": [
         "PAGE-UABC-160"
@@ -2154,46 +2223,48 @@
       ],
       "evidenceRefs": [
         "atlassian/confluence/pages/bc-basic-hypercare.md",
-        "docs/handover/bc-basic-handover.md"
+        "docs/handover/bc-basic-handover.md",
+        "evidence/simulation/pilot-v3-finance-ledger.json"
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Monatsabschlusskontrollen nennen Sachkonto, Nebenbücher, Bank, Lager, offene Belege und Periodenstatus.",
+          "criterion": "USt.-Voranmeldungen / USt.-Bericht Einrichtung zeigt fuer vat-vorschau die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Der Abschluss bleibt offen, bis alle Soll-/Ist-Abstimmungen ausgeführt und mit differenzfreien Readbacks belegt sind.",
+          "criterion": "Die dokumentierte Ausnahme fuer vat-vorschau ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-48: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-48-SIM-20260714",
+        "id": "WL-UABC-48-V3",
         "taskId": "UABC-48",
-        "hours": 2.5,
+        "date": "2026-05-28",
+        "hours": 2,
         "hourlyRate": 120,
-        "netAmount": 300,
+        "netAmount": 240,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-49",
       "type": "task",
-      "title": "UStVA-Vorschau vorbereiten",
+      "title": "Retro durchführen",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-30",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-011"
       ],
       "pageRefs": [
         "PAGE-UABC-160"
@@ -2207,42 +2278,43 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "VAT-Prüfung definiert Bemessungsgrundlagen, Vorsteuer, Umsatzsteuer und UStVA-Vorschau als kontrollierbare Sollwerte.",
+          "criterion": "Gebuchte Belege / Navigate / Fehlermeldungen zeigt fuer retro-durchführen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Eine externe ELSTER-Übermittlung bleibt verboten; Abschluss erfordert lokale Readbacks und eine dokumentierte Freigabeentscheidung.",
+          "criterion": "Die dokumentierte Ausnahme fuer retro-durchführen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-49: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-49-SIM-20260714",
+        "id": "WL-UABC-49-V3",
         "taskId": "UABC-49",
-        "hours": 2,
+        "date": "2026-05-29",
+        "hours": 1.5,
         "hourlyRate": 120,
-        "netAmount": 240,
+        "netAmount": 180,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     },
     {
       "id": "UABC-50",
       "type": "task",
-      "title": "Retro und Supportübergabe vorbereiten",
+      "title": "Handover abschließen",
       "phase": "P3",
       "phaseId": "UABC-3",
       "parent": "UABC-31",
       "liveStatus": "closed",
       "simulationStatus": "completed",
       "syntheticLifecycle": {
-        "createdAt": "2026-05-25",
-        "startedAt": "2026-05-25",
-        "testedAt": "2026-05-29",
-        "closedAt": "2026-05-29"
+        "createdAt": "2026-05-12",
+        "startedAt": "2026-05-12",
+        "testedAt": "2026-06-01",
+        "closedAt": "2026-06-01"
       },
       "meetingTranscriptRefs": [
-        "UABC-MTG-003"
+        "UABC-MTG-012"
       ],
       "pageRefs": [
         "PAGE-UABC-180"
@@ -2256,23 +2328,24 @@
       ],
       "acceptanceCriteria": [
         {
-          "criterion": "Handover-Paket nennt Deliverables, offene Restpunkte, Retro-Ergebnis, Supportweg und verantwortliche Rollen.",
+          "criterion": "Unternehmen / Benutzer / Benutzergruppen / Buchungsdatumsteuerung zeigt fuer handover-abschließen die erwarteten Felder und Beleg-/Postenwirkungen ohne offene Kontrolldifferenz.",
           "fulfilled": true
         },
         {
-          "criterion": "Übergabe bleibt bis zu belegtem Cutover, Hypercare-Abschluss und belegter Simulationsabnahme offen; historische Simulation gilt nicht als aktuelle Erfüllung.",
+          "criterion": "Die dokumentierte Ausnahme fuer handover-abschließen ist korrigiert, mit identischer Ausgangslage retestet und an die verantwortliche Rolle uebergeben.",
           "fulfilled": true
         }
       ],
       "closingComment": "Synthetische Referenzsimulation für UABC-50: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.",
       "worklog": {
-        "id": "WL-UABC-50-SIM-20260714",
+        "id": "WL-UABC-50-V3",
         "taskId": "UABC-50",
-        "hours": 11,
+        "date": "2026-06-01",
+        "hours": 10,
         "hourlyRate": 120,
-        "netAmount": 1320,
+        "netAmount": 1200,
         "billable": true,
-        "source": "ticket-estimate-simulation"
+        "source": "ticket-actual-worklog-v3"
       }
     }
   ],
@@ -2461,9 +2534,9 @@
     "taskCount": 19,
     "worklogCount": 19,
     "plannedHours": 80,
-    "actualHours": 80,
+    "actualHours": 78,
     "plannedNetAmount": 9600,
-    "actualNetAmount": 9600
+    "actualNetAmount": 9360
   },
   "generatedFrom": {
     "commitBound": false,

@@ -1,114 +1,758 @@
 schemaVersion: 1
 sources:
-  - { id: SRC-OPSX-001, kind: official, title: OpenSpec releases, url: https://github.com/Fission-AI/OpenSpec/releases, retrievedAt: 2026-07-10, appliesTo: stabile OpenSpec-Version 1.5.0 }
-  - { id: SRC-OPSX-002, kind: official, title: OpenSpec customization, url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/customization.md, retrievedAt: 2026-07-10, appliesTo: OpenSpec 1.5.0 }
-  - { id: SRC-OPSX-003, kind: official, title: OPSX workflow, url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/opsx.md, retrievedAt: 2026-07-10, appliesTo: OpenSpec 1.5.0 }
-  - { id: SRC-BC-001, kind: microsoft-learn, title: Business Central 2026 Wave 1 overview, url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/, retrievedAt: 2026-07-10, appliesTo: nur Planungsreferenz }
-  - { id: SRC-BC-002, kind: microsoft-learn, title: 2026 Wave 1 planned features, url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/planned-features, retrievedAt: 2026-07-10, appliesTo: nur Planungsreferenz; Verfuegbarkeit nicht belegt }
-  - { id: SRC-BC-003, kind: microsoft-learn, title: MB-800 study guide, url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/mb-800, retrievedAt: 2026-07-10, appliesTo: funktionaler Beratungsumfang }
-  - { id: SRC-BC-004, kind: microsoft-learn, title: Set up locations to use bins, url: https://learn.microsoft.com/en-gb/dynamics365/business-central/warehouse-how-to-set-up-locations-to-use-bins, retrievedAt: 2026-07-10, appliesTo: Lagerort- und Lagerplatzdesign }
-  - { id: SRC-BC-005, kind: microsoft-learn, title: Basic warehouse tasks, url: https://learn.microsoft.com/en-us/training/modules/set-up-basic-warehouse-tasks/, retrievedAt: 2026-07-10, appliesTo: Gestaltung unterschiedlicher Lagerkomplexitaet }
-  - { id: SRC-BC-006, kind: microsoft-learn, title: Analyze data by dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/bi-how-analyze-data-dimension, retrievedAt: 2026-07-10, appliesTo: Dimensionen und Berichtswesen }
-  - { id: SRC-BC-007, kind: microsoft-learn, title: Manage intercompany transactions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/intercompany-manage, retrievedAt: 2026-07-10, appliesTo: intercompany }
-  - { id: SRC-BC-008, kind: microsoft-learn, title: Consolidate financial data, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-consolidated-company-reporting, retrievedAt: 2026-07-10, appliesTo: Konsolidierung }
-  - { id: SRC-BC-009, kind: microsoft-learn, title: Assign permissions to users and groups, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-granular-permissions, retrievedAt: 2026-07-10, appliesTo: Sicherheit und unternehmensbezogene Berechtigungen }
-  - { id: SRC-BC-010, kind: microsoft-licensing, title: Business Central licensing guidance, url: https://www.microsoft.com/licensing/guidance/Dynamics-365-Business-Central, retrievedAt: 2026-07-10, appliesTo: Entscheidungen zu Essentials Premium Team Member und Kapazitaet }
-  - { id: SRC-BC-011, kind: microsoft-learn, title: Change which features are displayed, url: https://learn.microsoft.com/en-ca/dynamics365/business-central/ui-experiences, retrievedAt: 2026-07-10, appliesTo: Experience einer Gesellschaft und Lizenzzugriffsgrenzen }
-  - { id: SRC-BC-012, kind: microsoft-learn, title: Germany local functionality, url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality, retrievedAt: 2026-07-10, appliesTo: deutsche Umsatzsteuer Bankfunktionen und Kernlokalisierung des Finanzwesens }
-  - { id: SRC-BC-013, kind: microsoft-learn, title: Electronic invoicing in Germany, url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-einvoicing, retrievedAt: 2026-07-10, appliesTo: deutsche XRechnung Peppol und ZUGFeRD gemaess dokumentierten Versionen }
-  - { id: SRC-BC-014, kind: microsoft-learn, title: Set up value-added tax, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat, retrievedAt: 2026-07-10, appliesTo: Umsatzsteuer-Buchungsgruppen und Berichtsdesign }
-  - { id: SRC-BC-015, kind: microsoft-learn, title: Make payments with SEPA credit transfer, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer, retrievedAt: 2026-07-10, appliesTo: Lieferantenzahlungen und Zahlungsexport }
-  - { id: SRC-BC-016, kind: microsoft-learn, title: Posting group setup, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-10, appliesTo: Buchungsdesign fuer Sachkonten Bestand Kunden Lieferanten und Anlagen }
-  - { id: SRC-BC-017, kind: microsoft-learn, title: Work with dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions, retrievedAt: 2026-07-10, appliesTo: Vorgabedimensionen Prioritaeten Analysen und Kontrollen }
-  - { id: SRC-BC-018, kind: microsoft-learn, title: Use approval workflows, url: https://learn.microsoft.com/en-us/dynamics365/business-central/across-how-use-approval-workflows, retrievedAt: 2026-07-10, appliesTo: Freigaben fuer Belege Zahlungsjournale Kunden und Artikel }
-  - { id: SRC-BC-019, kind: microsoft-learn, title: Set up companies to synchronize master data, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-set-up-data-sync, retrievedAt: 2026-07-10, appliesTo: unidirektionale Stammdatensynchronisierung innerhalb derselben Umgebung }
-  - { id: SRC-BC-020, kind: microsoft-learn, title: Manage sales prices, url: https://learn.microsoft.com/en-us/training/modules/manage-sales-prices-dynamics-365-business-central/, retrievedAt: 2026-07-10, appliesTo: Kunden- und Kundengruppenpreise }
-  - { id: SRC-BC-021, kind: microsoft-learn, title: Return items in Business Central, url: https://learn.microsoft.com/en-us/training/paths/return-items-dynamics-365-business-central/, retrievedAt: 2026-07-10, appliesTo: Kunden- und Lieferantenretouren }
-  - { id: SRC-BC-022, kind: microsoft-learn, title: Invoice prepayments, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-invoice-prepayments, retrievedAt: 2026-07-10, appliesTo: Verkaufs- und Einkaufsvorauszahlungen }
-  - { id: SRC-BC-023, kind: microsoft-learn, title: Set up item tracking, url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-setup-item-tracking, retrievedAt: 2026-07-10, appliesTo: Serien Chargen Pakete Garantie und Rueckverfolgbarkeit }
-  - { id: SRC-BC-024, kind: microsoft-learn, title: About planning functionality, url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-about-planning-functionality, retrievedAt: 2026-07-10, appliesTo: Nachschubplanung SKUs Lagerorte und Umlagerungen }
-  - { id: SRC-BC-025, kind: microsoft-learn, title: Assemble to stock, url: https://learn.microsoft.com/en-us/training/modules/assemble-to-stock-dynamics-365-business-central/, retrievedAt: 2026-07-10, appliesTo: einfache Montage und Kitbildung }
-  - { id: SRC-BC-026, kind: microsoft-learn, title: Manufacturing overview, url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-manage-manufacturing, retrievedAt: 2026-07-10, appliesTo: Premium Manufacturing mit Fertigungsauftraegen Stuecklisten Arbeitsplaenen und Rueckmeldung }
-  - { id: SRC-BC-027, kind: microsoft-learn, title: Advanced warehouse receiving and put-away, url: https://learn.microsoft.com/en-us/dynamics365/business-central/walkthrough-receiving-and-putting-away-in-advanced-warehousing, retrievedAt: 2026-07-10, appliesTo: gesteuerte Advanced-Warehouse-Methode D }
-  - { id: SRC-BC-028, kind: microsoft-learn, title: Use resources for projects, url: https://learn.microsoft.com/en-us/dynamics365/business-central/projects-how-use-resources, retrievedAt: 2026-07-10, appliesTo: Projektplanungslinien Ressourcennutzung Kosten und Preise }
-  - { id: SRC-BC-029, kind: microsoft-learn, title: Explore project WIP methods, url: https://learn.microsoft.com/en-us/training/modules/explore-job-wip-methods/, retrievedAt: 2026-07-10, appliesTo: Projekt-WIP und Realisierungsmethoden }
-  - { id: SRC-BC-030, kind: microsoft-learn, title: Set up service management, url: https://learn.microsoft.com/en-us/dynamics365/business-central/service-setup-service, retrievedAt: 2026-07-10, appliesTo: Premium Service Management mit Auftraegen Vertraegen Preisen und Ressourcen }
-  - { id: SRC-BC-031, kind: microsoft-learn, title: Create service items, url: https://learn.microsoft.com/en-us/dynamics365/business-central/service-how-to-create-service-items, retrievedAt: 2026-07-10, appliesTo: installierte Basis Serienverknuepfung und Serviceartikelanlage }
-  - { id: SRC-BC-032, kind: microsoft-learn, title: Manage fixed asset transactions, url: https://learn.microsoft.com/en-us/training/paths/manage-fixed-assets-transactions/, retrievedAt: 2026-07-10, appliesTo: Zugang Abschreibung und Abgang von Anlagen }
-  - { id: SRC-BC-033, kind: microsoft-learn, title: Run full planning MPS or MRP, url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-how-to-run-mps-and-mrp, retrievedAt: 2026-07-10, appliesTo: Premium MPS MRP und Fertigungsplanung }
-  - { id: SRC-BC-034, kind: microsoft-learn, title: About calculating standard cost, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-about-calculating-standard-cost, retrievedAt: 2026-07-10, appliesTo: Standardkosten und Varianzentscheidungen fuer Einkauf Montage und Fertigung }
-  - { id: SRC-BC-035, kind: microsoft-learn, title: Dynamics 365 implementation guide and Success by Design overview, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/overview, retrievedAt: 2026-07-10, appliesTo: wellenuebergreifender Implementierungslebenszyklus und Arbeitsstromdesign }
-  - { id: SRC-BC-036, kind: microsoft-learn, title: Manage configuration and migration data for Dynamics 365 projects, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/data-management-configuration-data-migration, retrievedAt: 2026-07-10, appliesTo: Datenverantwortung Konfiguration Migration Probeladungen Abstimmung und Cutover }
-  - { id: SRC-BC-037, kind: microsoft-learn, title: Firmenkonfigurationspakete einrichten, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages, retrievedAt: 2026-07-10, appliesTo: Business-Central-Konfigurationsarbeitsblatt Pakete Vorlagen und kontrollierter Excel-Austausch }
-  - { id: SRC-BC-038, kind: microsoft-learn, title: Create a test plan, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy-planning, retrievedAt: 2026-07-10, appliesTo: fruehe iterative prozessbasierte Tests Verantwortlichkeiten Umgebungen und Ergebnisse }
-  - { id: SRC-BC-039, kind: microsoft-learn, title: Guidance for user acceptance test after data migration, url: https://learn.microsoft.com/en-us/dynamics365/guidance/resources/data-migration-user-acceptance-tests, retrievedAt: 2026-07-10, appliesTo: UAT mit migrierten repraesentativen Daten Integritaet Zugriff und Fachbereichsabnahme }
-  - { id: SRC-BC-040, kind: microsoft-learn, title: Create a training plan for implementation projects, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/training-strategy-training-plan-scope-and-audience, retrievedAt: 2026-07-10, appliesTo: fruehe iterative rollenbasierte Trainingsplanung und Ressourcenverantwortung }
-  - { id: SRC-BC-041, kind: microsoft-learn, title: Transition successfully with the cutover process, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-go-live-cutover-strategy, retrievedAt: 2026-07-10, appliesTo: fruehe Cutover-Strategie Probe finale Ausfuehrung Freigabe und Supportuebergang }
-  - { id: SRC-BC-042, kind: microsoft-learn, title: Plan support operations and hypercare, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/transition-to-support-operations, retrievedAt: 2026-07-10, appliesTo: Supportbereitschaft Hypercare Verantwortlichkeiten Metriken und Exitkriterien }
-  - { id: SRC-BC-043, kind: microsoft-learn, title: Manage contracts subscriptions and subscription lines, url: https://learn.microsoft.com/en-us/dynamics365/business-central/srb/working-with-contracts/contracts-services-mgmt, retrievedAt: 2026-07-10, appliesTo: wiederkehrende Kunden- und Lieferantenabrechnung getrennt von Service Management }
-  - { id: SRC-BC-044, kind: microsoft-learn, title: Training process and best practices, url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/training-strategy-process-and-best-practices, retrievedAt: 2026-07-10, appliesTo: Trainingsentwicklung Durchfuehrung laufende Einfuehrungsbegleitung und Unterstuetzung nach Produktivstart }
-  - { id: SRC-PW-001, kind: playwright-official, title: Playwright release notes, url: https://playwright.dev/docs/release-notes, retrievedAt: 2026-07-10, appliesTo: exakte stabile Playwright-Test-Pinnung 1.61.1 und gebuendelte Chromium-149-Baseline }
-  - { id: SRC-PW-002, kind: playwright-official, title: Playwright authentication, url: https://playwright.dev/docs/auth, retrievedAt: 2026-07-10, appliesTo: gitignorierter wiederverwendbarer Storage State und Grenze fuer Geheimnisbehandlung }
-  - { id: SRC-PW-003, kind: playwright-official, title: Playwright Trace Viewer, url: https://playwright.dev/docs/trace-viewer, retrievedAt: 2026-07-10, appliesTo: Korrelation von Trace Schritt und Screenshot }
-  - { id: SRC-BC-045, kind: microsoft-learn, title: Resources for help and support, url: https://learn.microsoft.com/en-us/dynamics365/business-central/product-help-and-support, retrievedAt: 2026-07-10, appliesTo: sichtbare Versionsinformation aus Hilfe und Support sowie Datenschutzvorsicht }
-  - { id: SRC-BC-046, kind: microsoft-learn, title: Business Central web client URL, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-web-client-urls, retrievedAt: 2026-07-10, appliesTo: URL-Semantik fuer Tenant Umgebung Gesellschaft und Anzeigemodus }
-  - { id: SRC-BC-047, kind: microsoft-learn, title: Switch to another company or environment, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-organization-switch, retrievedAt: 2026-07-10, appliesTo: Gesellschaftswechsler-Pane und zugaengliche Gesellschaftsliste ohne Zielauswahl }
-  - { id: SRC-BC-048, kind: microsoft-learn, title: Multilanguage and localization, url: https://learn.microsoft.com/en-au/dynamics365/business-central/about-locale-language, retrievedAt: 2026-07-10, appliesTo: Interpretation von Sprache Region sowie Version aus Hilfe und Support }
-  - { id: SRC-BC-049, kind: microsoft-learn, title: Customize Business Central online using apps, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-extensions, retrievedAt: 2026-07-10, appliesTo: Interpretation installierter Erweiterungen und Drittanbietergrenze }
-  - { id: SRC-BC-050, kind: microsoft-learn, title: Enable upcoming features ahead of time, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-feature-management, retrievedAt: 2026-07-10, appliesTo: sichtbarer Feature-Management-Zustand ohne Aktivierung oder Aktualisierung }
-  - { id: SRC-BC-051, kind: microsoft-learn, title: Company information overview, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information, retrievedAt: 2026-07-10, appliesTo: dokumentierte Route von Einstellungen zu Unternehmensdaten und Interpretation sichtbarer Unternehmensfelder }
-  - { id: SRC-BC-052, kind: microsoft-learn, title: Sandboxumgebungen fuer Business Central, url: https://learn.microsoft.com/de-de/dynamics365/business-central/admin-sandbox-environments, retrievedAt: 2026-07-11, appliesTo: BC-Basic-Einrichtung in playthru ohne Produktivstart }
-  - { id: SRC-BC-053, kind: microsoft-learn, title: Neues Unternehmen einrichten, url: https://learn.microsoft.com/de-de/dynamics365/business-central/about-new-company, retrievedAt: 2026-07-11, appliesTo: Grundeinrichtung genau einer synthetischen Gesellschaft }
-  - { id: SRC-BC-054, kind: microsoft-learn, title: Bestand einrichten, url: https://learn.microsoft.com/de-de/dynamics365/business-central/inventory-setup-inventory, retrievedAt: 2026-07-11, appliesTo: einfacher Bestand an genau einem Lagerort }
-  - { id: SRC-BC-055, kind: microsoft-learn, title: Bankkonten abstimmen, url: https://learn.microsoft.com/de-de/dynamics365/business-central/bank-how-reconcile-bank-accounts-separately, retrievedAt: 2026-07-11, appliesTo: geplante Abstimmkontrolle ohne produktive Bankanbindung }
-  - { id: SRC-BC-056, kind: microsoft-learn, title: Periodenabschlussprozesse durchfuehren, url: https://learn.microsoft.com/de-de/dynamics365/business-central/year-how-complete-period-end-processes, retrievedAt: 2026-07-11, appliesTo: in der Sandbox geprobter Monatsabschlussprozess und dokumentierte Abstimmungen }
-  - { id: SRC-BC-057, kind: microsoft-learn, title: Umsatzsteuervoranmeldung einrichten und exportieren, url: https://learn.microsoft.com/de-de/dynamics365/business-central/localfunctionality/germany/how-to-set-up-and-export-sales-vat-advance-notifications, retrievedAt: 2026-07-11, appliesTo: UStVA-Vorschau ohne Uebermittlung }
-  - { id: SRC-LAW-001, kind: official-law, title: Umsatzsteuergesetz Paragraph 18, url: https://www.gesetze-im-internet.de/ustg_1980/__18.html, retrievedAt: 2026-07-11, appliesTo: rechtlicher Bezug der Umsatzsteuervoranmeldung ohne Rechts- oder Steuerberatung }
-  - { id: SRC-ELSTER-001, kind: official-portal, title: ELSTER-Hilfe zum XML-Upload der Umsatzsteuervoranmeldung, url: https://www.elster.de/eportal/helpGlobal?themaGlobal=ustva_upload, retrievedAt: 2026-07-11, appliesTo: klare Grenze zur ausgeschlossenen Test-, Produktiv- oder ELSTER-Uebermittlung }
-  - { id: SRC-BC-058, kind: microsoft-learn, title: Set up or change the chart of accounts, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-chart-accounts, retrievedAt: 2026-07-12, appliesTo: Kontenplan und Kontenpflege im synthetischen Einrichtungslauf }
-  - { id: SRC-BC-059, kind: microsoft-learn, title: Understand the general ledger and Chart of Accounts, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-general-ledger, retrievedAt: 2026-07-12, appliesTo: Hauptbuch- und allgemeine Buchungsgruppeneinrichtung }
-  - { id: SRC-BC-060, kind: microsoft-learn, title: Einrichtung der Buchungsgruppe, url: https://learn.microsoft.com/de-de/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-12, appliesTo: Buchungsgruppenwirkung in P2P und O2C }
-  - { id: SRC-BC-061, kind: microsoft-learn, title: Set up value-added tax, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat, retrievedAt: 2026-07-12, appliesTo: MwSt.-Matrix und Steuerkontrollsummen }
-  - { id: SRC-BC-062, kind: microsoft-learn, title: Record purchases with purchase invoices, url: https://learn.microsoft.com/en-us/dynamics365/business-central/purchasing-how-record-purchases, retrievedAt: 2026-07-12, appliesTo: Purchase-to-Pay-Schritte und Eingangsrechnung }
-  - { id: SRC-BC-063, kind: microsoft-learn, title: Reconcile bank accounts, url: https://learn.microsoft.com/en-us/dynamics365/business-central/bank-how-reconcile-bank-accounts-separately, retrievedAt: 2026-07-12, appliesTo: Zahlung und Abstimmung als geplanter Kontrollschritt }
-  - { id: SRC-BC-064, kind: microsoft-learn, title: Count adjust and reclassify inventory, url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-count-adjust-reclassify, retrievedAt: 2026-07-12, appliesTo: Inventur und Bestandskorrektur }
-  - { id: SRC-BC-065, kind: microsoft-learn, title: Optional activities for closing periods, url: https://learn.microsoft.com/en-us/dynamics365/business-central/year-how-complete-period-end-processes, retrievedAt: 2026-07-12, appliesTo: Monatsabschlussprobe und Abschlusskontrollen }
-  - { id: SRC-BC-066, kind: microsoft-learn, title: Mit Buchhaltungsperioden und Geschaeftsjahren arbeiten, url: https://learn.microsoft.com/de-de/dynamics365/business-central/finance-accounting-periods-and-fiscal-years, retrievedAt: 2026-07-12, appliesTo: Buchhaltungsperioden im Abschlusslauf }
-  - { id: SRC-BC-067, kind: microsoft-learn, title: Submit VAT reports to tax authorities, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat, retrievedAt: 2026-07-12, appliesTo: MwSt.-Berichtspfad und klare Grenze zur Uebermittlung }
-  - { id: SRC-BC-068, kind: microsoft-learn, title: Posting sales documents, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-post-sales, retrievedAt: 2026-07-12, appliesTo: Sales Order Preview Posting Shipment Invoice und Ledger-Wirkung }
-  - { id: SRC-BC-069, kind: microsoft-learn, title: Posting group setup, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-12, appliesTo: General Customer Vendor Inventory und VAT Posting Groups }
-  - { id: SRC-BC-070, kind: microsoft-learn, title: Count adjust and reclassify inventory, url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-count-adjust-reclassify, retrievedAt: 2026-07-12, appliesTo: Physical Inventory Journal Calculate Inventory und Differenzbuchung }
-  - { id: SRC-BC-071, kind: microsoft-learn, title: Adjust inventory in Business Central training, url: https://learn.microsoft.com/en-us/training/modules/adjust-inventory/, retrievedAt: 2026-07-12, appliesTo: Item Journal Adjustments und Retest-Annahmen }
-  - { id: SRC-BC-072, kind: microsoft-learn, title: Firmenkonfigurationspakete einrichten, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages, retrievedAt: 2026-07-12, appliesTo: synthetischer Probeimport und Konfigurationspakete }
-  - { id: SRC-BC-073, kind: microsoft-learn, title: Analyze data by dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/bi-how-analyze-data-dimension, retrievedAt: 2026-07-12, appliesTo: Dimensionserfassung und Find-Entries-Kontrollen }
-  - { id: SRC-BC-074, kind: microsoft-learn, title: Find entries, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-find-entries, retrievedAt: 2026-07-12, appliesTo: Navigate-/Find-Entries-Nachkontrolle }
-  - { id: SRC-BC-075, kind: microsoft-learn, title: German local functionality, url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality, retrievedAt: 2026-07-12, appliesTo: deutsche Lokalisierung als zu validierende Annahme ohne Steuerberatung }
-  - { id: SRC-BC-076, kind: microsoft-learn, title: Send reminders of outstanding balances, url: https://learn.microsoft.com/en-us/dynamics365/business-central/receivables-send-reminders, retrievedAt: 2026-07-12, appliesTo: synthetischer Mahnlauf fuer ueberfaellige Debitorenposten ohne E-Mail Versand Zinsen oder Gebuehren }
-  - { id: SRC-BC-077, kind: microsoft-learn, title: Company information overview, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information, retrievedAt: 2026-07-12, appliesTo: Unternehmensdaten und DE-Zielkontext der Konfigurationsbaseline }
-  - { id: SRC-BC-078, kind: microsoft-learn, title: Posting group setup, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-12, appliesTo: feldnahe Buchungsmatrix und Preview-Posting-Pruefung }
-  - { id: SRC-BC-079, kind: microsoft-learn, title: Work with dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions, retrievedAt: 2026-07-12, appliesTo: globale und Vorgabedimensionen der Standardbaseline }
-  - { id: SRC-BC-080, kind: microsoft-learn, title: Assign permissions to users and groups, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-granular-permissions, retrievedAt: 2026-07-12, appliesTo: minimale rollenbezogene Berechtigungen und SoD-Proben }
-  - { id: SRC-BC-081, kind: microsoft-learn, title: Set up value-added tax, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat, retrievedAt: 2026-07-12, appliesTo: VAT-Gruppen Matrix Konten und Entries }
-  - { id: SRC-BC-082, kind: microsoft-learn, title: Germany local functionality, url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality, retrievedAt: 2026-07-12, appliesTo: DE-Lokalisierungscheck und Sandboxbestaetigung }
-  - { id: SRC-BC-083, kind: microsoft-learn, title: Manage users and roles, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-users-profiles-roles, retrievedAt: 2026-07-12, appliesTo: Trennung von Benutzer Profil Rolle und Berechtigung }
-  - { id: SRC-BC-084, kind: microsoft-learn, title: Working with accounting periods and fiscal years, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-accounting-periods-and-fiscal-years, retrievedAt: 2026-07-12, appliesTo: Perioden Geschaeftsjahr und Abschlusskontrolle }
-  - { id: SRC-BC-085, kind: microsoft-learn, title: Create new companies in Business Central, url: https://learn.microsoft.com/en-us/dynamics365/business-central/about-new-company, retrievedAt: 2026-07-13, appliesTo: Entscheidung Neu erstellen ohne Daten gegen Setupdaten oder Evaluierung }
-  - { id: SRC-BC-086, kind: microsoft-learn, title: Company information overview, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information, retrievedAt: 2026-07-13, appliesTo: synthetische Firmenstammdaten und offener Country-Region-Seed }
-  - { id: SRC-BC-087, kind: microsoft-learn, title: Set up Business Central, url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup, retrievedAt: 2026-07-13, appliesTo: Einrichtungsreihenfolge und Abgrenzung von Assistenten manuellen Schritten und Paketen }
-  - { id: SRC-BC-088, kind: microsoft-learn, title: Set up standard company configuration packages, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages, retrievedAt: 2026-07-13, appliesTo: drei leere Paketgerueste Abhaengigkeiten und Ausschluss gebuchter Ledger-Tabellen }
-  - { id: UABC-SRC-BCB-CONFIG-PACKAGES-001, kind: microsoft-learn, title: Set up standard company configuration packages, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: feldgenaue CORE-Paket-Allowlist und Paketpruefung }
-  - { id: UABC-SRC-BCB-COMPANY-INFO-001, kind: microsoft-learn, title: Company information overview, url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: Zielgesellschaft rechtlicher Firmenname und sichtbare Namensanforderung }
-  - { id: UABC-SRC-BCB-SETUP-OVERVIEW-001, kind: microsoft-learn, title: Set up Business Central, url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: kontrollierte Reihenfolge Preflight Setup Readback und Rollback }
-  - { id: UABC-SRC-BCB-NUMBER-SERIES-001, kind: microsoft-learn, title: Create number series, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-create-number-series, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: Nummernserien und feldgenaue Singletonreferenzen }
-  - { id: UABC-SRC-BCB-FINANCE-SETUP-001, kind: microsoft-learn, title: Posting group setup, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: CORE-FINANCE Buchungsgruppen ohne Buchung }
-  - { id: UABC-SRC-BCB-DIMENSIONS-001, kind: microsoft-learn, title: Work with dimensions, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: Dimensionen und globale Dimensionsreferenzen }
-  - { id: UABC-SRC-BCB-INVENTORY-SETUP-001, kind: microsoft-learn, title: Set up inventory, url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-setup-inventory, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: Inventory-Setup ohne Bestandsbewegung }
-  - { id: UABC-SRC-BCB-TRADE-SETUP-001, kind: microsoft-learn, title: Register new customers, url: https://learn.microsoft.com/en-us/dynamics365/business-central/sales-how-register-new-customers, retrievedAt: 2026-07-13, truthClass: methodenquelle-kein-live-nachweis, appliesTo: abgetrennte TRADE-MASTER-Stammdatenplanung ohne Wave-1-Write }
-  - { id: UABC-SRC-ONB-001, kind: microsoft-learn, title: Set up Business Central, url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Onboarding Einrichtungsreihenfolge und Methodenquelle ohne Ausfuehrungsnachweis }
-  - { id: UABC-SRC-ONB-002, kind: microsoft-learn, title: Posting group setup, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Konten und Buchungsgruppen als Standardverhalten }
-  - { id: UABC-SRC-ONB-003, kind: microsoft-learn, title: Set up value-added tax, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: VAT-Setup ohne steuerliche Freigabe }
-  - { id: UABC-SRC-ONB-004, kind: microsoft-learn, title: Submit VAT reports to tax authorities, url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat, retrievedAt: 2026-07-14, truthClass: offene Steuer-/Lokalisierungsentscheidung, appliesTo: UStVA-Vorschau und gesperrte externe Uebermittlung }
-  - { id: UABC-SRC-ONB-005, kind: microsoft-learn, title: Assign permissions to users and groups, url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-how-users-permissions, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Benutzer Gruppen Berechtigungen Least Privilege und SoD }
-  - { id: UABC-SRC-ONB-006, kind: microsoft-learn, title: Environment types, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/environment-types, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Sandbox und Produktion als getrennte Zielumgebungen }
-  - { id: UABC-SRC-ONB-007, kind: microsoft-learn, title: Backup and restore environments, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-backup-restore, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Restore-Probe und Nachkontrollen }
-  - { id: UABC-SRC-ONB-008, kind: microsoft-learn, title: Set up standard company configuration packages, url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages, retrievedAt: 2026-07-14, truthClass: BC-Standard, appliesTo: Setup und Master Data ohne Ledger-Tabellenimport }
+  - id: SRC-OPSX-001
+    kind: official
+    title: OpenSpec releases
+    url: https://github.com/Fission-AI/OpenSpec/releases
+    retrievedAt: 2026-07-10
+    appliesTo: stabile OpenSpec-Version 1.5.0
+  - id: SRC-OPSX-002
+    kind: official
+    title: OpenSpec customization
+    url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/customization.md
+    retrievedAt: 2026-07-10
+    appliesTo: OpenSpec 1.5.0
+  - id: SRC-OPSX-003
+    kind: official
+    title: OPSX workflow
+    url: https://github.com/Fission-AI/OpenSpec/blob/v1.5.0/docs/opsx.md
+    retrievedAt: 2026-07-10
+    appliesTo: OpenSpec 1.5.0
+  - id: SRC-BC-001
+    kind: microsoft-learn
+    title: Business Central 2026 Wave 1 overview
+    url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/
+    retrievedAt: 2026-07-10
+    appliesTo: nur Planungsreferenz
+  - id: SRC-BC-002
+    kind: microsoft-learn
+    title: 2026 Wave 1 planned features
+    url: https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/planned-features
+    retrievedAt: 2026-07-10
+    appliesTo: nur Planungsreferenz; Verfuegbarkeit nicht belegt
+  - id: SRC-BC-003
+    kind: microsoft-learn
+    title: MB-800 study guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/mb-800
+    retrievedAt: 2026-07-10
+    appliesTo: funktionaler Beratungsumfang
+  - id: SRC-BC-004
+    kind: microsoft-learn
+    title: Set up locations to use bins
+    url: https://learn.microsoft.com/en-gb/dynamics365/business-central/warehouse-how-to-set-up-locations-to-use-bins
+    retrievedAt: 2026-07-10
+    appliesTo: Lagerort- und Lagerplatzdesign
+  - id: SRC-BC-005
+    kind: microsoft-learn
+    title: Basic warehouse tasks
+    url: https://learn.microsoft.com/en-us/training/modules/set-up-basic-warehouse-tasks/
+    retrievedAt: 2026-07-10
+    appliesTo: Gestaltung unterschiedlicher Lagerkomplexitaet
+  - id: SRC-BC-006
+    kind: microsoft-learn
+    title: Analyze data by dimensions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/bi-how-analyze-data-dimension
+    retrievedAt: 2026-07-10
+    appliesTo: Dimensionen und Berichtswesen
+  - id: SRC-BC-007
+    kind: microsoft-learn
+    title: Manage intercompany transactions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/intercompany-manage
+    retrievedAt: 2026-07-10
+    appliesTo: intercompany
+  - id: SRC-BC-008
+    kind: microsoft-learn
+    title: Consolidate financial data
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-consolidated-company-reporting
+    retrievedAt: 2026-07-10
+    appliesTo: Konsolidierung
+  - id: SRC-BC-009
+    kind: microsoft-learn
+    title: Assign permissions to users and groups
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-granular-permissions
+    retrievedAt: 2026-07-10
+    appliesTo: Sicherheit und unternehmensbezogene Berechtigungen
+  - id: SRC-BC-010
+    kind: microsoft-licensing
+    title: Business Central licensing guidance
+    url: https://www.microsoft.com/licensing/guidance/Dynamics-365-Business-Central
+    retrievedAt: 2026-07-10
+    appliesTo: Entscheidungen zu Essentials Premium Team Member und Kapazitaet
+  - id: SRC-BC-011
+    kind: microsoft-learn
+    title: Change which features are displayed
+    url: https://learn.microsoft.com/en-ca/dynamics365/business-central/ui-experiences
+    retrievedAt: 2026-07-10
+    appliesTo: Experience einer Gesellschaft und Lizenzzugriffsgrenzen
+  - id: SRC-BC-012
+    kind: microsoft-learn
+    title: Germany local functionality
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality
+    retrievedAt: 2026-07-10
+    appliesTo: deutsche Umsatzsteuer Bankfunktionen und Kernlokalisierung des Finanzwesens
+  - id: SRC-BC-013
+    kind: microsoft-learn
+    title: Electronic invoicing in Germany
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-einvoicing
+    retrievedAt: 2026-07-10
+    appliesTo: deutsche XRechnung Peppol und ZUGFeRD gemaess dokumentierten Versionen
+  - id: SRC-BC-014
+    kind: microsoft-learn
+    title: Set up value-added tax
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat
+    retrievedAt: 2026-07-10
+    appliesTo: Umsatzsteuer-Buchungsgruppen und Berichtsdesign
+  - id: SRC-BC-015
+    kind: microsoft-learn
+    title: Make payments with SEPA credit transfer
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer
+    retrievedAt: 2026-07-10
+    appliesTo: Lieferantenzahlungen und Zahlungsexport
+  - id: SRC-BC-016
+    kind: microsoft-learn
+    title: Posting group setup
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-10
+    appliesTo: Buchungsdesign fuer Sachkonten Bestand Kunden Lieferanten und Anlagen
+  - id: SRC-BC-017
+    kind: microsoft-learn
+    title: Work with dimensions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions
+    retrievedAt: 2026-07-10
+    appliesTo: Vorgabedimensionen Prioritaeten Analysen und Kontrollen
+  - id: SRC-BC-018
+    kind: microsoft-learn
+    title: Use approval workflows
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/across-how-use-approval-workflows
+    retrievedAt: 2026-07-10
+    appliesTo: Freigaben fuer Belege Zahlungsjournale Kunden und Artikel
+  - id: SRC-BC-019
+    kind: microsoft-learn
+    title: Set up companies to synchronize master data
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-set-up-data-sync
+    retrievedAt: 2026-07-10
+    appliesTo: unidirektionale Stammdatensynchronisierung innerhalb derselben Umgebung
+  - id: SRC-BC-020
+    kind: microsoft-learn
+    title: Manage sales prices
+    url: https://learn.microsoft.com/en-us/training/modules/manage-sales-prices-dynamics-365-business-central/
+    retrievedAt: 2026-07-10
+    appliesTo: Kunden- und Kundengruppenpreise
+  - id: SRC-BC-021
+    kind: microsoft-learn
+    title: Return items in Business Central
+    url: https://learn.microsoft.com/en-us/training/paths/return-items-dynamics-365-business-central/
+    retrievedAt: 2026-07-10
+    appliesTo: Kunden- und Lieferantenretouren
+  - id: SRC-BC-022
+    kind: microsoft-learn
+    title: Invoice prepayments
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-invoice-prepayments
+    retrievedAt: 2026-07-10
+    appliesTo: Verkaufs- und Einkaufsvorauszahlungen
+  - id: SRC-BC-023
+    kind: microsoft-learn
+    title: Set up item tracking
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-setup-item-tracking
+    retrievedAt: 2026-07-10
+    appliesTo: Serien Chargen Pakete Garantie und Rueckverfolgbarkeit
+  - id: SRC-BC-024
+    kind: microsoft-learn
+    title: About planning functionality
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-about-planning-functionality
+    retrievedAt: 2026-07-10
+    appliesTo: Nachschubplanung SKUs Lagerorte und Umlagerungen
+  - id: SRC-BC-025
+    kind: microsoft-learn
+    title: Assemble to stock
+    url: https://learn.microsoft.com/en-us/training/modules/assemble-to-stock-dynamics-365-business-central/
+    retrievedAt: 2026-07-10
+    appliesTo: einfache Montage und Kitbildung
+  - id: SRC-BC-026
+    kind: microsoft-learn
+    title: Manufacturing overview
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-manage-manufacturing
+    retrievedAt: 2026-07-10
+    appliesTo: Premium Manufacturing mit Fertigungsauftraegen Stuecklisten
+      Arbeitsplaenen und Rueckmeldung
+  - id: SRC-BC-027
+    kind: microsoft-learn
+    title: Advanced warehouse receiving and put-away
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/walkthrough-receiving-and-putting-away-in-advanced-warehousing
+    retrievedAt: 2026-07-10
+    appliesTo: gesteuerte Advanced-Warehouse-Methode D
+  - id: SRC-BC-028
+    kind: microsoft-learn
+    title: Use resources for projects
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/projects-how-use-resources
+    retrievedAt: 2026-07-10
+    appliesTo: Projektplanungslinien Ressourcennutzung Kosten und Preise
+  - id: SRC-BC-029
+    kind: microsoft-learn
+    title: Explore project WIP methods
+    url: https://learn.microsoft.com/en-us/training/modules/explore-job-wip-methods/
+    retrievedAt: 2026-07-10
+    appliesTo: Projekt-WIP und Realisierungsmethoden
+  - id: SRC-BC-030
+    kind: microsoft-learn
+    title: Set up service management
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/service-setup-service
+    retrievedAt: 2026-07-10
+    appliesTo: Premium Service Management mit Auftraegen Vertraegen Preisen und Ressourcen
+  - id: SRC-BC-031
+    kind: microsoft-learn
+    title: Create service items
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/service-how-to-create-service-items
+    retrievedAt: 2026-07-10
+    appliesTo: installierte Basis Serienverknuepfung und Serviceartikelanlage
+  - id: SRC-BC-032
+    kind: microsoft-learn
+    title: Manage fixed asset transactions
+    url: https://learn.microsoft.com/en-us/training/paths/manage-fixed-assets-transactions/
+    retrievedAt: 2026-07-10
+    appliesTo: Zugang Abschreibung und Abgang von Anlagen
+  - id: SRC-BC-033
+    kind: microsoft-learn
+    title: Run full planning MPS or MRP
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/production-how-to-run-mps-and-mrp
+    retrievedAt: 2026-07-10
+    appliesTo: Premium MPS MRP und Fertigungsplanung
+  - id: SRC-BC-034
+    kind: microsoft-learn
+    title: About calculating standard cost
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-about-calculating-standard-cost
+    retrievedAt: 2026-07-10
+    appliesTo: Standardkosten und Varianzentscheidungen fuer Einkauf Montage und Fertigung
+  - id: SRC-BC-035
+    kind: microsoft-learn
+    title: Dynamics 365 implementation guide and Success by Design overview
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/overview
+    retrievedAt: 2026-07-10
+    appliesTo: wellenuebergreifender Implementierungslebenszyklus und Arbeitsstromdesign
+  - id: SRC-BC-036
+    kind: microsoft-learn
+    title: Manage configuration and migration data for Dynamics 365 projects
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/data-management-configuration-data-migration
+    retrievedAt: 2026-07-10
+    appliesTo: Datenverantwortung Konfiguration Migration Probeladungen Abstimmung
+      und Cutover
+  - id: SRC-BC-037
+    kind: microsoft-learn
+    title: Firmenkonfigurationspakete einrichten
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages
+    retrievedAt: 2026-07-10
+    appliesTo: Business-Central-Konfigurationsarbeitsblatt Pakete Vorlagen und
+      kontrollierter Excel-Austausch
+  - id: SRC-BC-038
+    kind: microsoft-learn
+    title: Create a test plan
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/testing-strategy-planning
+    retrievedAt: 2026-07-10
+    appliesTo: fruehe iterative prozessbasierte Tests Verantwortlichkeiten
+      Umgebungen und Ergebnisse
+  - id: SRC-BC-039
+    kind: microsoft-learn
+    title: Guidance for user acceptance test after data migration
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/resources/data-migration-user-acceptance-tests
+    retrievedAt: 2026-07-10
+    appliesTo: UAT mit migrierten repraesentativen Daten Integritaet Zugriff und
+      Fachbereichsabnahme
+  - id: SRC-BC-040
+    kind: microsoft-learn
+    title: Create a training plan for implementation projects
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/training-strategy-training-plan-scope-and-audience
+    retrievedAt: 2026-07-10
+    appliesTo: fruehe iterative rollenbasierte Trainingsplanung und
+      Ressourcenverantwortung
+  - id: SRC-BC-041
+    kind: microsoft-learn
+    title: Transition successfully with the cutover process
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/prepare-go-live-cutover-strategy
+    retrievedAt: 2026-07-10
+    appliesTo: fruehe Cutover-Strategie Probe finale Ausfuehrung Freigabe und
+      Supportuebergang
+  - id: SRC-BC-042
+    kind: microsoft-learn
+    title: Plan support operations and hypercare
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/transition-to-support-operations
+    retrievedAt: 2026-07-10
+    appliesTo: Supportbereitschaft Hypercare Verantwortlichkeiten Metriken und
+      Exitkriterien
+  - id: SRC-BC-043
+    kind: microsoft-learn
+    title: Manage contracts subscriptions and subscription lines
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/srb/working-with-contracts/contracts-services-mgmt
+    retrievedAt: 2026-07-10
+    appliesTo: wiederkehrende Kunden- und Lieferantenabrechnung getrennt von Service
+      Management
+  - id: SRC-BC-044
+    kind: microsoft-learn
+    title: Training process and best practices
+    url: https://learn.microsoft.com/en-us/dynamics365/guidance/implementation-guide/training-strategy-process-and-best-practices
+    retrievedAt: 2026-07-10
+    appliesTo: Trainingsentwicklung Durchfuehrung laufende Einfuehrungsbegleitung
+      und Unterstuetzung nach Produktivstart
+  - id: SRC-PW-001
+    kind: playwright-official
+    title: Playwright release notes
+    url: https://playwright.dev/docs/release-notes
+    retrievedAt: 2026-07-10
+    appliesTo: exakte stabile Playwright-Test-Pinnung 1.61.1 und gebuendelte
+      Chromium-149-Baseline
+  - id: SRC-PW-002
+    kind: playwright-official
+    title: Playwright authentication
+    url: https://playwright.dev/docs/auth
+    retrievedAt: 2026-07-10
+    appliesTo: gitignorierter wiederverwendbarer Storage State und Grenze fuer
+      Geheimnisbehandlung
+  - id: SRC-PW-003
+    kind: playwright-official
+    title: Playwright Trace Viewer
+    url: https://playwright.dev/docs/trace-viewer
+    retrievedAt: 2026-07-10
+    appliesTo: Korrelation von Trace Schritt und Screenshot
+  - id: SRC-BC-045
+    kind: microsoft-learn
+    title: Resources for help and support
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/product-help-and-support
+    retrievedAt: 2026-07-10
+    appliesTo: sichtbare Versionsinformation aus Hilfe und Support sowie
+      Datenschutzvorsicht
+  - id: SRC-BC-046
+    kind: microsoft-learn
+    title: Business Central web client URL
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-web-client-urls
+    retrievedAt: 2026-07-10
+    appliesTo: URL-Semantik fuer Tenant Umgebung Gesellschaft und Anzeigemodus
+  - id: SRC-BC-047
+    kind: microsoft-learn
+    title: Switch to another company or environment
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-organization-switch
+    retrievedAt: 2026-07-10
+    appliesTo: Gesellschaftswechsler-Pane und zugaengliche Gesellschaftsliste ohne
+      Zielauswahl
+  - id: SRC-BC-048
+    kind: microsoft-learn
+    title: Multilanguage and localization
+    url: https://learn.microsoft.com/en-au/dynamics365/business-central/about-locale-language
+    retrievedAt: 2026-07-10
+    appliesTo: Interpretation von Sprache Region sowie Version aus Hilfe und Support
+  - id: SRC-BC-049
+    kind: microsoft-learn
+    title: Customize Business Central online using apps
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-extensions
+    retrievedAt: 2026-07-10
+    appliesTo: Interpretation installierter Erweiterungen und Drittanbietergrenze
+  - id: SRC-BC-050
+    kind: microsoft-learn
+    title: Enable upcoming features ahead of time
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-feature-management
+    retrievedAt: 2026-07-10
+    appliesTo: sichtbarer Feature-Management-Zustand ohne Aktivierung oder Aktualisierung
+  - id: SRC-BC-051
+    kind: microsoft-learn
+    title: Company information overview
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information
+    retrievedAt: 2026-07-10
+    appliesTo: dokumentierte Route von Einstellungen zu Unternehmensdaten und
+      Interpretation sichtbarer Unternehmensfelder
+  - id: SRC-BC-052
+    kind: microsoft-learn
+    title: Sandboxumgebungen fuer Business Central
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/admin-sandbox-environments
+    retrievedAt: 2026-07-11
+    appliesTo: BC-Basic-Einrichtung in playthru ohne Produktivstart
+  - id: SRC-BC-053
+    kind: microsoft-learn
+    title: Neues Unternehmen einrichten
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/about-new-company
+    retrievedAt: 2026-07-11
+    appliesTo: Grundeinrichtung genau einer synthetischen Gesellschaft
+  - id: SRC-BC-054
+    kind: microsoft-learn
+    title: Bestand einrichten
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/inventory-setup-inventory
+    retrievedAt: 2026-07-11
+    appliesTo: einfacher Bestand an genau einem Lagerort
+  - id: SRC-BC-055
+    kind: microsoft-learn
+    title: Bankkonten abstimmen
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/bank-how-reconcile-bank-accounts-separately
+    retrievedAt: 2026-07-11
+    appliesTo: geplante Abstimmkontrolle ohne produktive Bankanbindung
+  - id: SRC-BC-056
+    kind: microsoft-learn
+    title: Periodenabschlussprozesse durchfuehren
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/year-how-complete-period-end-processes
+    retrievedAt: 2026-07-11
+    appliesTo: in der Sandbox geprobter Monatsabschlussprozess und dokumentierte
+      Abstimmungen
+  - id: SRC-BC-057
+    kind: microsoft-learn
+    title: Umsatzsteuervoranmeldung einrichten und exportieren
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/localfunctionality/germany/how-to-set-up-and-export-sales-vat-advance-notifications
+    retrievedAt: 2026-07-11
+    appliesTo: UStVA-Vorschau ohne Uebermittlung
+  - id: SRC-LAW-001
+    kind: official-law
+    title: Umsatzsteuergesetz Paragraph 18
+    url: https://www.gesetze-im-internet.de/ustg_1980/__18.html
+    retrievedAt: 2026-07-11
+    appliesTo: rechtlicher Bezug der Umsatzsteuervoranmeldung ohne Rechts- oder
+      Steuerberatung
+  - id: SRC-ELSTER-001
+    kind: official-portal
+    title: ELSTER-Hilfe zum XML-Upload der Umsatzsteuervoranmeldung
+    url: https://www.elster.de/eportal/helpGlobal?themaGlobal=ustva_upload
+    retrievedAt: 2026-07-11
+    appliesTo: klare Grenze zur ausgeschlossenen Test-
+    Produktiv- oder ELSTER-Uebermittlung: null
+  - id: SRC-BC-058
+    kind: microsoft-learn
+    title: Set up or change the chart of accounts
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-chart-accounts
+    retrievedAt: 2026-07-12
+    appliesTo: Kontenplan und Kontenpflege im synthetischen Einrichtungslauf
+  - id: SRC-BC-059
+    kind: microsoft-learn
+    title: Understand the general ledger and Chart of Accounts
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-general-ledger
+    retrievedAt: 2026-07-12
+    appliesTo: Hauptbuch- und allgemeine Buchungsgruppeneinrichtung
+  - id: SRC-BC-060
+    kind: microsoft-learn
+    title: Einrichtung der Buchungsgruppe
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-12
+    appliesTo: Buchungsgruppenwirkung in P2P und O2C
+  - id: SRC-BC-061
+    kind: microsoft-learn
+    title: Set up value-added tax
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat
+    retrievedAt: 2026-07-12
+    appliesTo: MwSt.-Matrix und Steuerkontrollsummen
+  - id: SRC-BC-062
+    kind: microsoft-learn
+    title: Record purchases with purchase invoices
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/purchasing-how-record-purchases
+    retrievedAt: 2026-07-12
+    appliesTo: Purchase-to-Pay-Schritte und Eingangsrechnung
+  - id: SRC-BC-063
+    kind: microsoft-learn
+    title: Reconcile bank accounts
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/bank-how-reconcile-bank-accounts-separately
+    retrievedAt: 2026-07-12
+    appliesTo: Zahlung und Abstimmung als geplanter Kontrollschritt
+  - id: SRC-BC-064
+    kind: microsoft-learn
+    title: Count adjust and reclassify inventory
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-count-adjust-reclassify
+    retrievedAt: 2026-07-12
+    appliesTo: Inventur und Bestandskorrektur
+  - id: SRC-BC-065
+    kind: microsoft-learn
+    title: Optional activities for closing periods
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/year-how-complete-period-end-processes
+    retrievedAt: 2026-07-12
+    appliesTo: Monatsabschlussprobe und Abschlusskontrollen
+  - id: SRC-BC-066
+    kind: microsoft-learn
+    title: Mit Buchhaltungsperioden und Geschaeftsjahren arbeiten
+    url: https://learn.microsoft.com/de-de/dynamics365/business-central/finance-accounting-periods-and-fiscal-years
+    retrievedAt: 2026-07-12
+    appliesTo: Buchhaltungsperioden im Abschlusslauf
+  - id: SRC-BC-067
+    kind: microsoft-learn
+    title: Submit VAT reports to tax authorities
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat
+    retrievedAt: 2026-07-12
+    appliesTo: MwSt.-Berichtspfad und klare Grenze zur Uebermittlung
+  - id: SRC-BC-068
+    kind: microsoft-learn
+    title: Posting sales documents
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-post-sales
+    retrievedAt: 2026-07-12
+    appliesTo: Sales Order Preview Posting Shipment Invoice und Ledger-Wirkung
+  - id: SRC-BC-069
+    kind: microsoft-learn
+    title: Posting group setup
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-12
+    appliesTo: General Customer Vendor Inventory und VAT Posting Groups
+  - id: SRC-BC-070
+    kind: microsoft-learn
+    title: Count adjust and reclassify inventory
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-how-count-adjust-reclassify
+    retrievedAt: 2026-07-12
+    appliesTo: Physical Inventory Journal Calculate Inventory und Differenzbuchung
+  - id: SRC-BC-071
+    kind: microsoft-learn
+    title: Adjust inventory in Business Central training
+    url: https://learn.microsoft.com/en-us/training/modules/adjust-inventory/
+    retrievedAt: 2026-07-12
+    appliesTo: Item Journal Adjustments und Retest-Annahmen
+  - id: SRC-BC-072
+    kind: microsoft-learn
+    title: Firmenkonfigurationspakete einrichten
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages
+    retrievedAt: 2026-07-12
+    appliesTo: synthetischer Probeimport und Konfigurationspakete
+  - id: SRC-BC-073
+    kind: microsoft-learn
+    title: Analyze data by dimensions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/bi-how-analyze-data-dimension
+    retrievedAt: 2026-07-12
+    appliesTo: Dimensionserfassung und Find-Entries-Kontrollen
+  - id: SRC-BC-074
+    kind: microsoft-learn
+    title: Find entries
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-find-entries
+    retrievedAt: 2026-07-12
+    appliesTo: Navigate-/Find-Entries-Nachkontrolle
+  - id: SRC-BC-075
+    kind: microsoft-learn
+    title: German local functionality
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality
+    retrievedAt: 2026-07-12
+    appliesTo: deutsche Lokalisierung als zu validierende Annahme ohne Steuerberatung
+  - id: SRC-BC-076
+    kind: microsoft-learn
+    title: Send reminders of outstanding balances
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/receivables-send-reminders
+    retrievedAt: 2026-07-12
+    appliesTo: synthetischer Mahnlauf fuer ueberfaellige Debitorenposten ohne E-Mail
+      Versand Zinsen oder Gebuehren
+  - id: SRC-BC-077
+    kind: microsoft-learn
+    title: Company information overview
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information
+    retrievedAt: 2026-07-12
+    appliesTo: Unternehmensdaten und DE-Zielkontext der Konfigurationsbaseline
+  - id: SRC-BC-078
+    kind: microsoft-learn
+    title: Posting group setup
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-12
+    appliesTo: feldnahe Buchungsmatrix und Preview-Posting-Pruefung
+  - id: SRC-BC-079
+    kind: microsoft-learn
+    title: Work with dimensions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions
+    retrievedAt: 2026-07-12
+    appliesTo: globale und Vorgabedimensionen der Standardbaseline
+  - id: SRC-BC-080
+    kind: microsoft-learn
+    title: Assign permissions to users and groups
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-granular-permissions
+    retrievedAt: 2026-07-12
+    appliesTo: minimale rollenbezogene Berechtigungen und SoD-Proben
+  - id: SRC-BC-081
+    kind: microsoft-learn
+    title: Set up value-added tax
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat
+    retrievedAt: 2026-07-12
+    appliesTo: VAT-Gruppen Matrix Konten und Entries
+  - id: SRC-BC-082
+    kind: microsoft-learn
+    title: Germany local functionality
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/localfunctionality/germany/germany-local-functionality
+    retrievedAt: 2026-07-12
+    appliesTo: DE-Lokalisierungscheck und Sandboxbestaetigung
+  - id: SRC-BC-083
+    kind: microsoft-learn
+    title: Manage users and roles
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-users-profiles-roles
+    retrievedAt: 2026-07-12
+    appliesTo: Trennung von Benutzer Profil Rolle und Berechtigung
+  - id: SRC-BC-084
+    kind: microsoft-learn
+    title: Working with accounting periods and fiscal years
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-accounting-periods-and-fiscal-years
+    retrievedAt: 2026-07-12
+    appliesTo: Perioden Geschaeftsjahr und Abschlusskontrolle
+  - id: SRC-BC-085
+    kind: microsoft-learn
+    title: Create new companies in Business Central
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/about-new-company
+    retrievedAt: 2026-07-13
+    appliesTo: Entscheidung Neu erstellen ohne Daten gegen Setupdaten oder Evaluierung
+  - id: SRC-BC-086
+    kind: microsoft-learn
+    title: Company information overview
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information
+    retrievedAt: 2026-07-13
+    appliesTo: synthetische Firmenstammdaten und offener Country-Region-Seed
+  - id: SRC-BC-087
+    kind: microsoft-learn
+    title: Set up Business Central
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup
+    retrievedAt: 2026-07-13
+    appliesTo: Einrichtungsreihenfolge und Abgrenzung von Assistenten manuellen
+      Schritten und Paketen
+  - id: SRC-BC-088
+    kind: microsoft-learn
+    title: Set up standard company configuration packages
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages
+    retrievedAt: 2026-07-13
+    appliesTo: drei leere Paketgerueste Abhaengigkeiten und Ausschluss gebuchter
+      Ledger-Tabellen
+  - id: UABC-SRC-BCB-CONFIG-PACKAGES-001
+    kind: microsoft-learn
+    title: Set up standard company configuration packages
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: feldgenaue CORE-Paket-Allowlist und Paketpruefung
+  - id: UABC-SRC-BCB-COMPANY-INFO-001
+    kind: microsoft-learn
+    title: Company information overview
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/admin-company-information
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: Zielgesellschaft rechtlicher Firmenname und sichtbare Namensanforderung
+  - id: UABC-SRC-BCB-SETUP-OVERVIEW-001
+    kind: microsoft-learn
+    title: Set up Business Central
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: kontrollierte Reihenfolge Preflight Setup Readback und Rollback
+  - id: UABC-SRC-BCB-NUMBER-SERIES-001
+    kind: microsoft-learn
+    title: Create number series
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-create-number-series
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: Nummernserien und feldgenaue Singletonreferenzen
+  - id: UABC-SRC-BCB-FINANCE-SETUP-001
+    kind: microsoft-learn
+    title: Posting group setup
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: CORE-FINANCE Buchungsgruppen ohne Buchung
+  - id: UABC-SRC-BCB-DIMENSIONS-001
+    kind: microsoft-learn
+    title: Work with dimensions
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-dimensions
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: Dimensionen und globale Dimensionsreferenzen
+  - id: UABC-SRC-BCB-INVENTORY-SETUP-001
+    kind: microsoft-learn
+    title: Set up inventory
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/inventory-setup-inventory
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: Inventory-Setup ohne Bestandsbewegung
+  - id: UABC-SRC-BCB-TRADE-SETUP-001
+    kind: microsoft-learn
+    title: Register new customers
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/sales-how-register-new-customers
+    retrievedAt: 2026-07-13
+    truthClass: methodenquelle-kein-live-nachweis
+    appliesTo: abgetrennte TRADE-MASTER-Stammdatenplanung ohne Wave-1-Write
+  - id: UABC-SRC-ONB-001
+    kind: microsoft-learn
+    title: Set up Business Central
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/setup
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Onboarding Einrichtungsreihenfolge und Methodenquelle ohne
+      Ausfuehrungsnachweis
+  - id: UABC-SRC-ONB-002
+    kind: microsoft-learn
+    title: Posting group setup
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Konten und Buchungsgruppen als Standardverhalten
+  - id: UABC-SRC-ONB-003
+    kind: microsoft-learn
+    title: Set up value-added tax
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: VAT-Setup ohne steuerliche Freigabe
+  - id: UABC-SRC-ONB-004
+    kind: microsoft-learn
+    title: Submit VAT reports to tax authorities
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat
+    retrievedAt: 2026-07-14
+    truthClass: offene Steuer-/Lokalisierungsentscheidung
+    appliesTo: UStVA-Vorschau und gesperrte externe Uebermittlung
+  - id: UABC-SRC-ONB-005
+    kind: microsoft-learn
+    title: Assign permissions to users and groups
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/ui-how-users-permissions
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Benutzer Gruppen Berechtigungen Least Privilege und SoD
+  - id: UABC-SRC-ONB-006
+    kind: microsoft-learn
+    title: Environment types
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/environment-types
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Sandbox und Produktion als getrennte Zielumgebungen
+  - id: UABC-SRC-ONB-007
+    kind: microsoft-learn
+    title: Backup and restore environments
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-backup-restore
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Restore-Probe und Nachkontrollen
+  - id: UABC-SRC-ONB-008
+    kind: microsoft-learn
+    title: Set up standard company configuration packages
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages
+    retrievedAt: 2026-07-14
+    truthClass: BC-Standard
+    appliesTo: Setup und Master Data ohne Ledger-Tabellenimport
+  - id: UABC-SRC-V3-P2P-001
+    kind: microsoft-learn
+    title: Record purchases with purchase invoices
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/purchasing-how-record-purchases
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard
+    appliesTo: P2P; Receive/Invoice, Preview Posting und resultierende Vendor-,
+      G/L-, VAT- und Item Ledger Entries
+  - id: UABC-SRC-V3-CASH-001
+    kind: microsoft-learn
+    title: Apply payments automatically and reconciling bank accounts
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/receivables-apply-payments-auto-reconcile-bank-accounts
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard
+    appliesTo: Zahlungsausgleich und Payment Reconciliation Journal; synthetische
+      Werte sind Projektannahmen
+  - id: UABC-SRC-V3-BANK-001
+    kind: microsoft-learn
+    title: Reconcile bank accounts
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/bank-how-reconcile-bank-accounts-separately
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard
+    appliesTo: Bank Acc. Reconciliation, Matching und Differenz-null-Kontrolle
+  - id: UABC-SRC-V3-INVENTORY-001
+    kind: microsoft-learn
+    title: Adjust inventory in Dynamics 365 Business Central
+    url: https://learn.microsoft.com/en-us/training/modules/adjust-inventory/
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard
+    appliesTo: Physische Inventur und Bestandskorrektur; Menge und Werte sind synthetisch
+  - id: UABC-SRC-V3-CLOSE-001
+    kind: microsoft-learn
+    title: Overview of tasks to close accounting periods
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/year-how-complete-period-end-processes
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard
+    appliesTo: Monatsabschlusskontrollen und erlaubte Buchungsperioden; kein
+      Live-Abschlussnachweis
+  - id: UABC-SRC-V3-VAT-001
+    kind: microsoft-learn
+    title: Set up value-added tax
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat
+    retrievedAt: 2026-07-15
+    truthClass: BC-Standard-mit-offener-deutscher-Steuerfreigabe
+    appliesTo: VAT Posting Setup und UStVA-Vorschau; keine Steuerberatung oder
+      Uebermittlung

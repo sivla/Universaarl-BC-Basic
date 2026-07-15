@@ -1,0 +1,154 @@
+schemaVersion: 1
+evidenceId: UABC-EV-W0-01-ATTEMPT-20260713
+stepId: W0-01-read-company-identity
+classification: current-read-only-attempt
+authorityScope: browser-access-attempt-only
+currentAuthority: true
+bcReadbackAuthority: false
+status: blocked-before-dom-readback
+attemptCount: 2
+latestAttemptId: UABC-W0-01-ATTEMPT-002
+time:
+  exactBrowserAttemptStartCaptured: false
+  visibleTabLastOpenedAt: 2026-07-13T08:37:00.550Z
+  firstPersistentlyCapturedLocalTime: 2026-07-13T11:53:28.2755050+02:00
+  recordedAt: 2026-07-13T11:55:38.3825802+02:00
+  note: Der Sicherheitsblock trat im selben Arbeitsblock vor dem ersten persistent erfassten lokalen Zeitpunkt auf; eine genauere Startzeit wird nicht erfunden.
+responsibility:
+  operationActorRef: ACTOR-CODEX-SPECTRA
+  operationActorType: browser-automation
+  operationRole: autorisierte Nur-Lese-Browserautomation
+  accountableActorRef: P-PILOT-LEAD-001
+  accountableRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
+attempts:
+  - attemptId: UABC-W0-01-ATTEMPT-001
+    recordedAt: 2026-07-13T11:55:38.3825802+02:00
+    tabLastOpenedAt: 2026-07-13T08:37:00.550Z
+    accessPolicy: enterprise-network-policy
+    status: blocked-before-dom-readback
+    domReadPerformed: false
+    screenshotPerformed: false
+    bcFieldValuesRead: false
+    authenticationStateRead: false
+    writesPerformed: false
+  - attemptId: UABC-W0-01-ATTEMPT-002
+    recordedAt: 2026-07-13T14:11:07.3935478+02:00
+    tabLastOpenedAt: 2026-07-13T08:37:00.550Z
+    accessPolicy: enterprise-network-policy
+    status: blocked-before-dom-readback
+    domReadPerformed: false
+    screenshotPerformed: false
+    bcFieldValuesRead: false
+    authenticationStateRead: false
+    writesPerformed: false
+worklogs:
+  - id: WL-UABC-39-W0-01-BLOCKED-20260713
+    taskId: UABC-39
+    date: 2026-07-13
+    role: Lead BC Consultant
+    actorRef: P-PILOT-LEAD-001
+    actorType: human
+    actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
+    hours: 0.25
+    activity: W0-01 read-only begonnen, Sicherheitsblock vor DOM und Screenshot eingegrenzt sowie fail-closed Evidence und Folgeaktion dokumentiert; keine BC-Feldwerte gelesen und keine Writes ausgeführt.
+    phase: P2
+    billable: true
+    hourlyRate: 120
+    netAmount: 30
+  - id: WL-UABC-39-W0-01-RETRY-BLOCKED-20260713
+    taskId: UABC-39
+    date: 2026-07-13
+    role: Lead BC Consultant
+    actorRef: P-PILOT-LEAD-001
+    actorType: human
+    actionRole: Kajetan Kalicki - Projektleitung, Lead BC Consultant und Solution Architect
+    hours: 0.25
+    activity: Zweiten ausdrücklich lesenden W0-01-Zugriffsversuch über die vorhandene angemeldete Registerkarte geprüft, denselben Sicherheitsblock vor DOM, Screenshot und BC-Feldwerten bestätigt und die Versuchshistorie aktualisiert; keine Authdaten gelesen und keine Writes ausgeführt.
+    phase: P2
+    billable: true
+    hourlyRate: 120
+    netAmount: 30
+visibleTabMetadata:
+  title: Dynamics 365 Business Central
+  sanitizedUrl: https://businesscentral.dynamics.com/<tenant>/Playthru?company=UABC-BASIC-DE
+  environmentParameter: Playthru
+  companyParameter: UABC-BASIC-DE
+  truthBoundary: Titel und URL-Parameter belegen nur das adressierte Browserziel, nicht den tatsächlich geladenen BC-Feldzustand.
+userProvidedProjectInformation:
+  truthClass: user-provided-project-information
+  selectedTechnicalCompanyName: UABC-BASIC-DE
+  contentBaseline: standard-cronus-demo
+  customerTargetRealized: false
+  originMechanismStatus: unbekannt-bis-wave0-readback
+  copyRenameHypothesis: nutzerhinweis-unbestaetigt
+  pilotConfigured: false
+  writesApplied: false
+  browserReadbackConfirmed: false
+  boundary: Der gewählte Mandantname und die Nutzerinformation zum Standard-CRONUS-Inhalt ersetzen keine interne Company-ID, Country/Region-, Firmendaten- oder Schreib-Evidence.
+accessResult:
+  policy: enterprise-network-policy
+  blockedBeforeDomRead: true
+  blockedBeforeScreenshot: true
+  blockedBeforeBcFieldRead: true
+  authenticationStateRead: false
+  domReadPerformed: false
+  screenshotPerformed: false
+  screenshots: []
+readbacks:
+  environment:
+    status: nicht-aus-bc-ui-gelesen
+    value: null
+    page: null
+    screenshotPath: null
+  visibleCompanyName:
+    status: nicht-aus-bc-ui-gelesen
+    value: null
+    page: null
+    screenshotPath: null
+  internalCompanyId:
+    status: nicht-aus-bc-ui-gelesen
+    value: null
+    page: null
+    screenshotPath: null
+  companyInformation:
+    status: nicht-aus-bc-ui-gelesen
+    values: null
+    page: null
+    screenshotPath: null
+  countryRegion:
+    status: nicht-aus-bc-ui-gelesen
+    value: null
+    page: null
+    screenshotPath: null
+  cronusProvenance:
+    status: nicht-aus-bc-ui-gelesen
+    indicators: []
+    page: null
+    screenshotPath: null
+  companyList:
+    status: nicht-aus-bc-ui-gelesen
+    companies: []
+    page: null
+    screenshotPath: null
+effects:
+  writesPerformed: false
+  saveActionPerformed: false
+  companyChanged: false
+  companyCreated: false
+  companyCopied: false
+  companyRenamed: false
+  companyDeleted: false
+  setupChanged: false
+  packageChanged: false
+  postingPerformed: false
+decision:
+  status: offen-unzureichende-nur-lese-evidence
+  selectedOption: null
+  forbiddenInferences: [interne-company-id-aus-url, cronus-provenienz-aus-titel-oder-url, zielstrategie-aus-titel-oder-url, pilotkonfiguration-aus-company-query]
+  remainingEvidence: [internal-company-id-readback, company-name-and-display-name-readback, standard-cronus-content-inventory, foreign-company-boundary-readback, resetpoint-with-restart-path, zero-package-state-readback]
+nextAction:
+  stepId: W0-01-read-company-identity
+  mode: manuell-zugaengliche-nur-lese-sitzung
+  instruction: In einem manuell freigegebenen Browsertermin dieselbe Gesellschaft öffnen, BC-Seite und sichtbare Felder lesen sowie fachlich zugeschnittene Screenshots ohne Authdaten zurückgeben.
+  requiredVisibleValues: [Environmentanzeige Playthru, interner Company-ID-Wert, technischer Gesellschaftsname, sichtbarer Name und Display Name, Company Information, Country/Region, CRONUS-Demodatenindizien, Gesellschaftsliste mit Abgrenzung]
+  writesAuthorized: false

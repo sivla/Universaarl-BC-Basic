@@ -5,7 +5,7 @@ import { loadCanonical, validateProductionReadiness } from '../../scripts/valida
 const fixture = () => structuredClone(loadCanonical());
 const fails = (mutate, code) => { const data = fixture(); mutate(data); assert.throws(() => validateProductionReadiness(data), (error) => error.code === code); };
 
-test('vollständiger kanonischer Readiness-Vertrag ist gültig', () => { const x = validateProductionReadiness(fixture()); assert.deepEqual([x.plannedHours, x.plannedNetAmount, x.deliverableCount, x.transcriptCount, x.spaceCount, x.liveGateCount], [80, 9600, 9, 3, 3, 8]); });
+test('vollständiger kanonischer Readiness-Vertrag ist gültig', () => { const x = validateProductionReadiness(fixture()); assert.deepEqual([x.plannedHours, x.plannedNetAmount, x.deliverableCount, x.transcriptCount, x.spaceCount, x.liveGateCount], [80, 9600, 9, 12, 3, 8]); });
 test('synthetische Evidence darf Kunden-Go-live nicht grün setzen', () => fails((x) => { x.readiness.assessments.customerGoLiveReady.status = 'passed'; x.readiness.assessments.customerGoLiveReady.evidenceMode = 'real'; }, 'READINESS-LIVE-TRUTH'));
 test('unbekannter Evidence-Kind wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.evidence[0].kind = 'frei-erfunden'; }, 'READINESS-EVIDENCE-KIND'));
 test('unsicherer Evidence-Pfad wird abgelehnt', () => fails((x) => { x.readiness.assessments.platformReady.evidence[0].path = '../secret.env'; }, 'READINESS-EVIDENCE-PATH'));

@@ -21,7 +21,7 @@ export function validateActiveBcPlaythrough(story, runPlan, projection) {
     const worklogs = tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []);
     const hours = worklogs.reduce((sum, item) => sum + Number(item.hours ?? 0), 0);
     const amount = worklogs.reduce((sum, item) => sum + Number(item.netAmount ?? 0), 0);
-    if (hours !== 80 || amount !== 9600 || story.offer?.actual_hours !== 80 || story.offer?.actual_cost !== 9600) fail('Kanonische Worklogs muessen 80 Stunden und 9.600 EUR ergeben.');
+    if (hours !== 78 || amount !== 9360 || story.offer?.actual_hours !== 78 || story.offer?.actual_cost !== 9360) fail('Kanonische V3-Worklogs muessen 78 Stunden und 9.360 EUR ergeben.');
     if (runPlan?.execution?.performed !== false || runPlan?.authorization?.writesAuthorized !== false) fail('Run-Plan muss unausgefuehrt und schreibgesperrt bleiben.');
     if (projection?.writesAuthorized !== false || projection?.writeGate?.writesAuthorized !== false) fail('Twin-Projektion muss schreibgesperrt bleiben.');
     return errors;

@@ -49,7 +49,7 @@ export function validateReferenceSimulation(contract, exportData, story, fileExi
       hours += ticket.worklog.hours; amount += ticket.worklog.netAmount;
     } else if (ticket.worklog !== null) fail('ELTERN-WORKLOG', ticket.id);
   }
-  if (hours !== 80 || amount !== 9600 || exportData.reconciliation?.actualHours !== 80 || exportData.reconciliation?.actualNetAmount !== 9600) fail('RECONCILIATION', `${hours}/${amount}`);
+  if (hours !== 78 || amount !== 9360 || exportData.reconciliation?.actualHours !== 78 || exportData.reconciliation?.actualNetAmount !== 9360) fail('RECONCILIATION', `${hours}/${amount}`);
   const requiredPlaythroughFields = ['navigation', 'input', 'documents', 'postings', 'controls', 'defect', 'correction', 'retest', 'evidence'];
   if ((exportData.playthroughs ?? []).length !== 7) fail('PLAYTHROUGH-ANZAHL', String(exportData.playthroughs?.length ?? 0));
   for (const playthrough of exportData.playthroughs ?? []) {
@@ -66,5 +66,5 @@ if (process.argv[1]?.endsWith('validate-reference-simulation.mjs')) {
   const story = JSON.parse(fs.readFileSync(file('evidence/simulation/project-story.json'), 'utf8'));
   const errors = validateReferenceSimulation(contract, exportData, story);
   if (errors.length) { console.error(`Referenzsimulationsprüfung fehlgeschlagen (${errors.length}):`); errors.forEach((error) => console.error(`- ${error}`)); process.exit(1); }
-  console.log('Referenzsimulationsprüfung bestanden: 50 Tickets, 19 Worklogs/80 Stunden/9.600 EUR, 7 Playthroughs, GO_SIMULATION; echte Live-Gates pending.');
+  console.log('Referenzsimulationsprüfung bestanden: 50 Tickets, 19 Worklogs/78 Stunden/9.360 EUR, 7 Playthroughs, GO_SIMULATION; echte Live-Gates pending.');
 }

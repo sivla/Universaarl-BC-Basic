@@ -51,6 +51,7 @@ const EXACT_STRUCTURED_VALUE_EXCEPTIONS = new Map([
   ['capabilities/catalog.yaml\u001f$.statusValues[4]\u001fout-of-scope', 'deklarierter-statuswert'],
   ['governance/production-readiness.json\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
   ['project/bc-basic/reference-simulation.yaml\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
+  ['project/bc-basic/pilot-v3.yaml\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
   ['exports/project-data/v1/reference-simulation.json\u001f$.truthBoundary.continia\u001fout-of-scope', 'gebundener-pilotumfang'],
   ['exports/project-data/v1/document-catalog.json\u001f$.documents[39].process\u001fcustomer-onboarding', 'gebundener-onboarding-prozess'],
   ['exports/project-data/v1/index.yaml\u001f$.documentCatalog.definitions[13].process\u001fcustomer-onboarding', 'gebundener-onboarding-prozess'],
@@ -147,15 +148,15 @@ const FIELD_ENUMS = new Map([
   ['mode', new Set(['repository-root', 'manual', 'automated', 'configuration-package'])],
   ['audiences', new Set(['beginner', 'consultant', 'evidence-review'])],
   ['audience', new Set(['beginner', 'consultant', 'evidence-review'])],
-  ['kind', new Set(['official', 'microsoft-learn', 'microsoft-licensing', 'playwright-official', 'automated', 'manual'])],
-  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic', 'realizes-plan-item', 'references', 'depends-on', 'required-by', 'blocks', 'blocked-by'])],
+  ['kind', new Set(['official', 'microsoft-learn', 'microsoft-licensing', 'playwright-official', 'automated', 'manual', 'typed-project-view'])],
+  ['type', new Set(['object', 'array', 'string', 'integer', 'number', 'boolean', 'null', 'automated', 'manual', 'Task', 'Story', 'Epic', 'realizes-plan-item', 'references', 'depends-on', 'required-by', 'blocks', 'blocked-by', 'typed-project-view'])],
   ['issueType', new Set(['Task', 'Story', 'Epic'])],
   ['severity', new Set(['critical', 'high', 'medium', 'low'])],
   ['completeness', new Set(['visible-partial'])],
   ['visibilityBasis', new Set(['name-and-publisher-intersect-screenshot-viewport', 'row-intersects-screenshot-viewport'])]
 ]);
 
-const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|releaseDirectory|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|page|field|fields|expectedOperation|expectedOperations|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|requiredBeforePackageDefinition|requiredBeforeApply|requiredGates|gates|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
+const TECHNICAL_FIELD_PATTERN = /^(?:\$schema|schemaVersion|id|key|url|uri|path|sha256|checksum|commit|tree|branch|version|templateVersion|method|selector|releaseDirectory|regex|pattern|format|createdAt|retrievedAt|executedAt|decidedAt|timestamp|date|sequence|owner|reviewers|required|enum|const|additionalProperties|minimum|maximum|mimeType|width|height|durationSeconds|fps|sizeBytes|dependsOn|spaceType|visibilityRole|typeLabelField|packageId|packageName|tableId|tableName|page|pages|field|fields|domainType|domainTypes|continia|expectedOperation|expectedOperations|expectedValues|readbackStepIds|correctionScope|requiredFields|optionalFields|excludedFields|exclude|tableClasses|actions|recordScope|requiredBeforePackageDefinition|requiredBeforeApply|requiredGates|gates|allowedDecisions|allowedOptions|nextExecutableStep|nextAllowedStep|targetDecision|resetDecision|wave0Status|simulationState|classification|decisionStatus|wave0State|allEntries)$/;
 const TECHNICAL_SUFFIX_PATTERN = /(?:Id|Ids|Ref|Refs|Path|Paths|Hash|Hashes|Checksum|Checksums|Url|Urls|Selector)$/;
 const FIXED_OPENSPEC_PATTERN = /\b(?:ADDED|MODIFIED|REMOVED|RENAMED) Requirements\b|\b(?:Requirement|Scenario):|\*\*(?:GIVEN|WHEN|THEN|AND)\*\*|\bMUST\b/g;
 
@@ -688,6 +689,7 @@ function repositoryEntries(rootDir) {
     const relative = normalizePath(match[4]);
     tracked.add(relative);
     const absolute = path.join(rootDir, ...relative.split('/'));
+    if (!fs.existsSync(absolute)) continue;
     const content = fs.readFileSync(absolute);
     entries.push({ path: relative, mode: match[1], indexBlobHash: match[2], blobHash: gitBlobSha1(content), content });
   }

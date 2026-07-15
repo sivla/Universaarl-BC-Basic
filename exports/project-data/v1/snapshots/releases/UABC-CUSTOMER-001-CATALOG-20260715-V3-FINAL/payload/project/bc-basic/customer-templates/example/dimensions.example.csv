@@ -1,0 +1,6 @@
+dimensionCode;valueCode;description;blocked;synthetic
+KOSTENSTELLE;VERTRIEB;Vertrieb;false;true
+KOSTENSTELLE;VERWALTUNG;Verwaltung;false;true
+KOSTENSTELLE;LAGER;Lager;false;true
+GESCHAEFT;HANDEL;Handelsgeschäft;false;true
+GESCHAEFT;PILOT;Pilot;false;true

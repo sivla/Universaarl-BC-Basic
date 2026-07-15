@@ -1,0 +1,878 @@
+schemaVersion: 1
+modelId: UABC-PILOT-V3-001
+classification: synthetic-complete-no-live-bc
+customer:
+  customerId: UABC-CUSTOMER-001
+  name: Saarblick Handel & Service GmbH
+  shortName: Saarblick
+  classification: ausdruecklich-simulierter-beispielkunde
+  business: Regionaler B2B-Handel mit Werkstattverbrauchsmaterial und einem
+    einfachen Zentrallager in Saarbruecken.
+  size: 24 Mitarbeitende, davon sieben Business-Central-Nutzende
+  scope:
+    - Finanzbuchhaltung
+    - Einkauf
+    - Verkauf
+    - einfaches Lager
+  outOfScope:
+    - Continia
+    - Produktion
+    - Servicemanagement
+    - Projekte
+    - E-Commerce
+    - Bankfeed
+    - Steueruebermittlung
+calendar:
+  discoveryStart: 2026-04-01
+  discoveryEnd: 2026-05-01
+  implementationWeek:
+    start: 2026-05-04
+    end: 2026-05-08
+    businessDays:
+      - 2026-05-04
+      - 2026-05-05
+      - 2026-05-06
+      - 2026-05-07
+      - 2026-05-08
+  cutover: 2026-05-11
+  hypercare:
+    start: 2026-05-12
+    end: 2026-05-22
+  restart: 2026-05-25
+  monthEnd: 2026-05-27/2026-05-28
+  handover: 2026-06-01
+actors:
+  - personId: P-PILOT-LEAD-001
+    displayName: Kajetan Kalicki
+    organization: Universaarl
+    actorType: human
+    activeRoles:
+      - Projektleitung
+      - Lead BC Consultant
+      - Solution Architect
+    responsibilities:
+      - Projektsteuerung
+      - Fit-to-Standard
+      - Loesungsdesign
+      - Qualitaetsentscheidung
+      - Handover
+    availabilityStatus: Montag bis Freitag 09:00-17:00; reale Consultantrolle
+    allowedApprovalRoles:
+      - interne Projektfreigabe
+      - technische Qualitaetsfreigabe
+    escalationLevel: 2
+  - personId: ROLE-CUSTOMER-SPONSOR
+    displayName: Dr. Lena Hartmann
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Geschaeftsfuehrerin
+      - Sponsorin
+    responsibilities:
+      - Scope
+      - Budget
+      - GO/NO-GO
+    availabilityStatus: Dienstag und Donnerstag 09:00-12:00; simuliert
+    allowedApprovalRoles:
+      - synthetisches Projektgate
+      - synthetisches Cutover-GO
+    escalationLevel: 3
+  - personId: ROLE-CUSTOMER-FINANCE
+    displayName: Miriam Becker
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Leitung Finance
+      - Finance Key User
+      - UAT Lead
+    responsibilities:
+      - Konten
+      - MwSt.
+      - Bank
+      - Monatsabschluss
+      - UAT
+    availabilityStatus: Taeglich 09:00-15:00; Monatsende priorisiert; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Finance
+      - synthetische UAT-Abnahme
+    escalationLevel: 2
+  - personId: ROLE-CUSTOMER-PURCHASE
+    displayName: Tobias Klein
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Einkauf Key User
+    responsibilities:
+      - Bestellung
+      - Wareneingang
+      - Eingangsrechnung
+    availabilityStatus: Montag, Mittwoch, Freitag 09:00-14:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Einkauf
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-SALES
+    displayName: Julia Brandt
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Verkauf Key User
+    responsibilities:
+      - Auftrag
+      - Lieferung
+      - Rechnung
+      - Zahlungseingang
+    availabilityStatus: Taeglich 10:00-16:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Verkauf
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-WAREHOUSE
+    displayName: Mehmet Yilmaz
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Lager Key User
+    responsibilities:
+      - Bestand
+      - Lagerbewegung
+      - Inventur
+    availabilityStatus: Taeglich 07:00-12:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Lager
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-IT
+    displayName: Nora Schmitt
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - IT-Koordination
+      - Berechtigungsadministration
+    responsibilities:
+      - Sandbox
+      - Benutzer
+      - Rollen
+      - Resetpunkt
+    availabilityStatus: Montag bis Donnerstag 08:00-16:00; simuliert
+    allowedApprovalRoles:
+      - synthetisches Umgebungs-Gate
+    escalationLevel: 2
+  - personId: ACTOR-KUNDEN-SUPPORT
+    displayName: Paul Weber
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - First-Level-Support
+      - Betriebskoordination
+    responsibilities:
+      - Ticketannahme
+      - Eskalation
+      - Supportuebergabe
+    availabilityStatus: Taeglich 08:00-17:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Supportannahme
+    escalationLevel: 1
+  - personId: ACTOR-CODEX-SPECTRA
+    displayName: Codex Spectra Automation
+    organization: Universaarl Tooling
+    actorType: codex-spectra
+    activeRoles:
+      - Generator und Vertragspruefung
+    responsibilities:
+      - deterministische Projektion
+      - technische Validierung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0
+  - personId: ACTOR-PLAYWRIGHT
+    displayName: Playwright Automation
+    organization: Universaarl Tooling
+    actorType: playwright
+    activeRoles:
+      - Szenarioautomation
+    responsibilities:
+      - reproduzierbare UI-Szenarien
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0
+  - personId: ACTOR-SYSTEM
+    displayName: Repository Automation
+    organization: Universaarl Tooling
+    actorType: system-automation
+    activeRoles:
+      - Generator
+      - Validator
+      - Export
+    responsibilities:
+      - Ableitung
+      - Integritaetspruefung
+      - Snapshotvorbereitung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0
+raci:
+  - activity: Projektauftrag
+    accountable: ROLE-CUSTOMER-SPONSOR
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+  - activity: Finanzdesign
+    accountable: ROLE-CUSTOMER-FINANCE
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-SPONSOR
+    informed:
+      - ROLE-CUSTOMER-IT
+  - activity: Datenuebernahme
+    accountable: ROLE-CUSTOMER-IT
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+  - activity: UAT
+    accountable: ROLE-CUSTOMER-FINANCE
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+  - activity: Cutover-GO
+    accountable: ROLE-CUSTOMER-SPONSOR
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    informed:
+      - ACTOR-KUNDEN-SUPPORT
+  - activity: Supportuebergabe
+    accountable: ACTOR-KUNDEN-SUPPORT
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-IT
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+escalation:
+  P1: sofort an Sponsorin und Projektleitung; Projektstopp
+  P2: innerhalb 4 Stunden an Finance/IT und Projektleitung; Gate blockiert
+  P3: naechster Daily; Gate nur bei kumuliertem Risiko blockiert
+meetings:
+  - id: UABC-MTG-001
+    title: Kickoff
+    time: 2026-04-07T10:00:00+02:00
+    phase: P1
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    agenda: Projektziel, Scope, 80-Stunden-Plan, RACI und Eskalationsweg
+    result: Sponsorin bestaetigt den simulierten Fit-to-Standard-Auftrag und das
+      Discovery-Gate.
+  - id: UABC-MTG-002
+    title: Discovery Finance
+    time: 2026-04-09T09:00:00+02:00
+    phase: P1
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    agenda: Kontenplan, Buchungsgruppen, Dimensionen, Perioden, Bank und MwSt.
+    result: SKR04-orientiertes Zielbild, MWST19 und die Monatsabschlusskontrollen
+      sind synthetisch entschieden.
+  - id: UABC-MTG-003
+    title: Prozessworkshop
+    time: 2026-04-13T09:00:00+02:00
+    phase: P1
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+      - ROLE-CUSTOMER-FINANCE
+    agenda: Einkauf, Verkauf, Lager, Rollen und Prozessausnahmen
+    result: P2P, O2C und Lager bleiben im Standard; Freigabeworkflows und
+      erweitertes Lager sind out of scope.
+  - id: UABC-MTG-004
+    title: Datenübernahme
+    time: 2026-04-17T10:00:00+02:00
+    phase: P1
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    agenda: Datenquellen, Pflichtfelder, Kontrollsummen, Fehlerliste und Freigabe
+    result: Drei Datenwellen mit Stammdaten vor Eroeffnungsposten sind synthetisch
+      freigegeben.
+  - id: UABC-MTG-005
+    title: Konfiguration
+    time: 2026-05-04T09:00:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    agenda: Firmendaten, Finanzsetup, Nummernserien, Buchungsgruppen und Berechtigungen
+    result: Einrichtungswoche startet mit kontrollierter Baseline und unveraenderten
+      Live-Grenzen.
+  - id: UABC-MTG-006
+    title: SIT-Triage
+    time: 2026-05-07T15:00:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    agenda: SIT-Ergebnisse, P2P-/O2C-/Lagerabweichungen, Korrektur und Retest
+    result: Drei P2-Defects wurden korrigiert und in der Simulation erfolgreich
+      retestet.
+  - id: UABC-MTG-007
+    title: UAT
+    time: 2026-05-08T09:00:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    agenda: Sieben UAT-Faelle, Kontrollsummen, Defects und Abnahme
+    result: Alle Pflichtfaelle sind synthetisch angenommen; reale UAT bleibt
+      separates Kundengate.
+  - id: UABC-MTG-008
+    title: Finanzschulung
+    time: 2026-05-08T11:00:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    agenda: Navigation, Buchungsvorschau, Zahlung, Bank, Abschluss und UStVA-Vorschau
+    result: Die Finanzanwenderin besteht den synthetischen Kompetenzcheck.
+  - id: UABC-MTG-009
+    title: Prozessschulung
+    time: 2026-05-08T13:30:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    agenda: Bestellung, Auftrag, Lagerbewegung, Fehlerkorrektur und Supportweg
+    result: Drei operative Fachanwender bestehen die rollenbezogenen Uebungen.
+  - id: UABC-MTG-010
+    title: Cutover-GO
+    time: 2026-05-11T08:30:00+02:00
+    phase: P2
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    agenda: Mock-Cutover, Kontrollsummen, Restpunkte, Restart und GO/NO-GO
+    result: GO_SIMULATION wurde fuer die repositorybasierte Cutover-Probe erteilt.
+  - id: UABC-MTG-011
+    title: Hypercare
+    time: 2026-05-19T09:00:00+02:00
+    phase: P3
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    agenda: Incidentlage, Reaktionszeiten, Zahlungsreferenz, Retest und Restart
+    result: P1/P2 sind null; Zahlungsreferenz ist korrigiert und der Restart
+      synthetisch bestanden.
+  - id: UABC-MTG-012
+    title: Handover
+    time: 2026-06-01T10:00:00+02:00
+    phase: P3
+    participants:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    agenda: Lieferobjekte, Restpunkte, Supportmodell, Abschluss und acht reale Gates
+    result: Simulation ist fachlich abgeschlossen; Produktivsetzung und acht reale
+      Gates bleiben ausdruecklich ausserhalb.
+billing:
+  plannedHours: 80
+  actualHours: 78
+  varianceHours: -2
+  hourlyRate: 120
+  plannedNetAmount: 9600
+  actualNetAmount: 9360
+  varianceNetAmount: -240
+  ceilingNetAmount: 10000
+  worklogCount: 19
+  invoiceCount: 9
+  invoices:
+    - invoiceId: UABC-INV-V3-001
+      isoWeek: 2026-W15
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-32-V3
+          jiraKey: UABC-32
+          summary: Datenworkshop
+          workDate: 2026-04-10
+          approvedHours: 5
+          hourlyRate: 120
+          netAmount: 600
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 5
+      netAmount: 600
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-002
+      isoWeek: 2026-W16
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-33-V3
+          jiraKey: UABC-33
+          summary: Prozessdesign
+          workDate: 2026-04-13
+          approvedHours: 3.5
+          hourlyRate: 120
+          netAmount: 420
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-34-V3
+          jiraKey: UABC-34
+          summary: Fit-Gap bewerten
+          workDate: 2026-04-15
+          approvedHours: 4
+          hourlyRate: 120
+          netAmount: 480
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-35-V3
+          jiraKey: UABC-35
+          summary: Konfiguration prüfen
+          workDate: 2026-04-17
+          approvedHours: 1.5
+          hourlyRate: 120
+          netAmount: 180
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 9
+      netAmount: 1080
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-003
+      isoWeek: 2026-W17
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-41-V3
+          jiraKey: UABC-41
+          summary: Schulungsplan
+          workDate: 2026-04-24
+          approvedHours: 3.5
+          hourlyRate: 120
+          netAmount: 420
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 3.5
+      netAmount: 420
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-004
+      isoWeek: 2026-W18
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-36-V3
+          jiraKey: UABC-36
+          summary: Testdaten laden
+          workDate: 2026-04-28
+          approvedHours: 2
+          hourlyRate: 120
+          netAmount: 240
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-37-V3
+          jiraKey: UABC-37
+          summary: P2P testen
+          workDate: 2026-04-29
+          approvedHours: 2
+          hourlyRate: 120
+          netAmount: 240
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-38-V3
+          jiraKey: UABC-38
+          summary: O2C testen
+          workDate: 2026-04-30
+          approvedHours: 5
+          hourlyRate: 120
+          netAmount: 600
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-43-V3
+          jiraKey: UABC-43
+          summary: Cutover planen
+          workDate: 2026-05-01
+          approvedHours: 4.5
+          hourlyRate: 120
+          netAmount: 540
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 13.5
+      netAmount: 1620
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-005
+      isoWeek: 2026-W19
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-39-V3
+          jiraKey: UABC-39
+          summary: Lager testen
+          workDate: 2026-05-07
+          approvedHours: 5
+          hourlyRate: 120
+          netAmount: 600
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-40-V3
+          jiraKey: UABC-40
+          summary: Close testen
+          workDate: 2026-05-08
+          approvedHours: 8.5
+          hourlyRate: 120
+          netAmount: 1020
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-42-V3
+          jiraKey: UABC-42
+          summary: Key User schulen
+          workDate: 2026-05-08
+          approvedHours: 5.5
+          hourlyRate: 120
+          netAmount: 660
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-45-V3
+          jiraKey: UABC-45
+          summary: Hypercare planen
+          workDate: 2026-05-08
+          approvedHours: 3.5
+          hourlyRate: 120
+          netAmount: 420
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 22.5
+      netAmount: 2700
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-006
+      isoWeek: 2026-W20
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-44-V3
+          jiraKey: UABC-44
+          summary: Go-live proben
+          workDate: 2026-05-11
+          approvedHours: 5
+          hourlyRate: 120
+          netAmount: 600
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 5
+      netAmount: 600
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-007
+      isoWeek: 2026-W21
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-46-V3
+          jiraKey: UABC-46
+          summary: Hypercare begleiten
+          workDate: 2026-05-22
+          approvedHours: 3
+          hourlyRate: 120
+          netAmount: 360
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 3
+      netAmount: 360
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-008
+      isoWeek: 2026-W22
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-47-V3
+          jiraKey: UABC-47
+          summary: Monatsabschluss
+          workDate: 2026-05-27
+          approvedHours: 3
+          hourlyRate: 120
+          netAmount: 360
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-48-V3
+          jiraKey: UABC-48
+          summary: VAT-Vorschau
+          workDate: 2026-05-28
+          approvedHours: 2
+          hourlyRate: 120
+          netAmount: 240
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+        - worklogId: WL-UABC-49-V3
+          jiraKey: UABC-49
+          summary: Retro durchführen
+          workDate: 2026-05-29
+          approvedHours: 1.5
+          hourlyRate: 120
+          netAmount: 180
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 6.5
+      netAmount: 780
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+    - invoiceId: UABC-INV-V3-009
+      isoWeek: 2026-W23
+      status: synthetisch-gestellt-nicht-versendet
+      lines:
+        - worklogId: WL-UABC-50-V3
+          jiraKey: UABC-50
+          summary: Handover abschließen
+          workDate: 2026-06-01
+          approvedHours: 10
+          hourlyRate: 120
+          netAmount: 1200
+          approvalStatus: synthetisch-genehmigt
+          approverRef: ROLE-CUSTOMER-FINANCE
+      hours: 10
+      netAmount: 1200
+      currency: EUR
+      sourceRule: billable-task-worklogs-only
+financeCases:
+  - caseId: UABC-V3-P2P-001
+    process: P2P
+    pages:
+      - Purchase Orders
+      - Posted Purchase Receipts
+      - Posted Purchase Invoices
+      - Vendor Ledger Entries
+    documents:
+      - PO-260501
+      - PRE-260501
+      - PINV-260501
+      - VPAY-260520
+    masterData:
+      vendor: K10000 Werkzeughandel Saar
+      item: A100 Schraubenset
+      location: HAUPT
+      quantity: 10
+      unitCost: 42
+    amounts:
+      net: 420
+      inputVat: 79.8
+      gross: 499.8
+    entries:
+      - - Bestand
+        - 420
+        - 0
+      - - Vorsteuer 19%
+        - 79.8
+        - 0
+      - - Kreditoren
+        - 0
+        - 499.8
+    control:
+      debit: 499.8
+      credit: 499.8
+      difference: 0
+    exception:
+      finding: VAT Prod. Posting Group leer
+      correction: MWST19 gesetzt
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-O2C-001
+    process: O2C
+    pages:
+      - Sales Orders
+      - Posted Sales Shipments
+      - Posted Sales Invoices
+      - Customer Ledger Entries
+    documents:
+      - SO-260501
+      - SHP-260501
+      - SINV-260501
+      - CPAY-260519
+    masterData:
+      customer: D10000 Saarland Montage GmbH
+      item: A100 Schraubenset
+      location: HAUPT
+      quantity: 10
+      unitPrice: 79
+      unitCost: 42
+    amounts:
+      net: 790
+      outputVat: 150.1
+      gross: 940.1
+      cogs: 420
+    entries:
+      - - Debitoren
+        - 940.1
+        - 0
+      - - Umsatzerloese
+        - 0
+        - 790
+      - - Umsatzsteuer 19%
+        - 0
+        - 150.1
+      - - Wareneinsatz
+        - 420
+        - 0
+      - - Bestand
+        - 0
+        - 420
+    control:
+      debit: 1360.1
+      credit: 1360.1
+      difference: 0
+    exception:
+      finding: Unit Price 75,00 statt 79,00
+      correction: Preis auf 79,00 gesetzt
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-PAY-001
+    process: Zahlung und Ausgleich
+    pages:
+      - Payment Reconciliation Journal
+      - Customer Ledger Entries
+      - Vendor Ledger Entries
+    documents:
+      - CPAY-260519
+      - VPAY-260520
+    amounts:
+      customerPayment: 940.1
+      vendorPayment: 499.8
+    control:
+      customerRemaining: 0
+      vendorRemaining: 0
+      difference: 0
+    exception:
+      finding: Zahlungsreferenz SINV-260510 nicht gefunden
+      correction: Referenz auf SINV-260501 korrigiert
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-BANK-001
+    process: Bankabstimmung
+    pages:
+      - Bank Acc. Reconciliation
+      - Bank Account Ledger Entries
+    documents:
+      - BSTMT-260531
+    amounts:
+      openingBalance: 5000
+      customerPayment: 940.1
+      vendorPayment: -499.8
+      closingBalance: 5440.3
+    control:
+      statementBalance: 5440.3
+      ledgerBalance: 5440.3
+      difference: 0
+    exception:
+      finding: Bankzeile ohne Dokumentreferenz
+      correction: manuell gegen CPAY-260519 gematcht
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-INV-001
+    process: Lager und Inventur
+    pages:
+      - Physical Inventory Orders
+      - Item Ledger Entries
+      - Value Entries
+    documents:
+      - PHY-260527
+      - ADJ-260527
+    amounts:
+      expectedQuantity: 50
+      countedQuantity: 49
+      adjustmentQuantity: -1
+      unitCost: 42
+      endingQuantity: 49
+      endingValue: 2058
+    control:
+      quantityDifference: 0
+      valueDifference: 0
+    exception:
+      finding: Zaehlliste 49 gegen Buchbestand 50
+      correction: Inventurdifferenz minus 1 gebucht
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-CLOSE-001
+    process: Monatsabschluss
+    pages:
+      - Accounting Periods
+      - G/L Entries
+      - Trial Balance
+      - Aged Accounts Receivable
+      - Aged Accounts Payable
+    documents:
+      - CLOSE-2026-05
+    amounts:
+      trialBalanceDebit: 11080.2
+      trialBalanceCredit: 11080.2
+      customerOpen: 0
+      vendorOpen: 0
+      bank: 5440.3
+      inventory: 2058
+    control:
+      debit: 11080.2
+      credit: 11080.2
+      difference: 0
+    exception:
+      finding: Posting Date 2026-04-30 nach Periodenwechsel
+      correction: Buchungsdatum auf 2026-05-28 und Allow Posting From angepasst
+      retest: bestanden-synthetisch
+  - caseId: UABC-V3-VAT-001
+    process: UStVA-Vorschau
+    pages:
+      - VAT Entries
+      - VAT Returns
+      - VAT Report Setup
+    documents:
+      - VAT-2026-05-PREVIEW
+    amounts:
+      taxableSales: 790
+      outputVat: 150.1
+      taxablePurchases: 420
+      inputVat: 79.8
+      payable: 70.3
+    control:
+      outputMinusInput: 70.3
+      previewPayable: 70.3
+      difference: 0
+    exception:
+      finding: Einkaufszeile zunaechst ohne MWST19
+      correction: VAT Product Posting Group korrigiert und Beleg neu simuliert
+      retest: bestanden-synthetisch
+    limitation: Keine ELSTER-Uebermittlung und keine steuerliche Beratung oder Freigabe.
+spaces:
+  - spaceId: UABC-SPACE-CUSTOMER
+    roots:
+      - 00 Support
+      - 01 Unternehmen
+      - 02 Business Central
+      - 03 Projekte
+      - 04 Handbuecher
+      - 99 Archiv
+  - spaceId: UABC-SPACE-PRODUCT
+    purpose: BC-Basic-Produkt, Scope und Vertrieb
+  - spaceId: UABC-SPACE-CONSULTANT
+    purpose: Consultant-Anleitungen und Wissen
+truthBoundary:
+  liveBcExecuted: false
+  customerApprovalReal: false
+  taxSubmission: false
+  continia: out-of-scope
+  simulationStoreComplete: true
+  realGatesPending: 8

@@ -354,3 +354,23 @@ verifications:
     subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-1, UABC-2, UABC-3]
     evidence: >-
       Kanonische Single-Truth-Pruefung bestanden: synthetisch abgeschlossene 50-Ticket-Historie, 19 Task-Worklogs mit 80 Stunden und 9.600 EUR, neun Deliverables, drei Spaces, sieben Playthroughs, GO_SIMULATION sowie acht echte Folgegates pending. Der Git-unabhaengige Kundenkatalog UABC-CUSTOMER-001-CATALOG-20260714-V1 enthaelt genau ein Projekt und eine simulierte Supportuebergabe, 115 Payloadartefakte, Manifest-/Payload-Digests und Read-only-/Cross-Customer-Pruefungen. Keine reale Kunden-, BC-, Steuer- oder Publishing-Freigabe.
+  - id: UABC-VER-BCB-TICKET-QUALITY-V2-001
+    changeRef: consolidate-bc-basic-pilot-v2-ticket-quality
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-14
+    environment: local-repository
+    subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-1, UABC-2, UABC-3]
+    evidence: >-
+      Historisches V2-Policy-Gate: 50 UABC-Tickets erhielten eindeutige kurze Summaries, substanzielle Beschreibungen und je Transcript-, Deliverable- und Evidencereferenzen. 19 Task-Worklogs mit 80 Stunden und 9.600 EUR waren abgestimmt; der unveraenderliche V2-Katalog blieb Git-unabhaengig und read-only. V2 ist durch V3 als aktuelle Simulation abgeloest, bleibt aber unveraendertes Last-known-good. Keine Live-BC-, Kunden-, Steuer- oder Publishing-Aktion.
+  - id: UABC-VER-BCB-PILOT-V3-001
+    changeRef: realize-bc-basic-pilot-v3
+    requiredForArchive: false
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-15
+    environment: local-repository
+    subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-1, UABC-2, UABC-3]
+    evidence: >-
+      V3-Fokusgate bestanden: 50 unveraenderte UABC-Tickets, 12 fachlich getrennte Transkripte, 19 Task-Worklogs, 9 Wochenrechnungen, 78 Iststunden und 9.360 EUR Ist gegen 80 Stunden und 9.600 EUR Plan sowie sieben rechnerisch abgestimmte BC-Kernfaelle. Katalog UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL besitzt 122 digestgebundene Records, requiresGit=false und readOnly=true. V2 bleibt Last-known-good. Live-BC, reale Kundengates, Steueruebermittlung, Continia und Push bleiben ausgeschlossen.

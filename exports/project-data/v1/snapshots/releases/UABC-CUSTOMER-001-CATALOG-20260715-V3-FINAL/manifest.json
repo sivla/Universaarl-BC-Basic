@@ -1,0 +1,1485 @@
+{
+  "schemaVersion": 2,
+  "manifestContract": "uabc-customer-catalog-release-v1",
+  "releaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL",
+  "immutable": true,
+  "readOnly": true,
+  "customerId": "UABC-CUSTOMER-001",
+  "projects": [
+    {
+      "projectId": "UABC-BC-BASIC-001",
+      "projectType": "implementation",
+      "status": "simulated-complete",
+      "sourcePath": "evidence/simulation/project-story.json"
+    }
+  ],
+  "supportEngagements": [
+    {
+      "engagementId": "UABC-SUPPORT-HANDOVER-001",
+      "mode": "simulated-handover",
+      "status": "simulated-complete",
+      "projectId": "UABC-BC-BASIC-001",
+      "sourcePath": "project/bc-basic/handover.yaml"
+    }
+  ],
+  "projectIndexPath": "project-index.yaml",
+  "resourceCatalogPath": "resource-catalog.json",
+  "projectIndex": {
+    "path": "project-index.yaml",
+    "sizeBytes": 76774,
+    "sha256": "c9631e82032f7b8dcd081abc48d9b5328328e680b0100591886faf57659d3ee3"
+  },
+  "resourceCatalog": {
+    "path": "resource-catalog.json",
+    "sizeBytes": 56015,
+    "sha256": "648e28dbab493889bcbba61a76aab7f8f8b49e30ca08d23085ec2261e981e41a"
+  },
+  "artifactCount": 122,
+  "records": [
+    {
+      "id": "UABC-SRC-BCB-MTG-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/meetings/index.yaml",
+      "payloadPath": "payload/atlassian/confluence/meetings/index.yaml",
+      "sizeBytes": 8331,
+      "sha256": "51f803965176aeba842aa1586b5123c948a49c6013a4e9d1d66f86487f65fcee",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-001",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-001.md",
+      "sizeBytes": 2467,
+      "sha256": "534b1bec406e7f85df63107783cec7894028d5bdd5b7aa689581bd6bfd994453",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-1",
+        "UABC-4",
+        "UABC-5",
+        "UABC-7",
+        "UABC-8",
+        "UABC-9",
+        "UABC-11",
+        "UABC-12",
+        "UABC-14",
+        "UABC-15",
+        "UABC-16",
+        "UABC-20",
+        "UABC-32"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-002",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-002.md",
+      "sizeBytes": 2223,
+      "sha256": "5c1b01abdd283722fed5ead1b636ee582c6b9c72f4f84f01233d26711d1610ef",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-21",
+        "UABC-27",
+        "UABC-34"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-MTG-TRANSCRIPT-003",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-003.md",
+      "sizeBytes": 2446,
+      "sha256": "097874e9f4cbac1a83625d1f48cac5fb3e5dc72a3167c6c010d557cdc445e712",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-33",
+        "UABC-37",
+        "UABC-38",
+        "UABC-41"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-004",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-004.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-004.md",
+      "sizeBytes": 2331,
+      "sha256": "d5b5c11959490bdc532724482f68c18d8a002333738f4a17e44f948b98051e96",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-1",
+        "UABC-6",
+        "UABC-17",
+        "UABC-18",
+        "UABC-19",
+        "UABC-35",
+        "UABC-36"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-005",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-005.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-005.md",
+      "sizeBytes": 2234,
+      "sha256": "87740228e55487bba869b4d16782b7580858e590fa1eb2c7672fe5bc5e0e1323",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-2"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-006",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-006.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-006.md",
+      "sizeBytes": 2330,
+      "sha256": "a5ee573e73d02eff53ea613572f6bf75cb58cccb2c6ae0c08bc4a32cf808f207",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-39"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-007",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-007.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-007.md",
+      "sizeBytes": 2350,
+      "sha256": "7d79a6aa08b0646986726f32f7252dc069f923da7e9577cef70fda1301671efb",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-29",
+        "UABC-30",
+        "UABC-31",
+        "UABC-40"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-008",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-008.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-008.md",
+      "sizeBytes": 2227,
+      "sha256": "4322f53056b0a98c47cda85ef8f34acd4af788a430a3f6be0e4b8da658ab6792",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-25",
+        "UABC-26",
+        "UABC-28",
+        "UABC-47",
+        "UABC-48"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-009",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-009.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-009.md",
+      "sizeBytes": 2289,
+      "sha256": "6daf6e285b40633c1ca1cb69ab7452db2967deeb584e2988ad0cf3e75fb8f778",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-10",
+        "UABC-42"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-010",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-010.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-010.md",
+      "sizeBytes": 2379,
+      "sha256": "dcef7c111f18bda9b582e05172f8229a67cbd270dad50f7072508138194e010f",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-2",
+        "UABC-13",
+        "UABC-43",
+        "UABC-44"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-011",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-011.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-011.md",
+      "sizeBytes": 2333,
+      "sha256": "b0c6e1fcf5e10a46960cc1ec5be8b1d1edbc977a491fe42e90aa4db552b921e7",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-3",
+        "UABC-45",
+        "UABC-46",
+        "UABC-49"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-UABC-MTG-012",
+      "kind": "meeting-transcript",
+      "domainType": "meeting-transcript",
+      "sourcePath": "atlassian/confluence/meetings/UABC-MTG-012.md",
+      "payloadPath": "payload/atlassian/confluence/meetings/UABC-MTG-012.md",
+      "sizeBytes": 2402,
+      "sha256": "306ee98f90485af54c04bef709e54ffd7fe457325a398ed5b538179cf05698bd",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-3",
+        "UABC-50"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-009",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/00-project.md",
+      "payloadPath": "payload/atlassian/confluence/pages/00-project.md",
+      "sizeBytes": 2955,
+      "sha256": "af3b1894ec6cd62ca2204292e57ffff8c32f8f54765471b2699698a35ce2609c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-010",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/10-company-profile.md",
+      "payloadPath": "payload/atlassian/confluence/pages/10-company-profile.md",
+      "sizeBytes": 6049,
+      "sha256": "4b0715927f9d0f706b70de7489608746143b2f252282651ec8a33d912be6660f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-011",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/20-discovery.md",
+      "payloadPath": "payload/atlassian/confluence/pages/20-discovery.md",
+      "sizeBytes": 4066,
+      "sha256": "6f2c033ab77408c0a9ea6aa8de6c29a65124afb0743c39acf9c58a22b5225ec0",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-012",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/30-blueprint.md",
+      "payloadPath": "payload/atlassian/confluence/pages/30-blueprint.md",
+      "sizeBytes": 3637,
+      "sha256": "52cb23b5c57b3f24ac95f24f7d76b88df4f729823700ee49128d233f3efa900a",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-013",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/31-processes.md",
+      "payloadPath": "payload/atlassian/confluence/pages/31-processes.md",
+      "sizeBytes": 4715,
+      "sha256": "8b0e0b6a280d3d6b68af8bcb2edc0e56fa054c6f4019130aaa15b126665fcbdb",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-014",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/32-decisions.md",
+      "payloadPath": "payload/atlassian/confluence/pages/32-decisions.md",
+      "sizeBytes": 4814,
+      "sha256": "d2abe35f6eaa36af360343f56450c69d5a9f2d67e947a39ea03e96881b0526b4",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-015",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/50-tests.md",
+      "payloadPath": "payload/atlassian/confluence/pages/50-tests.md",
+      "sizeBytes": 3107,
+      "sha256": "fbc5086630ae5c366206ba08a954250e3f1bddead4b7b916b0c37e3d17ecc63a",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-016",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/60-environment-baseline.md",
+      "payloadPath": "payload/atlassian/confluence/pages/60-environment-baseline.md",
+      "sizeBytes": 7542,
+      "sha256": "694fcc65c80c459bec140f8622d8c309cd38c69335fd1dcfb467e5fc9b02f464",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-017",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "payloadPath": "payload/atlassian/confluence/pages/61-walkthrough-pilot.md",
+      "sizeBytes": 2954,
+      "sha256": "f9d6738cf03d0de2e75ec6be4f1aa6c207d762319dfb0f87d786a6d19fee4131",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-003",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/70-bc-basic-project.md",
+      "payloadPath": "payload/atlassian/confluence/pages/70-bc-basic-project.md",
+      "sizeBytes": 4292,
+      "sha256": "f9e9ef727c995905a5c63419a1b2afcb74b6d0c05851dc6e6f4144b96d2d3352",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-004",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "payloadPath": "payload/atlassian/confluence/pages/71-bc-basic-discovery.md",
+      "sizeBytes": 3162,
+      "sha256": "4773a236a8cb7ef0924ca88a0dd1adfa98c9d537b7caff468ceca5bb19b19151",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-005",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "payloadPath": "payload/atlassian/confluence/pages/72-bc-basic-implementation.md",
+      "sizeBytes": 10350,
+      "sha256": "5e5cd8a1717fb2fd79992373a0edfd3a3931f969342037d5e0dc98f4dd301e9f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-006",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "payloadPath": "payload/atlassian/confluence/pages/73-bc-basic-hypercare.md",
+      "sizeBytes": 3783,
+      "sha256": "922eda28837d9f9ac3688b4f8d55376db077b2276c44027b65f0abbd4cb9cb02",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-007",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "payloadPath": "payload/atlassian/confluence/pages/74-bc-basic-deliverables.md",
+      "sizeBytes": 4904,
+      "sha256": "614f29019c915fc043d66b9e8de75628b28f984ec86e9f07b692133969de61f5",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-008",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "payloadPath": "payload/atlassian/confluence/pages/75-bc-basic-meetings-decisions.md",
+      "sizeBytes": 4589,
+      "sha256": "ae0d608d54ecde67ff75881068a6f7c6518302cca59904d7af47ab7854554239",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-033",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/76-product-audience.md",
+      "payloadPath": "payload/atlassian/confluence/pages/76-product-audience.md",
+      "sizeBytes": 2798,
+      "sha256": "972bacdb82a6dc6e2a63f6fa111c568ce82402836cb795ec8e13e16ef9fab89c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-035",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/77-product-approach.md",
+      "payloadPath": "payload/atlassian/confluence/pages/77-product-approach.md",
+      "sizeBytes": 2738,
+      "sha256": "e8f3bc38b89b8f71867f01022f306a393b3b140c23a3da286f3f0f316a0597bb",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-037",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/78-product-offer.md",
+      "payloadPath": "payload/atlassian/confluence/pages/78-product-offer.md",
+      "sizeBytes": 3635,
+      "sha256": "1ad628c7c14a11db66aa2dc43e75c28a63ca9fc2a0201a8f21b60f05e8c4aa55",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-039",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/79-product-sales-faq.md",
+      "payloadPath": "payload/atlassian/confluence/pages/79-product-sales-faq.md",
+      "sizeBytes": 2725,
+      "sha256": "2e9a567e2daef4b69e55180c385baff31c9f2596fefe74230615359a411bae32",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-018",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/80-bc-basic-training.md",
+      "payloadPath": "payload/atlassian/confluence/pages/80-bc-basic-training.md",
+      "sizeBytes": 3104,
+      "sha256": "0ca809bf797dec880db0601fec387ab18f8dfe22ce83541eb95a877ccb040e0b",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-019",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/81-bc-basic-handover.md",
+      "payloadPath": "payload/atlassian/confluence/pages/81-bc-basic-handover.md",
+      "sizeBytes": 3924,
+      "sha256": "f92fd08cd6472498be7d99586f8c2d548f74f3efcdf3b942f334d41e2afb84fb",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-042",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/82-consulting-design.md",
+      "payloadPath": "payload/atlassian/confluence/pages/82-consulting-design.md",
+      "sizeBytes": 4204,
+      "sha256": "3afa4dafaad8f158b2e9a0bde05d53e0d239ad5d93f48b7945e1d1e2d053b4a6",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-044",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/83-consulting-tests.md",
+      "payloadPath": "payload/atlassian/confluence/pages/83-consulting-tests.md",
+      "sizeBytes": 2848,
+      "sha256": "df5c13160bcb8cd1ca2bc7db7f012b7e7a044a55986c8a269ce15b980a5ea466",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-046",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/84-consulting-handover.md",
+      "payloadPath": "payload/atlassian/confluence/pages/84-consulting-handover.md",
+      "sizeBytes": 2639,
+      "sha256": "015d7c4e2271ab0fb87b38de165925e008c59793fb98a53d34f43e7dd16f5152",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-047",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/85-consulting-checklists.md",
+      "payloadPath": "payload/atlassian/confluence/pages/85-consulting-checklists.md",
+      "sizeBytes": 2759,
+      "sha256": "1b21ed92fcc1eb49a5116dcfa17aef46359ff9f1ff814254bee047f8d953dde8",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONF-025",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/99-archive.md",
+      "payloadPath": "payload/atlassian/confluence/pages/99-archive.md",
+      "sizeBytes": 2776,
+      "sha256": "b6ee4485abb880fb71d583cf6bda59eaedc3a1ae62fa5aac1be6b2fda9fb1a53",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-HYPERCARE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-hypercare.md",
+      "payloadPath": "payload/atlassian/confluence/pages/bc-basic-hypercare.md",
+      "sizeBytes": 2800,
+      "sha256": "ad73acd9c3422fd176a15411c5452f850e99ca4ab6ca653094c2a317a3dd0d4c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-CONFLUENCE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/confluence/pages/bc-basic-project-story.md",
+      "payloadPath": "payload/atlassian/confluence/pages/bc-basic-project-story.md",
+      "sizeBytes": 8376,
+      "sha256": "1ecae59c6ca79d4131f32ffa52b92108feee5bcec21f339587ab60556880e35e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-TICKETS-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "payloadPath": "payload/atlassian/jira/issues/bc-basic-story-tickets.yaml",
+      "sizeBytes": 520332,
+      "sha256": "8a5d67f97d650ec7a97b83408b894f59a7c6568350bb6060c90c9bb881ea540d",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-OPENSPEC-001",
+      "kind": "openspec-change",
+      "domainType": "openspec-change",
+      "sourcePath": "docs/guides/bc-basic-change-record.md",
+      "payloadPath": "payload/docs/guides/bc-basic-change-record.md",
+      "sizeBytes": 340,
+      "sha256": "5e41a009ecd7b9e0beeb53461d4a49defd79f329d3efd6d7ecdef603e1cdfd96",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DPLAN-001",
+      "kind": "delivery-plan",
+      "domainType": "delivery-plan",
+      "sourcePath": "docs/guides/bc-basic-delivery-plan.md",
+      "payloadPath": "payload/docs/guides/bc-basic-delivery-plan.md",
+      "sizeBytes": 976,
+      "sha256": "f10a7737b8ab58be99d934c504595c23b1891b1e14c8ba9d97b2a5ff98ec2469",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-TASKS-001",
+      "kind": "delivery-tasks",
+      "domainType": "delivery-tasks",
+      "sourcePath": "docs/guides/bc-basic-delivery-tasks.md",
+      "payloadPath": "payload/docs/guides/bc-basic-delivery-tasks.md",
+      "sizeBytes": 227,
+      "sha256": "df8c610a42cf1802bc62ff2c0319237e11448865a0590999557ef781f41ace10",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPEC-001",
+      "kind": "requirements",
+      "domainType": "requirements",
+      "sourcePath": "docs/guides/bc-basic-requirements.md",
+      "payloadPath": "payload/docs/guides/bc-basic-requirements.md",
+      "sizeBytes": 792,
+      "sha256": "15b440eb3beaa64ba16276313295ec423bbcf434e82306cf67b979e5abcb5d6e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DESIGN-001",
+      "kind": "solution-design",
+      "domainType": "solution-design",
+      "sourcePath": "docs/guides/bc-basic-solution-design.md",
+      "payloadPath": "payload/docs/guides/bc-basic-solution-design.md",
+      "sizeBytes": 329,
+      "sha256": "73b9e0781414359d5f379aada1d24bab6856eaac076a95e9db8a32e1ab879e73",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-VPLAN-001",
+      "kind": "verification-plan",
+      "domainType": "verification-plan",
+      "sourcePath": "docs/guides/bc-basic-verification-plan.md",
+      "payloadPath": "payload/docs/guides/bc-basic-verification-plan.md",
+      "sizeBytes": 958,
+      "sha256": "00d16530e51b37deae66eea5047190a7019c553fd467faa869961c4698d1ab5c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CUST-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/guides/beginner/business-central-basic.md",
+      "payloadPath": "payload/docs/guides/beginner/business-central-basic.md",
+      "sizeBytes": 7861,
+      "sha256": "268c08c70e973e1bb633315f3a188fc7e707831febb896f218e644eea239358d",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-HANDOVER-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/handover/bc-basic-handover.md",
+      "payloadPath": "payload/docs/handover/bc-basic-handover.md",
+      "sizeBytes": 2264,
+      "sha256": "2a507f914f28f3553c4b0b9090b58ea40df7a4c6a9ce1ab68208f81bb47e7bb3",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-OFFER-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/offers/bc-basic-offer.md",
+      "payloadPath": "payload/docs/offers/bc-basic-offer.md",
+      "sizeBytes": 1821,
+      "sha256": "c8e30e63f10ae9130ba2edaa17dc2227ef9e230aa1677085e6e3c29ed1b586a9",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-STORY-CHRONICLE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/reports/bc-basic-project-chronicle.md",
+      "payloadPath": "payload/docs/reports/bc-basic-project-chronicle.md",
+      "sizeBytes": 1524,
+      "sha256": "dfe508258e82e3bda242d2c4e0585d5f928cecbd1353e1aad53cbb22ccdf6bde",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-RUNBOOK-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/runbooks/bc-basic-onboarding-delivery.md",
+      "payloadPath": "payload/docs/runbooks/bc-basic-onboarding-delivery.md",
+      "sizeBytes": 5494,
+      "sha256": "1b021a4cd3033558c9841c392ffb47017c42afa8ec5f2048de21219584a7f27c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DEMO-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/runbooks/bc-basic-simulation-demo.md",
+      "payloadPath": "payload/docs/runbooks/bc-basic-simulation-demo.md",
+      "sizeBytes": 2969,
+      "sha256": "954b354038546413e33258fc09722cffc4a44d63d2dfa24deaa2c37b9ac0a46f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CONS-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/runbooks/business-central-basic.md",
+      "payloadPath": "payload/docs/runbooks/business-central-basic.md",
+      "sizeBytes": 8318,
+      "sha256": "5f86b3fef060eb001280199362ed8719527e48392f75927bda4c15f53ae000c3",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/templates/bc-basic-delivery-evidence-pack.md",
+      "payloadPath": "payload/docs/templates/bc-basic-delivery-evidence-pack.md",
+      "sizeBytes": 3536,
+      "sha256": "0f16ddac23512862b49f3a914377518c2dba0c8ccbe4ad1f805cf3eb99213483",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "docs/templates/bc-basic-onboarding-input.md",
+      "payloadPath": "payload/docs/templates/bc-basic-onboarding-input.md",
+      "sizeBytes": 1620,
+      "sha256": "450b4cf1371470de504f52c0b577110494d5d3e9440f5aa0ebd34ea0505dfcd1",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-W0-01-ATTEMPT-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "payloadPath": "payload/evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml",
+      "sizeBytes": 6180,
+      "sha256": "6035a331070d587277878603748c591590d271c7e9459ae0cbcf3a1b834362a7",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-DRYRUN-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/atlassian-materialization-dry-run.json",
+      "payloadPath": "payload/evidence/simulation/atlassian-materialization-dry-run.json",
+      "sizeBytes": 29810,
+      "sha256": "4425390de75986b2bf4cb18fe4ca0e1a007552dc21b5443f63d2468e7b9ab66a",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAY-LEDGER-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/bc-playthrough-ledger.yaml",
+      "payloadPath": "payload/evidence/simulation/bc-playthrough-ledger.yaml",
+      "sizeBytes": 7354,
+      "sha256": "82f5573a3d83fa349200b7696b91a24ffb6b019a5016fd8ab9057bfe48485161",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-BILLING-SIM-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/billing-reconciliation.yaml",
+      "payloadPath": "payload/evidence/simulation/billing-reconciliation.yaml",
+      "sizeBytes": 2672,
+      "sha256": "498585cb058ab6cc944436dda56e5eff7e51b7c1dd3e62c63897d84fe04c8526",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DEMO-EVIDENCE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/demo-readiness.yaml",
+      "payloadPath": "payload/evidence/simulation/demo-readiness.yaml",
+      "sizeBytes": 2057,
+      "sha256": "c4eb00a9eacb70f9130cca83ae0db601df4ec49fa72b982a4c88691ec613eb6e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DOC-EVIDENCE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/document-catalog-validation.yaml",
+      "payloadPath": "payload/evidence/simulation/document-catalog-validation.yaml",
+      "sizeBytes": 6888,
+      "sha256": "a3a8365bdd647b46eb699ecf721a658c0bc0a920d164b692ff5addb05f1020ca",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-AUDIT-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/end-to-end-objective-audit.yaml",
+      "payloadPath": "payload/evidence/simulation/end-to-end-objective-audit.yaml",
+      "sizeBytes": 2033,
+      "sha256": "97e4d2830d44584ffa64e36583d06d042f34194bde198a4433e2e920b22a4122",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE2-SIM-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/phase-2-p2p-o2c.yaml",
+      "payloadPath": "payload/evidence/simulation/phase-2-p2p-o2c.yaml",
+      "sizeBytes": 4366,
+      "sha256": "878d861c5a03a8c7944cbf9c68f077d645a1787d805d27cf968159b469cb804e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE3-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "payloadPath": "payload/evidence/simulation/phase-3-cash-inventory-close.yaml",
+      "sizeBytes": 4855,
+      "sha256": "421435ec5ff492f51d3773ee2e74c7056c8c0ee3e157579572ba4dc8629ad799",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PHASE-GATES-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/phase-gate-register.yaml",
+      "payloadPath": "payload/evidence/simulation/phase-gate-register.yaml",
+      "sizeBytes": 4803,
+      "sha256": "373cce752465038668a0d05965d84c9891d12452564e6cd7f90d309f3f85f5a1",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-EV-PILOT-V3-FINANCE-001",
+      "kind": "finance-evidence",
+      "domainType": "finance-evidence",
+      "sourcePath": "evidence/simulation/pilot-v3-finance-ledger.json",
+      "payloadPath": "payload/evidence/simulation/pilot-v3-finance-ledger.json",
+      "sizeBytes": 6665,
+      "sha256": "c46e5ea5ae64dde1282e54838f1dcbf3d60a59247fa5d4b7651727f86b0e67c8",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-PILOT-V3-001"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-COMPLETION-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/project-completion.yaml",
+      "payloadPath": "payload/evidence/simulation/project-completion.yaml",
+      "sizeBytes": 3439,
+      "sha256": "bc8eec11b2080594bca320ad1431c52aba8cc2af6b7cc67b32dc7a047070cce9",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA09-REC-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/project-reconciliation.json",
+      "payloadPath": "payload/evidence/simulation/project-reconciliation.json",
+      "sizeBytes": 1132,
+      "sha256": "5d6bffc8c660a995cdf2fa10ddc9a43cb353d78a6c31b6707003328f3d788533",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PROJECT-STORY-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/project-story.json",
+      "payloadPath": "payload/evidence/simulation/project-story.json",
+      "sizeBytes": 693466,
+      "sha256": "f813f4555bf81883c8804d901838492ef9da101623a2db1b96803eefe2eda7f1",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-CONFORMANCE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/spectra-0.10-conformance.yaml",
+      "payloadPath": "payload/evidence/simulation/spectra-0.10-conformance.yaml",
+      "sizeBytes": 3568,
+      "sha256": "9f628043b33af68dfaf78326368a348339b8b5221319f7fa74f66281cdf98fd0",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-BANKSIM-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/simulation/synthetic-bank-statement.csv",
+      "payloadPath": "payload/evidence/simulation/synthetic-bank-statement.csv",
+      "sizeBytes": 247,
+      "sha256": "65e1f8bfe4633d55033093ba4b4771a82ecb2f2ea8ca1706075ccb1ef2541555",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/spectra-release-1.0.0.yaml",
+      "payloadPath": "payload/evidence/spectra-release-1.0.0.yaml",
+      "sizeBytes": 1110,
+      "sha256": "71783e7cffff015742b667f4af470f636d7de7049bf8093043cc67a123901a00",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA-EVIDENCE-012",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "evidence/spectra-release-1.2.0-alpha.12.yaml",
+      "payloadPath": "payload/evidence/spectra-release-1.2.0-alpha.12.yaml",
+      "sizeBytes": 1666,
+      "sha256": "e4850a7be3fafb021cf61b25bfee08ab601648eef85bc561e795f8fedab1aba5",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-TWIN-PILOT-V3-VIEW-001",
+      "kind": "typed-project-view",
+      "domainType": "typed-project-view",
+      "sourcePath": "exports/project-data/v1/pilot-v3-view.json",
+      "payloadPath": "payload/exports/project-data/v1/pilot-v3-view.json",
+      "sizeBytes": 187025,
+      "sha256": "080018bc2bb28f51f1b804f313ec5c91db16e0c77dcc6758f25f969d77dae24c",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-PILOT-V3-001"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-NATIVE-GRAPH-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "exports/project-data/v1/reference-graph-native.json",
+      "payloadPath": "payload/exports/project-data/v1/reference-graph-native.json",
+      "sizeBytes": 147360,
+      "sha256": "7cbda5135fb1533464c3522e2ab57c5804e9b7b3b9c5fc479aaf14dc6dd16172",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SPECTRA10-PORTABLE-GRAPH-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "exports/project-data/v1/reference-graph-portable.json",
+      "payloadPath": "payload/exports/project-data/v1/reference-graph-portable.json",
+      "sizeBytes": 63137,
+      "sha256": "f9e35233b173c29910444441ce92de84126801252c1def5f15bbff74b5b45453",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "exports/project-data/v1/setup-wave-1-projection.json",
+      "payloadPath": "payload/exports/project-data/v1/setup-wave-1-projection.json",
+      "sizeBytes": 13395,
+      "sha256": "95aefe259f670ef79ede0101e62f1b5e5a02a073246c3e25b15ccbcc4925e8f5",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-TWIN-MAP-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "exports/project-data/v1/twin-export-map.json",
+      "payloadPath": "payload/exports/project-data/v1/twin-export-map.json",
+      "sizeBytes": 44832,
+      "sha256": "b3468f74e06ebcec91d2db65437e7f1363ec9a3b94fad479a7d96d15e5cfb1c7",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PW-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "playwright/scenarios/bc-basic-e2e.yaml",
+      "payloadPath": "payload/playwright/scenarios/bc-basic-e2e.yaml",
+      "sizeBytes": 4651,
+      "sha256": "39c80ea19590704ca5cce4fa249de3dd1f6e002be6cea024bae804134705fa37",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ACTOR-REGISTER-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/actor-register.yaml",
+      "payloadPath": "payload/project/bc-basic/actor-register.yaml",
+      "sizeBytes": 7276,
+      "sha256": "12a0ab148e287ded564cec30ccf2a842763ae2feb670edf005de3b59a8cfe06f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ATLASSIAN-MATRIX-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/atlassian-materialization-v1.yaml",
+      "payloadPath": "payload/project/bc-basic/atlassian-materialization-v1.yaml",
+      "sizeBytes": 2381,
+      "sha256": "35fdd6c89728b3c60641c651c40ff10d0b5c546f8d159b851e7e9e3f88b86390",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAY-CATALOG-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/bc-playthrough-catalog.yaml",
+      "payloadPath": "payload/project/bc-basic/bc-playthrough-catalog.yaml",
+      "sizeBytes": 10412,
+      "sha256": "92e000dcf72735f4cb62e73d92aa18960b326b67b25c8d7856d51b8c5fd46aa6",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-BILL-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/billing.yaml",
+      "payloadPath": "payload/project/bc-basic/billing.yaml",
+      "sizeBytes": 16681,
+      "sha256": "e29b5f33001bbe13abe734359eb523227d664830ad0c3336d41e8b4b3f00392c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CANDIDATES-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/blueprint-candidates.yaml",
+      "payloadPath": "payload/project/bc-basic/blueprint-candidates.yaml",
+      "sizeBytes": 7854,
+      "sha256": "66e35d95d388e4b930b90e36226b802bec1d54caf7a967112386e2398afa224f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-THREE-SPACE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/confluence-three-space-v1.yaml",
+      "payloadPath": "payload/project/bc-basic/confluence-three-space-v1.yaml",
+      "sizeBytes": 22572,
+      "sha256": "df848b8a0d421fd736fc19c38190a514194cbfd5f8fb18f02c69b7bd842422ae",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-MANIFEST-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/core-finance-package-manifest.yaml",
+      "payloadPath": "payload/project/bc-basic/core-finance-package-manifest.yaml",
+      "sizeBytes": 32538,
+      "sha256": "4de34af74ba424dc9555a1ae1e513a2e56316e1e65ab419dc97a8fa7812480f8",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-CORE-FINANCE-PAYLOAD-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/core-finance-payload.yaml",
+      "payloadPath": "payload/project/bc-basic/core-finance-payload.yaml",
+      "sizeBytes": 43698,
+      "sha256": "9759d2f8db7ecb198d130d1ba9da7cfad7f18faa878b0dc66713723f4231c37a",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/company-setup.blank.yaml",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/company-setup.blank.yaml",
+      "sizeBytes": 4453,
+      "sha256": "0b4581f5678858b907aba9dfb11b064dee86eaff49e589bcb2f7abf3917ea2cb",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-003",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/customers.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/customers.blank.csv",
+      "sizeBytes": 203,
+      "sha256": "61a6e92f84fc3f0acdc3d9df0e5806d98746da860f3a8ffd6ddb93f65e7f4ae7",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-002",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/dimensions.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/dimensions.blank.csv",
+      "sizeBytes": 54,
+      "sha256": "806e99c57a97d37cfe6139fade95458d74e7c48ec4df406a10be4db6b344c6e6",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-007",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/gl-opening.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/gl-opening.blank.csv",
+      "sizeBytes": 124,
+      "sha256": "de48b6f7a5a643d4e3c5bdcd703144978e5156b223167f954286be7d437bcefd",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-006",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/inventory-opening.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/inventory-opening.blank.csv",
+      "sizeBytes": 102,
+      "sha256": "e55ba8677129799fc48807e3d3831205a753d693e1fc6de4e1442f3470ac3023",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-005",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/items.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/items.blank.csv",
+      "sizeBytes": 218,
+      "sha256": "d412a86e3a8fe64a45cb8740107b09efaff117a3310a40e0139f868111badea4",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-ONBOARDING-INPUT-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml",
+      "sizeBytes": 1294,
+      "sha256": "c517a9660ff7f9e832636d3cd42f2dffbd242e0e2c94ed3d82e37966aaf0079f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-008",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv",
+      "sizeBytes": 116,
+      "sha256": "dce9e947c376c8d172c19dc8f1874031c8e15264b8bae7bf5ec764a85db29fe4",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-BLANK-004",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/blank/vendors.blank.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/blank/vendors.blank.csv",
+      "sizeBytes": 199,
+      "sha256": "e7fc773698ebc079d532441940dfba266dce913f5b7d239c0385773a94d4be78",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/company-setup.example.yaml",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/company-setup.example.yaml",
+      "sizeBytes": 3160,
+      "sha256": "7ed523ec9cb234641771f5d3acee4e3f1cc2cc39f134974bdd2c8d4218aca908",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-003",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/customers.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/customers.example.csv",
+      "sizeBytes": 300,
+      "sha256": "6979f393f6efb13dd61cc0e3b94f11ba5da5904cf631d5de37cb97cf1cd3f36f",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-002",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/dimensions.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/dimensions.example.csv",
+      "sizeBytes": 256,
+      "sha256": "e0135f233f12184d4cab2fef9dbeac880e359229e0fbb367aa730bbf1d294b76",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-007",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/gl-opening.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/gl-opening.example.csv",
+      "sizeBytes": 643,
+      "sha256": "cc5b311d011afa09ec031d8afff975ce548626ea74aabfa0d6340aa742795b13",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-006",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/inventory-opening.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/inventory-opening.example.csv",
+      "sizeBytes": 180,
+      "sha256": "012040c6b391495ddb55ca12d8e5e321d8a9522f5ac2d020bbda5bb9015cbc0e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-005",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/items.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/items.example.csv",
+      "sizeBytes": 329,
+      "sha256": "7871ed8df4a0abbb38ed80d73412e32ba867e56b34ec7ed5d630ede5d799b6bd",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-008",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv",
+      "sizeBytes": 296,
+      "sha256": "a4d1a104edc219feb49544c6287e68a4789cb7a661244da48184e67d831d6b86",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-EXAMPLE-004",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/customer-templates/example/vendors.example.csv",
+      "payloadPath": "payload/project/bc-basic/customer-templates/example/vendors.example.csv",
+      "sizeBytes": 301,
+      "sha256": "d64ffa6591f03834424815ffffd23e02c66c9d24108c2a3fc4beb140bcb8e4cc",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/data-package.yaml",
+      "payloadPath": "payload/project/bc-basic/data-package.yaml",
+      "sizeBytes": 19287,
+      "sha256": "2cc6991cf0ee127fc35134c4b2e4aa6cbde543d0e62404db3c72c84e7b367a63",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DATA-READY-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/data-readiness-check.yaml",
+      "payloadPath": "payload/project/bc-basic/data-readiness-check.yaml",
+      "sizeBytes": 6995,
+      "sha256": "e800e43fbf37fe255f22f95dd266accdb89876e363b7691d13af98f000b51644",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DEC-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/decision-register.yaml",
+      "payloadPath": "payload/project/bc-basic/decision-register.yaml",
+      "sizeBytes": 10043,
+      "sha256": "6b501058ffadc0b0694d0e24b9afde5f45c0c3cc6fdd1196e24c695ff48d1376",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DEL-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/deliverables.yaml",
+      "payloadPath": "payload/project/bc-basic/deliverables.yaml",
+      "sizeBytes": 7791,
+      "sha256": "04620a5013d875e54f3f380f5d671458e0d366f8bcd60bcb3f45eaf37d26256c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-DRYRUN-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/phase-2-dry-run.yaml",
+      "payloadPath": "payload/project/bc-basic/phase-2-dry-run.yaml",
+      "sizeBytes": 2593,
+      "sha256": "13bce5e5a802a86d6e4106af61ac14d15916fa32c4859ab61ffaec1d45d2ce19",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-READINESS-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/phase-2-readiness-gate.yaml",
+      "payloadPath": "payload/project/bc-basic/phase-2-readiness-gate.yaml",
+      "sizeBytes": 2878,
+      "sha256": "b6ab8639064e91c5f45a260d37107cd28feb6c4c279bb47d7e6a4a36a3c28337",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PILOT-SETUP-BASELINE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/pilot-setup-baseline.yaml",
+      "payloadPath": "payload/project/bc-basic/pilot-setup-baseline.yaml",
+      "sizeBytes": 8213,
+      "sha256": "3549fd55c456bdc5e2b778b2b33d128bc530656b1d905e60af467425fdab2af9",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-PILOT-V3-001",
+      "kind": "pilot-v3",
+      "domainType": "pilot-v3",
+      "sourcePath": "project/bc-basic/pilot-v3.yaml",
+      "payloadPath": "payload/project/bc-basic/pilot-v3.yaml",
+      "sizeBytes": 25589,
+      "sha256": "ccdd04cda3bbc1e96f0a915e2f4a74b2f999d86bd35e820391b1f0f2e19974ab",
+      "visibility": "nur-lesend",
+      "references": [
+        "UABC-BC-BASIC-001"
+      ]
+    },
+    {
+      "id": "UABC-SRC-BCB-PORTABLE-PILOT-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/portable-snapshot-pilot.yaml",
+      "payloadPath": "payload/project/bc-basic/portable-snapshot-pilot.yaml",
+      "sizeBytes": 7219,
+      "sha256": "db169f79a75477ebf8d0b2b346c48c1a65a746a49f8231b264b25f226e92afe9",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-PLAN-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/project-plan.yaml",
+      "payloadPath": "payload/project/bc-basic/project-plan.yaml",
+      "sizeBytes": 19258,
+      "sha256": "27886e481bb03e559dfa81693cca3719717ec9ff6e5c10e2b943fbedd1065544",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-RESULT-OBJECTS-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/result-object-catalog.yaml",
+      "payloadPath": "payload/project/bc-basic/result-object-catalog.yaml",
+      "sizeBytes": 9136,
+      "sha256": "33f347e8b5ab913729f01f866bd523ddb9c9dcaa47991905f2167820c5e1373c",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-TICKET-MIGRATION-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/ticket-migration.yaml",
+      "payloadPath": "payload/project/bc-basic/ticket-migration.yaml",
+      "sizeBytes": 17458,
+      "sha256": "130270fee5275be0baf63204282d5d120d20e9f635274b85048433d05f23c18e",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-TRACE-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/traceability-matrix.yaml",
+      "payloadPath": "payload/project/bc-basic/traceability-matrix.yaml",
+      "sizeBytes": 3075,
+      "sha256": "cb8e91cb28fe1ecde60dca73e5eee7173e01c5ca465ad2139a7d9008ecd72adb",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-TRAIN-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/training-plan.yaml",
+      "payloadPath": "payload/project/bc-basic/training-plan.yaml",
+      "sizeBytes": 9511,
+      "sha256": "cb3fdcaafd134626b9d1f7393276282408b636e77ec7c0b61537b1e61896d687",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-UAT-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/uat-catalog.yaml",
+      "payloadPath": "payload/project/bc-basic/uat-catalog.yaml",
+      "sizeBytes": 9068,
+      "sha256": "1a3b78e6d776b0d9b6681781a05eeac402a0405b362e3a134707c7f804a6658a",
+      "visibility": "nur-lesend",
+      "references": []
+    },
+    {
+      "id": "UABC-SRC-BCB-UAT-RUN-001",
+      "kind": "fachartefakt",
+      "domainType": "fachartefakt",
+      "sourcePath": "project/bc-basic/uat-training-run.yaml",
+      "payloadPath": "payload/project/bc-basic/uat-training-run.yaml",
+      "sizeBytes": 4972,
+      "sha256": "49190a9194d3ff572933a7999fe18160515aacf036e828bb8f983d12160601d6",
+      "visibility": "nur-lesend",
+      "references": []
+    }
+  ],
+  "payloadBundleDigest": "bc691ce634b38e782280016bf3e34ac683d70f705a3bb4be46f995ef37e2e57b",
+  "digestAlgorithm": "SHA-256",
+  "domainTypes": [
+    "offer-scope",
+    "project-phase-gate",
+    "role-raci",
+    "meeting-training",
+    "ticket-lifecycle-comment-worklog",
+    "weekly-invoice",
+    "decision-risk-defect",
+    "space-page",
+    "use-case-bc-session",
+    "test-uat-retest",
+    "deliverable",
+    "evidence",
+    "hypercare-restart",
+    "handover",
+    "resource-catalog"
+  ],
+  "spectraBinding": {
+    "productId": "spectra",
+    "repositoryUrl": "https://github.com/sivla/BCProjectOS.git",
+    "releaseVersion": "1.0.0",
+    "releaseTag": "spectra-v1.0.0",
+    "bindingStatus": "BOUND"
+  },
+  "producerCommitProvenance": null,
+  "runtime": {
+    "requiresGit": false,
+    "readOnly": true,
+    "currentPointer": "exports/project-data/v1/snapshots/current.json"
+  }
+}

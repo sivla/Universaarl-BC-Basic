@@ -2,9 +2,9 @@ import fs from 'node:fs';
 
 const story = JSON.parse(fs.readFileSync('evidence/simulation/project-story.json', 'utf8'));
 const required = story.ticketQuality?.descriptionSections ?? [
-  'Ausgangslage und Ziel', 'In Scope', 'Nicht im Umfang', 'Voraussetzungen und Rollen',
+  'Ausgangslage und Ziel', 'Im Umfang', 'Nicht im Umfang', 'Voraussetzungen und Rollen',
   'Durchführung', 'Ergebnis und Akzeptanz', 'Lieferung und Referenzen',
-  'Evidence, Test und Readback', 'Aufwand und Abrechnung', 'Abhängigkeiten, Risiken und Übergabe'
+  'Nachweis, Test und Rücklesekontrolle', 'Aufwand und Abrechnung', 'Abhängigkeiten, Risiken und Übergabe'
 ];
 const errors = [];
 const fail = (code, detail) => errors.push(`${code}: ${detail}`);
@@ -56,15 +56,15 @@ const hours = worklogs.reduce((sum, log) => sum + Number(log.hours ?? 0), 0);
 const cost = worklogs.reduce((sum, log) => sum + Number(log.netAmount ?? 0), 0);
 if (tasks.length !== 19) fail('TASK-COUNT', `erwartet 19, gefunden ${tasks.length}`);
 if (worklogs.length !== 19) fail('WORKLOG-COUNT', `erwartet 19, gefunden ${worklogs.length}`);
-if (hours !== 80 || cost !== 9600) fail('BILLING', `${hours} Stunden / ${cost} EUR`);
+if (hours !== 78 || cost !== 9360 || story.offer?.planned_hours !== 80 || story.offer?.planned_cost !== 9600) fail('BILLING', `${hours} Stunden / ${cost} EUR bei Plan ${story.offer?.planned_hours}/${story.offer?.planned_cost}`);
 if (tickets.filter(ticket => ticket.status === 'closed').length !== 50) fail('CLOSED-COUNT', 'alle 50 Tickets müssen closed sein');
 for (const [section, variants] of sectionVariants) for (const [variant, count] of variants) if (count > 3) fail('BOILERPLATE', `${section}: identischer Abschnitt ${count}-mal`);
 const dataWorkshop = tickets.find(ticket => ticket.id === 'UABC-32');
 const sectionText = (ticket, section) => { const index = required.indexOf(section); const next = required[index + 1]; const start = ticket.description.indexOf(section) + section.length; const end = next ? ticket.description.indexOf(next, start) : ticket.description.length; return ticket.description.slice(start, end); };
-if (!/Datenquellen|Feldlisten|Dateiformate|Owner/.test(sectionText(dataWorkshop, 'Voraussetzungen und Rollen')) || !/Feldmapping|Qualitätschecks|Freigabe/.test(sectionText(dataWorkshop, 'Durchführung')) || !/Freigabe/.test(sectionText(dataWorkshop, 'Ergebnis und Akzeptanz'))) fail('SEMANTICS-DATAWORKSHOP', 'UABC-32 benötigt in passenden Abschnitten Datenquellen, Felder, Format, Owner, Qualität und Freigabe');
+if (!/Datenquellen|Feldlisten|Dateiformate|Owner/.test(sectionText(dataWorkshop, 'Voraussetzungen und Rollen')) || !/Feldmapping|Qualit(?:ä|ae)tschecks|Freigabe/.test(sectionText(dataWorkshop, 'Durchführung')) || !/Freigabe/i.test(sectionText(dataWorkshop, 'Ergebnis und Akzeptanz'))) fail('SEMANTICS-DATAWORKSHOP', 'UABC-32 benötigt in passenden Abschnitten Datenquellen, Felder, Format, Owner, Qualität und Freigabe');
 const hypercare = tickets.find(ticket => ticket.id === 'UABC-46');
-if (hypercare?.phase !== 'P3' || !/Hypercare-Tage|Incident-Priorität|Reaktionszeit|Fix|Retest/.test(sectionText(hypercare, 'Durchführung')) || !/Restart|Exit/.test(sectionText(hypercare, 'Abhängigkeiten, Risiken und Übergabe'))) fail('SEMANTICS-HYPERCARE', 'UABC-46 muss in passenden Abschnitten Hypercare-Tage, Incident, Reaktion, Fix/Retest, Restart und Exit beschreiben');
+if (hypercare?.phase !== 'P3' || !/Hypercare-Tage|Störungspriorität|Reaktionszeit|Fix|Retest/.test(sectionText(hypercare, 'Durchführung')) || !/Wiederanlauf|Austrittsentscheidung/.test(sectionText(hypercare, 'Abhängigkeiten, Risiken und Übergabe'))) fail('SEMANTICS-HYPERCARE', 'UABC-46 muss in passenden Abschnitten Hypercare-Tage, Störungspriorität, Reaktion, Fix/Retest, Wiederanlauf und Austritt beschreiben');
 const handover = tickets.find(ticket => ticket.id === 'UABC-50');
-if (!/synthetische Handover-Abnahme ist abgeschlossen/.test(sectionText(handover, 'Ergebnis und Akzeptanz')) || !/acht realen Kundengates/.test(sectionText(handover, 'Ergebnis und Akzeptanz')) || !/acht reale Kundengates/i.test(sectionText(handover, 'Evidence, Test und Readback'))) fail('SEMANTICS-HANDOVER', 'UABC-50 muss den synthetischen Abschluss und nur die acht realen Gates offen ausweisen');
-if (errors.length) { console.error(`V2-Ticketqualitätsprüfung fehlgeschlagen (${errors.length}):`); errors.forEach(error => console.error(`- ${error}`)); process.exit(1); }
-console.log(`V2-Ticketqualitätsprüfung bestanden: ${tickets.length} eindeutige Summaries, ${descriptions.size} projektspezifische Beschreibungen, ${tasks.length} Tasks, ${hours} Stunden, ${cost} EUR.`);
+if (!/synthetische Übergabeabnahme ist abgeschlossen/.test(sectionText(handover, 'Ergebnis und Akzeptanz')) || !/acht realen Kundengates/.test(sectionText(handover, 'Ergebnis und Akzeptanz')) || !/acht reale Kundengates/i.test(sectionText(handover, 'Nachweis, Test und Rücklesekontrolle'))) fail('SEMANTICS-HANDOVER', 'UABC-50 muss den synthetischen Abschluss und nur die acht realen Gates offen ausweisen');
+if (errors.length) { console.error(`V3-Ticketqualitätsprüfung fehlgeschlagen (${errors.length}):`); errors.forEach(error => console.error(`- ${error}`)); process.exit(1); }
+console.log(`V3-Ticketqualitätsprüfung bestanden: ${tickets.length} eindeutige Summaries, ${descriptions.size} projektspezifische Beschreibungen, ${tasks.length} Tasks, ${hours} Stunden, ${cost} EUR.`);

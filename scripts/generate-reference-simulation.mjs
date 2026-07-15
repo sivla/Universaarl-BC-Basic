@@ -28,14 +28,13 @@ for (const [index, meeting] of (source.meetings ?? []).entries()) { assertExact(
 for (const [index, playthrough] of (source.playthroughs ?? []).entries()) { assertExact(playthrough, playthroughKeys, `playthroughs[${index}]`); rejectNullSplitKeys(playthrough, playthroughKeys, `playthroughs[${index}]`); }
 for (const [index, ticket] of (story.tickets ?? []).entries()) { assertExact(ticket, ticketKeys, `tickets[${index}]`); rejectNullSplitKeys(ticket, ticketKeys, `tickets[${index}]`); }
 assertExact(source.truthBoundary, truthKeys, 'truthBoundary');
-const phaseDates = { P1: ['2026-04-06', '2026-04-24'], P2: ['2026-04-27', '2026-05-22'], P3: ['2026-05-25', '2026-05-29'] };
-const meetingByPhase = { P1: 'UABC-MTG-001', P2: 'UABC-MTG-002', P3: 'UABC-MTG-003' };
+const phaseDates = { P1: ['2026-04-01', '2026-05-01'], P2: ['2026-05-04', '2026-05-11'], P3: ['2026-05-12', '2026-06-01'] };
 const pageByPhase = { P1: 'PAGE-UABC-030', P2: 'PAGE-UABC-050', P3: 'PAGE-UABC-070' };
 const deliverableByPhase = { P1: 'UABC-DEL-BCB-001', P2: 'UABC-DEL-BCB-004', P3: 'UABC-DEL-BCB-009' };
 const tickets = story.tickets.map((ticket) => {
   const [start, end] = phaseDates[ticket.phase] ?? phaseDates.P1;
   const task = ticket.type === 'task';
-  const hours = task ? Number(ticket.estimateHours) : 0;
+  const sourceWorklog = task ? ticket.worklogs?.[0] : null;
   const evidence = ticket.evidenceRefs?.length ? ticket.evidenceRefs : ['evidence/simulation/project-completion.yaml'];
   const pageRefs = ticket.pageRefs?.length ? ticket.pageRefs : [pageByPhase[ticket.phase] ?? 'PAGE-UABC-000'];
   const deliverableRefs = ticket.deliverableRefs?.length ? ticket.deliverableRefs : [deliverableByPhase[ticket.phase] ?? 'UABC-DEL-BCB-001'];
@@ -50,13 +49,13 @@ const tickets = story.tickets.map((ticket) => {
     liveStatus: ticket.status,
     simulationStatus: 'completed',
     syntheticLifecycle: { createdAt: start, startedAt: start, testedAt: end, closedAt: end },
-    meetingTranscriptRefs: [meetingByPhase[ticket.phase] ?? 'UABC-MTG-001'],
+    meetingTranscriptRefs: ticket.meetingTranscriptRefs,
     pageRefs,
     deliverableRefs,
     evidenceRefs: evidence,
     acceptanceCriteria: acceptance,
     closingComment: `Synthetische Referenzsimulation für ${ticket.id}: Evidence verknüpft, Test und Retest bestanden; keine Live-Ausführung behauptet.`,
-    worklog: task ? { id: `WL-${ticket.id}-SIM-20260714`, taskId: ticket.id, hours, hourlyRate: 120, netAmount: hours * 120, billable: true, source: 'ticket-estimate-simulation' } : null
+    worklog: task ? { id: sourceWorklog.id, taskId: ticket.id, date: sourceWorklog.date, hours: sourceWorklog.hours, hourlyRate: 120, netAmount: sourceWorklog.netAmount, billable: true, source: 'ticket-actual-worklog-v3' } : null
   };
 });
 const output = {

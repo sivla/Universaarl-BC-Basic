@@ -1,0 +1,36 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-DEMO-001
+projectId: UABC-BC-BASIC-001
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
+productResult: V1_STANDARDPRODUCT_READY
+guide: docs/runbooks/bc-basic-simulation-demo.md
+stations:
+  - { id: DEMO-01, source: project/bc-basic/data-readiness-check.yaml, status: synthetisch-geprueft }
+  - { id: DEMO-02, source: evidence/simulation/phase-2-p2p-o2c.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-03, source: evidence/simulation/phase-3-cash-inventory-close.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-04, source: project/bc-basic/uat-training-run.yaml, status: synthetisch-abgenommen }
+  - { id: DEMO-05, source: evidence/simulation/project-completion.yaml, status: GO_SIMULATION }
+  - { id: DEMO-06, source: project/bc-basic/traceability-matrix.yaml, status: synthetisch-geprueft }
+checks:
+  spectraRelease: spectra-v0.10.0-alpha.1
+  branchContract: exports/project-data/v1/index.yaml
+  twinArtifactCount: 108
+  realBcExecution: false
+  realAcceptance: ausserhalb-des-simulationsziels
+  externalTransmission: false
+result: GO_SIMULATION
+v1Acceptance:
+  commercial: { hours: 80, rateEur: 120, amountEur: 9600, result: bestanden }
+  decisions: { requiredAreas: 7, result: bestanden }
+  data: { templatePairs: 8, migrationWaves: 3, result: bestanden }
+  processControls: { glDifference: 0, bankDifference: 0, openP1: 0, openP2: 0, result: bestanden }
+  uat: { cases: 7, result: bestanden-synthetisch }
+  operators: { paths: 4, smokeTest: UABC-SMOKE-BCB-OPERATOR-001, result: bestanden-synthetisch }
+  transition: { cutover: bestanden, restart: bestanden, hypercareDays: 3, result: bestanden-synthetisch }
+  deliverables: { completed: 9, total: 9, result: bestanden-synthetisch }
+  contracts: { spectra: BOUND-0.10.0-alpha.1, snapshot: validiert, twin: branch-index-read-only, result: bestanden }
+realCustomerEntryGate: project/bc-basic/phase-2-readiness-gate.yaml

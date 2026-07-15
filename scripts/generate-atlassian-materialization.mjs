@@ -24,7 +24,7 @@ export function buildMaterialization({ config, story, ticketCatalog, resultCatal
   const pages = story?.pages ?? [];
   const tickets = ticketCatalog?.ticketRecords ?? [];
   if (JSON.stringify((projectPlan?.phases ?? []).map((phase) => phase.id)) !== JSON.stringify(['UABC-1','UABC-2','UABC-3']) || (projectPlan?.phases ?? []).some((phase) => phase.id !== phase.jiraRef)) fail(errors, 'PROJEKTPLAN-PHASE', 'Projektplan und Jira muessen dieselben Phase-Tickets UABC-1/2/3 verwenden');
-  if (projectPlan?.schedule?.timelineAuthority !== 'reference-simulation-april-may-2026' || projectPlan?.schedule?.customerTemplateStatus !== 'illustrative-not-current') fail(errors, 'PROJEKTPLAN-ZEITACHSE', 'Referenzsimulation und illustratives Kundenfenster sind nicht eindeutig getrennt');
+  if (projectPlan?.schedule?.timelineAuthority !== 'pilot-v3-april-june-2026' || projectPlan?.schedule?.customerTemplateStatus !== 'not-active' || projectPlan?.schedule?.implementationWeek !== '2026-05-04/2026-05-08') fail(errors, 'PROJEKTPLAN-ZEITACHSE', 'V3-Zeitachse und exakte Einrichtungswoche sind nicht eindeutig');
   const taskHours = (story?.tickets ?? []).filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.worklogs ?? []).reduce((sum, worklog) => sum + Number(worklog.hours ?? 0), 0);
   const forecast = billing?.forecast;
   if (forecast?.countingRule !== 'billable-task-worklogs-only' || forecast?.consumedHours !== taskHours || Number(forecast?.consumedHours ?? -1) < 0 || forecast?.parentBillingLines !== false) fail(errors, 'BUDGET-FORECAST', 'Forecast muss aus Task-Worklogs abgeleitet und ohne Elternabrechnung ausgewiesen werden');

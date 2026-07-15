@@ -9,11 +9,26 @@
       "status": "passed",
       "evidenceMode": "repository",
       "evidence": [
-        { "kind": "test-report", "path": "evidence/verification-register.yaml" },
-        { "kind": "operator-guide", "path": "docs/runbooks/business-central-basic.md" },
-        { "kind": "release-evidence", "path": "evidence/spectra-release-1.0.0.yaml" },
-        { "kind": "security-boundary", "path": "AGENTS.md" },
-        { "kind": "platform-matrix", "path": "evidence/spectra-release-1.2.0-alpha.12.yaml" }
+        {
+          "kind": "test-report",
+          "path": "evidence/verification-register.yaml"
+        },
+        {
+          "kind": "operator-guide",
+          "path": "docs/runbooks/business-central-basic.md"
+        },
+        {
+          "kind": "release-evidence",
+          "path": "evidence/spectra-release-1.0.0.yaml"
+        },
+        {
+          "kind": "security-boundary",
+          "path": "AGENTS.md"
+        },
+        {
+          "kind": "platform-matrix",
+          "path": "evidence/spectra-release-1.2.0-alpha.12.yaml"
+        }
       ],
       "blockers": []
     },
@@ -21,12 +36,30 @@
       "status": "passed",
       "evidenceMode": "repository",
       "evidence": [
-        { "kind": "onboarding-runbook", "path": "docs/runbooks/bc-basic-onboarding-delivery.md" },
-        { "kind": "input-contract", "path": "project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml" },
-        { "kind": "profile-proof", "path": "project/bc-basic/actor-register.yaml" },
-        { "kind": "recovery-proof", "path": "docs/runbooks/bc-basic-onboarding-delivery.md" },
-        { "kind": "source-register", "path": "docs/research/sources.yaml" },
-        { "kind": "readiness-validation", "path": "scripts/validate-production-readiness.mjs" }
+        {
+          "kind": "onboarding-runbook",
+          "path": "docs/runbooks/bc-basic-onboarding-delivery.md"
+        },
+        {
+          "kind": "input-contract",
+          "path": "project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml"
+        },
+        {
+          "kind": "profile-proof",
+          "path": "project/bc-basic/actor-register.yaml"
+        },
+        {
+          "kind": "recovery-proof",
+          "path": "docs/runbooks/bc-basic-onboarding-delivery.md"
+        },
+        {
+          "kind": "source-register",
+          "path": "docs/research/sources.yaml"
+        },
+        {
+          "kind": "readiness-validation",
+          "path": "scripts/validate-production-readiness.mjs"
+        }
       ],
       "blockers": []
     },
@@ -73,9 +106,21 @@
     "invoiceBasisPath": "project/bc-basic/billing.yaml"
   },
   "phases": [
-    { "id": "UABC-1", "title": "Vorbereitung und Discovery", "plannedHours": 22 },
-    { "id": "UABC-2", "title": "Einrichtungs- und Umsetzungswoche", "plannedHours": 40 },
-    { "id": "UABC-3", "title": "Go-live, Hypercare und erster Abschluss", "plannedHours": 18 }
+    {
+      "id": "UABC-1",
+      "title": "Vorbereitung und Discovery",
+      "plannedHours": 22
+    },
+    {
+      "id": "UABC-2",
+      "title": "Einrichtungs- und Umsetzungswoche",
+      "plannedHours": 40
+    },
+    {
+      "id": "UABC-3",
+      "title": "Go-live, Hypercare und erster Abschluss",
+      "plannedHours": 18
+    }
   ],
   "customerInputs": {
     "templatePath": "project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml",
@@ -83,42 +128,139 @@
     "publicRepositoryDataAllowed": false
   },
   "security": {
-    "controls": ["Security Groups", "Permission Sets", "Least Privilege", "Admin-Consultant-Fachanwender-Trennung", "Notfallzugang", "SoD-Proben"],
+    "controls": [
+      "Security Groups",
+      "Permission Sets",
+      "Least Privilege",
+      "Admin-Consultant-Fachanwender-Trennung",
+      "Notfallzugang",
+      "SoD-Proben"
+    ],
     "secretStorage": "runtime-only"
   },
   "migration": {
-    "configurationPackages": ["SETUP", "MASTER"],
-    "controlledPosting": ["offene Debitorenposten", "offene Kreditorenposten", "Sachkontoeroeffnung", "Lageranfangsbestand"],
-    "prohibitedImports": ["G/L Entry", "Customer Ledger Entry", "Vendor Ledger Entry", "VAT Entry", "Item Ledger Entry", "Value Entry", "Bank Account Ledger Entry", "gebuchte Belegtabellen"],
+    "configurationPackages": [
+      "SETUP",
+      "MASTER"
+    ],
+    "controlledPosting": [
+      "offene Debitorenposten",
+      "offene Kreditorenposten",
+      "Sachkontoeroeffnung",
+      "Lageranfangsbestand"
+    ],
+    "prohibitedImports": [
+      "G/L Entry",
+      "Customer Ledger Entry",
+      "Vendor Ledger Entry",
+      "VAT Entry",
+      "Item Ledger Entry",
+      "Value Entry",
+      "Bank Account Ledger Entry",
+      "gebuchte Belegtabellen"
+    ],
     "rollbackRequired": true
   },
   "deliveryGates": [
-    { "id": "UABC-GATE-LIVE-TENANT", "status": "PENDING", "evidenceKind": "real-tenant" },
-    { "id": "UABC-GATE-LIVE-LICENSES", "status": "PENDING", "evidenceKind": "real-licenses" },
-    { "id": "UABC-GATE-LIVE-SECURITY", "status": "PENDING", "evidenceKind": "real-permissions" },
-    { "id": "UABC-GATE-LIVE-UAT", "status": "PENDING", "evidenceKind": "real-uat" },
-    { "id": "UABC-GATE-LIVE-CUTOVER", "status": "PENDING", "evidenceKind": "real-cutover" },
-    { "id": "UABC-GATE-LIVE-CLOSE", "status": "PENDING", "evidenceKind": "real-first-close" },
-    { "id": "UABC-GATE-LIVE-TAX", "status": "PENDING", "evidenceKind": "real-vat-submission" },
-    { "id": "UABC-GATE-LIVE-SUPPORT", "status": "PENDING", "evidenceKind": "real-support-handover" }
+    {
+      "id": "UABC-GATE-LIVE-TENANT",
+      "status": "PENDING",
+      "evidenceKind": "real-tenant"
+    },
+    {
+      "id": "UABC-GATE-LIVE-LICENSES",
+      "status": "PENDING",
+      "evidenceKind": "real-licenses"
+    },
+    {
+      "id": "UABC-GATE-LIVE-SECURITY",
+      "status": "PENDING",
+      "evidenceKind": "real-permissions"
+    },
+    {
+      "id": "UABC-GATE-LIVE-UAT",
+      "status": "PENDING",
+      "evidenceKind": "real-uat"
+    },
+    {
+      "id": "UABC-GATE-LIVE-CUTOVER",
+      "status": "PENDING",
+      "evidenceKind": "real-cutover"
+    },
+    {
+      "id": "UABC-GATE-LIVE-CLOSE",
+      "status": "PENDING",
+      "evidenceKind": "real-first-close"
+    },
+    {
+      "id": "UABC-GATE-LIVE-TAX",
+      "status": "PENDING",
+      "evidenceKind": "real-vat-submission"
+    },
+    {
+      "id": "UABC-GATE-LIVE-SUPPORT",
+      "status": "PENDING",
+      "evidenceKind": "real-support-handover"
+    }
   ],
   "businessContinuity": {
     "restoreProbeRequired": true,
-    "checksAfterRestore": ["Environment und Company", "Benutzer und Berechtigungen", "Extensions", "Job Queues", "E-Mail-Konfiguration ohne Versand", "Integrationen ohne externe Mutation", "Beleg- und Ledger-Integrität"]
+    "checksAfterRestore": [
+      "Environment und Company",
+      "Benutzer und Berechtigungen",
+      "Extensions",
+      "Job Queues",
+      "E-Mail-Konfiguration ohne Versand",
+      "Integrationen ohne externe Mutation",
+      "Beleg- und Ledger-Integrität"
+    ]
   },
   "knowledgeSpaces": {
     "contractPath": "project/bc-basic/confluence-three-space-v1.yaml",
-    "requiredSpaceIds": ["UABC-SPACE-CUSTOMER", "UABC-SPACE-PRODUCT", "UABC-SPACE-CONSULTANT"]
+    "requiredSpaceIds": [
+      "UABC-SPACE-CUSTOMER",
+      "UABC-SPACE-PRODUCT",
+      "UABC-SPACE-CONSULTANT"
+    ]
   },
   "artifacts": {
     "deliverableRegister": "project/bc-basic/deliverables.yaml",
     "requiredDeliverableCount": 9,
-    "transcripts": ["atlassian/confluence/meetings/UABC-MTG-001.md", "atlassian/confluence/meetings/UABC-MTG-002.md", "atlassian/confluence/meetings/UABC-MTG-003.md"],
-    "acceptance": ["project/bc-basic/uat-catalog.yaml", "evidence/verification-register.yaml"],
-    "training": ["project/bc-basic/training-plan.yaml", "project/bc-basic/uat-training-run.yaml", "atlassian/confluence/pages/80-bc-basic-training.md"],
-    "cutover": ["docs/runbooks/business-central-basic.md", "atlassian/confluence/pages/73-bc-basic-hypercare.md"],
-    "hypercare": ["evidence/simulation/project-completion.yaml", "atlassian/confluence/pages/bc-basic-hypercare.md"],
-    "support": ["docs/handover/bc-basic-handover.md", "atlassian/confluence/pages/81-bc-basic-handover.md"],
+    "transcripts": [
+      "atlassian/confluence/meetings/UABC-MTG-001.md",
+      "atlassian/confluence/meetings/UABC-MTG-002.md",
+      "atlassian/confluence/meetings/UABC-MTG-003.md",
+      "atlassian/confluence/meetings/UABC-MTG-004.md",
+      "atlassian/confluence/meetings/UABC-MTG-005.md",
+      "atlassian/confluence/meetings/UABC-MTG-006.md",
+      "atlassian/confluence/meetings/UABC-MTG-007.md",
+      "atlassian/confluence/meetings/UABC-MTG-008.md",
+      "atlassian/confluence/meetings/UABC-MTG-009.md",
+      "atlassian/confluence/meetings/UABC-MTG-010.md",
+      "atlassian/confluence/meetings/UABC-MTG-011.md",
+      "atlassian/confluence/meetings/UABC-MTG-012.md"
+    ],
+    "acceptance": [
+      "project/bc-basic/uat-catalog.yaml",
+      "evidence/verification-register.yaml"
+    ],
+    "training": [
+      "project/bc-basic/training-plan.yaml",
+      "project/bc-basic/uat-training-run.yaml",
+      "atlassian/confluence/pages/80-bc-basic-training.md"
+    ],
+    "cutover": [
+      "docs/runbooks/business-central-basic.md",
+      "atlassian/confluence/pages/73-bc-basic-hypercare.md"
+    ],
+    "hypercare": [
+      "evidence/simulation/project-completion.yaml",
+      "atlassian/confluence/pages/bc-basic-hypercare.md"
+    ],
+    "support": [
+      "docs/handover/bc-basic-handover.md",
+      "atlassian/confluence/pages/81-bc-basic-handover.md"
+    ],
     "customerHandbook": "docs/guides/beginner/business-central-basic.md",
     "consultantHandbook": "docs/runbooks/bc-basic-onboarding-delivery.md",
     "weeklyBillingBasis": "project/bc-basic/billing.yaml",
@@ -127,19 +269,72 @@
   "ticketTranscriptCoverage": [
     {
       "phaseId": "UABC-1",
-      "ticketIds": ["UABC-1", "UABC-4", "UABC-5", "UABC-6", "UABC-14", "UABC-15", "UABC-16", "UABC-17", "UABC-18", "UABC-19", "UABC-20", "UABC-32", "UABC-33", "UABC-34", "UABC-35", "UABC-36", "UABC-37", "UABC-38"],
+      "ticketIds": [
+        "UABC-1",
+        "UABC-4",
+        "UABC-5",
+        "UABC-6",
+        "UABC-14",
+        "UABC-15",
+        "UABC-16",
+        "UABC-17",
+        "UABC-18",
+        "UABC-19",
+        "UABC-20",
+        "UABC-32",
+        "UABC-33",
+        "UABC-34",
+        "UABC-35",
+        "UABC-36",
+        "UABC-37",
+        "UABC-38"
+      ],
       "transcriptPath": "atlassian/confluence/meetings/UABC-MTG-001.md",
       "rationale": "Discovery, Scope, Fit-to-Standard, Datenbereitschaft und Abnahmeplanung werden im Phase-1-Protokoll fachlich eingeordnet."
     },
     {
       "phaseId": "UABC-2",
-      "ticketIds": ["UABC-2", "UABC-7", "UABC-8", "UABC-9", "UABC-10", "UABC-21", "UABC-22", "UABC-23", "UABC-24", "UABC-25", "UABC-26", "UABC-27", "UABC-28", "UABC-39", "UABC-40", "UABC-41", "UABC-42", "UABC-43", "UABC-44", "UABC-45"],
+      "ticketIds": [
+        "UABC-2",
+        "UABC-7",
+        "UABC-8",
+        "UABC-9",
+        "UABC-10",
+        "UABC-21",
+        "UABC-22",
+        "UABC-23",
+        "UABC-24",
+        "UABC-25",
+        "UABC-26",
+        "UABC-27",
+        "UABC-28",
+        "UABC-39",
+        "UABC-40",
+        "UABC-41",
+        "UABC-42",
+        "UABC-43",
+        "UABC-44",
+        "UABC-45"
+      ],
       "transcriptPath": "atlassian/confluence/meetings/UABC-MTG-002.md",
       "rationale": "Einrichtung, Migration, Kernprozesse, SIT, UAT und Schulung werden im konsolidierten Phase-2-Protokoll fachlich abgedeckt."
     },
     {
       "phaseId": "UABC-3",
-      "ticketIds": ["UABC-3", "UABC-11", "UABC-12", "UABC-13", "UABC-29", "UABC-30", "UABC-31", "UABC-47", "UABC-48", "UABC-49", "UABC-50", "UABC-46"],
+      "ticketIds": [
+        "UABC-3",
+        "UABC-11",
+        "UABC-12",
+        "UABC-13",
+        "UABC-29",
+        "UABC-30",
+        "UABC-31",
+        "UABC-47",
+        "UABC-48",
+        "UABC-49",
+        "UABC-50",
+        "UABC-46"
+      ],
       "transcriptPath": "atlassian/confluence/meetings/UABC-MTG-003.md",
       "rationale": "Go-live, Hypercare, Monatsabschluss, VAT, Retro und Supportübergabe werden im Phase-3-Protokoll fachlich abgedeckt."
     }
@@ -147,22 +342,75 @@
   "referenceSimulation": {
     "status": "SIMULATED_COMPLETE",
     "liveEquivalentStatus": "PENDING",
-    "requiredSessionFields": ["page", "navigation", "action", "fields", "postingPreview", "expectedEntries", "control", "error", "correction", "retest"],
-    "evidence": ["project/bc-basic/bc-playthrough-catalog.yaml", "evidence/simulation/bc-playthrough-ledger.yaml", "evidence/simulation/phase-2-p2p-o2c.yaml", "evidence/simulation/phase-3-cash-inventory-close.yaml"]
+    "requiredSessionFields": [
+      "page",
+      "navigation",
+      "action",
+      "fields",
+      "postingPreview",
+      "expectedEntries",
+      "control",
+      "error",
+      "correction",
+      "retest"
+    ],
+    "evidence": [
+      "project/bc-basic/bc-playthrough-catalog.yaml",
+      "evidence/simulation/bc-playthrough-ledger.yaml",
+      "evidence/simulation/phase-2-p2p-o2c.yaml",
+      "evidence/simulation/phase-3-cash-inventory-close.yaml"
+    ]
   },
   "sources": {
     "registerPath": "docs/research/sources.yaml",
     "retrievedAt": "2026-07-14",
-    "truthCategories": ["BC-Standard", "Projektentscheidung", "synthetischer Wert", "offene Steuer-/Lokalisierungsentscheidung"],
+    "truthCategories": [
+      "BC-Standard",
+      "Projektentscheidung",
+      "synthetischer Wert",
+      "offene Steuer-/Lokalisierungsentscheidung"
+    ],
     "primary": [
-      { "id": "UABC-SRC-ONB-001", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/setup", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-002", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-003", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-004", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat", "category": "offene Steuer-/Lokalisierungsentscheidung" },
-      { "id": "UABC-SRC-ONB-005", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/ui-how-users-permissions", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-006", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/environment-types", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-007", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-backup-restore", "category": "BC-Standard" },
-      { "id": "UABC-SRC-ONB-008", "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages", "category": "BC-Standard" }
+      {
+        "id": "UABC-SRC-ONB-001",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/setup",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-002",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-posting-groups",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-003",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-setup-vat",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-004",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/finance-how-report-vat",
+        "category": "offene Steuer-/Lokalisierungsentscheidung"
+      },
+      {
+        "id": "UABC-SRC-ONB-005",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/ui-how-users-permissions",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-006",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/environment-types",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-007",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-backup-restore",
+        "category": "BC-Standard"
+      },
+      {
+        "id": "UABC-SRC-ONB-008",
+        "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages",
+        "category": "BC-Standard"
+      }
     ]
   }
 }

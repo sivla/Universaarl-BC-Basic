@@ -150,7 +150,8 @@ async function disposableRepository(t) {
     'make-bc-basic-jira-story-human-readable-v1',
     pilotSetupChange,
     countryCompanyExecutionChange,
-    portableSnapshotChange
+    portableSnapshotChange,
+    'realize-bc-basic-pilot-v3'
   ]);
   register.verifications = register.verifications.filter((item) => !removedFixtureChanges.has(item.changeRef));
   await writeYaml(root, verificationPath, register);

@@ -33,10 +33,10 @@ test('V2-Redaktion deckt Datenworkshop, Hypercare und Handover fachlich ab', () 
   assert.match(data.description, /Owner|Qualitätskriterien|Freigabe/);
   const hypercare = story.tickets.find(ticket => ticket.id === 'UABC-46');
   assert.equal(hypercare.phase, 'P3');
-  assert.match(hypercare.description, /Hypercare-Tage|Incident-Priorität/);
-  assert.match(hypercare.description, /Restart/);
-  assert.match(hypercare.description, /Exit/);
+  assert.match(hypercare.description, /Hypercare-Tage|Störungspriorität/);
+  assert.match(hypercare.description, /Wiederanlauf/);
+  assert.match(hypercare.description, /Austrittsentscheidung/);
   const handover = story.tickets.find(ticket => ticket.id === 'UABC-50');
-  assert.match(handover.description, /synthetische Handover-Abnahme ist abgeschlossen/);
+  assert.match(handover.description, /synthetische Übergabeabnahme ist abgeschlossen/);
   assert.match(handover.description, /acht realen Kundengates/);
 });

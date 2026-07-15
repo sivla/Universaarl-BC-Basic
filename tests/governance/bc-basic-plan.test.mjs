@@ -106,8 +106,8 @@ test('Drei Phasen bilden den synthetischen 80-Stunden-Plan mit Einrichtungswoche
   assert.equal(plan.phases?.length, 3);
   assert.deepEqual(plan.phases.map((phase) => phase.plannedBillableHours), [22, 40, 18]);
   assert.equal(plan.phases.reduce((sum, phase) => sum + phase.plannedBillableHours, 0), 80);
-  assert.equal(plan.phases[1].startDate, '2026-08-24');
-  assert.equal(plan.phases[1].endDate, '2026-08-28');
+  assert.equal(plan.phases[1].startDate, '2026-05-04');
+  assert.equal(plan.phases[1].endDate, '2026-05-11');
   assert.match(plan.phases[0].name, /Vorbereitung/);
   assert.match(plan.phases[2].name, /Hypercare/);
   assert.equal(plan.phases[2].plannedBillableHours, 18);
@@ -146,21 +146,23 @@ test('Planstunden und Jira-Abrechnung verhindern Eltern Doppelabrechnung und erf
   assert.equal(billing.workdayHours, 8);
   assert.equal(billing.netHourlyRate, 120);
   assert.equal(billing.plannedNetAmount, 9600);
-  assert.equal(billing.status, 'synthetic-closed');
+  assert.equal(billing.status, 'synthetic-closed-v3');
   assert.equal(billing.forecast.plannedHours, 80);
   assert.equal(billing.forecast.consumedHours, taskHours);
   assert.equal(billing.forecast.committedHours, taskHours);
   assert.equal(billing.forecast.remainingHours, 80 - taskHours);
   assert.equal(billing.forecast.consumedNetAmount, taskHours * 120);
-  assert.equal(billing.simulationClose.status, 'synthetic-closed');
+  assert.equal(billing.simulationClose.status, 'synthetic-closed-v3');
   assert.equal(billing.simulationClose.plannedHours, 80);
   assert.equal(billing.simulationClose.actualHours, taskHours);
   assert.equal(billing.simulationClose.actualNetAmount, taskHours * 120);
   assert.deepEqual(billing.historicalBaseline, { plannedHours: 68, hourlyRate: 162.5, plannedNetAmount: 11050, status: 'superseded-for-synthetic-project-story-only' });
   assert.equal(billing.budgetLimitStatus, 'unknown');
   assert.equal(billing.budgetLimitNetAmount, null);
-  assert.deepEqual(billing.worklogs, []);
-  assert.deepEqual(billing.invoices, []);
+  assert.equal(billing.worklogs.length, 19);
+  assert.equal(billing.invoices.length, 9);
+  assert.equal(billing.worklogs.reduce((sum, item) => sum + item.hours, 0), taskHours);
+  assert.equal(billing.invoices.flatMap((invoice) => invoice.lines).reduce((sum, item) => sum + item.netAmount, 0), taskHours * 120);
   assert.equal(billing.rollupRule?.noDoubleBilling?.includes('niemals gemeinsam'), true);
   assert.deepEqual(billing.worklogContract?.required, [
     'worklogId',
@@ -197,9 +199,9 @@ test('Historische Jira-Referenz bewahrt Transkripte, aktive Tickets übernehmen 
     assert.ok(issue.transcriptRefs.every((id) => meetingById.has(id)), `${issue.key} verweist auf unbekanntes Transkript`);
   }
   const referencedMeetings = new Set(projectStory.tickets.filter((ticket) => ticket.type === 'task').flatMap((ticket) => ticket.meetingTranscriptRefs ?? []));
-  assert.deepEqual(referencedMeetings, new Set(['UABC-MTG-001', 'UABC-MTG-002', 'UABC-MTG-003']));
-  assert.equal(meetingIndex.classification, 'historical-reference-simulation');
-  assert.equal(meetingIndex.currentAuthority, false);
+  assert.deepEqual(referencedMeetings, new Set(['UABC-MTG-001', 'UABC-MTG-002', 'UABC-MTG-003', 'UABC-MTG-004', 'UABC-MTG-006', 'UABC-MTG-007', 'UABC-MTG-008', 'UABC-MTG-009', 'UABC-MTG-010', 'UABC-MTG-011', 'UABC-MTG-012']));
+  assert.equal(meetingIndex.classification, 'synthetic-current-pilot-v3');
+  assert.equal(meetingIndex.currentAuthority, true);
   for (const meeting of meetings) {
     assert.equal(meeting.evidenceClaimed, false);
     assert.equal(await exists(meeting.transcriptPath), true);
@@ -786,10 +788,10 @@ test('Entscheidungen bleiben an eine technische Entscheiderreferenz gebunden', (
   assert.ok(decisionRegister.decisions?.some((decision) => decision.id === 'UABC-DEC-BCB-009'));
   for (const decision of decisionRegister.decisions) {
     assert.equal(decision.decidedByRef, 'real-repository-user');
-    assert.ok(['planned', 'decided'].includes(decision.status));
+    assert.ok(['planned', 'decided', 'superseded'].includes(decision.status));
     if (decision.status === 'planned') assert.equal(decision.decidedAt, null);
   }
-  assert.deepEqual(decisionRegister.activePilotDecisionRefs, ['UABC-DEC-BCB-009', 'UABC-DEC-BCB-010']);
+  assert.deepEqual(decisionRegister.activePilotDecisionRefs, ['UABC-DEC-BCB-009', 'UABC-DEC-BCB-011']);
   assert.ok(decisionRegister.openApprovals?.some((approval) => approval.id === 'UABC-APP-BCB-006' && approval.status === 'open'));
 });
 

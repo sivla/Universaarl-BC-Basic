@@ -4,4 +4,4 @@ import test from 'node:test';
 import { loadIntegration, validateIntegration } from '../../scripts/validate-spectra-0.10-integration.mjs';
 
 test('historische Spectra-Integration bleibt als Evidence validierbar', () => { const data = loadIntegration(); assert.deepEqual(validateIntegration(data), []); });
-test('stale Alpha-Bindung wird nicht zur aktuellen Runtime-Bindung', () => { const pointer = JSON.parse(readFileSync('exports/project-data/v1/snapshots/current.json', 'utf8')); assert.equal(pointer.requiresGit, false); assert.match(pointer.currentReleaseId, /^UABC-CUSTOMER-001-CATALOG-20260714-V(?:1|2(?:-FINAL(?:-QUALITY(?:-2)?)?)?)$/); });
+test('stale Alpha-Bindung wird nicht zur aktuellen Runtime-Bindung', () => { const pointer = JSON.parse(readFileSync('exports/project-data/v1/snapshots/current.json', 'utf8')); assert.equal(pointer.requiresGit, false); assert.match(pointer.currentReleaseId, /^UABC-CUSTOMER-001-CATALOG-(?:20260714-V(?:1|2(?:-FINAL(?:-QUALITY(?:-2)?)?)?)|20260715-V3-FINAL)$/); });
