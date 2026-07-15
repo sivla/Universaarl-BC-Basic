@@ -11,9 +11,9 @@
 
 ## UABC-M2 - Tagesbetrieb materialisieren
 
-- [ ] Genau ein kanonisches V4-Betriebsjournal mit Tagesrecords, Belegen, Ledgerwirkungen, Kontrollen, Defects, Korrekturen und Retests erzeugen.
-- [ ] Neue Jira-Arbeit nur bei fachlicher Notwendigkeit im bestehenden `UABC-*`-Namensraum und in der vorhandenen Phase-Epic-Story-Task-Hierarchie materialisieren.
-- [ ] Ticket-, Meeting-, Prozess-, Test-, Entscheidungs- und Evidence-Referenzen bidirektional sowie Tageschronologie fail-closed validieren.
+- [x] Genau ein kanonisches V4-Betriebsjournal mit Tagesrecords, Belegen, Ledgerwirkungen, Kontrollen, Defects, Korrekturen und Retests erzeugen.
+- [x] Neue Jira-Arbeit nur bei fachlicher Notwendigkeit im bestehenden `UABC-*`-Namensraum und in der vorhandenen Phase-Epic-Story-Task-Hierarchie materialisieren.
+- [x] Ticket-, Meeting-, Prozess-, Test-, Entscheidungs- und Evidence-Referenzen bidirektional sowie Tageschronologie fail-closed validieren.
 
 ## UABC-M3 - Hypercare, Abschluss und UStVA-Vorschau
 

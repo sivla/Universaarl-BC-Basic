@@ -126,3 +126,16 @@ M1 erzeugt keine neuen Jira-Tickets, Worklogs, Rechnungen, Confluence-Seiten ode
 - Maximal 5 neue Stunden zu 120 EUR beziehungsweise 600 EUR sind zulaessig; kumuliert hoechstens 83 Stunden und 9.960 EUR netto.
 - Ein sechste zusaetzliche Stunde, eine Doppelreferenz oder ein kumulierter Betrag ab 10.000 EUR stoppt die Materialisierung fail-closed.
 - `current.json` bleibt auf V3, bis M2 bis M4, OpenSpec strict, ID-/Budget-/Referenztests und der V4-Katalog vollstaendig bestanden sind.
+
+## 9. M2-Materialisierung
+
+`project/bc-basic/operating-cycle-v4.yaml` ist die einzige kanonische Quelle des M2-Deltas. Der Generator
+`scripts/materialize-bc-operating-cycle-v4.mjs` leitet daraus genau das Betriebsjournal
+`evidence/simulation/operating-cycle-v4.json` ab. Das Journal umfasst alle 22 Kalendertage, die V4-Bewegungen,
+laufende Nebenbuch-, Lager-, Bank-, VAT- und Sachbuchkontrollen sowie bidirektionale Rueckverweise. Es ist bis M4
+nicht Twin-sichtbar und schaltet den aktuellen V3-Katalog nicht um.
+
+Die einzige neue Jira-Arbeit ist `UABC-51` mit dem Kurztitel `Betriebsjournal` als Task unter der bestehenden Story
+`UABC-31`. Das Worklog `WL-UABC-51-V4` umfasst am 1. Juni 2026 genau 3 Stunden zu 120 EUR beziehungsweise 360 EUR.
+Damit betraegt die kumulierte Projektion 81 Stunden und 9.720 EUR netto. Die Rechnungszeile bleibt nicht versendet;
+die dokumentierte Annahme ist ausschliesslich synthetisch. Bestehende V3-Arbeit wird nicht erneut fakturiert.

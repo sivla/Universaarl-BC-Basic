@@ -1,0 +1,274 @@
+schemaVersion: 1
+journalId: UABC-OPERATING-CYCLE-V4-001
+projectId: UABC-CUSTOMER-001
+classification: synthetic-complete-no-live-bc
+period:
+  start: 2026-05-11
+  end: 2026-06-01
+truthBoundary:
+  liveBcExecuted: false
+  realCustomerApprovalClaimed: false
+  externalBankAction: false
+  vatTransmitted: false
+  currentCatalogActivated: false
+  note: V4 erweitert die unveraenderliche V3-Baseline; der aktuelle Twin-Katalog bleibt bis M4 auf V3.
+baseline:
+  releaseId: UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL
+  manifestSha256: ce92caf9d612bf8fff8fd84cc12c5e13fd20bc8ec3535b13ac4ba0b931cb7c8f
+  payloadBundleDigest: bc691ce634b38e782280016bf3e34ac683d70f705a3bb4be46f995ef37e2e57b
+  releaseFileCount: 125
+  aggregateSha256: 981a56d7ba9956a61b90d01b6dc5f1982b6f1163ebcbf5c0aa61f8b9a2b76507
+  ticketCount: 50
+  taskWorklogCount: 19
+  actualHours: 78
+  actualNetAmount: 9360
+extensionTask:
+  id: UABC-51
+  type: task
+  parent: UABC-31
+  phaseId: UABC-3
+  summary: Betriebsjournal
+  status: closed-synthetic
+  description: Das bestehende V3-Projekt wird um ein lueckenloses, aus der kanonischen V4-Quelle generiertes Betriebsjournal erweitert; bereits fakturierte Prozessarbeit wird nicht erneut berechnet.
+  acceptanceCriteria:
+    - Alle 22 Tage sind chronologisch, rollenbezogen und rechnerisch differenzfrei materialisiert.
+    - P2P, O2C, Zahlung, Bank und Lager besitzen Belege, Ledgerwirkungen, Kontrollen und geschlossene Retests.
+    - Alle Ticket-, Meeting-, Prozess-, Test-, Entscheidungs- und Evidence-Verweise sind bidirektional.
+  worklog:
+    id: WL-UABC-51-V4
+    date: 2026-06-01
+    hours: 3
+    hourlyRate: 120
+    netAmount: 360
+    billable: true
+    invoiceStatus: projektion-nicht-versendet
+    syntheticApprovalOnly: true
+  meetingTranscriptRefs: [UABC-MTG-012]
+  decisionRefs: [UABC-DEC-BCB-011]
+  deliverableRefs: [UABC-DEL-BCB-009]
+  evidenceRefs:
+    - project/bc-basic/operating-cycle-v4.yaml
+    - evidence/simulation/operating-cycle-v4.json
+  extensionOf: [UABC-46, UABC-47, UABC-50]
+billing:
+  maximumNewHoursM2: 3
+  maximumNewNetAmountM2: 360
+  cumulativeHours: 81
+  cumulativeNetAmount: 9720
+  overallCapNetAmount: 10000
+openingControl:
+  bank: 5000
+  inventoryQuantity: 50
+  inventoryValue: 2100
+  accountsReceivable: 0
+  accountsPayable: 0
+  inputVat: 0
+  outputVat: 0
+  trialBalanceDebit: 7738.40
+  trialBalanceCredit: 7738.40
+  trialBalanceComposition:
+    debit:
+      - controlGroup: Bank
+        amount: 5000
+      - controlGroup: Bestand
+        amount: 2100
+      - controlGroup: Sonstige V3-Kontrollsalden Soll
+        amount: 638.40
+    credit:
+      - controlGroup: V3-Kontrollsalden Haben
+        amount: 7738.40
+    note: Die V3-Kontrollaggregate werden nicht in erfundene Sachkonten umgedeutet; nur die V4-Bewegungen werden kontenfachlich aufgeloest.
+traceProfiles:
+  cutover:
+    tickets: [UABC-44]
+    meetings: [UABC-MTG-010]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010]
+  p2p:
+    tickets: [UABC-37, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-P2P-001]
+    tests: [UABC-UAT-BCB-002]
+    decisions: [UABC-DEC-BCB-002]
+  o2c:
+    tickets: [UABC-38, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-O2C-001]
+    tests: [UABC-UAT-BCB-003]
+    decisions: [UABC-DEC-BCB-002]
+  inventory:
+    tickets: [UABC-39, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-INV-001]
+    tests: [UABC-UAT-BCB-004]
+    decisions: [UABC-DEC-BCB-002]
+  payment:
+    tickets: [UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-PAY-001]
+    tests: [UABC-UAT-BCB-005]
+    decisions: [UABC-DEC-BCB-006]
+  bank:
+    tickets: [UABC-26, UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-BANK-001]
+    tests: [UABC-UAT-BCB-005]
+    decisions: [UABC-DEC-BCB-006]
+  close:
+    tickets: [UABC-27, UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-006]
+    decisions: [UABC-DEC-BCB-009]
+  vat:
+    tickets: [UABC-28, UABC-48]
+    meetings: [UABC-MTG-008, UABC-MTG-012]
+    processes: [UABC-V3-VAT-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-009]
+  support:
+    tickets: [UABC-46, UABC-47]
+    meetings: [UABC-MTG-011]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010]
+  handover:
+    tickets: [UABC-50, UABC-51]
+    meetings: [UABC-MTG-012]
+    processes: [UABC-V3-CLOSE-001, UABC-V3-VAT-001]
+    tests: [UABC-UAT-BCB-006, UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010, UABC-DEC-BCB-011]
+days:
+  - {date: 2026-05-11, state: cutover, owner: P-PILOT-LEAD-001, controller: ROLE-CUSTOMER-FINANCE, profiles: [cutover], activity: "Cutover-Checkliste, Anfangssalden und Smoke-Test kontrolliert", documents: [CUTOVER-260511], postings: []}
+  - {date: 2026-05-12, state: hypercare-01, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Rollen, Buchungsperiode und Tagesbereitschaft kontrolliert", documents: [], postings: []}
+  - date: 2026-05-13
+    state: hypercare-02
+    owner: ROLE-CUSTOMER-PURCHASE
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [p2p, support]
+    activity: Bestellung, Wareneingang und Eingangsrechnung gebucht und abgestimmt
+    documents: [PO-260501, PRE-260501, PINV-260501]
+    postings:
+      - {account: Bestand, debit: 420, credit: 0, quantityDelta: 10}
+      - {account: Vorsteuer 19%, debit: 79.80, credit: 0}
+      - {account: Kreditoren, debit: 0, credit: 499.80}
+  - date: 2026-05-14
+    state: hypercare-03
+    owner: ROLE-CUSTOMER-SALES
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [o2c, support]
+    activity: Auftrag, Lieferung und Ausgangsrechnung gebucht und abgestimmt
+    documents: [SO-260501, SHP-260501, SINV-260501]
+    postings:
+      - {account: Debitoren, debit: 940.10, credit: 0}
+      - {account: Umsatzerloese, debit: 0, credit: 790}
+      - {account: Umsatzsteuer 19%, debit: 0, credit: 150.10}
+      - {account: Wareneinsatz, debit: 420, credit: 0}
+      - {account: Bestand, debit: 0, credit: 420, quantityDelta: -10}
+  - {date: 2026-05-15, state: hypercare-04, owner: ROLE-CUSTOMER-WAREHOUSE, controller: ROLE-CUSTOMER-FINANCE, profiles: [inventory, support], activity: "Artikelposten, Wertposten und offenen Warenfluss abgestimmt", documents: [], postings: []}
+  - {date: 2026-05-16, state: hypercare-05, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Wochenendmonitoring ohne geplante Buchung", documents: [], postings: []}
+  - {date: 2026-05-17, state: hypercare-06, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Wochenendmonitoring und Defectstatus kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-18, state: hypercare-07, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [payment, support], activity: "Offene Posten und Zahlungsreferenzen vorbereitet", documents: [], postings: []}
+  - date: 2026-05-19
+    state: hypercare-08
+    owner: ROLE-CUSTOMER-FINANCE
+    controller: ROLE-CUSTOMER-SALES
+    profiles: [payment, bank, support]
+    activity: Kundenzahlung zugeordnet, gebucht und Debitor ausgeglichen
+    documents: [CPAY-260519, SINV-260501]
+    postings:
+      - {account: Bank, debit: 940.10, credit: 0}
+      - {account: Debitoren, debit: 0, credit: 940.10}
+  - date: 2026-05-20
+    state: hypercare-09
+    owner: ROLE-CUSTOMER-FINANCE
+    controller: ROLE-CUSTOMER-PURCHASE
+    profiles: [payment, bank, support]
+    activity: Lieferantenzahlung gebucht und Kreditor ausgeglichen
+    documents: [VPAY-260520, PINV-260501]
+    postings:
+      - {account: Kreditoren, debit: 499.80, credit: 0}
+      - {account: Bank, debit: 0, credit: 499.80}
+  - {date: 2026-05-21, state: hypercare-10, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [bank, support], activity: "Bankzeilen gematcht und Differenz null bestaetigt", documents: [BSTMT-260531], postings: []}
+  - {date: 2026-05-22, state: hypercare-11, owner: P-PILOT-LEAD-001, controller: ACTOR-KUNDEN-SUPPORT, profiles: [support], activity: "Hypercare-Exit ohne offene P1 oder P2 kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-23, state: aftercare-01, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Monitoring ohne geplante Aenderung", documents: [], postings: []}
+  - {date: 2026-05-24, state: aftercare-02, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Restart-Voraussetzungen ohne geplante Buchung kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-25, state: restart-preparation, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Pfingstmontag als kontrollierter Ruhetag dokumentiert", documents: [], postings: []}
+  - {date: 2026-05-26, state: operational-restart, owner: ROLE-CUSTOMER-IT, controller: ROLE-CUSTOMER-FINANCE, profiles: [support, cutover], activity: "Berechtigungs-, Perioden- und Kernprozess-Smoke-Test bestanden", documents: [RESTART-260526], postings: []}
+  - date: 2026-05-27
+    state: close-01
+    owner: ROLE-CUSTOMER-WAREHOUSE
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [inventory, close]
+    activity: Inventur erfasst, Differenz gebucht und Lager mit Sachbuch abgestimmt
+    documents: [PHY-260527, ADJ-260527]
+    postings:
+      - {account: Inventurdifferenzen, debit: 42, credit: 0}
+      - {account: Bestand, debit: 0, credit: 42, quantityDelta: -1}
+  - {date: 2026-05-28, state: close-02, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [close, vat, bank], activity: "Nebenbuecher, Sachbuch, Bank, Lager und UStVA-Vorschau abgestimmt", documents: [CLOSE-2026-05, VAT-2026-05-PREVIEW], postings: []}
+  - {date: 2026-05-29, state: retrospective, owner: P-PILOT-LEAD-001, controller: ROLE-CUSTOMER-SPONSOR, profiles: [support], activity: "Defecttrend und Abschlussbereitschaft synthetisch entschieden", documents: [RETRO-260529], postings: []}
+  - {date: 2026-05-30, state: close-monitoring, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "P1/P2-Eskalationsbereitschaft ohne Buchung kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-31, state: period-end, owner: ROLE-CUSTOMER-FINANCE, controller: ACTOR-KUNDEN-SUPPORT, profiles: [bank, close], activity: "Kontoauszug als synthetischen Stichtagsinput gesichert", documents: [BSTMT-260531], postings: []}
+  - {date: 2026-06-01, state: handover, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [handover], activity: "Supportannahme, Journal und synthetischen Abschluss uebergeben", documents: [HANDOVER-260601], postings: []}
+exceptions:
+  - id: UABC-V4-DEF-001
+    date: 2026-05-13
+    severity: P2
+    processRef: UABC-V3-P2P-001
+    finding: USt.-Produktbuchungsgruppe war in der Einkaufszeile leer.
+    cause: Die Artikelvorlage wurde vor der MWST19-Zuordnung in die Testdaten uebernommen.
+    correction: MWST19 am Artikel gesetzt und die noch ungebuchte Einkaufszeile neu validiert.
+    retest: Derselbe Beleg PO-260501 mit 10 STK zu 42,00 EUR wurde erneut simuliert; 79,80 EUR Vorsteuer und 499,80 EUR Kreditor entstanden.
+    decision: Korrektur synthetisch angenommen; Buchung erst nach Differenz null fortgesetzt.
+    owner: ROLE-CUSTOMER-PURCHASE
+    decisionRef: UABC-DEC-BCB-002
+    status: closed-synthetic
+  - id: UABC-V4-DEF-002
+    date: 2026-05-14
+    severity: P2
+    processRef: UABC-V3-O2C-001
+    finding: Verkaufspreis war 75,00 statt 79,00 EUR.
+    cause: Eine veraltete Testpreiszeile ueberschrieb den Artikelpreis im Auftrag.
+    correction: Preiszeile entfernt und 79,00 EUR aus der freigegebenen Baseline neu gelesen.
+    retest: Derselbe Auftrag SO-260501 mit 10 STK wurde erneut simuliert; 790,00 EUR netto und 150,10 EUR Umsatzsteuer entstanden.
+    decision: Korrektur synthetisch angenommen; Lieferung und Rechnung danach freigegeben.
+    owner: ROLE-CUSTOMER-SALES
+    decisionRef: UABC-DEC-BCB-002
+    status: closed-synthetic
+  - id: UABC-V4-DEF-003
+    date: 2026-05-19
+    severity: P2
+    processRef: UABC-V3-PAY-001
+    finding: Zahlungsreferenz SINV-260510 konnte nicht ausgeglichen werden.
+    cause: Die Referenz wurde manuell mit einer vertauschten Endziffer erfasst.
+    correction: Referenz auf SINV-260501 korrigiert.
+    retest: Derselbe Zahlungseingang CPAY-260519 ueber 940,10 EUR wurde erneut zugeordnet; Restbetrag war 0,00 EUR.
+    decision: Ausgleich synthetisch angenommen; kein Bankfeed und keine reale Zahlung behauptet.
+    owner: ROLE-CUSTOMER-FINANCE
+    decisionRef: UABC-DEC-BCB-006
+    status: closed-synthetic
+  - id: UABC-V4-DEF-004
+    date: 2026-05-21
+    severity: P2
+    processRef: UABC-V3-BANK-001
+    finding: Eine Bankzeile enthielt keine Dokumentreferenz.
+    cause: Der synthetische Kontoauszug lieferte nur Betrag und Valutadatum.
+    correction: Bankzeile manuell gegen CPAY-260519 gematcht.
+    retest: Derselbe Auszug wurde erneut abgestimmt; Auszug und Bankposten betrugen jeweils 5.440,30 EUR bei Differenz 0,00 EUR.
+    decision: Manuelles Matching synthetisch angenommen; externe Bankaktion blieb ausgeschlossen.
+    owner: ROLE-CUSTOMER-FINANCE
+    decisionRef: UABC-DEC-BCB-006
+    status: closed-synthetic
+  - id: UABC-V4-DEF-005
+    date: 2026-05-27
+    severity: P2
+    processRef: UABC-V3-INV-001
+    finding: Inventurmenge 49 STK wich um 1 STK vom Buchbestand ab.
+    cause: Ein in der Simulation physisch verbrauchtes Set war noch nicht als Lagerabgang erfasst.
+    correction: Inventurdifferenz minus 1 STK zu 42,00 EUR ueber ADJ-260527 gebucht.
+    retest: Derselbe Inventurfall wurde erneut abgestimmt; Endbestand 49 STK und 2.058,00 EUR, Mengen- und Wertdifferenz jeweils null.
+    decision: Korrektur synthetisch angenommen; Monatsabschluss durfte fortgesetzt werden.
+    owner: ROLE-CUSTOMER-WAREHOUSE
+    decisionRef: UABC-DEC-BCB-009
+    status: closed-synthetic

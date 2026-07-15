@@ -1,0 +1,4830 @@
+{
+  "schemaVersion": 1,
+  "journalId": "UABC-OPERATING-CYCLE-V4-001",
+  "projectId": "UABC-CUSTOMER-001",
+  "classification": "synthetic-complete-no-live-bc",
+  "period": {
+    "start": "2026-05-11",
+    "end": "2026-06-01"
+  },
+  "truthBoundary": {
+    "liveBcExecuted": false,
+    "realCustomerApprovalClaimed": false,
+    "externalBankAction": false,
+    "vatTransmitted": false,
+    "currentCatalogActivated": false,
+    "note": "V4 erweitert die unveraenderliche V3-Baseline; der aktuelle Twin-Katalog bleibt bis M4 auf V3."
+  },
+  "v3Baseline": {
+    "releaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL",
+    "manifestSha256": "ce92caf9d612bf8fff8fd84cc12c5e13fd20bc8ec3535b13ac4ba0b931cb7c8f",
+    "payloadBundleDigest": "bc691ce634b38e782280016bf3e34ac683d70f705a3bb4be46f995ef37e2e57b",
+    "releaseFileCount": 125,
+    "aggregateSha256": "981a56d7ba9956a61b90d01b6dc5f1982b6f1163ebcbf5c0aa61f8b9a2b76507",
+    "ticketCount": 50,
+    "taskWorklogCount": 19,
+    "actualHours": 78,
+    "actualNetAmount": 9360
+  },
+  "ticketProjection": {
+    "id": "UABC-51",
+    "type": "task",
+    "parent": "UABC-31",
+    "phaseId": "UABC-3",
+    "summary": "Betriebsjournal",
+    "status": "closed-synthetic",
+    "description": "Das bestehende V3-Projekt wird um ein lueckenloses, aus der kanonischen V4-Quelle generiertes Betriebsjournal erweitert; bereits fakturierte Prozessarbeit wird nicht erneut berechnet.",
+    "acceptanceCriteria": [
+      "Alle 22 Tage sind chronologisch, rollenbezogen und rechnerisch differenzfrei materialisiert.",
+      "P2P, O2C, Zahlung, Bank und Lager besitzen Belege, Ledgerwirkungen, Kontrollen und geschlossene Retests.",
+      "Alle Ticket-, Meeting-, Prozess-, Test-, Entscheidungs- und Evidence-Verweise sind bidirektional."
+    ],
+    "worklog": {
+      "id": "WL-UABC-51-V4",
+      "date": "2026-06-01",
+      "hours": 3,
+      "hourlyRate": 120,
+      "netAmount": 360,
+      "billable": true,
+      "invoiceStatus": "projektion-nicht-versendet",
+      "syntheticApprovalOnly": true
+    },
+    "meetingTranscriptRefs": [
+      "UABC-MTG-012"
+    ],
+    "decisionRefs": [
+      "UABC-DEC-BCB-011"
+    ],
+    "deliverableRefs": [
+      "UABC-DEL-BCB-009"
+    ],
+    "evidenceRefs": [
+      "project/bc-basic/operating-cycle-v4.yaml",
+      "evidence/simulation/operating-cycle-v4.json"
+    ],
+    "extensionOf": [
+      "UABC-46",
+      "UABC-47",
+      "UABC-50"
+    ]
+  },
+  "billing": {
+    "maximumNewHoursM2": 3,
+    "maximumNewNetAmountM2": 360,
+    "cumulativeHours": 81,
+    "cumulativeNetAmount": 9720,
+    "overallCapNetAmount": 10000
+  },
+  "openingControl": {
+    "bank": 5000,
+    "inventoryQuantity": 50,
+    "inventoryValue": 2100,
+    "accountsReceivable": 0,
+    "accountsPayable": 0,
+    "inputVat": 0,
+    "outputVat": 0,
+    "trialBalanceDebit": 7738.4,
+    "trialBalanceCredit": 7738.4,
+    "trialBalanceComposition": {
+      "debit": [
+        {
+          "controlGroup": "Bank",
+          "amount": 5000
+        },
+        {
+          "controlGroup": "Bestand",
+          "amount": 2100
+        },
+        {
+          "controlGroup": "Sonstige V3-Kontrollsalden Soll",
+          "amount": 638.4
+        }
+      ],
+      "credit": [
+        {
+          "controlGroup": "V3-Kontrollsalden Haben",
+          "amount": 7738.4
+        }
+      ],
+      "note": "Die V3-Kontrollaggregate werden nicht in erfundene Sachkonten umgedeutet; nur die V4-Bewegungen werden kontenfachlich aufgeloest."
+    }
+  },
+  "journalRecords": [
+    {
+      "recordId": "UABC-V4-DAY-001",
+      "date": "2026-05-11",
+      "state": "cutover",
+      "activity": "Cutover-Checkliste, Anfangssalden und Smoke-Test kontrolliert",
+      "roles": {
+        "owner": "P-PILOT-LEAD-001",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [
+        "CUTOVER-260511"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 0,
+        "outputVat": 0,
+        "trialBalanceDebit": 7738.4,
+        "trialBalanceCredit": 7738.4
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 0,
+        "outputVat": 0,
+        "trialBalanceDebit": 7738.4,
+        "trialBalanceCredit": 7738.4
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-44"
+        ],
+        "meetings": [
+          "UABC-MTG-010"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-002",
+      "date": "2026-05-12",
+      "state": "hypercare-01",
+      "activity": "Rollen, Buchungsperiode und Tagesbereitschaft kontrolliert",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 0,
+        "outputVat": 0,
+        "trialBalanceDebit": 7738.4,
+        "trialBalanceCredit": 7738.4
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 0,
+        "outputVat": 0,
+        "trialBalanceDebit": 7738.4,
+        "trialBalanceCredit": 7738.4
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-003",
+      "date": "2026-05-13",
+      "state": "hypercare-02",
+      "activity": "Bestellung, Wareneingang und Eingangsrechnung gebucht und abgestimmt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-PURCHASE",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [
+        "PO-260501",
+        "PRE-260501",
+        "PINV-260501"
+      ],
+      "postings": [
+        {
+          "account": "Bestand",
+          "debit": 420,
+          "credit": 0,
+          "quantityDelta": 10
+        },
+        {
+          "account": "Vorsteuer 19%",
+          "debit": 79.8,
+          "credit": 0
+        },
+        {
+          "account": "Kreditoren",
+          "debit": 0,
+          "credit": 499.8
+        }
+      ],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 0,
+        "outputVat": 0,
+        "trialBalanceDebit": 7738.4,
+        "trialBalanceCredit": 7738.4
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 60,
+        "inventoryValue": 2520,
+        "accountsReceivable": 0,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 0,
+        "trialBalanceDebit": 8238.2,
+        "trialBalanceCredit": 8238.2
+      },
+      "controls": {
+        "dailyDebit": 499.8,
+        "dailyCredit": 499.8,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": false
+      },
+      "exceptionRef": "UABC-V4-DEF-001",
+      "traceability": {
+        "tickets": [
+          "UABC-37",
+          "UABC-47",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-003",
+          "UABC-MTG-006",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-P2P-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-002",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-002",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-004",
+      "date": "2026-05-14",
+      "state": "hypercare-03",
+      "activity": "Auftrag, Lieferung und Ausgangsrechnung gebucht und abgestimmt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-SALES",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [
+        "SO-260501",
+        "SHP-260501",
+        "SINV-260501"
+      ],
+      "postings": [
+        {
+          "account": "Debitoren",
+          "debit": 940.1,
+          "credit": 0
+        },
+        {
+          "account": "Umsatzerloese",
+          "debit": 0,
+          "credit": 790
+        },
+        {
+          "account": "Umsatzsteuer 19%",
+          "debit": 0,
+          "credit": 150.1
+        },
+        {
+          "account": "Wareneinsatz",
+          "debit": 420,
+          "credit": 0
+        },
+        {
+          "account": "Bestand",
+          "debit": 0,
+          "credit": 420,
+          "quantityDelta": -10
+        }
+      ],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 60,
+        "inventoryValue": 2520,
+        "accountsReceivable": 0,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 0,
+        "trialBalanceDebit": 8238.2,
+        "trialBalanceCredit": 8238.2
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "controls": {
+        "dailyDebit": 1360.1,
+        "dailyCredit": 1360.1,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": false
+      },
+      "exceptionRef": "UABC-V4-DEF-002",
+      "traceability": {
+        "tickets": [
+          "UABC-38",
+          "UABC-47",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-003",
+          "UABC-MTG-006",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-O2C-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-003",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-002",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-005",
+      "date": "2026-05-15",
+      "state": "hypercare-04",
+      "activity": "Artikelposten, Wertposten und offenen Warenfluss abgestimmt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-WAREHOUSE",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-39",
+          "UABC-47",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-003",
+          "UABC-MTG-006",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-INV-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-004",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-002",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-006",
+      "date": "2026-05-16",
+      "state": "hypercare-05",
+      "activity": "Wochenendmonitoring ohne geplante Buchung",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-007",
+      "date": "2026-05-17",
+      "state": "hypercare-06",
+      "activity": "Wochenendmonitoring und Defectstatus kontrolliert",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-008",
+      "date": "2026-05-18",
+      "state": "hypercare-07",
+      "activity": "Offene Posten und Zahlungsreferenzen vorbereitet",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "closingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-47",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-PAY-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-005",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-006",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-009",
+      "date": "2026-05-19",
+      "state": "hypercare-08",
+      "activity": "Kundenzahlung zugeordnet, gebucht und Debitor ausgeglichen",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "ROLE-CUSTOMER-SALES"
+      },
+      "documents": [
+        "CPAY-260519",
+        "SINV-260501"
+      ],
+      "postings": [
+        {
+          "account": "Bank",
+          "debit": 940.1,
+          "credit": 0
+        },
+        {
+          "account": "Debitoren",
+          "debit": 0,
+          "credit": 940.1
+        }
+      ],
+      "openingBalances": {
+        "bank": 5000,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 940.1,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 9598.3,
+        "trialBalanceCredit": 9598.3
+      },
+      "closingBalances": {
+        "bank": 5940.1,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 10538.4,
+        "trialBalanceCredit": 10538.4
+      },
+      "controls": {
+        "dailyDebit": 940.1,
+        "dailyCredit": 940.1,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": false
+      },
+      "exceptionRef": "UABC-V4-DEF-003",
+      "traceability": {
+        "tickets": [
+          "UABC-47",
+          "UABC-26",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-PAY-001",
+          "UABC-V3-BANK-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-005",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-006",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-010",
+      "date": "2026-05-20",
+      "state": "hypercare-09",
+      "activity": "Lieferantenzahlung gebucht und Kreditor ausgeglichen",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "ROLE-CUSTOMER-PURCHASE"
+      },
+      "documents": [
+        "VPAY-260520",
+        "PINV-260501"
+      ],
+      "postings": [
+        {
+          "account": "Kreditoren",
+          "debit": 499.8,
+          "credit": 0
+        },
+        {
+          "account": "Bank",
+          "debit": 0,
+          "credit": 499.8
+        }
+      ],
+      "openingBalances": {
+        "bank": 5940.1,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 499.8,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 10538.4,
+        "trialBalanceCredit": 10538.4
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 499.8,
+        "dailyCredit": 499.8,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": false
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-47",
+          "UABC-26",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-PAY-001",
+          "UABC-V3-BANK-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-005",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-006",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-011",
+      "date": "2026-05-21",
+      "state": "hypercare-10",
+      "activity": "Bankzeilen gematcht und Differenz null bestaetigt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [
+        "BSTMT-260531"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": "UABC-V4-DEF-004",
+      "traceability": {
+        "tickets": [
+          "UABC-26",
+          "UABC-47",
+          "UABC-46"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-BANK-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-005",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-006",
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-012",
+      "date": "2026-05-22",
+      "state": "hypercare-11",
+      "activity": "Hypercare-Exit ohne offene P1 oder P2 kontrolliert",
+      "roles": {
+        "owner": "P-PILOT-LEAD-001",
+        "controller": "ACTOR-KUNDEN-SUPPORT"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-013",
+      "date": "2026-05-23",
+      "state": "aftercare-01",
+      "activity": "Monitoring ohne geplante Aenderung",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-014",
+      "date": "2026-05-24",
+      "state": "aftercare-02",
+      "activity": "Restart-Voraussetzungen ohne geplante Buchung kontrolliert",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-015",
+      "date": "2026-05-25",
+      "state": "restart-preparation",
+      "activity": "Pfingstmontag als kontrollierter Ruhetag dokumentiert",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-016",
+      "date": "2026-05-26",
+      "state": "operational-restart",
+      "activity": "Berechtigungs-, Perioden- und Kernprozess-Smoke-Test bestanden",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-IT",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [
+        "RESTART-260526"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47",
+          "UABC-44"
+        ],
+        "meetings": [
+          "UABC-MTG-011",
+          "UABC-MTG-010"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-017",
+      "date": "2026-05-27",
+      "state": "close-01",
+      "activity": "Inventur erfasst, Differenz gebucht und Lager mit Sachbuch abgestimmt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-WAREHOUSE",
+        "controller": "ROLE-CUSTOMER-FINANCE"
+      },
+      "documents": [
+        "PHY-260527",
+        "ADJ-260527"
+      ],
+      "postings": [
+        {
+          "account": "Inventurdifferenzen",
+          "debit": 42,
+          "credit": 0
+        },
+        {
+          "account": "Bestand",
+          "debit": 0,
+          "credit": 42,
+          "quantityDelta": -1
+        }
+      ],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 50,
+        "inventoryValue": 2100,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11038.2,
+        "trialBalanceCredit": 11038.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 42,
+        "dailyCredit": 42,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": false
+      },
+      "exceptionRef": "UABC-V4-DEF-005",
+      "traceability": {
+        "tickets": [
+          "UABC-39",
+          "UABC-47",
+          "UABC-27"
+        ],
+        "meetings": [
+          "UABC-MTG-003",
+          "UABC-MTG-006",
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-INV-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-004",
+          "UABC-UAT-BCB-006"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-002",
+          "UABC-DEC-BCB-009"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-018",
+      "date": "2026-05-28",
+      "state": "close-02",
+      "activity": "Nebenbuecher, Sachbuch, Bank, Lager und UStVA-Vorschau abgestimmt",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [
+        "CLOSE-2026-05",
+        "VAT-2026-05-PREVIEW"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-27",
+          "UABC-47",
+          "UABC-28",
+          "UABC-48",
+          "UABC-26"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011",
+          "UABC-MTG-012"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001",
+          "UABC-V3-VAT-001",
+          "UABC-V3-BANK-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-006",
+          "UABC-UAT-BCB-007",
+          "UABC-UAT-BCB-005"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-009",
+          "UABC-DEC-BCB-006"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-019",
+      "date": "2026-05-29",
+      "state": "retrospective",
+      "activity": "Defecttrend und Abschlussbereitschaft synthetisch entschieden",
+      "roles": {
+        "owner": "P-PILOT-LEAD-001",
+        "controller": "ROLE-CUSTOMER-SPONSOR"
+      },
+      "documents": [
+        "RETRO-260529"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-020",
+      "date": "2026-05-30",
+      "state": "close-monitoring",
+      "activity": "P1/P2-Eskalationsbereitschaft ohne Buchung kontrolliert",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-46",
+          "UABC-47"
+        ],
+        "meetings": [
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-021",
+      "date": "2026-05-31",
+      "state": "period-end",
+      "activity": "Kontoauszug als synthetischen Stichtagsinput gesichert",
+      "roles": {
+        "owner": "ROLE-CUSTOMER-FINANCE",
+        "controller": "ACTOR-KUNDEN-SUPPORT"
+      },
+      "documents": [
+        "BSTMT-260531"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-26",
+          "UABC-47",
+          "UABC-27"
+        ],
+        "meetings": [
+          "UABC-MTG-008",
+          "UABC-MTG-011"
+        ],
+        "processes": [
+          "UABC-V3-BANK-001",
+          "UABC-V3-CLOSE-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-005",
+          "UABC-UAT-BCB-006"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-006",
+          "UABC-DEC-BCB-009"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    },
+    {
+      "recordId": "UABC-V4-DAY-022",
+      "date": "2026-06-01",
+      "state": "handover",
+      "activity": "Supportannahme, Journal und synthetischen Abschluss uebergeben",
+      "roles": {
+        "owner": "ACTOR-KUNDEN-SUPPORT",
+        "controller": "P-PILOT-LEAD-001"
+      },
+      "documents": [
+        "HANDOVER-260601"
+      ],
+      "postings": [],
+      "openingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "closingBalances": {
+        "bank": 5440.3,
+        "inventoryQuantity": 49,
+        "inventoryValue": 2058,
+        "accountsReceivable": 0,
+        "accountsPayable": 0,
+        "inputVat": 79.8,
+        "outputVat": 150.1,
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2
+      },
+      "controls": {
+        "dailyDebit": 0,
+        "dailyCredit": 0,
+        "dailyDifference": 0,
+        "trialBalanceDifference": 0,
+        "noUnplannedPosting": true
+      },
+      "exceptionRef": null,
+      "traceability": {
+        "tickets": [
+          "UABC-50",
+          "UABC-51"
+        ],
+        "meetings": [
+          "UABC-MTG-012"
+        ],
+        "processes": [
+          "UABC-V3-CLOSE-001",
+          "UABC-V3-VAT-001"
+        ],
+        "tests": [
+          "UABC-UAT-BCB-006",
+          "UABC-UAT-BCB-007"
+        ],
+        "decisions": [
+          "UABC-DEC-BCB-010",
+          "UABC-DEC-BCB-011"
+        ],
+        "evidence": [
+          "project/bc-basic/operating-cycle-v4.yaml",
+          "evidence/simulation/operating-cycle-v4.json",
+          "evidence/simulation/pilot-v3-finance-ledger.json"
+        ]
+      },
+      "syntheticAcceptance": true,
+      "realApprovalClaimed": false
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "UABC-V4-DEF-001",
+      "date": "2026-05-13",
+      "severity": "P2",
+      "processRef": "UABC-V3-P2P-001",
+      "finding": "USt.-Produktbuchungsgruppe war in der Einkaufszeile leer.",
+      "cause": "Die Artikelvorlage wurde vor der MWST19-Zuordnung in die Testdaten uebernommen.",
+      "correction": "MWST19 am Artikel gesetzt und die noch ungebuchte Einkaufszeile neu validiert.",
+      "retest": "Derselbe Beleg PO-260501 mit 10 STK zu 42,00 EUR wurde erneut simuliert; 79,80 EUR Vorsteuer und 499,80 EUR Kreditor entstanden.",
+      "decision": "Korrektur synthetisch angenommen; Buchung erst nach Differenz null fortgesetzt.",
+      "owner": "ROLE-CUSTOMER-PURCHASE",
+      "decisionRef": "UABC-DEC-BCB-002",
+      "status": "closed-synthetic"
+    },
+    {
+      "id": "UABC-V4-DEF-002",
+      "date": "2026-05-14",
+      "severity": "P2",
+      "processRef": "UABC-V3-O2C-001",
+      "finding": "Verkaufspreis war 75,00 statt 79,00 EUR.",
+      "cause": "Eine veraltete Testpreiszeile ueberschrieb den Artikelpreis im Auftrag.",
+      "correction": "Preiszeile entfernt und 79,00 EUR aus der freigegebenen Baseline neu gelesen.",
+      "retest": "Derselbe Auftrag SO-260501 mit 10 STK wurde erneut simuliert; 790,00 EUR netto und 150,10 EUR Umsatzsteuer entstanden.",
+      "decision": "Korrektur synthetisch angenommen; Lieferung und Rechnung danach freigegeben.",
+      "owner": "ROLE-CUSTOMER-SALES",
+      "decisionRef": "UABC-DEC-BCB-002",
+      "status": "closed-synthetic"
+    },
+    {
+      "id": "UABC-V4-DEF-003",
+      "date": "2026-05-19",
+      "severity": "P2",
+      "processRef": "UABC-V3-PAY-001",
+      "finding": "Zahlungsreferenz SINV-260510 konnte nicht ausgeglichen werden.",
+      "cause": "Die Referenz wurde manuell mit einer vertauschten Endziffer erfasst.",
+      "correction": "Referenz auf SINV-260501 korrigiert.",
+      "retest": "Derselbe Zahlungseingang CPAY-260519 ueber 940,10 EUR wurde erneut zugeordnet; Restbetrag war 0,00 EUR.",
+      "decision": "Ausgleich synthetisch angenommen; kein Bankfeed und keine reale Zahlung behauptet.",
+      "owner": "ROLE-CUSTOMER-FINANCE",
+      "decisionRef": "UABC-DEC-BCB-006",
+      "status": "closed-synthetic"
+    },
+    {
+      "id": "UABC-V4-DEF-004",
+      "date": "2026-05-21",
+      "severity": "P2",
+      "processRef": "UABC-V3-BANK-001",
+      "finding": "Eine Bankzeile enthielt keine Dokumentreferenz.",
+      "cause": "Der synthetische Kontoauszug lieferte nur Betrag und Valutadatum.",
+      "correction": "Bankzeile manuell gegen CPAY-260519 gematcht.",
+      "retest": "Derselbe Auszug wurde erneut abgestimmt; Auszug und Bankposten betrugen jeweils 5.440,30 EUR bei Differenz 0,00 EUR.",
+      "decision": "Manuelles Matching synthetisch angenommen; externe Bankaktion blieb ausgeschlossen.",
+      "owner": "ROLE-CUSTOMER-FINANCE",
+      "decisionRef": "UABC-DEC-BCB-006",
+      "status": "closed-synthetic"
+    },
+    {
+      "id": "UABC-V4-DEF-005",
+      "date": "2026-05-27",
+      "severity": "P2",
+      "processRef": "UABC-V3-INV-001",
+      "finding": "Inventurmenge 49 STK wich um 1 STK vom Buchbestand ab.",
+      "cause": "Ein in der Simulation physisch verbrauchtes Set war noch nicht als Lagerabgang erfasst.",
+      "correction": "Inventurdifferenz minus 1 STK zu 42,00 EUR ueber ADJ-260527 gebucht.",
+      "retest": "Derselbe Inventurfall wurde erneut abgestimmt; Endbestand 49 STK und 2.058,00 EUR, Mengen- und Wertdifferenz jeweils null.",
+      "decision": "Korrektur synthetisch angenommen; Monatsabschluss durfte fortgesetzt werden.",
+      "owner": "ROLE-CUSTOMER-WAREHOUSE",
+      "decisionRef": "UABC-DEC-BCB-009",
+      "status": "closed-synthetic"
+    }
+  ],
+  "traceability": {
+    "contract": "bidirectional-day-object-v1",
+    "edges": [
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "UABC-44",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-44",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "UABC-MTG-010",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-010",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-001",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-001",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-002",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-002",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-37",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-37",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-MTG-003",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-003",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-MTG-006",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-006",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-V3-P2P-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-P2P-001",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-UAT-BCB-002",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-002",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-DEC-BCB-002",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-002",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-003",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-003",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-38",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-38",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-MTG-003",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-003",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-MTG-006",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-006",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-V3-O2C-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-O2C-001",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-UAT-BCB-003",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-003",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-DEC-BCB-002",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-002",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-004",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-004",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-39",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-39",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-MTG-003",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-003",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-MTG-006",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-006",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-V3-INV-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-INV-001",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-UAT-BCB-004",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-004",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-DEC-BCB-002",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-002",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-005",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-005",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-006",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-006",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-007",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-007",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-V3-PAY-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-PAY-001",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-008",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-008",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-26",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-26",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-V3-PAY-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-PAY-001",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-V3-BANK-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-BANK-001",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-009",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-009",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-26",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-26",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-V3-PAY-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-PAY-001",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-V3-BANK-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-BANK-001",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-010",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-010",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-26",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-26",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-V3-BANK-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-BANK-001",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-011",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-011",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-012",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-012",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-013",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-013",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-014",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-014",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-015",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-015",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-44",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-44",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-MTG-010",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-010",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-016",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-016",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-39",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-39",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-27",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-27",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-MTG-003",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-003",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-MTG-006",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-006",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-V3-INV-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-INV-001",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-UAT-BCB-004",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-004",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-UAT-BCB-006",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-006",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-DEC-BCB-002",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-002",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "UABC-DEC-BCB-009",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-009",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-017",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-017",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-27",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-27",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-28",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-28",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-48",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-48",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-26",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-26",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-MTG-012",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-012",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-V3-VAT-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-VAT-001",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-V3-BANK-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-BANK-001",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-UAT-BCB-006",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-006",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-DEC-BCB-009",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-009",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-018",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-018",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-019",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-019",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-46",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-46",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-020",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-020",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-26",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-26",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-47",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-47",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-27",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-27",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-MTG-008",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-008",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-MTG-011",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-011",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-V3-BANK-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-BANK-001",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-UAT-BCB-005",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-005",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-UAT-BCB-006",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-006",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-DEC-BCB-006",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-006",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "UABC-DEC-BCB-009",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-009",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-021",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-021",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-50",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-50",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-51",
+        "relation": "verweist-auf-tickets"
+      },
+      {
+        "from": "UABC-51",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-MTG-012",
+        "relation": "verweist-auf-meetings"
+      },
+      {
+        "from": "UABC-MTG-012",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-V3-CLOSE-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-CLOSE-001",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-V3-VAT-001",
+        "relation": "verweist-auf-processes"
+      },
+      {
+        "from": "UABC-V3-VAT-001",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-UAT-BCB-006",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-006",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-UAT-BCB-007",
+        "relation": "verweist-auf-tests"
+      },
+      {
+        "from": "UABC-UAT-BCB-007",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-DEC-BCB-010",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-010",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "UABC-DEC-BCB-011",
+        "relation": "verweist-auf-decisions"
+      },
+      {
+        "from": "UABC-DEC-BCB-011",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "project/bc-basic/operating-cycle-v4.yaml",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "project/bc-basic/operating-cycle-v4.yaml",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "evidence/simulation/operating-cycle-v4.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/operating-cycle-v4.json",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      },
+      {
+        "from": "UABC-V4-DAY-022",
+        "to": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "relation": "verweist-auf-evidence"
+      },
+      {
+        "from": "evidence/simulation/pilot-v3-finance-ledger.json",
+        "to": "UABC-V4-DAY-022",
+        "relation": "belegt-betriebstag"
+      }
+    ],
+    "reverseIndex": {
+      "decisions:UABC-DEC-BCB-002": [
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "decisions:UABC-DEC-BCB-006": [
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "decisions:UABC-DEC-BCB-009": [
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "decisions:UABC-DEC-BCB-010": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-022"
+      ],
+      "decisions:UABC-DEC-BCB-011": [
+        "UABC-V4-DAY-022"
+      ],
+      "evidence:evidence/simulation/operating-cycle-v4.json": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021",
+        "UABC-V4-DAY-022"
+      ],
+      "evidence:evidence/simulation/pilot-v3-finance-ledger.json": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021",
+        "UABC-V4-DAY-022"
+      ],
+      "evidence:project/bc-basic/operating-cycle-v4.yaml": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021",
+        "UABC-V4-DAY-022"
+      ],
+      "meetings:UABC-MTG-003": [
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "meetings:UABC-MTG-006": [
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "meetings:UABC-MTG-008": [
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "meetings:UABC-MTG-010": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-016"
+      ],
+      "meetings:UABC-MTG-011": [
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021"
+      ],
+      "meetings:UABC-MTG-012": [
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-022"
+      ],
+      "processes:UABC-V3-BANK-001": [
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "processes:UABC-V3-CLOSE-001": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021",
+        "UABC-V4-DAY-022"
+      ],
+      "processes:UABC-V3-INV-001": [
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "processes:UABC-V3-O2C-001": [
+        "UABC-V4-DAY-004"
+      ],
+      "processes:UABC-V3-P2P-001": [
+        "UABC-V4-DAY-003"
+      ],
+      "processes:UABC-V3-PAY-001": [
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010"
+      ],
+      "processes:UABC-V3-VAT-001": [
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-022"
+      ],
+      "tests:UABC-UAT-BCB-002": [
+        "UABC-V4-DAY-003"
+      ],
+      "tests:UABC-UAT-BCB-003": [
+        "UABC-V4-DAY-004"
+      ],
+      "tests:UABC-UAT-BCB-004": [
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "tests:UABC-UAT-BCB-005": [
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "tests:UABC-UAT-BCB-006": [
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021",
+        "UABC-V4-DAY-022"
+      ],
+      "tests:UABC-UAT-BCB-007": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-022"
+      ],
+      "tickets:UABC-26": [
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "tickets:UABC-27": [
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-021"
+      ],
+      "tickets:UABC-28": [
+        "UABC-V4-DAY-018"
+      ],
+      "tickets:UABC-37": [
+        "UABC-V4-DAY-003"
+      ],
+      "tickets:UABC-38": [
+        "UABC-V4-DAY-004"
+      ],
+      "tickets:UABC-39": [
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-017"
+      ],
+      "tickets:UABC-44": [
+        "UABC-V4-DAY-001",
+        "UABC-V4-DAY-016"
+      ],
+      "tickets:UABC-46": [
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020"
+      ],
+      "tickets:UABC-47": [
+        "UABC-V4-DAY-002",
+        "UABC-V4-DAY-003",
+        "UABC-V4-DAY-004",
+        "UABC-V4-DAY-005",
+        "UABC-V4-DAY-006",
+        "UABC-V4-DAY-007",
+        "UABC-V4-DAY-008",
+        "UABC-V4-DAY-009",
+        "UABC-V4-DAY-010",
+        "UABC-V4-DAY-011",
+        "UABC-V4-DAY-012",
+        "UABC-V4-DAY-013",
+        "UABC-V4-DAY-014",
+        "UABC-V4-DAY-015",
+        "UABC-V4-DAY-016",
+        "UABC-V4-DAY-017",
+        "UABC-V4-DAY-018",
+        "UABC-V4-DAY-019",
+        "UABC-V4-DAY-020",
+        "UABC-V4-DAY-021"
+      ],
+      "tickets:UABC-48": [
+        "UABC-V4-DAY-018"
+      ],
+      "tickets:UABC-50": [
+        "UABC-V4-DAY-022"
+      ],
+      "tickets:UABC-51": [
+        "UABC-V4-DAY-022"
+      ]
+    }
+  },
+  "closingControl": {
+    "bank": 5440.3,
+    "inventoryQuantity": 49,
+    "inventoryValue": 2058,
+    "accountsReceivable": 0,
+    "accountsPayable": 0,
+    "inputVat": 79.8,
+    "outputVat": 150.1,
+    "trialBalanceDebit": 11080.2,
+    "trialBalanceCredit": 11080.2
+  },
+  "materialization": {
+    "canonicalSource": "project/bc-basic/operating-cycle-v4.yaml",
+    "generatedEvidence": "evidence/simulation/operating-cycle-v4.json",
+    "twinVisible": false,
+    "activationGate": "UABC-M4"
+  }
+}
