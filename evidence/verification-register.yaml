@@ -366,7 +366,7 @@ verifications:
       Historisches V2-Policy-Gate: 50 UABC-Tickets erhielten eindeutige kurze Summaries, substanzielle Beschreibungen und je Transcript-, Deliverable- und Evidencereferenzen. 19 Task-Worklogs mit 80 Stunden und 9.600 EUR waren abgestimmt; der unveraenderliche V2-Katalog blieb Git-unabhaengig und read-only. V2 ist durch V3 als aktuelle Simulation abgeloest, bleibt aber unveraendertes Last-known-good. Keine Live-BC-, Kunden-, Steuer- oder Publishing-Aktion.
   - id: UABC-VER-BCB-PILOT-V3-001
     changeRef: realize-bc-basic-pilot-v3
-    requiredForArchive: false
+    requiredForArchive: true
     status: passed
     type: automated-policy-gate
     executedAt: 2026-07-15

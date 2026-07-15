@@ -1,0 +1,36 @@
+schema: universaarl-delivery
+changeId: materialize-first-bc-operating-cycle-v4
+status: active
+summary: Erster zusammenhaengender BC-Basic-Betriebszyklus auf unveraenderlicher V3-Baseline
+created: 2026-07-15
+goal: Den synthetischen Betriebszyklus von Cutover bis Supportuebergabe tageweise, rechnerisch und ohne Doppelabrechnung materialisieren.
+canonicalTargets: [projektdaten-index, dokumentkatalog, verification-register]
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-V4-001
+  authorizedBy: repository-governance
+  authorizedAt: 2026-07-15
+  scope: Repositorybasierte synthetische V4-Simulation ohne Live-Systemzugriff, Kundenkommunikation, Steueruebermittlung oder Publishing-Aktion.
+  conditions:
+    - V3-Release, V3-Digests und bestehende UABC-IDs bleiben unveraendert
+    - neue Abrechnung entsteht nur aus neuen Task-Worklogs und bleibt kumuliert unter 10.000 EUR netto
+    - der V4-Katalog wird erst nach vollstaendiger Validierung aktiviert
+    - keine reale Kunden-, Tenant-, Bank-, Steuer- oder Produktivfreigabe wird behauptet
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, dokumentkatalog, verification-register]
+  facts:
+    v3BaselineRelease: UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL
+    v3ManifestSha256: ce92caf9d612bf8fff8fd84cc12c5e13fd20bc8ec3535b13ac4ba0b931cb7c8f
+    v3PayloadBundleDigest: bc691ce634b38e782280016bf3e34ac683d70f705a3bb4be46f995ef37e2e57b
+    v3ActualHours: 78
+    v3ActualNetAmount: 9360
+    v4Calendar: 2026-05-11/2026-06-01
+    requiresGit: false
+    readOnly: true
+  unknowns:
+    - reale Tenantberechtigungen und Lizenzzuordnung
+    - reale Finanz- und Steuerfreigabe
+    - reale Cutover-, Produktivstart-, Hypercare- und Supportannahme
+    - reale UStVA-Pruefung und jede externe Uebermittlung
+  policyGateEvidenceId: UABC-VER-BCB-V4-001
