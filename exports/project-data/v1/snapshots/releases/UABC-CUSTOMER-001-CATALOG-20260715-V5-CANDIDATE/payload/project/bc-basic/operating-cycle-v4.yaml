@@ -1,0 +1,487 @@
+schemaVersion: 1
+journalId: UABC-OPERATING-CYCLE-V4-001
+projectId: UABC-CUSTOMER-001
+classification: synthetic-complete-no-live-bc
+period:
+  start: 2026-05-11
+  end: 2026-06-01
+truthBoundary:
+  liveBcExecuted: false
+  realCustomerApprovalClaimed: false
+  externalBankAction: false
+  vatTransmitted: false
+  currentCatalogActivated: true
+  note: V4 erweitert die unveraenderliche V3-Baseline und wird in M4 erst nach vollstaendiger Katalogvalidierung atomar aktiviert.
+baseline:
+  releaseId: UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL
+  manifestSha256: ce92caf9d612bf8fff8fd84cc12c5e13fd20bc8ec3535b13ac4ba0b931cb7c8f
+  payloadBundleDigest: bc691ce634b38e782280016bf3e34ac683d70f705a3bb4be46f995ef37e2e57b
+  releaseFileCount: 125
+  aggregateSha256: 981a56d7ba9956a61b90d01b6dc5f1982b6f1163ebcbf5c0aa61f8b9a2b76507
+  ticketCount: 50
+  taskWorklogCount: 19
+  actualHours: 78
+  actualNetAmount: 9360
+extensionTask:
+  id: UABC-51
+  type: task
+  parent: UABC-31
+  phaseId: UABC-3
+  summary: Betriebsjournal
+  status: closed-synthetic
+  description: Das bestehende V3-Projekt wird um ein lueckenloses, aus der kanonischen V4-Quelle generiertes Betriebsjournal erweitert; bereits fakturierte Prozessarbeit wird nicht erneut berechnet.
+  acceptanceCriteria:
+    - Alle 22 Tage sind chronologisch, rollenbezogen und rechnerisch differenzfrei materialisiert.
+    - P2P, O2C, Zahlung, Bank und Lager besitzen Belege, Ledgerwirkungen, Kontrollen und geschlossene Retests.
+    - Alle Ticket-, Meeting-, Prozess-, Test-, Entscheidungs- und Evidence-Verweise sind bidirektional.
+  worklog:
+    id: WL-UABC-51-V4
+    date: 2026-06-01
+    hours: 3
+    hourlyRate: 120
+    netAmount: 360
+    billable: true
+    invoiceStatus: projektion-nicht-versendet
+    syntheticApprovalOnly: true
+  meetingTranscriptRefs: [UABC-MTG-012]
+  decisionRefs: [UABC-DEC-BCB-011]
+  deliverableRefs: [UABC-DEL-BCB-009]
+  evidenceRefs:
+    - project/bc-basic/operating-cycle-v4.yaml
+    - evidence/simulation/operating-cycle-v4.json
+  extensionOf: [UABC-46, UABC-47, UABC-50]
+m3ExtensionTask:
+  id: UABC-52
+  type: task
+  parent: UABC-31
+  phaseId: UABC-3
+  summary: Betriebsabschluss
+  status: closed-synthetic
+  description: Hypercare, SLA-Reaktionen, Restart, Monatsabschluss, UStVA-Vorschau und Supportuebergabe werden aus demselben V4-Journal rechnerisch geschlossen; reale Buchung, Bankbestaetigung, Steueruebermittlung und Kundenfreigabe bleiben ausgeschlossen.
+  acceptanceCriteria:
+    - Alle elf Hypercaretage besitzen Status, SLA-Reaktion, Entscheidung und Tagesabschluss.
+    - Nebenbuecher, Sachbuch, Bank, Lager und MwSt. sind mit Differenz null abgestimmt.
+    - Restart und UStVA-Vorschau sind synthetisch belegt, ohne reale Uebermittlung oder Freigabe.
+  worklog:
+    id: WL-UABC-52-V4
+    date: 2026-06-01
+    hours: 1
+    hourlyRate: 120
+    netAmount: 120
+    billable: true
+    invoiceStatus: projektion-nicht-versendet
+    syntheticApprovalOnly: true
+  meetingTranscriptRefs: [UABC-MTG-012]
+  decisionRefs: [UABC-DEC-BCB-009, UABC-DEC-BCB-010]
+  deliverableRefs: [UABC-DEL-BCB-009]
+  evidenceRefs:
+    - project/bc-basic/operating-cycle-v4.yaml
+    - evidence/simulation/operating-cycle-v4.json
+  extensionOf: [UABC-47, UABC-48, UABC-50, UABC-51]
+m4ExtensionTask:
+  id: UABC-53
+  type: task
+  parent: UABC-31
+  phaseId: UABC-3
+  summary: Katalogabschluss
+  status: closed-synthetic
+  description: Kundenhandbuch, Consultant-Handbuch, Supportuebergabe, Projektabschluss und portabler V4-Katalog werden deterministisch aus derselben kanonischen Betriebszyklusquelle erzeugt und erst nach bestandener Validierung aktiviert.
+  acceptanceCriteria:
+    - Vier Abschlussdokumente stimmen mit Journal, Hypercare, Abschlusswerten und Budget ueberein.
+    - Manifest, Einzelpayloaddigests, Bundle- und Aggregatdigest sind reproduzierbar und vollstaendig.
+    - Der portable current-Zeiger ist Git-unabhaengig und wird erst nach vollstaendiger V4-Pruefung umgeschaltet.
+  worklog:
+    id: WL-UABC-53-V4
+    date: 2026-06-01
+    hours: 1
+    hourlyRate: 120
+    netAmount: 120
+    billable: true
+    invoiceStatus: projektion-nicht-versendet
+    syntheticApprovalOnly: true
+  meetingTranscriptRefs: [UABC-MTG-012]
+  decisionRefs: [UABC-DEC-BCB-010, UABC-DEC-BCB-011]
+  deliverableRefs: [UABC-DEL-BCB-007, UABC-DEL-BCB-008, UABC-DEL-BCB-009]
+  evidenceRefs:
+    - project/bc-basic/operating-cycle-v4.yaml
+    - evidence/simulation/operating-cycle-v4.json
+    - docs/guides/bc-basic-v4-customer-handbook.md
+    - docs/runbooks/bc-basic-v4-consultant-handbook.md
+    - docs/handover/bc-basic-v4-support-handover.md
+    - docs/reports/bc-basic-v4-project-close.md
+  extensionOf: [UABC-50, UABC-51, UABC-52]
+billing:
+  baselineHours: 78
+  baselineNetAmount: 9360
+  maximumNewHoursM2: 3
+  maximumNewNetAmountM2: 360
+  afterM2Hours: 81
+  afterM2NetAmount: 9720
+  maximumNewHoursM3: 1
+  maximumNewNetAmountM3: 120
+  afterM3Hours: 82
+  afterM3NetAmount: 9840
+  maximumNewHoursM4: 1
+  maximumNewNetAmountM4: 120
+  cumulativeHours: 83
+  cumulativeNetAmount: 9960
+  overallCapNetAmount: 10000
+openingControl:
+  bank: 5000
+  inventoryQuantity: 50
+  inventoryValue: 2100
+  accountsReceivable: 0
+  accountsPayable: 0
+  inputVat: 0
+  outputVat: 0
+  trialBalanceDebit: 7738.40
+  trialBalanceCredit: 7738.40
+  trialBalanceComposition:
+    debit:
+      - controlGroup: Bank
+        amount: 5000
+      - controlGroup: Bestand
+        amount: 2100
+      - controlGroup: Sonstige V3-Kontrollsalden Soll
+        amount: 638.40
+    credit:
+      - controlGroup: V3-Kontrollsalden Haben
+        amount: 7738.40
+    note: Die V3-Kontrollaggregate werden nicht in erfundene Sachkonten umgedeutet; nur die V4-Bewegungen werden kontenfachlich aufgeloest.
+traceProfiles:
+  cutover:
+    tickets: [UABC-44]
+    meetings: [UABC-MTG-010]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010]
+  p2p:
+    tickets: [UABC-37, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-P2P-001]
+    tests: [UABC-UAT-BCB-002]
+    decisions: [UABC-DEC-BCB-002]
+  o2c:
+    tickets: [UABC-38, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-O2C-001]
+    tests: [UABC-UAT-BCB-003]
+    decisions: [UABC-DEC-BCB-002]
+  inventory:
+    tickets: [UABC-39, UABC-47]
+    meetings: [UABC-MTG-003, UABC-MTG-006]
+    processes: [UABC-V3-INV-001]
+    tests: [UABC-UAT-BCB-004]
+    decisions: [UABC-DEC-BCB-002]
+  payment:
+    tickets: [UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-PAY-001]
+    tests: [UABC-UAT-BCB-005]
+    decisions: [UABC-DEC-BCB-006]
+  bank:
+    tickets: [UABC-26, UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-BANK-001]
+    tests: [UABC-UAT-BCB-005]
+    decisions: [UABC-DEC-BCB-006]
+  close:
+    tickets: [UABC-27, UABC-47]
+    meetings: [UABC-MTG-008, UABC-MTG-011]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-006]
+    decisions: [UABC-DEC-BCB-009]
+  vat:
+    tickets: [UABC-28, UABC-48]
+    meetings: [UABC-MTG-008, UABC-MTG-012]
+    processes: [UABC-V3-VAT-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-009]
+  support:
+    tickets: [UABC-46, UABC-47]
+    meetings: [UABC-MTG-011]
+    processes: [UABC-V3-CLOSE-001]
+    tests: [UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010]
+  handover:
+    tickets: [UABC-50, UABC-51]
+    meetings: [UABC-MTG-012]
+    processes: [UABC-V3-CLOSE-001, UABC-V3-VAT-001]
+    tests: [UABC-UAT-BCB-006, UABC-UAT-BCB-007]
+    decisions: [UABC-DEC-BCB-010, UABC-DEC-BCB-011]
+days:
+  - {date: 2026-05-11, state: cutover, owner: P-PILOT-LEAD-001, controller: ROLE-CUSTOMER-FINANCE, profiles: [cutover], activity: "Cutover-Checkliste, Anfangssalden und Smoke-Test kontrolliert", documents: [CUTOVER-260511], postings: []}
+  - {date: 2026-05-12, state: hypercare-01, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Rollen, Buchungsperiode und Tagesbereitschaft kontrolliert", documents: [], postings: []}
+  - date: 2026-05-13
+    state: hypercare-02
+    owner: ROLE-CUSTOMER-PURCHASE
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [p2p, support]
+    activity: Bestellung, Wareneingang und Eingangsrechnung gebucht und abgestimmt
+    documents: [PO-260501, PRE-260501, PINV-260501]
+    postings:
+      - {account: Bestand, debit: 420, credit: 0, quantityDelta: 10}
+      - {account: Vorsteuer 19%, debit: 79.80, credit: 0}
+      - {account: Kreditoren, debit: 0, credit: 499.80}
+  - date: 2026-05-14
+    state: hypercare-03
+    owner: ROLE-CUSTOMER-SALES
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [o2c, support]
+    activity: Auftrag, Lieferung und Ausgangsrechnung gebucht und abgestimmt
+    documents: [SO-260501, SHP-260501, SINV-260501]
+    postings:
+      - {account: Debitoren, debit: 940.10, credit: 0}
+      - {account: Umsatzerloese, debit: 0, credit: 790}
+      - {account: Umsatzsteuer 19%, debit: 0, credit: 150.10}
+      - {account: Wareneinsatz, debit: 420, credit: 0}
+      - {account: Bestand, debit: 0, credit: 420, quantityDelta: -10}
+  - {date: 2026-05-15, state: hypercare-04, owner: ROLE-CUSTOMER-WAREHOUSE, controller: ROLE-CUSTOMER-FINANCE, profiles: [inventory, support], activity: "Artikelposten, Wertposten und offenen Warenfluss abgestimmt", documents: [], postings: []}
+  - {date: 2026-05-16, state: hypercare-05, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Wochenendmonitoring ohne geplante Buchung", documents: [], postings: []}
+  - {date: 2026-05-17, state: hypercare-06, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Wochenendmonitoring und Defectstatus kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-18, state: hypercare-07, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [payment, support], activity: "Offene Posten und Zahlungsreferenzen vorbereitet", documents: [], postings: []}
+  - date: 2026-05-19
+    state: hypercare-08
+    owner: ROLE-CUSTOMER-FINANCE
+    controller: ROLE-CUSTOMER-SALES
+    profiles: [payment, bank, support]
+    activity: Kundenzahlung zugeordnet, gebucht und Debitor ausgeglichen
+    documents: [CPAY-260519, SINV-260501]
+    postings:
+      - {account: Bank, debit: 940.10, credit: 0}
+      - {account: Debitoren, debit: 0, credit: 940.10}
+  - date: 2026-05-20
+    state: hypercare-09
+    owner: ROLE-CUSTOMER-FINANCE
+    controller: ROLE-CUSTOMER-PURCHASE
+    profiles: [payment, bank, support]
+    activity: Lieferantenzahlung gebucht und Kreditor ausgeglichen
+    documents: [VPAY-260520, PINV-260501]
+    postings:
+      - {account: Kreditoren, debit: 499.80, credit: 0}
+      - {account: Bank, debit: 0, credit: 499.80}
+  - {date: 2026-05-21, state: hypercare-10, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [bank, support], activity: "Bankzeilen gematcht und Differenz null bestaetigt", documents: [BSTMT-260531], postings: []}
+  - {date: 2026-05-22, state: hypercare-11, owner: P-PILOT-LEAD-001, controller: ACTOR-KUNDEN-SUPPORT, profiles: [support], activity: "Hypercare-Exit ohne offene P1 oder P2 kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-23, state: aftercare-01, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Monitoring ohne geplante Aenderung", documents: [], postings: []}
+  - {date: 2026-05-24, state: aftercare-02, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Restart-Voraussetzungen ohne geplante Buchung kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-25, state: restart-preparation, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "Pfingstmontag als kontrollierter Ruhetag dokumentiert", documents: [], postings: []}
+  - {date: 2026-05-26, state: operational-restart, owner: ROLE-CUSTOMER-IT, controller: ROLE-CUSTOMER-FINANCE, profiles: [support, cutover], activity: "Berechtigungs-, Perioden- und Kernprozess-Smoke-Test bestanden", documents: [RESTART-260526], postings: []}
+  - date: 2026-05-27
+    state: close-01
+    owner: ROLE-CUSTOMER-WAREHOUSE
+    controller: ROLE-CUSTOMER-FINANCE
+    profiles: [inventory, close]
+    activity: Inventur erfasst, Differenz gebucht und Lager mit Sachbuch abgestimmt
+    documents: [PHY-260527, ADJ-260527]
+    postings:
+      - {account: Inventurdifferenzen, debit: 42, credit: 0}
+      - {account: Bestand, debit: 0, credit: 42, quantityDelta: -1}
+  - {date: 2026-05-28, state: close-02, owner: ROLE-CUSTOMER-FINANCE, controller: P-PILOT-LEAD-001, profiles: [close, vat, bank], activity: "Nebenbuecher, Sachbuch, Bank, Lager und UStVA-Vorschau abgestimmt", documents: [CLOSE-2026-05, VAT-2026-05-PREVIEW], postings: []}
+  - {date: 2026-05-29, state: retrospective, owner: P-PILOT-LEAD-001, controller: ROLE-CUSTOMER-SPONSOR, profiles: [support], activity: "Defecttrend und Abschlussbereitschaft synthetisch entschieden", documents: [RETRO-260529], postings: []}
+  - {date: 2026-05-30, state: close-monitoring, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [support], activity: "P1/P2-Eskalationsbereitschaft ohne Buchung kontrolliert", documents: [], postings: []}
+  - {date: 2026-05-31, state: period-end, owner: ROLE-CUSTOMER-FINANCE, controller: ACTOR-KUNDEN-SUPPORT, profiles: [bank, close], activity: "Kontoauszug als synthetischen Stichtagsinput gesichert", documents: [BSTMT-260531], postings: []}
+  - {date: 2026-06-01, state: handover, owner: ACTOR-KUNDEN-SUPPORT, controller: P-PILOT-LEAD-001, profiles: [handover], activity: "Supportannahme, Journal und synthetischen Abschluss uebergeben", documents: [HANDOVER-260601], postings: []}
+exceptions:
+  - id: UABC-V4-DEF-001
+    date: 2026-05-13
+    severity: P2
+    processRef: UABC-V3-P2P-001
+    finding: USt.-Produktbuchungsgruppe war in der Einkaufszeile leer.
+    cause: Die Artikelvorlage wurde vor der MWST19-Zuordnung in die Testdaten uebernommen.
+    correction: MWST19 am Artikel gesetzt und die noch ungebuchte Einkaufszeile neu validiert.
+    retest: Derselbe Beleg PO-260501 mit 10 STK zu 42,00 EUR wurde erneut simuliert; 79,80 EUR Vorsteuer und 499,80 EUR Kreditor entstanden.
+    decision: Korrektur synthetisch angenommen; Buchung erst nach Differenz null fortgesetzt.
+    owner: ROLE-CUSTOMER-PURCHASE
+    decisionRef: UABC-DEC-BCB-002
+    status: closed-synthetic
+  - id: UABC-V4-DEF-002
+    date: 2026-05-14
+    severity: P2
+    processRef: UABC-V3-O2C-001
+    finding: Verkaufspreis war 75,00 statt 79,00 EUR.
+    cause: Eine veraltete Testpreiszeile ueberschrieb den Artikelpreis im Auftrag.
+    correction: Preiszeile entfernt und 79,00 EUR aus der freigegebenen Baseline neu gelesen.
+    retest: Derselbe Auftrag SO-260501 mit 10 STK wurde erneut simuliert; 790,00 EUR netto und 150,10 EUR Umsatzsteuer entstanden.
+    decision: Korrektur synthetisch angenommen; Lieferung und Rechnung danach freigegeben.
+    owner: ROLE-CUSTOMER-SALES
+    decisionRef: UABC-DEC-BCB-002
+    status: closed-synthetic
+  - id: UABC-V4-DEF-003
+    date: 2026-05-19
+    severity: P2
+    processRef: UABC-V3-PAY-001
+    finding: Zahlungsreferenz SINV-260510 konnte nicht ausgeglichen werden.
+    cause: Die Referenz wurde manuell mit einer vertauschten Endziffer erfasst.
+    correction: Referenz auf SINV-260501 korrigiert.
+    retest: Derselbe Zahlungseingang CPAY-260519 ueber 940,10 EUR wurde erneut zugeordnet; Restbetrag war 0,00 EUR.
+    decision: Ausgleich synthetisch angenommen; kein Bankfeed und keine reale Zahlung behauptet.
+    owner: ROLE-CUSTOMER-FINANCE
+    decisionRef: UABC-DEC-BCB-006
+    status: closed-synthetic
+  - id: UABC-V4-DEF-004
+    date: 2026-05-21
+    severity: P2
+    processRef: UABC-V3-BANK-001
+    finding: Eine Bankzeile enthielt keine Dokumentreferenz.
+    cause: Der synthetische Kontoauszug lieferte nur Betrag und Valutadatum.
+    correction: Bankzeile manuell gegen CPAY-260519 gematcht.
+    retest: Derselbe Auszug wurde erneut abgestimmt; Auszug und Bankposten betrugen jeweils 5.440,30 EUR bei Differenz 0,00 EUR.
+    decision: Manuelles Matching synthetisch angenommen; externe Bankaktion blieb ausgeschlossen.
+    owner: ROLE-CUSTOMER-FINANCE
+    decisionRef: UABC-DEC-BCB-006
+    status: closed-synthetic
+  - id: UABC-V4-DEF-005
+    date: 2026-05-27
+    severity: P2
+    processRef: UABC-V3-INV-001
+    finding: Inventurmenge 49 STK wich um 1 STK vom Buchbestand ab.
+    cause: Ein in der Simulation physisch verbrauchtes Set war noch nicht als Lagerabgang erfasst.
+    correction: Inventurdifferenz minus 1 STK zu 42,00 EUR ueber ADJ-260527 gebucht.
+    retest: Derselbe Inventurfall wurde erneut abgestimmt; Endbestand 49 STK und 2.058,00 EUR, Mengen- und Wertdifferenz jeweils null.
+    decision: Korrektur synthetisch angenommen; Monatsabschluss durfte fortgesetzt werden.
+    owner: ROLE-CUSTOMER-WAREHOUSE
+    decisionRef: UABC-DEC-BCB-009
+    status: closed-synthetic
+operationalClosure:
+  hypercare:
+    start: 2026-05-12
+    end: 2026-05-22
+    requiredDays: 11
+    sla:
+      P1: {targetMinutes: 0, reaction: sofortiger-stopp}
+      P2: {targetMinutes: 240, reaction: korrektur-und-identischer-retest}
+      P3: {targetMinutes: 1440, reaction: naechstes-daily}
+    days:
+      - {date: 2026-05-12, status: geschlossen-synthetisch, availability: erreichbar, incidentRefs: [], decision: "Buchungsbereitschaft differenzfrei; Folgetag freigegeben", dayClose: "Keine offene Aktion; Tageskontrollen null"}
+      - date: 2026-05-13
+        status: geschlossen-synthetisch
+        availability: erreichbar
+        incidentRefs: [UABC-V4-DEF-001]
+        slaEvents:
+          - {incidentRef: UABC-V4-DEF-001, severity: P2, reportedAt: '2026-05-13T09:05:00+02:00', reactionAt: '2026-05-13T09:20:00+02:00', correctedAt: '2026-05-13T10:05:00+02:00', retestedAt: '2026-05-13T10:40:00+02:00', closedAt: '2026-05-13T10:45:00+02:00'}
+        decision: P2P nach identischem Retest und Differenz null fortgesetzt
+        dayClose: Kreditor 499,80 EUR und Vorsteuer 79,80 EUR abgestimmt
+      - date: 2026-05-14
+        status: geschlossen-synthetisch
+        availability: erreichbar
+        incidentRefs: [UABC-V4-DEF-002]
+        slaEvents:
+          - {incidentRef: UABC-V4-DEF-002, severity: P2, reportedAt: '2026-05-14T09:10:00+02:00', reactionAt: '2026-05-14T09:25:00+02:00', correctedAt: '2026-05-14T09:55:00+02:00', retestedAt: '2026-05-14T10:20:00+02:00', closedAt: '2026-05-14T10:25:00+02:00'}
+        decision: O2C nach Preis-Retest und Differenz null fortgesetzt
+        dayClose: Debitor 940,10 EUR, Umsatzsteuer 150,10 EUR und Lagerwert abgestimmt
+      - {date: 2026-05-15, status: geschlossen-synthetisch, availability: erreichbar, incidentRefs: [], decision: "Warenfluss ohne neue Abweichung bestaetigt", dayClose: "Artikel- und Wertposten differenzfrei"}
+      - {date: 2026-05-16, status: geschlossen-synthetisch, availability: bereitschaft, incidentRefs: [], decision: "Keine Eskalation erforderlich", dayClose: "Wochenendmonitoring ohne Aenderung"}
+      - {date: 2026-05-17, status: geschlossen-synthetisch, availability: bereitschaft, incidentRefs: [], decision: "Keine Eskalation erforderlich", dayClose: "Defectstatus kontrolliert; keine offene P1/P2"}
+      - {date: 2026-05-18, status: geschlossen-synthetisch, availability: erreichbar, incidentRefs: [], decision: "Zahlungsausgleich vorbereitet", dayClose: "Offene Posten und Referenzen kontrolliert"}
+      - date: 2026-05-19
+        status: geschlossen-synthetisch
+        availability: erreichbar
+        incidentRefs: [UABC-V4-DEF-003]
+        slaEvents:
+          - {incidentRef: UABC-V4-DEF-003, severity: P2, reportedAt: '2026-05-19T09:15:00+02:00', reactionAt: '2026-05-19T09:25:00+02:00', correctedAt: '2026-05-19T09:40:00+02:00', retestedAt: '2026-05-19T09:50:00+02:00', closedAt: '2026-05-19T09:55:00+02:00'}
+        decision: Kundenzahlung nach Referenzkorrektur vollstaendig ausgeglichen
+        dayClose: Debitoren offen 0,00 EUR; Bank 5.940,10 EUR
+      - {date: 2026-05-20, status: geschlossen-synthetisch, availability: erreichbar, incidentRefs: [], decision: "Lieferantenzahlung synthetisch gebucht", dayClose: "Kreditoren offen 0,00 EUR; Bank 5.440,30 EUR"}
+      - date: 2026-05-21
+        status: geschlossen-synthetisch
+        availability: erreichbar
+        incidentRefs: [UABC-V4-DEF-004]
+        slaEvents:
+          - {incidentRef: UABC-V4-DEF-004, severity: P2, reportedAt: '2026-05-21T09:00:00+02:00', reactionAt: '2026-05-21T09:10:00+02:00', correctedAt: '2026-05-21T09:30:00+02:00', retestedAt: '2026-05-21T09:45:00+02:00', closedAt: '2026-05-21T09:50:00+02:00'}
+        decision: Manuelles Matching nach Differenz-null-Retest angenommen
+        dayClose: Auszug und Bankposten 5.440,30 EUR; Differenz 0,00 EUR
+      - {date: 2026-05-22, status: exit-bestanden-synthetisch, availability: erreichbar, incidentRefs: [], decision: "Hypercare-Exit ohne offene P1/P2", dayClose: "Elf Tagesabschluesse vollstaendig; Support uebernimmt Nachsorge"}
+  restart:
+    date: 2026-05-26
+    document: RESTART-260526
+    owner: ROLE-CUSTOMER-IT
+    controller: ROLE-CUSTOMER-FINANCE
+    lastKnownGood: UABC-V4-DAY-012
+    resetPath: "Zur differenzfreien Hypercare-Exit-Baseline vom 22. Mai zurueckkehren"
+    checklist:
+      - {id: RST-01, check: Benutzer und Rollen lesbar, result: bestanden-synthetisch}
+      - {id: RST-02, check: Buchungsperiode 2026-05 offen, result: bestanden-synthetisch}
+      - {id: RST-03, check: P2P O2C Zahlung Bank und Lager lesbar, result: bestanden-synthetisch}
+      - {id: RST-04, check: Nebenbuch und Sachbuch ohne Differenz, result: bestanden-synthetisch}
+    decision: restart-bestanden-synthetisch
+    realApprovalClaimed: false
+  monthEndClose:
+    date: 2026-05-28
+    document: CLOSE-2026-05
+    owner: ROLE-CUSTOMER-FINANCE
+    controller: P-PILOT-LEAD-001
+    reconciliations:
+      accountsReceivable: {subledger: 0, generalLedger: 0, difference: 0}
+      accountsPayable: {subledger: 0, generalLedger: 0, difference: 0}
+      bank: {statement: 5440.30, ledger: 5440.30, difference: 0}
+      inventory: {itemQuantity: 49, itemValue: 2058, generalLedger: 2058, quantityDifference: 0, valueDifference: 0}
+      vat: {outputVat: 150.10, inputVat: 79.80, previewPayable: 70.30, difference: 0}
+      trialBalance: {debit: 11080.20, credit: 11080.20, difference: 0}
+    checklist:
+      - {id: CLS-01, check: Buchungsstichtag und Periode kontrolliert, result: bestanden-synthetisch}
+      - {id: CLS-02, check: Debitoren und Kreditoren abgestimmt, result: bestanden-synthetisch}
+      - {id: CLS-03, check: Bankauszug und Bankposten abgestimmt, result: bestanden-synthetisch}
+      - {id: CLS-04, check: Artikelposten Wertposten und Sachbuch abgestimmt, result: bestanden-synthetisch}
+      - {id: CLS-05, check: MwSt.-Posten und Sachbuch abgestimmt, result: bestanden-synthetisch}
+      - {id: CLS-06, check: Summen- und Saldenliste differenzfrei, result: bestanden-synthetisch}
+    decision: monatsabschluss-bestanden-synthetisch
+    productivePostingClaimed: false
+  vatPreview:
+    date: 2026-05-28
+    document: VAT-2026-05-PREVIEW
+    taxableSales: 790
+    outputVat: 150.10
+    taxablePurchases: 420
+    inputVat: 79.80
+    payable: 70.30
+    difference: 0
+    status: vorschau-bestanden-synthetisch
+    transmitted: false
+    taxApprovalClaimed: false
+    limitation: Keine ELSTER-Uebermittlung, Steuerberatung oder reale Steuerfreigabe.
+  retrospective:
+    date: 2026-05-29
+    decision: Abschlussbereitschaft synthetisch bestaetigt; keine offene P1/P2
+    openP1: 0
+    openP2: 0
+  supportHandover:
+    date: 2026-06-01
+    document: HANDOVER-260601
+    checklist:
+      - {id: HND-01, check: Hypercareprotokoll uebergeben, result: bestanden-synthetisch}
+      - {id: HND-02, check: Restartnachweis uebergeben, result: bestanden-synthetisch}
+      - {id: HND-03, check: Monatsabschluss und UStVA-Vorschau uebergeben, result: bestanden-synthetisch}
+      - {id: HND-04, check: Reale Gates weiterhin offen ausgewiesen, result: bestanden-synthetisch}
+    decision: supportannahme-bestanden-synthetisch
+    realCustomerAcceptanceClaimed: false
+projectClosure:
+  status: abgeschlossen-synthetisch
+  customerAcceptanceClaimed: false
+  productionStartClaimed: false
+  realGates:
+    - {id: REAL-GATE-01, title: Reale Zielgesellschaft und Lizenzen bestaetigen, status: offen}
+    - {id: REAL-GATE-02, title: Reale Finanz- und Steuerkonzeption freigeben, status: offen}
+    - {id: REAL-GATE-03, title: Reale Kundenstamm- und Eroeffnungsdaten abnehmen, status: offen}
+    - {id: REAL-GATE-04, title: Reale Rollen und Berechtigungen pruefen, status: offen}
+    - {id: REAL-GATE-05, title: Reale UAT durch Kundenrollen abnehmen, status: offen}
+    - {id: REAL-GATE-06, title: Reales Cutover-GO erteilen, status: offen}
+    - {id: REAL-GATE-07, title: Produktivstart und Hypercare real bestaetigen, status: offen}
+    - {id: REAL-GATE-08, title: UStVA pruefen und externe Uebermittlung separat autorisieren, status: offen}
+catalog:
+  releaseId: UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL
+  catalogId: UABC-RESOURCE-CATALOG-V4
+  generatedAt: '2026-07-15T18:00:00+02:00'
+  pointerContract: uabc-customer-catalog-current-v1
+  manifestContract: uabc-customer-catalog-release-v1
+  immutable: true
+  readOnly: true
+  requiresGit: false
+  customerId: UABC-CUSTOMER-001
+  projectId: UABC-BC-BASIC-001
+  generatedArtifacts:
+    - {id: UABC-V4-OPERATING-SOURCE-001, kind: betriebszyklus-quelle, path: project/bc-basic/operating-cycle-v4.yaml, references: [UABC-51, UABC-52, UABC-53]}
+    - {id: UABC-V4-OPERATING-EVIDENCE-001, kind: betriebszyklus-nachweis, path: evidence/simulation/operating-cycle-v4.json, references: [UABC-51, UABC-52, UABC-53]}
+    - {id: UABC-V4-CUSTOMER-HANDBOOK-001, kind: kundenhandbuch, path: docs/guides/bc-basic-v4-customer-handbook.md, references: [UABC-51, UABC-52, UABC-MTG-012]}
+    - {id: UABC-V4-CONSULTANT-HANDBOOK-001, kind: beraterhandbuch, path: docs/runbooks/bc-basic-v4-consultant-handbook.md, references: [UABC-51, UABC-52, UABC-53]}
+    - {id: UABC-V4-SUPPORT-HANDOVER-001, kind: supportuebergabe, path: docs/handover/bc-basic-v4-support-handover.md, references: [UABC-50, UABC-52, UABC-MTG-012]}
+    - {id: UABC-V4-PROJECT-CLOSE-001, kind: projektabschluss, path: docs/reports/bc-basic-v4-project-close.md, references: [UABC-50, UABC-53, UABC-DEC-BCB-011]}

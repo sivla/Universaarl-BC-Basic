@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "pointerContract": "uabc-customer-catalog-current-v1",
+  "customerId": "UABC-CUSTOMER-001",
+  "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE",
+  "releasePath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE",
+  "manifestPath": "exports/project-data/v1/snapshots/releases/UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE/manifest.json",
+  "manifestSha256": "ddaa08236947b1b0260f8d13aca754864af8b7fdc9c1317aeb3f88362f1fbddd",
+  "payloadBundleDigest": "3e95f2400b119281ba21253e250eefeb3d926d5f76ff672eaa783cf863a237b9",
+  "catalogAggregateDigest": "808d3fabd5125dd12094077358ae733971f9379dfc767120e20c48453795cfd0",
+  "artifactCount": 130,
+  "readOnly": true,
+  "requiresGit": false,
+  "bindingStatus": "BOUND_BCPROJECTOS_RELEASE",
+  "candidateOnly": true,
+  "producerStatus": {
+    "simulationStatus": "synthetischer Betriebszyklus abgeschlossen",
+    "realDeploymentReadiness": "gelb/offen",
+    "realDeploymentReady": false,
+    "summaryGreenRealAmpel": false,
+    "simulationEvidencePath": "evidence/simulation/operating-cycle-v4.json",
+    "readinessEvidencePath": "evidence/simulation/real-onboarding-readiness-v5.json",
+    "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL",
+    "candidateReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE"
+  },
+  "producerContractPath": "project/bc-basic/real-onboarding-readiness-v5.yaml",
+  "producerEvidencePath": "evidence/simulation/real-onboarding-readiness-v5.json",
+  "updatedAt": "2026-07-15T00:00:00+02:00"
+}

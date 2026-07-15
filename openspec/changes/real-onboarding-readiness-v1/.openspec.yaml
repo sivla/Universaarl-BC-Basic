@@ -1,0 +1,30 @@
+schema: universaarl-delivery
+changeId: real-onboarding-v1
+title: Dualer Projektstatus und reale Onboardingbereitschaft
+status: proposed
+canonicalTargets: [projektdaten-index, verification-register]
+proposedCanonicalUpdate:
+  status: unapplied
+  targets: [projektdaten-index, verification-register]
+  facts:
+    dualStatus: {status: confirmed, value: gelb/offen, evidenceIds: [UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001]}
+    simulationStatus: {status: confirmed, value: synthetischer Betriebszyklus abgeschlossen, evidenceIds: [UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001]}
+    realGateCount: {status: confirmed, value: 8, evidenceIds: [UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001]}
+    candidateRelease: {status: confirmed, value: UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE, evidenceIds: [UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001]}
+  unknowns: [reale Ownerrollen, reale Faelligkeiten, Tenant-, Lizenz-, Security-, UAT-, Cutover-, Abschluss-, Steuer- und Supportnachweis]
+  policyGateEvidenceId: UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001
+approvalPolicy:
+  type: automated-policy-gate
+  evidenceId: UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001
+  authorizedBy: repository-nutzer
+  authorizedAt: 2026-07-15
+  scope: nur dualer BC-Basic-Producerstatus und V5-Kandidat
+evidence:
+  - evidenceId: UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001
+    status: passed
+    kind: automated-policy-gate
+    path: evidence/simulation/real-onboarding-readiness-v5.json
+    subjectRefs:
+      - UABC-CUSTOMER-001
+      - UABC-BC-BASIC-001
+      - UABC-GOAL-REAL-ONBOARDING-READY-V1

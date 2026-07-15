@@ -1,0 +1,274 @@
+schemaVersion: 2
+projectId: UABC-BC-BASIC-001
+simulation: true
+classification: synthetic-current-pilot-v3
+currentAuthority: true
+truthBoundary: Alle Personen, Termine, Aussagen und Entscheidungen sind
+  Bestandteile der Simulation und keine realen Kundentermine oder
+  BC-Ausfuehrung.
+meetings:
+  - id: UABC-MTG-001
+    title: Kickoff
+    date: 2026-04-07
+    time: 2026-04-07T10:00:00+02:00
+    phase: P1
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-001.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    jiraRefs:
+      - UABC-1
+      - UABC-4
+      - UABC-5
+      - UABC-7
+      - UABC-8
+      - UABC-9
+      - UABC-11
+      - UABC-12
+      - UABC-14
+      - UABC-15
+      - UABC-16
+      - UABC-20
+      - UABC-32
+    agenda: Projektziel, Scope, 80-Stunden-Plan, RACI und Eskalationsweg
+    result: Sponsorin bestaetigt den simulierten Fit-to-Standard-Auftrag und das
+      Discovery-Gate.
+    evidenceClaimed: false
+  - id: UABC-MTG-002
+    title: Discovery Finance
+    date: 2026-04-09
+    time: 2026-04-09T09:00:00+02:00
+    phase: P1
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-002.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    jiraRefs:
+      - UABC-21
+      - UABC-27
+      - UABC-34
+    agenda: Kontenplan, Buchungsgruppen, Dimensionen, Perioden, Bank und MwSt.
+    result: SKR04-orientiertes Zielbild, MWST19 und die Monatsabschlusskontrollen
+      sind synthetisch entschieden.
+    evidenceClaimed: false
+  - id: UABC-MTG-003
+    title: Prozessworkshop
+    date: 2026-04-13
+    time: 2026-04-13T09:00:00+02:00
+    phase: P1
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-003.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+      - ROLE-CUSTOMER-FINANCE
+    jiraRefs:
+      - UABC-22
+      - UABC-23
+      - UABC-24
+      - UABC-33
+      - UABC-37
+      - UABC-38
+      - UABC-41
+    agenda: Einkauf, Verkauf, Lager, Rollen und Prozessausnahmen
+    result: P2P, O2C und Lager bleiben im Standard; Freigabeworkflows und
+      erweitertes Lager sind out of scope.
+    evidenceClaimed: false
+  - id: UABC-MTG-004
+    title: Datenübernahme
+    date: 2026-04-17
+    time: 2026-04-17T10:00:00+02:00
+    phase: P1
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-004.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    jiraRefs:
+      - UABC-1
+      - UABC-6
+      - UABC-17
+      - UABC-18
+      - UABC-19
+      - UABC-35
+      - UABC-36
+    agenda: Datenquellen, Pflichtfelder, Kontrollsummen, Fehlerliste und Freigabe
+    result: Drei Datenwellen mit Stammdaten vor Eroeffnungsposten sind synthetisch
+      freigegeben.
+    evidenceClaimed: false
+  - id: UABC-MTG-005
+    title: Konfiguration
+    date: 2026-05-04
+    time: 2026-05-04T09:00:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-005.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    jiraRefs:
+      - UABC-2
+    agenda: Firmendaten, Finanzsetup, Nummernserien, Buchungsgruppen und Berechtigungen
+    result: Einrichtungswoche startet mit kontrollierter Baseline und unveraenderten
+      Live-Grenzen.
+    evidenceClaimed: false
+  - id: UABC-MTG-006
+    title: SIT-Triage
+    date: 2026-05-07
+    time: 2026-05-07T15:00:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-006.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    jiraRefs:
+      - UABC-39
+    agenda: SIT-Ergebnisse, P2P-/O2C-/Lagerabweichungen, Korrektur und Retest
+    result: Drei P2-Defects wurden korrigiert und in der Simulation erfolgreich
+      retestet.
+    evidenceClaimed: false
+  - id: UABC-MTG-007
+    title: UAT
+    date: 2026-05-08
+    time: 2026-05-08T09:00:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-007.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    jiraRefs:
+      - UABC-29
+      - UABC-30
+      - UABC-31
+      - UABC-40
+    agenda: Sieben UAT-Faelle, Kontrollsummen, Defects und Abnahme
+    result: Alle Pflichtfaelle sind synthetisch angenommen; reale UAT bleibt
+      separates Kundengate.
+    evidenceClaimed: false
+  - id: UABC-MTG-008
+    title: Finanzschulung
+    date: 2026-05-08
+    time: 2026-05-08T11:00:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-008.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+    jiraRefs:
+      - UABC-25
+      - UABC-26
+      - UABC-28
+      - UABC-47
+      - UABC-48
+    agenda: Navigation, Buchungsvorschau, Zahlung, Bank, Abschluss und UStVA-Vorschau
+    result: Die Finanzanwenderin besteht den synthetischen Kompetenzcheck.
+    evidenceClaimed: false
+  - id: UABC-MTG-009
+    title: Prozessschulung
+    date: 2026-05-08
+    time: 2026-05-08T13:30:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-009.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    jiraRefs:
+      - UABC-10
+      - UABC-42
+    agenda: Bestellung, Auftrag, Lagerbewegung, Fehlerkorrektur und Supportweg
+    result: Drei operative Fachanwender bestehen die rollenbezogenen Uebungen.
+    evidenceClaimed: false
+  - id: UABC-MTG-010
+    title: Cutover-GO
+    date: 2026-05-11
+    time: 2026-05-11T08:30:00+02:00
+    phase: P2
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-010.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    jiraRefs:
+      - UABC-2
+      - UABC-13
+      - UABC-43
+      - UABC-44
+    agenda: Mock-Cutover, Kontrollsummen, Restpunkte, Restart und GO/NO-GO
+    result: GO_SIMULATION wurde fuer die repositorybasierte Cutover-Probe erteilt.
+    evidenceClaimed: false
+  - id: UABC-MTG-011
+    title: Hypercare
+    date: 2026-05-19
+    time: 2026-05-19T09:00:00+02:00
+    phase: P3
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-011.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    jiraRefs:
+      - UABC-3
+      - UABC-45
+      - UABC-46
+      - UABC-49
+    agenda: Incidentlage, Reaktionszeiten, Zahlungsreferenz, Retest und Restart
+    result: P1/P2 sind null; Zahlungsreferenz ist korrigiert und der Restart
+      synthetisch bestanden.
+    evidenceClaimed: false
+  - id: UABC-MTG-012
+    title: Handover
+    date: 2026-06-01
+    time: 2026-06-01T10:00:00+02:00
+    phase: P3
+    status: simulated-complete
+    transcriptPath: atlassian/confluence/meetings/UABC-MTG-012.md
+    facilitatorActorRef: P-PILOT-LEAD-001
+    actorRefs:
+      - P-PILOT-LEAD-001
+      - ROLE-CUSTOMER-SPONSOR
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+    jiraRefs:
+      - UABC-3
+      - UABC-50
+    agenda: Lieferobjekte, Restpunkte, Supportmodell, Abschluss und acht reale Gates
+    result: Simulation ist fachlich abgeschlossen; Produktivsetzung und acht reale
+      Gates bleiben ausdruecklich ausserhalb.
+    evidenceClaimed: false

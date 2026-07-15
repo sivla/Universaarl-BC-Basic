@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001",
+  "kind": "automated-policy-gate",
+  "status": "passed",
+  "contractId": "UABC-GOAL-REAL-ONBOARDING-READY-V1",
+  "producerBlock": "UABC-V5-M1",
+  "generatedFrom": [
+    "project/bc-basic/real-onboarding-readiness-v5.yaml",
+    "evidence/simulation/operating-cycle-v4.json",
+    "project/bc-basic/operating-cycle-v4.yaml"
+  ],
+  "dualStatus": {
+    "simulationStatus": "synthetischer Betriebszyklus abgeschlossen",
+    "realDeploymentReadiness": "gelb/offen",
+    "realDeploymentReady": false,
+    "summaryGreenRealAmpel": false,
+    "simulationEvidencePath": "evidence/simulation/operating-cycle-v4.json",
+    "readinessEvidencePath": "evidence/simulation/real-onboarding-readiness-v5.json",
+    "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL",
+    "candidateReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE"
+  },
+  "financials": {
+    "currency": "EUR",
+    "hourlyRate": 120,
+    "plannedHours": 80,
+    "plannedNetAmount": 9600,
+    "actualHours": 83,
+    "actualNetAmount": 9960,
+    "forecastHours": 83,
+    "forecastNetAmount": 9960,
+    "varianceHours": 3,
+    "varianceNetAmount": 360,
+    "varianceReason": "UABC-51 erweitert das Betriebsjournal um drei taskgebundene Stunden; keine doppelte Fakturierung.",
+    "offerReconciliation": {
+      "baseline": {
+        "hours": 80,
+        "netAmount": 9600,
+        "sourceTaskRefs": [
+          "UABC-51"
+        ]
+      },
+      "actual": {
+        "hours": 83,
+        "netAmount": 9960,
+        "sourceTaskRefs": [
+          "UABC-51",
+          "UABC-52",
+          "UABC-53"
+        ]
+      },
+      "variance": {
+        "hours": 3,
+        "netAmount": 360
+      },
+      "explanation": "Drei zusätzliche taskgebundene Stunden gegenüber dem Angebot; keine doppelte Fakturierung."
+    },
+    "v4BaselineReconciliation": {
+      "baseline": {
+        "hours": 78,
+        "netAmount": 9360,
+        "sourceTaskRefs": [
+          "UABC-51"
+        ]
+      },
+      "actual": {
+        "hours": 83,
+        "netAmount": 9960,
+        "sourceTaskRefs": [
+          "UABC-51",
+          "UABC-52",
+          "UABC-53"
+        ]
+      },
+      "variance": {
+        "hours": 5,
+        "netAmount": 600
+      },
+      "explanation": "V4-Fortschreibung um fünf Stunden gegenüber der technischen V3-Basis; UABC-51 liefert drei, UABC-52 und UABC-53 je eine Stunde."
+    },
+    "sourceRefs": [
+      "evidence/simulation/operating-cycle-v4.json",
+      "project/bc-basic/operating-cycle-v4.yaml",
+      "evidence/verification-register.yaml"
+    ],
+    "derivedActualHours": 83,
+    "derivedActualNetAmount": 9960,
+    "worklog": {
+      "id": "WL-UABC-51-V4",
+      "date": "2026-06-01",
+      "hours": 3,
+      "hourlyRate": 120,
+      "netAmount": 360,
+      "billable": true,
+      "invoiceStatus": "projektion-nicht-versendet",
+      "syntheticApprovalOnly": true
+    }
+  },
+  "realGates": [
+    {
+      "id": "UABC-GATE-LIVE-TENANT",
+      "ownerRole": "Entscheidungslücke – Kundenverantwortung für Tenant zu benennen",
+      "evidenceType": "real-tenant",
+      "evidencePath": "evidence/real/tenant-access-readback.yaml",
+      "escalationLogic": "Ohne benannten Kundenowner und Readback bis zur Entscheidung bleibt das Gate pending und wird an die Kundenprojektleitung eskaliert.",
+      "closureLogic": "Nur ein signierter Readback mit Tenant-ID, Zugriffsrolle und Prüfzeitpunkt schließt das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Ein realer Zieltenant ist identifiziert, zugänglich und durch unabhängigen Readback nachgewiesen.",
+      "nextAction": "Kundenverantwortung benennen und Tenant-Readback-Termin festlegen."
+    },
+    {
+      "id": "UABC-GATE-LIVE-LICENSES",
+      "ownerRole": "Entscheidungslücke – Lizenzverantwortung zu benennen",
+      "evidenceType": "real-licenses",
+      "evidencePath": "evidence/real/licensing-assignment.yaml",
+      "escalationLogic": "Fehlende Lizenzverantwortung wird an die Kundenprojektleitung eskaliert; synthetische Produktbeispiele zählen nicht.",
+      "closureLogic": "Nur ein gebundener Lizenznachweis mit Benutzer-/Rollenbezug schließt das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Lizenzumfang und Zuweisung sind im Zieltenant mit belastbarer Evidence bestätigt.",
+      "nextAction": "Lizenzverantwortung und Prüftermin festlegen; keine Lizenzannahme aus der Simulation ableiten."
+    },
+    {
+      "id": "UABC-GATE-LIVE-SECURITY",
+      "ownerRole": "Entscheidungslücke – Kundenrolle für Security-Freigabe zu benennen",
+      "evidenceType": "real-permissions",
+      "evidencePath": "evidence/real/security-permission-review.yaml",
+      "escalationLogic": "Offene Security-Owner-Entscheidung bleibt pending und wird an Kundenprojektleitung und Security-Verantwortung eskaliert.",
+      "closureLogic": "Nur ein realer Permission-/SoD-Review mit Freigabe und Rückfallpfad schließt das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Rollen, Permission Sets, SoD und Notfallzugang sind real geprüft und freigegeben.",
+      "nextAction": "Security-Owner benennen und Permission-/SoD-Prüfung terminieren."
+    },
+    {
+      "id": "UABC-GATE-LIVE-UAT",
+      "ownerRole": "Entscheidungslücke – fachliche UAT-Verantwortung zu benennen",
+      "evidenceType": "real-uat",
+      "evidencePath": "evidence/real/uat-signoff.yaml",
+      "escalationLogic": "Fehlender UAT-Owner oder Termin wird als Entscheidungslücke an die Kundenprojektleitung eskaliert.",
+      "closureLogic": "Nur UAT-Protokoll, Defect-/Retestliste und fachlicher Sign-off im realen Tenant schließen das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Fachliche UAT-Fälle sind im realen Tenant ausgeführt, defects geschlossen und signiert.",
+      "nextAction": "UAT-Owner und Key-User benennen; reale Testdaten und Termin abstimmen."
+    },
+    {
+      "id": "UABC-GATE-LIVE-CUTOVER",
+      "ownerRole": "Entscheidungslücke – Cutover-Verantwortung zu benennen",
+      "evidenceType": "real-cutover",
+      "evidencePath": "evidence/real/cutover-rehearsal-and-signoff.yaml",
+      "escalationLogic": "Ohne benannten Cutover-Owner bleibt das Gate pending und wird an Kundenprojektleitung und Betriebsverantwortung eskaliert.",
+      "closureLogic": "Nur Runbook, Freeze, Rückfallpunkt, Rehearsal und reale Exit-Freigabe schließen das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Cutover-Runbook, Freeze, Rückfallpunkt und reale Ausführung sind nachgewiesen.",
+      "nextAction": "Cutover-Owner benennen und Entry-/Exit-Entscheidung vorbereiten."
+    },
+    {
+      "id": "UABC-GATE-LIVE-CLOSE",
+      "ownerRole": "Entscheidungslücke – Finanzabschlussverantwortung zu benennen",
+      "evidenceType": "real-first-close",
+      "evidencePath": "evidence/real/first-close-reconciliation.yaml",
+      "escalationLogic": "Fehlender Finanz-Owner wird an Kundenprojektleitung und Finanzverantwortung eskaliert.",
+      "closureLogic": "Nur realer Monatsabschluss mit Abstimmung, Kontrollsummen und Kundenentscheidung schließt das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Erster realer Monatsabschluss ist abgestimmt und durch die Kundenfinanzrolle freigegeben.",
+      "nextAction": "Finanz-Owner benennen und ersten realen Abschlussmonat festlegen."
+    },
+    {
+      "id": "UABC-GATE-LIVE-TAX",
+      "ownerRole": "Entscheidungslücke – Steuerverantwortung zu benennen",
+      "evidenceType": "real-vat-submission",
+      "evidencePath": "evidence/real/vat-localization-and-submission.yaml",
+      "escalationLogic": "Steuer-/Lokalisierungsentscheidung bleibt offen und wird an die benannte Kundensteuerrolle eskaliert.",
+      "closureLogic": "Nur reale Lokalisierungsprüfung und autorisierte UStVA-/Übermittlungsevidence schließen das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Lokalisierung, UStVA und gegebenenfalls externe Übermittlung sind real geprüft und autorisiert.",
+      "nextAction": "Steuer-Owner und Lokalisierungsentscheid benennen; keine synthetische Vorschau als Übermittlung werten."
+    },
+    {
+      "id": "UABC-GATE-LIVE-SUPPORT",
+      "ownerRole": "Entscheidungslücke – Supportverantwortung zu benennen",
+      "evidenceType": "real-support-handover",
+      "evidencePath": "evidence/real/support-sla-handover.yaml",
+      "escalationLogic": "Fehlende Supportverantwortung wird an Kundenprojektleitung und Betriebsverantwortung eskaliert.",
+      "closureLogic": "Nur bestätigte Kanäle, SLA, Bereitschaft und reale Übergabe schließen das Gate.",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "completionCondition": "Reale Supportkanäle, SLA, Bereitschaft und Übergabe sind mit Kundenbestätigung belegt.",
+      "nextAction": "Support-Owner benennen und Übergabe-/SLA-Termin abstimmen."
+    }
+  ],
+  "nextActions": [
+    {
+      "id": "UABC-V5-ACTION-001",
+      "priority": 1,
+      "title": "Realverantwortung benennen",
+      "ownerRole": "Entscheidungslücke – Kundenprojektleitung zu benennen",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "dependsOn": [
+        "UABC-GATE-LIVE-TENANT",
+        "UABC-GATE-LIVE-LICENSES",
+        "UABC-GATE-LIVE-SECURITY"
+      ],
+      "targetGate": "UABC-GATE-LIVE-TENANT",
+      "evidenceExpectedPath": "evidence/real/tenant-access-readback.yaml",
+      "gateRefs": [
+        "UABC-GATE-LIVE-TENANT",
+        "UABC-GATE-LIVE-LICENSES",
+        "UABC-GATE-LIVE-SECURITY"
+      ],
+      "sourceRefs": [
+        "evidence/verification-register.yaml",
+        "evidence/simulation/real-onboarding-readiness-v5.json"
+      ]
+    },
+    {
+      "id": "UABC-V5-ACTION-002",
+      "priority": 2,
+      "title": "Reale UAT planen",
+      "ownerRole": "Entscheidungslücke – fachliche UAT-Verantwortung zu benennen",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "dependsOn": [
+        "UABC-GATE-LIVE-TENANT",
+        "UABC-GATE-LIVE-SECURITY"
+      ],
+      "targetGate": "UABC-GATE-LIVE-UAT",
+      "evidenceExpectedPath": "evidence/real/uat-signoff.yaml",
+      "gateRefs": [
+        "UABC-GATE-LIVE-UAT",
+        "UABC-GATE-LIVE-CUTOVER"
+      ],
+      "sourceRefs": [
+        "project/bc-basic/uat-catalog.yaml",
+        "evidence/verification-register.yaml"
+      ]
+    },
+    {
+      "id": "UABC-V5-ACTION-003",
+      "priority": 3,
+      "title": "Abschluss und Support klären",
+      "ownerRole": "Entscheidungslücke – Finanz-, Steuer- und Supportrollen zu benennen",
+      "due": null,
+      "dueStatus": "entscheidungsluecke",
+      "status": "pending",
+      "dependsOn": [
+        "UABC-GATE-LIVE-UAT",
+        "UABC-GATE-LIVE-CLOSE",
+        "UABC-GATE-LIVE-TAX"
+      ],
+      "targetGate": "UABC-GATE-LIVE-SUPPORT",
+      "evidenceExpectedPath": "evidence/real/support-sla-handover.yaml",
+      "gateRefs": [
+        "UABC-GATE-LIVE-CLOSE",
+        "UABC-GATE-LIVE-TAX",
+        "UABC-GATE-LIVE-SUPPORT"
+      ],
+      "sourceRefs": [
+        "project/bc-basic/operating-cycle-v4.yaml",
+        "docs/handover/bc-basic-handover.md",
+        "evidence/verification-register.yaml"
+      ]
+    }
+  ],
+  "checks": {
+    "contradictoryAmpel": "blocked",
+    "missingGateOwnerOrEvidenceType": "blocked",
+    "wrongBudgetArithmetic": "blocked",
+    "inventedApproval": "blocked",
+    "unboundAction": "blocked"
+  },
+  "truthBoundary": {
+    "liveExecutionClaimed": false,
+    "realCustomerApprovalClaimed": false,
+    "taxApprovalClaimed": false,
+    "productionUseClaimed": false,
+    "candidateIsNotCurrent": true,
+    "v4BytesPreserved": true
+  },
+  "currentPointerUnchanged": true,
+  "currentReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL",
+  "candidateReleaseId": "UABC-CUSTOMER-001-CATALOG-20260715-V5-CANDIDATE"
+}

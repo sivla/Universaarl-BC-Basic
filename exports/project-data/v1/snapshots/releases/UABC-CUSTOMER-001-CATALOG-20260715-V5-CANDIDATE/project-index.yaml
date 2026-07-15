@@ -1,0 +1,2507 @@
+schemaVersion: 1
+contractId: UABC-PROJECT-DATA-V1
+projectId: UABC-BC-BASIC-001
+projectKey: BCB
+routeKey: bc-basic
+displayName: BC Basic Einrichtung
+governingChange: consolidate-bc-basic-canonical-project-v1
+lifecycleStatus: active
+allowedBranch: codex/universaarl-projekt
+validationStatus: validated
+readOnly: true
+sourceOfTruth: kundenprojekt
+contractRole: dateisystem-katalog-index
+pathSemantics: repository-relative
+snapshotManifestIncluded: true
+missingValuePolicy: leer
+documentCatalog:
+  catalogId: UABC-DOCUMENT-CATALOG-V1
+  path: exports/project-data/v1/document-catalog.json
+  schemaPath: governance/schemas/project-document-catalog.schema.json
+  documentCount: 46
+  commitResolution: allowed-branch-head-resolved-once
+  allowedExternalOrigins: []
+  spaces:
+    - spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      title: Universaarl Kundenprojekt
+      purpose: Fuehrende Wahrheit fuer die konkrete Universaarl-Kundeninstanz.
+      audience:
+        - Kunde
+        - Projektleitung
+        - Key User
+        - Consultant
+      order: 0
+      homeDocumentId: UABC-PROJECT
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      title: BC Basic Produkt
+      purpose: Pilot-Arbeitsstand fuer das verkaufte und gelieferte
+        BC-Basic-Leistungsmodell.
+      audience:
+        - Vertrieb
+        - Projektleitung
+        - Consultant
+        - Solution Architect
+      order: 1
+      homeDocumentId: UABC-BCBPROJECT
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      title: BC Basic Consulting-Handbuch
+      purpose: Pilot-Arbeitsstand fuer die reproduzierbare interne Durchfuehrung.
+      audience:
+        - Consultant
+        - Solution Architect
+        - Support
+      order: 2
+      homeDocumentId: UABC-BLUEPRINT
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+  navigationModules:
+    - moduleId: UABC-NAV-CUSTOMER
+      spaceId: UABC-SPACE-CUSTOMER
+      title: Universaarl Kundenprojekt
+      order: 0
+    - moduleId: UABC-NAV-PRODUCT
+      spaceId: UABC-SPACE-PRODUCT
+      title: BC Basic Produkt
+      order: 1
+    - moduleId: UABC-NAV-CONSULTANT
+      spaceId: UABC-SPACE-CONSULTANT
+      title: BC Basic Consulting-Handbuch
+      order: 2
+  navigationNodes:
+    - nodeId: UABC-NAV-NODE-CUSTOMER
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: group
+      title: Universaarl Kundenprojekt
+      order: 0
+      parentNodeId: null
+      documentId: null
+      description: Fuehrende Wahrheit fuer die konkrete Universaarl-Kundeninstanz.
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PRODUCT
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: group
+      title: BC Basic Produkt
+      order: 0
+      parentNodeId: null
+      documentId: null
+      description: Pilot-Arbeitsstand fuer das verkaufte und gelieferte
+        BC-Basic-Leistungsmodell.
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-CONSULTANT
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: group
+      title: BC Basic Consulting-Handbuch
+      order: 0
+      parentNodeId: null
+      documentId: null
+      description: Pilot-Arbeitsstand fuer die reproduzierbare interne Durchfuehrung.
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PROJECT
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 00 Hilfe und Projektumgebung
+      order: 0
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-PROJECT
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-COMPANY
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 01 Unternehmen
+      order: 1
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-COMPANY
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-BCBDELIVERABLES
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 02 Business Central
+      order: 2
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-BCBDELIVERABLES
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-BCBSTORY
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 03 Projekte
+      order: 3
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-BCBSTORY
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-HYPERCARE
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 04 Handbuecher
+      order: 4
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-HYPERCARE
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-ARCHIVE
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 99 Archiv
+      order: 5
+      parentNodeId: UABC-NAV-NODE-CUSTOMER
+      documentId: UABC-ARCHIVE
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-DECISIONS
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 02.1 Datenmigration
+      order: 6
+      parentNodeId: UABC-NAV-NODE-BCBDELIVERABLES
+      documentId: UABC-DECISIONS
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-BCBDISCOVERY
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 02.2 Prozesse und Fit-to-Standard
+      order: 7
+      parentNodeId: UABC-NAV-NODE-BCBDELIVERABLES
+      documentId: UABC-BCBDISCOVERY
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-BCBIMPLEMENTATION
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 02.3 Loesung und Einrichtung
+      order: 8
+      parentNodeId: UABC-NAV-NODE-BCBDELIVERABLES
+      documentId: UABC-BCBIMPLEMENTATION
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-TESTS
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 03.1 Test und Abnahme
+      order: 9
+      parentNodeId: UABC-NAV-NODE-BCBSTORY
+      documentId: UABC-TESTS
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-WALKTHROUGH
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 03.2 Cutover und Go-live
+      order: 10
+      parentNodeId: UABC-NAV-NODE-BCBSTORY
+      documentId: UABC-WALKTHROUGH
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-BCBHCSTORY
+      moduleId: UABC-NAV-CUSTOMER
+      nodeType: page
+      title: 03.3 Hypercare und Uebergabe
+      order: 11
+      parentNodeId: UABC-NAV-NODE-BCBSTORY
+      documentId: UABC-BCBHCSTORY
+      initialState: collapsed
+    - nodeId: UABC-NAV-NODE-BCBPROJECT
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 00 BC Basic Produktuebersicht
+      order: 0
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-BCBPROJECT
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PRODUCTAUDIENCE
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 01 Zielgruppe und Einsatzfaelle
+      order: 1
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-PRODUCTAUDIENCE
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PROCESSES
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 02 Leistungsumfang und Abgrenzung
+      order: 2
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-PROCESSES
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PRODUCTAPPROACH
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 03 Phasen und Vorgehensmodell
+      order: 3
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-PRODUCTAPPROACH
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-TRAINING
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 04 Lieferobjekte und Abnahme
+      order: 4
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-TRAINING
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PRODUCTOFFER
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 05 Angebot, Aufwand und Voraussetzungen
+      order: 5
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-PRODUCTOFFER
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-BCBHYPERCARE
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 06 Optionen und Erweiterungen
+      order: 6
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-BCBHYPERCARE
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-PRODUCTSALESFAQ
+      moduleId: UABC-NAV-PRODUCT
+      nodeType: page
+      title: 07 Vertriebsleitfaden und FAQ
+      order: 7
+      parentNodeId: UABC-NAV-NODE-PRODUCT
+      documentId: UABC-PRODUCTSALESFAQ
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-BLUEPRINT
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 00 Durchfuehrungsueberblick
+      order: 0
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-BLUEPRINT
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-DISCOVERY
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 01 Discovery und Fit-to-Standard
+      order: 1
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-DISCOVERY
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-CONSULTINGDESIGN
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 02 Loesungsdesign und Projektplanung
+      order: 2
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-CONSULTINGDESIGN
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-ENVBASELINE
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 03 BC-Einrichtung und Konfigurationspakete
+      order: 3
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-ENVBASELINE
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-CONSULTINGTESTS
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 04 Tests, UAT und Evidence
+      order: 4
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-CONSULTINGTESTS
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-BCBMEETINGS
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 05 Schulung, Cutover und Hypercare
+      order: 5
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-BCBMEETINGS
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-CONSULTINGHANDOVER
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 06 Dokumentation und Uebergabe
+      order: 6
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-CONSULTINGHANDOVER
+      initialState: expanded
+    - nodeId: UABC-NAV-NODE-CONSULTINGCHECKLISTS
+      moduleId: UABC-NAV-CONSULTANT
+      nodeType: page
+      title: 07 Checklisten, Vorlagen und Fehlerbilder
+      order: 7
+      parentNodeId: UABC-NAV-NODE-CONSULTANT
+      documentId: UABC-CONSULTINGCHECKLISTS
+      initialState: expanded
+  redirects:
+    - documentId: UABC-PROJECT
+      storyPageId: PAGE-UABC-000
+      sourcePath: atlassian/confluence/pages/00-project.md
+      previousTitle: 00 Support – Projektumgebung
+      previousParentId: null
+      targetTitle: 00 Hilfe und Projektumgebung
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-COMPANY
+      storyPageId: PAGE-UABC-010
+      sourcePath: atlassian/confluence/pages/10-company-profile.md
+      previousTitle: 01 Unternehmen
+      previousParentId: PAGE-UABC-000
+      targetTitle: 01 Unternehmen
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-DISCOVERY
+      storyPageId: PAGE-UABC-020
+      sourcePath: atlassian/confluence/pages/20-discovery.md
+      previousTitle: 01 Discovery, Workshops und Fit-to-Standard
+      previousParentId: PAGE-UABC-030
+      targetTitle: 01 Discovery und Fit-to-Standard
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BLUEPRINT
+      storyPageId: PAGE-UABC-030
+      sourcePath: atlassian/confluence/pages/30-blueprint.md
+      previousTitle: 00 Consultant-Handbuch und Fast-Track
+      previousParentId: null
+      targetTitle: 00 Durchfuehrungsueberblick
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-PROCESSES
+      storyPageId: PAGE-UABC-040
+      sourcePath: atlassian/confluence/pages/31-processes.md
+      previousTitle: 01 Prozess- und Konfigurationsstandard
+      previousParentId: PAGE-UABC-090
+      targetTitle: 02 Leistungsumfang und Abgrenzung
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-DECISIONS
+      storyPageId: PAGE-UABC-050
+      sourcePath: atlassian/confluence/pages/32-decisions.md
+      previousTitle: 05 Datenmigration
+      previousParentId: PAGE-UABC-000
+      targetTitle: 02.1 Datenmigration
+      targetParentId: UABC-BCBDELIVERABLES
+      migrationStatus: migrated-in-place
+    - documentId: UABC-TESTS
+      storyPageId: PAGE-UABC-060
+      sourcePath: atlassian/confluence/pages/50-tests.md
+      previousTitle: 06 Test und Abnahme
+      previousParentId: PAGE-UABC-000
+      targetTitle: 03.1 Test und Abnahme
+      targetParentId: UABC-BCBSTORY
+      migrationStatus: migrated-in-place
+    - documentId: UABC-ENVBASELINE
+      storyPageId: PAGE-UABC-070
+      sourcePath: atlassian/confluence/pages/60-environment-baseline.md
+      previousTitle: 02 Umgebung, Einrichtung, Daten und Testdurchführung
+      previousParentId: PAGE-UABC-030
+      targetTitle: 03 BC-Einrichtung und Konfigurationspakete
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-WALKTHROUGH
+      storyPageId: PAGE-UABC-080
+      sourcePath: atlassian/confluence/pages/61-walkthrough-pilot.md
+      previousTitle: 08 Cutover und Go-live
+      previousParentId: PAGE-UABC-000
+      targetTitle: 03.2 Cutover und Go-live
+      targetParentId: UABC-BCBSTORY
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBPROJECT
+      storyPageId: PAGE-UABC-090
+      sourcePath: atlassian/confluence/pages/70-bc-basic-project.md
+      previousTitle: 00 BC Basic Standardprodukt
+      previousParentId: null
+      targetTitle: 00 BC Basic Produktuebersicht
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBDISCOVERY
+      storyPageId: PAGE-UABC-100
+      sourcePath: atlassian/confluence/pages/71-bc-basic-discovery.md
+      previousTitle: 03 Prozesse und Fit-to-Standard
+      previousParentId: PAGE-UABC-000
+      targetTitle: 02.2 Prozesse und Fit-to-Standard
+      targetParentId: UABC-BCBDELIVERABLES
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBIMPLEMENTATION
+      storyPageId: PAGE-UABC-110
+      sourcePath: atlassian/confluence/pages/72-bc-basic-implementation.md
+      previousTitle: 04 Lösung und Einrichtung
+      previousParentId: PAGE-UABC-000
+      targetTitle: 02.3 Loesung und Einrichtung
+      targetParentId: UABC-BCBDELIVERABLES
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBHYPERCARE
+      storyPageId: PAGE-UABC-120
+      sourcePath: atlassian/confluence/pages/73-bc-basic-hypercare.md
+      previousTitle: 03 Cutover, Hypercare, Betrieb und Erweiterungsgrenzen
+      previousParentId: PAGE-UABC-090
+      targetTitle: 06 Optionen und Erweiterungen
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBDELIVERABLES
+      storyPageId: PAGE-UABC-130
+      sourcePath: atlassian/confluence/pages/74-bc-basic-deliverables.md
+      previousTitle: 02 Projektauftrag und Scope
+      previousParentId: PAGE-UABC-000
+      targetTitle: 02 Business Central
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBMEETINGS
+      storyPageId: PAGE-UABC-140
+      sourcePath: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md
+      previousTitle: 03 Projektsteuerung, Training, Cutover, Hypercare und Abschluss
+      previousParentId: PAGE-UABC-030
+      targetTitle: 05 Schulung, Cutover und Hypercare
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBSTORY
+      storyPageId: PAGE-UABC-150
+      sourcePath: atlassian/confluence/pages/bc-basic-project-story.md
+      previousTitle: 10 Projektsteuerung
+      previousParentId: PAGE-UABC-000
+      targetTitle: 03 Projekte
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-BCBHCSTORY
+      storyPageId: PAGE-UABC-160
+      sourcePath: atlassian/confluence/pages/bc-basic-hypercare.md
+      previousTitle: 09 Hypercare und Übergabe
+      previousParentId: PAGE-UABC-000
+      targetTitle: 03.3 Hypercare und Uebergabe
+      targetParentId: UABC-BCBSTORY
+      migrationStatus: migrated-in-place
+    - documentId: UABC-HYPERCARE
+      storyPageId: PAGE-UABC-170
+      sourcePath: atlassian/confluence/pages/80-bc-basic-training.md
+      previousTitle: 07 Schulung und Befähigung
+      previousParentId: PAGE-UABC-000
+      targetTitle: 04 Handbuecher
+      targetParentId: null
+      migrationStatus: migrated-in-place
+    - documentId: UABC-TRAINING
+      storyPageId: PAGE-UABC-180
+      sourcePath: atlassian/confluence/pages/81-bc-basic-handover.md
+      previousTitle: 02 Lieferpaket, Tests und Standardtraining
+      previousParentId: PAGE-UABC-090
+      targetTitle: 04 Lieferobjekte und Abnahme
+      targetParentId: null
+      migrationStatus: migrated-in-place
+  definitions:
+    - artifactId: UABC-SRC-BCB-CUST-001
+      documentId: UABC-HANDBOOK-BCB-CUSTOMER-001
+      title: "Einsteigerunterlage: BC Basic Einrichtung"
+      documentType: customer-handbook
+      parentId: null
+      phase: schulung-und-uebergabe
+      process: operator-guidance
+      status: Entwurf
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds:
+        - UABC-DEL-BCB-009
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: draft-template
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-STORY-HANDOVER-001
+      documentId: UABC-SRC-BCB-STORY-HANDOVER-001
+      title: Handover-Plan UABC-BCB-001
+      documentType: project-handover
+      parentId: null
+      phase: close
+      process: support-und-uebergabe
+      status: PILOT_NOT_READY
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: not-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-STORY-OFFER-001
+      documentId: UABC-SRC-BCB-STORY-OFFER-001
+      title: "Angebot: BC Basic Einrichtung"
+      documentType: commercial-offer
+      parentId: null
+      phase: offer-and-scope
+      process: commercial
+      status: Pilot-Rebaseline geplant, nicht angenommen
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds:
+        - OFR-UABC-BCB-001
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: authoritative-current
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-STORY-CHRONICLE-001
+      documentId: UABC-SRC-BCB-STORY-CHRONICLE-001
+      title: Projektchronik BC Basic
+      documentType: project-chronicle
+      parentId: null
+      phase: project-wide
+      process: project-story
+      status: not_evidenced
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds:
+        - UABC-STORY-BCB-001
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: simulation-complete
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-DEMO-001
+      documentId: UABC-SRC-BCB-DEMO-001
+      title: Historischer Demo- und Abnahmeleitfaden der abgelösten Referenzsimulation
+      documentType: synthetic-demo-guide
+      parentId: null
+      phase: test-and-acceptance
+      process: demonstration
+      status: historical-reference-simulation
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-CONS-001
+      documentId: UABC-HANDBOOK-BCB-CONSULTANT-001
+      title: "Beratungshandbuch: BC Basic Einrichtung"
+      documentType: consultant-handbook
+      parentId: null
+      phase: setup-and-migration
+      process: implementation
+      status: Kundenbereites Standardmuster
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds:
+        - UABC-DEL-BCB-009
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: customer-ready-template
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-DPLAN-001
+      documentId: UABC-SRC-BCB-DPLAN-001
+      title: "Lieferplan: BC Basic Einrichtung"
+      documentType: delivery-plan
+      parentId: null
+      phase: project-wide
+      process: project-delivery
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: customer-ready-template
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-DESIGN-001
+      documentId: UABC-SRC-BCB-DESIGN-001
+      title: "Loesungsdesign: BC Basic Einrichtung"
+      documentType: solution-design
+      parentId: null
+      phase: solution-design
+      process: cross-process
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: authoritative-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-OPENSPEC-001
+      documentId: UABC-SRC-BCB-OPENSPEC-001
+      title: "Aenderungsvorschlag: BC Basic Einrichtung"
+      documentType: openspec-change
+      parentId: null
+      phase: project-wide
+      process: project-definition
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: authoritative-current
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-SPEC-001
+      documentId: UABC-SRC-BCB-SPEC-001
+      title: "BC Basic Einrichtung: Anforderungen"
+      documentType: requirements
+      parentId: null
+      phase: project-wide
+      process: requirements
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: authoritative-current
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-TASKS-001
+      documentId: UABC-SRC-BCB-TASKS-001
+      title: Aufgaben
+      documentType: delivery-tasks
+      parentId: null
+      phase: project-wide
+      process: project-delivery
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: implementation-complete
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-VPLAN-001
+      documentId: UABC-SRC-BCB-VPLAN-001
+      title: Verifikation
+      documentType: verification-plan
+      parentId: null
+      phase: project-wide
+      process: quality-assurance
+      status: active-change
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-ONBOARDING-RUNBOOK-001
+      documentId: UABC-DOC-BCB-ONBOARDING-RUNBOOK-001
+      title: BC Basic – Onboarding- und Delivery-Runbook
+      documentType: consultant-runbook
+      parentId: null
+      phase: all
+      process: project-delivery
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-50
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001
+      documentId: UABC-DOC-BCB-ONBOARDING-INPUT-001
+      title: BC Basic – Sanitisierte Onboarding-Eingabe
+      documentType: blank-template
+      parentId: null
+      phase: discovery
+      process: kundenaufnahme
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-38
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001
+      documentId: UABC-DOC-BCB-DELIVERY-EVIDENCE-TPL-001
+      title: BC Basic – Blankopaket für Delivery und Evidence
+      documentType: blank-template
+      parentId: null
+      phase: all
+      process: project-delivery
+      status: ready
+      ownerRefs:
+        - P-003
+      jiraRefs:
+        - UABC-32
+        - UABC-46
+        - UABC-47
+        - UABC-50
+      referenceIds: []
+      lastReviewed: 2026-07-14
+      visibility: twin-visible
+      readiness: verified
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-CONF-009
+      documentId: UABC-PROJECT
+      title: 00 Hilfe und Projektumgebung
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: projektumgebung
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+      jiraRefs:
+        - UABC-32
+        - UABC-33
+        - UABC-47
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-010
+        - UABC-REQ-BCB-011
+      lastReviewed: 2026-07-15
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 0
+      storyPageId: PAGE-UABC-000
+    - artifactId: UABC-SRC-BCB-CONF-010
+      documentId: UABC-COMPANY
+      title: 01 Unternehmen
+      documentType: confluence-page
+      parentId: null
+      phase: discovery
+      process: company-model
+      status: published
+      ownerRefs:
+        - P-001
+        - P-005
+        - P-011
+        - P-019
+      jiraRefs:
+        - UABC-32
+        - UABC-34
+        - UABC-35
+        - UABC-36
+        - UABC-37
+        - UABC-38
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-003
+        - UABC-REQ-BCB-006
+        - UABC-REQ-BCB-009
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 1
+      storyPageId: PAGE-UABC-010
+    - artifactId: UABC-SRC-BCB-CONF-007
+      documentId: UABC-BCBDELIVERABLES
+      title: 02 Business Central
+      documentType: confluence-page
+      parentId: null
+      phase: offer-and-scope
+      process: acceptance
+      status: published
+      ownerRefs:
+        - P-001
+        - P-002
+        - P-016
+      jiraRefs:
+        - UABC-32
+        - UABC-33
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-004
+        - UABC-REQ-BCB-010
+        - UABC-REQ-BCB-011
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 2
+      storyPageId: PAGE-UABC-130
+    - artifactId: UABC-SRC-BCB-STORY-CONFLUENCE-001
+      documentId: UABC-BCBSTORY
+      title: 03 Projekte
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: project-story
+      status: published
+      ownerRefs:
+        - P-001
+        - P-002
+      jiraRefs:
+        - UABC-32
+        - UABC-33
+        - UABC-46
+        - UABC-47
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-004
+        - UABC-REQ-BCB-005
+        - UABC-REQ-BCB-010
+        - UABC-REQ-BCB-011
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 3
+      storyPageId: PAGE-UABC-150
+    - artifactId: UABC-SRC-BCB-CONF-018
+      documentId: UABC-HYPERCARE
+      title: 04 Handbuecher
+      documentType: confluence-page
+      parentId: null
+      phase: schulung-und-hypercare
+      process: operator-training
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+        - P-011
+        - P-019
+      jiraRefs:
+        - UABC-45
+        - UABC-46
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-007
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 4
+      storyPageId: PAGE-UABC-170
+    - artifactId: UABC-SRC-BCB-CONF-025
+      documentId: UABC-ARCHIVE
+      title: 99 Archiv
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 5
+      storyPageId: PAGE-UABC-190
+    - artifactId: UABC-SRC-BCB-CONF-014
+      documentId: UABC-DECISIONS
+      title: 02.1 Datenmigration
+      documentType: confluence-page
+      parentId: UABC-BCBDELIVERABLES
+      phase: data-migration
+      process: migration
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+        - P-016
+        - P-019
+      jiraRefs:
+        - UABC-38
+        - UABC-41
+      referenceIds:
+        - UABC-REQ-BCB-006
+        - UABC-REQ-BCB-008
+      lastReviewed: 2026-09-03
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 6
+      storyPageId: PAGE-UABC-050
+    - artifactId: UABC-SRC-BCB-CONF-004
+      documentId: UABC-BCBDISCOVERY
+      title: 02.2 Prozesse und Fit-to-Standard
+      documentType: confluence-page
+      parentId: UABC-BCBDELIVERABLES
+      phase: phase-1
+      process: fit-to-standard
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+        - P-011
+        - P-016
+        - P-019
+      jiraRefs:
+        - UABC-34
+        - UABC-35
+        - UABC-36
+        - UABC-37
+        - UABC-38
+        - UABC-33
+      referenceIds:
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-003
+        - UABC-REQ-BCB-005
+        - UABC-REQ-BCB-006
+        - UABC-REQ-BCB-009
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 7
+      storyPageId: PAGE-UABC-100
+    - artifactId: UABC-SRC-BCB-CONF-005
+      documentId: UABC-BCBIMPLEMENTATION
+      title: 02.3 Loesung und Einrichtung
+      documentType: confluence-page
+      parentId: UABC-BCBDELIVERABLES
+      phase: phase-2
+      process: setup-migration-uat
+      status: published
+      ownerRefs:
+        - P-002
+        - P-004
+        - P-005
+        - P-011
+        - P-019
+      jiraRefs:
+        - UABC-39
+        - UABC-40
+        - UABC-41
+        - UABC-42
+        - UABC-43
+        - UABC-44
+        - UABC-46
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-003
+        - UABC-REQ-BCB-006
+        - UABC-REQ-BCB-008
+        - UABC-REQ-BCB-009
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 8
+      storyPageId: PAGE-UABC-110
+    - artifactId: UABC-SRC-BCB-CONF-015
+      documentId: UABC-TESTS
+      title: 03.1 Test und Abnahme
+      documentType: confluence-page
+      parentId: UABC-BCBSTORY
+      phase: test-and-acceptance
+      process: cross-process
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+        - P-011
+        - P-019
+      jiraRefs:
+        - UABC-46
+        - UABC-47
+        - UABC-48
+        - UABC-49
+      referenceIds:
+        - UABC-REQ-BCB-007
+        - UABC-REQ-BCB-008
+        - UABC-REQ-BCB-009
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 9
+      storyPageId: PAGE-UABC-060
+    - artifactId: UABC-SRC-BCB-CONF-017
+      documentId: UABC-WALKTHROUGH
+      title: 03.2 Cutover und Go-live
+      documentType: confluence-page
+      parentId: UABC-BCBSTORY
+      phase: cutover
+      process: demonstration
+      status: published
+      ownerRefs:
+        - P-001
+        - P-002
+        - P-005
+        - P-016
+      jiraRefs:
+        - UABC-46
+        - UABC-47
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-008
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 10
+      storyPageId: PAGE-UABC-080
+    - artifactId: UABC-SRC-BCB-STORY-HYPERCARE-001
+      documentId: UABC-BCBHCSTORY
+      title: 03.3 Hypercare und Uebergabe
+      documentType: confluence-page
+      parentId: UABC-BCBSTORY
+      phase: phase-3
+      process: support
+      status: published
+      ownerRefs:
+        - P-002
+        - P-005
+      jiraRefs:
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-009
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CUSTOMER
+      spaceType: customer-project
+      order: 11
+      storyPageId: PAGE-UABC-160
+    - artifactId: UABC-SRC-BCB-CONF-003
+      documentId: UABC-BCBPROJECT
+      title: 00 BC Basic Produktuebersicht
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: standard-product
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-18
+        - UABC-19
+        - UABC-20
+        - UABC-21
+      referenceIds:
+        - UABC-REQ-BCB-001
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-004
+      lastReviewed: 2026-09-03
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 0
+      storyPageId: PAGE-UABC-090
+    - artifactId: UABC-SRC-BCB-CONF-033
+      documentId: UABC-PRODUCTAUDIENCE
+      title: 01 Zielgruppe und Einsatzfaelle
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 1
+      storyPageId: PAGE-UABC-200
+    - artifactId: UABC-SRC-BCB-CONF-013
+      documentId: UABC-PROCESSES
+      title: 02 Leistungsumfang und Abgrenzung
+      documentType: confluence-page
+      parentId: null
+      phase: solution-design
+      process: cross-process
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-3
+      referenceIds:
+        - UABC-CAP-CATALOG-001
+        - UABC-REQ-CAP-002
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 2
+      storyPageId: PAGE-UABC-040
+    - artifactId: UABC-SRC-BCB-CONF-035
+      documentId: UABC-PRODUCTAPPROACH
+      title: 03 Phasen und Vorgehensmodell
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 3
+      storyPageId: PAGE-UABC-210
+    - artifactId: UABC-SRC-BCB-CONF-019
+      documentId: UABC-TRAINING
+      title: 04 Lieferobjekte und Abnahme
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: delivery-standard
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+        - UABC-REQ-BCB-011
+      lastReviewed: 2026-09-03
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 4
+      storyPageId: PAGE-UABC-180
+    - artifactId: UABC-SRC-BCB-CONF-037
+      documentId: UABC-PRODUCTOFFER
+      title: 05 Angebot, Aufwand und Voraussetzungen
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 5
+      storyPageId: PAGE-UABC-220
+    - artifactId: UABC-SRC-BCB-CONF-006
+      documentId: UABC-BCBHYPERCARE
+      title: 06 Optionen und Erweiterungen
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: operations-standard
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-21
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-002
+        - UABC-REQ-BCB-009
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-12
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 6
+      storyPageId: PAGE-UABC-120
+    - artifactId: UABC-SRC-BCB-CONF-039
+      documentId: UABC-PRODUCTSALESFAQ
+      title: 07 Vertriebsleitfaden und FAQ
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-PRODUCT
+      spaceType: standard-product
+      order: 7
+      storyPageId: PAGE-UABC-230
+    - artifactId: UABC-SRC-BCB-CONF-012
+      documentId: UABC-BLUEPRINT
+      title: 00 Durchfuehrungsueberblick
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: consultant-delivery
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-1
+        - UABC-2
+        - UABC-3
+        - UABC-4
+        - UABC-10
+      referenceIds:
+        - UABC-ARCH-ENTERPRISE-001
+        - UABC-CAP-CATALOG-001
+        - UABC-REQ-CAP-001
+      lastReviewed: 2026-07-12
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 0
+      storyPageId: PAGE-UABC-030
+    - artifactId: UABC-SRC-BCB-CONF-011
+      documentId: UABC-DISCOVERY
+      title: 01 Discovery und Fit-to-Standard
+      documentType: confluence-page
+      parentId: null
+      phase: discovery
+      process: workshop-planning
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-1
+        - UABC-10
+      referenceIds:
+        - UABC-ARCH-ENTERPRISE-001
+        - UABC-REQ-CAP-001
+      lastReviewed: 2026-07-12
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 1
+      storyPageId: PAGE-UABC-020
+    - artifactId: UABC-SRC-BCB-CONF-042
+      documentId: UABC-CONSULTINGDESIGN
+      title: 02 Loesungsdesign und Projektplanung
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 2
+      storyPageId: PAGE-UABC-240
+    - artifactId: UABC-SRC-BCB-CONF-016
+      documentId: UABC-ENVBASELINE
+      title: 03 BC-Einrichtung und Konfigurationspakete
+      documentType: confluence-page
+      parentId: null
+      phase: preparation
+      process: environment
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-11
+        - UABC-12
+        - UABC-13
+        - UABC-14
+      referenceIds:
+        - UABC-REQ-ENV-001
+        - UABC-REQ-ENV-002
+        - UABC-REQ-ENV-003
+        - UABC-REQ-ENV-004
+        - UABC-REQ-ENV-005
+        - UABC-VER-ENV-POLICY-GATE-001
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 3
+      storyPageId: PAGE-UABC-070
+    - artifactId: UABC-SRC-BCB-CONF-044
+      documentId: UABC-CONSULTINGTESTS
+      title: 04 Tests, UAT und Evidence
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 4
+      storyPageId: PAGE-UABC-250
+    - artifactId: UABC-SRC-BCB-CONF-008
+      documentId: UABC-BCBMEETINGS
+      title: 05 Schulung, Cutover und Hypercare
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: consultant-delivery
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-18
+        - UABC-32
+        - UABC-34
+        - UABC-35
+        - UABC-36
+        - UABC-37
+        - UABC-38
+        - UABC-33
+        - UABC-39
+        - UABC-40
+        - UABC-41
+        - UABC-42
+        - UABC-43
+        - UABC-44
+        - UABC-45
+        - UABC-46
+        - UABC-47
+        - UABC-48
+        - UABC-49
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-005
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-12
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 5
+      storyPageId: PAGE-UABC-140
+    - artifactId: UABC-SRC-BCB-CONF-046
+      documentId: UABC-CONSULTINGHANDOVER
+      title: 06 Dokumentation und Uebergabe
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 6
+      storyPageId: PAGE-UABC-260
+    - artifactId: UABC-SRC-BCB-CONF-047
+      documentId: UABC-CONSULTINGCHECKLISTS
+      title: 07 Checklisten, Vorlagen und Fehlerbilder
+      documentType: confluence-page
+      parentId: null
+      phase: project-wide
+      process: three-space-navigation
+      status: published
+      ownerRefs:
+        - P-002
+      jiraRefs:
+        - UABC-50
+      referenceIds:
+        - UABC-REQ-BCB-010
+      lastReviewed: 2026-07-13
+      visibility: twin-visible
+      readiness: v1-ready
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+      spaceId: UABC-SPACE-CONSULTANT
+      spaceType: consultant-internal
+      order: 7
+      storyPageId: PAGE-UABC-270
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-001
+      documentId: UABC-MTG-001
+      title: Kickoff
+      documentType: meeting-transcript
+      parentId: null
+      phase: discovery
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-002
+      documentId: UABC-MTG-002
+      title: Discovery Finance
+      documentType: meeting-transcript
+      parentId: null
+      phase: setup-and-migration
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+    - artifactId: UABC-SRC-BCB-MTG-TRANSCRIPT-003
+      documentId: UABC-MTG-003
+      title: Prozessworkshop
+      documentType: meeting-transcript
+      parentId: null
+      phase: transition
+      process: project-delivery
+      status: simulated-complete
+      ownerRefs: []
+      jiraRefs: []
+      referenceIds: []
+      lastReviewed: null
+      visibility: twin-visible
+      readiness: verified-with-history
+      externalUrl: null
+      pageId: null
+      spaceKey: null
+  referenceDefinitions:
+    ownerRefs:
+      - P-001
+      - P-002
+      - P-003
+      - P-004
+      - P-005
+      - P-011
+      - P-015
+      - P-016
+      - P-019
+    jiraRefs:
+      - UABC-1
+      - UABC-2
+      - UABC-3
+      - UABC-4
+      - UABC-5
+      - UABC-6
+      - UABC-7
+      - UABC-8
+      - UABC-9
+      - UABC-10
+      - UABC-11
+      - UABC-12
+      - UABC-13
+      - UABC-14
+      - UABC-15
+      - UABC-16
+      - UABC-17
+      - UABC-18
+      - UABC-19
+      - UABC-20
+      - UABC-21
+      - UABC-22
+      - UABC-23
+      - UABC-24
+      - UABC-25
+      - UABC-26
+      - UABC-27
+      - UABC-28
+      - UABC-29
+      - UABC-30
+      - UABC-31
+      - UABC-32
+      - UABC-33
+      - UABC-34
+      - UABC-35
+      - UABC-36
+      - UABC-37
+      - UABC-38
+      - UABC-39
+      - UABC-40
+      - UABC-41
+      - UABC-42
+      - UABC-43
+      - UABC-44
+      - UABC-45
+      - UABC-46
+      - UABC-47
+      - UABC-48
+      - UABC-49
+      - UABC-50
+    projectRefs:
+      - OFR-UABC-BCB-001
+      - SRC-BC-001
+      - SRC-BC-077
+      - SRC-BC-078
+      - SRC-BC-079
+      - SRC-BC-080
+      - SRC-BC-081
+      - SRC-BC-082
+      - SRC-BC-083
+      - SRC-BC-084
+      - SRC-OPSX-001
+      - UABC-ARCH-ENTERPRISE-001
+      - UABC-CAP-CATALOG-001
+      - UABC-DEC-001
+      - UABC-DEC-007
+      - UABC-DEC-008
+      - UABC-DEL-BCB-009
+      - UABC-GOV-REFERENCE-001
+      - UABC-REQ-BCB-001
+      - UABC-REQ-BCB-002
+      - UABC-REQ-BCB-003
+      - UABC-REQ-BCB-004
+      - UABC-REQ-BCB-005
+      - UABC-REQ-BCB-006
+      - UABC-REQ-BCB-007
+      - UABC-REQ-BCB-008
+      - UABC-REQ-BCB-009
+      - UABC-REQ-BCB-010
+      - UABC-REQ-BCB-011
+      - UABC-REQ-CAP-001
+      - UABC-REQ-CAP-002
+      - UABC-REQ-ENT-001
+      - UABC-REQ-ENT-002
+      - UABC-REQ-ENV-001
+      - UABC-REQ-ENV-002
+      - UABC-REQ-ENV-003
+      - UABC-REQ-ENV-004
+      - UABC-REQ-ENV-005
+      - UABC-REQ-GOV-001
+      - UABC-REQ-GOV-002
+      - UABC-REQ-GOV-003
+      - UABC-REQ-WT-001
+      - UABC-REQ-WT-002
+      - UABC-REQ-WT-003
+      - UABC-STORY-BCB-001
+      - UABC-VER-ENV-GOV-SELFTEST-001
+      - UABC-VER-ENV-POLICY-GATE-001
+      - UABC-VER-ENV-RUN1-001
+      - UABC-VER-ENV-RUN2-001
+      - UABC-VER-LOCAL-001
+      - UABC-VER-REFS-001
+      - UABC-VER-WT-BUILD-001
+ticketCatalog:
+  path: atlassian/jira/issues/bc-basic-story-tickets.yaml
+  sourceContract: evidence/simulation/project-story.json
+  migrationMatrix: project/bc-basic/ticket-migration.yaml
+  recordCount: 50
+  customerStoryCount: 50
+  internalTraceabilityCount: 0
+  canonicalTypes:
+    - phase
+    - epic
+    - story
+    - task
+  typeField: type
+  canonicalTypeField: canonicalType
+  parentField: parent
+  visibilityRoleField: visibilityRole
+  countingScopeField: countingScope
+  typePresentationsField: typePresentations
+  typeLabelField: typeLabel
+  displayIconKeyField: displayIconKey
+  displayColorTokenField: displayColorToken
+  liveIconPolicyField: liveIconPolicy
+  viewsField: views
+  presentationTypes:
+    - phase
+    - epic
+    - story
+    - task
+  viewIds:
+    - UABC-TICKET-VIEW-BOARD-001
+    - UABC-TICKET-VIEW-COMPACT-001
+  viewTypes:
+    - board
+    - compact-list
+  inferTypeFromKeyOrTitle: false
+consumerRules:
+  - Dieser Index ist nur der repository-relative Daten- und Allowlistvertrag;
+    das spaetere JSON-Snapshotmanifest wird getrennt und commitgebunden erzeugt.
+  - Nur die unter artifacts positivgelisteten Pfade duerfen als Projektdaten
+    gelesen werden.
+  - Ein deklarierter selector begrenzt den lesbaren Ausschnitt einer gemeinsam
+    genutzten Datei und ist verbindlich.
+  - Verweise, Links und relative Pfade innerhalb einer Quelle erlauben keine
+    zusaetzlichen, nicht positivgelisteten Lesezugriffe.
+  - Der Index enthaelt keine duplizierte fachliche Wahrheit; Werte werden aus
+    den referenzierten Quellen aufgeloest.
+  - Fehlende, unlesbare oder nicht freigegebene Werte bleiben leer und werden
+    weder erfunden noch aus einer zweiten Quelle ergaenzt.
+  - Konsumenten duerfen weder Blueprint-Quellen noch eigene Projektinhalte
+    schreiben.
+  - Der Project Twin loest den erlaubten Branch genau einmal auf, pinnt diesen
+    Commit extern und liest Index, Dokumentkatalog und alle Dokumentblobs
+    ausschliesslich aus diesem selben Commit.
+  - Der Dokumentkatalog ordnet die 28 strukturierten Projektseiten mit 22 Roots
+    und sechs Unterseiten genau drei internen Spaces zu; externe Confluence-URL,
+    Page-ID und Space-Key bleiben ohne kanonische Quelle null.
+  - Die 19 Migrationseintraege erhalten Dokument-ID, Story-Page-ID und
+    Quellpfad; Umbenennung und Neuordnung erzeugen weder neue Seitenidentitaeten
+    noch eine zweite fachliche Wahrheit.
+  - Ausschliesslich ticketCatalog.path ist die aktuelle Ticketansicht und
+    Zaehlsurface; Umfang und Ticketanzahl werden aus der kanonischen Quelle
+    dynamisch gelesen.
+  - Jeder Ticketrecord liefert Source, kanonischen Lowercase-Typ, Rohquelltyp,
+    Parent, Sichtbarkeitsrolle und Zaehlscope explizit; der Consumer darf Typen
+    oder Zaehlscope niemals aus Key, Titel, Parent oder Position ableiten.
+  - Nur die deklarierten Board- und Kompaktlisten-Views duerfen
+    Kundenstory-Tickets darstellen; interne Traceability-Issues bleiben aus
+    beiden Views ausgeschlossen.
+  - Typdarstellungen verwenden ausschliesslich die geschlossene lokale
+    Positivliste; Live-Icons benoetigen einen positivgelisteten lokalen Pfad und
+    SHA-256-Digest, die aktuelle Assetliste ist leer.
+  - Der Dokumentkatalog ist die einzige Producer-Klassifikation fuer
+    Twin-sichtbare Dokumente; externe Confluence-Identitaeten oder URLs duerfen
+    nur aus belegten sicheren HTTPS-Origins stammen.
+  - Pfade zu .env-Dateien, Authentifizierungszustaenden, Geheimnissen,
+    Browserprofilen, Logs, Videos und rohen Laufzeitnachweisen sind unzulaessig.
+artifacts:
+  - id: UABC-SRC-BCB-MTG-001
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/index.yaml
+    references: []
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-001
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-001.md
+    references:
+      - UABC-1
+      - UABC-4
+      - UABC-5
+      - UABC-7
+      - UABC-8
+      - UABC-9
+      - UABC-11
+      - UABC-12
+      - UABC-14
+      - UABC-15
+      - UABC-16
+      - UABC-20
+      - UABC-32
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-002
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-002.md
+    references:
+      - UABC-21
+      - UABC-27
+      - UABC-34
+  - id: UABC-SRC-BCB-MTG-TRANSCRIPT-003
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-003.md
+    references:
+      - UABC-22
+      - UABC-23
+      - UABC-24
+      - UABC-33
+      - UABC-37
+      - UABC-38
+      - UABC-41
+  - id: UABC-SRC-BCB-UABC-MTG-004
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-004.md
+    references:
+      - UABC-1
+      - UABC-6
+      - UABC-17
+      - UABC-18
+      - UABC-19
+      - UABC-35
+      - UABC-36
+  - id: UABC-SRC-BCB-UABC-MTG-005
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-005.md
+    references:
+      - UABC-2
+  - id: UABC-SRC-BCB-UABC-MTG-006
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-006.md
+    references:
+      - UABC-39
+  - id: UABC-SRC-BCB-UABC-MTG-007
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-007.md
+    references:
+      - UABC-29
+      - UABC-30
+      - UABC-31
+      - UABC-40
+  - id: UABC-SRC-BCB-UABC-MTG-008
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-008.md
+    references:
+      - UABC-25
+      - UABC-26
+      - UABC-28
+      - UABC-47
+      - UABC-48
+  - id: UABC-SRC-BCB-UABC-MTG-009
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-009.md
+    references:
+      - UABC-10
+      - UABC-42
+  - id: UABC-SRC-BCB-UABC-MTG-010
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-010.md
+    references:
+      - UABC-2
+      - UABC-13
+      - UABC-43
+      - UABC-44
+  - id: UABC-SRC-BCB-UABC-MTG-011
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-011.md
+    references:
+      - UABC-3
+      - UABC-45
+      - UABC-46
+      - UABC-49
+  - id: UABC-SRC-BCB-UABC-MTG-012
+    kind: fachartefakt
+    path: atlassian/confluence/meetings/UABC-MTG-012.md
+    references:
+      - UABC-3
+      - UABC-50
+  - id: UABC-SRC-BCB-CONF-009
+    kind: fachartefakt
+    path: atlassian/confluence/pages/00-project.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-010
+    kind: fachartefakt
+    path: atlassian/confluence/pages/10-company-profile.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-011
+    kind: fachartefakt
+    path: atlassian/confluence/pages/20-discovery.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-012
+    kind: fachartefakt
+    path: atlassian/confluence/pages/30-blueprint.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-013
+    kind: fachartefakt
+    path: atlassian/confluence/pages/31-processes.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-014
+    kind: fachartefakt
+    path: atlassian/confluence/pages/32-decisions.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-015
+    kind: fachartefakt
+    path: atlassian/confluence/pages/50-tests.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-016
+    kind: fachartefakt
+    path: atlassian/confluence/pages/60-environment-baseline.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-017
+    kind: fachartefakt
+    path: atlassian/confluence/pages/61-walkthrough-pilot.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-003
+    kind: fachartefakt
+    path: atlassian/confluence/pages/70-bc-basic-project.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-004
+    kind: fachartefakt
+    path: atlassian/confluence/pages/71-bc-basic-discovery.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-005
+    kind: fachartefakt
+    path: atlassian/confluence/pages/72-bc-basic-implementation.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-006
+    kind: fachartefakt
+    path: atlassian/confluence/pages/73-bc-basic-hypercare.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-007
+    kind: fachartefakt
+    path: atlassian/confluence/pages/74-bc-basic-deliverables.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-008
+    kind: fachartefakt
+    path: atlassian/confluence/pages/75-bc-basic-meetings-decisions.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-033
+    kind: fachartefakt
+    path: atlassian/confluence/pages/76-product-audience.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-035
+    kind: fachartefakt
+    path: atlassian/confluence/pages/77-product-approach.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-037
+    kind: fachartefakt
+    path: atlassian/confluence/pages/78-product-offer.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-039
+    kind: fachartefakt
+    path: atlassian/confluence/pages/79-product-sales-faq.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-018
+    kind: fachartefakt
+    path: atlassian/confluence/pages/80-bc-basic-training.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-019
+    kind: fachartefakt
+    path: atlassian/confluence/pages/81-bc-basic-handover.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-042
+    kind: fachartefakt
+    path: atlassian/confluence/pages/82-consulting-design.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-044
+    kind: fachartefakt
+    path: atlassian/confluence/pages/83-consulting-tests.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-046
+    kind: fachartefakt
+    path: atlassian/confluence/pages/84-consulting-handover.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-047
+    kind: fachartefakt
+    path: atlassian/confluence/pages/85-consulting-checklists.md
+    references: []
+  - id: UABC-SRC-BCB-CONF-025
+    kind: fachartefakt
+    path: atlassian/confluence/pages/99-archive.md
+    references: []
+  - id: UABC-SRC-BCB-STORY-HYPERCARE-001
+    kind: fachartefakt
+    path: atlassian/confluence/pages/bc-basic-hypercare.md
+    references: []
+  - id: UABC-SRC-BCB-STORY-CONFLUENCE-001
+    kind: fachartefakt
+    path: atlassian/confluence/pages/bc-basic-project-story.md
+    references: []
+  - id: UABC-SRC-BCB-STORY-TICKETS-001
+    kind: fachartefakt
+    path: atlassian/jira/issues/bc-basic-story-tickets.yaml
+    references: []
+  - id: UABC-SRC-BCB-OPENSPEC-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-change-record.md
+    references: []
+  - id: UABC-SRC-BCB-DPLAN-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-delivery-plan.md
+    references: []
+  - id: UABC-SRC-BCB-TASKS-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-delivery-tasks.md
+    references: []
+  - id: UABC-SRC-BCB-SPEC-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-requirements.md
+    references: []
+  - id: UABC-SRC-BCB-DESIGN-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-solution-design.md
+    references: []
+  - id: UABC-V4-CUSTOMER-HANDBOOK-001
+    kind: kundenhandbuch
+    path: docs/guides/bc-basic-v4-customer-handbook.md
+    references:
+      - UABC-51
+      - UABC-52
+      - UABC-MTG-012
+  - id: UABC-SRC-BCB-VPLAN-001
+    kind: fachartefakt
+    path: docs/guides/bc-basic-verification-plan.md
+    references: []
+  - id: UABC-SRC-BCB-CUST-001
+    kind: fachartefakt
+    path: docs/guides/beginner/business-central-basic.md
+    references: []
+  - id: UABC-SRC-BCB-STORY-HANDOVER-001
+    kind: fachartefakt
+    path: docs/handover/bc-basic-handover.md
+    references: []
+  - id: UABC-V4-SUPPORT-HANDOVER-001
+    kind: supportuebergabe
+    path: docs/handover/bc-basic-v4-support-handover.md
+    references:
+      - UABC-50
+      - UABC-52
+      - UABC-MTG-012
+  - id: UABC-SRC-BCB-STORY-OFFER-001
+    kind: fachartefakt
+    path: docs/offers/bc-basic-offer.md
+    references: []
+  - id: UABC-SRC-BCB-STORY-CHRONICLE-001
+    kind: fachartefakt
+    path: docs/reports/bc-basic-project-chronicle.md
+    references: []
+  - id: UABC-V4-PROJECT-CLOSE-001
+    kind: projektabschluss
+    path: docs/reports/bc-basic-v4-project-close.md
+    references:
+      - UABC-50
+      - UABC-53
+      - UABC-DEC-BCB-011
+  - id: UABC-SRC-BCB-ONBOARDING-RUNBOOK-001
+    kind: fachartefakt
+    path: docs/runbooks/bc-basic-onboarding-delivery.md
+    references: []
+  - id: UABC-SRC-BCB-DEMO-001
+    kind: fachartefakt
+    path: docs/runbooks/bc-basic-simulation-demo.md
+    references: []
+  - id: UABC-V4-CONSULTANT-HANDBOOK-001
+    kind: beraterhandbuch
+    path: docs/runbooks/bc-basic-v4-consultant-handbook.md
+    references:
+      - UABC-51
+      - UABC-52
+      - UABC-53
+  - id: UABC-SRC-BCB-CONS-001
+    kind: fachartefakt
+    path: docs/runbooks/business-central-basic.md
+    references: []
+  - id: UABC-SRC-BCB-DELIVERY-EVIDENCE-TPL-001
+    kind: fachartefakt
+    path: docs/templates/bc-basic-delivery-evidence-pack.md
+    references: []
+  - id: UABC-SRC-BCB-ONBOARDING-INPUT-DOC-001
+    kind: fachartefakt
+    path: docs/templates/bc-basic-onboarding-input.md
+    references: []
+  - id: UABC-SRC-BCB-W0-01-ATTEMPT-001
+    kind: fachartefakt
+    path: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+    references: []
+  - id: UABC-SRC-BCB-ATLASSIAN-DRYRUN-001
+    kind: fachartefakt
+    path: evidence/simulation/atlassian-materialization-dry-run.json
+    references: []
+  - id: UABC-SRC-BCB-PLAY-LEDGER-001
+    kind: fachartefakt
+    path: evidence/simulation/bc-playthrough-ledger.yaml
+    references: []
+  - id: UABC-SRC-BCB-BILLING-SIM-001
+    kind: fachartefakt
+    path: evidence/simulation/billing-reconciliation.yaml
+    references: []
+  - id: UABC-SRC-BCB-DEMO-EVIDENCE-001
+    kind: fachartefakt
+    path: evidence/simulation/demo-readiness.yaml
+    references: []
+  - id: UABC-SRC-BCB-DOC-EVIDENCE-001
+    kind: fachartefakt
+    path: evidence/simulation/document-catalog-validation.yaml
+    references: []
+  - id: UABC-SRC-BCB-AUDIT-001
+    kind: fachartefakt
+    path: evidence/simulation/end-to-end-objective-audit.yaml
+    references: []
+  - id: UABC-V4-OPERATING-EVIDENCE-001
+    kind: betriebszyklus-nachweis
+    path: evidence/simulation/operating-cycle-v4.json
+    references:
+      - UABC-51
+      - UABC-52
+      - UABC-53
+  - id: UABC-SRC-BCB-PHASE2-SIM-001
+    kind: fachartefakt
+    path: evidence/simulation/phase-2-p2p-o2c.yaml
+    references: []
+  - id: UABC-SRC-BCB-PHASE3-001
+    kind: fachartefakt
+    path: evidence/simulation/phase-3-cash-inventory-close.yaml
+    references: []
+  - id: UABC-SRC-BCB-PHASE-GATES-001
+    kind: fachartefakt
+    path: evidence/simulation/phase-gate-register.yaml
+    references: []
+  - id: UABC-EV-PILOT-V3-FINANCE-001
+    kind: fachartefakt
+    path: evidence/simulation/pilot-v3-finance-ledger.json
+    references:
+      - UABC-PILOT-V3-001
+  - id: UABC-SRC-BCB-COMPLETION-001
+    kind: fachartefakt
+    path: evidence/simulation/project-completion.yaml
+    references: []
+  - id: UABC-SRC-BCB-SPECTRA09-REC-001
+    kind: fachartefakt
+    path: evidence/simulation/project-reconciliation.json
+    references: []
+  - id: UABC-SRC-BCB-PROJECT-STORY-001
+    kind: fachartefakt
+    path: evidence/simulation/project-story.json
+    references: []
+  - id: UABC-V5-EVIDENCE-001
+    kind: betriebsbereitschaft-nachweis
+    path: evidence/simulation/real-onboarding-readiness-v5.json
+    references:
+      - UABC-GOAL-REAL-ONBOARDING-READY-V1
+      - UABC-VER-BCB-REAL-ONBOARDING-READY-V1-001
+  - id: UABC-SRC-BCB-SPECTRA-CONFORMANCE-001
+    kind: fachartefakt
+    path: evidence/simulation/spectra-0.10-conformance.yaml
+    references: []
+  - id: UABC-SRC-BCB-BANKSIM-001
+    kind: fachartefakt
+    path: evidence/simulation/synthetic-bank-statement.csv
+    references: []
+  - id: UABC-SRC-BCB-SPECTRA-EVIDENCE-001
+    kind: fachartefakt
+    path: evidence/spectra-release-1.0.0.yaml
+    references: []
+  - id: UABC-SRC-BCB-SPECTRA-EVIDENCE-012
+    kind: fachartefakt
+    path: evidence/spectra-release-1.2.0-alpha.12.yaml
+    references: []
+  - id: UABC-TWIN-PILOT-V3-VIEW-001
+    kind: fachartefakt
+    path: exports/project-data/v1/pilot-v3-view.json
+    references:
+      - UABC-PILOT-V3-001
+  - id: UABC-SRC-BCB-SPECTRA10-NATIVE-GRAPH-001
+    kind: fachartefakt
+    path: exports/project-data/v1/reference-graph-native.json
+    references: []
+  - id: UABC-SRC-BCB-SPECTRA10-PORTABLE-GRAPH-001
+    kind: fachartefakt
+    path: exports/project-data/v1/reference-graph-portable.json
+    references: []
+  - id: UABC-SRC-BCB-SETUP-WAVE1-PROJECTION-001
+    kind: fachartefakt
+    path: exports/project-data/v1/setup-wave-1-projection.json
+    references: []
+  - id: UABC-SRC-BCB-TWIN-MAP-001
+    kind: fachartefakt
+    path: exports/project-data/v1/twin-export-map.json
+    references: []
+  - id: UABC-SRC-BCB-PW-001
+    kind: fachartefakt
+    path: playwright/scenarios/bc-basic-e2e.yaml
+    references: []
+  - id: UABC-SRC-BCB-ACTOR-REGISTER-001
+    kind: fachartefakt
+    path: project/bc-basic/actor-register.yaml
+    references: []
+  - id: UABC-SRC-BCB-ATLASSIAN-MATRIX-001
+    kind: fachartefakt
+    path: project/bc-basic/atlassian-materialization-v1.yaml
+    references: []
+  - id: UABC-SRC-BCB-PLAY-CATALOG-001
+    kind: fachartefakt
+    path: project/bc-basic/bc-playthrough-catalog.yaml
+    references: []
+  - id: UABC-SRC-BCB-BILL-001
+    kind: fachartefakt
+    path: project/bc-basic/billing.yaml
+    references: []
+  - id: UABC-SRC-BCB-CANDIDATES-001
+    kind: fachartefakt
+    path: project/bc-basic/blueprint-candidates.yaml
+    references: []
+  - id: UABC-SRC-BCB-THREE-SPACE-001
+    kind: fachartefakt
+    path: project/bc-basic/confluence-three-space-v1.yaml
+    references: []
+  - id: UABC-SRC-BCB-CORE-FINANCE-MANIFEST-001
+    kind: fachartefakt
+    path: project/bc-basic/core-finance-package-manifest.yaml
+    references: []
+  - id: UABC-SRC-BCB-CORE-FINANCE-PAYLOAD-001
+    kind: fachartefakt
+    path: project/bc-basic/core-finance-payload.yaml
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-001
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/company-setup.blank.yaml
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-003
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/customers.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-002
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/dimensions.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-007
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/gl-opening.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-006
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/inventory-opening.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-005
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/items.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-ONBOARDING-INPUT-001
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/onboarding-intake.blank.yaml
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-008
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/open-customer-vendor-entries.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-BLANK-004
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/blank/vendors.blank.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-001
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/company-setup.example.yaml
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-003
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/customers.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-002
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/dimensions.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-007
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/gl-opening.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-006
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/inventory-opening.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-005
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/items.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-008
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/open-customer-vendor-entries.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-EXAMPLE-004
+    kind: fachartefakt
+    path: project/bc-basic/customer-templates/example/vendors.example.csv
+    references: []
+  - id: UABC-SRC-BCB-DATA-001
+    kind: fachartefakt
+    path: project/bc-basic/data-package.yaml
+    references: []
+  - id: UABC-SRC-BCB-DATA-READY-001
+    kind: fachartefakt
+    path: project/bc-basic/data-readiness-check.yaml
+    references: []
+  - id: UABC-SRC-BCB-DEC-001
+    kind: fachartefakt
+    path: project/bc-basic/decision-register.yaml
+    references: []
+  - id: UABC-SRC-BCB-DEL-001
+    kind: fachartefakt
+    path: project/bc-basic/deliverables.yaml
+    references: []
+  - id: UABC-V4-OPERATING-SOURCE-001
+    kind: betriebszyklus-quelle
+    path: project/bc-basic/operating-cycle-v4.yaml
+    references:
+      - UABC-51
+      - UABC-52
+      - UABC-53
+  - id: UABC-SRC-BCB-DRYRUN-001
+    kind: fachartefakt
+    path: project/bc-basic/phase-2-dry-run.yaml
+    references: []
+  - id: UABC-SRC-BCB-READINESS-001
+    kind: fachartefakt
+    path: project/bc-basic/phase-2-readiness-gate.yaml
+    references: []
+  - id: UABC-SRC-BCB-PILOT-SETUP-BASELINE-001
+    kind: fachartefakt
+    path: project/bc-basic/pilot-setup-baseline.yaml
+    references: []
+  - id: UABC-PILOT-V3-001
+    kind: fachartefakt
+    path: project/bc-basic/pilot-v3.yaml
+    references:
+      - UABC-BC-BASIC-001
+  - id: UABC-SRC-BCB-PORTABLE-PILOT-001
+    kind: fachartefakt
+    path: project/bc-basic/portable-snapshot-pilot.yaml
+    references: []
+  - id: UABC-SRC-BCB-PLAN-001
+    kind: fachartefakt
+    path: project/bc-basic/project-plan.yaml
+    references: []
+  - id: UABC-V5-STATUS-001
+    kind: producer-status
+    path: project/bc-basic/real-onboarding-readiness-v5.yaml
+    references:
+      - UABC-GOAL-REAL-ONBOARDING-READY-V1
+      - UABC-51
+  - id: UABC-SRC-BCB-RESULT-OBJECTS-001
+    kind: fachartefakt
+    path: project/bc-basic/result-object-catalog.yaml
+    references: []
+  - id: UABC-SRC-BCB-TICKET-MIGRATION-001
+    kind: fachartefakt
+    path: project/bc-basic/ticket-migration.yaml
+    references: []
+  - id: UABC-SRC-BCB-TRACE-001
+    kind: fachartefakt
+    path: project/bc-basic/traceability-matrix.yaml
+    references: []
+  - id: UABC-SRC-BCB-TRAIN-001
+    kind: fachartefakt
+    path: project/bc-basic/training-plan.yaml
+    references: []
+  - id: UABC-SRC-BCB-UAT-001
+    kind: fachartefakt
+    path: project/bc-basic/uat-catalog.yaml
+    references: []
+  - id: UABC-SRC-BCB-UAT-RUN-001
+    kind: fachartefakt
+    path: project/bc-basic/uat-training-run.yaml
+    references: []
+referenceDefinitions:
+  jiraRefs:
+    - UABC-1
+    - UABC-2
+    - UABC-3
+    - UABC-4
+    - UABC-5
+    - UABC-6
+    - UABC-7
+    - UABC-8
+    - UABC-9
+    - UABC-10
+    - UABC-11
+    - UABC-12
+    - UABC-13
+    - UABC-14
+    - UABC-15
+    - UABC-16
+    - UABC-17
+    - UABC-18
+    - UABC-19
+    - UABC-20
+    - UABC-21
+    - UABC-22
+    - UABC-23
+    - UABC-24
+    - UABC-25
+    - UABC-26
+    - UABC-27
+    - UABC-28
+    - UABC-29
+    - UABC-30
+    - UABC-31
+    - UABC-32
+    - UABC-33
+    - UABC-34
+    - UABC-35
+    - UABC-36
+    - UABC-37
+    - UABC-38
+    - UABC-39
+    - UABC-40
+    - UABC-41
+    - UABC-42
+    - UABC-43
+    - UABC-44
+    - UABC-45
+    - UABC-46
+    - UABC-47
+    - UABC-48
+    - UABC-49
+    - UABC-50
+    - UABC-51
+    - UABC-52
+    - UABC-53
+deliveryBranch: codex/universaarl-projekt
+catalogModel:
+  model: customer-catalog-v1
+  customerId: UABC-CUSTOMER-001
+  projects:
+    - projectId: UABC-BC-BASIC-001
+      projectType: implementation
+      status: simulated-complete
+      sourcePath: evidence/simulation/operating-cycle-v4.json
+  supportEngagements:
+    - engagementId: UABC-SUPPORT-HANDOVER-001
+      mode: simulated-handover
+      status: simulated-complete
+      projectId: UABC-BC-BASIC-001
+      sourcePath: docs/handover/bc-basic-v4-support-handover.md
+  isolation:
+    crossCustomerReferences: false
+    customerScope: UABC-CUSTOMER-001
+  allowedProjectTypes:
+    - implementation
+    - fit-gap
+    - migration
+    - upgrade
+    - enhancement
+runtime:
+  reader: project-twin
+  requiresGit: false
+  readOnly: true
+  entryPoint: exports/project-data/v1/snapshots/current.json
+artifactCount: 130
+activeCatalog:
+  releaseId: UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL
+  sourcePath: project/bc-basic/operating-cycle-v4.yaml
+  evidencePath: evidence/simulation/operating-cycle-v4.json
+  status: validated-final
+producerStatus:
+  path: project/bc-basic/real-onboarding-readiness-v5.yaml
+  evidencePath: evidence/simulation/real-onboarding-readiness-v5.json

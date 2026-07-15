@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "UABC-EV-PILOT-V3-FINANCE-001",
+  "classification": "synthetic-complete-no-live-bc",
+  "sourceSupport": "Microsoft Learn; siehe docs/research/sources.yaml",
+  "cases": [
+    {
+      "caseId": "UABC-V3-P2P-001",
+      "process": "P2P",
+      "pages": [
+        "Purchase Orders",
+        "Posted Purchase Receipts",
+        "Posted Purchase Invoices",
+        "Vendor Ledger Entries"
+      ],
+      "documents": [
+        "PO-260501",
+        "PRE-260501",
+        "PINV-260501",
+        "VPAY-260520"
+      ],
+      "masterData": {
+        "vendor": "K10000 Werkzeughandel Saar",
+        "item": "A100 Schraubenset",
+        "location": "HAUPT",
+        "quantity": 10,
+        "unitCost": 42
+      },
+      "amounts": {
+        "net": 420,
+        "inputVat": 79.8,
+        "gross": 499.8
+      },
+      "entries": [
+        [
+          "Bestand",
+          420,
+          0
+        ],
+        [
+          "Vorsteuer 19%",
+          79.8,
+          0
+        ],
+        [
+          "Kreditoren",
+          0,
+          499.8
+        ]
+      ],
+      "control": {
+        "debit": 499.8,
+        "credit": 499.8,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "VAT Prod. Posting Group leer",
+        "correction": "MWST19 gesetzt",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-O2C-001",
+      "process": "O2C",
+      "pages": [
+        "Sales Orders",
+        "Posted Sales Shipments",
+        "Posted Sales Invoices",
+        "Customer Ledger Entries"
+      ],
+      "documents": [
+        "SO-260501",
+        "SHP-260501",
+        "SINV-260501",
+        "CPAY-260519"
+      ],
+      "masterData": {
+        "customer": "D10000 Saarland Montage GmbH",
+        "item": "A100 Schraubenset",
+        "location": "HAUPT",
+        "quantity": 10,
+        "unitPrice": 79,
+        "unitCost": 42
+      },
+      "amounts": {
+        "net": 790,
+        "outputVat": 150.1,
+        "gross": 940.1,
+        "cogs": 420
+      },
+      "entries": [
+        [
+          "Debitoren",
+          940.1,
+          0
+        ],
+        [
+          "Umsatzerloese",
+          0,
+          790
+        ],
+        [
+          "Umsatzsteuer 19%",
+          0,
+          150.1
+        ],
+        [
+          "Wareneinsatz",
+          420,
+          0
+        ],
+        [
+          "Bestand",
+          0,
+          420
+        ]
+      ],
+      "control": {
+        "debit": 1360.1,
+        "credit": 1360.1,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "Unit Price 75,00 statt 79,00",
+        "correction": "Preis auf 79,00 gesetzt",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-PAY-001",
+      "process": "Zahlung und Ausgleich",
+      "pages": [
+        "Payment Reconciliation Journal",
+        "Customer Ledger Entries",
+        "Vendor Ledger Entries"
+      ],
+      "documents": [
+        "CPAY-260519",
+        "VPAY-260520"
+      ],
+      "amounts": {
+        "customerPayment": 940.1,
+        "vendorPayment": 499.8
+      },
+      "control": {
+        "customerRemaining": 0,
+        "vendorRemaining": 0,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "Zahlungsreferenz SINV-260510 nicht gefunden",
+        "correction": "Referenz auf SINV-260501 korrigiert",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-BANK-001",
+      "process": "Bankabstimmung",
+      "pages": [
+        "Bank Acc. Reconciliation",
+        "Bank Account Ledger Entries"
+      ],
+      "documents": [
+        "BSTMT-260531"
+      ],
+      "amounts": {
+        "openingBalance": 5000,
+        "customerPayment": 940.1,
+        "vendorPayment": -499.8,
+        "closingBalance": 5440.3
+      },
+      "control": {
+        "statementBalance": 5440.3,
+        "ledgerBalance": 5440.3,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "Bankzeile ohne Dokumentreferenz",
+        "correction": "manuell gegen CPAY-260519 gematcht",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-INV-001",
+      "process": "Lager und Inventur",
+      "pages": [
+        "Physical Inventory Orders",
+        "Item Ledger Entries",
+        "Value Entries"
+      ],
+      "documents": [
+        "PHY-260527",
+        "ADJ-260527"
+      ],
+      "amounts": {
+        "expectedQuantity": 50,
+        "countedQuantity": 49,
+        "adjustmentQuantity": -1,
+        "unitCost": 42,
+        "endingQuantity": 49,
+        "endingValue": 2058
+      },
+      "control": {
+        "quantityDifference": 0,
+        "valueDifference": 0
+      },
+      "exception": {
+        "finding": "Zaehlliste 49 gegen Buchbestand 50",
+        "correction": "Inventurdifferenz minus 1 gebucht",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-CLOSE-001",
+      "process": "Monatsabschluss",
+      "pages": [
+        "Accounting Periods",
+        "G/L Entries",
+        "Trial Balance",
+        "Aged Accounts Receivable",
+        "Aged Accounts Payable"
+      ],
+      "documents": [
+        "CLOSE-2026-05"
+      ],
+      "amounts": {
+        "trialBalanceDebit": 11080.2,
+        "trialBalanceCredit": 11080.2,
+        "customerOpen": 0,
+        "vendorOpen": 0,
+        "bank": 5440.3,
+        "inventory": 2058
+      },
+      "control": {
+        "debit": 11080.2,
+        "credit": 11080.2,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "Posting Date 2026-04-30 nach Periodenwechsel",
+        "correction": "Buchungsdatum auf 2026-05-28 und Allow Posting From angepasst",
+        "retest": "bestanden-synthetisch"
+      }
+    },
+    {
+      "caseId": "UABC-V3-VAT-001",
+      "process": "UStVA-Vorschau",
+      "pages": [
+        "VAT Entries",
+        "VAT Returns",
+        "VAT Report Setup"
+      ],
+      "documents": [
+        "VAT-2026-05-PREVIEW"
+      ],
+      "amounts": {
+        "taxableSales": 790,
+        "outputVat": 150.1,
+        "taxablePurchases": 420,
+        "inputVat": 79.8,
+        "payable": 70.3
+      },
+      "control": {
+        "outputMinusInput": 70.3,
+        "previewPayable": 70.3,
+        "difference": 0
+      },
+      "exception": {
+        "finding": "Einkaufszeile zunaechst ohne MWST19",
+        "correction": "VAT Product Posting Group korrigiert und Beleg neu simuliert",
+        "retest": "bestanden-synthetisch"
+      },
+      "limitation": "Keine ELSTER-Uebermittlung und keine steuerliche Beratung oder Freigabe."
+    }
+  ],
+  "overallControl": {
+    "allDifferencesZero": true,
+    "externalTransmission": false
+  }
+}

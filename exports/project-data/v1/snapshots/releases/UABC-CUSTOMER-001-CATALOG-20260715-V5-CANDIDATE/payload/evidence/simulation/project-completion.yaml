@@ -1,0 +1,50 @@
+schemaVersion: 1
+evidenceId: UABC-EV-SIM-COMPLETION-001
+projectId: UABC-BC-BASIC-001
+changeRef: migrate-bc-basic-to-single-uabc-ticket-project
+classification: historical-reference-simulation
+currentAuthority: false
+archivedAt: 2026-07-13
+supersededBy: evidence/simulation/project-story.json
+status: synthetic-closed-superseded
+realBcExecution: false
+realAcceptance: ausserhalb-des-simulationsziels
+researchSources: [SRC-BC-040, SRC-BC-041, SRC-BC-042]
+training:
+  status: synthetisch-durchgefuehrt
+  sessions:
+    - { id: UABC-TRAIN-BCB-ADM, role: P-004, agenda: [Navigation, Rollencenter, Berechtigungsgrenzen], exercises: [Gesellschaftskontext, Suche, Filter], result: bestanden-synthetisch, questions: [Rollenwechsel-im-Echtbetrieb], evidence: UABC-EV-TRAIN-ADM }
+    - { id: UABC-TRAIN-BCB-FIN, role: P-005, agenda: [Journale, Abstimmung, Monatsabschluss, MwSt-Vorschau], exercises: [Soll-Haben, Nebenbuch, Zahllast], result: bestanden-synthetisch, questions: [Steuerfreigabe], evidence: UABC-EV-TRAIN-FIN }
+    - { id: UABC-TRAIN-BCB-TRADE, role: P-011, agenda: [Einkauf, Verkauf, Preise, Belegfluss], exercises: [SYN-PO-001, SYN-SO-001, Postenabstimmung], result: bestanden-synthetisch, questions: [Retouren-im-Originalprozess], evidence: UABC-EV-TRAIN-TRADE }
+    - { id: UABC-TRAIN-BCB-WHS, role: P-019, agenda: [Artikel, Lagerort, Inventur], exercises: [HAUPT, Zaehldifferenz, Korrektur], result: bestanden-synthetisch, questions: [Inventurverantwortung], evidence: UABC-EV-TRAIN-WHS }
+cutover:
+  status: synthetisch-durchgefuehrt
+  timeline: [Datenfreeze, Schlusspruefung, Rollenpruefung, Konfigurationskontrolle, Startfreigabe-Simulation]
+  freeze: { time: 2026-08-28T16:00:00+02:00, source: synthetisches-datenpaket }
+  abortCriteria: [unerlaubtes-Ziel, fehlende-Ruecksetzung, offene-P1-P2, Summendifferenz, fehlende-Steuerfreigabe]
+  rollback: { checkpoint: SIM-CP-001, restoreTest: bestanden-synthetisch, restartTest: bestanden-synthetisch }
+  result: synthetisch-abgenommen
+goLiveSimulation:
+  status: synthetische-repository-generalprobe
+  start: simulated
+  production: false
+  result: GO_SIMULATION
+  blockers: []
+  boundary: [keine-BC-Ausfuehrung, keine-echte-Abnahme-behauptet]
+hypercare:
+  days:
+    - { day: 1, monitoring: Prozesspfade-und-Posten, tickets: [SIM-HC-001], priority: P2, correction: Zahlungsreferenz-ergaenzt, retest: bestanden-synthetisch }
+    - { day: 2, monitoring: Lager-und-Inventur, tickets: [SIM-HC-002], priority: P2, correction: Differenzbuchung-dokumentiert, retest: bestanden-synthetisch }
+    - { day: 3, monitoring: Monatsabschluss-und-MwSt, tickets: [SIM-HC-003], priority: P1, correction: synthetische-Schlussbilanz-und-VAT-Review-dokumentiert-reale-Steuerwerte-bleiben-Parameter, retest: bestanden-synthetisch }
+  exit: synthetisch-abgenommen
+handover:
+  meeting: UABC-MTG-SIM-CLOSE-001
+  participants: [P-002, P-005, P-011, P-019]
+  delivered: [Datenpaket, Prozesssimulation, UAT-Simulation, Schulungsprobe, Cutover-Probe, Hypercare-Probe]
+  supportModel: offene-Restpunkte-an-Kunden-und-BC-Verantwortung-uebergeben
+  openItems: [optionaler-realer-BC-Lauf-ausserhalb-der-Simulation]
+  lessonsLearned: [Freigaben-vor-Konfiguration, Kontrollsummen-vor-Buchung, Ruecksetzung-vor-Mutation]
+  acceptance: synthetisch-abgenommen
+deliverableEvidence:
+  allDeliverables: evidence/simulation/project-completion.yaml
+  evidenceClaim: synthetische Simulation, keine Live- oder Produktiv-Evidence

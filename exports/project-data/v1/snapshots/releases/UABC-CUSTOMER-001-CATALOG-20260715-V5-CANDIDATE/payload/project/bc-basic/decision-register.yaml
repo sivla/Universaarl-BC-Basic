@@ -1,0 +1,251 @@
+schemaVersion: 1
+registerId: UABC-DEC-BCB-REGISTER-001
+projectId: UABC-BC-BASIC-001
+simulation: false
+decisions:
+  - id: UABC-DEC-BCB-001
+    status: planned
+    decidedAt: null
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Der Pilot soll nach Wave-0-Zielentscheidung genau eine dedizierte
+      deutsche Zielgesellschaft und einen kontrollierten Lagerort verwenden; die
+      Standard-CRONUS-Demo ist noch keine eingerichtete Kundeninstanz.
+  - id: UABC-DEC-BCB-002
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Der Lieferumfang folgt dem Standard vor Anpassung und schliesst
+      Erweiterungen
+    Integrationen: null
+    E-Rechnung: null
+    Seriennummern: null
+    Chargen: null
+    Produktion: null
+    Projekte: null
+    Service und Anlagenbuchhaltung aus.: null
+  - id: UABC-DEC-BCB-003
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Das Projekt besteht aus circa drei Kalenderwochen Vorbereitung
+    Anforderungen und Datenbereitschaft: null
+    genau fuenf aufeinanderfolgenden Einrichtungsarbeitstagen und einer Woche Hypercare mit hoechstens 10 Stunden; konkrete Kundentermine sind offen.: null
+  - id: UABC-DEC-BCB-004
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Die historische 68-Stunden-Kalkulation wurde durch die aktuelle
+      80-Stunden-Baseline ersetzt und bleibt ausschliesslich als Provenienz
+      erhalten.
+  - id: UABC-DEC-BCB-005
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Der historische Satz wurde durch die aktuelle Baseline von 120 EUR je
+      Taskstunde ersetzt; Elternrollups bleiben nicht abrechenbar.
+  - id: UABC-DEC-BCB-008
+    status: decided
+    decidedAt: 2026-05-29
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: "Historische, durch UABC-DEC-BCB-010 abgeloeste Entscheidung der
+      Referenzsimulation: Angebotsversion 2.0 umfasste 80 Stunden zu 120 EUR und
+      9.600 EUR netto; dieser synthetic-closed-Stand ist keine aktuelle Ist-
+      oder Kundenfreigabe."
+  - id: UABC-DEC-BCB-006
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Solution Architect
+    statement: Die UStVA wird nur als Vorschau geprueft und niemals echt
+    als Test oder per ELSTER uebermittelt.: null
+  - id: UABC-DEC-BCB-007
+    status: decided
+    decidedAt: 2026-07-11
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Solution Architect
+    statement: Der Projekt-Twin ist eine rein lesende Darstellung des
+      Blueprint-Projektindex.
+  - id: UABC-DEC-BCB-009
+    status: decided
+    decidedAt: 2026-07-13
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: PM und Solution Architect
+    statement: UABC-BASIC-DE ist aktuell eine unveränderte
+      Microsoft-Standard-CRONUS-Demo-Ausgangsbasis und keine eingerichtete
+      Kundeninstanz; technischer Firmenname und URL beweisen keine
+      Pilotkonfiguration. Vor dem Pilotaufbau entscheidet Wave 0 evidenzbasiert
+      zwischen kontrollierter Weiterverwendung und Neuanlage oder Kopie. PRESEED
+      und CORE-FINANCE gehen TRADE-MASTER und OPENING-DATA voraus; Pakete 0/0/0
+      besitzen keine Setup- oder Datenwirkung.
+  - id: UABC-DEC-BCB-010
+    status: superseded
+    decidedAt: 2026-07-13
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: Historischer Rebaseline-Stand vor Pilot V3. Die damals nur
+      vorbereiteten Worklogs und blockierten Browserversuche besitzen keine
+      aktuelle Abrechnungs- oder Ausfuehrungswirkung.
+    supersededBy: UABC-DEC-BCB-011
+  - id: UABC-DEC-BCB-011
+    status: decided
+    decidedAt: 2026-07-15
+    decidedByRef: real-repository-user
+    decidedByActorRef: P-PILOT-LEAD-001
+    decidedByRole: Projektleitung
+    statement: V3 nutzt den 80-Stunden-Plan zu 120 EUR und 9.600 EUR als
+      synthetische Angebotsbasis. 78 Iststunden und 9.360 EUR werden
+      ausschliesslich aus 19 genehmigten Task-Worklogs abgeleitet; neun
+      Wochenrechnungsprojektionen werden weder versendet noch als reale
+      Kundenrechnung behauptet. Acht reale Kundengates bleiben offen.
+historicalDecisionRefs:
+  - UABC-DEC-BCB-008
+  - UABC-DEC-BCB-010
+activePilotDecisionRefs:
+  - UABC-DEC-BCB-009
+  - UABC-DEC-BCB-011
+solutionDesignDecision:
+  status: planned-not-confirmed
+  decidedAt: null
+  facilitatorActorRef: P-PILOT-LEAD-001
+  facilitatorRole: Lead BC Consultant und Solution Architect
+  historicalMeetingRef: UABC-MTG-001
+  ticketRefs:
+    - UABC-34
+    - UABC-35
+    - UABC-36
+    - UABC-37
+    - UABC-38
+    - UABC-33
+  owners:
+    - P-001
+    - P-005
+    - P-011
+    - P-019
+  parameters:
+    financeAndVat: reduzierter SKR04-orientierter Kontenplan,
+      Inland-/Handels-Buchungsgruppen und 19-Prozent-VAT-Kombination; Konten und
+      Steuerkennzeichen real steuerlich bestaetigen
+    dimensions: KOSTENSTELLE und GESCHAEFT; beide auf GuV-relevanten Belegen verpflichtend
+    numberSeries: getrennte Reihen fuer Bestellung, Einkauf, Verkauf, Zahlung,
+      Mahnung und Korrektur; manuell nur fuer kontrollierte Eroeffnung
+    paymentAndReminder: 14 und 30 Tage, Ueberweisung, eine Mahnstufe ohne Gebuehren,
+      Zinsen oder externe Zustellung
+    bank: synthetischer Kontoauszug und manuelle Abstimmung; kein Bankfeed,
+      Zahlungsdatei oder produktive Bankanbindung
+    inventory: Lagerort HAUPT, Basiseinheit STK, FIFO; keine Lagerplaetze, Tracking
+      oder Negativbestand als Sollprozess
+    rolesAndSod: Einrichtung, Belegerfassung, Mengenbestaetigung, Buchung, Zahlung
+      und Kontrolle werden getrennt; reale Berechtigungssaetze in Sandbox
+      pruefen
+    reporting: BC-Standardlisten und -abstimmungen; kundenspezifische Reports, BI,
+      Dokumentlayouts und Integrationen nur per Change
+configurationBaseline:
+  sourcePage: atlassian/confluence/pages/72-bc-basic-implementation.md
+  status: planned-not-applied
+  sequence:
+    - Gesellschaft-und-Periode
+    - Finance-und-VAT
+    - steuernde-Stammdaten
+    - Prozesse-Lager-Bank
+    - Berechtigungen
+    - Reporting-und-UAT
+  deviationOutcomes:
+    - Standard-uebernehmen
+    - kundenspezifisch-parametrisieren
+    - Change
+    - ausserhalb-Paket
+pilotSetupDecision:
+  decisionRef: UABC-DEC-BCB-009
+  strategyDecisionId: UABC-DEC-PILOT-TARGET-001
+  strategyStatus: blocked-pending-wave0-and-reset-evidence
+  selectedStrategy: null
+  nextExecutableStep: W0-01-read-company-identity
+  baselinePath: project/bc-basic/pilot-setup-baseline.yaml
+  historicalObservationEvidencePath: evidence/playthru-uabc-basic-de/setup-baseline.yaml
+  historicalCountryRegionDefectRef: UABC-DEF-PILOT-001
+  currentStateEvidencePath: evidence/playthru-uabc-basic-de/setup-wave-1-read-only-preflight.yaml
+  wave0AttemptEvidencePath: evidence/playthru-uabc-basic-de/wave-0-company-identity-readback.yaml
+  wave0AttemptStatus: blocked-before-dom-readback
+  historicalExecutionEvidencePath: evidence/playthru-uabc-basic-de/country-company-information-execution.yaml
+  status: standard-cronus-demo-baseline-pilot-build-pending
+  nextGate: W0-01 in einem manuell freigegebenen Nur-Lese-Termin erneut ausführen;
+    interne Company-ID, Name, Display Name, CRONUS-Provenienz, Zielentscheidung
+    und Resetpunkt fehlen weiterhin. Paketgerueste bleiben bis dahin ohne
+    Tabellen oder Wirkung.
+  truthClasses:
+    documentedStandard: Verhalten aus Microsoft-Learn-Quellen
+    projectAssumption: fuer BC Basic fachlich gewaehlte Standardauspraegung
+    syntheticValue: Wert des Universaarl-Referenzfalls
+    openConfirmation: Kunden- Steuer- Lizenz- oder Sandboxentscheidung
+openApprovalsScope: Die folgenden Punkte blockieren den jeweils referenzierten
+  Schritt des laufenden Piloten. Sie sind vor einer Sandboxausfuehrung fachlich
+  zu entscheiden und mit aktueller Evidence nachzuweisen; historische
+  Simulationsfreigaben gelten nicht.
+openApprovals:
+  - id: UABC-APP-BCB-001
+    subject: Exakte Schreibzielgesellschaft Universaarl GmbH in playthru und
+      Ruecksetzerlaubnis
+    requiredRole: realer Sandbox-Verantwortlicher
+    status: open
+    blocks:
+      - UABC-39
+      - UABC-40
+      - UABC-41
+      - UABC-42
+      - UABC-43
+      - UABC-44
+      - UABC-46
+      - UABC-48
+  - id: UABC-APP-BCB-002
+    subject: Tatsaechliche Essentials- oder Premium-Lizenzzuordnung und externe Kosten
+    requiredRole: realer Kunde und Lizenzverantwortlicher
+    status: open
+    blocks:
+      - UABC-33
+      - UABC-39
+  - id: UABC-APP-BCB-003
+    subject: Konten, Buchungsgruppen, MwSt.-Matrix und UStVA-Kennzeichen
+    requiredRole: reale Finanzverantwortung und Steuerberatung
+    status: open
+    blocks:
+      - UABC-40
+      - UABC-46
+      - UABC-48
+      - UABC-49
+  - id: UABC-APP-BCB-004
+    subject: Fachlicher Abnahmetest und simulierter Sandbox-Uebergang
+    requiredRole: reale Prozessverantwortliche und Sponsor
+    status: open
+    blocks:
+      - UABC-46
+      - UABC-47
+  - id: UABC-APP-BCB-005
+    subject: Monatsabschlussprobe in der Sandbox, UStVA-Vorschau und Abschluss der
+      Hypercare
+    requiredRole: reale Finanzverantwortung, Steuerberatung und Sponsor
+    status: open
+    blocks:
+      - UABC-48
+      - UABC-49
+      - UABC-50
+  - id: UABC-APP-BCB-006
+    subject: Optionales Budgetlimit, falls der reale Auftraggeber eines vorgeben moechte
+    requiredRole: realer Sponsor
+    status: open
+    blocks: []
