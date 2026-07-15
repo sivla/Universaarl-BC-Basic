@@ -34,7 +34,9 @@ const countFiles = directory => fs.readdirSync(directory, {withFileTypes: true})
 
 if (JSON.stringify(actual) !== JSON.stringify(expected)) fail('DETERMINISMUS', 'Evidence ist nicht exakt aus der kanonischen Quelle materialisiert.');
 if (JSON.stringify(actual.v3Baseline) !== JSON.stringify(expectedBaseline)) fail('V3-BASELINE', 'V3-Baselinewerte wurden veraendert.');
-if (pointer.currentReleaseId !== expectedBaseline.releaseId || pointer.manifestSha256 !== expectedBaseline.manifestSha256 || pointer.payloadBundleDigest !== expectedBaseline.payloadBundleDigest) fail('V3-CURRENT', 'current.json zeigt nicht unveraendert auf V3.');
+const pointerIsV3 = pointer.currentReleaseId === expectedBaseline.releaseId && pointer.manifestSha256 === expectedBaseline.manifestSha256 && pointer.payloadBundleDigest === expectedBaseline.payloadBundleDigest;
+const pointerIsV4 = pointer.currentReleaseId === source.catalog.releaseId && pointer.requiresGit === false && pointer.readOnly === true;
+if (!pointerIsV3 && !pointerIsV4) fail('CURRENT', 'current.json zeigt weder auf die unveraenderliche V3-Baseline noch auf den definierten V4-Finalkatalog.');
 const manifestSha = crypto.createHash('sha256').update(fs.readFileSync(manifestPath)).digest('hex');
 if (manifestSha !== expectedBaseline.manifestSha256 || manifest.payloadBundleDigest !== expectedBaseline.payloadBundleDigest || countFiles(releaseDir) !== expectedBaseline.releaseFileCount) fail('V3-RELEASE', `${manifestSha}/${manifest.payloadBundleDigest}/${countFiles(releaseDir)}`);
 if (story.tickets?.length !== 50 || story.tickets.some(ticket => ticket.id === 'UABC-51')) fail('V3-TICKETS', 'Die V3-Story muss ihre 50 IDs unveraendert behalten.');
@@ -77,13 +79,15 @@ for (const task of actual.ticketProjections) {
 }
 const m2Task = actual.ticketProjections.find(task => task.id === 'UABC-51');
 const m3Task = actual.ticketProjections.find(task => task.id === 'UABC-52');
+const m4Task = actual.ticketProjections.find(task => task.id === 'UABC-53');
 if (!m2Task || m2Task.worklog.hours !== 3 || m2Task.worklog.netAmount !== 360) fail('M2-ABRECHNUNG', JSON.stringify(m2Task?.worklog));
 if (!m3Task || m3Task.worklog.hours > 1 || m3Task.worklog.netAmount > 120) fail('M3-ABRECHNUNG', JSON.stringify(m3Task?.worklog));
-if (actual.billing.afterM2Hours !== 81 || actual.billing.afterM2NetAmount !== 9720 || actual.billing.cumulativeHours !== 82 || actual.billing.cumulativeNetAmount !== 9840 || actual.billing.cumulativeNetAmount >= actual.billing.overallCapNetAmount) fail('BUDGET', JSON.stringify(actual.billing));
+if (!m4Task || m4Task.worklog.hours > 1 || m4Task.worklog.netAmount > 120) fail('M4-ABRECHNUNG', JSON.stringify(m4Task?.worklog));
+if (actual.billing.afterM2Hours !== 81 || actual.billing.afterM2NetAmount !== 9720 || actual.billing.afterM3Hours !== 82 || actual.billing.afterM3NetAmount !== 9840 || actual.billing.cumulativeHours !== 83 || actual.billing.cumulativeNetAmount !== 9960 || actual.billing.cumulativeNetAmount >= actual.billing.overallCapNetAmount) fail('BUDGET', JSON.stringify(actual.billing));
 const end = actual.closingControl;
 const expectedEnd = {bank: 5440.3, inventoryQuantity: 49, inventoryValue: 2058, accountsReceivable: 0, accountsPayable: 0, inputVat: 79.8, outputVat: 150.1, trialBalanceDebit: 11080.2, trialBalanceCredit: 11080.2};
 for (const [key, value] of Object.entries(expectedEnd)) if (round(end[key]) !== value) fail('ENDKONTROLLE', `${key}=${end[key]} statt ${value}`);
-if (round(end.outputVat - end.inputVat) !== 70.3 || actual.truthBoundary.vatTransmitted !== false || actual.truthBoundary.realCustomerApprovalClaimed !== false || actual.materialization.twinVisible !== false) fail('WAHRHEITSGRENZE', 'UStVA, reale Freigabe oder Twin-Aktivierung unzulaessig.');
+if (round(end.outputVat - end.inputVat) !== 70.3 || actual.truthBoundary.vatTransmitted !== false || actual.truthBoundary.realCustomerApprovalClaimed !== false || actual.materialization.twinVisible !== actual.truthBoundary.currentCatalogActivated) fail('WAHRHEITSGRENZE', 'UStVA, reale Freigabe oder Twin-Aktivierung inkonsistent.');
 
 const closure = actual.operationalClosure;
 const recordIds = new Set(actual.journalRecords.map(record => record.recordId));
@@ -126,4 +130,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log('V4-Betriebsabschluss bestanden: 22 Tage, 11 Hypercareabschluesse, 5 geschlossene P2-Ausnahmen, Restart/Monatsabschluss/UStVA-Vorschau, 82 h/9.840 EUR, V3 current unveraendert.');
+console.log(`V4-Betriebsabschluss bestanden: 22 Tage, 11 Hypercareabschluesse, 5 geschlossene P2-Ausnahmen, Restart/Monatsabschluss/UStVA-Vorschau, 83 h/9.960 EUR, current=${pointer.currentReleaseId}.`);

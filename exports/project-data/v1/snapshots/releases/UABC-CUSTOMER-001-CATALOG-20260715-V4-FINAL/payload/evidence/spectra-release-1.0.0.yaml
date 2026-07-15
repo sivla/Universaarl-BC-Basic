@@ -1,0 +1,11 @@
+schemaVersion: 1
+productId: spectra
+technicalRepositoryName: BCProjectOS
+repositoryUrl: https://github.com/sivla/BCProjectOS.git
+releaseUrl: https://github.com/sivla/BCProjectOS/releases/tag/spectra-v1.0.0
+tag: { name: spectra-v1.0.0, annotatedObject: 38967e89c279ba35e44c783aaa4528fc4a5e1911, peeledCommit: c05649bd10ed29a082bbe2338d7d326d3d755687 }
+commit: { tree: dfe6d6ebe10c2d1fe2e77e6a41f07460c16aeb5c }
+manifest: { path: release/versions/1.0.0/release-manifest.json, state: final, manifestSourceCommit: 1aaf874f5197afb34ea9caa2271e33f929d448b5, sourceTree: 17cd0b2a5fbe6c94b8a4fa7aa4ab07cab9312161, consumerMode: INSTALLABLE_BLUEPRINT, installableBlueprint: true }
+payload: { digestAlgorithm: SHA-256, bundleDigest: a46f7b5f517fec8f7288b2084a4654bb481a48d69706471d856d00f62d1f75e1, fileCount: 330, verifiedGitBlobs: 330, mismatches: 0 }
+release: { version: 1.0.0, prerelease: false, draft: false, isPrerelease: false, isDraft: false }
+verification: { status: passed, method: GitHub-Release-Tagobjekt-PeeledCommit-Tree-Manifest-SourceTree-330-GitBlobs-SHA-256-ReleaseStatus, noRepositoryMutation: true }

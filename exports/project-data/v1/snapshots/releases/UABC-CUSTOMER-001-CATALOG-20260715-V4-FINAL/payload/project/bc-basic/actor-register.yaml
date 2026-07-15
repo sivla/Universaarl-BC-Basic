@@ -1,0 +1,251 @@
+schemaVersion: 2
+registerId: UABC-ACTOR-REGISTER-001
+projectId: UABC-BC-BASIC-001
+truthPolicy: Kajetan Kalicki ist die reale Consultantrolle. Alle benannten
+  Saarblick-Personen sind ausdruecklich simulierte Kundenrollen.
+allowedActorTypes:
+  - human
+  - simulated-customer-role
+  - codex-spectra
+  - playwright
+  - system-automation
+customer:
+  customerId: UABC-CUSTOMER-001
+  name: Saarblick Handel & Service GmbH
+  shortName: Saarblick
+  classification: ausdruecklich-simulierter-beispielkunde
+  business: Regionaler B2B-Handel mit Werkstattverbrauchsmaterial und einem
+    einfachen Zentrallager in Saarbruecken.
+  size: 24 Mitarbeitende, davon sieben Business-Central-Nutzende
+  scope:
+    - Finanzbuchhaltung
+    - Einkauf
+    - Verkauf
+    - einfaches Lager
+  outOfScope:
+    - Continia
+    - Produktion
+    - Servicemanagement
+    - Projekte
+    - E-Commerce
+    - Bankfeed
+    - Steueruebermittlung
+raci:
+  - activity: Projektauftrag
+    accountable: ROLE-CUSTOMER-SPONSOR
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-IT
+      - ACTOR-KUNDEN-SUPPORT
+  - activity: Finanzdesign
+    accountable: ROLE-CUSTOMER-FINANCE
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-SPONSOR
+    informed:
+      - ROLE-CUSTOMER-IT
+  - activity: Datenuebernahme
+    accountable: ROLE-CUSTOMER-IT
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+  - activity: UAT
+    accountable: ROLE-CUSTOMER-FINANCE
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-PURCHASE
+      - ROLE-CUSTOMER-SALES
+      - ROLE-CUSTOMER-WAREHOUSE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+  - activity: Cutover-GO
+    accountable: ROLE-CUSTOMER-SPONSOR
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-FINANCE
+      - ROLE-CUSTOMER-IT
+    informed:
+      - ACTOR-KUNDEN-SUPPORT
+  - activity: Supportuebergabe
+    accountable: ACTOR-KUNDEN-SUPPORT
+    responsible: P-PILOT-LEAD-001
+    consulted:
+      - ROLE-CUSTOMER-IT
+      - ROLE-CUSTOMER-FINANCE
+    informed:
+      - ROLE-CUSTOMER-SPONSOR
+escalation:
+  P1: sofort an Sponsorin und Projektleitung; Projektstopp
+  P2: innerhalb 4 Stunden an Finance/IT und Projektleitung; Gate blockiert
+  P3: naechster Daily; Gate nur bei kumuliertem Risiko blockiert
+actors:
+  - personId: P-PILOT-LEAD-001
+    displayName: Kajetan Kalicki
+    organization: Universaarl
+    actorType: human
+    activeRoles:
+      - Projektleitung
+      - Lead BC Consultant
+      - Solution Architect
+    responsibilities:
+      - Projektsteuerung
+      - Fit-to-Standard
+      - Loesungsdesign
+      - Qualitaetsentscheidung
+      - Handover
+    availabilityStatus: Montag bis Freitag 09:00-17:00; reale Consultantrolle
+    allowedApprovalRoles:
+      - interne Projektfreigabe
+      - technische Qualitaetsfreigabe
+    escalationLevel: 2
+  - personId: ROLE-CUSTOMER-SPONSOR
+    displayName: Dr. Lena Hartmann
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Geschaeftsfuehrerin
+      - Sponsorin
+    responsibilities:
+      - Scope
+      - Budget
+      - GO/NO-GO
+    availabilityStatus: Dienstag und Donnerstag 09:00-12:00; simuliert
+    allowedApprovalRoles:
+      - synthetisches Projektgate
+      - synthetisches Cutover-GO
+    escalationLevel: 3
+  - personId: ROLE-CUSTOMER-FINANCE
+    displayName: Miriam Becker
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Leitung Finance
+      - Finance Key User
+      - UAT Lead
+    responsibilities:
+      - Konten
+      - MwSt.
+      - Bank
+      - Monatsabschluss
+      - UAT
+    availabilityStatus: Taeglich 09:00-15:00; Monatsende priorisiert; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Finance
+      - synthetische UAT-Abnahme
+    escalationLevel: 2
+  - personId: ROLE-CUSTOMER-PURCHASE
+    displayName: Tobias Klein
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Einkauf Key User
+    responsibilities:
+      - Bestellung
+      - Wareneingang
+      - Eingangsrechnung
+    availabilityStatus: Montag, Mittwoch, Freitag 09:00-14:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Einkauf
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-SALES
+    displayName: Julia Brandt
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Verkauf Key User
+    responsibilities:
+      - Auftrag
+      - Lieferung
+      - Rechnung
+      - Zahlungseingang
+    availabilityStatus: Taeglich 10:00-16:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Verkauf
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-WAREHOUSE
+    displayName: Mehmet Yilmaz
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - Lager Key User
+    responsibilities:
+      - Bestand
+      - Lagerbewegung
+      - Inventur
+    availabilityStatus: Taeglich 07:00-12:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Fachabnahme Lager
+    escalationLevel: 1
+  - personId: ROLE-CUSTOMER-IT
+    displayName: Nora Schmitt
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - IT-Koordination
+      - Berechtigungsadministration
+    responsibilities:
+      - Sandbox
+      - Benutzer
+      - Rollen
+      - Resetpunkt
+    availabilityStatus: Montag bis Donnerstag 08:00-16:00; simuliert
+    allowedApprovalRoles:
+      - synthetisches Umgebungs-Gate
+    escalationLevel: 2
+  - personId: ACTOR-KUNDEN-SUPPORT
+    displayName: Paul Weber
+    organization: Saarblick Handel & Service GmbH
+    actorType: simulated-customer-role
+    activeRoles:
+      - First-Level-Support
+      - Betriebskoordination
+    responsibilities:
+      - Ticketannahme
+      - Eskalation
+      - Supportuebergabe
+    availabilityStatus: Taeglich 08:00-17:00; simuliert
+    allowedApprovalRoles:
+      - synthetische Supportannahme
+    escalationLevel: 1
+  - personId: ACTOR-CODEX-SPECTRA
+    displayName: Codex Spectra Automation
+    organization: Universaarl Tooling
+    actorType: codex-spectra
+    activeRoles:
+      - Generator und Vertragspruefung
+    responsibilities:
+      - deterministische Projektion
+      - technische Validierung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0
+  - personId: ACTOR-PLAYWRIGHT
+    displayName: Playwright Automation
+    organization: Universaarl Tooling
+    actorType: playwright
+    activeRoles:
+      - Szenarioautomation
+    responsibilities:
+      - reproduzierbare UI-Szenarien
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0
+  - personId: ACTOR-SYSTEM
+    displayName: Repository Automation
+    organization: Universaarl Tooling
+    actorType: system-automation
+    activeRoles:
+      - Generator
+      - Validator
+      - Export
+    responsibilities:
+      - Ableitung
+      - Integritaetspruefung
+      - Snapshotvorbereitung
+    availabilityStatus: systemisch
+    allowedApprovalRoles: []
+    escalationLevel: 0

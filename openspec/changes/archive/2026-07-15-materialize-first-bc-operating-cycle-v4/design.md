@@ -156,3 +156,19 @@ Summen-/Saldenliste mit dem Betriebsjournal ab. Die UStVA-Vorschau weist 150,10 
 Die einzige neue M3-Arbeit ist `UABC-52` als Task unter `UABC-31` mit genau einer Stunde beziehungsweise 120 EUR.
 Die kumulierte Projektion betraegt damit 82 Stunden und 9.840 EUR netto; beide V4-Rechnungsprojektionen bleiben
 nicht versendet. V3, `current.json` und der Twin-Katalog bleiben bis M4 unveraendert.
+
+## 11. M4-Handbuecher und Finalkatalog
+
+Der M4-Generator erzeugt Kundenhandbuch, Consultant-Handbuch, Supportuebergabe und Projektabschluss ausschliesslich
+aus `project/bc-basic/operating-cycle-v4.yaml` und dem daraus gebauten Journal. Die einzige neue M4-Arbeit ist
+`UABC-53` mit einer Stunde beziehungsweise 120 EUR; kumuliert entstehen 83 Stunden und 9.960 EUR netto.
+
+Der finale Release `UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL` wird zunaechst in einem Stagingordner aufgebaut.
+Jeder Payload besitzt relativen Quell- und Payloadpfad, Groesse, SHA-256 und Referenzen. Projektindex,
+Ressourcenkatalog und kanonischer Payload-Bundle-Digest bilden gemeinsam den zusaetzlichen Katalog-Aggregatdigest.
+Erst nachdem alle Payloadbytes, Bindungsobjekte, Digests, Referenzen und `requiresGit=false` validiert sind, werden
+der unveraenderliche Releaseordner sowie `current-v4.candidate.json` und zuletzt `current.json` atomar geschrieben.
+V3 wird dabei weder geloescht noch veraendert.
+
+Project Twin liest den relativen `current.json`-Zeiger und anschliessend ausschliesslich den gebundenen Katalogordner.
+Eine Commit-SHA ist nur Teil des externen Producer-Handoffs an das Kontrollzentrum und keine Laufzeitvoraussetzung.

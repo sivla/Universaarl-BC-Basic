@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import YAML from 'yaml';
 import {buildOperatingCycle, readOperatingCycleSource} from '../../scripts/materialize-bc-operating-cycle-v4.mjs';
+import {buildV4Documents, buildV4Index} from '../../scripts/finalize-bc-operating-cycle-v4.mjs';
 
 const source = readOperatingCycleSource();
 const journal = buildOperatingCycle(source);
@@ -39,7 +41,7 @@ test('M2 bleibt taskgebunden unter Budget und ohne reale Freigabe', () => {
   assert.equal(journal.ticketProjection.worklog.netAmount, 360);
   assert.equal(journal.billing.afterM2NetAmount, 9720);
   assert.equal(journal.truthBoundary.realCustomerApprovalClaimed, false);
-  assert.equal(journal.materialization.twinVisible, false);
+  assert.equal(journal.materialization.twinVisible, true);
   assert.equal(fs.existsSync('evidence/simulation/operating-cycle-v4.json'), true);
 });
 
@@ -82,7 +84,37 @@ test('M3 fuegt hoechstens eine taskgebundene Stunde hinzu', () => {
   const task = journal.ticketProjections.find(item => item.id === 'UABC-52');
   assert.equal(task.worklog.hours, 1);
   assert.equal(task.worklog.netAmount, 120);
-  assert.equal(journal.billing.cumulativeHours, 82);
-  assert.equal(journal.billing.cumulativeNetAmount, 9840);
+  assert.equal(journal.billing.afterM3Hours, 82);
+  assert.equal(journal.billing.afterM3NetAmount, 9840);
+});
+
+test('M4 erzeugt vier deterministische deutsche Abschlussdokumente', () => {
+  const documents = buildV4Documents(source, journal);
+  assert.equal(documents.size, 4);
+  for (const [relative, content] of documents) {
+    assert.ok(relative.endsWith('.md'));
+    assert.ok(content.length > 1500);
+    assert.ok(content.includes('keine') || content.includes('nicht'));
+  }
+  assert.ok([...documents.values()].join('\n').includes('9960,00 EUR'));
+});
+
+test('V4-Index ergaenzt genau sechs portable Abschlussartefakte', () => {
+  const index = YAML.parse(fs.readFileSync('exports/project-data/v1/index.yaml', 'utf8'));
+  const rebuilt = buildV4Index(source, index);
+  assert.equal(rebuilt.artifactCount, index.artifactCount);
+  for (const artifact of source.catalog.generatedArtifacts) assert.ok(rebuilt.artifacts.some(item => item.id === artifact.id && item.path === artifact.path));
+  assert.equal(rebuilt.runtime.requiresGit, false);
+});
+
+test('M4 bleibt bei einer taskgebundenen Stunde und aktiviert nur V4', () => {
+  const task = journal.ticketProjections.find(item => item.id === 'UABC-53');
+  const pointer = JSON.parse(fs.readFileSync('exports/project-data/v1/snapshots/current.json', 'utf8'));
+  assert.equal(task.worklog.hours, 1);
+  assert.equal(task.worklog.netAmount, 120);
+  assert.equal(journal.billing.cumulativeHours, 83);
+  assert.equal(journal.billing.cumulativeNetAmount, 9960);
   assert.ok(journal.billing.cumulativeNetAmount < journal.billing.overallCapNetAmount);
+  assert.equal(pointer.currentReleaseId, source.catalog.releaseId);
+  assert.equal(pointer.requiresGit, false);
 });

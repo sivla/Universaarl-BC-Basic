@@ -374,3 +374,13 @@ verifications:
     subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-1, UABC-2, UABC-3]
     evidence: >-
       V3-Fokusgate bestanden: 50 unveraenderte UABC-Tickets, 12 fachlich getrennte Transkripte, 19 Task-Worklogs, 9 Wochenrechnungen, 78 Iststunden und 9.360 EUR Ist gegen 80 Stunden und 9.600 EUR Plan sowie sieben rechnerisch abgestimmte BC-Kernfaelle. Katalog UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL besitzt 122 digestgebundene Records, requiresGit=false und readOnly=true. V2 bleibt Last-known-good. Live-BC, reale Kundengates, Steueruebermittlung, Continia und Push bleiben ausgeschlossen.
+  - id: UABC-VER-BCB-V4-001
+    changeRef: materialize-first-bc-operating-cycle-v4
+    requiredForArchive: true
+    status: passed
+    type: automated-policy-gate
+    executedAt: 2026-07-15
+    environment: local-repository
+    subjectRefs: [UABC-CUSTOMER-001, UABC-BC-BASIC-001, UABC-31, UABC-51, UABC-52, UABC-53]
+    evidence: >-
+      V4-Abschlussgate bestanden: 22 lueckenlose Kalendertage, elf Hypercareabschluesse, fuenf geschlossene P2-Ausnahmen, Restart, Monatsabschluss und UStVA-Vorschau sowie vier deterministische deutsche Abschlussdokumente. Genau ein neuer Task-Worklog fuehrt zu insgesamt 83 Stunden und 9.960 EUR netto. Der portable V4-Katalog enthaelt 128 digestgebundene Payloads, requiresGit=false und readOnly=true; V3 bleibt unveraendert. Der einmalige Gesamtcheck, OpenSpec strict, Deutschgate und die Katalogpruefungen sind bestanden. Live-BC, reale Kunden-, Bank-, Steuer-, Support-, UStVA- und Publishing-Aktionen bleiben ausgeschlossen.

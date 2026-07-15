@@ -1,0 +1,50 @@
+schemaVersion: 1
+templateId: UABC-TPL-BCB-ONBOARDING-001
+classification: sanitized-blank-template
+instructions: Keine echten Daten in dieses öffentliche Repository eintragen. Ausgefüllte Kundenfassungen werden ausschließlich über den vereinbarten geschützten Übertragungsweg verarbeitet.
+customer:
+  legalName: null
+  projectOwner: null
+  financeOwner: null
+  procurementOwner: null
+  salesOwner: null
+  inventoryOwner: null
+  itAdminOwner: null
+  taxAdvisorOwner: null
+scope:
+  targetProcesses: []
+  exclusions: []
+  expectedUsers: null
+  targetGoLiveDate: null
+environment:
+  tenantConfirmed: false
+  licensesConfirmed: false
+  sandboxConfirmed: false
+  productionConfirmed: false
+  localizationConfirmed: false
+  versionWindowConfirmed: false
+  extensionInventory: []
+security:
+  securityGroupsProvided: false
+  permissionSetsReviewed: false
+  emergencyAccessOwner: null
+  segregationOfDutiesApproved: false
+dataDelivery:
+  protectedTransferChannel: null
+  retentionDays: null
+  deletionOwner: null
+  objects: []
+decisions:
+  chartOfAccounts: null
+  postingGroups: null
+  vat: null
+  numberSeries: null
+  dimensions: null
+  banking: null
+  inventory: null
+approvals:
+  scopeApproved: false
+  dataApproved: false
+  uatApproved: false
+  cutoverApproved: false
+  taxReviewApproved: false

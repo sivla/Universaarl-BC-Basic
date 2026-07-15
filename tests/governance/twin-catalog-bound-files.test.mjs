@@ -10,7 +10,7 @@ const manifestPath = `exports/project-data/v1/snapshots/releases/${pointer.curre
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
 test('V2 bindet Index und Ressourcenkatalog separat mit Größe und Digest', () => {
-  assert.match(pointer.currentReleaseId, /-V3-FINAL$/);
+  assert.match(pointer.currentReleaseId, /-V4-FINAL$/);
   for (const key of ['projectIndex', 'resourceCatalog']) {
     assert.equal(manifest[key].path, manifest[key === 'projectIndex' ? 'projectIndexPath' : 'resourceCatalogPath']);
     const bytes = fs.readFileSync(`exports/project-data/v1/snapshots/releases/${pointer.currentReleaseId}/${manifest[key].path}`);
@@ -20,7 +20,7 @@ test('V2 bindet Index und Ressourcenkatalog separat mit Größe und Digest', () 
 });
 
 test('Manipulierter V2-Index oder Ressourcenkatalog scheitert', () => {
-  assert.match(pointer.currentReleaseId, /-V3-FINAL$/);
+  assert.match(pointer.currentReleaseId, /-V4-FINAL$/);
   const root = `exports/project-data/v1/snapshots/releases/${pointer.currentReleaseId}`;
   for (const key of ['projectIndex', 'resourceCatalog']) {
     const file = `${root}/${manifest[key].path}`;

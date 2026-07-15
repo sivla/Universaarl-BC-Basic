@@ -52,6 +52,10 @@ if (manifest) {
     ? sha(Buffer.from((manifest.records ?? []).map((r) => `${r.payloadPath}\0${r.sizeBytes}\0${r.sha256}`).join('\n'), 'utf8'))
     : canonicalBundleDigest(manifest.records ?? []);
   if (actual !== manifest.payloadBundleDigest || actual !== pointer.payloadBundleDigest) errors.push('Payload-Bundle-Digest stimmt nicht.');
+  if (manifest.catalogAggregateDigest) {
+    const aggregate = sha(Buffer.from(`project-index.yaml\0${manifest.projectIndex.sha256}\nresource-catalog.json\0${manifest.resourceCatalog.sha256}\npayload-bundle\0${actual}\n`, 'utf8'));
+    if (aggregate !== manifest.catalogAggregateDigest || aggregate !== pointer.catalogAggregateDigest) errors.push('Katalog-Aggregatdigest stimmt nicht.');
+  }
 }
 if (errors.length) { console.error(`Git-unabhaengige Twin-Katalogpruefung fehlgeschlagen (${errors.length}):`); errors.forEach((e) => console.error(`- ${e}`)); process.exit(1); }
 console.log(`Git-unabhaengige Twin-Katalogpruefung bestanden: Release=${pointer.currentReleaseId}; Kunde=${pointer.customerId}; Artefakte=${pointer.artifactCount}; Git-Lesezugriff=nein.`);

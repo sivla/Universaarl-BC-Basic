@@ -17,7 +17,7 @@ approvalPolicy:
     - der V4-Katalog wird erst nach vollstaendiger Validierung aktiviert
     - keine reale Kunden-, Tenant-, Bank-, Steuer- oder Produktivfreigabe wird behauptet
 proposedCanonicalUpdate:
-  status: unapplied
+  status: applied
   targets: [projektdaten-index, dokumentkatalog, verification-register]
   facts:
     v3BaselineRelease: UABC-CUSTOMER-001-CATALOG-20260715-V3-FINAL

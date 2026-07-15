@@ -130,12 +130,14 @@ export function buildOperatingCycle(source) {
     truthBoundary: source.truthBoundary,
     v3Baseline: source.baseline,
     ticketProjection: source.extensionTask,
-    ticketProjections: [source.extensionTask, source.m3ExtensionTask],
+    ticketProjections: [source.extensionTask, source.m3ExtensionTask, source.m4ExtensionTask],
     billing: source.billing,
     openingControl: source.openingControl,
     journalRecords,
     exceptions: (source.exceptions ?? []).map(item => ({...item, date: asDate(item.date)})),
     operationalClosure: closure,
+    projectClosure: source.projectClosure,
+    catalogContract: source.catalog,
     traceability: {
       contract: 'bidirectional-day-object-v1',
       edges: traceabilityEdges,
@@ -145,8 +147,8 @@ export function buildOperatingCycle(source) {
     materialization: {
       canonicalSource: sourcePath,
       generatedEvidence: targetPath,
-      twinVisible: false,
-      activationGate: 'UABC-M4'
+      twinVisible: source.truthBoundary.currentCatalogActivated === true,
+      activationGate: source.truthBoundary.currentCatalogActivated === true ? 'UABC-M4-bestanden' : 'UABC-M4-offen'
     }
   };
 }

@@ -22,6 +22,6 @@
 
 ## UABC-M4 - Handbuecher, Katalog und Uebergabe
 
-- [ ] Kundenhandbuch, Consultant-Handbuch, Projektseiten und Supportuebergabe aus denselben kanonischen Records aktualisieren.
-- [ ] Unveraenderlichen V4-Katalog erzeugen, Manifest/Payload/Referenzen validieren und `current.json` erst danach atomar umschalten.
-- [ ] Fokustests, genau einen angemessenen Gesamtcheck, OpenSpec strict, Deutschgate, REVIEW lokal/in HEAD und sauberen Arbeitsbaum nachweisen.
+- [x] Kundenhandbuch, Consultant-Handbuch, Projektseiten und Supportuebergabe aus denselben kanonischen Records aktualisieren.
+- [x] Unveraenderlichen V4-Katalog erzeugen, Manifest/Payload/Referenzen validieren und `current.json` erst danach atomar umschalten.
+- [x] Fokustests, genau einen angemessenen Gesamtcheck, OpenSpec strict, Deutschgate, REVIEW lokal/in HEAD und sauberen Arbeitsbaum nachweisen.
