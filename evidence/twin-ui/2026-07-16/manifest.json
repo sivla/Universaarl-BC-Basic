@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "UABC-TWIN-UI-20260716-001",
+  "capturedAt": "2026-07-16T18:34:45.8057556+02:00",
+  "captureContext": {
+    "baseUrl": "http://127.0.0.1:4173",
+    "browser": "Chromium via Playwright CLI",
+    "readOnly": true,
+    "visualReviewCompleted": true
+  },
+  "bindings": {
+    "customerProjectCommitBeforeEvidence": "3e16b301d53b6729666a32435a2d297ae601ed90",
+    "projectTwinCommit": "177a86171b835751af23fdc7c677bb2f92368844",
+    "catalogRelease": "UABC-CUSTOMER-001-CATALOG-20260715-V4-FINAL"
+  },
+  "coverage": {
+    "mainScreensExpected": 11,
+    "mainScreensCaptured": 11,
+    "supplementaryStatesCaptured": 5
+  },
+  "observations": [
+    {
+      "severity": "warning",
+      "component": "Project Twin ticket detail",
+      "finding": "React meldet doppelte Listen-Keys fuer zwei wiederholt referenzierte Producerpfade.",
+      "affectedSourcePaths": [
+        "project/bc-basic/setup-wave-1-matrix.yaml",
+        "project/bc-basic/setup-parameter-baseline.yaml"
+      ],
+      "displayBlocked": false
+    }
+  ],
+  "screenshots": [
+    { "file": "01-portfolio-hell.png", "screen": "Portfolio", "route": "/", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 1112, "sizeBytes": 72533, "sha256": "e5054b0491f9f8949d89743efd501c728096353c96c7d8e4f7ba029fed272947" },
+    { "file": "02-projektcockpit-hell.png", "screen": "Projektcockpit", "route": "/projekte/uabc-pilot/aktueller-stand", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 4032, "sizeBytes": 297909, "sha256": "1845ca95e874e34add085050f5a2fc5875f46032a48071ee1083e5b80631d0d7" },
+    { "file": "03-projektplan-hell.png", "screen": "Projektplan", "route": "/projekte/uabc-pilot/planung", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 4417, "sizeBytes": 271151, "sha256": "1e714adf96e00f55ac4d16700f378866da69b76c37f66c9e59ea2f45cf943b9e" },
+    { "file": "04-tickets-backlog-hell.png", "screen": "Tickets und Backlog", "route": "/projekte/uabc-pilot/tickets", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 9622, "sizeBytes": 431273, "sha256": "bd8f1d31bf01b75d938b730a4bc28b93010c64bbe0e093e28f3118157045e1cf" },
+    { "file": "05-meilensteine-hell.png", "screen": "Meilensteine", "route": "/projekte/uabc-pilot/projektverlauf", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 3537, "sizeBytes": 301399, "sha256": "73fdb7aa62632a3a07f06d426920a582921690980a690df7f163393e21c94536" },
+    { "file": "06-lieferobjekte-hell.png", "screen": "Lieferobjekte", "route": "/projekte/uabc-pilot/lieferung", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 2956, "sizeBytes": 190900, "sha256": "26c21dded12f64667f63676713f13e019c2f7f55aa6a1eb5f6be87b40b993ed5" },
+    { "file": "07-budget-aufwand-hell.png", "screen": "Budget und Aufwand", "route": "/projekte/uabc-pilot/abrechnung", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 2378, "sizeBytes": 154915, "sha256": "5e70fd5e6ac1c20157861f731dad94f03ea157f9d189a291917a540eaa420602" },
+    { "file": "08-projekttagebuch-hell.png", "screen": "Projekttagebuch", "route": "/projekte/uabc-pilot/projekttagebuch", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 9750, "sizeBytes": 542429, "sha256": "cb8df021926d3fe26e283f943711bffba66825160516221d6f88be81ae3a2082" },
+    { "file": "09-projektdokumentation-hell.png", "screen": "Projektdokumentation", "route": "/projekte/uabc-pilot/projektdokumentation", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 3397, "sizeBytes": 223600, "sha256": "e3bf7c674db542b49130056ccd58d77c0d50f0436a620ea0875cbb234f6b2605" },
+    { "file": "10-datenpruefung-hell.png", "screen": "Datenpruefung", "route": "/projekte/uabc-pilot/quellen", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 4302, "sizeBytes": 332300, "sha256": "c706a4f5bfe7d89aad6ede11dac138b941bfe8cad2b17682592801241a579877" },
+    { "file": "11-supportstand-hell.png", "screen": "Supportstand", "route": "/support/uabc-pilot/UABC-SUPPORT-HANDOVER-001", "theme": "light", "viewport": "1440x1000", "width": 1440, "height": 1000, "sizeBytes": 38783, "sha256": "cad68362971c31dba2fef2d62c05d67cba16fc0b63fe0e31254e5a2adccdf23f" },
+    { "file": "12-projektcockpit-dunkel.png", "screen": "Projektcockpit", "route": "/projekte/uabc-pilot/aktueller-stand", "theme": "dark", "viewport": "1440x1000", "width": 1440, "height": 4032, "sizeBytes": 306529, "sha256": "e6617cedd4dc0446b34142b38bfc2fbb8db774e5ef58f8ee112aefe3878a46f0" },
+    { "file": "13-projektcockpit-mobil-dunkel.png", "screen": "Projektcockpit mobil", "route": "/projekte/uabc-pilot/aktueller-stand", "theme": "dark", "viewport": "390x844", "width": 390, "height": 7304, "sizeBytes": 257605, "sha256": "bb485947deccce6432681582512bbd5ac2ac4a5eaae0c5265d9ac3910db9fe2d" },
+    { "file": "14-tickets-mobil-dunkel.png", "screen": "Tickets und Backlog mobil", "route": "/projekte/uabc-pilot/tickets", "theme": "dark", "viewport": "390x844", "width": 390, "height": 13418, "sizeBytes": 385492, "sha256": "ba9f9c0e9e40820baf87d720699776687cbd45a7919b1e4ffc93a276b8b3c916" },
+    { "file": "15-ticketdetail-dunkel.png", "screen": "Ticketdetail UABC-14", "route": "/projekte/uabc-pilot/tickets", "theme": "dark", "viewport": "1440x1000", "width": 1440, "height": 1000, "sizeBytes": 84685, "sha256": "258943d7613a9a096e602f69c8273392459e718ca2651f9d7960e5c7ab310866" },
+    { "file": "16-meetingdetail-dunkel.png", "screen": "Besprechungsdetail UABC-MTG-001", "route": "/projekte/uabc-pilot/tickets", "theme": "dark", "viewport": "1440x1000", "width": 1440, "height": 1000, "sizeBytes": 48565, "sha256": "6e5801b5373832954da6b9abc2d246e94245f0e8fe9f0862011eb9dbc054de65" }
+  ]
+}

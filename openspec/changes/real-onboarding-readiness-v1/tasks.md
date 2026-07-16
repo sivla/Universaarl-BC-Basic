@@ -7,3 +7,5 @@
 - [x] Fail-closed Validator und Negativtests ergänzen.
 - [x] V5-Kandidat erzeugen, V4 current unverändert lassen und Katalogdigests prüfen.
 - [x] OpenSpec strict, Deutsch, Referenzen und angemessenen Gesamtcheck ausführen.
+- [x] Alle elf erreichbaren Twin-Hauptansichten als commit- und releasegebundene UI-Evidence erfassen und visuell prüfen.
+- [x] Dunkelmodus, Mobilansicht, Ticketdetail und Besprechungsdetail als zusätzliche Browserzustände dokumentieren.
